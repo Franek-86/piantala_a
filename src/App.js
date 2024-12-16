@@ -8,7 +8,6 @@ import {
 } from "react-leaflet";
 import L, { latLng } from "leaflet";
 
-import icon from "leaflet/dist/images/tree.png";
 import iconGreen from "./assets/images/ti pianto per amore-APP-verde.png";
 import iconYellow from "./assets/images/ti pianto per amore-APP-giallo.png";
 import iconRed from "./assets/images/ti pianto per amore-APP-rosso.png";
