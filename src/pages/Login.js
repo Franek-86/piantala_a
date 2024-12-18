@@ -44,7 +44,7 @@ const AuthForm = () => {
           }, 3000);
         } else {
           setIsAuthenticated(true);
-          navigate("/map");
+          navigate("https://piantala-a.onrender.com/map");
           console.log("sta1-3");
 
           const { token, user } = response.data;
