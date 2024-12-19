@@ -7,6 +7,7 @@ import axios from "axios";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import logo from "../assets/images/logo_albero_green.png";
 const AuthForm = () => {
   const {
     login,
@@ -63,7 +64,10 @@ const AuthForm = () => {
   };
 
   return (
-    <Container className='vh-100 align-content-center'>
+    <Container className='vh-100 d-flex flex-column justify-content-center'>
+      <div className='logo-container ms-auto me-auto pb-5'>
+        <img src={logo} class='img-fluid' alt='Responsive image'></img>
+      </div>
       <Row className='d-flex justify-content-center'>
         <Col className='col-xs-8 col-sm-7'>
           <Form onSubmit={handleSubmit(onSubmit)}>

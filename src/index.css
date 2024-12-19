@@ -114,20 +114,10 @@ h3 {
 }
 
 /*----------------------------------------- login section----------------------------------------------- */
+.logo-container {
+  width: 15rem;
+}
 
-.login-section {
-  height: 100vh;
-  max-width: 90vw;
-  margin: 0 auto;
-  place-items: center;
-  display: grid;
-}
-.form-container {
-  background: var(--clr-primary-0);
-  border-radius: 0.75rem;
-  padding: 2rem;
-  border: 2px solid var(--clr-primary-2);
-}
 small.text-muted.ms-3.form-text {
   margin-left: 0px !important;
   display: block;
