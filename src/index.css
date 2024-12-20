@@ -36,7 +36,10 @@ code {
   --bs-btn-hover-bg: #0e7a2f; /* Optional: change hover background color */
   --bs-btn-hover-border-color: #0d6a2e; /* Optional: change hover border color */
   --bs-btn-active-bg: #0d6a2e; /* Optional: change active background color */
-  --bs-btn-active-border-color: #0c5c2d; /* Optional: change active border color */
+  --bs-btn-active-border-color: #0c5c2d; /* Optional:   /* Disabled button styles */
+  --bs-btn-disabled-bg: #6c757d; /* Disabled background color */
+  --bs-btn-disabled-border-color: #6c757d; /* Disabled border color */
+  --bs-btn-disabled-color: #ffffff; /* Disabled text color */
 }
 .btn-outline-primary {
   --bs-btn-color: #0f7f32;
@@ -115,7 +118,7 @@ h3 {
 
 /*----------------------------------------- login section----------------------------------------------- */
 .logo-container {
-  width: 15rem;
+  width: 10rem;
 }
 
 small.text-muted.ms-3.form-text {

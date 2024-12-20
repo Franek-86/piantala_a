@@ -25,9 +25,11 @@ const AuthForm = () => {
   } = useForm();
   const [serverError, setServerError] = useState("");
   const [successMessage, setSuccessMessage] = useState(false);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
+    setLoading(true);
     try {
       const response = await loginOrRegister(data);
       console.log(response);
@@ -60,6 +62,8 @@ const AuthForm = () => {
       setTimeout(() => {
         setServerError("");
       }, 3000); // Clear error message after 3 seconds
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -118,8 +122,8 @@ const AuthForm = () => {
               )}
             </Form.Group>
 
-            <Button variant='primary' type='submit'>
-              {isRegister ? "Register" : "Login"}
+            <Button variant='primary' type='submit' disabled={loading}>
+              {loading ? "Loading" : isRegister ? "Register" : "Login"}
             </Button>
 
             <Form.Text className='text-muted ms-3'>
