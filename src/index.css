@@ -460,14 +460,14 @@ small.text-muted.ms-3.form-text {
 /* le mie segnalazioni */
 
 .bg-pending {
-  background-color: #ff9900;
+  background-color: #ff9900 !important;
 }
 .bg-rejected {
-  background-color: #ff3300;
+  background-color: #ff3300 !important;
 }
 .bg-approved {
-  background-color: #99cc00;
+  background-color: #99cc00 !important;
 }
 .bg-booked {
-  background-color: #4fa0ca;
+  background-color: #4fa0ca !important;
 }
