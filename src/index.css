@@ -322,9 +322,6 @@ small.text-muted.ms-3.form-text {
 }
 /* ------------------------------------------------menu------------------------------------------------- */
 /* Add this CSS to your styles */
-.offcanvas {
-  width: 50% !important; /* Set the width to 75% */
-}
 
 .offcanvas.show {
   display: block; /* Ensure it is displayed when showing */
