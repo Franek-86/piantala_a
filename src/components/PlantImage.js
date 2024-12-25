@@ -9,11 +9,11 @@ const PlantImage = ({ show, setShow, image_url }) => {
   // const [show, setShow] = useState(false);
 
   return (
-    <div className='modalePiantina'>
+    <div>
       <Modal
         show={show}
         onHide={() => setShow(false)}
-        dialogClassName='modal-90w'
+        dialogClassName='modal-90w modalePiantina'
         aria-labelledby='example-custom-modal-styling-title'
       >
         <Modal.Header closeButton>

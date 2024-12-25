@@ -472,7 +472,7 @@ small.text-muted.ms-3.form-text {
   background-color: #4fa0ca !important;
 }
 /* immagine piantina */
-.modalePiantina.modal-body {
+.modalePiantina .modal-body {
   flex: 1 1 auto;
   padding: 0 !important;
   position: relative;
