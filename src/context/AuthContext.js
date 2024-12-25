@@ -54,10 +54,15 @@ export const AuthProvider = ({ children }) => {
 
   const handleLogout = async () => {
     try {
-      await axios.post(`${serverDomain}/api/auth/logout`);
+      const response = await axios.post(`${serverDomain}/api/auth/logout`);
 
-      localStorage.removeItem("userToken");
-      setIsAuthenticated(false);
+      // Optionally, handle the response if needed (e.g., check response status)
+      if (response.status === 200) {
+        localStorage.removeItem("userToken");
+        setIsAuthenticated(false);
+      } else {
+        console.error("Unexpected response:", response);
+      }
     } catch (error) {
       console.error("Logout error:", error);
     }
