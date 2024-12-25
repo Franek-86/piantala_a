@@ -457,7 +457,7 @@ small.text-muted.ms-3.form-text {
   object-fit: cover;
   padding: var(--bs-modal-padding);
 }
-/* le m=mie segnalazioni */
+/* le mie segnalazioni */
 
 .bg-pending {
   background-color: #ff9900;

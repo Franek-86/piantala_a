@@ -29,7 +29,7 @@ const OwnedPlants = () => {
           />
         </div>
         <h1 className='section-title'>Le mie piante</h1>
-        {myPlants ? (
+        {myPlants.lengths > 0 ? (
           <Table striped bordered hover>
             <thead>
               <tr>
