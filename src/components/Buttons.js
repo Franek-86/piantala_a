@@ -39,9 +39,12 @@ const Buttons = ({ setPosition, langMatch, latMatch, markerRef }) => {
         <Link className='circle-button' to='addPlant'>
           <MdAdd />
         </Link>
-        <Link className='circle-button' href='tel:00393485384563'>
+        {/* <Link className='circle-button' href='tel:00393485384563'>
           <MdLocalPhone />
-        </Link>
+        </Link> */}
+        <a className='circle-button' href='tel:+393485384563'>
+          <MdLocalPhone />
+        </a>
         <Button
           onClick={() =>
             map.locate().on("locationfound", function (e) {
