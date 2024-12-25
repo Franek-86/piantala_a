@@ -19,13 +19,13 @@ const MyPlants = () => {
   const getStatusClasses = (status) => {
     switch (status) {
       case "pending":
-        return "bg-warning text-dark text-center"; // Yellow background, dark text
+        return "bg-pending text-dark text-center"; // Yellow background, dark text
       case "rejected":
-        return "bg-danger text-white text-center"; // Red background, white text
+        return "bg-rejected text-white text-center"; // Red background, white text
       case "approved":
-        return "bg-success text-white text-center"; // Green background, white text
+        return "bg-approved text-white text-center"; // Green background, white text
       case "booked":
-        return "bg-info text-white text-center"; // Green background, white text
+        return "bg-booked text-white text-center"; // Green background, white text
       default:
         return "bg-secondary text-white text-center"; // Default styling for unknown status
     }

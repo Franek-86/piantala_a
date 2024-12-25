@@ -457,3 +457,17 @@ small.text-muted.ms-3.form-text {
   object-fit: cover;
   padding: var(--bs-modal-padding);
 }
+/* le m=mie segnalazioni */
+
+.bg-pending {
+  background-color: #ff9900;
+}
+.bg-rejected {
+  background-color: #ff3300;
+}
+.bg-approved {
+  background-color: #99cc00;
+}
+.bg-booked {
+  background-color: #4fa0ca;
+}
