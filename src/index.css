@@ -180,8 +180,10 @@ small.text-muted.ms-3.form-text {
   display: flex;
   flex-direction: column;
   height: 90vh;
-  position: relative;
+  position: absolute;
+  width: 100%;
 }
+
 .map {
   flex: 1;
 }
@@ -192,9 +194,12 @@ small.text-muted.ms-3.form-text {
 
 .bottom-bar {
   background-color: #fff;
+  box-shadow: 0 -4px 8px #0003;
   height: 10vh;
-  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
   z-index: 1000;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
 }
 
 /* tree */
