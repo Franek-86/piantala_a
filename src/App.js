@@ -169,7 +169,7 @@ function App() {
                         <Button
                           onClick={() => (
                             sendValuesToAddPlant(
-                              `${position.lng},${position.lat}`
+                              `${position.lat},${position.lng}`
                             ),
                             navigate("/map/addPlant")
                           )}
