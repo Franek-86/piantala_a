@@ -54,7 +54,11 @@ const PlantForm = () => {
             <p className='text-danger'>Please select a plant type.</p>
           )}
         </FloatingLabel>
-        <FloatingLabel controlId='formComment' label='Comment' className='mb-3'>
+        <FloatingLabel
+          controlId='formComment'
+          label='Testo targa'
+          className='mb-3'
+        >
           <Form.Control
             as='textarea'
             rows={3}
