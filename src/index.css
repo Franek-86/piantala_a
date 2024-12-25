@@ -471,3 +471,10 @@ small.text-muted.ms-3.form-text {
 .bg-booked {
   background-color: #4fa0ca !important;
 }
+/* immagine piantina */
+.modalePiantina.modal-body {
+  flex: 1 1 auto;
+  padding: 0 !important;
+  position: relative;
+  height: 70vh !important;
+}

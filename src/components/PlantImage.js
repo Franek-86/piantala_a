@@ -9,7 +9,7 @@ const PlantImage = ({ show, setShow, image_url }) => {
   // const [show, setShow] = useState(false);
 
   return (
-    <div>
+    <div className='modalePiantina'>
       <Modal
         show={show}
         onHide={() => setShow(false)}
@@ -18,7 +18,7 @@ const PlantImage = ({ show, setShow, image_url }) => {
       >
         <Modal.Header closeButton>
           <Modal.Title id='example-custom-modal-styling-title'>
-            Custom Modal Styling
+            Immagine piantina
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
