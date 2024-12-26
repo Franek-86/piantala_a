@@ -38,7 +38,7 @@ const AuthForm = () => {
         if (isRegister) {
           console.log("sta1-2");
           setSuccessMessage(
-            "Controlla la tua mailbox per completare la registrazione."
+            "Controlla la tua casella di posta per completare la registrazione."
           );
           reset();
           setIsRegister(false);
