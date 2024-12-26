@@ -82,14 +82,14 @@ const AuthForm = () => {
             <Form.Group className='mb-3' controlId='formBasicEmail'>
               <FloatingLabel
                 controlId='floatingInput'
-                label='Email address'
+                label='Indirizzo e-mail'
                 className='mb-3'
               >
                 <Form.Control
                   type='email'
-                  placeholder='Enter email'
+                  placeholder='Inserisci email'
                   {...register("email", {
-                    required: "Email is required",
+                    required: "Email necessaria",
                     pattern: {
                       value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
                       message: "Invalid email format",
@@ -109,10 +109,10 @@ const AuthForm = () => {
                   type='password'
                   placeholder='Password'
                   {...register("password", {
-                    required: "Password is required",
+                    required: "Password necessaria",
                     minLength: {
                       value: 6,
-                      message: "Password must be at least 6 characters long",
+                      message: "La password deve essere di almeno 6 caratteri",
                     },
                   })}
                 />
@@ -123,19 +123,17 @@ const AuthForm = () => {
             </Form.Group>
 
             <Button variant='primary' type='submit' disabled={loading}>
-              {loading ? "Loading" : isRegister ? "Register" : "Login"}
+              {loading ? "Loading" : isRegister ? "Registrati" : "Login"}
             </Button>
 
             <Form.Text className='text-muted ms-3'>
-              {isRegister
-                ? "Already have an account?"
-                : "Don't have an account?"}
+              {isRegister ? "Hai già un account?" : "Non hai un account?"}
               <Button
                 className='pt-1'
                 variant='link'
                 onClick={() => setIsRegister(!isRegister)}
               >
-                {isRegister ? "Login" : "Register"}
+                {isRegister ? "Login" : "Registrati"}
               </Button>
             </Form.Text>
           </Form>
