@@ -180,7 +180,7 @@ const Plant = () => {
               className='btn btn-success'
               onClick={() => handleStatusChange("approved", plantId)}
             >
-              Approve
+              Approva
             </button>
             {/* <button
               className='btn btn-danger ms-2'
@@ -192,13 +192,13 @@ const Plant = () => {
               className='btn btn-danger ms-2'
               onClick={() => openRejectionModal()}
             >
-              Reject
+              Rigetta
             </button>
             <button
               className='btn btn-dark ms-2'
               onClick={() => deleteAndGo(plantId)}
             >
-              Delete
+              Elimina
             </button>
           </div>
         ) : (userRole === "admin" && status_piantina === "rejected") ||
@@ -211,7 +211,7 @@ const Plant = () => {
               className='btn btn-dark ms-0'
               onClick={() => deleteAndGo(plantId)}
             >
-              Delete
+              Elimina
             </button>
           </div>
         ) : (
