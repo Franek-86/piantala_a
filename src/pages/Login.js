@@ -58,7 +58,7 @@ const AuthForm = () => {
       }
     } catch (error) {
       console.log("sta2");
-      setServerError(error.response?.data?.message || "Failed to authenticate");
+      setServerError(error.response?.data?.message || "Autenticazione fallita");
       setTimeout(() => {
         setServerError("");
       }, 3000); // Clear error message after 3 seconds
@@ -92,7 +92,7 @@ const AuthForm = () => {
                     required: "Email necessaria",
                     pattern: {
                       value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                      message: "Invalid email format",
+                      message: "Invalido formato email",
                     },
                   })}
                 />
