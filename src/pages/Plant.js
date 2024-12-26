@@ -151,6 +151,11 @@ const Plant = () => {
                       </li>
                     </>
                   )}
+                  {status_piantina === "rejected" && (
+                    <li>
+                      <span>Motivazione:</span> <span>{rejection_comment}</span>
+                    </li>
+                  )}
                 </li>
               </ul>
             </article>
@@ -158,12 +163,6 @@ const Plant = () => {
 
           {status_piantina === "approved" ? (
             <PlantForm />
-          ) : status_piantina === "rejected" ? (
-            <div className='mt-3 w-100'>
-              <span className='fw-bolder'>Motivazione rejection:</span>
-              <br />
-              <span className='d-block mt-2'>{rejection_comment}</span>
-            </div>
           ) : status_piantina === "pending" ? (
             <i className='small mt-3'>
               Il tempo medio di approvazione è di una settimana lavorativa dalla
