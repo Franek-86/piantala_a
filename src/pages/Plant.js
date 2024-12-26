@@ -44,7 +44,15 @@ const Plant = () => {
   if (singlePlantError) return <div className='error'>{singlePlantError}</div>;
   if (!plant) return <div>No plant found.</div>;
   console.log("this", plant);
-  const { lat, lang, image_url, status_piantina, rejection_comment } = plant;
+  const {
+    lat,
+    lang,
+    image_url,
+    status_piantina,
+    rejection_comment,
+    user_comment,
+    plant_type,
+  } = plant;
 
   const openRejectionModal = () => {
     setModalShow(true);
@@ -133,6 +141,16 @@ const Plant = () => {
                   >
                     {status_piantina}
                   </span>
+                  {status_piantina === "booked" && (
+                    <>
+                      <li>
+                        <span>Targa:</span> <span>{user_comment}</span>
+                      </li>
+                      <li>
+                        <span>Tipo di pianta:</span> <span>{plant_type}</span>
+                      </li>
+                    </>
+                  )}
                 </li>
               </ul>
             </article>
