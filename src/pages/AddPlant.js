@@ -47,10 +47,10 @@ const AddPlant = () => {
   const validateLongitude = (value) => {
     const lon = parseFloat(value);
     if (!latLongPattern.test(value)) {
-      return "Longitude must be in the correct format (e.g. 16.87242750719347).";
+      return "La longitude deve essere del formato corretto (e.g. 16.8724275071934).";
     }
     if (lon < 16.8 || lon > 16.95) {
-      return "Longitude must be between 16.800 and 16.950 (Bari area).";
+      return "La longitudine deve essere tra 16.800 e 16.950 (Area di Bari).";
     }
     return true;
   };
@@ -58,19 +58,22 @@ const AddPlant = () => {
   const validateLatitude = (value) => {
     const lat = parseFloat(value);
     if (!latLongPattern.test(value)) {
-      return "Latitude must be in the correct format (e.g. 41.1206046905597).";
+      return "La latitudine deve essere nel formato corretto (e.g. 41.1206046905597).";
     }
     if (lat < 41.075 || lat > 41.17) {
-      return "Latitude must be between 41.075 and 41.170 (Bari area).";
+      return "La longitudine deve essere nel formato corretto  (Bari area).";
     }
     return true;
   };
-  console.log("aaab", userId);
+
   const onSubmit = async (data) => {
     const { longitude, latitude, file } = data;
 
     if (!file || !file[0]) {
-      setError("file", { type: "manual", message: "Image file is required." });
+      setError("file", {
+        type: "manual",
+        message: "È necessario aggiungere una immagine.",
+      });
       return;
     }
 
@@ -102,10 +105,11 @@ const AddPlant = () => {
     reset();
 
     setTimeout(() => {
+      console.log("Navigating to myPlans");
       setSuccessMessage("");
       getAllPlants();
-      navigate("/myPlans");
-    }, 1000);
+      navigate("myPlans");
+    }, 500);
   };
   const backToMap = () => {
     resetLatLang();
