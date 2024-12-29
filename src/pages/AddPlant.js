@@ -61,7 +61,7 @@ const AddPlant = () => {
       return "La latitudine deve essere nel formato corretto (e.g. 41.1206046905597).";
     }
     if (lat < 41.075 || lat > 41.17) {
-      return "La longitudine deve essere nel formato corretto  (Bari area).";
+      return "La longitudine deve essere nel formato corretto (Area di Bari).";
     }
     return true;
   };
