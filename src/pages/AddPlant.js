@@ -92,6 +92,7 @@ const AddPlant = () => {
         console.log("sta");
         setSuccessMessage("Pianta aggiunta con successo!");
         reset();
+        getAllPlants();
         navigate("/map");
       }
     } catch (error) {
