@@ -24,7 +24,7 @@ const PlantImage = ({ show, setShow, image_url }) => {
         <Modal.Body>
           <img
             className='plant-image'
-            src={`${process.env.REACT_APP_DOMAIN_NAME_SERVER}${image_url}`}
+            src={image_url}
             alt='immagine piantina'
           />
         </Modal.Body>
