@@ -185,7 +185,7 @@ const AddPlant = () => {
                 type='text'
                 placeholder='Inserisci latitudine'
                 {...register("latitude", {
-                  required: "Latitude is required",
+                  required: "È necessario inserire la latitudine",
                   validate: validateLatitude,
                 })}
               />
@@ -204,7 +204,7 @@ const AddPlant = () => {
                 type='text'
                 placeholder='Enter longitude'
                 {...register("longitude", {
-                  required: "Longitude is required",
+                  required: "È necessario inserire la latitudine",
                   validate: validateLongitude,
                 })}
               />

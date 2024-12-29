@@ -32,11 +32,10 @@ const AuthForm = () => {
     setLoading(true);
     try {
       const response = await loginOrRegister(data);
-      console.log(response);
+
       if (response.status === 201 || response.status === 200) {
         console.log("sta1");
         if (isRegister) {
-          console.log("sta1-2");
           setSuccessMessage(
             "Controlla la tua casella di posta per completare la registrazione."
           );
@@ -48,7 +47,6 @@ const AuthForm = () => {
         } else {
           setIsAuthenticated(true);
           navigate("/map");
-          console.log("sta1-3");
 
           const { token, user } = response.data;
           let userRole = user.role;
@@ -57,7 +55,6 @@ const AuthForm = () => {
         }
       }
     } catch (error) {
-      console.log("sta2");
       setServerError(error.response?.data?.message || "Autenticazione fallita");
       setTimeout(() => {
         setServerError("");
