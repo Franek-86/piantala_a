@@ -91,7 +91,7 @@ const AddPlant = () => {
       if (response.status === 201) {
         setSuccessMessage("Pianta aggiunta con successo!");
         reset();
-        navigate("/myPlans");
+        navigate("myPlants");
       }
     } catch (error) {
       console.error("Error adding plant:", error);
