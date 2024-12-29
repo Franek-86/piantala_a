@@ -89,6 +89,7 @@ const AddPlant = () => {
     try {
       const response = addPlant(formData);
       if (response.status === 201) {
+        console.log(sta);
         setSuccessMessage("Pianta aggiunta con successo!");
         reset();
         navigate("myPlants");
