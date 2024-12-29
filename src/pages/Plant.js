@@ -42,7 +42,6 @@ const Plant = () => {
   if (singlePlantLoading) return <div className='loading'>Loading...</div>;
   if (singlePlantError) return <div className='error'>{singlePlantError}</div>;
   if (!plant) return <div>No plant found.</div>;
-  console.log("this", plant);
   const {
     lat,
     lang,
