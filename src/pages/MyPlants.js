@@ -61,7 +61,7 @@ const MyPlants = () => {
           {loadingReports ? (
             <Loading />
           ) : myReports.length === 0 ? (
-            <p>You have no plants.</p>
+            <p>Non hai ancora effettuato nessuna segalazione.</p>
           ) : (
             <Table striped bordered hover responsive>
               <thead>
