@@ -92,7 +92,6 @@ const AddPlant = () => {
         console.log("sta");
         setSuccessMessage("Pianta aggiunta con successo!");
         reset();
-        getAllPlants();
         navigate("/map");
       }
     } catch (error) {
@@ -108,6 +107,7 @@ const AddPlant = () => {
 
     setTimeout(() => {
       setSuccessMessage("");
+      reset();
       getAllPlants();
       navigate("/map");
     }, 500);
