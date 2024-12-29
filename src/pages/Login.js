@@ -89,6 +89,7 @@ const AuthForm = () => {
                   type='email'
                   placeholder='Inserisci email'
                   {...register("email", {
+                    disabled: { loading },
                     required: "Email necessaria",
                     pattern: {
                       value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
@@ -109,6 +110,7 @@ const AuthForm = () => {
                   type='password'
                   placeholder='Password'
                   {...register("password", {
+                    disabled: { loading },
                     required: "Password necessaria",
                     minLength: {
                       value: 6,
