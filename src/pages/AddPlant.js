@@ -104,7 +104,8 @@ const AddPlant = () => {
     setTimeout(() => {
       setSuccessMessage("");
       getAllPlants();
-    }, 3000);
+      navigate("/myPlans");
+    }, 1000);
   };
   const backToMap = () => {
     resetLatLang();
