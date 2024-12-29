@@ -108,7 +108,7 @@ const AddPlant = () => {
       console.log("Navigating to myPlans");
       setSuccessMessage("");
       getAllPlants();
-      navigate("myPlans");
+      navigate("myPlants");
     }, 500);
   };
   const backToMap = () => {
