@@ -88,8 +88,8 @@ const AuthForm = () => {
                 <Form.Control
                   type='email'
                   placeholder='Inserisci email'
+                  disabled={loading}
                   {...register("email", {
-                    disabled: { loading },
                     required: "Email necessaria",
                     pattern: {
                       value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
@@ -109,6 +109,7 @@ const AuthForm = () => {
                 <Form.Control
                   type='password'
                   placeholder='Password'
+                  disabled={loading}
                   {...register("password", {
                     disabled: { loading },
                     required: "Password necessaria",
