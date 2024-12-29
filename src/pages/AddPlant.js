@@ -92,7 +92,7 @@ const AddPlant = () => {
         console.log("sta");
         setSuccessMessage("Pianta aggiunta con successo!");
         reset();
-        navigate("https://piantala-a.onrender.com/myPlants");
+        navigate("/map");
       }
     } catch (error) {
       console.error("Error adding plant:", error);
@@ -108,7 +108,7 @@ const AddPlant = () => {
     setTimeout(() => {
       setSuccessMessage("");
       getAllPlants();
-      navigate("https://piantala-a.onrender.com/myPlants");
+      navigate("/map");
     }, 500);
   };
   const backToMap = () => {
