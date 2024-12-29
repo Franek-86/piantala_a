@@ -107,8 +107,9 @@ const AddPlant = () => {
 
     setTimeout(() => {
       setSuccessMessage("");
+      console.log("staaa");
       reset();
-      getAllPlants();
+      // getAllPlants();
       navigate("/map");
     }, 500);
   };
