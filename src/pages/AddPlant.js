@@ -86,18 +86,19 @@ const AddPlant = () => {
     try {
       const response = addPlant(formData);
       if (response.status === 201) {
-        setSuccessMessage("Plant added successfully!");
+        setSuccessMessage("Pianta aggiunta con successo!");
         reset();
+        navigate("/myPlans");
       }
     } catch (error) {
       console.error("Error adding plant:", error);
       setSubmissionError(
-        error.response?.data?.message || "Failed to submit the form"
+        error.response?.data?.message || "Errore nella compilazione del modulo"
       );
     }
 
     setSubmissionError("");
-    setSuccessMessage("Form has been submitted successfully!");
+    setSuccessMessage("Il modulo è stato compilata con successo!");
     reset();
 
     setTimeout(() => {
