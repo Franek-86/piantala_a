@@ -105,7 +105,7 @@ const AddPlant = () => {
     reset();
 
     setTimeout(() => {
-      console.log("Navigating to myPlans");
+      console.log("Navigating to myPlants");
       setSuccessMessage("");
       getAllPlants();
       navigate("myPlants");
