@@ -23,7 +23,7 @@ const Plant = () => {
   const location = useLocation();
   const { userRole } = useContext(AuthContext);
   const { plant } = useContext(PlantsContext);
-
+  console.log("aaa1", plant);
   const fromPage = location.state?.from || "/map";
 
   const {
