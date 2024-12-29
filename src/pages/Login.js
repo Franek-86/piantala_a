@@ -34,7 +34,6 @@ const AuthForm = () => {
       const response = await loginOrRegister(data);
 
       if (response.status === 201 || response.status === 200) {
-        console.log("sta1");
         if (isRegister) {
           setSuccessMessage(
             "Controlla la tua casella di posta per completare la registrazione."
