@@ -8,6 +8,7 @@ const serverDomain =
   process.env.REACT_APP_NODE_ENV === "test"
     ? process.env.REACT_APP_TEST_DOMAIN_NAME_SERVER
     : process.env.REACT_APP_DOMAIN_NAME_SERVER;
+console.log("a3211", serverDomain);
 export const CheckoutForm = () => {
   const [stripePromise, setStripePromise] = useState(null);
 

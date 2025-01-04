@@ -12,6 +12,7 @@ import { PlantsContext } from "../context/PlantsContext";
 import PlantForm from "../components/PlantForm";
 import RejectionModal from "../components/RejectionModal";
 import PlantImage from "../components/PlantImage";
+import Loading from "./Loading";
 
 const Plant = () => {
   // const [loading, setLoading] = useState(true);
@@ -27,10 +28,10 @@ const Plant = () => {
 
   const {
     getSinglePlant,
-    singlePlantLoading,
     singlePlantError,
     handleStatusChange,
     deletePlant,
+    singlePlantLoading,
   } = useContext(PlantsContext);
   const backToMap = () => {
     navigate(fromPage);
@@ -39,7 +40,7 @@ const Plant = () => {
     getSinglePlant(plantId);
   }, [plantId]);
 
-  if (singlePlantLoading) return <div className='loading'>Loading...</div>;
+  if (singlePlantLoading) return <Loading />;
   if (singlePlantError) return <div className='error'>{singlePlantError}</div>;
   if (!plant) return <div>No plant found.</div>;
   const {
@@ -56,13 +57,16 @@ const Plant = () => {
     setModalShow(true);
   };
 
-  const deleteAndGo = (plantId) => {
+  const deleteAndGo = async (plantId) => {
+    // setSinglePlantLoading(true);
     try {
-      deletePlant(plantId);
+      await deletePlant(plantId);
     } catch (err) {
       console.log(err);
+      // setSinglePlantLoading(false);
     } finally {
       navigate("/map");
+      // setSinglePlantLoading(false);
     }
   };
   return (

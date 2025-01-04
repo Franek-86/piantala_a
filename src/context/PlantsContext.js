@@ -169,9 +169,9 @@ export const PlantsProvider = ({ children }) => {
   };
 
   const deletePlant = async (plantId) => {
-    const token = localStorage.getItem("userToken"); // Retrieve the token from localStorage
     try {
       setSinglePlantLoading(true);
+      const token = localStorage.getItem("userToken"); // Retrieve the token from localStorage
       await axios.delete(`${serverDomain}/api/plants/${plantId}/delete`, {
         headers: {
           Authorization: `Bearer ${token}`, // Include the token in the headers
@@ -180,6 +180,7 @@ export const PlantsProvider = ({ children }) => {
       getAllPlants();
     } catch (err) {
       setError(err.message);
+      setSinglePlantLoading(false);
     } finally {
       setSinglePlantLoading(false);
     }

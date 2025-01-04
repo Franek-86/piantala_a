@@ -7,10 +7,11 @@ const serverDomain =
   process.env.REACT_APP_NODE_ENV === "test"
     ? process.env.REACT_APP_TEST_DOMAIN_NAME_SERVER
     : process.env.REACT_APP_DOMAIN_NAME_SERVER;
+console.log("a321", serverDomain);
 export const Return = () => {
   const [status, setStatus] = useState(null);
   const [customerEmail, setCustomerEmail] = useState("");
-  const [timer, setTimer] = useState(20);
+  const [timer, setTimer] = useState(10);
   const { handleBookedPlant, clearBookedStorage } = useContext(PlantsContext);
   const { setIsAuthenticated } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -26,7 +27,7 @@ export const Return = () => {
       console.log("timeout");
       clearBookedStorage();
       navigate("/map");
-    }, 20000);
+    }, 10000);
   };
   useEffect(() => {
     const queryString = window.location.search;
