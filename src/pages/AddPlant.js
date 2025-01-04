@@ -8,7 +8,7 @@ import FloatingLabel from "react-bootstrap/FloatingLabel";
 import { MdBackspace } from "react-icons/md";
 import { PlantsContext } from "../context/PlantsContext";
 import { AuthContext } from "../context/AuthContext";
-
+import Loading from "./Loading";
 const AddPlant = () => {
   const {
     register,
@@ -32,7 +32,7 @@ const AddPlant = () => {
 
   const [submissionError, setSubmissionError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
-
+  const [loading, setLoading] = useState(false);
   const fileInputRef = useRef(null);
   const navigate = useNavigate(); // For navigation
 
@@ -87,31 +87,31 @@ const AddPlant = () => {
     formData.append("user_id", userId);
 
     try {
-      const response = addPlant(formData);
+      setLoading(true);
+      const response = await addPlant(formData);
+      console.log("qui", response.status);
       if (response.status === 201) {
-        console.log("sta");
+        setSubmissionError("");
+        setLoading(false);
         setSuccessMessage("Pianta aggiunta con successo!");
-        reset();
-        navigate("/map");
+        setTimeout(() => {
+          backToMap();
+          setSuccessMessage("");
+          getAllPlants();
+          reset();
+        }, 1000);
       }
     } catch (error) {
+      setLoading(false);
       console.error("Error adding plant:", error);
       setSubmissionError(
         error.response?.data?.message || "Errore nella compilazione del modulo"
       );
     }
 
-    setSubmissionError("");
-    setSuccessMessage("Il modulo è stato compilata con successo!");
-    reset();
+    // setSubmissionError("");
 
-    setTimeout(() => {
-      setSuccessMessage("");
-      console.log("staaa");
-      reset();
-      // getAllPlants();
-      navigate("/map");
-    }, 500);
+    // reset();
   };
   const backToMap = () => {
     resetLatLang();
@@ -142,110 +142,118 @@ const AddPlant = () => {
       setValue("latitude", latMatch);
     }
 
-    // If langMatch is found, set longitude value in React Hook Form
     if (langMatch) {
       setValue("longitude", langMatch);
     }
   });
 
   return (
-    <section className='section-background section-full-page'>
-      <div className='section-center'>
-        <div className='back-btn'>
-          <MdBackspace
-            onClick={() => {
-              backToMap();
-            }}
-          />
-        </div>
-        <h1 className='section-title'>Segnalaci buca</h1>
-        {/* Global error message */}
-        {submissionError && <p className='text-danger'>{submissionError}</p>}
-        {/* Success message */}
-        {successMessage && <p className='text-success'>{successMessage}</p>}
-        <Form onSubmit={handleSubmit(onSubmit)}>
-          <Form.Group className='mb-3' controlId='formLongitude'>
-            {/* <FloatingLabel controlId='tutte' label='tutte' className='mb-3'> */}
-            <Form.Control
-              type='text'
-              placeholder='Incolla qui longitutine e latitudine'
-              onPaste={handlePaste} // Handle paste event
-            />
-            {/* {errors.longitude && (
+    <>
+      {loading && <Loading />}
+      {!loading && (
+        <section className='section-background section-full-page'>
+          <div className='section-center'>
+            <div className='back-btn'>
+              <MdBackspace
+                onClick={() => {
+                  backToMap();
+                }}
+              />
+            </div>
+            <h1 className='section-title'>Segnalaci buca</h1>
+            {/* Global error message */}
+            {submissionError && (
+              <p className='text-danger'>{submissionError}</p>
+            )}
+            {/* Success message */}
+            {successMessage && <p className='text-success'>{successMessage}</p>}
+            <Form onSubmit={handleSubmit(onSubmit)}>
+              <Form.Group className='mb-3' controlId='formLongitude'>
+                {/* <FloatingLabel controlId='tutte' label='tutte' className='mb-3'> */}
+                <Form.Control
+                  type='text'
+                  placeholder='Incolla qui longitutine e latitudine'
+                  onPaste={handlePaste} // Handle paste event
+                />
+                {/* {errors.longitude && (
                 <small className='text-danger'>
                   {errors.longitude.message}
                 </small>
               )} */}
-            {/* </FloatingLabel> */}
-          </Form.Group>
-          {/* Longitude input */}
+                {/* </FloatingLabel> */}
+              </Form.Group>
+              {/* Longitude input */}
 
-          {/* Latitude input */}
-          <Form.Group className='mb-3' controlId='formLatitude'>
-            <FloatingLabel
-              controlId='formLatitude'
-              label='Inserisci latitudine'
-              className='mb-3'
-            >
-              <Form.Control
-                type='text'
-                placeholder='Inserisci latitudine'
-                {...register("latitude", {
-                  required: "È necessario inserire la latitudine",
-                  validate: validateLatitude,
-                })}
-              />
-              {errors.latitude && (
-                <small className='text-danger'>{errors.latitude.message}</small>
-              )}
-            </FloatingLabel>
-          </Form.Group>
-          <Form.Group className='mb-3' controlId='formLongitude'>
-            <FloatingLabel
-              controlId='formLongitude'
-              label='Inserisci longitudine'
-              className='mb-3'
-            >
-              <Form.Control
-                type='text'
-                placeholder='Enter longitude'
-                {...register("longitude", {
-                  required: "È necessario inserire la latitudine",
-                  validate: validateLongitude,
-                })}
-              />
-              {errors.longitude && (
-                <small className='text-danger'>
-                  {errors.longitude.message}
-                </small>
-              )}
-            </FloatingLabel>
-          </Form.Group>
+              {/* Latitude input */}
+              <Form.Group className='mb-3' controlId='formLatitude'>
+                <FloatingLabel
+                  controlId='formLatitude'
+                  label='Inserisci latitudine'
+                  className='mb-3'
+                >
+                  <Form.Control
+                    type='text'
+                    placeholder='Inserisci latitudine'
+                    {...register("latitude", {
+                      required: "È necessario inserire la latitudine",
+                      validate: validateLatitude,
+                    })}
+                  />
+                  {errors.latitude && (
+                    <small className='text-danger'>
+                      {errors.latitude.message}
+                    </small>
+                  )}
+                </FloatingLabel>
+              </Form.Group>
+              <Form.Group className='mb-3' controlId='formLongitude'>
+                <FloatingLabel
+                  controlId='formLongitude'
+                  label='Inserisci longitudine'
+                  className='mb-3'
+                >
+                  <Form.Control
+                    type='text'
+                    placeholder='Enter longitude'
+                    {...register("longitude", {
+                      required: "È necessario inserire la latitudine",
+                      validate: validateLongitude,
+                    })}
+                  />
+                  {errors.longitude && (
+                    <small className='text-danger'>
+                      {errors.longitude.message}
+                    </small>
+                  )}
+                </FloatingLabel>
+              </Form.Group>
 
-          {/* File input for uploading image */}
-          <Form.Group className='mb-3' controlId='formImage'>
-            <Form.Label>Carica immagine</Form.Label>
-            <Form.Control
-              type='file'
-              // accept='image/*'
-              {...register("file", { required: "Image file is required." })}
-              // ref={fileInputRef}
-              onChange={() => clearErrors("file")}
-            />
-            {errors.file && (
-              <small className='text-danger'>{errors.file.message}</small>
-            )}
-          </Form.Group>
+              {/* File input for uploading image */}
+              <Form.Group className='mb-3' controlId='formImage'>
+                <Form.Label>Carica immagine</Form.Label>
+                <Form.Control
+                  type='file'
+                  // accept='image/*'
+                  {...register("file", { required: "Image file is required." })}
+                  // ref={fileInputRef}
+                  onChange={() => clearErrors("file")}
+                />
+                {errors.file && (
+                  <small className='text-danger'>{errors.file.message}</small>
+                )}
+              </Form.Group>
 
-          {/* Submit Button */}
-          <div className='text-center mt-5'>
-            <Button variant='primary' type='submit'>
-              Invia segnalazione
-            </Button>
+              {/* Submit Button */}
+              <div className='text-center mt-5'>
+                <Button variant='primary' type='submit'>
+                  Invia segnalazione
+                </Button>
+              </div>
+            </Form>
           </div>
-        </Form>
-      </div>
-    </section>
+        </section>
+      )}
+    </>
   );
 };
 

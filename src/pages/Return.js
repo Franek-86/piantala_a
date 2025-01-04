@@ -3,7 +3,10 @@ import React, { useCallback, useState, useEffect, useContext } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { PlantsContext } from "../context/PlantsContext";
 import { AuthContext } from "../context/AuthContext";
-const serverDomain = process.env.REACT_APP_DOMAIN_NAME_SERVER;
+const serverDomain =
+  process.env.REACT_APP_NODE_ENV === "test"
+    ? process.env.REACT_APP_TEST_DOMAIN_NAME_SERVER
+    : process.env.REACT_APP_DOMAIN_NAME_SERVER;
 export const Return = () => {
   const [status, setStatus] = useState(null);
   const [customerEmail, setCustomerEmail] = useState("");

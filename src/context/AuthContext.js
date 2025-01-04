@@ -14,7 +14,11 @@ export const AuthProvider = ({ children }) => {
   const [isRegister, setIsRegister] = useState(null);
   const token = localStorage.getItem("userToken");
 
-  const serverDomain = process.env.REACT_APP_DOMAIN_NAME_SERVER;
+  const serverDomain =
+    process.env.REACT_APP_NODE_ENV === "test"
+      ? process.env.REACT_APP_TEST_DOMAIN_NAME_SERVER
+      : process.env.REACT_APP_DOMAIN_NAME_SERVER;
+  console.log("aoooo", serverDomain);
   const loginOrRegister = async (data) => {
     console.log("sta?", serverDomain);
     const { email, password } = data;

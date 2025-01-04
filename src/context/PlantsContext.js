@@ -20,7 +20,10 @@ export const PlantsProvider = ({ children }) => {
 
   const [myReports, setMyReports] = useState([]);
   const [loadingReports, setLoadingReports] = useState(true);
-  const serverDomain = process.env.REACT_APP_DOMAIN_NAME_SERVER;
+  const serverDomain =
+    process.env.REACT_APP_NODE_ENV === "test"
+      ? process.env.REACT_APP_TEST_DOMAIN_NAME_SERVER
+      : process.env.REACT_APP_DOMAIN_NAME_SERVER;
   const fetchUserPlants = async () => {
     try {
       const userToken = localStorage.getItem("userToken");

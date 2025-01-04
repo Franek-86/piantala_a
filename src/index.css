@@ -272,6 +272,10 @@ small.text-muted.ms-3.form-text {
   height: 24px; /* Icon size */
 }
 
+.leaflet-pane :nth-child(2) {
+  z-index: 567 !important;
+}
+
 /* ----------------------------------------------------Loading.css--------------------------------------------- */
 
 .loading-container {
