@@ -28,6 +28,8 @@ const AddPlant = () => {
     setLatMatch,
     setLangMatch,
     addPlant,
+    locationInfo,
+    addLocationInfo,
   } = useContext(PlantsContext);
 
   const [submissionError, setSubmissionError] = useState("");
@@ -68,7 +70,9 @@ const AddPlant = () => {
 
   const onSubmit = async (data) => {
     const { longitude, latitude, file } = data;
-
+    console.log("locationInfo", locationInfo);
+    const { road, residential, suburb, city, shop, house_number } =
+      locationInfo;
     if (!file || !file[0]) {
       setError("file", {
         type: "manual",
@@ -81,6 +85,17 @@ const AddPlant = () => {
     // const selectedFile = file[0];
 
     const formData = new FormData();
+
+    formData.append("road", road);
+
+    formData.append("residential", residential);
+
+    formData.append("shop", shop);
+
+    formData.append("house_number", house_number);
+
+    formData.append("suburb", suburb);
+    formData.append("city", city);
     formData.append("lat", latitude);
     formData.append("lang", longitude);
     formData.append("image", file[0]);
@@ -130,10 +145,10 @@ const AddPlant = () => {
     if (coordsMatch) {
       const latitude = coordsMatch[1]; // Latitude
       const longitude = coordsMatch[3]; // Longitude
-
       // Set values in React Hook Form
       setValue("latitude", latitude);
       setValue("longitude", longitude);
+      addLocationInfo(latitude, longitude);
     }
   };
 

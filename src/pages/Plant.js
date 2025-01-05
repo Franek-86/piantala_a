@@ -51,6 +51,12 @@ const Plant = () => {
     rejection_comment,
     user_comment,
     plant_type,
+    city,
+    suburb,
+    road,
+    residential,
+    shop,
+    house_number,
   } = plant;
 
   const openRejectionModal = () => {
@@ -128,6 +134,32 @@ const Plant = () => {
                 <li>
                   <span>Lang:</span> <span>{lang}</span>
                 </li>
+                <li>
+                  <span>Città:</span> <span>{city}</span>
+                </li>
+                <li>
+                  <span>Quartiere:</span> <span>{suburb}</span>
+                </li>
+                {road !== "undefined" && (
+                  <li>
+                    <span>Indirizzo:</span> <span>{road}</span>
+                  </li>
+                )}
+                {shop != "undefined" && (
+                  <li>
+                    <span>Negozio:</span> <span>{shop}</span>
+                  </li>
+                )}
+                {residential !== "undefined" && (
+                  <li>
+                    <span>Residenza:</span> <span>{residential}</span>
+                  </li>
+                )}
+                {house_number !== "undefined" && (
+                  <li>
+                    <span>Numero:</span> <span>{house_number}</span>
+                  </li>
+                )}
                 <li>
                   <span>Stato:</span>{" "}
                   <span

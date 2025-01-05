@@ -13,6 +13,7 @@ export const PlantsProvider = ({ children }) => {
   const [singlePlantError, setSinglePlantError] = useState(null);
   const [loading, setLoading] = useState(null);
   const [singlePlantLoading, setSinglePlantLoading] = useState(null);
+  const [locationInfo, setLocationInfo] = useState(null);
   // const [userId, setUserId] = useState(null);
   // const [submissionError, setSubmissionError] = useState("");
   const [latMatch, setLatMatch] = useState(null);
@@ -194,6 +195,27 @@ export const PlantsProvider = ({ children }) => {
       },
     });
   };
+
+  const addLocationInfo = async (lat, lang) => {
+    try {
+      console.log("addLocationInfo0");
+      // setSinglePlantLoading(true);
+      const response = await axios.get(
+        `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lang}&format=json`
+      );
+      if (response) {
+        console.log("addLocationInfo1", response.data.address);
+        setLocationInfo(response.data.address);
+        // return response.data.address;
+      }
+    } catch (err) {
+      // setError(err.message);
+      // setSinglePlantLoading(false);
+      console.log(err);
+    } finally {
+      // setSinglePlantLoading(false);
+    }
+  };
   const sendValuesToAddPlant = (val) => {
     const coordsMatch = val.match(/^(-?\d+(\.\d+)?),\s*(-?\d+(\.\d+)?)/);
 
@@ -203,6 +225,7 @@ export const PlantsProvider = ({ children }) => {
       const langMatch = coordsMatch[3]; // Longitude
       setLatMatch(latMatch);
       setLangMatch(langMatch);
+      addLocationInfo(latMatch, langMatch);
     }
   };
 
@@ -216,6 +239,7 @@ export const PlantsProvider = ({ children }) => {
         langMatch,
         myReports,
         loadingReports,
+        locationInfo,
         setPlants,
         getAllPlants,
         getSinglePlant,
@@ -229,6 +253,7 @@ export const PlantsProvider = ({ children }) => {
         setSinglePlantLoading,
         handleStatusChange,
         deletePlant,
+        addLocationInfo,
         singlePlantError,
         loading,
         handleBookedPlant,

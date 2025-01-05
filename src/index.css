@@ -272,7 +272,13 @@ small.text-muted.ms-3.form-text {
   height: 24px; /* Icon size */
 }
 
-.leaflet-pane :nth-child(2) {
+/* .leaflet-pane :nth-child(2) {
+  z-index: 567 !important;
+} */
+.leaflet-marker-icon {
+  z-index: 566 !important;
+}
+.leaflet-marker-icon[src*="ti pianto per amore"] {
   z-index: 567 !important;
 }
 
