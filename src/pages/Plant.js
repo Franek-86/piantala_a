@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import { Button, FloatingLabel } from "react-bootstrap";
 import { AuthContext } from "../context/AuthContext";
 import { Link, useParams, useNavigate, useLocation } from "react-router-dom";
@@ -24,14 +24,16 @@ const Plant = () => {
   const location = useLocation();
   const { userRole } = useContext(AuthContext);
   const { plant } = useContext(PlantsContext);
-  const fromPage = location.state?.from || "/map";
 
+  const fromPage = location.state?.from || "/map";
+  const fileInputRef = useRef(null);
   const {
     getSinglePlant,
     singlePlantError,
     handleStatusChange,
     deletePlant,
     singlePlantLoading,
+    handlePlateUpload,
   } = useContext(PlantsContext);
   const backToMap = () => {
     navigate(fromPage);
@@ -57,7 +59,12 @@ const Plant = () => {
     residential,
     shop,
     house_number,
+    plate,
   } = plant;
+
+  const handleButtonClick = () => {
+    fileInputRef.current.click();
+  };
 
   const openRejectionModal = () => {
     setModalShow(true);
@@ -178,7 +185,7 @@ const Plant = () => {
                   {status_piantina === "booked" && (
                     <>
                       <li>
-                        <span>Targa:</span> <span>{user_comment}</span>
+                        <span>Testo targa:</span> <span>{user_comment}</span>
                       </li>
                       <li>
                         <span>Tipo di pianta:</span> <span>{plant_type}</span>
@@ -206,6 +213,15 @@ const Plant = () => {
             <></>
           )}
         </div>
+
+        {plate && status_piantina === "booked" && (
+          <div className='plate-container'>
+            <img className='w-100' src={plate} alt='' />
+          </div>
+        )}
+
+        {/* funzionalità admin */}
+
         {userRole === "admin" && status_piantina === "pending" ? (
           <div className='admin-controls mt-5'>
             <hr />
@@ -216,12 +232,6 @@ const Plant = () => {
             >
               Approva
             </button>
-            {/* <button
-              className='btn btn-danger ms-2'
-              onClick={() => handleStatusChange("rejected", plantId)}
-            >
-              Reject
-            </button> */}
             <button
               className='btn btn-danger ms-2'
               onClick={() => openRejectionModal()}
@@ -235,9 +245,7 @@ const Plant = () => {
               Elimina
             </button>
           </div>
-        ) : (userRole === "admin" && status_piantina === "rejected") ||
-          (userRole === "admin" && status_piantina === "booked") ||
-          (userRole === "admin" && status_piantina === "booked") ? (
+        ) : userRole === "admin" && status_piantina === "booked" ? (
           <div className='admin-controls mt-5'>
             <hr />
             <h5 className='mb-3'>Funzionalità amministratore</h5>
@@ -247,6 +255,20 @@ const Plant = () => {
             >
               Elimina
             </button>
+            <div className='d-inline-block'>
+              <input
+                className='d-none'
+                type='file'
+                ref={fileInputRef}
+                onChange={(event) => handlePlateUpload(plantId, event)}
+              />
+              <button
+                className='btn btn-warning ms-2'
+                onClick={handleButtonClick}
+              >
+                Aggiungi targa
+              </button>
+            </div>
           </div>
         ) : (
           <></>

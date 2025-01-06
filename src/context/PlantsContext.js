@@ -81,6 +81,31 @@ export const PlantsProvider = ({ children }) => {
       // setError(err.message);
     }
   };
+
+  const handlePlateUpload = async (id, event) => {
+    console.log("aoo");
+    const file = event.target.files[0];
+    if (file) {
+      console.log("File uploaded:", file);
+      const formData = new FormData();
+      formData.append("plate", file);
+      try {
+        const response = await axios.post(
+          `${serverDomain}/api/plants/upload-plate/${id}`,
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+        console.log("server response", response.data);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  };
+
   const clearBookedStorage = () => {
     localStorage.removeItem("booked-plant");
   };
@@ -254,6 +279,7 @@ export const PlantsProvider = ({ children }) => {
         handleStatusChange,
         deletePlant,
         addLocationInfo,
+        handlePlateUpload,
         singlePlantError,
         loading,
         handleBookedPlant,

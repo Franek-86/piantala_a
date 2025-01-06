@@ -59,7 +59,7 @@ export const Return = () => {
             <p class='card-text'>
               Ci fa molto piacere che tu abbia voluto dare il tuo contributo!
               Una email di conferma sarà inviata al {customerEmail}. In caso di
-              domande contattaci all'indirizzo
+              domande contattaci all'indirizzo{" "}
               <a href='mailto:amicidiernestverner@gmail.com'>
                 amicidiernestverner@gmail.com
               </a>
