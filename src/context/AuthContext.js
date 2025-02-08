@@ -19,17 +19,54 @@ export const AuthProvider = ({ children }) => {
       ? process.env.REACT_APP_TEST_DOMAIN_NAME_SERVER
       : process.env.REACT_APP_DOMAIN_NAME_SERVER;
   console.log("aoooo", serverDomain);
+
+  const getUserInfo = async (userId) => {
+    try {
+      const response = await axios.get(
+        `${serverDomain}/api/auth/user/${userId}`
+      );
+      if (response) {
+        console.log("response", response.data);
+        // return response;
+
+        return response.data;
+      }
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+
   const loginOrRegister = async (data) => {
     console.log("sta?", serverDomain);
-    const { email, password } = data;
+    const {
+      name: first_name,
+      lastName: last_name,
+      address,
+      birthday,
+      fiscalCode: fiscal_code,
+      email,
+      password: user_password,
+      user: user_name,
+      phone,
+    } = data;
     const endpoint = isRegister
       ? `${serverDomain}/api/auth/register`
       : `${serverDomain}/api/auth/login`;
-
-    const response = await axios.post(endpoint, {
-      email,
-      user_password: password,
-    });
+    const payload = isRegister
+      ? {
+          first_name,
+          last_name,
+          address,
+          birthday,
+          fiscal_code,
+          user_name,
+          phone,
+          email,
+          user_password,
+        }
+      : { email, user_password };
+    console.log("payload", payload);
+    const response = await axios.post(endpoint, payload);
     return response;
   };
   useEffect(() => {
@@ -79,6 +116,7 @@ export const AuthProvider = ({ children }) => {
         isAuthenticated,
         loading,
         setUserRole,
+        getUserInfo,
         handleLogout,
         setIsRegister,
         isRegister,

@@ -61,12 +61,11 @@ const MyPlants = () => {
           {loadingReports ? (
             <Loading />
           ) : myReports.length === 0 ? (
-            <p>Non hai ancora effettuato nessuna segalazione.</p>
+            <p>Non hai ancora effettuato segalazioni.</p>
           ) : (
             <Table striped bordered hover responsive>
               <thead>
                 <tr>
-                  <th></th>
                   <th>Data</th>
                   <th className='text-center'>Stato</th>
                 </tr>
@@ -79,7 +78,6 @@ const MyPlants = () => {
                       onClick={() => goToPlantPage(plant.id)}
                       role='button'
                     >
-                      <td>{index + 1}</td>
                       <td>{formatDate(plant.created_at)}</td>
                       {/* <td>{plant.lat}</td>
                       <td>{plant.lang}</td> */}

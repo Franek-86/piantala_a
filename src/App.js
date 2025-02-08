@@ -25,6 +25,7 @@ import Loading from "./pages/Loading";
 import { PlantsContext } from "../src/context/PlantsContext";
 import { loadStripe } from "@stripe/stripe-js";
 import { Button } from "react-bootstrap";
+import { FilterContext } from "./context/FilterContext";
 
 // test
 // Set default icon
@@ -67,7 +68,31 @@ function App() {
   const [locationMarkerTag, setLocationMarkerTag] = useState(null);
   const { plants, setPlants, getAllPlants, loading, sendValuesToAddPlant } =
     useContext(PlantsContext);
+  const { filters, handleFilterChange } = useContext(FilterContext);
+
   const [copyText, setCopyText] = useState("");
+
+  // filters
+
+  // const [filters, setFilters] = useState({
+  //   status: "",
+  //   suburb: "",
+  // });
+  // const handleFilterChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setFilters((prevFilters) => ({
+  //     ...prevFilters,
+  //     [name]: value,
+  //   }));
+  // };
+  const filteredPlants = plants.filter((plant) => {
+    return (
+      (filters.status === "" || plant.status_piantina === filters.status) &&
+      (filters.suburb === "" || plant.suburb === filters.suburb)
+    );
+  });
+
+  // end filters
 
   const handleCopyText = (e) => {
     setCopyText(e.target.value);
@@ -127,8 +152,8 @@ function App() {
                 />
                 {/* <MyTest /> */}
                 <Buttons setPosition={setPosition} markerRef={markerRef} />
-                {plants.length > 0 &&
-                  plants.map((e) => {
+                {filteredPlants.length > 0 &&
+                  filteredPlants.map((e) => {
                     const iconType = e.status_piantina;
                     const markerIcon = iconMap[iconType];
                     return (

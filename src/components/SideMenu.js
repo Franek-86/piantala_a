@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { RiLogoutBoxLine } from "react-icons/ri";
 import { TbReportMedical } from "react-icons/tb";
 import { RiContactsLine } from "react-icons/ri";
+import { GiMetalPlate } from "react-icons/gi";
 import sidebarLogo from "../assets/images/logo_albero_dritto_sidebar.png";
 import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
@@ -29,6 +30,12 @@ const SideMenu = ({ onLogout, ...props }) => {
             <Link to='/contacts' class='nav-link text-truncate'>
               <RiContactsLine />
               <span class='ms-2 d-sm-inline'>Contattaci</span>
+            </Link>
+          </ListGroup.Item>
+          <ListGroup.Item>
+            <Link to='/plates' class='nav-link text-truncate'>
+              <GiMetalPlate />
+              <span class='ms-2 d-sm-inline'>Le vostre targhe</span>
             </Link>
           </ListGroup.Item>
           <ListGroup.Item>

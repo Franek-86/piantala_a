@@ -13,17 +13,33 @@ import PlantForm from "../components/PlantForm";
 import RejectionModal from "../components/RejectionModal";
 import PlantImage from "../components/PlantImage";
 import Loading from "./Loading";
+import logo from "../assets/images/logo_albero_green.png";
+import UserInfo from "../components/UserInfo";
 
 const Plant = () => {
   // const [loading, setLoading] = useState(true);
   // const [error, setError] = useState(null);
   const [show, setShow] = useState(false);
   const [modalShow, setModalShow] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  const handleImageLoad = () => {
+    setIsLoaded(true);
+  };
+
   const { plantId } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
   const { userRole } = useContext(AuthContext);
-  const { plant } = useContext(PlantsContext);
+  const {
+    plant,
+    userInfo,
+    getReporterInfo,
+    getOwnerInfo,
+    reporterInfo,
+    ownerInfo,
+    request,
+  } = useContext(PlantsContext);
 
   const fromPage = location.state?.from || "/map";
   const fileInputRef = useRef(null);
@@ -34,13 +50,18 @@ const Plant = () => {
     deletePlant,
     singlePlantLoading,
     handlePlateUpload,
+    plateUrl,
+    plateLoading,
+    handlePlateRemoval,
+    modalUserShow,
+    setModalUserShow,
   } = useContext(PlantsContext);
   const backToMap = () => {
     navigate(fromPage);
   };
   useEffect(() => {
     getSinglePlant(plantId);
-  }, [plantId]);
+  }, [plantId, plateUrl]);
 
   if (singlePlantLoading) return <Loading />;
   if (singlePlantError) return <div className='error'>{singlePlantError}</div>;
@@ -60,6 +81,9 @@ const Plant = () => {
     shop,
     house_number,
     plate,
+    plate_hash,
+    delete_hash,
+    user_id,
   } = plant;
 
   const handleButtonClick = () => {
@@ -101,6 +125,8 @@ const Plant = () => {
           />
         </div>
         <h2 className='section-title'>Informazioni piantina</h2>
+        {/* {reporterInfo && <h3>{reporterInfo}</h3>}
+        {ownerInfo && <h3>{ownerInfo}</h3>} */}
         <div className='info-plant'>
           <div className='info-plant-container w-100'>
             <article className='image-plant-box'>
@@ -122,6 +148,9 @@ const Plant = () => {
               <ul>
                 <li>
                   <div className='d-flex align-items-center'></div>
+                </li>
+                <li>
+                  <span>Segnalatore:</span> <span>{userInfo}</span>
                 </li>
                 <li>
                   <span>image:</span>{" "}
@@ -214,60 +243,138 @@ const Plant = () => {
           )}
         </div>
 
-        {plate && status_piantina === "booked" && (
-          <div className='plate-container'>
-            <img className='w-100' src={plate} alt='' />
+        {plateLoading && (
+          <div className='loading-container-mini'>
+            <div className='loading-content'>
+              <img
+                src={logo}
+                alt='loading-logo'
+                className='loading-logo-mini'
+              />
+              <div className='spinner-mini'></div>
+            </div>
+          </div>
+        )}
+
+        {plate && !plateLoading && status_piantina === "booked" && (
+          <div className='plate-container mt-2'>
+            <div className='plate-image'>
+              <img
+                onLoad={handleImageLoad}
+                className={`w-100 transition-opacity duration-500 ${
+                  isLoaded ? "opacity-100" : "opacity-0"
+                }`}
+                src={plate}
+                alt=''
+              />
+            </div>
           </div>
         )}
 
         {/* funzionalità admin */}
 
         {userRole === "admin" && status_piantina === "pending" ? (
-          <div className='admin-controls mt-5'>
+          <div className='admin-controls py-5'>
+            <UserInfo
+              role={request === "reporter" ? reporterInfo.role : ownerInfo.role}
+              user={request === "reporter" ? reporterInfo : ownerInfo}
+              show={modalUserShow}
+              onHide={() => setModalUserShow(false)}
+            />
             <hr />
-            <h5 className='mb-3'>Funzionalità amministratore</h5>
-            <button
-              className='btn btn-success'
-              onClick={() => handleStatusChange("approved", plantId)}
-            >
-              Approva
-            </button>
-            <button
-              className='btn btn-danger ms-2'
-              onClick={() => openRejectionModal()}
-            >
-              Rigetta
-            </button>
-            <button
-              className='btn btn-dark ms-2'
-              onClick={() => deleteAndGo(plantId)}
-            >
-              Elimina
-            </button>
+            <h5 className='mb-3'>Informazioni utente</h5>
+            <div className='d-grid gap-2'>
+              <button
+                className='btn btn-outline-info'
+                onClick={() => getReporterInfo()}
+              >
+                Informazioni Segnalatore
+              </button>
+            </div>
+            <hr />
+            <h5 className='mb-3'>Operazioni di amministrazione</h5>
+            <div className='d-grid gap-2'>
+              <button
+                className='btn btn-success'
+                onClick={() => handleStatusChange("approved", plantId)}
+              >
+                Approva segnalazione
+              </button>
+              <button
+                className='btn btn-danger'
+                onClick={() => openRejectionModal()}
+              >
+                Rigetta segnalazione
+              </button>
+              <button
+                className='btn btn-dark '
+                onClick={() => deleteAndGo(plantId)}
+              >
+                Elimina segnalazione
+              </button>
+            </div>
           </div>
         ) : userRole === "admin" && status_piantina === "booked" ? (
-          <div className='admin-controls mt-5'>
+          <div className='admin-controls py-5'>
             <hr />
-            <h5 className='mb-3'>Funzionalità amministratore</h5>
-            <button
-              className='btn btn-dark ms-0'
-              onClick={() => deleteAndGo(plantId)}
-            >
-              Elimina
-            </button>
-            <div className='d-inline-block'>
-              <input
-                className='d-none'
-                type='file'
-                ref={fileInputRef}
-                onChange={(event) => handlePlateUpload(plantId, event)}
+            <h5 className='mb-3'>Informazioni utente</h5>
+            <div className='d-grid gap-2'>
+              <UserInfo
+                role={
+                  request === "reporter" ? reporterInfo.role : ownerInfo.role
+                }
+                user={request === "reporter" ? reporterInfo : ownerInfo}
+                show={modalUserShow}
+                onHide={() => setModalUserShow(false)}
               />
               <button
-                className='btn btn-warning ms-2'
-                onClick={handleButtonClick}
+                className='btn btn-outline-info'
+                onClick={() => getOwnerInfo()}
               >
-                Aggiungi targa
+                Informazioni acquirente
               </button>
+              <button
+                className='btn btn-outline-info'
+                onClick={() => getReporterInfo()}
+              >
+                informazioni segnalatore
+              </button>
+            </div>
+            <hr />
+            <h5 className='mb-3'>Operazioni di amministrazione</h5>
+            <div className='d-grid gap-2'>
+              {!plate && (
+                <>
+                  <input
+                    className='d-none'
+                    type='file'
+                    ref={fileInputRef}
+                    onChange={(event) => handlePlateUpload(plantId, event)}
+                  />
+                  <button
+                    className='btn btn-warning'
+                    onClick={handleButtonClick}
+                  >
+                    Aggiungi targa
+                  </button>
+                  <button
+                    className='btn btn-dark ms-0'
+                    onClick={() => deleteAndGo(plantId)}
+                  >
+                    Elimina targa
+                  </button>
+                </>
+              )}
+              {plate && (
+                <div className=''>
+                  <button
+                    className='btn btn-warning'
+                    onClick={() => handlePlateRemoval(plantId, plate_hash)}
+                  >
+                    Rimuovi targa
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         ) : (

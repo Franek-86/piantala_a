@@ -20,8 +20,8 @@ const BottomBar = () => {
   return (
     <article className='bottom-bar'>
       <div className='h-100'>
-        <ul className='d-flex justify-content-around h-100 p-0 m-0 list-unstyled align-items-center'>
-          <li className='fs-5'>
+        <ul className='d-flex justify-content-around h-100 p-0 m-0 list-unstyled align-items-center b-bar'>
+          <li className='fs-5 test'>
             <NavLink
               className={({ isActive }) =>
                 isActive ? "text-primary" : "text-dark"

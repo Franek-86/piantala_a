@@ -5,7 +5,7 @@ import { AuthContext } from "./AuthContext";
 
 export const PlantsContext = createContext();
 export const PlantsProvider = ({ children }) => {
-  const { token } = useContext(AuthContext);
+  const { token, getUserInfo } = useContext(AuthContext);
   const [plants, setPlants] = useState([]);
   const [myPlants, setMyPlants] = useState(null);
   const [plant, setPlant] = useState(null);
@@ -13,18 +13,46 @@ export const PlantsProvider = ({ children }) => {
   const [singlePlantError, setSinglePlantError] = useState(null);
   const [loading, setLoading] = useState(null);
   const [singlePlantLoading, setSinglePlantLoading] = useState(null);
+  const [plateLoading, setPlateLoading] = useState(null);
   const [locationInfo, setLocationInfo] = useState(null);
+  const [plateUrl, setPlateUrl] = useState(false);
+  const [userInfo, setUserInfo] = useState(null);
+  const [userId, setUserId] = useState(null);
+  const [ownerId, setOwnerId] = useState(null);
+  const [request, setRequest] = useState(null);
   // const [userId, setUserId] = useState(null);
   // const [submissionError, setSubmissionError] = useState("");
+  const [plates, setPlates] = useState([]);
   const [latMatch, setLatMatch] = useState(null);
   const [langMatch, setLangMatch] = useState(null);
+  const [modalUserShow, setModalUserShow] = useState(false);
 
   const [myReports, setMyReports] = useState([]);
   const [loadingReports, setLoadingReports] = useState(true);
+  const [reporterInfo, setReporterInfo] = useState({
+    role: "reporter",
+    firstName: "",
+    lastName: "",
+    user: "",
+    phone: "",
+    email: "",
+  });
+  const [ownerInfo, setOwnerInfo] = useState({
+    first_name: "",
+    last_name: "",
+    address: "",
+    fiscal_code: "",
+    role: "owner",
+    user: "",
+    phone: "",
+    email: "",
+    cratedAt: "",
+  });
   const serverDomain =
     process.env.REACT_APP_NODE_ENV === "test"
       ? process.env.REACT_APP_TEST_DOMAIN_NAME_SERVER
       : process.env.REACT_APP_DOMAIN_NAME_SERVER;
+
   const fetchUserPlants = async () => {
     try {
       const userToken = localStorage.getItem("userToken");
@@ -86,6 +114,7 @@ export const PlantsProvider = ({ children }) => {
     console.log("aoo");
     const file = event.target.files[0];
     if (file) {
+      setPlateLoading(true);
       console.log("File uploaded:", file);
       const formData = new FormData();
       formData.append("plate", file);
@@ -99,10 +128,36 @@ export const PlantsProvider = ({ children }) => {
             },
           }
         );
+        const plate = response.data.image_url;
+        setPlateUrl(plate);
+        setPlateLoading(false);
         console.log("server response", response.data);
       } catch (err) {
         console.log(err);
+        setPlateLoading(false);
       }
+    }
+  };
+  const handlePlateRemoval = async (id, plate_hash) => {
+    console.log("123321", id, plate_hash);
+    setLoading(true);
+    try {
+      const response = await axios.patch(
+        `${serverDomain}/api/plants/clear-plate`,
+        { id, plate_hash },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`, // Include the token in the headers
+          },
+        }
+      );
+      console.log("sta12", response);
+      // setPlants(response.data);
+    } catch (err) {
+      // setError(err.message);
+      console.error("Error fetching data:", err);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -151,11 +206,26 @@ export const PlantsProvider = ({ children }) => {
         setSinglePlantLoading(true);
         const response = await axios.get(`${serverDomain}/api/plants`);
         console.log(response.data);
-        const item = response.data.find(
-          (item) => item.id === parseInt(plantId)
-        );
-        if (item) {
-          setPlant(item);
+        if (response) {
+          console.log("asdf", response);
+          const item = response.data.find(
+            (item) => item.id === parseInt(plantId)
+          );
+          if (item) {
+            console.log("111");
+            const userName = await getUserInfo(item.user_id);
+
+            if (userName) {
+              console.log("123321", userName);
+
+              setPlant(item);
+              setUserInfo(userName);
+              setUserId(item.user_id);
+              setOwnerId(item.owner_id);
+              console.log("userInfo", userInfo);
+            }
+            console.log("123321123", userName);
+          }
         }
       } catch (err) {
         setSinglePlantError(err.message);
@@ -241,6 +311,9 @@ export const PlantsProvider = ({ children }) => {
       // setSinglePlantLoading(false);
     }
   };
+  const getUserName = (user_id) => {
+    return user_id;
+  };
   const sendValuesToAddPlant = (val) => {
     const coordsMatch = val.match(/^(-?\d+(\.\d+)?),\s*(-?\d+(\.\d+)?)/);
 
@@ -253,18 +326,96 @@ export const PlantsProvider = ({ children }) => {
       addLocationInfo(latMatch, langMatch);
     }
   };
+  const getOwnerInfo = async () => {
+    console.log("salve 0.1", ownerId);
+    try {
+      const response = await axios.get(
+        `${serverDomain}/api/plants/user/owner/${ownerId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      if (response) {
+        console.log("qua", response);
+        setOwnerInfo({
+          // ...ownerInfo,
+          firstName: response.data.firstName,
+          lastName: response.data.lastName,
+          birthday: response.data.birthday,
+          address: response.data.address,
+          fiscalCode: response.data.fiscalCode,
+          user: response.data.user,
+          phone: response.data.phone,
+          email: response.data.email,
+          cratedAt: response.data.cratedAt,
+        });
+        setRequest("owner");
+        console.log("owner info", ownerInfo);
+        setModalUserShow(true);
+      }
+
+      // {email,user_name,phone, createdAt}
+      console.log("resp123", ownerInfo);
+    } catch (err) {
+      console.log("salve 2", err);
+    } finally {
+      console.log("salve 3");
+    }
+  };
+  const getReporterInfo = async () => {
+    console.log("salve 0", userId);
+    // let updatedObj = {};
+    try {
+      const response = await axios.get(
+        `${serverDomain}/api/plants/user/reporter/${userId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`, // Include the token in the headers
+          },
+        }
+      );
+      if (response) {
+        setReporterInfo({
+          ...reporterInfo,
+          firstName: response.data.firstName,
+          lastName: response.data.lastName,
+          user: response.data.user,
+          phone: response.data.phone,
+          email: response.data.email,
+          cratedAt: response.data.cratedAt,
+        });
+        setRequest("reporter");
+
+        setModalUserShow(true);
+      }
+    } catch (err) {
+      console.log("salve 2", err);
+    } finally {
+      console.log("salve 3");
+    }
+  };
+  const filterPlates = plants.filter((e) => {
+    return e.plate !== null;
+  });
+  useEffect(() => {
+    setPlates(filterPlates);
+  }, [plants]);
 
   return (
     <PlantsContext.Provider
       value={{
         plants,
         plant,
+        plateUrl,
         myPlants,
         latMatch,
         langMatch,
         myReports,
         loadingReports,
         locationInfo,
+        plateLoading,
         setPlants,
         getAllPlants,
         getSinglePlant,
@@ -280,10 +431,23 @@ export const PlantsProvider = ({ children }) => {
         deletePlant,
         addLocationInfo,
         handlePlateUpload,
+        handlePlateRemoval,
         singlePlantError,
         loading,
         handleBookedPlant,
         fetchUserPlants,
+        getUserName,
+        getReporterInfo,
+        getOwnerInfo,
+        userInfo,
+        modalUserShow,
+        setModalUserShow,
+        reporterInfo,
+        ownerInfo,
+        request,
+        filterPlates,
+        plates,
+        getAllPlants,
       }}
     >
       {children}

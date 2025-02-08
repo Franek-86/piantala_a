@@ -64,17 +64,204 @@ const AuthForm = () => {
   };
 
   return (
-    <Container className='vh-100 d-flex flex-column justify-content-center'>
-      <div className='logo-container ms-auto me-auto pb-5'>
-        <img src={logo} class='img-fluid' alt='Responsive image'></img>
-      </div>
+    <Container
+      className={`d-flex flex-column py-5 justify-content-center ${
+        !isRegister ? "vh-100" : ""
+      }`}
+    >
+      {!isRegister && (
+        <div className='logo-container ms-auto me-auto pb-5'>
+          <img src={logo} class='img-fluid' alt='Responsive image'></img>
+        </div>
+      )}
       <Row className='d-flex justify-content-center'>
         <Col className='col-xs-8 col-sm-7'>
           <Form onSubmit={handleSubmit(onSubmit)}>
             {/* Server error message */}
             {serverError && <p className='text-danger'>{serverError}</p>}
             {successMessage && <p className='text-success'>{successMessage}</p>}
+            {loading && (
+              <div className='login-loader-container'>
+                <div className='login-loader'></div>
+              </div>
+            )}
+            {isRegister && (
+              <>
+                <Form.Group className='mb-3' controlId='formBasicUser'>
+                  <FloatingLabel
+                    controlId='floatingInput'
+                    label='Nome'
+                    className='mb-3'
+                  >
+                    <Form.Control
+                      type='text'
+                      placeholder='Nome'
+                      disabled={loading}
+                      {...register("name", {
+                        required: "Nome necessario",
+                        maxLength: {
+                          value: 15,
+                          message: "Il nome può essere di massimo 15 caratteri",
+                        },
+                      })}
+                    />
+                  </FloatingLabel>
 
+                  {errors.user && (
+                    <span className='text-danger'>{errors.name.message}</span>
+                  )}
+                </Form.Group>
+                <Form.Group className='mb-3' controlId='formBasicUser'>
+                  <FloatingLabel
+                    controlId='floatingInput'
+                    label='Cognome'
+                    className='mb-3'
+                  >
+                    <Form.Control
+                      type='text'
+                      placeholder='Cognome'
+                      disabled={loading}
+                      {...register("lastName", {
+                        required: "Cognome necessario",
+                        maxLength: {
+                          value: 15,
+                          message:
+                            "Il cognome può essere di massimo 15 caratteri",
+                        },
+                      })}
+                    />
+                  </FloatingLabel>
+
+                  {errors.user && (
+                    <span className='text-danger'>
+                      {errors.lastName.message}
+                    </span>
+                  )}
+                </Form.Group>
+                <Form.Group className='mb-3' controlId='formBasicUser'>
+                  <FloatingLabel
+                    controlId='floatingInput'
+                    label='Indirizzo'
+                    className='mb-3'
+                  >
+                    <Form.Control
+                      type='text'
+                      placeholder='Indirizzo'
+                      disabled={loading}
+                      {...register("address", {
+                        required: "Indirizzo necessario",
+                        maxLength: {
+                          value: 25,
+                          message:
+                            "L'indirizzo può essere di massimo 25 caratteri",
+                        },
+                      })}
+                    />
+                  </FloatingLabel>
+
+                  {errors.user && (
+                    <span className='text-danger'>
+                      {errors.address.message}
+                    </span>
+                  )}
+                </Form.Group>
+                <Form.Group className='mb-3' controlId='formBasicUser'>
+                  <FloatingLabel
+                    controlId='floatingInput'
+                    label='Data di nascita'
+                    className='mb-3'
+                  >
+                    <Form.Control
+                      type='date'
+                      placeholder='Data di nascita'
+                      disabled={loading}
+                      {...register("birthday", {
+                        required: "Data di nascita necessaria",
+                      })}
+                    />
+                  </FloatingLabel>
+
+                  {errors.user && (
+                    <span className='text-danger'>
+                      {errors.birthday.message}
+                    </span>
+                  )}
+                </Form.Group>
+                <Form.Group className='mb-3' controlId='formBasicUser'>
+                  <FloatingLabel
+                    controlId='floatingInput'
+                    label='Codice Fiscale'
+                    className='mb-3'
+                  >
+                    <Form.Control
+                      type='text'
+                      placeholder='Codice fiscale'
+                      disabled={loading}
+                      {...register("fiscalCode", {
+                        required: "Codice fiscale necessario",
+                        maxLength: {
+                          value: 15,
+                          message: "codice fiscale errato",
+                        },
+                      })}
+                    />
+                  </FloatingLabel>
+
+                  {errors.user && (
+                    <span className='text-danger'>
+                      {errors.fiscalCode.message}
+                    </span>
+                  )}
+                </Form.Group>
+                <Form.Group className='mb-3' controlId='formBasicUser'>
+                  <FloatingLabel
+                    controlId='floatingInput'
+                    label='Nome utente'
+                    className='mb-3'
+                  >
+                    <Form.Control
+                      type='text'
+                      // qui
+                      placeholder='Nome utente'
+                      disabled={loading}
+                      {...register("user", {
+                        required: "Nome utente necessario",
+                        maxLength: {
+                          value: 15,
+                          message:
+                            "Il nome utente può essere di massimo 15 caratteri",
+                        },
+                      })}
+                    />
+                  </FloatingLabel>
+
+                  {errors.user && (
+                    <span className='text-danger'>{errors.user.message}</span>
+                  )}
+                </Form.Group>
+
+                <Form.Group className='mb-3' controlId='formBasicPhone'>
+                  <FloatingLabel
+                    controlId='floatingInput'
+                    label='Numero di telefono'
+                    className='mb-3'
+                  >
+                    <Form.Control
+                      type='phone'
+                      placeholder='Numero di telefono necessario'
+                      disabled={loading}
+                      {...register("phone", {
+                        required: "Numero di telefono necessario",
+                      })}
+                    />
+                  </FloatingLabel>
+
+                  {errors.phone && (
+                    <span className='text-danger'>{errors.phone.message}</span>
+                  )}
+                </Form.Group>
+              </>
+            )}
             <Form.Group className='mb-3' controlId='formBasicEmail'>
               <FloatingLabel
                 controlId='floatingInput'
@@ -107,7 +294,6 @@ const AuthForm = () => {
                   placeholder='Password'
                   disabled={loading}
                   {...register("password", {
-                    disabled: { loading },
                     required: "Password necessaria",
                     minLength: {
                       value: 6,
@@ -130,6 +316,7 @@ const AuthForm = () => {
               <Button
                 className='pt-1'
                 variant='link'
+                disabled={loading}
                 onClick={() => setIsRegister(!isRegister)}
               >
                 {isRegister ? "Login" : "Registrati"}

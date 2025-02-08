@@ -26,6 +26,10 @@ import { Return } from "./pages/Return";
 import OwnedPlants from "./pages/OwnedPlants";
 import Contacts from "./pages/Contacts";
 import EmailVerification from "./pages/EmailVerification";
+import Plates from "./pages/Plates";
+import { FilterProvider } from "./context/FilterContext";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 // Configurazione delle rotte
 const router = createBrowserRouter([
@@ -77,6 +81,10 @@ const router = createBrowserRouter([
     element: <OwnedPlants />,
   },
   {
+    path: "plates",
+    element: <Plates />,
+  },
+  {
     path: "contacts",
     element: <Contacts />,
   },
@@ -90,7 +98,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
       <PlantsProvider>
-        <RouterProvider router={router} />
+        <FilterProvider>
+          <RouterProvider router={router} />
+        </FilterProvider>
       </PlantsProvider>
     </AuthProvider>
   </React.StrictMode>
