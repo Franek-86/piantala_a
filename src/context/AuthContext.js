@@ -21,45 +21,24 @@ export const AuthProvider = ({ children }) => {
       : process.env.REACT_APP_DOMAIN_NAME_SERVER;
   console.log("aoooo", serverDomain);
 
-  const config = {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  };
   const getCities = async () => {
     try {
-      const response = await axios.get(`/api/auth/login/cities`, config);
+      const response = await axios.get(
+        `${serverDomain}/api/auth/login/cities`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       // const response = await axios.get(`/api/auth/login/cities`, config);
       if (response) {
-        console.log("test", response.data);
-        setCities([]);
-        console.log(response.data);
+        setCities(response.data);
       }
     } catch (err) {
       console.log(err);
     }
   };
-
-  // const getCities = async () => {
-  //   try {
-  //     const response = await axios.get(
-  //       `${serverDomain}/api/auth/login/cities`,
-  //       {
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //       }
-  //     );
-  //     // const response = await axios.get(`/api/auth/login/cities`, config);
-  //     if (response) {
-  //       console.log("test", response.data);
-  //       setCities([]);
-  //       console.log(response.data);
-  //     }
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
 
   const getUserInfo = async (userId) => {
     try {
