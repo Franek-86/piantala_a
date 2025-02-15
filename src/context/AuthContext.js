@@ -21,21 +21,20 @@ export const AuthProvider = ({ children }) => {
       : process.env.REACT_APP_DOMAIN_NAME_SERVER;
   console.log("aoooo", serverDomain);
 
-  const getCities = async () => {
-    try {
-      const response = await axios
-        .get(`${serverDomain}/api/auth/login/cities`)
-        .then((response) => {
-          console.log("test", response.data);
-        });
-      // if (response) {
-      //   console.log("test", response.data);
-      //   setCities([]);
-      //   console.log(response.data);
-      // }
-    } catch (err) {
-      console.log(err);
-    }
+  const getCities = () => {
+    // try {
+
+    axios.get(`${serverDomain}/api/auth/login/cities`).then((response) => {
+      console.log("test", response.data);
+    });
+    // if (response) {
+    //   console.log("test", response.data);
+    //   setCities([]);
+    //   console.log(response.data);
+    // }
+    // } catch (err) {
+    //   console.log(err);
+    // }
   };
 
   const getUserInfo = async (userId) => {
