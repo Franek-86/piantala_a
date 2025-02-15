@@ -23,12 +23,16 @@ export const AuthProvider = ({ children }) => {
 
   const getCities = async () => {
     try {
-      const response = await axios.get(`${serverDomain}/api/auth/login/cities`);
-      if (response) {
-        console.log("test", response.data);
-        setCities([]);
-        console.log(response.data);
-      }
+      const response = await axios
+        .get(`${serverDomain}/api/auth/login/cities`)
+        .then((response) => {
+          console.log("test", response.data);
+        });
+      // if (response) {
+      //   console.log("test", response.data);
+      //   setCities([]);
+      //   console.log(response.data);
+      // }
     } catch (err) {
       console.log(err);
     }
