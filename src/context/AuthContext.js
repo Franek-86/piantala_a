@@ -1,7 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
-import { Header } from "react-bootstrap/lib/Navbar";
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
