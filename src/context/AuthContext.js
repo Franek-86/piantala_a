@@ -23,7 +23,8 @@ export const AuthProvider = ({ children }) => {
 
   const getCities = async () => {
     try {
-      const response = await axios.get(`${serverDomain}/api/auth/login/cities`);
+      // const response = await axios.get(`${serverDomain}/api/auth/login/cities`);
+      const response = await axios.get(`/api/auth/login/cities`);
       if (response) {
         console.log("test", response.data);
         setCities([]);
