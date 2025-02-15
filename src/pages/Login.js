@@ -97,7 +97,7 @@ const AuthForm = () => {
     const fetchCities = async () => {
       try {
         const response = await axios.get(
-          "https://api.geonames.org/childrenJSON?geonameId=3182350&username=franek"
+          "http://api.geonames.org/childrenJSON?geonameId=3182350&username=franek"
         );
         if (response) {
           let data = response.data.geonames;
