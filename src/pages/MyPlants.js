@@ -44,9 +44,9 @@ const MyPlants = () => {
         return "stato sconosciuto"; // Default case if needed
     }
   };
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
+  const formatDate = (date) => {
+    const newDate = new Date(date);
+    return newDate.toLocaleDateString("en-GB");
   };
   const goToPlantPage = (id) => {
     navigate(`/map/${id}`, { state: { from: "/myPlants" } });

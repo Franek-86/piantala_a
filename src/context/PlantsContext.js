@@ -30,7 +30,7 @@ export const PlantsProvider = ({ children }) => {
   const [myReports, setMyReports] = useState([]);
   const [loadingReports, setLoadingReports] = useState(true);
   const [reporterInfo, setReporterInfo] = useState({
-    role: "reporter",
+    type: "reporter",
     firstName: "",
     lastName: "",
     user: "",
@@ -338,15 +338,16 @@ export const PlantsProvider = ({ children }) => {
         }
       );
       if (response) {
-        console.log("qua", response);
+        console.log("qua", response.data);
         setOwnerInfo({
           // ...ownerInfo,
           firstName: response.data.firstName,
           lastName: response.data.lastName,
           birthday: response.data.birthday,
-          address: response.data.address,
+          city: response.data.city,
           fiscalCode: response.data.fiscalCode,
           user: response.data.user,
+          role: response.data.role,
           phone: response.data.phone,
           email: response.data.email,
           cratedAt: response.data.cratedAt,
@@ -383,6 +384,7 @@ export const PlantsProvider = ({ children }) => {
           lastName: response.data.lastName,
           user: response.data.user,
           phone: response.data.phone,
+          role: response.data.role,
           email: response.data.email,
           cratedAt: response.data.cratedAt,
         });

@@ -47,14 +47,6 @@ const Buttons = ({ setPosition, langMatch, latMatch, markerRef }) => {
         </Link> */}
 
         <Button
-          variant='primary'
-          onClick={handleShowFilters}
-          className='circle-button p-0'
-        >
-          <MdFilterAlt />
-        </Button>
-
-        <Button
           onClick={() =>
             map.locate().on("locationfound", function (e) {
               // setPosition(e.latlng);
@@ -73,9 +65,14 @@ const Buttons = ({ setPosition, langMatch, latMatch, markerRef }) => {
         >
           <MdAddLocation />
         </Button>
-        <a className='circle-button' href='tel:+393485384563'>
-          <MdLocalPhone />
-        </a>
+        <Button
+          variant='primary'
+          onClick={handleShowFilters}
+          className='circle-button p-0'
+        >
+          <MdFilterAlt />
+        </Button>
+
         <Button
           onClick={() => {
             console.log("ciao");
@@ -85,6 +82,9 @@ const Buttons = ({ setPosition, langMatch, latMatch, markerRef }) => {
         >
           <MdCenterFocusStrong />
         </Button>
+        <a className='circle-button' href='tel:+393485384563'>
+          <MdLocalPhone />
+        </a>
       </div>
       {/* Include the SideMenu component */}
       <SideMenu

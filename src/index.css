@@ -72,9 +72,9 @@ code {
   outline: 0;
   box-shadow: 0 0 0 0.25rem rgba(15, 127, 50, 0.25); /* Adjust shadow color */
 }
-.form-select {
+/* .form-select {
   border: var(--bs-border-width) solid var(--clr-primary-5);
-}
+} */
 .form-select:focus {
   border-color: #0f7f32;
   outline: 0;
@@ -220,9 +220,9 @@ small.text-muted.ms-3.form-text {
   width: 100%;
   align-items: center;
 }
-.bottom-bar .test {
+/* .bottom-bar .test {
   border-top: 2px solid var(--clr-primary-5);
-}
+} */
 
 /* tree */
 .leaflet-container .leaflet-marker-pane img {
@@ -257,6 +257,20 @@ small.text-muted.ms-3.form-text {
   border-color: transparent !important;
 }
 /* bottom bar */
+.bottom-bar a {
+  display: grid;
+  place-content: center;
+  height: 100%;
+  width: 100%;
+}
+.underline {
+  position: absolute;
+  top: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--clr-primary-5);
+}
 
 /* add plant button */
 .circle-button {
@@ -383,6 +397,14 @@ small.text-muted.ms-3.form-text {
   margin-bottom: 0.5rem;
   display: flex;
   justify-content: center;
+}
+.cf-Btn {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.cf-input {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 /* HTML: <div class="loader"></div> */

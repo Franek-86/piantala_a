@@ -12,12 +12,12 @@ const UserInfo = (props) => {
     user,
     firstName,
     lastName,
-    address,
+    city,
     birthday,
     fiscalCode,
   } = props.user;
   const infoUser = props.user;
-  const userRole = props.user.role;
+  const userRole = props.user.type;
   // console.log("user role", userRole);
   return (
     <Modal
@@ -45,7 +45,7 @@ const UserInfo = (props) => {
                 <span>Nato il:</span> {birthday}
               </ListGroup.Item>
               <ListGroup.Item>
-                <span>Indirizzo:</span> {address}
+                <span>Comune di residenza:</span> {city}
               </ListGroup.Item>
               <ListGroup.Item>
                 <span>Codice Fiscale:</span> {fiscalCode}
@@ -56,10 +56,13 @@ const UserInfo = (props) => {
             <span>Nome Utente:</span> {user}
           </ListGroup.Item>
           <ListGroup.Item>
-            <span>phone:</span> {phone}
+            <span>Ruolo:</span> {role}
           </ListGroup.Item>
           <ListGroup.Item>
-            <span>email:</span> {email}
+            <span>Phone:</span> {phone}
+          </ListGroup.Item>
+          <ListGroup.Item>
+            <span>Email:</span> {email}
           </ListGroup.Item>
           <ListGroup.Item>
             <span>Data registrazione:</span> {cratedAt}

@@ -33,7 +33,7 @@ const OwnedPlants = () => {
           <Table striped bordered hover>
             <thead>
               <tr>
-                <th></th>
+                {/* <th></th> */}
                 <th>Data acquisto</th>
                 <th>Tipo</th>
                 <th>Targa</th>
@@ -42,14 +42,18 @@ const OwnedPlants = () => {
             <tbody>
               {myPlants &&
                 myPlants.map((plant, index) => {
-                  let dateObj = new Date(plant.purchase_date);
-                  let myDate = dateObj.toLocaleDateString("it-IT");
-                  let date = myDate.split("T")[0];
+                  const formatDate = (date) => {
+                    const newDate = new Date(date);
+                    return newDate.toLocaleDateString("en-GB");
+                  };
+                  // let dateObj = new Date(plant.purchase_date);
+                  // let myDate = dateObj.toLocaleDateString("it-IT");
+                  // let date = myDate.split("T")[0];
 
-                  let [year, month, day] = date.split("-");
-                  day = day < 10 ? "0" + day : day;
-                  month = month < 10 ? "0" + month : month;
-                  let formattedDate = `${day}/${month}/${year}`;
+                  // let [year, month, day] = date.split("-");
+                  // day = day < 10 ? "0" + day : day;
+                  // month = month < 10 ? "0" + month : month;
+                  // let formattedDate = `${day}/${month}/${year}`;
 
                   return (
                     <tr
@@ -58,8 +62,10 @@ const OwnedPlants = () => {
                       }}
                       key={index}
                     >
-                      <td>{index + 1}</td>
-                      <td className='bg-info'>{date}</td>
+                      {/* <td>{index + 1}</td> */}
+                      <td className='bg-info'>
+                        {formatDate(plant.purchase_date)}
+                      </td>
                       <td className='bg-info'>{plant.plant_type}</td>
                       <td className='bg-info'>{plant.user_comment}</td>
                     </tr>
