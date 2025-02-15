@@ -21,13 +21,14 @@ export const AuthProvider = ({ children }) => {
       : process.env.REACT_APP_DOMAIN_NAME_SERVER;
   console.log("aoooo", serverDomain);
 
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
   const getCities = async () => {
     try {
-      const response = await axios.get(`/api/auth/login/cities`, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await axios.get(`/api/auth/login/cities`, config);
       // const response = await axios.get(`/api/auth/login/cities`, config);
       if (response) {
         console.log("test", response.data);
