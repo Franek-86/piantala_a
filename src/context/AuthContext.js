@@ -42,6 +42,7 @@ export const AuthProvider = ({ children }) => {
       if (response) {
         console.log("response", response.data);
         // return response;
+        setCities(response.data);
 
         return response.data;
       }
