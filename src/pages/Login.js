@@ -18,6 +18,8 @@ const AuthForm = () => {
     isRegister,
     loginOrRegister,
     setIsAuthenticated,
+    getCities,
+    cities,
   } = useContext(AuthContext);
   const {
     register,
@@ -35,7 +37,7 @@ const AuthForm = () => {
   const [fiscalData, setFiscalData] = useState(null);
   const [validating, setValidating] = useState(false);
   const [disabled, setDisabled] = useState(true);
-  const [cities, setCities] = useState([]);
+
   // console.log("azx", cities);
   const navigate = useNavigate();
   // id italia Id=3169778
@@ -93,24 +95,11 @@ const AuthForm = () => {
 
     // http://api.miocodicefiscale.com/calculate?lname={cognome}&fname={nome}&gender={sesso}&city={luogo-di-nascita}&state={codice-provincia}&abolished={comune-soppresso}&day={giorno-di-nascita}&month={mese-di-nascita}&year={anno-di-nascita}&omocodia_level={livello-omocodia}&access_token={tua-chiave-API}
   };
-  useEffect(() => {
-    const fetchCities = async () => {
-      try {
-        const response = await axios.get(
-          "http://api.geonames.org/childrenJSON?geonameId=3182350&username=franek"
-        );
-        if (response) {
-          let data = response.data.geonames;
-          console.log("azx", cities);
-          setCities(data);
-        }
-      } catch (error) {
-        console.error("Error fetching cities:", error);
-      }
-    };
 
-    fetchCities();
+  useEffect(() => {
+    getCities();
   }, []);
+
   const validateFiscalCode = async (cf) => {
     setValidating(true);
     try {

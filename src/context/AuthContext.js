@@ -10,6 +10,7 @@ export const AuthProvider = ({ children }) => {
   const [submissionError, setSubmissionError] = useState("");
   const [userRole, setUserRole] = useState(null);
   const [userId, setUserId] = useState(null);
+  const [cities, setCities] = useState([]);
 
   const [isRegister, setIsRegister] = useState(null);
   const token = localStorage.getItem("userToken");
@@ -19,6 +20,18 @@ export const AuthProvider = ({ children }) => {
       ? process.env.REACT_APP_TEST_DOMAIN_NAME_SERVER
       : process.env.REACT_APP_DOMAIN_NAME_SERVER;
   console.log("aoooo", serverDomain);
+
+  const getCities = async () => {
+    try {
+      const response = await axios.get(`${serverDomain}/api/auth/login/cities`);
+      if (response) {
+        console.log("test", response.data);
+        setCities(response.data);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const getUserInfo = async (userId) => {
     try {
@@ -129,6 +142,8 @@ export const AuthProvider = ({ children }) => {
         token,
         loginOrRegister,
         setIsAuthenticated,
+        cities,
+        getCities,
       }}
     >
       {children}
