@@ -1,6 +1,7 @@
 import React, { createContext, useState, useEffect } from "react";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
+import { Header } from "react-bootstrap/lib/Navbar";
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -20,11 +21,15 @@ export const AuthProvider = ({ children }) => {
       ? process.env.REACT_APP_TEST_DOMAIN_NAME_SERVER
       : process.env.REACT_APP_DOMAIN_NAME_SERVER;
   console.log("aoooo", serverDomain);
-
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
   const getCities = async () => {
     try {
       // const response = await axios.get(`${serverDomain}/api/auth/login/cities`);
-      const response = await axios.get(`/api/auth/login/cities`);
+      const response = await axios.get(`/api/auth/login/cities`, config);
       if (response) {
         console.log("test", response.data);
         setCities([]);
