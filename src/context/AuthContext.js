@@ -23,14 +23,11 @@ export const AuthProvider = ({ children }) => {
 
   const getCities = async () => {
     try {
-      const response = await axios.get(
-        `${serverDomain}/api/auth/login/cities`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const response = await axios.get(`/api/auth/login/cities`, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
       // const response = await axios.get(`/api/auth/login/cities`, config);
       if (response) {
         console.log("test", response.data);
@@ -41,6 +38,27 @@ export const AuthProvider = ({ children }) => {
       console.log(err);
     }
   };
+
+  // const getCities = async () => {
+  //   try {
+  //     const response = await axios.get(
+  //       `${serverDomain}/api/auth/login/cities`,
+  //       {
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //       }
+  //     );
+  //     // const response = await axios.get(`/api/auth/login/cities`, config);
+  //     if (response) {
+  //       console.log("test", response.data);
+  //       setCities([]);
+  //       console.log(response.data);
+  //     }
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
   const getUserInfo = async (userId) => {
     try {
