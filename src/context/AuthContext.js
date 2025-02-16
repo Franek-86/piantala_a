@@ -55,6 +55,24 @@ export const AuthProvider = ({ children }) => {
       console.error("Something went wrong", error);
     }
   };
+  const validateFiscalCode = async (data) => {
+    try {
+      const response = await axios.post(
+        `${serverDomain}/api/auth/login/validate-fiscal-code`,
+        { payload: data }
+      );
+
+      return response.data.message;
+
+      // if (response.status) {
+      //   return response.data;
+      // }
+      // console.log("something went wrong");
+      // return;
+    } catch (error) {
+      console.error("Something went wrong", error);
+    }
+  };
 
   const getUserInfo = async (userId) => {
     try {
@@ -166,6 +184,7 @@ export const AuthProvider = ({ children }) => {
         loginOrRegister,
         setIsAuthenticated,
         generateFiscalCode,
+        validateFiscalCode,
         cities,
         getCities,
       }}

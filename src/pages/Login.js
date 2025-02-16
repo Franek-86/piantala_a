@@ -21,6 +21,7 @@ const AuthForm = () => {
     getCities,
     cities,
     generateFiscalCode,
+    validateFiscalCode: checkFiscalCode,
   } = useContext(AuthContext);
   const {
     register,
@@ -35,8 +36,6 @@ const AuthForm = () => {
   const [serverError, setServerError] = useState("");
   const [successMessage, setSuccessMessage] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [fiscalData, setFiscalData] = useState(null);
-  const [validating, setValidating] = useState(false);
   const [disabled, setDisabled] = useState(true);
 
   // console.log("azx", cities);
@@ -75,22 +74,6 @@ const AuthForm = () => {
         console.log("Year:", year);
         console.log("Month:", month);
         console.log("Day:", day);
-
-        // const generate = async () => {
-        //   try {
-        //     const response = await axios.get(
-        //       `http://api.miocodicefiscale.com/calculate?lname=${lastName}&fname=${name}&gender=${gender}&city=${city}&state=BA&day=${day}&month=${month}&year=${year}&access_token=${process.env.REACT_APP_CF_KEY}`
-        //     );
-        //     if (!response.data.status) {
-        //       console.log("t1", response.data.message);
-        //       return;
-        //     }
-        //     const cf = response.data.data.cf;
-        //     setValue("fiscalCode", cf);
-        //   } catch (error) {
-        //     console.error("Something went wrong", error);
-        //   }
-        // };
         const data = { name, lastName, gender, city, year, month, day };
         const response = await generateFiscalCode(data);
         if (response && response !== "error") {
@@ -98,8 +81,6 @@ const AuthForm = () => {
         }
       }
     }
-
-    // http://api.miocodicefiscale.com/calculate?lname={cognome}&fname={nome}&gender={sesso}&city={luogo-di-nascita}&state={codice-provincia}&abolished={comune-soppresso}&day={giorno-di-nascita}&month={mese-di-nascita}&year={anno-di-nascita}&omocodia_level={livello-omocodia}&access_token={tua-chiave-API}
   };
 
   useEffect(() => {
@@ -107,22 +88,13 @@ const AuthForm = () => {
   }, []);
 
   const validateFiscalCode = async (cf) => {
-    setValidating(true);
-    try {
-      const response = await axios.get(
-        `${process.env.REACT_APP_CF_URL}?cf=${cf}&access_token=${process.env.REACT_APP_CF_KEY}`
-      );
-      if (response.data.status) {
-        clearErrors("fiscalCode");
-        return true;
-      } else {
-        return "Codice fiscale non valido";
-      }
-    } catch (error) {
-      return "Errore di validazione";
-    } finally {
-      setValidating(false);
+    const response = await checkFiscalCode(cf);
+    if (response === "Codice fiscale valido") {
+      console.log("Codice fiscale valido");
+      return true;
     }
+    console.log("errore codice fiscale:", response);
+    return false;
   };
 
   const onSubmit = async (data) => {
