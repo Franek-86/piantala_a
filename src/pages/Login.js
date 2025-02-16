@@ -99,10 +99,12 @@ const AuthForm = () => {
 
   const onSubmit = async (data) => {
     setLoading(true);
-    const isValid = await validateFiscalCode(data.fiscalCode);
-    if (!isValid) {
-      setLoading(false);
-      return;
+    if (isRegister) {
+      const isValid = await validateFiscalCode(data.fiscalCode);
+      if (!isValid) {
+        setLoading(false);
+        return;
+      }
     }
     try {
       const response = await loginOrRegister(data);
