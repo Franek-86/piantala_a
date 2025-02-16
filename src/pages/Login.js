@@ -8,7 +8,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import logo from "../assets/images/logo_albero_green.png";
-import { SiStreamrunners } from "react-icons/si";
+// import { SiStreamrunners } from "react-icons/si";
 import { GrUndo } from "react-icons/gr";
 const AuthForm = () => {
   const {
@@ -20,6 +20,7 @@ const AuthForm = () => {
     setIsAuthenticated,
     getCities,
     cities,
+    generateFiscalCode,
   } = useContext(AuthContext);
   const {
     register,
@@ -54,7 +55,7 @@ const AuthForm = () => {
       setDisabled(true);
     }
   }, [name, lastName, gender, city, birthday]);
-  const generateCF = () => {
+  const generateCF = async () => {
     const fields = watch();
     const { name, lastName, gender, city, birthday } = fields;
     console.log("f", fields);
@@ -74,22 +75,27 @@ const AuthForm = () => {
         console.log("Year:", year);
         console.log("Month:", month);
         console.log("Day:", day);
-        const generate = async () => {
-          try {
-            const response = await axios.get(
-              `http://api.miocodicefiscale.com/calculate?lname=${lastName}&fname=${name}&gender=${gender}&city=${city}&state=BA&day=${day}&month=${month}&year=${year}&access_token=${process.env.REACT_APP_CF_KEY}`
-            );
-            if (!response.data.status) {
-              console.log("t1", response.data.message);
-              return;
-            }
-            const cf = response.data.data.cf;
-            setValue("fiscalCode", cf);
-          } catch (error) {
-            console.error("Something went wrong", error);
-          }
-        };
-        generate();
+
+        // const generate = async () => {
+        //   try {
+        //     const response = await axios.get(
+        //       `http://api.miocodicefiscale.com/calculate?lname=${lastName}&fname=${name}&gender=${gender}&city=${city}&state=BA&day=${day}&month=${month}&year=${year}&access_token=${process.env.REACT_APP_CF_KEY}`
+        //     );
+        //     if (!response.data.status) {
+        //       console.log("t1", response.data.message);
+        //       return;
+        //     }
+        //     const cf = response.data.data.cf;
+        //     setValue("fiscalCode", cf);
+        //   } catch (error) {
+        //     console.error("Something went wrong", error);
+        //   }
+        // };
+        const data = { name, lastName, gender, city, year, month, day };
+        const response = await generateFiscalCode(data);
+        if (response && response !== "error") {
+          setValue("fiscalCode", response);
+        }
       }
     }
 

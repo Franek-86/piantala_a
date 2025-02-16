@@ -31,12 +31,28 @@ export const AuthProvider = ({ children }) => {
           },
         }
       );
-      // const response = await axios.get(`/api/auth/login/cities`, config);
       if (response) {
         setCities(response.data);
       }
     } catch (err) {
       console.log(err);
+    }
+  };
+  const generateFiscalCode = async (data) => {
+    // const { name, lastName, gender, city, year, month, day } = data;
+    try {
+      const response = await axios.post(
+        `${serverDomain}/api/auth/login/generate-fiscal-code`,
+        { payload: data }
+      );
+      if (response?.status === 200) {
+        return response.data;
+        return "error";
+      }
+      console.log("something went wrong, fiscal code non generated");
+      return;
+    } catch (error) {
+      console.error("Something went wrong", error);
     }
   };
 
@@ -48,7 +64,6 @@ export const AuthProvider = ({ children }) => {
       if (response) {
         console.log("response", response.data);
         // return response;
-        setCities(response.data);
 
         return response.data;
       }
@@ -150,6 +165,7 @@ export const AuthProvider = ({ children }) => {
         token,
         loginOrRegister,
         setIsAuthenticated,
+        generateFiscalCode,
         cities,
         getCities,
       }}
