@@ -9,6 +9,7 @@ import { GiMetalPlate } from "react-icons/gi";
 import sidebarLogo from "../assets/images/logo_albero_dritto_sidebar.png";
 import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
+import { BsInfo } from "react-icons/bs";
 const SideMenu = ({ onLogout, ...props }) => {
   const { handleLogout } = useContext(AuthContext);
   return (
@@ -21,12 +22,6 @@ const SideMenu = ({ onLogout, ...props }) => {
       <Offcanvas.Body>
         <ListGroup variant='flush'>
           <ListGroup.Item>
-            <Link to='/bookedPlants' class='nav-link text-truncate'>
-              <TbReportMedical />
-              <span class='ms-2 d-sm-inline'>Le mie piante</span>
-            </Link>
-          </ListGroup.Item>
-          <ListGroup.Item>
             <Link to='/contacts' class='nav-link text-truncate'>
               <RiContactsLine />
               <span class='ms-2 d-sm-inline'>Contattaci</span>
@@ -36,6 +31,12 @@ const SideMenu = ({ onLogout, ...props }) => {
             <Link to='/plates' class='nav-link text-truncate'>
               <GiMetalPlate />
               <span class='ms-2 d-sm-inline'>Le vostre targhe</span>
+            </Link>
+          </ListGroup.Item>
+          <ListGroup.Item>
+            <Link to='/info' class='nav-link text-truncate'>
+              <BsInfo />
+              <span class='ms-2 d-sm-inline'>Info</span>
             </Link>
           </ListGroup.Item>
           <ListGroup.Item>

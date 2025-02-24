@@ -15,6 +15,10 @@ import PlantImage from "../components/PlantImage";
 import Loading from "./Loading";
 import logo from "../assets/images/logo_albero_green.png";
 import UserInfo from "../components/UserInfo";
+import { FaUser } from "react-icons/fa6";
+import { FaRegUser } from "react-icons/fa6";
+import { IoIosAddCircleOutline } from "react-icons/io";
+import { IoIosRemoveCircleOutline } from "react-icons/io";
 
 const Plant = () => {
   // const [loading, setLoading] = useState(true);
@@ -328,16 +332,18 @@ const Plant = () => {
                 onHide={() => setModalUserShow(false)}
               />
               <button
-                className='btn btn-outline-info'
+                className='btn btn-outline-info d-flex justify-content-between align-items-center'
                 onClick={() => getOwnerInfo()}
               >
-                Informazioni acquirente
+                <span className='ps-2'>Informazioni acquirente</span>
+                <FaUser />
               </button>
               <button
-                className='btn btn-outline-info'
+                className='btn btn-outline-info d-flex justify-content-between align-items-center'
                 onClick={() => getReporterInfo()}
               >
-                informazioni segnalatore
+                <span className='ps-2'>Informazioni segnalatore</span>
+                <FaRegUser />
               </button>
             </div>
             <hr />
@@ -352,26 +358,30 @@ const Plant = () => {
                     onChange={(event) => handlePlateUpload(plantId, event)}
                   />
                   <button
-                    className='btn btn-warning'
+                    className='btn btn-warning d-flex justify-content-between align-items-center'
                     onClick={handleButtonClick}
                   >
-                    Aggiungi targa
+                    <span className='ps-2'> Aggiungi targa</span>
+
+                    <IoIosAddCircleOutline />
                   </button>
                   <button
-                    className='btn btn-dark ms-0'
+                    className='btn btn-dark ms-0 d-flex justify-content-between align-items-center'
                     onClick={() => deleteAndGo(plantId)}
                   >
-                    Elimina targa
+                    <span className='ps-2'> Elimina targa</span>
+                    <IoIosRemoveCircleOutline />
                   </button>
                 </>
               )}
               {plate && (
                 <div className=''>
                   <button
-                    className='btn btn-warning'
+                    className='btn btn-warning d-flex justify-content-between align-items-center'
                     onClick={() => handlePlateRemoval(plantId, plate_hash)}
                   >
-                    Rimuovi targa
+                    <span className='ps-2'>Rimuovi targa</span>
+                    <IoIosRemoveCircleOutline />
                   </button>
                 </div>
               )}

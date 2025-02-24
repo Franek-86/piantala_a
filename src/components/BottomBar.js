@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { MdLegendToggle } from "react-icons/md";
-import { BsInfo } from "react-icons/bs";
 import { FaMap } from "react-icons/fa";
 import { motion } from "motion/react";
 import { PiPlantFill } from "react-icons/pi";
 import { NavLink, useLocation } from "react-router-dom";
+import { GiPlantSeed } from "react-icons/gi";
 
 // {
 //   item === selectedTab ? (
@@ -78,7 +78,7 @@ const BottomBar = () => {
                 isActive ? "text-primary" : "text-dark"
               }
             >
-              <PiPlantFill />
+              <GiPlantSeed />
               {pathname === "/myPlants" && (
                 <motion.div
                   className='underline'
@@ -86,25 +86,19 @@ const BottomBar = () => {
                   id='underline'
                 />
               )}
-              {/* {selectedTab === "test3" && (
-                <motion.div
-                  className='underline'
-                  layoutId='underline'
-                  id='underline'
-                />
-              )} */}
             </NavLink>
           </li>
           <li className='fs-5 position-relative'>
             <NavLink
               onClick={() => setSelectedTab("test4")}
-              to='/info'
+              to='/bookedPlants'
               className={({ isActive }) =>
                 isActive ? "text-primary" : "text-dark"
               }
             >
-              <BsInfo />
-              {pathname === "/info" && (
+              {/* <BsInfo /> */}
+              <PiPlantFill />
+              {pathname === "/bookedPlants" && (
                 <motion.div
                   className='underline'
                   layoutId='underline'

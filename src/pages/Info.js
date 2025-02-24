@@ -1,11 +1,24 @@
 import React from "react";
 import BottomBar from "../components/BottomBar";
+import { useNavigate } from "react-router-dom";
+import { MdBackspace } from "react-icons/md";
 
 const Info = () => {
+  const navigate = useNavigate();
+  const backToMap = () => {
+    navigate("/map");
+  };
   return (
     <>
       <section className='section-page section-background'>
         <div className='section-center'>
+          <div className='back-btn'>
+            <MdBackspace
+              onClick={() => {
+                backToMap();
+              }}
+            />
+          </div>
           <h2 className='section-title'>Chi siamo</h2>
           <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum

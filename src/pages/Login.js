@@ -100,12 +100,14 @@ const AuthForm = () => {
   const onSubmit = async (data) => {
     setLoading(true);
     if (isRegister) {
+      console.log("aooooooooooooo");
       const isValid = await validateFiscalCode(data.fiscalCode);
       if (!isValid) {
         setLoading(false);
         return;
       }
     }
+
     try {
       const response = await loginOrRegister(data);
 

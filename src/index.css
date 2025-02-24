@@ -95,6 +95,7 @@ ul {
 }
 .section-page {
   height: 90vh;
+  overflow: scroll;
 }
 .section-full-page {
   height: 100vh;
@@ -168,7 +169,7 @@ small.text-muted.ms-3.form-text {
   padding: var(--bs-list-group-item-padding-y)
     var(--bs-list-group-item-padding-x);
   color: var(--bs-list-group-color);
-  padding-left: 0;
+  /* padding-left: 0; */
   text-decoration: none;
   background-color: var(--bs-list-group-bg);
   border: var(--bs-list-group-border-width) solid
