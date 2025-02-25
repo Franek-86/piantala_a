@@ -43,7 +43,7 @@ const OwnedPlants = () => {
   };
   return (
     <>
-      <section className='section-background section-full-page'>
+      <section className='section-page section-background'>
         <div className='section-center'>
           {/* <div className='back-btn'>
           <MdBackspace
@@ -85,10 +85,11 @@ const OwnedPlants = () => {
                         : plant?.residential}
                     </Card.Title> */}
                         <Card.Header>
-                          {" "}
-                          {plant?.road !== "undefined"
-                            ? plant?.road
-                            : plant?.residential}
+                          <Card.Title>
+                            {plant?.road !== "undefined"
+                              ? plant?.road
+                              : plant?.residential}
+                          </Card.Title>
                         </Card.Header>
                         {/* <Card.Text></Card.Text> */}
                         {/* </Card.Body> */}

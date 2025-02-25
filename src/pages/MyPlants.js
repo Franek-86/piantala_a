@@ -86,9 +86,12 @@ const MyPlants = () => {
                     </Card.Title> */}
                     <Card.Header>
                       {" "}
-                      {plant?.road !== "undefined"
-                        ? plant?.road
-                        : plant?.residential}
+                      <Card.Title>
+                        {" "}
+                        {plant?.road !== "undefined"
+                          ? plant?.road
+                          : plant?.residential}
+                      </Card.Title>
                     </Card.Header>
                     {/* <Card.Text></Card.Text> */}
                     {/* </Card.Body> */}

@@ -95,6 +95,7 @@ ul {
 }
 .section-page {
   height: 90vh;
+  padding-bottom: 2rem;
   overflow: scroll;
 }
 .section-full-page {
@@ -654,4 +655,14 @@ small.text-muted.ms-3.form-text {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+/* owned plants / my plants cards */
+
+.card-img,
+.card-img-bottom,
+.card-img-top {
+  width: 100%;
+  max-height: 50vh;
+  object-fit: cover;
 }
