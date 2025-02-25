@@ -10,6 +10,7 @@ import sidebarLogo from "../assets/images/logo_albero_dritto_sidebar.png";
 import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
 import { BsInfo } from "react-icons/bs";
+import { FaUsers } from "react-icons/fa";
 const SideMenu = ({ onLogout, ...props }) => {
   const { handleLogout } = useContext(AuthContext);
   return (
@@ -37,6 +38,12 @@ const SideMenu = ({ onLogout, ...props }) => {
             <Link to='/info' class='nav-link text-truncate'>
               <BsInfo />
               <span class='ms-2 d-sm-inline'>Info</span>
+            </Link>
+          </ListGroup.Item>
+          <ListGroup.Item>
+            <Link to='/users' class='nav-link text-truncate'>
+              <FaUsers />
+              <span class='ms-2 d-sm-inline'>Utenti</span>
             </Link>
           </ListGroup.Item>
           <ListGroup.Item>

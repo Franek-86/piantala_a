@@ -89,6 +89,19 @@ export const AuthProvider = ({ children }) => {
       console.log(err.message);
     }
   };
+  const getAllUsers = async () => {
+    try {
+      const response = await axios.get(`${serverDomain}/api/auth/users`);
+      if (response) {
+        console.log("response", response.data);
+        // return response;
+
+        return response.data;
+      }
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
 
   const loginOrRegister = async (data) => {
     console.log("sta?", serverDomain);
@@ -187,6 +200,7 @@ export const AuthProvider = ({ children }) => {
         validateFiscalCode,
         cities,
         getCities,
+        getAllUsers,
       }}
     >
       {children}

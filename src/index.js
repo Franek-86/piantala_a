@@ -30,6 +30,7 @@ import Plates from "./pages/Plates";
 import { FilterProvider } from "./context/FilterContext";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Users from "./pages/Users";
 
 // Configurazione delle rotte
 const router = createBrowserRouter([
@@ -87,6 +88,10 @@ const router = createBrowserRouter([
   {
     path: "contacts",
     element: <Contacts />,
+  },
+  {
+    path: "users",
+    element: <Users />,
   },
   {
     path: "verification-success",
