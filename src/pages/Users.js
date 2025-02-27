@@ -4,18 +4,15 @@ import { MdBackspace } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { AuthContext } from "../context/AuthContext";
+import ListGroup from "react-bootstrap/ListGroup";
 
 const Users = () => {
   const navigate = useNavigate();
   const backToMap = () => {
     navigate("/map");
   };
-  const { getAllUsers } = useContext(AuthContext);
-
-  useEffect(() => {
-    console.log("qui", getAllUsers);
-    getAllUsers();
-  });
+  const { allUsers, getAllUsers } = useContext(AuthContext);
+  console.log("aaa", allUsers);
   return (
     <section className='section-background section-full-page'>
       <div className='section-center'>
@@ -29,14 +26,22 @@ const Users = () => {
         <section className='section-page section-background'>
           <div className='section-center'>
             <h2 className='section-title'>Lista Utenti</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum
-              tenetur eius, aperiam dolorem eaque nostrum illo hic. Eum
-              voluptate quam in rem sit quia eveniet? Quam, voluptas. Nostrum
-              soluta tenetur dolor, quibusdam dolorem veniam magni minus optio
-              quis neque officia quo laborum rerum tempore illo obcaecati ipsa
-              cumque error. Nobis?
-            </p>
+            <ListGroup>
+              {allUsers.map((i) => {
+                const {
+                  id,
+                  first_name,
+                  last_name,
+                  birthday,
+                  city,
+                  user_name,
+                  role,
+                  created_at,
+                } = i;
+                console.log("qui", i);
+                return <ListGroup.Item>{user_name}</ListGroup.Item>;
+              })}
+            </ListGroup>
           </div>
         </section>
       </div>

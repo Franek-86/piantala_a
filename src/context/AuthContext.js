@@ -11,6 +11,22 @@ export const AuthProvider = ({ children }) => {
   const [userRole, setUserRole] = useState(null);
   const [userId, setUserId] = useState(null);
   const [cities, setCities] = useState([]);
+  const [allUsers, setAllUsers] = useState({
+    // id: "",
+    first_name: "",
+    last_name: "",
+    // birthday: "",
+    // fiscal_code: "",
+    // city: "",
+    // gender: "",
+    // email: "",
+    // user_name: "",
+    // role: "",
+    // phone: "",
+    // createdAt: "",
+  });
+  console.log(allUsers);
+  // const [allUsers, setAllUsers] = useState({});
 
   const [isRegister, setIsRegister] = useState(null);
   const token = localStorage.getItem("userToken");
@@ -93,15 +109,17 @@ export const AuthProvider = ({ children }) => {
     try {
       const response = await axios.get(`${serverDomain}/api/auth/users`);
       if (response) {
-        console.log("response", response.data);
-        // return response;
+        let allUsers = response.data.usersToBeSent;
 
-        return response.data;
+        setAllUsers(allUsers);
       }
     } catch (err) {
       console.log(err.message);
     }
   };
+  useEffect(() => {
+    getAllUsers();
+  }, []);
 
   const loginOrRegister = async (data) => {
     console.log("sta?", serverDomain);
@@ -186,6 +204,7 @@ export const AuthProvider = ({ children }) => {
         userToken,
         isAuthenticated,
         loading,
+        allUsers,
         setUserRole,
         getUserInfo,
         handleLogout,
