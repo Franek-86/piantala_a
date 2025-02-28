@@ -11,20 +11,7 @@ export const AuthProvider = ({ children }) => {
   const [userRole, setUserRole] = useState(null);
   const [userId, setUserId] = useState(null);
   const [cities, setCities] = useState([]);
-  const [allUsers, setAllUsers] = useState({
-    // id: "",
-    first_name: "",
-    last_name: "",
-    // birthday: "",
-    // fiscal_code: "",
-    // city: "",
-    // gender: "",
-    // email: "",
-    // user_name: "",
-    // role: "",
-    // phone: "",
-    // createdAt: "",
-  });
+  const [allUsers, setAllUsers] = useState();
   console.log(allUsers);
   // const [allUsers, setAllUsers] = useState({});
 
