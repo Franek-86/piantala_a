@@ -104,9 +104,6 @@ export const AuthProvider = ({ children }) => {
       console.log(err.message);
     }
   };
-  useEffect(() => {
-    getAllUsers();
-  }, []);
 
   const loginOrRegister = async (data) => {
     console.log("sta?", serverDomain);

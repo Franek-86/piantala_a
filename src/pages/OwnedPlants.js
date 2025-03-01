@@ -75,29 +75,31 @@ const OwnedPlants = () => {
                   // let formattedDate = `${day}/${month}/${year}`;
 
                   return (
-                    <Col key={index}>
-                      <Card>
-                        <Card.Img variant='top' src={plant?.image_url} />
-                        {/* <Card.Body> */}
-                        {/* <Card.Title>
-                      {plant?.road !== "undefined"
-                        ? plant?.road
-                        : plant?.residential}
-                    </Card.Title> */}
+                    <div className='d-flex mb-5'>
+                      <div className='card-image-container w-25 rounded-left'>
+                        <img
+                          className='image-my rounded-left'
+                          src={plant?.image_url}
+                        />
+                      </div>
+                      <Card className='w-75 card-my'>
                         <Card.Header>
+                          {" "}
                           <Card.Title>
+                            {" "}
                             {plant?.road !== "undefined"
                               ? plant?.road
                               : plant?.residential}
                           </Card.Title>
+                          <span>{plant?.suburb}</span>
                         </Card.Header>
                         {/* <Card.Text></Card.Text> */}
                         {/* </Card.Body> */}
                         <ListGroup variant='flush'>
-                          <ListGroup.Item>
-                            {" "}
-                            quartiere: {plant?.suburb}
-                          </ListGroup.Item>
+                          {/* <ListGroup.Item>
+                        {" "}
+                        quartiere: {plant?.suburb}
+                      </ListGroup.Item> */}
                           <ListGroup.Item>
                             stato:{" "}
                             <span
@@ -110,28 +112,34 @@ const OwnedPlants = () => {
                             </span>{" "}
                           </ListGroup.Item>
                           <ListGroup.Item>
-                            Data segnalazione: {formatDate(plant.created_at)}
+                            Segnalato il: {formatDate(plant.created_at)}
+                          </ListGroup.Item>
+                          <ListGroup.Item>
+                            <Card.Link
+                              onClick={() => goToPlantPage(plant.id)}
+                              href='#'
+                            >
+                              Dettagli
+                            </Card.Link>
+                            <Card.Link
+                              onClick={() =>
+                                copyToClipboard([`${plant.lat},${plant.lang}`])
+                              }
+                              href='#'
+                            >
+                              Copia coordinate
+                            </Card.Link>
+                            {/* <Card.Link href='#'>Another Link</Card.Link> */}
                           </ListGroup.Item>
                         </ListGroup>
-                        <Card.Body>
-                          <Card.Link
-                            onClick={() => goToPlantPage(plant.id)}
-                            href='#'
-                          >
-                            Dettagli
-                          </Card.Link>
-                          <Card.Link
-                            onClick={() =>
-                              copyToClipboard([`${plant.lat},${plant.lang}`])
-                            }
-                            href='#'
-                          >
-                            Copia coordinate
-                          </Card.Link>
-                          {/* <Card.Link href='#'>Another Link</Card.Link> */}
-                        </Card.Body>
+
+                        {/* <Card.Footer>
+                    <small className='text-muted'>
+                      Data segnalazione {formatDate(plant.created_at)}
+                    </small>
+                  </Card.Footer> */}
                       </Card>
-                    </Col>
+                    </div>
                     // <tr
                     //   onClick={() => {
                     //     goToPlantPage(plant.id);
