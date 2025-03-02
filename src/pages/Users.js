@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useContext } from "react";
 import { MdBackspace } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
@@ -6,9 +6,14 @@ import { useEffect } from "react";
 import { AuthContext } from "../context/AuthContext";
 import ListGroup from "react-bootstrap/ListGroup";
 import Avatar from "react-avatar";
-import { Col, Row } from "react-bootstrap";
+import { Card, Col, Row } from "react-bootstrap";
+import { formatDate } from "../utils/utils";
+import Button from "react-bootstrap/Button";
+import OperationsModal from "../components/OperationsModal";
 
 const Users = () => {
+  const [modalOperationsShow, setModalOperationsShow] = useState(false);
+  const { userRole } = useContext(AuthContext);
   const navigate = useNavigate();
   const backToMap = () => {
     navigate("/map");
@@ -45,7 +50,7 @@ const Users = () => {
                         city,
                         user_name,
                         role,
-                        created_at,
+                        createdAt,
                       } = i;
                       console.log("qui", i);
                       return (
@@ -55,6 +60,21 @@ const Users = () => {
                             <div className='d-flex flex-column justify-content-center ps-4'>
                               <span> Nome: {user_name}</span>
                               <span> Ruolo: {role}</span>
+                              <span>Registrato: {formatDate(createdAt)}</span>
+                              {userRole === "admin" && (
+                                <Card.Link
+                                  variant='primary'
+                                  onClick={() => setModalOperationsShow(true)}
+                                >
+                                  Modifica
+                                </Card.Link>
+                              )}
+                              {/* <Button
+                                onClick={() => setModalOperationsShow(true)}
+                                variant='link'
+                              >
+                                Link
+                              </Button> */}
                             </div>
                           </div>
                         </ListGroup.Item>
@@ -66,8 +86,59 @@ const Users = () => {
           </div>
         </section>
       </div>
+      <OperationsModal
+        show={modalOperationsShow}
+        onHide={() => setModalOperationsShow(false)}
+      />
     </section>
   );
 };
 
 export default Users;
+
+// function MyVerticallyCenteredModal(props) {
+//   return (
+//     <Modal
+//       {...props}
+//       size='lg'
+//       aria-labelledby='contained-modal-title-vcenter'
+//       centered
+//     >
+//       <Modal.Header closeButton>
+//         <Modal.Title id='contained-modal-title-vcenter'>
+//           Modal heading
+//         </Modal.Title>
+//       </Modal.Header>
+//       <Modal.Body>
+//         <h4>Centered Modal</h4>
+//         <p>
+//           Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
+//           dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+//           consectetur ac, vestibulum at eros.
+//         </p>
+//       </Modal.Body>
+//       <Modal.Footer>
+//         <Button onClick={props.onHide}>Close</Button>
+//       </Modal.Footer>
+//     </Modal>
+//   );
+// }
+
+// function App() {
+//   const [modalShow, setModalShow] = React.useState(false);
+
+//   return (
+//     <>
+//       <Button variant='primary' onClick={() => setModalShow(true)}>
+//         Launch vertically centered modal
+//       </Button>
+
+//       <MyVerticallyCenteredModal
+//         show={modalShow}
+//         onHide={() => setModalShow(false)}
+//       />
+//     </>
+//   );
+// }
+
+// render(<App />);
