@@ -13,13 +13,14 @@ import OperationsModal from "../components/OperationsModal";
 
 const Users = () => {
   const [modalOperationsShow, setModalOperationsShow] = useState(false);
-  const { userRole } = useContext(AuthContext);
   const navigate = useNavigate();
   const backToMap = () => {
     navigate("/map");
   };
 
-  const { allUsers, getAllUsers } = useContext(AuthContext);
+  const { allUsers, getAllUsers, setUserInfo, userRole } =
+    useContext(AuthContext);
+
   useEffect(() => {
     getAllUsers();
   }, []);
@@ -64,7 +65,13 @@ const Users = () => {
                               {userRole === "admin" && (
                                 <Card.Link
                                   variant='primary'
-                                  onClick={() => setModalOperationsShow(true)}
+                                  onClick={() => {
+                                    setModalOperationsShow(true);
+                                    setUserInfo({
+                                      id,
+                                      role,
+                                    });
+                                  }}
                                 >
                                   Modifica
                                 </Card.Link>

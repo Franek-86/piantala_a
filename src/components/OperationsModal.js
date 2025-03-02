@@ -1,11 +1,12 @@
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import { AuthContext } from "../context/AuthContext";
+import { useContext } from "react";
 
 const OperationsModal = (props) => {
-  const makeUserAdmin = () => {
-    console.log("make user admin");
-    // setModalOperationsShow(false)
-  };
+  const { userInfo, changeUserRole } = useContext(AuthContext);
+  console.log("user info1", userInfo);
+
   const blockUser = () => {
     console.log("block user");
     // setModalOperationsShow(false)
@@ -24,7 +25,7 @@ const OperationsModal = (props) => {
       </Modal.Header>
       <Modal.Body>
         <div className='d-grid gap-2'>
-          <Button onClick={() => makeUserAdmin()} variant='primary' size='lg'>
+          <Button onClick={() => changeUserRole()} variant='primary' size='lg'>
             Admin
           </Button>
           <Button onClick={() => blockUser()} variant='secondary' size='lg'>

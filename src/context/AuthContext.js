@@ -12,6 +12,7 @@ export const AuthProvider = ({ children }) => {
   const [userId, setUserId] = useState(null);
   const [cities, setCities] = useState([]);
   const [allUsers, setAllUsers] = useState();
+  const [userInfo, setUserInfo] = useState({ id: "", role: "" });
   console.log(allUsers);
   // const [allUsers, setAllUsers] = useState({});
 
@@ -181,6 +182,20 @@ export const AuthProvider = ({ children }) => {
       console.error("Logout error:", error);
     }
   };
+  const changeUserRole = async () => {
+    try {
+      const response = await axios.patch(`${serverDomain}/api/auth/role`, {
+        payload: { userInfo },
+      });
+      if (response.status === 200) {
+        console.log(response);
+      } else {
+        console.error("Unexpected response:", response);
+      }
+    } catch (error) {
+      console.error("Logout error:", error);
+    }
+  };
 
   return (
     <AuthContext.Provider
@@ -197,6 +212,7 @@ export const AuthProvider = ({ children }) => {
         userRole,
         userId,
         token,
+        userInfo,
         loginOrRegister,
         setIsAuthenticated,
         generateFiscalCode,
@@ -204,6 +220,8 @@ export const AuthProvider = ({ children }) => {
         cities,
         getCities,
         getAllUsers,
+        setUserInfo,
+        changeUserRole,
       }}
     >
       {children}
