@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 import { Button, FloatingLabel } from "react-bootstrap";
+import Card from "react-bootstrap/Card";
+import ListGroup from "react-bootstrap/ListGroup";
 import { AuthContext } from "../context/AuthContext";
 import { Link, useParams, useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
@@ -112,7 +114,7 @@ const Plant = () => {
   };
   return (
     <section className='section-background plant-section'>
-      <PlantImage show={show} setShow={setShow} image_url={image_url} />
+      {/* <PlantImage show={show} setShow={setShow} image_url={image_url} /> */}
       <RejectionModal
         show={modalShow}
         onHide={() => setModalShow(false)}
@@ -129,124 +131,124 @@ const Plant = () => {
           />
         </div>
         <h2 className='section-title'>Informazioni piantina</h2>
-        {/* {reporterInfo && <h3>{reporterInfo}</h3>}
-        {ownerInfo && <h3>{ownerInfo}</h3>} */}
-        <div className='info-plant'>
-          <div className='info-plant-container w-100'>
-            <article className='image-plant-box'>
-              <img
-                className='info-image'
-                src={
+
+        <Card>
+          <ListGroup className='list-group-flush'>
+            <ListGroup.Item>
+              {" "}
+              <span>Segnalatore:</span> <span>{userInfo}</span>
+            </ListGroup.Item>
+            <ListGroup.Item>
+              {" "}
+              <span>Lat:</span> <span>{lat}</span>
+            </ListGroup.Item>
+            <ListGroup.Item>
+              {" "}
+              <span>Lang:</span> <span>{lang}</span>
+            </ListGroup.Item>
+            <ListGroup.Item>
+              {" "}
+              <span>Città:</span> <span>{city}</span>
+            </ListGroup.Item>
+            <ListGroup.Item>
+              {" "}
+              <span>Quartiere:</span> <span>{suburb}</span>
+            </ListGroup.Item>
+            {road !== "undefined" && (
+              <ListGroup.Item>
+                {" "}
+                <span>Indirizzo:</span> <span>{road}</span>
+              </ListGroup.Item>
+            )}
+            {shop != "undefined" && (
+              <ListGroup.Item>
+                {" "}
+                <span>Negozio:</span> <span>{shop}</span>
+              </ListGroup.Item>
+            )}
+            {residential !== "undefined" && (
+              <ListGroup.Item>
+                {" "}
+                <span>Residenza:</span> <span>{residential}</span>
+              </ListGroup.Item>
+            )}
+            {house_number !== "undefined" && (
+              <ListGroup.Item>
+                {" "}
+                <span>Numero:</span> <span>{house_number}</span>
+              </ListGroup.Item>
+            )}
+            <ListGroup.Item>
+              {" "}
+              <span>Stato:</span>{" "}
+              <span
+                className={
                   status_piantina === "approved"
-                    ? greenPlant
-                    : status_piantina === "pending"
-                    ? yellowPlant
+                    ? "approvedPlant"
+                    : status_piantina === "rejected"
+                    ? "rejectedPlant"
                     : status_piantina === "booked"
-                    ? bluePlant
-                    : redPlant
+                    ? "bookedPlant"
+                    : "pendingPlant"
                 }
-                alt='stato piantina'
-              />
-            </article>
-            <article className='info-plant-box'>
-              <ul>
-                <li>
-                  <div className='d-flex align-items-center'></div>
-                </li>
-                <li>
-                  <span>Segnalatore:</span> <span>{userInfo}</span>
-                </li>
-                <li>
-                  <span>image:</span>{" "}
-                  <span>
-                    <Button
-                      size='sm'
-                      variant='outline-primary'
-                      onClick={() => setShow(true)}
-                    >
-                      piantina
-                    </Button>
-                  </span>
-                </li>
-                <li>
-                  <span>Lat:</span> <span>{lat}</span>
-                </li>
-                <li>
-                  <span>Lang:</span> <span>{lang}</span>
-                </li>
-                <li>
-                  <span>Città:</span> <span>{city}</span>
-                </li>
-                <li>
-                  <span>Quartiere:</span> <span>{suburb}</span>
-                </li>
-                {road !== "undefined" && (
-                  <li>
-                    <span>Indirizzo:</span> <span>{road}</span>
-                  </li>
-                )}
-                {shop != "undefined" && (
-                  <li>
-                    <span>Negozio:</span> <span>{shop}</span>
-                  </li>
-                )}
-                {residential !== "undefined" && (
-                  <li>
-                    <span>Residenza:</span> <span>{residential}</span>
-                  </li>
-                )}
-                {house_number !== "undefined" && (
-                  <li>
-                    <span>Numero:</span> <span>{house_number}</span>
-                  </li>
-                )}
-                <li>
-                  <span>Stato:</span>{" "}
-                  <span
-                    className={
-                      status_piantina === "approved"
-                        ? "approvedPlant"
-                        : status_piantina === "rejected"
-                        ? "rejectedPlant"
-                        : status_piantina === "booked"
-                        ? "bookedPlant"
-                        : "pendingPlant"
-                    }
-                  >
-                    {status_piantina}
-                  </span>
-                  {status_piantina === "booked" && (
-                    <>
-                      <li>
-                        <span>Testo targa:</span> <span>{user_comment}</span>
-                      </li>
-                      <li>
-                        <span>Tipo di pianta:</span> <span>{plant_type}</span>
-                      </li>
-                    </>
-                  )}
-                  {status_piantina === "rejected" && (
-                    <li>
-                      <span>Motivazione:</span> <span>{rejection_comment}</span>
-                    </li>
-                  )}
-                </li>
-              </ul>
-            </article>
-          </div>
+              >
+                {status_piantina}
+              </span>
+            </ListGroup.Item>
+            {status_piantina === "rejected" && (
+              <ListGroup.Item>
+                {" "}
+                <span>Motivazione:</span> <span>{rejection_comment}</span>
+              </ListGroup.Item>
+            )}
+          </ListGroup>
 
-          {status_piantina === "approved" ? (
-            <PlantForm />
-          ) : status_piantina === "pending" ? (
-            <i className='small mt-3'>
-              Il tempo medio di approvazione è di una settimana lavorativa dalla
-              data di ricezione della segnalazione.
-            </i>
-          ) : (
-            <></>
+          <Card.Img variant='bottom' src={image_url} />
+        </Card>
+
+        {/* </div> */}
+
+        <br />
+        <Card>
+          {status_piantina === "booked" && (
+            <ListGroup className='list-group-flush'>
+              <ListGroup.Item>
+                {" "}
+                <span>Testo targa:</span> <span>{user_comment}</span>
+              </ListGroup.Item>
+
+              <ListGroup.Item>
+                {" "}
+                <span>Tipo di pianta:</span> <span>{plant_type}</span>
+              </ListGroup.Item>
+            </ListGroup>
           )}
-        </div>
+          {plate && !plateLoading && status_piantina === "booked" && (
+            <Card.Img
+              variant='bottom'
+              src={plate}
+              onLoad={handleImageLoad}
+              className={`w-100 transition-opacity duration-500 ${
+                isLoaded ? "opacity-100" : "opacity-0"
+              }`}
+            />
+          )}
+        </Card>
 
+        {/* plant form or feedback time */}
+
+        {status_piantina === "approved" ? (
+          <PlantForm />
+        ) : status_piantina === "pending" ? (
+          <i className='small mt-3'>
+            Il tempo medio di approvazione è di una settimana lavorativa dalla
+            data di ricezione della segnalazione.
+          </i>
+        ) : (
+          <></>
+        )}
+        {/* </div> */}
+        {/* loading */}
         {plateLoading && (
           <div className='loading-container-mini'>
             <div className='loading-content'>
@@ -259,8 +261,8 @@ const Plant = () => {
             </div>
           </div>
         )}
-
-        {plate && !plateLoading && status_piantina === "booked" && (
+        {/* targa */}
+        {/* {plate && !plateLoading && status_piantina === "booked" && (
           <div className='plate-container mt-2'>
             <div className='plate-image'>
               <img
@@ -273,7 +275,7 @@ const Plant = () => {
               />
             </div>
           </div>
-        )}
+        )} */}
 
         {/* funzionalità admin */}
 
