@@ -36,7 +36,7 @@ const Plant = () => {
   const { plantId } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
-  const { userRole } = useContext(AuthContext);
+  const { userRole, loading } = useContext(AuthContext);
   const {
     plant,
     userInfo,
@@ -131,20 +131,11 @@ const Plant = () => {
           />
         </div>
         <h2 className='section-title'>Informazioni piantina</h2>
-
         <Card>
           <ListGroup className='list-group-flush'>
             <ListGroup.Item>
               {" "}
               <span>Segnalatore:</span> <span>{userInfo}</span>
-            </ListGroup.Item>
-            <ListGroup.Item>
-              {" "}
-              <span>Lat:</span> <span>{lat}</span>
-            </ListGroup.Item>
-            <ListGroup.Item>
-              {" "}
-              <span>Lang:</span> <span>{lang}</span>
             </ListGroup.Item>
             <ListGroup.Item>
               {" "}
@@ -194,6 +185,14 @@ const Plant = () => {
               >
                 {status_piantina}
               </span>
+            </ListGroup.Item>
+            <ListGroup.Item>
+              {" "}
+              <span>Lat:</span> <span>{lat}</span>
+            </ListGroup.Item>
+            <ListGroup.Item>
+              {" "}
+              <span>Lang:</span> <span>{lang}</span>
             </ListGroup.Item>
             {status_piantina === "rejected" && (
               <ListGroup.Item>

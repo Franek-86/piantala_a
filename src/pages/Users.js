@@ -10,6 +10,8 @@ import { Card, Col, Row } from "react-bootstrap";
 import { formatDate } from "../utils/utils";
 import Button from "react-bootstrap/Button";
 import OperationsModal from "../components/OperationsModal";
+import Loading from "./Loading";
+import { ToastContainer, toast } from "react-toastify";
 
 const Users = () => {
   const [modalOperationsShow, setModalOperationsShow] = useState(false);
@@ -18,7 +20,7 @@ const Users = () => {
     navigate("/map");
   };
 
-  const { allUsers, getAllUsers, setUserInfo, userRole } =
+  const { allUsers, getAllUsers, setUserInfo, userRole, loading } =
     useContext(AuthContext);
 
   useEffect(() => {
@@ -36,9 +38,12 @@ const Users = () => {
           />
         </div>
         <section className='section-page section-background'>
+          <ToastContainer />;
           <div className='section-center'>
             <h2 className='section-title'>Lista Utenti</h2>
             <div className='d-md-flex justify-content-md-center'>
+              {loading && <Loading />}
+
               <Col md={6} className='justify-content-md-center'>
                 <ListGroup>
                   {allUsers &&

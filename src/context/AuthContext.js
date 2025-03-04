@@ -1,12 +1,13 @@
 import React, { createContext, useState, useEffect } from "react";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
+import { toast } from "react-toastify";
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userToken, setUserToken] = useState(null);
-  const [loading, setLoading] = useState(true); // New loading state
+  const [loading, setLoading] = useState(false); // New loading state
   const [submissionError, setSubmissionError] = useState("");
   const [userRole, setUserRole] = useState(null);
   const [userId, setUserId] = useState(null);
@@ -183,17 +184,33 @@ export const AuthProvider = ({ children }) => {
     }
   };
   const changeUserRole = async () => {
+    setLoading(true);
     try {
       const response = await axios.patch(`${serverDomain}/api/auth/role`, {
         payload: { userInfo },
       });
       if (response.status === 200) {
+        setLoading(false);
+        toast("🪴 Ruolo utente modificato", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          // transition: Bounce,
+        });
+
         console.log(response);
       } else {
         console.error("Unexpected response:", response);
+        setLoading(false);
       }
     } catch (error) {
       console.error("Logout error:", error);
+      setLoading(false);
     }
   };
 
