@@ -4,13 +4,10 @@ import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
 
 const OperationsModal = (props) => {
-  const { userInfo, changeUserRole } = useContext(AuthContext);
+  const { userInfo, changeUserRole, changeUserStatus } =
+    useContext(AuthContext);
   console.log("user info1", userInfo);
 
-  const blockUser = () => {
-    console.log("block user");
-    // setModalOperationsShow(false)
-  };
   return (
     <Modal
       {...props}
@@ -25,10 +22,24 @@ const OperationsModal = (props) => {
       </Modal.Header>
       <Modal.Body>
         <div className='d-grid gap-2'>
-          <Button onClick={() => changeUserRole()} variant='primary' size='lg'>
+          <Button
+            onClick={() => {
+              changeUserRole();
+              props.handleClose();
+            }}
+            variant='primary'
+            size='lg'
+          >
             Admin
           </Button>
-          <Button onClick={() => blockUser()} variant='secondary' size='lg'>
+          <Button
+            onClick={() => {
+              changeUserStatus();
+              props.handleClose();
+            }}
+            variant='secondary'
+            size='lg'
+          >
             Blocca
           </Button>
         </div>

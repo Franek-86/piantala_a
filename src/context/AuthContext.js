@@ -191,9 +191,40 @@ export const AuthProvider = ({ children }) => {
       });
       if (response.status === 200) {
         setLoading(false);
-        toast("🪴 Ruolo utente modificato", {
+        toast("🌱 Ruolo utente modificato", {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          // transition: Bounce,
+        });
+
+        console.log(response);
+      } else {
+        console.error("Unexpected response:", response);
+        setLoading(false);
+      }
+    } catch (error) {
+      console.error("Logout error:", error);
+      setLoading(false);
+    }
+  };
+
+  const changeUserStatus = async () => {
+    setLoading(true);
+    try {
+      const response = await axios.patch(`${serverDomain}/api/auth/status`, {
+        payload: { userInfo },
+      });
+      if (response.status === 200) {
+        setLoading(false);
+        toast("🌱 Utente bloccato", {
+          position: "top-right",
+          autoClose: 2000,
           hideProgressBar: false,
           closeOnClick: false,
           pauseOnHover: true,
@@ -239,6 +270,7 @@ export const AuthProvider = ({ children }) => {
         getAllUsers,
         setUserInfo,
         changeUserRole,
+        changeUserStatus,
       }}
     >
       {children}

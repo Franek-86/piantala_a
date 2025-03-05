@@ -15,6 +15,8 @@ import { ToastContainer, toast } from "react-toastify";
 
 const Users = () => {
   const [modalOperationsShow, setModalOperationsShow] = useState(false);
+  const handleClose = () => setModalOperationsShow(false);
+  const handleShow = () => setModalOperationsShow(true);
   const navigate = useNavigate();
   const backToMap = () => {
     navigate("/map");
@@ -71,7 +73,7 @@ const Users = () => {
                                 <Card.Link
                                   variant='primary'
                                   onClick={() => {
-                                    setModalOperationsShow(true);
+                                    handleShow(true);
                                     setUserInfo({
                                       id,
                                       role,
@@ -99,8 +101,9 @@ const Users = () => {
         </section>
       </div>
       <OperationsModal
+        handleClose={handleClose}
         show={modalOperationsShow}
-        onHide={() => setModalOperationsShow(false)}
+        onHide={() => handleClose()}
       />
     </section>
   );
