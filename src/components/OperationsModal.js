@@ -30,7 +30,9 @@ const OperationsModal = (props) => {
             variant='primary'
             size='lg'
           >
-            Admin
+            {userInfo.role === "admin"
+              ? "Rimuovi da amministratore"
+              : "Rendi amministratore"}
           </Button>
           <Button
             onClick={() => {

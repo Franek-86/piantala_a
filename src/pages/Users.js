@@ -15,6 +15,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 const Users = () => {
   const [modalOperationsShow, setModalOperationsShow] = useState(false);
+
   const handleClose = () => setModalOperationsShow(false);
   const handleShow = () => setModalOperationsShow(true);
   const navigate = useNavigate();
@@ -22,12 +23,12 @@ const Users = () => {
     navigate("/map");
   };
 
-  const { allUsers, getAllUsers, setUserInfo, userRole, loading } =
+  const { allUsers, getAllUsers, setUserInfo, userRole, loading, listedRole } =
     useContext(AuthContext);
 
   useEffect(() => {
     getAllUsers();
-  }, []);
+  }, [listedRole]);
   console.log("aaa", allUsers);
   return (
     <section className='section-background section-full-page'>

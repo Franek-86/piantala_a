@@ -10,6 +10,7 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(false); // New loading state
   const [submissionError, setSubmissionError] = useState("");
   const [userRole, setUserRole] = useState(null);
+  const [listedRole, setListedRole] = useState("");
   const [userId, setUserId] = useState(null);
   const [cities, setCities] = useState([]);
   const [allUsers, setAllUsers] = useState();
@@ -107,6 +108,10 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  // useEffect(() => {
+  //   getAllUsers();
+  // }, [userRole]);
+
   const loginOrRegister = async (data) => {
     console.log("sta?", serverDomain);
     const {
@@ -202,7 +207,8 @@ export const AuthProvider = ({ children }) => {
           theme: "light",
           // transition: Bounce,
         });
-
+        console.log("test", response.data);
+        setListedRole(response.data);
         console.log(response);
       } else {
         console.error("Unexpected response:", response);
@@ -234,7 +240,7 @@ export const AuthProvider = ({ children }) => {
           // transition: Bounce,
         });
 
-        console.log(response);
+        setListedRole(response.data);
       } else {
         console.error("Unexpected response:", response);
         setLoading(false);
@@ -258,6 +264,7 @@ export const AuthProvider = ({ children }) => {
         setIsRegister,
         isRegister,
         userRole,
+        listedRole,
         userId,
         token,
         userInfo,
