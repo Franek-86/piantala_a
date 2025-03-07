@@ -42,7 +42,7 @@ const OperationsModal = (props) => {
             variant='secondary'
             size='lg'
           >
-            Blocca
+            {userInfo.status === 0 ? "Blocca" : "Sblocca"}
           </Button>
         </div>
       </Modal.Body>

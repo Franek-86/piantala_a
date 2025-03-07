@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useContext } from "react";
 import { MdBackspace } from "react-icons/md";
+import { ImBlocked } from "react-icons/im";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { AuthContext } from "../context/AuthContext";
@@ -23,12 +24,12 @@ const Users = () => {
     navigate("/map");
   };
 
-  const { allUsers, getAllUsers, setUserInfo, userRole, loading, listedRole } =
+  const { allUsers, getAllUsers, setUserInfo, userRole, loading, userInfo } =
     useContext(AuthContext);
 
   useEffect(() => {
     getAllUsers();
-  }, [listedRole]);
+  }, [userInfo.status, userInfo.role]);
   console.log("aaa", allUsers);
   return (
     <section className='section-background section-full-page'>
@@ -41,7 +42,7 @@ const Users = () => {
           />
         </div>
         <section className='section-page section-background'>
-          <ToastContainer />;
+          <ToastContainer />
           <div className='section-center'>
             <h2 className='section-title'>Lista Utenti</h2>
             <div className='d-md-flex justify-content-md-center'>
@@ -60,6 +61,7 @@ const Users = () => {
                         user_name,
                         role,
                         createdAt,
+                        status,
                       } = i;
                       console.log("qui", i);
                       return (
@@ -67,7 +69,11 @@ const Users = () => {
                           <div className='d-flex'>
                             <Avatar facebookId='100008343750912' size='100' />
                             <div className='d-flex flex-column justify-content-center ps-4'>
-                              <span> Nome: {user_name}</span>
+                              <span>
+                                {" "}
+                                Nome: {user_name}{" "}
+                                {status === 1 && <ImBlocked />}
+                              </span>
                               <span> Ruolo: {role}</span>
                               <span>Registrato: {formatDate(createdAt)}</span>
                               {userRole === "admin" && (
@@ -78,6 +84,7 @@ const Users = () => {
                                     setUserInfo({
                                       id,
                                       role,
+                                      status,
                                     });
                                   }}
                                 >

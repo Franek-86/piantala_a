@@ -10,11 +10,10 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(false); // New loading state
   const [submissionError, setSubmissionError] = useState("");
   const [userRole, setUserRole] = useState(null);
-  const [listedRole, setListedRole] = useState("");
   const [userId, setUserId] = useState(null);
   const [cities, setCities] = useState([]);
   const [allUsers, setAllUsers] = useState();
-  const [userInfo, setUserInfo] = useState({ id: "", role: "" });
+  const [userInfo, setUserInfo] = useState({ id: "", role: "", status: "" });
   console.log(allUsers);
   // const [allUsers, setAllUsers] = useState({});
 
@@ -196,20 +195,34 @@ export const AuthProvider = ({ children }) => {
       });
       if (response.status === 200) {
         setLoading(false);
-        toast("🌱 Ruolo utente modificato", {
-          position: "top-right",
-          autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: false,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-          // transition: Bounce,
-        });
-        console.log("test", response.data);
-        setListedRole(response.data);
-        console.log(response);
+        if (response.data === "diritti amministrativi rimossi") {
+          setUserInfo({ ...userInfo, role: "user" });
+          toast("🌱 Ruolo utente amministratore rimosso", {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            // transition: Bounce,
+          });
+        }
+        if (response.data === "diritti amministrativi aggiunti") {
+          setUserInfo({ ...userInfo, role: "admin" });
+          toast("🌱 Ruolo utente amministratore aggiunto", {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            // transition: Bounce,
+          });
+        }
       } else {
         console.error("Unexpected response:", response);
         setLoading(false);
@@ -226,21 +239,36 @@ export const AuthProvider = ({ children }) => {
       const response = await axios.patch(`${serverDomain}/api/auth/status`, {
         payload: { userInfo },
       });
+      console.log("this", response);
       if (response.status === 200) {
         setLoading(false);
-        toast("🌱 Utente bloccato", {
-          position: "top-right",
-          autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: false,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-          // transition: Bounce,
-        });
-
-        setListedRole(response.data);
+        setUserInfo({ ...userInfo, status: 0 });
+        if (response.data === "User has been unblocked") {
+          toast("🌱 Utente sbloccato", {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            // transition: Bounce,
+          });
+        } else {
+          setUserInfo({ ...userInfo, status: 1 });
+          toast("🌱 Utente bloccato", {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            // transition: Bounce,
+          });
+        }
       } else {
         console.error("Unexpected response:", response);
         setLoading(false);
@@ -264,7 +292,6 @@ export const AuthProvider = ({ children }) => {
         setIsRegister,
         isRegister,
         userRole,
-        listedRole,
         userId,
         token,
         userInfo,
