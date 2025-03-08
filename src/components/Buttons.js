@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { MdAdd } from "react-icons/md";
 import { MdLocalPhone } from "react-icons/md";
@@ -13,8 +13,13 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { useMap } from "react-leaflet";
 import { MdAddLocation } from "react-icons/md";
+import Avatar from "react-avatar";
+
+
 import L from "leaflet";
+import { AuthContext } from "../context/AuthContext";
 const Buttons = ({ setPosition, langMatch, latMatch, markerRef }) => {
+  const{getUserInfo, userId, userName } = useContext(AuthContext)
   const [show, setShow] = useState(false);
   const [showFilters, setShowFilters] = useState(false);
   const handleClose = () => setShow(false);
@@ -25,13 +30,15 @@ const Buttons = ({ setPosition, langMatch, latMatch, markerRef }) => {
   const navigate = useNavigate(); // Initialize the navigate function
   const map = useMap();
 
+
+
   console.log("setPosition", setPosition);
   return (
     <div className='section buttons-section'>
       <div className='leftButton'>
-        {/* <div className='test1'>
+        <div className='test1'>
           <img src={logo} alt='' className='map-logo' />
-        </div> */}
+        </div>
         <Button
           variant='primary'
           onClick={handleShow}
@@ -45,6 +52,16 @@ const Buttons = ({ setPosition, langMatch, latMatch, markerRef }) => {
         {/* <Link className='circle-button' to='addPlant'>
           <MdAdd />
         </Link> */}
+                                    <Avatar
+                                    size="3rem"
+                                    round="50%"
+                              src='https://example.com/user-avatar.jpg'
+                              color='#b7d9c2'
+                              fgColor="#0e722d"
+                              name={userName}
+
+              
+                            />
 
         <Button
           onClick={() =>

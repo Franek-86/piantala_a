@@ -14,6 +14,7 @@ export const AuthProvider = ({ children }) => {
   const [cities, setCities] = useState([]);
   const [allUsers, setAllUsers] = useState();
   const [userInfo, setUserInfo] = useState({ id: "", role: "", status: "" });
+  const [userName, setUserName] = useState(null)
   console.log(allUsers);
   // const [allUsers, setAllUsers] = useState({});
 
@@ -87,13 +88,18 @@ export const AuthProvider = ({ children }) => {
       if (response) {
         console.log("response", response.data);
         // return response;
-
+        console.log("test1",response.data);
+        setUserName(response.data)
         return response.data;
       }
     } catch (err) {
       console.log(err.message);
     }
   };
+
+  useEffect(()=>{
+    getUserInfo(userId)
+  },[userId])
   const getAllUsers = async () => {
     try {
       const response = await axios.get(`${serverDomain}/api/auth/users`);
@@ -279,6 +285,9 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+
+
+
   return (
     <AuthContext.Provider
       value={{
@@ -286,6 +295,7 @@ export const AuthProvider = ({ children }) => {
         isAuthenticated,
         loading,
         allUsers,
+        userName,
         setUserRole,
         getUserInfo,
         handleLogout,
