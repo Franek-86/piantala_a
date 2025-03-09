@@ -19,7 +19,7 @@ import L from "leaflet";
 import { AuthContext } from "../context/AuthContext";
 import ProfileModal from "./ProfileModal";
 const Buttons = ({ setPosition, langMatch, latMatch, markerRef }) => {
-  const { getUserInfo, userId, userName } = useContext(AuthContext);
+  const { getUserInfo, userId, loggedUserInfo } = useContext(AuthContext);
   const [show, setShow] = useState(false);
   const [showFilters, setShowFilters] = useState(false);
   const handleClose = () => setShow(false);
@@ -37,11 +37,12 @@ const Buttons = ({ setPosition, langMatch, latMatch, markerRef }) => {
     <div className='section buttons-section'>
       <ProfileModal smShow={smShow} setSmShow={setSmShow} />
       <div className='leftButton'>
-        <div className='test1'>
+        {/* <div className='test1'>
           <img src={logo} alt='' className='map-logo' />
-        </div>
+        </div> */}
         <Button
           variant='primary'
+          style={{ width: "3rem", height: "3rem" }}
           onClick={handleShow}
           className='circle-button menu-button p-0'
         >
@@ -58,7 +59,7 @@ const Buttons = ({ setPosition, langMatch, latMatch, markerRef }) => {
           src='https://example.com/user-avatar.jpg'
           color='#b7d9c2'
           fgColor='#0e722d'
-          name={userName}
+          name={loggedUserInfo.userName}
           onClick={() => setSmShow(true)}
         />
 

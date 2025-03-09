@@ -213,18 +213,18 @@ export const PlantsProvider = ({ children }) => {
           );
           if (item) {
             console.log("111");
-            const userName = await getUserInfo(item.user_id);
+            const userInfo = await getUserInfo(item.user_id);
 
-            if (userName) {
-              console.log("123321", userName);
+            if (userInfo.userName) {
+              console.log("123321", userInfo);
 
               setPlant(item);
-              setUserInfo(userName);
+              setUserInfo(userInfo.userName);
               setUserId(item.user_id);
               setOwnerId(item.owner_id);
               console.log("userInfo", userInfo);
             }
-            console.log("123321123", userName);
+            console.log("123321123", userInfo);
           }
         }
       } catch (err) {

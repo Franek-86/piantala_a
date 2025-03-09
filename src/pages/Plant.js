@@ -36,7 +36,7 @@ const Plant = () => {
   const { plantId } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
-  const { userRole, loading } = useContext(AuthContext);
+  const { userRole } = useContext(AuthContext);
   const {
     plant,
     userInfo,

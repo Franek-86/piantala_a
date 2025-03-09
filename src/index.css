@@ -234,7 +234,7 @@ small.text-muted.ms-3.form-text {
 }
 /* buttons */
 .rightButtons {
-  top: 3.25rem;
+  top: 2rem;
   right: 2rem;
   z-index: 1000;
   position: absolute;
@@ -243,8 +243,8 @@ small.text-muted.ms-3.form-text {
   gap: 1rem;
 }
 .leftButton {
-  top: 4rem;
-  left: 3.3rem;
+  top: 2rem;
+  left: 2rem;
   z-index: 1000;
   position: relative;
 }
@@ -684,18 +684,18 @@ small.text-muted.ms-3.form-text {
 /* profile modal */
 .profile-modal .modal-dialog {
   position: relative;
-  width: 50vw;
+  width: 65vw;
   margin: var(--bs-modal-margin);
   pointer-events: none;
   margin-left: auto;
   margin-right: 2rem;
-  margin-top: 6.5rem;
+  margin-top: 5rem;
 }
 @media screen and (min-width: 576px) {
   .profile-modal .modal-dialog {
     max-width: var(--bs-modal-width);
     margin-left: auto;
     margin-right: 2rem;
-    margin-top: 7rem;
+    margin-top: 5rem;
   }
 }
