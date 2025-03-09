@@ -15,26 +15,27 @@ import { useMap } from "react-leaflet";
 import { MdAddLocation } from "react-icons/md";
 import Avatar from "react-avatar";
 
-
 import L from "leaflet";
 import { AuthContext } from "../context/AuthContext";
+import ProfileModal from "./ProfileModal";
 const Buttons = ({ setPosition, langMatch, latMatch, markerRef }) => {
-  const{getUserInfo, userId, userName } = useContext(AuthContext)
+  const { getUserInfo, userId, userName } = useContext(AuthContext);
   const [show, setShow] = useState(false);
   const [showFilters, setShowFilters] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
+  const [smShow, setSmShow] = useState(false);
   const handleCloseFilters = () => setShowFilters(false);
   const handleShowFilters = () => setShowFilters(true);
   const navigate = useNavigate(); // Initialize the navigate function
   const map = useMap();
-
-
-
-  console.log("setPosition", setPosition);
+  const test = () => {
+    console.log("test111");
+  };
+  console.log("test1", smShow);
   return (
     <div className='section buttons-section'>
+      <ProfileModal smShow={smShow} setSmShow={setSmShow} />
       <div className='leftButton'>
         <div className='test1'>
           <img src={logo} alt='' className='map-logo' />
@@ -47,21 +48,19 @@ const Buttons = ({ setPosition, langMatch, latMatch, markerRef }) => {
           <BiMenu />
         </Button>
       </div>
-
       <div className='rightButtons'>
         {/* <Link className='circle-button' to='addPlant'>
           <MdAdd />
         </Link> */}
-                                    <Avatar
-                                    size="3rem"
-                                    round="50%"
-                              src='https://example.com/user-avatar.jpg'
-                              color='#b7d9c2'
-                              fgColor="#0e722d"
-                              name={userName}
-
-              
-                            />
+        <Avatar
+          size='3rem'
+          round='50%'
+          src='https://example.com/user-avatar.jpg'
+          color='#b7d9c2'
+          fgColor='#0e722d'
+          name={userName}
+          onClick={() => setSmShow(true)}
+        />
 
         <Button
           onClick={() =>

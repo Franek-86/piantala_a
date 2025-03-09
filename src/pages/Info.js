@@ -21,11 +21,15 @@ const Info = () => {
           </div>
           <h2 className='section-title'>Chi siamo</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum
-            tenetur eius, aperiam dolorem eaque nostrum illo hic. Eum voluptate
-            quam in rem sit quia eveniet? Quam, voluptas. Nostrum soluta tenetur
-            dolor, quibusdam dolorem veniam magni minus optio quis neque officia
-            quo laborum rerum tempore illo obcaecati ipsa cumque error. Nobis?
+            L'iniziativa "Ti pianto per amore" voluta dall'Associazione
+            culturale "Amici di Ernest Verner" intende promuovere l'adozione di
+            alberi da parte di privati in punti della città di Bari dove ci
+            siano buche o zone lasciate prive di verde. L'app ci permette di
+            localizzare queste zone, segnalarle ed eventualmente prenotarle per
+            l'acquisto di un albero con apposita targa da dedicare. I passaggi
+            per l'acquisto dell'albero (scelta dell'albero, testo per la targa e
+            pagamento) sono tutti indicati nella legenda. Per qualsiasi
+            chiarimento contattaci 3485384563.
           </p>
         </div>
       </section>
