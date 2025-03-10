@@ -5,7 +5,7 @@ import { MdLocalPhone } from "react-icons/md";
 import { MdCenterFocusStrong } from "react-icons/md";
 import { MdFilterAlt } from "react-icons/md";
 import { BiMenu } from "react-icons/bi";
-import logo from "../assets/images/logo_albero_green.png";
+import logo from "../assets/images/logo-mappa-1.png";
 import SideMenu from "./SideMenu";
 import FilterControls from "./FilterControls";
 import axios from "axios";

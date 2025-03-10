@@ -8,7 +8,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { ListGroup } from "react-bootstrap";
 import BottomBar from "../components/BottomBar";
-import copy from "copy-to-clipboard";
+import { copyToClipboard } from "../utils/utils";
 
 const OwnedPlants = () => {
   const { getMyPlants, myPlants } = useContext(PlantsContext);
@@ -37,10 +37,7 @@ const OwnedPlants = () => {
         return "bg-secondary text-white text-center"; // Default styling for unknown status
     }
   };
-  const copyToClipboard = (copyText) => {
-    copy(copyText);
-    alert(`You have copied "${copyText}"`);
-  };
+
   return (
     <>
       <section className='section-page section-background'>
@@ -87,8 +84,10 @@ const OwnedPlants = () => {
                           {" "}
                           <Card.Title>
                             {" "}
-                            {plant?.road !== "undefined"
-                              ? plant?.road
+                            {plant?.road !== "undefined" && !plant?.number
+                              ? `${plant?.road}`
+                              : plant?.road && plant?.number
+                              ? `${plant?.road} / ${plant?.number}`
                               : plant?.residential}
                           </Card.Title>
                           <span>{plant?.suburb}</span>
@@ -100,7 +99,7 @@ const OwnedPlants = () => {
                         {" "}
                         quartiere: {plant?.suburb}
                       </ListGroup.Item> */}
-                          <ListGroup.Item>
+                          {/* <ListGroup.Item>
                             stato:{" "}
                             <span
                               className={getStatusClasses(
@@ -110,9 +109,9 @@ const OwnedPlants = () => {
                               {" "}
                               {plant?.status_piantina}
                             </span>{" "}
-                          </ListGroup.Item>
+                          </ListGroup.Item> */}
                           <ListGroup.Item>
-                            Segnalato il: {formatDate(plant.created_at)}
+                            Tipo pianta: {plant.plant_type}
                           </ListGroup.Item>
                           <ListGroup.Item>
                             <Card.Link

@@ -1,15 +1,12 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 import { Button, FloatingLabel } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
+import { FaRegCopy } from "react-icons/fa";
 import ListGroup from "react-bootstrap/ListGroup";
 import { AuthContext } from "../context/AuthContext";
 import { Link, useParams, useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import { MdBackspace } from "react-icons/md";
-import greenPlant from "../assets/images/ti pianto per amore-APP-verde.png";
-import yellowPlant from "../assets/images/ti pianto per amore-APP-giallo.png";
-import redPlant from "../assets/images/ti pianto per amore-APP-rosso.png";
-import bluePlant from "../assets/images/ti pianto per amore-APP-azzurro.png";
 import { PlantsContext } from "../context/PlantsContext";
 import PlantForm from "../components/PlantForm";
 import RejectionModal from "../components/RejectionModal";
@@ -21,6 +18,7 @@ import { FaUser } from "react-icons/fa6";
 import { FaRegUser } from "react-icons/fa6";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { IoIosRemoveCircleOutline } from "react-icons/io";
+import { copyToClipboard } from "../utils/utils";
 
 const Plant = () => {
   // const [loading, setLoading] = useState(true);
@@ -188,12 +186,18 @@ const Plant = () => {
             </ListGroup.Item>
             <ListGroup.Item>
               {" "}
-              <span>Lat:</span> <span>{lat}</span>
+              <span>Coordinate:</span>{" "}
+              <span
+                className='copy'
+                onClick={() => copyToClipboard([`${lat},${lang}`])}
+              >
+                {lat} / {lang} <FaRegCopy className='copy-icon' />
+              </span>
             </ListGroup.Item>
-            <ListGroup.Item>
+            {/* <ListGroup.Item>
               {" "}
               <span>Lang:</span> <span>{lang}</span>
-            </ListGroup.Item>
+            </ListGroup.Item> */}
             {status_piantina === "rejected" && (
               <ListGroup.Item>
                 {" "}
@@ -231,6 +235,9 @@ const Plant = () => {
                 isLoaded ? "opacity-100" : "opacity-0"
               }`}
             />
+          )}
+          {status_piantina === "booked" && !plate && (
+            <Card.Img variant='top' src='holder.js/100px180' />
           )}
         </Card>
 

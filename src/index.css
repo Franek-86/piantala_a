@@ -250,12 +250,12 @@ small.text-muted.ms-3.form-text {
 }
 .test1 {
   position: absolute;
-  z-index: -1;
-  left: -1.8rem;
-  top: -2.6rem;
+  z-index: 0;
+  left: -1.1rem;
+  top: -1.2rem;
 }
 .map-logo {
-  width: 3.8rem;
+  width: 2.5rem;
 }
 .circle-button {
   border-color: transparent !important;
@@ -559,6 +559,14 @@ small.text-muted.ms-3.form-text {
 }
 .bookedPlant {
   color: #4fa0ca;
+}
+.copy-icon,
+.copy {
+  color: gray !important;
+  cursor: pointer;
+}
+.copy-icon {
+  font-size: 1.15rem !important;
 }
 
 /* -----------------rejection modal------------------ */

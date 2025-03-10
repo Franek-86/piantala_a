@@ -7,11 +7,12 @@ import Table from "react-bootstrap/Table";
 import { PlantsContext } from "../context/PlantsContext";
 import Card from "react-bootstrap/Card";
 import CardGroup from "react-bootstrap/CardGroup";
-import copy from "copy-to-clipboard";
 import ListGroup from "react-bootstrap/ListGroup";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import CardImg from "react-bootstrap/CardImg";
+import { copyToClipboard } from "../utils/utils";
+
 const MyPlants = () => {
   const { myReports, loadingReports, fetchUserPlants } =
     useContext(PlantsContext);
@@ -58,10 +59,7 @@ const MyPlants = () => {
     navigate(`/map/${id}`, { state: { from: "/myPlants" } });
   };
   console.log(myReports);
-  const copyToClipboard = (copyText) => {
-    copy(copyText);
-    alert(`You have copied "${copyText}"`);
-  };
+
   return (
     <>
       <section className='section-page section-background'>
@@ -95,9 +93,10 @@ const MyPlants = () => {
                       <Card.Header>
                         {" "}
                         <Card.Title>
-                          {" "}
-                          {plant?.road !== "undefined"
-                            ? plant?.road
+                          {plant?.road !== "undefined" && !plant?.number
+                            ? `${plant?.road}`
+                            : plant?.road && plant?.number
+                            ? `${plant?.road} / ${plant?.number}`
                             : plant?.residential}
                         </Card.Title>
                         <span>{plant?.suburb}</span>
