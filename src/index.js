@@ -31,7 +31,7 @@ import { FilterProvider } from "./context/FilterContext";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Users from "./pages/Users";
-
+import { ToastContainer } from "react-toastify";
 // Configurazione delle rotte
 const router = createBrowserRouter([
   {
@@ -104,6 +104,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <AuthProvider>
       <PlantsProvider>
         <FilterProvider>
+          <ToastContainer />
           <RouterProvider router={router} />
         </FilterProvider>
       </PlantsProvider>

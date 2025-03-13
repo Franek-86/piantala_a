@@ -12,7 +12,6 @@ import { formatDate } from "../utils/utils";
 import Button from "react-bootstrap/Button";
 import OperationsModal from "../components/OperationsModal";
 import Loading from "./Loading";
-import { ToastContainer, toast } from "react-toastify";
 
 const Users = () => {
   const [modalOperationsShow, setModalOperationsShow] = useState(false);
@@ -42,7 +41,6 @@ const Users = () => {
           />
         </div>
         <section className='section-page section-background'>
-          <ToastContainer />
           <div className='section-center'>
             <h2 className='section-title'>Lista Utenti</h2>
             <div className='d-md-flex justify-content-md-center'>
@@ -72,7 +70,7 @@ const Users = () => {
                               src='https://example.com/user-avatar.jpg'
                               maxInitials={2}
                               color='#b7d9c2'
-                              fgColor="#0e722d"
+                              fgColor='#0e722d'
                               name={user_name}
                             />
 

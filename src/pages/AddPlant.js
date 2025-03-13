@@ -8,7 +8,9 @@ import FloatingLabel from "react-bootstrap/FloatingLabel";
 import { MdBackspace } from "react-icons/md";
 import { PlantsContext } from "../context/PlantsContext";
 import { AuthContext } from "../context/AuthContext";
+import { toast, ToastContainer } from "react-toastify";
 import Loading from "./Loading";
+
 const AddPlant = () => {
   const {
     register,
@@ -105,16 +107,18 @@ const AddPlant = () => {
       setLoading(true);
       const response = await addPlant(formData);
       console.log("qui", response.status);
+
       if (response.status === 201) {
         setSubmissionError("");
         setLoading(false);
         setSuccessMessage("Pianta aggiunta con successo!");
-        setTimeout(() => {
-          backToMap();
-          setSuccessMessage("");
-          getAllPlants();
-          reset();
-        }, 1000);
+        // setTimeout(() => {
+        backToMap();
+        setSuccessMessage("");
+        reset();
+        getAllPlants("add");
+
+        // }, 1000);
       }
     } catch (error) {
       setLoading(false);
@@ -164,6 +168,7 @@ const AddPlant = () => {
 
   return (
     <>
+      <ToastContainer />
       {loading && <Loading />}
       {!loading && (
         <section className='section-background section-full-page'>

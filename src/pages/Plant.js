@@ -5,6 +5,7 @@ import { FaRegCopy } from "react-icons/fa";
 import ListGroup from "react-bootstrap/ListGroup";
 import { AuthContext } from "../context/AuthContext";
 import { Link, useParams, useNavigate, useLocation } from "react-router-dom";
+
 import axios from "axios";
 import { MdBackspace } from "react-icons/md";
 import { PlantsContext } from "../context/PlantsContext";
@@ -112,6 +113,7 @@ const Plant = () => {
   };
   return (
     <section className='section-background plant-section'>
+      {/* <ToastContainer /> */}
       {/* <PlantImage show={show} setShow={setShow} image_url={image_url} /> */}
       <RejectionModal
         show={modalShow}
@@ -217,12 +219,12 @@ const Plant = () => {
             <ListGroup className='list-group-flush'>
               <ListGroup.Item>
                 {" "}
-                <span>Testo targa:</span> <span>{user_comment}</span>
+                <span>Tipo di pianta:</span> <span>{plant_type}</span>
               </ListGroup.Item>
-
               <ListGroup.Item>
                 {" "}
-                <span>Tipo di pianta:</span> <span>{plant_type}</span>
+                <span class='d-block text-center mb-2'>Testo targa</span>{" "}
+                <span>{user_comment}</span>
               </ListGroup.Item>
             </ListGroup>
           )}
@@ -237,7 +239,11 @@ const Plant = () => {
             />
           )}
           {status_piantina === "booked" && !plate && (
-            <Card.Img variant='top' src='holder.js/100px180' />
+            <Card.Img
+              class='placeholder-image'
+              variant='top'
+              src='holder.js/100px180'
+            />
           )}
         </Card>
 

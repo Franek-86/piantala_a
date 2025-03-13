@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { createContext, useState, useEffect, useContext } from "react";
 import { jwtDecode } from "jwt-decode";
 import { AuthContext } from "./AuthContext";
-
+import { ToastContainer, toast } from "react-toastify";
 export const PlantsContext = createContext();
 export const PlantsProvider = ({ children }) => {
   const { token, getUserInfo } = useContext(AuthContext);
@@ -164,7 +164,8 @@ export const PlantsProvider = ({ children }) => {
   const clearBookedStorage = () => {
     localStorage.removeItem("booked-plant");
   };
-  const getAllPlants = async () => {
+  const getAllPlants = async (action) => {
+    console.log("test", action);
     setLoading(true);
     try {
       const response = await axios.get(`${serverDomain}/api/plants`);
@@ -175,6 +176,41 @@ export const PlantsProvider = ({ children }) => {
       console.error("Error fetching data:", err);
     } finally {
       setLoading(false);
+      // if (action === "add") {
+      //   console.log("add");
+    }
+
+    // if (action === "testdelete") {
+    //   toast("🌱 Piantina rimossa", {
+    //     position: "top-right",
+    //     // autoClose: 2000,
+    //     hideProgressBar: false,
+    //     closeOnClick: false,
+    //     pauseOnHover: true,
+    //     draggable: true,
+    //     progress: undefined,
+    //     theme: "light",
+    //     // transition: Bounce,
+    //   });
+    // }
+    // }
+  };
+  const deletePlant = async (plantId) => {
+    try {
+      setSinglePlantLoading(true);
+      const token = localStorage.getItem("userToken"); // Retrieve the token from localStorage
+      await axios.delete(`${serverDomain}/api/plants/${plantId}/delete`, {
+        headers: {
+          Authorization: `Bearer ${token}`, // Include the token in the headers
+        },
+      });
+
+      getAllPlants("delete");
+    } catch (err) {
+      setError(err.message);
+      setSinglePlantLoading(false);
+    } finally {
+      setSinglePlantLoading(false);
     }
   };
 
@@ -258,37 +294,40 @@ export const PlantsProvider = ({ children }) => {
         status_piantina: newStatus,
         rejected_comment: comment,
       }));
-      getAllPlants();
-    } catch (err) {
-      setError(err.message);
-    }
-  };
+      if (newStatus === "approved") {
+        console.log("new status", newStatus);
+        toast("🌱 Piantina approvata", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          // transition: Bounce,
+        });
+      }
 
-  const deletePlant = async (plantId) => {
-    try {
-      setSinglePlantLoading(true);
-      const token = localStorage.getItem("userToken"); // Retrieve the token from localStorage
-      await axios.delete(`${serverDomain}/api/plants/${plantId}/delete`, {
-        headers: {
-          Authorization: `Bearer ${token}`, // Include the token in the headers
-        },
-      });
       getAllPlants();
     } catch (err) {
       setError(err.message);
-      setSinglePlantLoading(false);
-    } finally {
-      setSinglePlantLoading(false);
     }
   };
 
   const addPlant = (data) => {
-    return axios.post(`${serverDomain}/api/plants/add-plant`, data, {
-      headers: {
-        "Content-Type": "multipart/form-data", // Important for file uploads
-        Authorization: `Bearer ${token}`, // Optional: Send the token if needed
-      },
-    });
+    try {
+      let response = axios.post(`${serverDomain}/api/plants/add-plant`, data, {
+        headers: {
+          "Content-Type": "multipart/form-data", // Important for file uploads
+          Authorization: `Bearer ${token}`, // Optional: Send the token if needed
+        },
+      });
+
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const addLocationInfo = async (lat, lang) => {

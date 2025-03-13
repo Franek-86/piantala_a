@@ -26,7 +26,6 @@ import { PlantsContext } from "../src/context/PlantsContext";
 import { loadStripe } from "@stripe/stripe-js";
 import { Button } from "react-bootstrap";
 import { FilterContext } from "./context/FilterContext";
-
 // test
 // Set default icon
 
