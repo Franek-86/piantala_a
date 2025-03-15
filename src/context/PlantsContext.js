@@ -176,24 +176,34 @@ export const PlantsProvider = ({ children }) => {
       console.error("Error fetching data:", err);
     } finally {
       setLoading(false);
-      // if (action === "add") {
-      //   console.log("add");
-    }
 
-    // if (action === "testdelete") {
-    //   toast("🌱 Piantina rimossa", {
-    //     position: "top-right",
-    //     // autoClose: 2000,
-    //     hideProgressBar: false,
-    //     closeOnClick: false,
-    //     pauseOnHover: true,
-    //     draggable: true,
-    //     progress: undefined,
-    //     theme: "light",
-    //     // transition: Bounce,
-    //   });
-    // }
-    // }
+      if (action === "add") {
+        toast("🌱 Piantina aggiunta alla mappa", {
+          position: "top-right",
+          // autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          // transition: Bounce,
+        });
+      }
+      if (action === "delete") {
+        toast("🌱 Piantina rimossa dalla mappa", {
+          position: "top-right",
+          // autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          // transition: Bounce,
+        });
+      }
+    }
   };
   const deletePlant = async (plantId) => {
     try {

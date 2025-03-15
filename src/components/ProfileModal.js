@@ -23,7 +23,7 @@ const ProfileModal = ({ smShow, setSmShow }) => {
       <Modal.Body>
         <span> {loggedUserInfo.email}</span>
         <div className='profile-links mt-2'>
-          <Link className='d-block w-100 mb-2'>Immagine profilo</Link>
+          {/* <Link className='d-block w-100 mb-2'>Immagine profilo</Link> */}
           <Link to='\' onClick={handleLogout}>
             {" "}
             Logout

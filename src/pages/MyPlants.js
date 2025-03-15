@@ -82,7 +82,7 @@ const MyPlants = () => {
               <Row xs={1} md={2} className='g-4'>
                 {myReports.map((plant, index) => (
                   // <Col key={index}>
-                  <div className='d-flex mb-5'>
+                  <div className='d-flex mb-2'>
                     <div className='card-image-container w-25 rounded-left'>
                       <img
                         className='image-my rounded-left'

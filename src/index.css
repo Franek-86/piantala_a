@@ -321,6 +321,15 @@ small.text-muted.ms-3.form-text {
   z-index: 567 !important;
 }
 
+.add-plant-manual {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .add-plant-manual {
+    display: flex;
+  }
+}
+
 /* ----------------------------------------------------Loading.css--------------------------------------------- */
 
 .loading-container {

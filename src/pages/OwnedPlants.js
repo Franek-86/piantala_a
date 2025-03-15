@@ -72,7 +72,7 @@ const OwnedPlants = () => {
                   // let formattedDate = `${day}/${month}/${year}`;
 
                   return (
-                    <div className='d-flex mb-5'>
+                    <div className='d-flex mb-2'>
                       <div className='card-image-container w-25 rounded-left'>
                         <img
                           className='image-my rounded-left'

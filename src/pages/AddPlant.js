@@ -109,6 +109,7 @@ const AddPlant = () => {
       console.log("qui", response.status);
 
       if (response.status === 201) {
+        console.log("abc");
         setSubmissionError("");
         setLoading(false);
         setSuccessMessage("Pianta aggiunta con successo!");

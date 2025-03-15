@@ -50,9 +50,6 @@ const Buttons = ({ setPosition, langMatch, latMatch, markerRef }) => {
         </Button>
       </div>
       <div className='rightButtons'>
-        {/* <Link className='circle-button' to='addPlant'>
-          <MdAdd />
-        </Link> */}
         <Avatar
           size='3rem'
           round='50%'
@@ -82,6 +79,9 @@ const Buttons = ({ setPosition, langMatch, latMatch, markerRef }) => {
         >
           <MdAddLocation />
         </Button>
+        <Link className='circle-button add-plant-manual' to='addPlant'>
+          <MdAdd />
+        </Link>
         <Button
           variant='primary'
           onClick={handleShowFilters}
