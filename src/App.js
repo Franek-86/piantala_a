@@ -7,7 +7,6 @@ import {
   useMapEvent,
 } from "react-leaflet";
 import L, { latLng } from "leaflet";
-
 import iconGreen from "./assets/images/ti pianto per amore-APP-verde.png";
 import iconYellow from "./assets/images/ti pianto per amore-APP-giallo.png";
 import iconRed from "./assets/images/ti pianto per amore-APP-rosso.png";
@@ -26,6 +25,7 @@ import { PlantsContext } from "../src/context/PlantsContext";
 import { loadStripe } from "@stripe/stripe-js";
 import { Button } from "react-bootstrap";
 import { FilterContext } from "./context/FilterContext";
+import { useViewportHeight } from "./utils/utils";
 // test
 // Set default icon
 
@@ -70,7 +70,8 @@ function App() {
   const { filters, handleFilterChange } = useContext(FilterContext);
 
   const [copyText, setCopyText] = useState("");
-
+  const vh = useViewportHeight();
+  const bottomBarHeight = 10 * vh;
   // filters
 
   // const [filters, setFilters] = useState({
@@ -137,7 +138,10 @@ function App() {
     <>
       {!isChildRoute && (
         <>
-          <div className='section map-section'>
+          <div
+            className='section map-h map-section'
+            style={{ height: `clac(100vh - ${bottomBarHeight})px` }}
+          >
             <article className='map'>
               <MapContainer
                 center={[41.118778112249046, 16.871917818963464]}

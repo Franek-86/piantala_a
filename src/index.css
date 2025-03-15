@@ -208,7 +208,6 @@ small.text-muted.ms-3.form-text {
 .bottom-bar {
   background-color: #fff;
   box-shadow: 0 -4px 8px #0003;
-  height: 10vh;
   z-index: 1000;
   position: absolute;
   width: 100%;
@@ -235,7 +234,7 @@ small.text-muted.ms-3.form-text {
 /* buttons */
 .rightButtons {
   top: 2rem;
-  right: 2rem;
+  right: 1.275rem;
   z-index: 1000;
   position: absolute;
   display: flex;
@@ -244,7 +243,7 @@ small.text-muted.ms-3.form-text {
 }
 .leftButton {
   top: 2rem;
-  left: 2rem;
+  left: 1.275rem;
   z-index: 1000;
   position: relative;
 }

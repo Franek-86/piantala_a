@@ -168,7 +168,6 @@ const AddPlant = () => {
 
   return (
     <>
-      <ToastContainer />
       {loading && <Loading />}
       {!loading && (
         <section className='section-background section-full-page'>

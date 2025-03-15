@@ -289,11 +289,7 @@ export const PlantsProvider = ({ children }) => {
           },
         }
       );
-      setPlant((prevPlant) => ({
-        ...prevPlant,
-        status_piantina: newStatus,
-        rejected_comment: comment,
-      }));
+
       if (newStatus === "approved") {
         console.log("new status", newStatus);
         toast("🌱 Piantina approvata", {
@@ -305,11 +301,31 @@ export const PlantsProvider = ({ children }) => {
           draggable: true,
           progress: undefined,
           theme: "light",
+
           // transition: Bounce,
         });
       }
-
+      if (newStatus === "rejected") {
+        console.log("new status", newStatus);
+        toast("🌱 Piantina rifiutata", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          // transition: Bounce,
+        });
+      }
+      setPlant((prevPlant) => ({
+        ...prevPlant,
+        status_piantina: newStatus,
+        rejected_comment: comment,
+      }));
       getAllPlants();
+      return;
     } catch (err) {
       setError(err.message);
     }

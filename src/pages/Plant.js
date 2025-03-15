@@ -113,8 +113,6 @@ const Plant = () => {
   };
   return (
     <section className='section-background plant-section'>
-      {/* <ToastContainer /> */}
-      {/* <PlantImage show={show} setShow={setShow} image_url={image_url} /> */}
       <RejectionModal
         show={modalShow}
         onHide={() => setModalShow(false)}
