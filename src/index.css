@@ -583,8 +583,19 @@ small.text-muted.ms-3.form-text {
   .plant-info-image {
     max-width: 50%;
   }
-  .list-group-flush.list-group {
+  .plant-section .card-img-bottom {
+    border-top-right-radius: var(--bs-card-inner-border-radius);
+    border-bottom-right-radius: var(--bs-card-inner-border-radius);
+    border-bottom-left-radius: 0px;
+  }
+  .plant-section .card > .list-group {
+    border-bottom: none;
+  }
+
+  .plant-section .list-group-flush.list-group {
     width: 50%;
+    --bs-list-group-border-color: none;
+    justify-content: center;
   }
 }
 /* -----------------rejection modal------------------ */
