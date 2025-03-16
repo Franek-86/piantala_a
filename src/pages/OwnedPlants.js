@@ -62,14 +62,6 @@ const OwnedPlants = () => {
                     const newDate = new Date(date);
                     return newDate.toLocaleDateString("en-GB");
                   };
-                  // let dateObj = new Date(plant.purchase_date);
-                  // let myDate = dateObj.toLocaleDateString("it-IT");
-                  // let date = myDate.split("T")[0];
-
-                  // let [year, month, day] = date.split("-");
-                  // day = day < 10 ? "0" + day : day;
-                  // month = month < 10 ? "0" + month : month;
-                  // let formattedDate = `${day}/${month}/${year}`;
 
                   return (
                     <div className='d-flex mb-2'>

@@ -71,14 +71,7 @@ const MyPlants = () => {
           ) : myReports.length === 0 ? (
             <p>Non hai ancora effettuato segalazioni.</p>
           ) : (
-            <div
-              className='
-            d-flex
-            flex-column
-            align-items-center
-
-            '
-            >
+            <div>
               <Row xs={1} md={2} className='g-4'>
                 {myReports.map((plant, index) => (
                   // <Col key={index}>
