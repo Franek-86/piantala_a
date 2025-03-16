@@ -32,7 +32,7 @@ const PlantForm = () => {
     navigate("/checkout");
   };
   return (
-    <article className='plant-form-article mt-3 w-100'>
+    <article className='plant-form-article mt-3 w-100 pb-5'>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <FloatingLabel
           controlId='formPlantType'

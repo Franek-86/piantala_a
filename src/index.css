@@ -109,7 +109,7 @@ ul {
 .section-center {
   width: 90vw;
   margin: 0 auto;
-  max-width: 992px;
+  max-width: 768px;
 }
 .section-title {
   text-align: center;
@@ -576,7 +576,17 @@ small.text-muted.ms-3.form-text {
 .copy-icon {
   font-size: 1.15rem !important;
 }
-
+.placeholder-image {
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .plant-info-image {
+    max-width: 50%;
+  }
+  .list-group-flush.list-group {
+    width: 50%;
+  }
+}
 /* -----------------rejection modal------------------ */
 .rejection-modal {
   width: 100vw;

@@ -67,7 +67,7 @@ const Users = () => {
                           <div className='d-flex'>
                             {/* <Avatar facebookId='100008343750912' size='100' /> */}
                             <Avatar
-                              src='https://example.com/user-avatar.jpg'
+                              // src='https://example.com/user-avatar.jpg'
                               maxInitials={2}
                               color='#b7d9c2'
                               fgColor='#0e722d'

@@ -53,7 +53,7 @@ const Buttons = ({ setPosition, langMatch, latMatch, markerRef }) => {
         <Avatar
           size='3rem'
           round='50%'
-          src='https://example.com/user-avatar.jpg'
+          // src='https://example.com/user-avatar.jpg'
           color='#b7d9c2'
           fgColor='#0e722d'
           name={loggedUserInfo.userName}

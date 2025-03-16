@@ -129,24 +129,27 @@ const Plant = () => {
           />
         </div>
         <h2 className='section-title'>Informazioni piantina</h2>
-        <Card>
+        <Card className='flex-md-row'>
           <ListGroup className='list-group-flush'>
             <ListGroup.Item>
               {" "}
-              <span>Segnalatore:</span> <span>{userInfo}</span>
+              <span className='fw-medium'>Segnalatore:</span>{" "}
+              <span>{userInfo}</span>
             </ListGroup.Item>
             <ListGroup.Item>
               {" "}
-              <span>Città:</span> <span>{city}</span>
+              <span className='fw-medium'>Città:</span> <span>{city}</span>
             </ListGroup.Item>
             <ListGroup.Item>
               {" "}
-              <span>Quartiere:</span> <span>{suburb}</span>
+              <span className='fw-medium'>Quartiere:</span>{" "}
+              <span>{suburb}</span>
             </ListGroup.Item>
             {road !== "undefined" && (
               <ListGroup.Item>
                 {" "}
-                <span>Indirizzo:</span> <span>{road}</span>
+                <span className='fw-medium'>Indirizzo:</span>{" "}
+                <span>{road}</span>
               </ListGroup.Item>
             )}
             {shop != "undefined" && (
@@ -158,18 +161,20 @@ const Plant = () => {
             {residential !== "undefined" && (
               <ListGroup.Item>
                 {" "}
-                <span>Residenza:</span> <span>{residential}</span>
+                <span className='fw-medium'>Residenza:</span>{" "}
+                <span>{residential}</span>
               </ListGroup.Item>
             )}
             {house_number !== "undefined" && (
               <ListGroup.Item>
                 {" "}
-                <span>Numero:</span> <span>{house_number}</span>
+                <span className='fw-medium'>Numero:</span>{" "}
+                <span>{house_number}</span>
               </ListGroup.Item>
             )}
             <ListGroup.Item>
               {" "}
-              <span>Stato:</span>{" "}
+              <span className='fw-medium'>Stato:</span>{" "}
               <span
                 className={
                   status_piantina === "approved"
@@ -186,7 +191,7 @@ const Plant = () => {
             </ListGroup.Item>
             <ListGroup.Item>
               {" "}
-              <span>Coordinate:</span>{" "}
+              <span className='fw-medium'>Coordinate:</span>{" "}
               <span
                 className='copy'
                 onClick={() => copyToClipboard([`${lat},${lang}`])}
@@ -201,12 +206,17 @@ const Plant = () => {
             {status_piantina === "rejected" && (
               <ListGroup.Item>
                 {" "}
-                <span>Motivazione:</span> <span>{rejection_comment}</span>
+                <span className='fw-medium'>Motivazione:</span>{" "}
+                <span>{rejection_comment}</span>
               </ListGroup.Item>
             )}
           </ListGroup>
 
-          <Card.Img variant='bottom' src={image_url} />
+          <Card.Img
+            className='w-100 plant-info-image'
+            variant='bottom'
+            src={image_url}
+          />
         </Card>
 
         {/* </div> */}
@@ -217,31 +227,44 @@ const Plant = () => {
             <ListGroup className='list-group-flush'>
               <ListGroup.Item>
                 {" "}
-                <span>Tipo di pianta:</span> <span>{plant_type}</span>
+                <span className='fw-medium'>Tipo di pianta:</span>{" "}
+                <span>{plant_type}</span>
               </ListGroup.Item>
               <ListGroup.Item>
                 {" "}
-                <span class='d-block text-center mb-2'>Testo targa</span>{" "}
+                <span className='fw-medium'>Testo targa:</span>{" "}
                 <span>{user_comment}</span>
               </ListGroup.Item>
+              {plate && !plateLoading && status_piantina === "booked" && (
+                <ListGroup.Item>
+                  {" "}
+                  <span class='mb-2 text-center d-block fw-medium'>
+                    Immagine targa
+                  </span>
+                  <Card.Img
+                    variant='bottom'
+                    src={plate}
+                    onLoad={handleImageLoad}
+                    className={`w-100 transition-opacity duration-500 ${
+                      isLoaded ? "opacity-100" : "opacity-0"
+                    }`}
+                  />
+                </ListGroup.Item>
+              )}
+              {status_piantina === "booked" && !plate && (
+                <ListGroup.Item>
+                  {" "}
+                  <span class='mb-2 text-center d-block fw-medium'>
+                    Immagine targa
+                  </span>
+                  <Card.Img
+                    class='placeholder-image'
+                    variant='top'
+                    src='https://placehold.co/600x400/87bf99/0e722d/?text=Targa in elaborazione&font=Montserrat'
+                  />
+                </ListGroup.Item>
+              )}
             </ListGroup>
-          )}
-          {plate && !plateLoading && status_piantina === "booked" && (
-            <Card.Img
-              variant='bottom'
-              src={plate}
-              onLoad={handleImageLoad}
-              className={`w-100 transition-opacity duration-500 ${
-                isLoaded ? "opacity-100" : "opacity-0"
-              }`}
-            />
-          )}
-          {status_piantina === "booked" && !plate && (
-            <Card.Img
-              class='placeholder-image'
-              variant='top'
-              src='holder.js/100px180'
-            />
           )}
         </Card>
 
