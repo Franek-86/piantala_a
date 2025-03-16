@@ -129,7 +129,7 @@ const Plant = () => {
           />
         </div>
         <h2 className='section-title'>Informazioni piantina</h2>
-        <Card className='flex-md-row'>
+        <Card className='flex-md-row card-plant-info1'>
           <ListGroup className='list-group-flush'>
             <ListGroup.Item>
               {" "}
@@ -222,48 +222,51 @@ const Plant = () => {
         {/* </div> */}
 
         <br />
-        <Card>
+        <Card className='card-plant-info2'>
           {status_piantina === "booked" && (
-            <ListGroup className='list-group-flush'>
-              <ListGroup.Item>
-                {" "}
-                <span className='fw-medium'>Tipo di pianta:</span>{" "}
-                <span>{plant_type}</span>
-              </ListGroup.Item>
-              <ListGroup.Item>
-                {" "}
-                <span className='fw-medium'>Testo targa:</span>{" "}
-                <span>{user_comment}</span>
-              </ListGroup.Item>
-              {plate && !plateLoading && status_piantina === "booked" && (
+            <ListGroup className='list-group-flush d-med-flex flex-md-row'>
+              <div className='plant-info-text'>
                 <ListGroup.Item>
                   {" "}
-                  <span class='mb-2 text-center d-block fw-medium'>
-                    Immagine targa
-                  </span>
-                  <Card.Img
-                    variant='bottom'
-                    src={plate}
-                    onLoad={handleImageLoad}
-                    className={`w-100 transition-opacity duration-500 ${
-                      isLoaded ? "opacity-100" : "opacity-0"
-                    }`}
-                  />
+                  <span className='fw-medium'>Tipo di pianta:</span>{" "}
+                  <span>{plant_type}</span>
                 </ListGroup.Item>
-              )}
-              {status_piantina === "booked" && !plate && (
                 <ListGroup.Item>
                   {" "}
-                  <span class='mb-2 text-center d-block fw-medium'>
-                    Immagine targa
-                  </span>
-                  <Card.Img
-                    class='placeholder-image'
-                    variant='top'
-                    src='https://placehold.co/600x400/87bf99/0e722d/?text=Targa in elaborazione&font=Montserrat'
-                  />
+                  <span className='fw-medium'>Testo targa:</span>{" "}
+                  <span>{user_comment}</span>
                 </ListGroup.Item>
-              )}
+              </div>
+              <div className='plant-info-image'>
+                {plate && !plateLoading && status_piantina === "booked" && (
+                  <ListGroup.Item>
+                    <span class='mb-2 text-center d-block fw-medium d-md-none'>
+                      Immagine targa
+                    </span>
+                    <Card.Img
+                      variant='bottom'
+                      src={plate}
+                      onLoad={handleImageLoad}
+                      className={`w-100 transition-opacity duration-500 ${
+                        isLoaded ? "opacity-100" : "opacity-0"
+                      }`}
+                    />
+                  </ListGroup.Item>
+                )}
+                {status_piantina === "booked" && !plate && (
+                  <ListGroup.Item>
+                    {" "}
+                    <span class='mb-2 text-center d-block fw-medium d-md-none'>
+                      Immagine targa
+                    </span>
+                    <Card.Img
+                      class='placeholder-image'
+                      variant='top'
+                      src='https://placehold.co/600x400/87bf99/0e722d/?text=Targa in elaborazione&font=Montserrat'
+                    />
+                  </ListGroup.Item>
+                )}
+              </div>
             </ListGroup>
           )}
         </Card>

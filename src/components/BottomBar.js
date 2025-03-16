@@ -5,21 +5,14 @@ import { motion } from "motion/react";
 import { PiPlantFill } from "react-icons/pi";
 import { NavLink, useLocation } from "react-router-dom";
 import { GiPlantSeed } from "react-icons/gi";
-import { useViewportHeight } from "../utils/utils";
-
-// {
-//   item === selectedTab ? (
-//     <motion.div style={underline} layoutId='underline' id='underline' />
-//   ) : null;
-// }
 
 const BottomBar = () => {
   const [selectedTab, setSelectedTab] = useState("test");
   const { pathname } = useLocation();
-  const vh = useViewportHeight();
+
   console.log("location", pathname);
   return (
-    <article className='bottom-bar' style={{ height: `calc(10 * ${vh}px)` }}>
+    <article className='bottom-bar'>
       <div className='h-100'>
         <ul className='d-flex justify-content-around h-100 p-0 m-0 list-unstyled align-items-center b-bar'>
           <li className='fs-5 test position-relative'>

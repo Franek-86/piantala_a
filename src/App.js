@@ -25,7 +25,7 @@ import { PlantsContext } from "../src/context/PlantsContext";
 import { loadStripe } from "@stripe/stripe-js";
 import { Button } from "react-bootstrap";
 import { FilterContext } from "./context/FilterContext";
-import { useViewportHeight } from "./utils/utils";
+
 // test
 // Set default icon
 
@@ -70,8 +70,7 @@ function App() {
   const { filters, handleFilterChange } = useContext(FilterContext);
 
   const [copyText, setCopyText] = useState("");
-  const vh = useViewportHeight();
-  const bottomBarHeight = 10 * vh;
+
   // filters
 
   // const [filters, setFilters] = useState({
@@ -138,10 +137,7 @@ function App() {
     <>
       {!isChildRoute && (
         <>
-          <div
-            className='section map-h map-section'
-            style={{ height: `clac(100vh - ${bottomBarHeight})px` }}
-          >
+          <div className='section map-h map-section'>
             <article className='map'>
               <MapContainer
                 center={[41.118778112249046, 16.871917818963464]}
