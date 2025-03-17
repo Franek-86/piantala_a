@@ -15,7 +15,7 @@ import PlantImage from "../components/PlantImage";
 import Loading from "./Loading";
 import logo from "../assets/images/logo_albero_green.png";
 import UserInfo from "../components/UserInfo";
-import { FaUser } from "react-icons/fa6";
+import { FaLeftLong, FaUser } from "react-icons/fa6";
 import { FaRegUser } from "react-icons/fa6";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { IoIosRemoveCircleOutline } from "react-icons/io";
@@ -239,7 +239,7 @@ const Plant = () => {
               </div>
               <div className='plant-info-image'>
                 {plate && !plateLoading && status_piantina === "booked" && (
-                  <ListGroup.Item>
+                  <ListGroup.Item className='plate-info-pic'>
                     <span class='mb-2 text-center d-block fw-medium d-md-none'>
                       Immagine targa
                     </span>
@@ -247,16 +247,16 @@ const Plant = () => {
                       variant='bottom'
                       src={plate}
                       onLoad={handleImageLoad}
-                      className={`w-100 transition-opacity duration-500 ${
+                      className={`w-100  transition-opacity duration-500 ${
                         isLoaded ? "opacity-100" : "opacity-0"
                       }`}
                     />
                   </ListGroup.Item>
                 )}
                 {status_piantina === "booked" && !plate && (
-                  <ListGroup.Item>
+                  <ListGroup.Item className='plate-info-pic'>
                     {" "}
-                    <span class='mb-2 text-center d-block fw-medium d-md-none'>
+                    <span class='mb-4 text-center d-block fw-medium d-md-none'>
                       Immagine targa
                     </span>
                     <Card.Img

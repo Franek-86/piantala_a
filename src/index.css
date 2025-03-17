@@ -580,6 +580,12 @@ small.text-muted.ms-3.form-text {
 .placeholder-image {
   width: 100%;
 }
+.plate-info-pic {
+  /* margin: 0; */
+  padding-left: 0;
+  padding-bottom: 0;
+  padding-right: 0;
+}
 @media screen and (min-width: 768px) {
   .card-plant-info1 .plant-info-image {
     max-width: 50%;
@@ -604,9 +610,19 @@ small.text-muted.ms-3.form-text {
   }
   .card-plant-info2 .plant-info-text {
     width: 50%;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
   }
   .card-plant-info2 .plant-info-image {
     width: 50%;
+  }
+  .plate-info-pic {
+    /* margin: 0; */
+    padding-top: 0;
+    padding-left: 0;
+    padding-bottom: 0;
+    padding-right: 0;
   }
 }
 /* -----------------rejection modal------------------ */
@@ -682,6 +698,7 @@ small.text-muted.ms-3.form-text {
   display: grid;
   grid-template-columns: 1fr;
 }
+
 @media screen and (min-width: 768px) {
   .plates-gallery {
     grid-template-columns: 1fr 1fr;
@@ -732,7 +749,7 @@ small.text-muted.ms-3.form-text {
 /* profile modal */
 .profile-modal .modal-dialog {
   position: relative;
-  width: 65vw;
+  width: 70vw;
   margin: var(--bs-modal-margin);
   pointer-events: none;
   margin-left: auto;
@@ -745,5 +762,6 @@ small.text-muted.ms-3.form-text {
     margin-left: auto;
     margin-right: 2rem;
     margin-top: 5rem;
+    --bs-modal-width: 400px;
   }
 }
