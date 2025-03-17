@@ -753,14 +753,14 @@ small.text-muted.ms-3.form-text {
   margin: var(--bs-modal-margin);
   pointer-events: none;
   margin-left: auto;
-  margin-right: 2rem;
+  margin-right: 1.6rem;
   margin-top: 5rem;
 }
 @media screen and (min-width: 576px) {
   .profile-modal .modal-dialog {
     max-width: var(--bs-modal-width);
     margin-left: auto;
-    margin-right: 2rem;
+    margin-right: 1.6rem;
     margin-top: 5rem;
     --bs-modal-width: 400px;
   }
