@@ -214,6 +214,14 @@ small.text-muted.ms-3.form-text {
   height: 8%;
   bottom: 0;
 }
+@media screen and (max-width: 768px) {
+  .bottom-bar {
+    height: 3rem;
+  }
+  .map-section {
+    height: 100%;
+  }
+}
 
 .bottom-bar .fs-5 {
   border-top: 2px solid var(--clr-primary-2);
