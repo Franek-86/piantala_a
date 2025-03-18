@@ -96,7 +96,8 @@ ul {
   padding: 0;
 }
 .section-page {
-  height: 90vh;
+  /* height: 90vh; */
+  height: 100vh;
   padding-bottom: 5rem;
   overflow: scroll;
 }
@@ -192,7 +193,7 @@ small.text-muted.ms-3.form-text {
 .map-section {
   display: flex;
   flex-direction: column;
-  height: 90vh;
+  height: 100vh;
   position: absolute;
   width: 100%;
 }
@@ -216,13 +217,7 @@ small.text-muted.ms-3.form-text {
 }
 @media screen and (max-width: 768px) {
   .bottom-bar {
-    height: 55px;
-  }
-  .map-section {
-    height: calc(100vh - 55px);
-  }
-  .section-page {
-    height: calc(100vh - 55px);
+    height: 3.5rem;
   }
 }
 
