@@ -61,20 +61,18 @@ const Buttons = ({ setPosition, langMatch, latMatch, markerRef }) => {
         />
 
         <Button
-          onClick={() =>
-            map.locate().on("locationfound", function (e) {
-              // setPosition(e.latlng);
-              map.flyTo(e.latlng, 17);
-              setPosition({ lat: e.latlng.lat, lng: e.latlng.lng });
-              // const marker = markerRef.current;
-              // console.log("aooo", marker);
-              // if (marker) {
-              //   console.log("aoooa", marker);
-              //   marker.openPopup();
-              // }
-              // console.log(markerRef);
-            })
-          }
+          onClick={() => {
+            if (map) {
+              map.locate().on("locationfound", function (e) {
+                // setPosition(e.latlng);
+                map.flyTo(e.latlng, 17);
+                setPosition({
+                  lat: e.latlng.lat,
+                  lng: e.latlng.lng,
+                });
+              });
+            }
+          }}
           className='circle-button p-0'
         >
           <MdAddLocation />
