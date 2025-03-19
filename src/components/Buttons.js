@@ -65,7 +65,7 @@ const Buttons = ({ setPosition, langMatch, latMatch, markerRef }) => {
             console.log("sta");
             if (map) {
               map
-                .locate()
+                .locate({ timeout: 15000, enableHighAccuracy: true })
                 .on("locationfound", function (e) {
                   // setPosition(e.latlng);
                   map.flyTo(e.latlng, 17);
