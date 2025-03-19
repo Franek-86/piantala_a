@@ -62,15 +62,24 @@ const Buttons = ({ setPosition, langMatch, latMatch, markerRef }) => {
 
         <Button
           onClick={() => {
+            console.log("sta");
             if (map) {
-              map.locate().on("locationfound", function (e) {
-                // setPosition(e.latlng);
-                map.flyTo(e.latlng, 17);
-                setPosition({
-                  lat: e.latlng.lat,
-                  lng: e.latlng.lng,
+              map
+                .locate()
+                .on("locationfound", function (e) {
+                  // setPosition(e.latlng);
+                  map.flyTo(e.latlng, 17);
+                  setPosition({
+                    lat: e.latlng.lat,
+                    lng: e.latlng.lng,
+                  });
+                })
+                .on("locationerror", function (err) {
+                  console.log("location error", err);
                 });
-              });
+            }
+            if (!map) {
+              console.log("non sta la mappa");
             }
           }}
           className='circle-button p-0'
