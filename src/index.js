@@ -100,16 +100,16 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  // <React.StrictMode>
-  <AuthProvider>
-    <PlantsProvider>
-      <FilterProvider>
-        <ToastContainer />
-        <RouterProvider router={router} />
-      </FilterProvider>
-    </PlantsProvider>
-  </AuthProvider>
-  // </React.StrictMode>
+  <React.StrictMode>
+    <AuthProvider>
+      <PlantsProvider>
+        <FilterProvider>
+          <ToastContainer />
+          <RouterProvider router={router} />
+        </FilterProvider>
+      </PlantsProvider>
+    </AuthProvider>
+  </React.StrictMode>
 );
 
 reportWebVitals();
