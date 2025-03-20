@@ -32,7 +32,11 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Users from "./pages/Users";
 import { ToastContainer } from "react-toastify";
-// Configurazione delle rotte
+
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
+
+serviceWorkerRegistration.register();
+
 const router = createBrowserRouter([
   {
     path: "/",
