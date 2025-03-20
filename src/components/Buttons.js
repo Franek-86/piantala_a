@@ -14,12 +14,16 @@ import { Button } from "react-bootstrap";
 import { useMap } from "react-leaflet";
 import { MdAddLocation } from "react-icons/md";
 import Avatar from "react-avatar";
+import Loading from "../pages/Loading";
 
 import L from "leaflet";
 import { AuthContext } from "../context/AuthContext";
 import ProfileModal from "./ProfileModal";
+import { RiH1 } from "react-icons/ri";
+import LocationLoading from "./LocationLoading";
 const Buttons = ({ setPosition, langMatch, latMatch, markerRef }) => {
   const { getUserInfo, userId, loggedUserInfo } = useContext(AuthContext);
+  const [locationLoading, setLocationLoading] = useState(false);
   const [show, setShow] = useState(false);
   const [showFilters, setShowFilters] = useState(false);
   const handleClose = () => setShow(false);
@@ -35,6 +39,7 @@ const Buttons = ({ setPosition, langMatch, latMatch, markerRef }) => {
   console.log("test1", smShow);
   return (
     <div className='section buttons-section'>
+      {locationLoading && <Loading />}
       <ProfileModal smShow={smShow} setSmShow={setSmShow} />
       <div className='leftButton'>
         {/* <div className='test1'>
@@ -63,6 +68,7 @@ const Buttons = ({ setPosition, langMatch, latMatch, markerRef }) => {
         <Button
           onClick={() => {
             console.log("sta");
+            setLocationLoading(true);
             if (map) {
               map
                 .locate({ timeout: 15000, enableHighAccuracy: true })
@@ -73,6 +79,7 @@ const Buttons = ({ setPosition, langMatch, latMatch, markerRef }) => {
                     lat: e.latlng.lat,
                     lng: e.latlng.lng,
                   });
+                  setLocationLoading(false);
                 })
                 .on("locationerror", function (err) {
                   console.log("location error", err);

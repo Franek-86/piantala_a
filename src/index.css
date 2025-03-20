@@ -217,7 +217,7 @@ small.text-muted.ms-3.form-text {
 }
 @media screen and (max-width: 768px) {
   .bottom-bar {
-    height: 3.5rem;
+    height: 4rem;
   }
 }
 
