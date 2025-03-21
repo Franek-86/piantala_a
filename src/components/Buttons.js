@@ -3,6 +3,7 @@ import { Link, Navigate } from "react-router-dom";
 import { MdAdd } from "react-icons/md";
 import { MdLocalPhone } from "react-icons/md";
 import { MdCenterFocusStrong } from "react-icons/md";
+import { MdAddLocationAlt } from "react-icons/md";
 import { MdFilterAlt } from "react-icons/md";
 import { BiMenu } from "react-icons/bi";
 import logo from "../assets/images/logo-mappa-1.png";
@@ -91,7 +92,7 @@ const Buttons = ({ setPosition, langMatch, latMatch, markerRef }) => {
           }}
           className='circle-button p-0'
         >
-          <MdAddLocation />
+          <MdAddLocationAlt />
         </Button>
         <Link className='circle-button add-plant-manual' to='addPlant'>
           <MdAdd />
