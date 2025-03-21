@@ -7,7 +7,8 @@ import axios from "axios";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import logo from "../assets/images/logo_albero_green.png";
+// import logo from "../assets/images/logo_albero_green.png";
+import logo from "../assets/images/ti pianto per amore-APP-verde.png";
 // import { SiStreamrunners } from "react-icons/si";
 import { GrUndo } from "react-icons/gr";
 const AuthForm = () => {

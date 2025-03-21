@@ -1,5 +1,6 @@
 import React from "react";
-import logo from "../assets/images/logo_albero_green.png";
+
+import logo from "../assets/images/ti pianto per amore-APP-verde.png";
 const Loading = () => {
   return (
     <div className='loading-container'>
