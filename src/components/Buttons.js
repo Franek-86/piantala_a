@@ -3,17 +3,15 @@ import { Link, Navigate } from "react-router-dom";
 import { MdAdd } from "react-icons/md";
 import { MdLocalPhone } from "react-icons/md";
 import { MdCenterFocusStrong } from "react-icons/md";
-import { MdAddLocationAlt } from "react-icons/md";
 import { MdFilterAlt } from "react-icons/md";
 import { BiMenu } from "react-icons/bi";
-import logo from "../assets/images/logo-mappa-1.png";
+import { MdAddLocationAlt } from "react-icons/md";
 import SideMenu from "./SideMenu";
 import FilterControls from "./FilterControls";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { useMap } from "react-leaflet";
-import { MdAddLocation } from "react-icons/md";
 import Avatar from "react-avatar";
 import Loading from "../pages/Loading";
 

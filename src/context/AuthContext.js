@@ -158,7 +158,7 @@ export const AuthProvider = ({ children }) => {
           user_password,
         }
       : { email, user_password };
-    console.log("payload", payload);
+
     const response = await axios.post(endpoint, payload, {
       widthCredentials: true,
     });
