@@ -4,7 +4,9 @@ import { AuthContext } from "../context/AuthContext";
 import Loading from "../pages/Loading";
 
 const ProtectedRoute = ({ children }) => {
-  const { isAuthenticated, loading } = useContext(AuthContext);
+  const { isAuthenticated, loading, userSession } = useContext(AuthContext);
+  console.log("user session", userSession);
+  console.log("user authenticated", isAuthenticated);
   if (loading) {
     return <Loading />; // Optionally show a loading indicator
   }

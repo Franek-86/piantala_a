@@ -8,6 +8,7 @@ export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userToken, setUserToken] = useState(null);
   const [loading, setLoading] = useState(false); // New loading state
+  const [sessionLoading, setSessionLoading] = useState(false); // New loading state
   const [submissionError, setSubmissionError] = useState("");
   const [userRole, setUserRole] = useState(null);
   const [userId, setUserId] = useState(null);
@@ -18,6 +19,7 @@ export const AuthProvider = ({ children }) => {
     userName: "",
     email: "",
   });
+  const [userSession, setUserSession] = useState(null);
   const [userName, setUserName] = useState(null);
   console.log(allUsers);
   // const [allUsers, setAllUsers] = useState({});
@@ -171,7 +173,7 @@ export const AuthProvider = ({ children }) => {
 
       //
       console.log("else", token);
-      console.log("else2");
+      console.log("else2", isAuthenticated);
 
       try {
         const decodedToken = jwtDecode(token);
@@ -295,6 +297,24 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  useEffect(() => {
+    const fetchUserData = async () => {
+      setSessionLoading(true);
+      try {
+        const response = axios.get(`${serverDomain}/api/auth/me`, {
+          withCredentials: true,
+        });
+        setUserSession(response.data.user);
+      } catch (err) {
+        console.log("session error", err);
+        setUserSession(null);
+      } finally {
+        setSessionLoading(false);
+      }
+    };
+    fetchUserData();
+  }, []);
+
   return (
     <AuthContext.Provider
       value={{
@@ -323,6 +343,9 @@ export const AuthProvider = ({ children }) => {
         changeUserRole,
         changeUserStatus,
         userName,
+        sessionLoading,
+        setSessionLoading,
+        userSession,
       }}
     >
       {children}
