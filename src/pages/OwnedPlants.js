@@ -76,9 +76,11 @@ const OwnedPlants = () => {
                           {" "}
                           <Card.Title>
                             {" "}
-                            {plant?.road !== "undefined" && !plant?.house_number
+                            {plant?.road !== "undefined" &&
+                            plant?.house_number === "undefined"
                               ? `${plant?.road}`
-                              : plant?.road && plant?.house_number
+                              : plant?.road !== "undefined" &&
+                                plant?.house_number !== "undefined"
                               ? `${plant?.road} ${plant?.house_number}`
                               : plant?.residential}
                           </Card.Title>
