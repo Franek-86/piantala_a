@@ -729,11 +729,21 @@ small.text-muted.ms-3.form-text {
   flex-direction: column;
   align-items: center;
 }
+xzs
 
 /* owned plants / my plants cards */
-
+.card-header:first-child {
+  border-radius: 0 var(--bs-card-inner-border-radius) 0 0;
+}
+.card-header:first-child {
+  border-top-left-radius: 0 !important;
+}
+.my-plants-card-header,
+.card-my .card-header {
+  background-color: var(--clr-primary-1);
+}
 .card-img .image-my,
-.card-img-bottom .image-my,
+zx .card-img-bottom .image-my,
 .card-img-top .image-my,
 .image-my {
   width: 100%;

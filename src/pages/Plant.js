@@ -224,7 +224,7 @@ const Plant = () => {
         <br />
         <Card className='card-plant-info2'>
           {status_piantina === "booked" && (
-            <ListGroup className='list-group-flush d-med-flex flex-md-row'>
+            <ListGroup className='list-group-flush d-med-flex flex-md-row-reverse'>
               <div className='plant-info-text'>
                 <ListGroup.Item>
                   {" "}

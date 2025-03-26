@@ -23,34 +23,6 @@ const MyPlants = () => {
     fetchUserPlants(); // Fetch plants on component mount
   }, []);
 
-  const getStatusClasses = (status) => {
-    switch (status) {
-      case "pending":
-        return "bg-pending text-dark text-center"; // Yellow background, dark text
-      case "rejected":
-        return "bg-rejected text-white text-center"; // Red background, white text
-      case "approved":
-        return "bg-approved text-white text-center"; // Green background, white text
-      case "booked":
-        return "bg-booked text-white text-center"; // Green background, white text
-      default:
-        return "bg-secondary text-white text-center"; // Default styling for unknown status
-    }
-  };
-  const renderStatus = (status) => {
-    switch (status) {
-      case "pending":
-        return "in attesa";
-      case "rejected":
-        return "non approvata";
-      case "approved":
-        return "approvata";
-      case "booked":
-        return "acquistata";
-      default:
-        return "stato sconosciuto"; // Default case if needed
-    }
-  };
   const formatDate = (date) => {
     const newDate = new Date(date);
     return newDate.toLocaleDateString("en-GB");
@@ -83,7 +55,7 @@ const MyPlants = () => {
                       />
                     </div>
                     <Card className='w-75 card-my'>
-                      <Card.Header>
+                      <Card.Header className='my-plants-card-header'>
                         {" "}
                         <Card.Title>
                           {plant?.road !== "undefined" &&
@@ -106,7 +78,15 @@ const MyPlants = () => {
                         <ListGroup.Item>
                           stato:{" "}
                           <span
-                            className={getStatusClasses(plant.status_piantina)}
+                            className={
+                              plant.status_piantina === "approved"
+                                ? "approvedPlant"
+                                : plant.status_piantina === "rejected"
+                                ? "rejectedPlant"
+                                : plant.status_piantina === "booked"
+                                ? "bookedPlant"
+                                : "pendingPlant"
+                            }
                           >
                             {" "}
                             {plant?.status_piantina}
