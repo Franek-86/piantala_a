@@ -256,13 +256,13 @@ const Plant = () => {
                 {status_piantina === "booked" && !plate && (
                   <ListGroup.Item className='plate-info-pic'>
                     {" "}
-                    <span class='mb-4 text-center d-block fw-medium d-md-none'>
+                    <span class='mb-2 text-center d-block fw-medium d-md-none'>
                       Immagine targa
                     </span>
                     <Card.Img
                       class='placeholder-image'
                       variant='top'
-                      src='https://placehold.co/600x400/87bf99/0e722d/?text=Targa in elaborazione&font=Montserrat'
+                      src='https://placehold.co/600x300/87bf99/0e722d/?text=Targa in elaborazione&font=Montserrat'
                     />
                   </ListGroup.Item>
                 )}
