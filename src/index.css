@@ -804,3 +804,10 @@ small.text-muted.ms-3.form-text {
     --bs-modal-width: 400px;
   }
 }
+
+/* contatti */
+
+.contacts-social-icon a {
+  color: var(--clr-primary-5);
+  font-size: 3rem;
+}
