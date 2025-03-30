@@ -118,24 +118,22 @@ const Register = () => {
       const response = await registerUser(data);
 
       if (response.status === 201 || response.status === 200) {
-        if (isRegister) {
-          setSuccessMessage(
-            "Controlla la tua casella di posta per completare la registrazione."
-          );
-          reset();
-          setIsRegister(false);
-          setTimeout(() => {
-            setSuccessMessage("");
-          }, 3000);
-        } else {
-          setIsAuthenticated(true);
-          // navigate("/map");
+        setSuccessMessage(
+          "Controlla la tua casella di posta per completare la registrazione."
+        );
+        reset();
+        setIsRegister(false);
+        setTimeout(() => {
+          setSuccessMessage("");
+        }, 3000);
 
-          const { token, user } = response.data;
-          let userRole = user.role;
-          setUserRole(userRole);
-          localStorage.setItem("userToken", token);
-        }
+        setIsAuthenticated(true);
+        // navigate("/map");
+
+        // const { token, user } = response.data;
+        // let userRole = user.role;
+        // setUserRole(userRole);
+        // localStorage.setItem("userToken", token);
       }
     } catch (error) {
       setServerError(error.response?.data?.message || "Autenticazione fallita");
