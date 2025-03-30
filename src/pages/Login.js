@@ -13,11 +13,10 @@ import logo from "../assets/images/ti pianto per amore-APP-verde.png";
 import { GrUndo } from "react-icons/gr";
 const AuthForm = () => {
   const {
-    login,
     setUserRole,
     setIsRegister,
     isRegister,
-    loginOrRegister,
+    login,
     setIsAuthenticated,
     getCities,
     cities,
@@ -110,7 +109,7 @@ const AuthForm = () => {
     }
 
     try {
-      const response = await loginOrRegister(data);
+      const response = await login(data);
 
       if (response.status === 201 || response.status === 200) {
         if (isRegister) {
@@ -164,236 +163,7 @@ const AuthForm = () => {
                 <div className='login-loader'></div>
               </div>
             )}
-            {isRegister && (
-              <>
-                <Form.Group className='mb-3' controlId='formBasicUser'>
-                  <FloatingLabel
-                    controlId='floatingInput'
-                    label='Nome'
-                    className='mb-3'
-                  >
-                    <Form.Control
-                      type='text'
-                      placeholder='Nome'
-                      disabled={loading}
-                      {...register("name", {
-                        required: "Nome necessario",
-                        maxLength: {
-                          value: 15,
-                          message: "Il nome può essere di massimo 15 caratteri",
-                        },
-                      })}
-                    />
-                  </FloatingLabel>
 
-                  {errors.user && (
-                    <span className='text-danger'>{errors?.name?.message}</span>
-                  )}
-                </Form.Group>
-                <Form.Group className='mb-3' controlId='formBasicUser'>
-                  <FloatingLabel
-                    controlId='floatingInput'
-                    label='Cognome'
-                    className='mb-3'
-                  >
-                    <Form.Control
-                      type='text'
-                      placeholder='Cognome'
-                      disabled={loading}
-                      {...register("lastName", {
-                        required: "Cognome necessario",
-                        maxLength: {
-                          value: 15,
-                          message:
-                            "Il cognome può essere di massimo 15 caratteri",
-                        },
-                      })}
-                    />
-                  </FloatingLabel>
-
-                  {errors.user && (
-                    <span className='text-danger'>
-                      {errors?.lastName?.message}
-                    </span>
-                  )}
-                </Form.Group>
-                <Form.Group className='mb-3' controlId='formBasicUser'>
-                  <FloatingLabel
-                    controlId='floatingInput'
-                    label='Comune di nascita'
-                    className='mb-3'
-                  >
-                    <Form.Select
-                      // type='text'
-                      // placeholder='Nato a'
-                      disabled={loading}
-                      {...register("city", {
-                        required: "Comune necessario",
-                      })}
-                    >
-                      <option value=''>Seleziona comune</option>
-                      {cities?.map((i, index) => (
-                        <option key={index} value={i.toponymName}>
-                          {i.toponymName}
-                        </option>
-                      ))}
-                    </Form.Select>
-                  </FloatingLabel>
-
-                  {errors.user && (
-                    <span className='text-danger'>{errors?.city?.message}</span>
-                  )}
-                </Form.Group>
-                <Form.Group className='mb-4' controlId='formBasicUser'>
-                  <FloatingLabel
-                    controlId='floatingInput'
-                    label='Data di nascita'
-                    className='mb-3'
-                  >
-                    <Form.Control
-                      type='date'
-                      placeholder='Data di nascita'
-                      disabled={loading}
-                      {...register("birthday", {
-                        required: "Data di nascita necessaria",
-                      })}
-                    />
-                  </FloatingLabel>
-
-                  {errors.user && (
-                    <span className='text-danger'>
-                      {errors?.birthday?.message}
-                    </span>
-                  )}
-                </Form.Group>
-                <Form.Group className='mb-3' controlId='formBasicUser'>
-                  {/* <FloatingLabel
-                    controlId='floatingInput'
-                    label='Gender'
-                    className='mb-3'
-                  > */}
-                  <label htmlFor='' className='mb-2'>
-                    Sesso
-                  </label>
-                  <div className='d-flex justify-content-start mb-3'>
-                    <Form.Check
-                      type='radio'
-                      label='Maschio'
-                      value='M'
-                      disabled={loading}
-                      {...register("gender", {
-                        required: "Necessario specicare il sesso",
-                      })}
-                    />
-                    <Form.Check
-                      className='ms-3'
-                      type='radio'
-                      label='Femmina'
-                      value='F'
-                      disabled={loading}
-                      {...register("gender", {
-                        required: "Necessario specicare il sesso",
-                      })}
-                    />
-                  </div>
-                  {/* </FloatingLabel> */}
-
-                  {errors.user && (
-                    <span className='text-danger'>
-                      {errors?.gender?.message}
-                    </span>
-                  )}
-                </Form.Group>
-                <Form.Group className='' controlId='formBasicUser'>
-                  <div className='d-flex w-100 mt-4 mb-3'>
-                    <FloatingLabel
-                      controlId='floatingInput'
-                      label='Codice Fiscale'
-                      className='w-100'
-                    >
-                      <Form.Control
-                        className='cf-input'
-                        type='text'
-                        placeholder='Codice fiscale'
-                        disabled={loading}
-                        {...register("fiscalCode", {
-                          required: "Codice fiscale necessario",
-                          maxLength: {
-                            value: 17,
-                            message: "codice fiscale errato",
-                          },
-                          validate: validateFiscalCode,
-                        })}
-                      />
-                    </FloatingLabel>
-                    <Button
-                      disabled={disabled}
-                      className='cf-Btn'
-                      type='button'
-                      onClick={() => generateCF()}
-                    >
-                      <GrUndo />
-                      {/* <SiStreamrunners /> */}
-                    </Button>
-                  </div>
-                  {errors.user && (
-                    <span className='text-danger'>
-                      {errors?.fiscalCode?.message}
-                    </span>
-                  )}
-                </Form.Group>
-
-                <Form.Group className='my-3' controlId='formBasicUser'>
-                  <FloatingLabel
-                    controlId='floatingInput'
-                    label='Nome utente piantami'
-                    className='mb-3'
-                  >
-                    <Form.Control
-                      type='text'
-                      // qui
-                      placeholder='Nome utente'
-                      disabled={loading}
-                      {...register("user", {
-                        required: "Nome utente necessario",
-                        maxLength: {
-                          value: 15,
-                          message:
-                            "Il nome utente può essere di massimo 15 caratteri",
-                        },
-                      })}
-                    />
-                  </FloatingLabel>
-
-                  {errors?.user && (
-                    <span className='text-danger'>{errors.user.message}</span>
-                  )}
-                </Form.Group>
-
-                <Form.Group className='mb-3' controlId='formBasicPhone'>
-                  <FloatingLabel
-                    controlId='floatingInput'
-                    label='Numero di telefono'
-                    className='mb-3'
-                  >
-                    <Form.Control
-                      type='phone'
-                      placeholder='Numero di telefono necessario'
-                      disabled={loading}
-                      {...register("phone", {
-                        required: "Numero di telefono necessario",
-                      })}
-                    />
-                  </FloatingLabel>
-
-                  {errors.phone && (
-                    <span className='text-danger'>
-                      {errors?.phone?.message}
-                    </span>
-                  )}
-                </Form.Group>
-              </>
-            )}
             <Form.Group className='mb-3' controlId='formBasicEmail'>
               <FloatingLabel
                 controlId='floatingInput'
@@ -440,7 +210,7 @@ const AuthForm = () => {
             </Form.Group>
 
             <Button variant='primary' type='submit' disabled={loading}>
-              {loading ? "Loading" : isRegister ? "Registrati" : "Login"}
+              Login
             </Button>
 
             <Form.Text className='text-muted ms-3'>
@@ -449,9 +219,9 @@ const AuthForm = () => {
                 className='pt-1'
                 variant='link'
                 disabled={loading}
-                onClick={() => setIsRegister(!isRegister)}
+                onClick={() => navigate("/register")}
               >
-                {isRegister ? "Login" : "Registrati"}
+                Registati
               </Button>
             </Form.Text>
           </Form>

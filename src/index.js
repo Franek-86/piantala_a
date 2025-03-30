@@ -34,6 +34,7 @@ import Users from "./pages/Users";
 import { ToastContainer } from "react-toastify";
 
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
+import Register from "./pages/Register";
 
 serviceWorkerRegistration.register();
 
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Login />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
   },
   {
     path: "/map",

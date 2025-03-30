@@ -13,6 +13,8 @@ export const AuthProvider = ({ children }) => {
   const [userRole, setUserRole] = useState(null);
   const [userId, setUserId] = useState(null);
   const [cities, setCities] = useState([]);
+  const [regions, setRegions] = useState([]);
+  const [districts, setDistricts] = useState([]);
   const [allUsers, setAllUsers] = useState();
   const [userInfo, setUserInfo] = useState({ id: "", role: "", status: "" });
   const [loggedUserInfo, setLoggedUserInfo] = useState({
@@ -21,6 +23,7 @@ export const AuthProvider = ({ children }) => {
   });
   const [userSession, setUserSession] = useState(null);
   const [userName, setUserName] = useState(null);
+
   console.log(allUsers);
   // const [allUsers, setAllUsers] = useState({});
 
@@ -33,10 +36,54 @@ export const AuthProvider = ({ children }) => {
       : process.env.REACT_APP_DOMAIN_NAME_SERVER;
   console.log("aoooo", serverDomain);
 
-  const getCities = async () => {
+  const getRegions = async () => {
+    setLoading(true);
     try {
       const response = await axios.get(
-        `${serverDomain}/api/auth/login/cities`,
+        `${serverDomain}/api/auth/register/regions`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (response.data.status === 503) {
+        setLoading(false);
+        console.log("Abbiamo finito le prove gratuite, riprova fra un'oretta");
+        return;
+      }
+      if (response) {
+        setLoading(false);
+        setRegions(response.data);
+      }
+    } catch (err) {
+      console.log(err);
+      setLoading(false);
+    }
+  };
+  const getDistricts = async (region) => {
+    try {
+      const response = await axios.get(
+        `${serverDomain}/api/auth/register/districts`,
+        { params: { regionCode: region } },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (response) {
+        setDistricts(response.data);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  const getCities = async (city) => {
+    try {
+      const response = await axios.get(
+        `${serverDomain}/api/auth/register/cities`,
+        { params: { cityCode: city } },
         {
           headers: {
             "Content-Type": "application/json",
@@ -50,6 +97,14 @@ export const AuthProvider = ({ children }) => {
       console.log(err);
     }
   };
+  useEffect(() => {
+    getRegions();
+    console.log("regions", regions);
+
+    // getDistricts();
+    // getCities();
+  }, []);
+
   const generateFiscalCode = async (data) => {
     // const { name, lastName, gender, city, year, month, day } = data;
     try {
@@ -106,10 +161,10 @@ export const AuthProvider = ({ children }) => {
       console.log(err.message);
     }
   };
-
-  useEffect(() => {
-    getUserInfo(userId);
-  }, [userId]);
+  // check
+  // useEffect(() => {
+  //   getUserInfo(userId);
+  // }, [userId]);
   const getAllUsers = async () => {
     try {
       const response = await axios.get(`${serverDomain}/api/auth/users`);
@@ -127,8 +182,21 @@ export const AuthProvider = ({ children }) => {
   //   getAllUsers();
   // }, [userRole]);
 
-  const loginOrRegister = async (data) => {
-    console.log("sta?", serverDomain);
+  const login = async (data) => {
+    const { email, password: user_password } = data;
+
+    const payload = { email, user_password };
+
+    const response = await axios.post(
+      `${serverDomain}/api/auth/login`,
+      payload,
+      {
+        widthCredentials: true,
+      }
+    );
+    return response;
+  };
+  const registerUser = async (data) => {
     const {
       name: first_name,
       lastName: last_name,
@@ -142,28 +210,28 @@ export const AuthProvider = ({ children }) => {
       user: user_name,
       phone,
     } = data;
-    const endpoint = isRegister
-      ? `${serverDomain}/api/auth/register`
-      : `${serverDomain}/api/auth/login`;
-    const payload = isRegister
-      ? {
-          first_name,
-          last_name,
-          address,
-          birthday,
-          fiscal_code,
-          city,
-          gender,
-          user_name,
-          phone,
-          email,
-          user_password,
-        }
-      : { email, user_password };
 
-    const response = await axios.post(endpoint, payload, {
-      widthCredentials: true,
-    });
+    const payload = {
+      first_name,
+      last_name,
+      address,
+      birthday,
+      fiscal_code,
+      city,
+      gender,
+      user_name,
+      phone,
+      email,
+      user_password,
+    };
+
+    const response = await axios.post(
+      `${serverDomain}/api/auth/register`,
+      payload,
+      {
+        widthCredentials: true,
+      }
+    );
     return response;
   };
   useEffect(() => {
@@ -297,23 +365,23 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  useEffect(() => {
-    const fetchUserData = async () => {
-      setSessionLoading(true);
-      try {
-        const response = axios.get(`${serverDomain}/api/auth/me`, {
-          withCredentials: true,
-        });
-        setUserSession(response.data.user);
-      } catch (err) {
-        console.log("session error", err);
-        setUserSession(null);
-      } finally {
-        setSessionLoading(false);
-      }
-    };
-    fetchUserData();
-  }, []);
+  // useEffect(() => {
+  //   const fetchUserData = async () => {
+  //     setSessionLoading(true);
+  //     try {
+  //       const response = axios.get(`${serverDomain}/api/auth/me`, {
+  //         withCredentials: true,
+  //       });
+  //       setUserSession(response.data.user);
+  //     } catch (err) {
+  //       console.log("session error", err);
+  //       setUserSession(null);
+  //     } finally {
+  //       setSessionLoading(false);
+  //     }
+  //   };
+  //   fetchUserData();
+  // }, []);
 
   return (
     <AuthContext.Provider
@@ -332,7 +400,8 @@ export const AuthProvider = ({ children }) => {
         userId,
         token,
         userInfo,
-        loginOrRegister,
+        login,
+        registerUser,
         setIsAuthenticated,
         generateFiscalCode,
         validateFiscalCode,
@@ -346,6 +415,10 @@ export const AuthProvider = ({ children }) => {
         sessionLoading,
         setSessionLoading,
         userSession,
+        regions,
+        districts,
+        getDistricts,
+        getCities,
       }}
     >
       {children}
