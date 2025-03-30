@@ -23,6 +23,7 @@ export const AuthProvider = ({ children }) => {
   });
   const [userSession, setUserSession] = useState(null);
   const [userName, setUserName] = useState(null);
+  const [regionsLoading, setRegionsLoading] = useState(true);
 
   console.log(allUsers);
   // const [allUsers, setAllUsers] = useState({});
@@ -48,17 +49,18 @@ export const AuthProvider = ({ children }) => {
         }
       );
       if (response.data.status === 503) {
-        setLoading(false);
+        setRegionsLoading(false);
         console.log("Abbiamo finito le prove gratuite, riprova fra un'oretta");
         return;
       }
       if (response) {
-        setLoading(false);
+        // setLoading(false);
         setRegions(response.data);
+        setRegionsLoading(false);
       }
     } catch (err) {
       console.log(err);
-      setLoading(false);
+      setRegionsLoading(false);
     }
   };
   const getDistricts = async (region) => {
@@ -162,9 +164,9 @@ export const AuthProvider = ({ children }) => {
     }
   };
   // check
-  // useEffect(() => {
-  //   getUserInfo(userId);
-  // }, [userId]);
+  useEffect(() => {
+    getUserInfo(userId);
+  }, [userId]);
   const getAllUsers = async () => {
     try {
       const response = await axios.get(`${serverDomain}/api/auth/users`);
@@ -419,6 +421,7 @@ export const AuthProvider = ({ children }) => {
         districts,
         getDistricts,
         getCities,
+        regionsLoading,
       }}
     >
       {children}
