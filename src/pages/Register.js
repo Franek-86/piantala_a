@@ -1,4 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
+import { MdBackspace } from "react-icons/md";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../context/AuthContext";
 import { Form, Button, FloatingLabel } from "react-bootstrap";
@@ -8,15 +9,22 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Loading from "./Loading";
+
 // import logo from "../assets/images/logo_albero_green.png";
 import logo from "../assets/images/ti pianto per amore-APP-verde.png";
 // import { SiStreamrunners } from "react-icons/si";
 import { GrUndo } from "react-icons/gr";
+import { toast } from "react-toastify";
 const Register = () => {
   const [serverError, setServerError] = useState("");
   const [successMessage, setSuccessMessage] = useState(false);
   const [loading, setLoading] = useState(false);
   const [disabled, setDisabled] = useState(true);
+  const ref = useRef(null);
+  const handleClick = () => {
+    console.log("sta");
+    ref.current?.scrollIntoView({ behavior: "smooth" });
+  };
   const navigate = useNavigate();
   const {
     setUserRole,
@@ -45,6 +53,10 @@ const Register = () => {
   } = useForm();
   const fields = watch();
   const { name, lastName, region, district, gender, city, birthday } = fields;
+
+  const backToLogin = () => {
+    navigate("/");
+  };
 
   useEffect(() => {
     if (region) {
@@ -88,13 +100,6 @@ const Register = () => {
       }
     }
   };
-  // console.log("aaa", regions);
-  // console.log("aab", districts);
-  // console.log("aac", cities);
-
-  // useEffect(() => {
-  //   getCities();
-  // }, []);
 
   const validateFiscalCode = async (cf) => {
     const response = await checkFiscalCode(cf);
@@ -118,24 +123,43 @@ const Register = () => {
       const response = await registerUser(data);
 
       if (response.status === 201 || response.status === 200) {
-        setSuccessMessage(
-          "Controlla la tua casella di posta per completare la registrazione."
+        setSuccessMessage("Richiesta inviata");
+        toast(
+          "🌱 Controlla la tua casella di posta per completare la registrazione.",
+          {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            // transition: Bounce,
+          }
         );
         reset();
-        setIsRegister(false);
+
+        // setIsRegister(false);
         setTimeout(() => {
           setSuccessMessage("");
         }, 3000);
 
         setIsAuthenticated(true);
-        // navigate("/map");
-
-        // const { token, user } = response.data;
-        // let userRole = user.role;
-        // setUserRole(userRole);
-        // localStorage.setItem("userToken", token);
       }
     } catch (error) {
+      const message = error.response?.data?.message || "Server error";
+      toast(`🌱 ${message}`, {
+        position: "top-right",
+        autoClose: 10000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        // transition: Bounce,
+      });
       setServerError(error.response?.data?.message || "Autenticazione fallita");
       setTimeout(() => {
         setServerError("");
@@ -149,6 +173,15 @@ const Register = () => {
     <div>
       {" "}
       {regionsLoading && <Loading />}
+      <div className='section-center'>
+        <div className='back-btn' ref={ref}>
+          <MdBackspace
+            onClick={() => {
+              backToLogin();
+            }}
+          />
+        </div>
+      </div>
       <Container className='d-flex flex-column py-5 justify-content-center'>
         <Row className='d-flex justify-content-center'>
           <Col className='col-xs-8 col-sm-7'>
@@ -341,7 +374,7 @@ const Register = () => {
                     value='M'
                     disabled={loading}
                     {...register("gender", {
-                      required: "Necessario specicare il sesso",
+                      required: "Necessario specificare il sesso",
                     })}
                   />
                   <Form.Check
@@ -495,7 +528,12 @@ const Register = () => {
                 )}
               </Form.Group>
 
-              <Button variant='primary' type='submit' disabled={loading}>
+              <Button
+                onClick={handleClick()}
+                variant='primary'
+                type='submit'
+                disabled={loading}
+              >
                 Registrati
               </Button>
             </Form>

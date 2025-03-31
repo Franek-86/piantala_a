@@ -11,6 +11,7 @@ import Col from "react-bootstrap/Col";
 import logo from "../assets/images/ti pianto per amore-APP-verde.png";
 // import { SiStreamrunners } from "react-icons/si";
 import { GrUndo } from "react-icons/gr";
+import { toast } from "react-toastify";
 const AuthForm = () => {
   const {
     setUserRole,
@@ -112,27 +113,29 @@ const AuthForm = () => {
       const response = await login(data);
 
       if (response.status === 201 || response.status === 200) {
-        if (isRegister) {
-          setSuccessMessage(
-            "Controlla la tua casella di posta per completare la registrazione."
-          );
-          reset();
-          setIsRegister(false);
-          setTimeout(() => {
-            setSuccessMessage("");
-          }, 3000);
-        } else {
-          setIsAuthenticated(true);
-          navigate("/map");
+        setIsAuthenticated(true);
+        navigate("/map");
 
-          const { token, user } = response.data;
-          let userRole = user.role;
-          setUserRole(userRole);
-          localStorage.setItem("userToken", token);
-        }
+        const { token, user } = response.data;
+        let userRole = user.role;
+        setUserRole(userRole);
+        localStorage.setItem("userToken", token);
       }
     } catch (error) {
-      setServerError(error.response?.data?.message || "Autenticazione fallita");
+      let message = error.response?.data?.message || "Server error";
+
+      toast(`🌱 ${message}`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        // transition: Bounce,
+      });
+      setServerError(message);
       setTimeout(() => {
         setServerError("");
       }, 3000); // Clear error message after 3 seconds
