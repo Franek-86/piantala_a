@@ -69,8 +69,7 @@ const Users = () => {
                             <Avatar
                               // src='https://example.com/user-avatar.jpg'
                               maxInitials={2}
-                              color='#b7d9c2'
-                              fgColor='#0e722d'
+                              className='avatar'
                               name={user_name}
                             />
 

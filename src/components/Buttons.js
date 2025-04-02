@@ -58,7 +58,7 @@ const Buttons = ({ setPosition, langMatch, latMatch, markerRef }) => {
           size='3rem'
           round='50%'
           // src='https://example.com/user-avatar.jpg'
-          color='#b7d9c2'
+          className='avatar'
           fgColor='#0e722d'
           name={loggedUserInfo.userName}
           onClick={() => setSmShow(true)}

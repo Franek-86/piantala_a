@@ -149,7 +149,7 @@ const Register = () => {
       }
     } catch (error) {
       const message = error.response?.data?.message || "Server error";
-      toast(`🌱 ${message}`, {
+      toast(`${message}`, {
         position: "top-right",
         autoClose: 10000,
         hideProgressBar: false,
