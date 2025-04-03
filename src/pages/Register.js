@@ -529,7 +529,7 @@ const Register = () => {
               </Form.Group>
 
               <Button
-                onClick={handleClick()}
+                onClick={() => handleClick()}
                 variant='primary'
                 type='submit'
                 disabled={loading}

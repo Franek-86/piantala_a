@@ -120,7 +120,7 @@ const Plant = () => {
         handleStatusChange={() => handleStatusChange("rejected", plantId)}
         plantId={plantId}
       />
-      <div className='section-center'>
+      <div className='section-center mb-5'>
         <div className='back-btn'>
           <MdBackspace
             onClick={() => {
@@ -316,7 +316,7 @@ const Plant = () => {
         {/* funzionalità admin */}
 
         {userRole === "admin" && status_piantina === "pending" ? (
-          <div className='admin-controls py-5'>
+          <div className='admin-controls pt-5 pb-3'>
             <UserInfo
               role={request === "reporter" ? reporterInfo.role : ownerInfo.role}
               user={request === "reporter" ? reporterInfo : ownerInfo}

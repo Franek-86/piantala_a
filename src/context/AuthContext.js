@@ -48,6 +48,7 @@ export const AuthProvider = ({ children }) => {
           },
         }
       );
+
       if (response.data.status === 503) {
         setRegionsLoading(false);
         console.log("Abbiamo finito le prove gratuite, riprova fra un'oretta");
@@ -59,8 +60,19 @@ export const AuthProvider = ({ children }) => {
         setRegionsLoading(false);
       }
     } catch (err) {
-      console.log(err);
       setRegionsLoading(false);
+      toast("server giù, riprovare più tardi", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        type: "error",
+        // transition: Bounce,
+      });
     }
   };
   const getDistricts = async (region) => {
