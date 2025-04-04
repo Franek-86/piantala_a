@@ -257,7 +257,7 @@ const Register = () => {
                   <Form.Select
                     // type='text'
                     // placeholder='Nato a'
-                    disabled={loading}
+                    disabled={loading || district || city}
                     {...register("region", {
                       required: "Regione necessaria",
                     })}
@@ -286,7 +286,7 @@ const Register = () => {
                     <Form.Select
                       // type='text'
                       // placeholder='Nato a'
-                      disabled={loading}
+                      disabled={loading || city}
                       {...register("district", {
                         required: "Provincia necessaria",
                       })}

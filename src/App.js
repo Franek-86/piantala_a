@@ -173,21 +173,27 @@ function App() {
                   <Marker ref={markerRef} position={position}>
                     <Popup>
                       <h6>Ti trovi qui</h6>
-                      <ul>
+                      <p>
+                        Secegli se segnalarci la zona di piantagione e
+                        aggiungere una piantina alla mappa o copiare le
+                        coordinate per poterle condividere con altri utenti.
+                      </p>
+                      {/* <ul>
                         <li>
                           <span>{`latitudine: ${position.lat}`}</span>
                         </li>
                         <li>
                           <span>{`longitudine: ${position.lng}`}</span>
                         </li>
-                      </ul>
-                      <div className='d-flex justify-content-around'>
+                      </ul> */}
+                      <div className='d-flex flex-column '>
                         <Button
+                          className='mb-2'
                           onClick={() =>
                             copyToClipboard([`${position.lat},${position.lng}`])
                           }
                         >
-                          copia
+                          copia coordinate
                         </Button>
 
                         <Button
@@ -198,7 +204,7 @@ function App() {
                             navigate("/map/addPlant")
                           )}
                         >
-                          aggiungi
+                          aggiungi alla mappa
                         </Button>
                       </div>
                     </Popup>
