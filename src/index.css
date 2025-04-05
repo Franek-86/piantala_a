@@ -178,6 +178,11 @@ h3 {
   color: var(--clr-primary-8);
   border: var(--bs-border-width) solid var(--clr-primary-3);
 }
+.text-dark {
+  --bs-text-opacity: 1;
+  /* color: rgba(var(--bs-dark-rgb), var(--bs-text-opacity)) !important; */
+  color: var(--clr-secondary-2) !important;
+}
 /*----------------------------------------- login section----------------------------------------------- */
 .logo-container {
   width: 10rem;
@@ -206,9 +211,8 @@ small.text-muted.ms-3.form-text {
 .sidebar-logo {
   width: 10.5rem;
 }
-.nav-pills .nav-link {
-  display: flex;
-  align-items: center;
+.sidebar-section.list-group {
+  --bs-list-group-color: var(--clr-primary-7) !important;
 }
 .nav-pills svg,
 .nav-pills span {
@@ -228,7 +232,7 @@ small.text-muted.ms-3.form-text {
     var(--bs-list-group-border-color);
 }
 .list-group-item svg {
-  color: var(--clr-primary-5);
+  color: var(--clr-secondary-2);
   font-size: 1.375rem;
 }
 .nav-link.text-truncate {
@@ -272,7 +276,7 @@ small.text-muted.ms-3.form-text {
 }
 
 .bottom-bar .fs-5 {
-  border-top: 2px solid var(--clr-primary-2);
+  border-top: 2px solid var(--clr-secondary-0);
   height: 100%;
   display: flex;
   justify-content: center;
@@ -316,7 +320,7 @@ small.text-muted.ms-3.form-text {
   gap: 1rem;
 }
 .rightButtons path {
-  color: var(--clr-primary-7);
+  color: var(--clr-secondary-2);
 }
 .leftButton {
   top: 2rem;
@@ -349,12 +353,12 @@ small.text-muted.ms-3.form-text {
   left: 0;
   right: 0;
   height: 2px;
-  background: var(--clr-primary-5);
+  background: var(--clr-primary-6);
 }
 
 .avatar {
   background-color: var(--clr-primary-5) !important;
-  color: var(--clr-primary-7) !important;
+  color: var(--clr-secondary-2) !important;
 }
 
 /* add plant button */
@@ -373,7 +377,7 @@ small.text-muted.ms-3.form-text {
 }
 .menu-button {
   background-color: #fff;
-  color: var(--clr-primary-5) !important; /* Icon color */
+  color: var(--clr-secondary-2) !important; /* Icon color */
   border: none;
 }
 
@@ -454,7 +458,7 @@ small.text-muted.ms-3.form-text {
   width: 140px;
   height: 140px;
   border: 8px solid rgba(0, 0, 0, 0.1); /* Light border */
-  border-top: 8px solid #0f7f32; /* Spinner color */
+  border-top: 8px solid var(--clr-primary-5); /* Spinner color */
   border-radius: 50%;
   animation: spin 1.5s linear infinite;
   z-index: 0; /* Spinner behind the logo */
@@ -886,4 +890,79 @@ small.text-muted.ms-3.form-text {
 .contacts-social-icon a {
   color: var(--clr-primary-5);
   font-size: 3rem;
+}
+
+/* error page */
+
+.error {
+  /* font: normal 100%/1.15 "Merriweather", serif; */
+  background-color: var(--clr-primary-2);
+  color: #fff;
+  z-index: 100000;
+  position: absolute;
+  width: 100%;
+}
+
+/* .error {
+  position: relative;
+  max-width: 1298px;
+  height: auto;
+} */
+
+.error .box {
+  /* max-width: 85%; */
+  min-height: 100vh;
+  /* margin: 0 auto; */
+  padding: 1em 1em;
+  text-align: center;
+  background: url("https://www.dropbox.com/s/xq0841cp3icnuqd/flame.png?raw=1")
+      no-repeat top 10em center/128px 128px,
+    transparent
+      url("https://www.dropbox.com/s/w7qqrcvhlx3pwnf/desktop-pc.png?raw=1")
+      no-repeat top 13em center/128px 128px;
+}
+
+.error h1,
+.error p:not(:last-of-type) {
+  text-shadow: 0 0 6px var(--clr-primary-7);
+}
+
+.error h1 {
+  margin: 0 0 1rem 0;
+  font-size: 8em;
+  color: var(--clr-primary-6);
+}
+
+.error p {
+  margin-bottom: 0.5em;
+  font-size: 3em;
+}
+
+.error p:first-of-type {
+  margin-top: 4em;
+}
+
+.error p > a {
+  border-bottom: 1px dashed var(--clr-primary-7);
+  font-style: italic;
+  text-decoration: none;
+  color: var(--clr-primary-5);
+}
+
+.error p > a:hover {
+  text-shadow: 0 0 6px var(--clr-primary-7);
+}
+
+.error p img {
+  vertical-align: bottom;
+}
+@media screen and (max-width: 768px) {
+  .error-face {
+    display: none;
+  }
+}
+/* users */
+
+.list-group-item + .list-group-item {
+  border-top-width: 1px;
 }

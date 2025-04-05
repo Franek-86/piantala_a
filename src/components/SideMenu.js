@@ -21,7 +21,7 @@ const SideMenu = ({ onLogout, ...props }) => {
         </Offcanvas.Title>
       </Offcanvas.Header>
       <Offcanvas.Body>
-        <ListGroup variant='flush'>
+        <ListGroup className='sidebar-section' variant='flush'>
           <ListGroup.Item>
             <Link to='/contacts' class='nav-link text-truncate'>
               <RiContactsLine />

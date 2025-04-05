@@ -166,7 +166,6 @@ const AuthForm = () => {
                 <div className='login-loader'></div>
               </div>
             )}
-
             <Form.Group className='mb-3' controlId='formBasicEmail'>
               <FloatingLabel
                 controlId='floatingInput'
@@ -191,7 +190,6 @@ const AuthForm = () => {
                 <span className='text-danger'>{errors?.email?.message}</span>
               )}
             </Form.Group>
-
             <Form.Group className='mb-3' controlId='formBasicPassword'>
               <FloatingLabel controlId='floatingPassword' label='Password'>
                 <Form.Control
@@ -210,23 +208,46 @@ const AuthForm = () => {
               {errors.password && (
                 <span className='text-danger'>{errors?.password?.message}</span>
               )}
-            </Form.Group>
-
-            <Button variant='primary' type='submit' disabled={loading}>
-              Login
-            </Button>
-
-            <Form.Text className='text-muted ms-3'>
-              {isRegister ? "Hai già un account?" : "Non hai un account?"}
-              <Button
-                className='pt-1'
-                variant='link'
-                disabled={loading}
-                onClick={() => navigate("/register")}
-              >
-                Registati
-              </Button>
-            </Form.Text>
+            </Form.Group>{" "}
+            {/* {!loading && (
+              <Form.Text className='text-muted ms-3'>
+                {isRegister ? "Hai già un account?" : "Non hai un account?"}
+                <Button
+                  className='pt-1'
+                  variant='link'
+                  disabled={loading}
+                  onClick={() => navigate("/register")}
+                >
+                  Registati
+                </Button>
+              </Form.Text>
+            )} */}
+            {!loading && (
+              <>
+                {" "}
+                <div className='d-flex justify-content-center'>
+                  <Button
+                    className='d-block w-100'
+                    variant='primary'
+                    type='submit'
+                    disabled={loading}
+                  >
+                    Login
+                  </Button>
+                </div>
+                <Form.Text className='text-muted ms-3'>
+                  {isRegister ? "Hai già un account?" : "Non hai un account?"}
+                  <Button
+                    className='pt-1'
+                    variant='link'
+                    disabled={loading}
+                    onClick={() => navigate("/register")}
+                  >
+                    Registati
+                  </Button>
+                </Form.Text>
+              </>
+            )}
           </Form>
         </Col>
       </Row>

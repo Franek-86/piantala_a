@@ -11,7 +11,6 @@ import {
 import { AuthProvider } from "./context/AuthContext";
 import { PlantsProvider } from "./context/PlantsContext";
 import Login from "./pages/Login";
-import ErrorPage from "./pages/ErrorPage";
 import Plant from "./pages/Plant";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
@@ -32,9 +31,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Users from "./pages/Users";
 import { ToastContainer } from "react-toastify";
-
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import Register from "./pages/Register";
+import Error from "./components/Error";
 
 serviceWorkerRegistration.register();
 
@@ -54,7 +53,6 @@ const router = createBrowserRouter([
         <App />
       </ProtectedRoute>
     ),
-    errorElement: <ErrorPage />,
     children: [
       {
         path: "addPlant",
@@ -114,6 +112,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <PlantsProvider>
         <FilterProvider>
           <ToastContainer />
+          <Error />
           <RouterProvider router={router} />
         </FilterProvider>
       </PlantsProvider>

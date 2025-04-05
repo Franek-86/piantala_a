@@ -21,6 +21,7 @@ export const AuthProvider = ({ children }) => {
     userName: "",
     email: "",
   });
+  const [pageError, setPageError] = useState(false);
   const [userSession, setUserSession] = useState(null);
   const [userName, setUserName] = useState(null);
   const [regionsLoading, setRegionsLoading] = useState(true);
@@ -61,18 +62,19 @@ export const AuthProvider = ({ children }) => {
       }
     } catch (err) {
       setRegionsLoading(false);
-      toast("server giù, riprovare più tardi", {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: false,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        type: "error",
-        // transition: Bounce,
-      });
+      setPageError(true);
+      // toast("server giù, riprovare più tardi", {
+      //   position: "top-right",
+      //   autoClose: 2000,
+      //   hideProgressBar: false,
+      //   closeOnClick: false,
+      //   pauseOnHover: true,
+      //   draggable: true,
+      //   progress: undefined,
+      //   theme: "light",
+      //   type: "error",
+      //   // transition: Bounce,
+      // });
     }
   };
   const getDistricts = async (region) => {
@@ -419,6 +421,7 @@ export const AuthProvider = ({ children }) => {
         setIsAuthenticated,
         generateFiscalCode,
         validateFiscalCode,
+        pageError,
         cities,
         getCities,
         getAllUsers,
