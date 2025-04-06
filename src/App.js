@@ -174,9 +174,9 @@ function App() {
                     <Popup>
                       <h6>Ti trovi qui</h6>
                       <p>
-                        Secegli se segnalarci la zona di piantagione e
-                        aggiungere una piantina alla mappa o copiare le
-                        coordinate per poterle condividere con altri utenti.
+                        Segnalaci la zona di piantagione aggiungendo una
+                        piantina alla mappa oppure copia le coordinate per
+                        poterle condividere con altri utenti.
                       </p>
                       {/* <ul>
                         <li>
@@ -186,7 +186,7 @@ function App() {
                           <span>{`longitudine: ${position.lng}`}</span>
                         </li>
                       </ul> */}
-                      <div className='d-flex flex-column '>
+                      <div className='d-flex flex-column pb-3'>
                         <Button
                           className='mb-2'
                           onClick={() =>

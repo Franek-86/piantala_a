@@ -266,7 +266,7 @@ small.text-muted.ms-3.form-text {
   height: 100%;
 }
 .leaflet-popup-content {
-  max-width: 55vw;
+  max-width: 50vw;
 }
 .bottom-bar {
   background-color: #fff;

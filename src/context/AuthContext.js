@@ -280,9 +280,17 @@ export const AuthProvider = ({ children }) => {
   const changeUserRole = async () => {
     setLoading(true);
     try {
-      const response = await axios.patch(`${serverDomain}/api/auth/role`, {
-        payload: { userInfo },
-      });
+      const response = await axios.patch(
+        `${serverDomain}/api/auth/role`,
+        {
+          payload: { userInfo },
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`, // Include the token in the headers
+          },
+        }
+      );
       if (response.status === 200) {
         setLoading(false);
         if (response.data === "diritti amministrativi rimossi") {
