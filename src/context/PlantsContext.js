@@ -180,7 +180,7 @@ export const PlantsProvider = ({ children }) => {
       if (action === "add") {
         toast("🌱 Piantina aggiunta alla mappa", {
           position: "top-right",
-          // autoClose: 2000,
+          autoClose: 2000,
           hideProgressBar: false,
           closeOnClick: false,
           pauseOnHover: true,
@@ -193,7 +193,7 @@ export const PlantsProvider = ({ children }) => {
       if (action === "delete") {
         toast("🌱 Piantina rimossa dalla mappa", {
           position: "top-right",
-          // autoClose: 2000,
+          autoClose: 2000,
           hideProgressBar: false,
           closeOnClick: false,
           pauseOnHover: true,

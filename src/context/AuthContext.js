@@ -63,18 +63,6 @@ export const AuthProvider = ({ children }) => {
     } catch (err) {
       setRegionsLoading(false);
       setPageError(true);
-      // toast("server giù, riprovare più tardi", {
-      //   position: "top-right",
-      //   autoClose: 2000,
-      //   hideProgressBar: false,
-      //   closeOnClick: false,
-      //   pauseOnHover: true,
-      //   draggable: true,
-      //   progress: undefined,
-      //   theme: "light",
-      //   type: "error",
-      //   // transition: Bounce,
-      // });
     }
   };
   const getDistricts = async (region) => {

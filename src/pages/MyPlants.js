@@ -97,12 +97,14 @@ const MyPlants = () => {
                         </ListGroup.Item>
                         <ListGroup.Item>
                           <Card.Link
+                            className='copy'
                             onClick={() => goToPlantPage(plant.id)}
                             href='#'
                           >
                             Dettagli
                           </Card.Link>
                           <Card.Link
+                            className='copy'
                             onClick={() =>
                               copyToClipboard([`${plant.lat},${plant.lang}`])
                             }

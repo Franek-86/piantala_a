@@ -262,7 +262,7 @@ const Plant = () => {
                     <Card.Img
                       class='placeholder-image'
                       variant='top'
-                      src='https://placehold.co/600x300/87bf99/0e722d/?text=Targa in elaborazione&font=Montserrat'
+                      src='https://placehold.co/600x300/c7dd85/5c3333/?text=Targa in elaborazione&font=Montserrat'
                     />
                   </ListGroup.Item>
                 )}

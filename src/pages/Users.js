@@ -31,7 +31,7 @@ const Users = () => {
   }, [userInfo.status, userInfo.role]);
   console.log("aaa", allUsers);
   return (
-    <section className='section-background section-full-page'>
+    <section className='section-background section-full-page section-users'>
       <div className='section-center'>
         <div className='back-btn'>
           <MdBackspace
@@ -83,6 +83,7 @@ const Users = () => {
                               <span>Registrato: {formatDate(createdAt)}</span>
                               {userRole === "admin" && (
                                 <Card.Link
+                                  className='copy'
                                   variant='primary'
                                   onClick={() => {
                                     handleShow(true);
