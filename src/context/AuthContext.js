@@ -278,6 +278,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
   const changeUserRole = async () => {
+    console.log("t123", token);
     setLoading(true);
     try {
       const response = await axios.patch(
@@ -334,9 +335,17 @@ export const AuthProvider = ({ children }) => {
   const changeUserStatus = async () => {
     setLoading(true);
     try {
-      const response = await axios.patch(`${serverDomain}/api/auth/status`, {
-        payload: { userInfo },
-      });
+      const response = await axios.patch(
+        `${serverDomain}/api/auth/status`,
+        {
+          payload: { userInfo },
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`, // Include the token in the headers
+          },
+        }
+      );
       console.log("this", response);
       if (response.status === 200) {
         setLoading(false);

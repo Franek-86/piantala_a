@@ -24,12 +24,12 @@ const Contacts = () => {
             }}
           />
         </div>
-        <section className='section-page section-background d-flex flex-column'>
+        <section className='section-page section-background d-flex flex-column justify-content-between'>
           <article className='mb-5'>
             <div className='section-center'>
               <h2 className='section-title'>I nostri contatti</h2>
               <Form>
-                <h5 className='mb-3'>Scrivici una mail (non attivo)</h5>
+                {/* <h5 className='mb-3'>Scrivici una mail (non attivo)</h5> */}
                 <Form.Group
                   className='mb-3'
                   controlId='exampleForm.ControlInput1'
@@ -42,14 +42,14 @@ const Contacts = () => {
                   controlId='exampleForm.ControlTextarea1'
                 >
                   <Form.Control
-                    placeholder='Come possiamo aiutarti?'
+                    placeholder='Come possiamo aiutarti? Servizio momentaneamente non attivo.'
                     as='textarea'
                     rows={4}
                   />
                 </Form.Group>
                 <div className='d-flex justify-content-center mb-5'>
-                  <Button className='text-align-center' variant='primary'>
-                    Invia
+                  <Button className='w-100 text-align-center' variant='primary'>
+                    Invia mail
                   </Button>
                 </div>
               </Form>

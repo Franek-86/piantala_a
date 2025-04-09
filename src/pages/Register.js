@@ -128,7 +128,7 @@ const Register = () => {
           "🌱 Controlla la tua casella di posta per completare la registrazione.",
           {
             position: "top-right",
-            autoClose: 5000,
+            autoClose: false,
             hideProgressBar: false,
             closeOnClick: false,
             pauseOnHover: true,
