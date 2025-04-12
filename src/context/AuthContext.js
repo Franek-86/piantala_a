@@ -56,7 +56,6 @@ export const AuthProvider = ({ children }) => {
         return;
       }
       if (response) {
-        // setLoading(false);
         setRegions(response.data);
         setRegionsLoading(false);
       }
@@ -134,12 +133,6 @@ export const AuthProvider = ({ children }) => {
       );
 
       return response.data.message;
-
-      // if (response.status) {
-      //   return response.data;
-      // }
-      // console.log("something went wrong");
-      // return;
     } catch (error) {
       console.error("Something went wrong", error);
     }
@@ -165,7 +158,7 @@ export const AuthProvider = ({ children }) => {
       console.log(err.message);
     }
   };
-  // check
+
   useEffect(() => {
     getUserInfo(userId);
   }, [userId]);
@@ -181,10 +174,6 @@ export const AuthProvider = ({ children }) => {
       console.log(err.message);
     }
   };
-
-  // useEffect(() => {
-  //   getAllUsers();
-  // }, [userRole]);
 
   const login = async (data) => {
     const { email, password: user_password } = data;
@@ -385,24 +374,22 @@ export const AuthProvider = ({ children }) => {
       setLoading(false);
     }
   };
-
-  // useEffect(() => {
-  //   const fetchUserData = async () => {
-  //     setSessionLoading(true);
-  //     try {
-  //       const response = axios.get(`${serverDomain}/api/auth/me`, {
-  //         withCredentials: true,
-  //       });
-  //       setUserSession(response.data.user);
-  //     } catch (err) {
-  //       console.log("session error", err);
-  //       setUserSession(null);
-  //     } finally {
-  //       setSessionLoading(false);
-  //     }
-  //   };
-  //   fetchUserData();
-  // }, []);
+  const sendEmail = async (messageBody) => {
+    setLoading(true);
+    try {
+      const response = await axios.post(`${serverDomain}/api/auth/send`, {
+        payload: { messageBody, loggedUserInfo },
+      });
+      if (response.status === 200) {
+        console.log("inviata");
+      }
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <AuthContext.Provider
@@ -426,6 +413,7 @@ export const AuthProvider = ({ children }) => {
         setIsAuthenticated,
         generateFiscalCode,
         validateFiscalCode,
+        sendEmail,
         pageError,
         cities,
         getCities,

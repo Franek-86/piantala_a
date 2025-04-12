@@ -60,10 +60,6 @@ const AuthForm = () => {
     const { name, lastName, gender, city, birthday } = fields;
     console.log("f", fields);
     if (name && lastName && gender && city && birthday) {
-      console.log("12321");
-      console.log("ciao", name, lastName, gender, city, birthday);
-      console.log("stanno", birthday);
-
       const regex = /^(\d{4})-(\d{2})-(\d{2})$/;
       const match = birthday.match(regex);
 
@@ -209,19 +205,6 @@ const AuthForm = () => {
                 <span className='text-danger'>{errors?.password?.message}</span>
               )}
             </Form.Group>{" "}
-            {/* {!loading && (
-              <Form.Text className='text-muted ms-3'>
-                {isRegister ? "Hai già un account?" : "Non hai un account?"}
-                <Button
-                  className='pt-1'
-                  variant='link'
-                  disabled={loading}
-                  onClick={() => navigate("/register")}
-                >
-                  Registati
-                </Button>
-              </Form.Text>
-            )} */}
             {!loading && (
               <>
                 {" "}

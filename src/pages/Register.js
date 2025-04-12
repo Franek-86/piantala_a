@@ -266,7 +266,7 @@ const Register = () => {
                     {regions?.length > 0 &&
                       regions?.map((i, index) => (
                         <option key={index} value={i.geonameId}>
-                          {i.adminName1}
+                          {i.toponymName}
                         </option>
                       ))}
                   </Form.Select>

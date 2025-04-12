@@ -1,18 +1,27 @@
 import React from "react";
+import { useForm } from "react-hook-form";
 import { MdBackspace } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
-import { FaFacebook } from "react-icons/fa";
+import { FaFacebook, FaTruckLoading } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { GiLion } from "react-icons/gi";
 import { FaFacebookF } from "react-icons/fa";
 import Form from "react-bootstrap/Form";
 import { FaXTwitter } from "react-icons/fa6";
 import { Button } from "react-bootstrap";
+import { AuthContext } from "../context/AuthContext";
+import { useContext } from "react";
 
 const Contacts = () => {
   const navigate = useNavigate();
   const backToMap = () => {
     navigate("/map");
+  };
+  const { register, handleSubmit } = useForm();
+  const { sendEmail, loading } = useContext(AuthContext);
+  const onSubmit = (data) => {
+    console.log(data.messageBody);
+    sendEmail(data.messageBody);
   };
   return (
     <section className='section-background section-full-page'>
@@ -28,7 +37,7 @@ const Contacts = () => {
           <article className='mb-5'>
             <div className='section-center'>
               <h2 className='section-title'>I nostri contatti</h2>
-              <Form>
+              <Form onSubmit={handleSubmit(onSubmit)}>
                 {/* <h5 className='mb-3'>Scrivici una mail (non attivo)</h5> */}
                 <Form.Group
                   className='mb-3'
@@ -42,13 +51,18 @@ const Contacts = () => {
                   controlId='exampleForm.ControlTextarea1'
                 >
                   <Form.Control
-                    placeholder='Come possiamo aiutarti? Servizio momentaneamente non attivo.'
+                    placeholder='Come possiamo aiutarti?.'
                     as='textarea'
+                    {...register("messageBody", { minLength: 2 })}
                     rows={4}
                   />
                 </Form.Group>
                 <div className='d-flex justify-content-center mb-5'>
-                  <Button className='w-100 text-align-center' variant='primary'>
+                  <Button
+                    className='w-100 text-align-center'
+                    variant='primary'
+                    type='submit'
+                  >
                     Invia mail
                   </Button>
                 </div>
