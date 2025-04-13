@@ -382,10 +382,32 @@ export const AuthProvider = ({ children }) => {
       });
       if (response.status === 200) {
         console.log("inviata");
+        toast("🌱 Email inviata", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          // transition: Bounce,
+        });
+        return response;
       }
       console.log(response);
     } catch (err) {
-      console.log(err);
+      toast.error("Invio Email fallito", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        // transition: Bounce,
+      });
     } finally {
       setLoading(false);
     }

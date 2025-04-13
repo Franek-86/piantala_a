@@ -180,6 +180,9 @@ h3 {
   /* color: rgba(var(--bs-dark-rgb), var(--bs-text-opacity)) !important; */
   color: var(--clr-secondary-2) !important;
 }
+hr {
+  color: var(--clr-secondary-3);
+}
 /*----------------------------------------- login section----------------------------------------------- */
 .logo-container {
   width: 10rem;
@@ -208,9 +211,9 @@ small.text-muted.ms-3.form-text {
 .sidebar-logo {
   width: 10.5rem;
 }
-.sidebar-section.list-group {
-  --bs-list-group-color: var(--clr-secondary-5) !important;
-}
+/* .sidebar-section.list-group {
+  --bs-list-group-color: var(--clr-secondary-3) !important;
+} */
 .nav-pills svg,
 .nav-pills span {
   font-size: 1.25rem;
@@ -901,7 +904,11 @@ small.text-muted.ms-3.form-text {
 
 .contacts-social-icon a {
   color: var(--clr-primary-5);
-  font-size: 3rem;
+  font-size: 2rem;
+}
+.contacts-location-icon {
+  color: var(--clr-primary-5);
+  font-size: 2rem;
 }
 
 /* error page */
