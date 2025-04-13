@@ -206,6 +206,9 @@ small.text-muted.ms-3.form-text {
     margin-top: 2rem;
   }
 }
+.toastify-registration-succeed {
+  background-color: var(--clr-primary-3);
+}
 
 /* ----------------------sidebar-------------------------------------*/
 .sidebar-logo {

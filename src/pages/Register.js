@@ -135,6 +135,7 @@ const Register = () => {
             draggable: true,
             progress: undefined,
             theme: "light",
+            className: "toastify-registration-succeed",
             // transition: Bounce,
           }
         );
