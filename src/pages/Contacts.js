@@ -42,7 +42,7 @@ const Contacts = () => {
           />
         </div>
         <section className='section-page section-background'>
-          <article className='mb-5'>
+          <article className='mb-3'>
             <div className='section-center'>
               <h2 className='section-title'>I nostri contatti</h2>
               <Form onSubmit={handleSubmit(onSubmit)}>
@@ -65,7 +65,7 @@ const Contacts = () => {
                     rows={4}
                   />
                 </Form.Group>
-                <div className='d-flex justify-content-center mb-5'>
+                <div className='d-flex justify-content-center'>
                   <Button
                     className='w-100 text-align-center'
                     variant='primary'
@@ -78,7 +78,7 @@ const Contacts = () => {
             </div>
           </article>
           <hr />
-          <article className=''>
+          <article className='my-3'>
             <div className='contacts-location mb-3 d-flex align-items-center'>
               <span className='contacts-location-icon pe-3'>
                 <IoLocationSharp />{" "}
@@ -99,7 +99,7 @@ const Contacts = () => {
             </div>
           </article>
           <hr />
-          <article className='mt-3 d-flex align-items-center'>
+          <article className='d-flex align-items-center mt-3'>
             <span className='text-center'>Seguici</span>
             <div className='contacts-socials-container'>
               <div className='social-icons-center d-flex justify-content-around align-items-center w-75'>

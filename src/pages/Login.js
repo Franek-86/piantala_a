@@ -153,7 +153,7 @@ const AuthForm = () => {
       )}
       <Row className='d-flex justify-content-center'>
         <Col className='col-xs-8 col-sm-7'>
-          <Form onSubmit={handleSubmit(onSubmit)}>
+          <Form onSubmit={handleSubmit(onSubmit)} className='login-form'>
             {/* Server error message */}
             {serverError && <p className='text-danger'>{serverError}</p>}
             {successMessage && <p className='text-success'>{successMessage}</p>}
@@ -208,7 +208,7 @@ const AuthForm = () => {
             {!loading && (
               <>
                 {" "}
-                <div className='d-flex justify-content-center'>
+                <div className='d-flex justify-content-center pb-3'>
                   <Button
                     className='d-block w-100'
                     variant='primary'
@@ -218,15 +218,26 @@ const AuthForm = () => {
                     Login
                   </Button>
                 </div>
-                <Form.Text className='text-muted ms-3'>
-                  {isRegister ? "Hai già un account?" : "Non hai un account?"}
+                <Form.Text className='text-muted ps-0 d-block'>
+                  Non hai un account?
                   <Button
-                    className='pt-1'
+                    className='btn-small p-0 ps-1'
                     variant='link'
                     disabled={loading}
                     onClick={() => navigate("/register")}
                   >
                     Registati
+                  </Button>
+                </Form.Text>
+                <Form.Text className='text-muted d-block'>
+                  Hai dimenticato la password?
+                  <Button
+                    className='btn-small p-0 ps-1'
+                    variant='link'
+                    disabled={loading}
+                    onClick={() => navigate("/reset")}
+                  >
+                    Reset
                   </Button>
                 </Form.Text>
               </>

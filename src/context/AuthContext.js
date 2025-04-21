@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
 import { jwtDecode } from "jwt-decode";
-import axios from "axios";
+import axios, { Axios } from "axios";
 import { toast } from "react-toastify";
 export const AuthContext = createContext();
 
@@ -17,6 +17,7 @@ export const AuthProvider = ({ children }) => {
   const [districts, setDistricts] = useState([]);
   const [allUsers, setAllUsers] = useState();
   const [userInfo, setUserInfo] = useState({ id: "", role: "", status: "" });
+  const [pswLoading, setPswLoading] = useState(false);
   const [loggedUserInfo, setLoggedUserInfo] = useState({
     userName: "",
     email: "",
@@ -25,6 +26,7 @@ export const AuthProvider = ({ children }) => {
   const [userSession, setUserSession] = useState(null);
   const [userName, setUserName] = useState(null);
   const [regionsLoading, setRegionsLoading] = useState(true);
+  const [emailLoading, setEmailLoading] = useState(false);
 
   console.log(allUsers);
   // const [allUsers, setAllUsers] = useState({});
@@ -227,6 +229,82 @@ export const AuthProvider = ({ children }) => {
     );
     return response;
   };
+  const resetPassword = async (data) => {
+    setEmailLoading(true);
+    try {
+      const response = await axios.post(
+        `${serverDomain}/api/auth/password-reset`,
+        { data }
+      );
+      console.log("response", response);
+      toast(`🌱 ${response.data.message}`, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        // transition: Bounce,
+      });
+    } catch (err) {
+      toast.error(`${err.response.data.message}`, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        // transition: Bounce,
+      });
+    } finally {
+      setEmailLoading(false);
+    }
+  };
+  const newPassword = async (data) => {
+    console.log("test123", data);
+    setPswLoading(true);
+
+    try {
+      const response = await axios.patch(
+        `${serverDomain}/api/auth/new-password`,
+        {
+          payload: data,
+        }
+      );
+      if (response.status === 200) {
+        toast(`🌱 ${response.data}`, {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          // transition: Bounce,
+        });
+        return "ok";
+      }
+    } catch (err) {
+      toast.error(`${err.message}`, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        // transition: Bounce,
+      });
+    } finally {
+      setPswLoading(false);
+    }
+  };
   useEffect(() => {
     if (token) {
       setUserToken(token);
@@ -245,6 +323,8 @@ export const AuthProvider = ({ children }) => {
         console.error("Failed to decode token:", error);
         setSubmissionError("Invalid token.");
         return;
+      } finally {
+        setPswLoading(false);
       }
     }
 
@@ -425,6 +505,7 @@ export const AuthProvider = ({ children }) => {
         getUserInfo,
         handleLogout,
         setIsRegister,
+        resetPassword,
         isRegister,
         userRole,
         userId,
@@ -436,6 +517,7 @@ export const AuthProvider = ({ children }) => {
         generateFiscalCode,
         validateFiscalCode,
         sendEmail,
+        newPassword,
         pageError,
         cities,
         getCities,
@@ -451,6 +533,8 @@ export const AuthProvider = ({ children }) => {
         districts,
         getDistricts,
         getCities,
+        pswLoading,
+        emailLoading,
         regionsLoading,
       }}
     >

@@ -34,6 +34,9 @@ import { ToastContainer } from "react-toastify";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import Register from "./pages/Register";
 import Error from "./components/Error";
+import Reset from "./pages/Reset";
+import PasswordReset from "./pages/PasswordReset";
+import EmailVerificationReset from "./pages/EmailVerificationReset";
 
 serviceWorkerRegistration.register();
 
@@ -45,6 +48,14 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <Register />,
+  },
+  {
+    path: "/reset",
+    element: <Reset />,
+  },
+  {
+    path: "/passwordReset/:token",
+    element: <PasswordReset />,
   },
   {
     path: "/map",
@@ -103,6 +114,10 @@ const router = createBrowserRouter([
   {
     path: "verification-success",
     element: <EmailVerification />,
+  },
+  {
+    path: "verification-success-reset/:token",
+    element: <EmailVerificationReset />,
   },
 ]);
 
