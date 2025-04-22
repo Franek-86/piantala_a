@@ -22,6 +22,10 @@ export const AuthProvider = ({ children }) => {
     userName: "",
     email: "",
   });
+  const [otherUserInfo, setOtherUserInfo] = useState({
+    userName: "",
+    email: "",
+  });
   const [pageError, setPageError] = useState(false);
   const [userSession, setUserSession] = useState(null);
   const [userName, setUserName] = useState(null);
@@ -150,6 +154,26 @@ export const AuthProvider = ({ children }) => {
         // return response;
         console.log("test1", response.data);
         setLoggedUserInfo({
+          ...loggedUserInfo,
+          userName: response.data.userName,
+          email: response.data.email,
+        });
+        return response.data;
+      }
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+  const getOtherUserInfo = async (userId) => {
+    try {
+      const response = await axios.get(
+        `${serverDomain}/api/auth/user/${userId}`
+      );
+      if (response) {
+        console.log("response", response.data);
+        // return response;
+        console.log("test1", response.data);
+        setOtherUserInfo({
           ...loggedUserInfo,
           userName: response.data.userName,
           email: response.data.email,
@@ -525,6 +549,8 @@ export const AuthProvider = ({ children }) => {
         setUserInfo,
         changeUserRole,
         changeUserStatus,
+        getOtherUserInfo,
+        otherUserInfo,
         userName,
         sessionLoading,
         setSessionLoading,

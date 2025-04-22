@@ -33,8 +33,8 @@ const PasswordReset = () => {
   const { newPassword, pswLoading } = useContext(AuthContext);
   const onSubmit = async (data) => {
     console.log("cc", data.password);
-    let psw = data.password;
-    const password = watch("password");
+    let psw = data.password1;
+    const password = watch("password1");
     const password2 = watch("password2");
     if (password !== password2) {
       toast.error("Le password inserite non corrispondono", {
@@ -54,7 +54,6 @@ const PasswordReset = () => {
     let newData = { psw, token };
 
     const response = await newPassword(newData);
-    console.log("bb", response);
     if (response === "ok") {
       navigate("/");
     }
@@ -93,9 +92,9 @@ const PasswordReset = () => {
                 >
                   <Form.Control
                     type='password'
-                    // placeholder='Password'
+                    placeholder='Password'
                     // disabled={loading}
-                    {...register("password", {
+                    {...register("password1", {
                       required: "Password necessaria",
                       minLength: {
                         value: 6,

@@ -5,7 +5,7 @@ import { AuthContext } from "./AuthContext";
 import { ToastContainer, toast } from "react-toastify";
 export const PlantsContext = createContext();
 export const PlantsProvider = ({ children }) => {
-  const { token, getUserInfo } = useContext(AuthContext);
+  const { token, getOtherUserInfo } = useContext(AuthContext);
   const [plants, setPlants] = useState([]);
   const [myPlants, setMyPlants] = useState(null);
   const [plant, setPlant] = useState(null);
@@ -259,7 +259,7 @@ export const PlantsProvider = ({ children }) => {
           );
           if (item) {
             console.log("111");
-            const userInfo = await getUserInfo(item.user_id);
+            const userInfo = await getOtherUserInfo(item.user_id);
 
             if (userInfo.userName) {
               console.log("123321", userInfo);
