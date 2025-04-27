@@ -107,17 +107,23 @@ const AuthForm = () => {
 
     try {
       const response = await login(data);
-
+      console.log("here1", response);
       if (response.status === 201 || response.status === 200) {
         setIsAuthenticated(true);
         navigate("/map");
 
-        const { token, user } = response.data;
-        let userRole = user.role;
-        setUserRole(userRole);
+        const {
+          token,
+          user: { role },
+        } = response.data;
+        console.log("here2", role);
+
+        setUserRole(role);
+
         localStorage.setItem("userToken", token);
       }
     } catch (error) {
+      console.log("here3", error);
       let message = error.response?.data?.message || "Server error";
 
       toast.error(`${message}`, {

@@ -145,6 +145,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const getUserInfo = async (userId) => {
+    console.log("bba", userId);
     try {
       const response = await axios.get(
         `${serverDomain}/api/auth/user/${userId}`
@@ -340,7 +341,6 @@ export const AuthProvider = ({ children }) => {
 
       try {
         const decodedToken = jwtDecode(token);
-        console.log("userId decodedfrom local storage", decodedToken);
         setUserId(decodedToken.id);
         setUserRole(decodedToken.role);
       } catch (error) {

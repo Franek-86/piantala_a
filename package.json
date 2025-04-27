@@ -31,7 +31,8 @@
     "mysql2": "^3.11.3",
     "nodemailer": "^6.9.16",
     "nodemon": "^3.1.7",
-    "pg": "^8.13.1",
+    "pg": "^8.15.5",
+    "pg-hstore": "^2.3.4",
     "postgres": "^3.4.5",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
@@ -49,7 +50,7 @@
     "react-scripts": "5.0.1",
     "react-slick": "^0.30.3",
     "react-toastify": "^11.0.5",
-    "sequelize": "^6.37.5",
+    "sequelize": "^6.37.7",
     "slick-carousel": "^1.8.1",
     "stripe": "^17.3.1",
     "web-vitals": "^2.1.4"
@@ -77,5 +78,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.6.2"
   }
 }
