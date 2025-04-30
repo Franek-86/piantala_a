@@ -191,7 +191,7 @@ hr {
   width: 100%;
   z-index: 1000;
 }
-.back-btn {
+.back-container .back-btn {
   text-align: right;
   padding-right: 5vw;
 }
@@ -753,9 +753,7 @@ element {
     padding-right: 0;
   }
 }
-
 /* -----------------rejection modal------------------ */
-
 .rejection-modal {
   width: 100vw;
   height: 100vw;
