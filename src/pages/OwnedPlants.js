@@ -82,8 +82,9 @@ const OwnedPlants = () => {
                                 plant?.house_number !== "undefined"
                               ? `${plant?.road} ${plant?.house_number}`
                               : plant?.road === "undefined" &&
-                                plant?.house_number === "undefined"
-                              ? `${plant?.suburb} `
+                                plant?.house_number === "undefined" &&
+                                plant?.residential === "undefined"
+                              ? plant?.suburb
                               : plant?.residential}
                           </Card.Title>
                           {plant?.road === "undefined" &&
@@ -107,21 +108,6 @@ const OwnedPlants = () => {
                         {/* <Card.Text></Card.Text> */}
                         {/* </Card.Body> */}
                         <ListGroup variant='flush'>
-                          {/* <ListGroup.Item>
-                        {" "}
-                        quartiere: {plant?.suburb}
-                      </ListGroup.Item> */}
-                          {/* <ListGroup.Item>
-                            stato:{" "}
-                            <span
-                              className={getStatusClasses(
-                                plant.status_piantina
-                              )}
-                            >
-                              {" "}
-                              {plant?.status_piantina}
-                            </span>{" "}
-                          </ListGroup.Item> */}
                           <ListGroup.Item>
                             Tipo pianta: {plant.plant_type}
                           </ListGroup.Item>

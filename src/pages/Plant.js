@@ -297,21 +297,6 @@ const Plant = () => {
             </div>
           </div>
         )}
-        {/* targa */}
-        {/* {plate && !plateLoading && status_piantina === "booked" && (
-          <div className='plate-container mt-2'>
-            <div className='plate-image'>
-              <img
-                onLoad={handleImageLoad}
-                className={`w-100 transition-opacity duration-500 ${
-                  isLoaded ? "opacity-100" : "opacity-0"
-                }`}
-                src={plate}
-                alt=''
-              />
-            </div>
-          </div>
-        )} */}
 
         {/* funzionalità admin */}
 

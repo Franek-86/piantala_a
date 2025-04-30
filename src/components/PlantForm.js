@@ -36,11 +36,11 @@ const PlantForm = () => {
       <Form onSubmit={handleSubmit(onSubmit)}>
         <FloatingLabel
           controlId='formPlantType'
-          label='Type of Plant'
+          label='Tipo di pianta'
           className='mb-3'
         >
           <Form.Select {...register("plantType", { required: true })}>
-            <option value=''>Select a type</option>
+            <option value=''>Seleziona una pianta</option>
             <option value='Bagolaro'>Bagolaro</option>
             <option value='Carrubo'>Carrubo</option>
             <option value='Cercis'>Cercis</option>

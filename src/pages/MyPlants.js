@@ -74,8 +74,9 @@ const MyPlants = () => {
                               plant?.house_number !== "undefined"
                             ? `${plant?.road} ${plant?.house_number}`
                             : plant?.road === "undefined" &&
-                              plant?.house_number === "undefined"
-                            ? `${plant?.suburb} `
+                              plant?.house_number === "undefined" &&
+                              plant?.residential === "undefined"
+                            ? plant?.suburb
                             : plant?.residential}
                         </Card.Title>
                         {plant?.road === "undefined" &&
