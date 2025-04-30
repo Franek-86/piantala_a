@@ -195,6 +195,9 @@ hr {
   text-align: right;
   padding-right: 5vw;
 }
+.back-btn {
+  text-align: right;
+}
 .menu-section-center {
   padding-top: 3rem;
 }
