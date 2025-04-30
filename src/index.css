@@ -748,6 +748,7 @@ element {
 /* -----------------segnalaci buca------------------ */
 .back-container {
   /* border: 1px solid red; */
+  background-color: #fff;
   height: 3rem;
   position: fixed;
   width: 100%;
