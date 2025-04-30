@@ -32,7 +32,7 @@ const Users = () => {
   console.log("aaa", allUsers);
   return (
     <section className='section-background section-full-page section-users'>
-      <div className='section-center'>
+      <div className='back-container'>
         <div className='back-btn'>
           <MdBackspace
             onClick={() => {
@@ -40,6 +40,9 @@ const Users = () => {
             }}
           />
         </div>
+      </div>
+
+      <div className='section-center'>
         <section className='section-page section-background'>
           <div className='section-center'>
             <h2 className='section-title'>Lista Utenti</h2>

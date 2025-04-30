@@ -746,11 +746,16 @@ element {
 }
 
 /* -----------------segnalaci buca------------------ */
-
+.back-container {
+  /* border: 1px solid red; */
+  height: 3rem;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
 .back-btn {
   text-align: right;
-  position: fixed;
-  right: 5vw;
+  padding-right: 5vw;
 }
 .section-title {
   padding-top: 4rem;
