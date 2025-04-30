@@ -45,7 +45,9 @@ const Users = () => {
       <div className='section-center'>
         <section className='section-page section-background'>
           <div className='section-center'>
-            <h2 className='section-title'>Lista Utenti</h2>
+            <h2 className='section-title' style={{ "padding-top": "4rem" }}>
+              Lista Utenti
+            </h2>
             <div className='d-md-flex justify-content-md-center'>
               {loading && <Loading />}
 
