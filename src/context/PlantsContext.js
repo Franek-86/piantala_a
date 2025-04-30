@@ -364,7 +364,7 @@ export const PlantsProvider = ({ children }) => {
         `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lang}&format=json`
       );
       if (response) {
-        console.log("addLocationInfo1", response.data.address);
+        console.log("addLocationInfo1", response.data);
         setLocationInfo(response.data.address);
         // return response.data.address;
       }

@@ -57,6 +57,15 @@ const MyPlants = () => {
                     <Card className='w-75 card-my'>
                       <Card.Header className='my-plants-card-header'>
                         {" "}
+                        {/* <Card.Title>
+                          {plant?.road !== "undefined" &&
+                          plant?.house_number === "undefined"
+                            ? `${plant?.road}`
+                            : plant?.road !== "undefined" &&
+                              plant?.house_number !== "undefined"
+                            ? `${plant?.road} ${plant?.house_number}`
+                            : plant?.residential }
+                        </Card.Title> */}
                         <Card.Title>
                           {plant?.road !== "undefined" &&
                           plant?.house_number === "undefined"
@@ -64,9 +73,18 @@ const MyPlants = () => {
                             : plant?.road !== "undefined" &&
                               plant?.house_number !== "undefined"
                             ? `${plant?.road} ${plant?.house_number}`
+                            : plant?.road === "undefined" &&
+                              plant?.house_number === "undefined"
+                            ? `${plant?.suburb} `
                             : plant?.residential}
                         </Card.Title>
-                        <span>{plant?.suburb}</span>
+                        {plant?.road === "undefined" &&
+                        plant?.house_number === "undefined" &&
+                        plant?.residential === "undefined" ? (
+                          <span className='invisible'>{plant?.suburb}</span>
+                        ) : (
+                          <span>{plant?.suburb}</span>
+                        )}
                       </Card.Header>
                       {/* <Card.Text></Card.Text> */}
                       {/* </Card.Body> */}
