@@ -128,7 +128,7 @@ const MyPlants = () => {
                             }
                             href='#'
                           >
-                            Copia coordinate
+                            Coordinate
                           </Card.Link>
                           {/* <Card.Link href='#'>Another Link</Card.Link> */}
                         </ListGroup.Item>

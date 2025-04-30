@@ -75,6 +75,25 @@ const OwnedPlants = () => {
                         <Card.Header>
                           {" "}
                           <Card.Title>
+                            {plant?.road !== "undefined" &&
+                            plant?.house_number === "undefined"
+                              ? `${plant?.road}`
+                              : plant?.road !== "undefined" &&
+                                plant?.house_number !== "undefined"
+                              ? `${plant?.road} ${plant?.house_number}`
+                              : plant?.road === "undefined" &&
+                                plant?.house_number === "undefined"
+                              ? `${plant?.suburb} `
+                              : plant?.residential}
+                          </Card.Title>
+                          {plant?.road === "undefined" &&
+                          plant?.house_number === "undefined" &&
+                          plant?.residential === "undefined" ? (
+                            <span className='invisible'>{plant?.suburb}</span>
+                          ) : (
+                            <span>{plant?.suburb}</span>
+                          )}
+                          {/* <Card.Title>
                             {" "}
                             {plant?.road !== "undefined" &&
                             plant?.house_number === "undefined"
@@ -83,8 +102,7 @@ const OwnedPlants = () => {
                                 plant?.house_number !== "undefined"
                               ? `${plant?.road} ${plant?.house_number}`
                               : plant?.residential}
-                          </Card.Title>
-                          <span>{plant?.suburb}</span>
+                          </Card.Title> */}
                         </Card.Header>
                         {/* <Card.Text></Card.Text> */}
                         {/* </Card.Body> */}
@@ -122,7 +140,7 @@ const OwnedPlants = () => {
                               }
                               href='#'
                             >
-                              Copia coordinate
+                              Coordinate
                             </Card.Link>
                             {/* <Card.Link href='#'>Another Link</Card.Link> */}
                           </ListGroup.Item>

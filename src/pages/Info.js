@@ -33,7 +33,6 @@ const Info = () => {
           </p>
         </div>
       </section>
-      <BottomBar />
     </>
   );
 };

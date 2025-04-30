@@ -749,6 +749,11 @@ element {
 
 .back-btn {
   text-align: right;
+  position: fixed;
+  right: 5vw;
+}
+.section-title {
+  padding-top: 4rem;
 }
 .back-btn svg {
   margin-top: 1rem;
