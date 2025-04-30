@@ -183,6 +183,21 @@ h3 {
 hr {
   color: var(--clr-secondary-3);
 }
+.back-container {
+  /* border: 1px solid red; */
+  background-color: #fff;
+  height: 3rem;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+.back-btn {
+  text-align: right;
+  padding-right: 5vw;
+}
+.menu-section-center {
+  padding-top: 3rem;
+}
 /*----------------------------------------- login section----------------------------------------------- */
 .logo-container {
   width: 10rem;
@@ -746,21 +761,7 @@ element {
 }
 
 /* -----------------segnalaci buca------------------ */
-.back-container {
-  /* border: 1px solid red; */
-  background-color: #fff;
-  height: 3rem;
-  position: fixed;
-  width: 100%;
-  z-index: 1000;
-}
-.back-btn {
-  text-align: right;
-  padding-right: 5vw;
-}
-/* .section-title {
-  padding-top: 4rem;
-} */
+
 .back-btn svg {
   margin-top: 1rem;
   font-size: 2rem;

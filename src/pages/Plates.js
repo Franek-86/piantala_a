@@ -34,7 +34,7 @@ const Plates = () => {
   console.log("e1", plates);
   return (
     <section className='section-background section-full-page'>
-      <div className='section-center'>
+      <div className='back-container'>
         <div className='back-btn'>
           <MdBackspace
             onClick={() => {
@@ -42,8 +42,10 @@ const Plates = () => {
             }}
           />
         </div>
+      </div>
+      <div className='section-center'>
         <section className='section-page section-background'>
-          <div className='section-center'>
+          <div className='section-center menu-section-center'>
             <h2 className='section-title'>Le vostre targhe</h2>
             {plates?.length === 0 && <p>Non ci sono targhe da visualizzare.</p>}
             {plates?.length === 1 && (

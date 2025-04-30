@@ -11,7 +11,7 @@ const Info = () => {
   return (
     <>
       <section className='section-page section-background'>
-        <div className='section-center'>
+        <div className='back-container'>
           <div className='back-btn'>
             <MdBackspace
               onClick={() => {
@@ -19,6 +19,8 @@ const Info = () => {
               }}
             />
           </div>
+        </div>
+        <div className='section-center menu-section-center'>
           <h2 className='section-title'>Chi siamo</h2>
           <p>
             L'iniziativa "Ti pianto per amore" voluta dall'Associazione

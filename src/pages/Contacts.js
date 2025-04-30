@@ -32,8 +32,7 @@ const Contacts = () => {
   };
   return (
     <section className='section-background section-full-page'>
-      {loading && <Loading />}
-      <div className='section-center'>
+      <div className='back-container'>
         <div className='back-btn'>
           <MdBackspace
             onClick={() => {
@@ -41,9 +40,12 @@ const Contacts = () => {
             }}
           />
         </div>
+      </div>
+      {loading && <Loading />}
+      <div className='section-center'>
         <section className='section-page section-background'>
           <article className='mb-3'>
-            <div className='section-center'>
+            <div className='section-center menu-section-center'>
               <h2 className='section-title'>I nostri contatti</h2>
               <Form onSubmit={handleSubmit(onSubmit)}>
                 {/* <h5 className='mb-3'>Scrivici una mail (non attivo)</h5> */}
