@@ -7,6 +7,7 @@ import { MdFilterAlt } from "react-icons/md";
 import { BiMenu } from "react-icons/bi";
 import { MdAddLocationAlt } from "react-icons/md";
 import SideMenu from "./SideMenu";
+
 import FilterControls from "./FilterControls";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -20,6 +21,7 @@ import { AuthContext } from "../context/AuthContext";
 import ProfileModal from "./ProfileModal";
 import { RiH1 } from "react-icons/ri";
 import LocationLoading from "./LocationLoading";
+
 const Buttons = ({ setPosition, langMatch, latMatch, markerRef }) => {
   const { getUserInfo, userId, loggedUserInfo } = useContext(AuthContext);
   const [locationLoading, setLocationLoading] = useState(false);
@@ -40,7 +42,7 @@ const Buttons = ({ setPosition, langMatch, latMatch, markerRef }) => {
     <div className='section buttons-section'>
       {locationLoading && <Loading />}
       <ProfileModal smShow={smShow} setSmShow={setSmShow} />
-      <div className='leftButton'>
+      <div className='leftButton d-md-none'>
         {/* <div className='test1'>
           <img src={logo} alt='' className='map-logo' />
         </div> */}
@@ -123,6 +125,7 @@ const Buttons = ({ setPosition, langMatch, latMatch, markerRef }) => {
         handleClose={handleClose}
         show={show}
       />
+
       <FilterControls
         data-bs-target='#staticBackdrop'
         handleCloseFilters={handleCloseFilters}

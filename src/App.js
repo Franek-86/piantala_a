@@ -25,6 +25,8 @@ import { PlantsContext } from "../src/context/PlantsContext";
 import { loadStripe } from "@stripe/stripe-js";
 import { Button } from "react-bootstrap";
 import { FilterContext } from "./context/FilterContext";
+import SideBar from "./components/SideBar";
+import useIsLargeScreen from "./utils/useIsLargeScreen";
 
 // test
 // Set default icon
@@ -70,7 +72,8 @@ function App() {
   const { filters, handleFilterChange } = useContext(FilterContext);
 
   const [copyText, setCopyText] = useState("");
-
+  const isLargeScreen = useIsLargeScreen();
+  const [show, setShow] = useState(false);
   // filters
 
   // const [filters, setFilters] = useState({
@@ -220,6 +223,7 @@ function App() {
         </>
       )}
       <Outlet />
+      {isLargeScreen && <SideBar />}
     </>
   );
 }

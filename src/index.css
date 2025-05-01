@@ -203,7 +203,7 @@ hr {
 }
 /*----------------------------------------- login section----------------------------------------------- */
 .logo-container {
-  width: 10rem;
+  width: 7rem;
 }
 
 /* small.text-muted.ms-3.form-text {
@@ -234,6 +234,7 @@ element {
 }
 .toastify-registration-succeed {
   background-color: var(--clr-primary-3);
+  color: var(--clr-secondary-7);
 }
 
 /* ----------------------sidebar-------------------------------------*/
@@ -278,7 +279,12 @@ element {
   position: absolute;
   width: 100%;
 }
-
+@media screen and (min-width: 768px) {
+  .map-section {
+    width: calc(100% - 400px);
+    right: 0;
+  }
+}
 .map {
   flex: 1;
 }
@@ -302,6 +308,27 @@ element {
   .bottom-bar {
     height: 4rem;
   }
+}
+@media screen and (min-width: 768px) {
+  .bottom-bar {
+    background-color: #fff;
+    box-shadow: 0 -4px 8px #0003;
+    z-index: 1000;
+    position: absolute;
+    width: 50%;
+    height: 10vh;
+    bottom: 0;
+    margin: 0 auto;
+    left: 40%;
+    top: 0;
+  }
+  /* .offcanvas.offcanvas-start {
+
+    transform: translateX(0);
+  }
+  .offcanvas-backdrop.show {
+    opacity: 0;
+  } */
 }
 
 .bottom-bar .fs-5 {
@@ -475,12 +502,6 @@ element {
   align-items: center;
 }
 
-.loading-logo {
-  width: 65px; /* Adjust the size of the logo */
-  height: auto;
-  z-index: 1; /* Ensures the logo stays on top of the spinner */
-}
-
 /* Spinner styling */
 .spinner {
   position: absolute;
@@ -491,6 +512,38 @@ element {
   border-radius: 50%;
   animation: spin 1.5s linear infinite;
   z-index: 0; /* Spinner behind the logo */
+}
+
+.loading-logo {
+  width: 60px; /* Adjust the size of the logo */
+  height: auto;
+  z-index: 1; /* Ensures the logo stays on top of the spinner */
+}
+/* Spinner styling */
+.spinner {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border: 8px solid rgba(0, 0, 0, 0.1); /* Light border */
+  border-top: 8px solid var(--clr-primary-5); /* Spinner color */
+  border-radius: 50%;
+  animation: spin 1.5s linear infinite;
+  z-index: 0; /* Spinner behind the logo */
+}
+@media screen and (max-width: 768px) {
+  .loading-logo {
+    width: 30px; /* Adjust the size of the logo */
+  }
+  .spinner {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    border: 5px solid rgba(0, 0, 0, 0.1); /* Light border */
+    border-top: 5px solid var(--clr-primary-5); /* Spinner color */
+    border-radius: 50%;
+    animation: spin 1.5s linear infinite;
+    z-index: 0; /* Spinner behind the logo */
+  }
 }
 
 .loading-logo-mini {
@@ -1019,4 +1072,42 @@ element {
 .section-users .list-group-item:last-child {
   border-bottom-right-radius: 0 !important;
   border-bottom-left-radius: 0 !important;
+}
+/* sidebar */
+.sidebar-large {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--bs-offcanvas-width);
+  border-right: var(--bs-offcanvas-border-width) solid
+    var(--bs-offcanvas-border-color);
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  color: var(--bs-offcanvas-color);
+  visibility: visible;
+  background-color: var(--bs-offcanvas-bg);
+  background-clip: padding-box;
+  outline: 0;
+  /*  */
+  top: 0;
+  left: 0;
+  width: var(--bs-offcanvas-width);
+  border-right: var(--bs-offcanvas-border-width) solid
+    var(--bs-offcanvas-border-color);
+  /*  */
+  --bs-offcanvas-zindex: 1045;
+  --bs-offcanvas-width: 400px;
+  --bs-offcanvas-height: 30vh;
+  --bs-offcanvas-padding-x: 1rem;
+  --bs-offcanvas-padding-y: 1rem;
+  --bs-offcanvas-color: var(--bs-body-color);
+  --bs-offcanvas-bg: var(--bs-body-bg);
+  --bs-offcanvas-border-width: var(--bs-border-width);
+  --bs-offcanvas-border-color: var(--bs-border-color-translucent);
+  --bs-offcanvas-box-shadow: var(--bs-box-shadow-sm);
+  --bs-offcanvas-transition: transform 0.3s ease-in-out;
+  --bs-offcanvas-title-line-height: 1.5;
 }
