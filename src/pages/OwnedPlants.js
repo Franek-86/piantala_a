@@ -9,10 +9,12 @@ import Row from "react-bootstrap/Row";
 import { ListGroup } from "react-bootstrap";
 import BottomBar from "../components/BottomBar";
 import { copyToClipboard } from "../utils/utils";
-
+import useIsLargeScreen from "../utils/useIsLargeScreen";
+import SideBar from "../components/SideBar";
 const OwnedPlants = () => {
   const { getMyPlants, myPlants } = useContext(PlantsContext);
   const { userId, token } = useContext(AuthContext);
+  const isLargeScreen = useIsLargeScreen();
   const navigate = useNavigate();
   const backToMap = () => {
     navigate("/map");
@@ -40,7 +42,7 @@ const OwnedPlants = () => {
 
   return (
     <>
-      <section className='section-page section-background'>
+      <section className='section-page section-background section-large'>
         <div className='section-center'>
           {/* <div className='back-btn'>
           <MdBackspace
@@ -49,7 +51,7 @@ const OwnedPlants = () => {
             }}
           />
         </div> */}
-          <h2 className='section-title'>Le mie piante</h2>
+          <h2 className='section-title d-lg-none'>Le mie piante</h2>
           {myPlants && myPlants?.length > 0 ? (
             /* <th>Data acquisto</th>
                 <th>Tipo</th>
@@ -165,6 +167,7 @@ const OwnedPlants = () => {
           )}
         </div>
       </section>
+      {isLargeScreen && <SideBar />}
       <BottomBar />
     </>
   );

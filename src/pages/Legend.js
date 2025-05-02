@@ -4,12 +4,16 @@ import greenPlant from "../assets/images/ti pianto per amore-APP-verde.png";
 import yellowPlant from "../assets/images/ti pianto per amore-APP-giallo.png";
 import redPlant from "../assets/images/ti pianto per amore-APP-rosso.png";
 import bluePlant from "../assets/images/ti pianto per amore-APP-azzurro.png";
+import useIsLargeScreen from "../utils/useIsLargeScreen";
+import SideBar from "../components/SideBar";
+
 const Legend = () => {
+  const isLargeScreen = useIsLargeScreen();
   return (
     <>
-      <section className='section-page section-background'>
+      <section className='section-page section-background section-large'>
         <div className='section-center'>
-          <h2 className='section-title'>legenda</h2>
+          <h2 className='section-title d-lg-none'>legenda</h2>
           <ul>
             <li className='plants-list'>
               <div className='legend-box-container'>
@@ -48,6 +52,7 @@ const Legend = () => {
           </ul>
         </div>
       </section>
+      {isLargeScreen && <SideBar />}
       <BottomBar />
     </>
   );

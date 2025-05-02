@@ -5,9 +5,11 @@ import { motion } from "motion/react";
 import { PiPlantFill } from "react-icons/pi";
 import { NavLink, useLocation } from "react-router-dom";
 import { GiPlantSeed } from "react-icons/gi";
+import useIsLargeScreen from "../utils/useIsLargeScreen";
 
 const BottomBar = () => {
   const [selectedTab, setSelectedTab] = useState("test");
+  const isLarge = useIsLargeScreen();
   const { pathname } = useLocation();
 
   console.log("location", pathname);
@@ -18,12 +20,14 @@ const BottomBar = () => {
           <li className='fs-5 test position-relative'>
             <NavLink
               className={({ isActive }) =>
-                isActive ? "text-primary" : "text-dark"
+                isActive
+                  ? "text-primary text-decoration-none"
+                  : "text-dark text-decoration-none"
               }
               onClick={() => setSelectedTab("test")}
               to='/map'
             >
-              <FaMap />
+              {isLarge ? <span>Mappa</span> : <FaMap />}
               {pathname === "/map" && (
                 <motion.div
                   className='underline'
@@ -45,10 +49,12 @@ const BottomBar = () => {
               onClick={() => setSelectedTab("test2")}
               to='/legend'
               className={({ isActive }) =>
-                isActive ? "text-primary" : "text-dark"
+                isActive
+                  ? "text-primary text-decoration-none"
+                  : "text-dark text-decoration-none"
               }
             >
-              <MdLegendToggle />
+              {isLarge ? <span>Legenda</span> : <MdLegendToggle />}
               {pathname === "/legend" && (
                 <motion.div
                   className='underline'
@@ -70,10 +76,13 @@ const BottomBar = () => {
               onClick={() => setSelectedTab("test3")}
               to='/myPlants'
               className={({ isActive }) =>
-                isActive ? "text-primary" : "text-dark"
+                isActive
+                  ? "text-primary text-decoration-none"
+                  : "text-dark text-decoration-none"
               }
             >
-              <GiPlantSeed />
+              {isLarge ? <span>Segnalazioni</span> : <GiPlantSeed />}
+
               {pathname === "/myPlants" && (
                 <motion.div
                   className='underline'
@@ -88,11 +97,14 @@ const BottomBar = () => {
               onClick={() => setSelectedTab("test4")}
               to='/bookedPlants'
               className={({ isActive }) =>
-                isActive ? "text-primary" : "text-dark"
+                isActive
+                  ? "text-primary text-decoration-none"
+                  : "text-dark text-decoration-none"
               }
             >
               {/* <BsInfo /> */}
-              <PiPlantFill />
+              {isLarge ? <span>Acquisti</span> : <PiPlantFill />}
+
               {pathname === "/bookedPlants" && (
                 <motion.div
                   className='underline'

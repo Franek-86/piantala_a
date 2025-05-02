@@ -42,7 +42,7 @@ const Buttons = ({ setPosition, langMatch, latMatch, markerRef }) => {
     <div className='section buttons-section'>
       {locationLoading && <Loading />}
       <ProfileModal smShow={smShow} setSmShow={setSmShow} />
-      <div className='leftButton d-md-none'>
+      <div className='leftButton d-lg-none'>
         {/* <div className='test1'>
           <img src={logo} alt='' className='map-logo' />
         </div> */}

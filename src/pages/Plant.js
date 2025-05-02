@@ -112,7 +112,7 @@ const Plant = () => {
     }
   };
   return (
-    <section className='section-background plant-section'>
+    <section className='section-background plant-section section-large'>
       <RejectionModal
         show={modalShow}
         onHide={() => setModalShow(false)}

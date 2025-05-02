@@ -11,12 +11,14 @@ import ListGroup from "react-bootstrap/ListGroup";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import CardImg from "react-bootstrap/CardImg";
-import { copyToClipboard } from "../utils/utils";
 
+import { copyToClipboard } from "../utils/utils";
+import useIsLargeScreen from "../utils/useIsLargeScreen";
+import SideBar from "../components/SideBar";
 const MyPlants = () => {
   const { myReports, loadingReports, fetchUserPlants } =
     useContext(PlantsContext);
-
+  const isLargeScreen = useIsLargeScreen();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -34,9 +36,9 @@ const MyPlants = () => {
 
   return (
     <>
-      <section className='section-page section-background'>
+      <section className='section-page section-background section-large'>
         <div className='section-center'>
-          <h2 className='section-title'>Le mie segnalazioni</h2>
+          <h2 className='section-title d-lg-none'>Le mie segnalazioni</h2>
 
           {loadingReports ? (
             <Loading />
@@ -149,6 +151,7 @@ const MyPlants = () => {
           )}
         </div>
       </section>
+      {isLargeScreen && <SideBar />}
       <BottomBar />
     </>
   );

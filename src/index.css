@@ -201,6 +201,19 @@ hr {
 .menu-section-center {
   padding-top: 3rem;
 }
+
+@media screen and (min-width: 992px) {
+  .section-large {
+    margin-left: 300px;
+    width: calc(100% - 300px);
+    display: grid;
+    place-items: center;
+    height: 100vh;
+  }
+  .section-center {
+    width: 90%;
+  }
+}
 /*----------------------------------------- login section----------------------------------------------- */
 .logo-container {
   width: 7rem;
@@ -279,9 +292,9 @@ element {
   position: absolute;
   width: 100%;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 992px) {
   .map-section {
-    width: calc(100% - 400px);
+    width: calc(100% - 300px);
     right: 0;
   }
 }
@@ -304,22 +317,22 @@ element {
   height: 10vh;
   bottom: 0;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
   .bottom-bar {
     height: 4rem;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 992px) {
   .bottom-bar {
     background-color: #fff;
     box-shadow: 0 -4px 8px #0003;
     z-index: 1000;
     position: absolute;
-    width: 50%;
-    height: 10vh;
+    width: calc(100% - 500px);
+    height: 7vh;
     bottom: 0;
     margin: 0 auto;
-    left: 40%;
+    left: 400px;
     top: 0;
   }
   /* .offcanvas.offcanvas-start {
@@ -329,6 +342,16 @@ element {
   .offcanvas-backdrop.show {
     opacity: 0;
   } */
+}
+
+.bottom-bar .fs-5 {
+  border-top: 2px solid var(--clr-secondary-0);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
 }
 
 .bottom-bar .fs-5 {
@@ -375,6 +398,11 @@ element {
   flex-direction: column;
   gap: 1rem;
 }
+@media screen and (min-width: 992px) {
+  .rightButtons {
+    top: 7rem;
+  }
+}
 .rightButtons path {
   color: var(--clr-secondary-2);
 }
@@ -411,7 +439,11 @@ element {
   height: 2px;
   background: var(--clr-primary-6);
 }
-
+@media screen and (min-width: 992px) {
+  .underline {
+    top: calc(100% - 2px);
+  }
+}
 .avatar {
   background-color: var(--clr-primary-5) !important;
   color: var(--clr-secondary-2) !important;
@@ -466,7 +498,7 @@ element {
 .add-plant-manual {
   display: none;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 992px) {
   .add-plant-manual {
     display: flex;
   }
@@ -530,7 +562,7 @@ element {
   animation: spin 1.5s linear infinite;
   z-index: 0; /* Spinner behind the logo */
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
   .loading-logo {
     width: 30px; /* Adjust the size of the logo */
   }
@@ -1099,7 +1131,7 @@ element {
     var(--bs-offcanvas-border-color);
   /*  */
   --bs-offcanvas-zindex: 1045;
-  --bs-offcanvas-width: 400px;
+  --bs-offcanvas-width: 300px;
   --bs-offcanvas-height: 30vh;
   --bs-offcanvas-padding-x: 1rem;
   --bs-offcanvas-padding-y: 1rem;
