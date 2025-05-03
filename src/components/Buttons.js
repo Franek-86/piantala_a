@@ -94,7 +94,11 @@ const Buttons = ({ setPosition, langMatch, latMatch, markerRef }) => {
         >
           <MdAddLocationAlt />
         </Button>
-        <Link className='circle-button add-plant-manual' to='addPlant'>
+        <Link
+          className='circle-button add-plant-manual'
+          to='addPlant'
+          state={{ fromManual: true }}
+        >
           <MdAdd />
         </Link>
         <Button

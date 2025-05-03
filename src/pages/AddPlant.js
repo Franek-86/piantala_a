@@ -10,8 +10,9 @@ import { PlantsContext } from "../context/PlantsContext";
 import { AuthContext } from "../context/AuthContext";
 import { toast, ToastContainer } from "react-toastify";
 import Loading from "./Loading";
-
-const AddPlant = () => {
+import { useLocation } from "react-router-dom";
+const AddPlant = ({ setting }) => {
+  console.log("qui", setting);
   const {
     register,
     handleSubmit,
@@ -22,6 +23,9 @@ const AddPlant = () => {
     setValue,
   } = useForm();
   const { userId } = useContext(AuthContext);
+  const location = useLocation();
+  const fromManual = location.state?.fromManual;
+
   const {
     getAllPlants,
     // userId,
@@ -188,20 +192,22 @@ const AddPlant = () => {
             {/* Success message */}
             {successMessage && <p className='text-success'>{successMessage}</p>}
             <Form onSubmit={handleSubmit(onSubmit)}>
-              <Form.Group className='mb-3' controlId='formLongitude'>
-                {/* <FloatingLabel controlId='tutte' label='tutte' className='mb-3'> */}
-                <Form.Control
-                  type='text'
-                  placeholder='Incolla qui longitutine e latitudine'
-                  onPaste={handlePaste} // Handle paste event
-                />
-                {/* {errors.longitude && (
+              {fromManual && (
+                <Form.Group className='mb-3' controlId='formLongitude'>
+                  {/* <FloatingLabel controlId='tutte' label='tutte' className='mb-3'> */}
+                  <Form.Control
+                    type='text'
+                    placeholder='Incolla qui longitutine e latitudine'
+                    onPaste={handlePaste} // Handle paste event
+                  />
+                  {/* {errors.longitude && (
                 <small className='text-danger'>
                   {errors.longitude.message}
                 </small>
               )} */}
-                {/* </FloatingLabel> */}
-              </Form.Group>
+                  {/* </FloatingLabel> */}
+                </Form.Group>
+              )}
               {/* Longitude input */}
 
               {/* Latitude input */}

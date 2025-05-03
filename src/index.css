@@ -495,14 +495,14 @@ element {
   z-index: 567 !important;
 }
 
-.add-plant-manual {
+/* .add-plant-manual {
   display: none;
 }
 @media screen and (min-width: 992px) {
   .add-plant-manual {
     display: flex;
   }
-}
+} */
 
 /* ----------------------------------------------------Loading.css--------------------------------------------- */
 
