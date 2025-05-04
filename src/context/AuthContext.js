@@ -371,29 +371,21 @@ export const AuthProvider = ({ children }) => {
       }
     };
     tryRefresh();
-    // if (token) {
-    //   setUserToken(token);
-    //   setIsAuthenticated(true);
-
-    //   //
-    //   console.log("else", token);
-    //   console.log("else2", isAuthenticated);
-
-    //   try {
-    //     const decodedToken = jwtDecode(token);
-    //     setUserId(decodedToken.id);
-    //     setUserRole(decodedToken.role);
-    //   } catch (error) {
-    //     console.error("Failed to decode token:", error);
-    //     setSubmissionError("Invalid token.");
-    //     return;
-    //   } finally {
-    //     setPswLoading(false);
-    //   }
-    // }
-
-    // setLoading(false);
   }, []);
+  const refreshAccessToken = async () => {
+    try {
+      const response = await axios.post(
+        `${serverDomain}/api/auth/refresh-token`,
+        null,
+        { withCredentials: true }
+      );
+      const newToken = response.data.newToken;
+      console.log("new access token", newToken);
+      return newToken;
+    } catch (err) {
+      console.error("failed to refresh token");
+    }
+  };
   // to here
   const checkToken = () => {
     if (token) {
