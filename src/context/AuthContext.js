@@ -364,7 +364,7 @@ export const AuthProvider = ({ children }) => {
           {},
           { withCredentials: true }
         );
-        console.log("test refresh token value", res.data.token);
+        console.log("test refresh token value", res.data?.newToken);
         return res;
       } catch (err) {
         console.log("test refresh token error", err);
