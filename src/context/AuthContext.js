@@ -211,7 +211,7 @@ export const AuthProvider = ({ children }) => {
       `${serverDomain}/api/auth/login`,
       payload,
       {
-        widthCredentials: true,
+        withCredentials: true,
       }
     );
     return response;
@@ -355,6 +355,52 @@ export const AuthProvider = ({ children }) => {
     setLoading(false);
   }, [userId, token]);
 
+  // from here
+  useEffect(() => {
+    const tryRefresh = async () => {
+      try {
+        const res = await axios.post(
+          `${serverDomain}/api/auth/refresh-token`,
+          {},
+          { withCredentials: true }
+        );
+        console.log("test refresh token value", res.data.token);
+        return res;
+      } catch (err) {
+        console.log("test refresh token error", err);
+      }
+    };
+    tryRefresh();
+    // if (token) {
+    //   setUserToken(token);
+    //   setIsAuthenticated(true);
+
+    //   //
+    //   console.log("else", token);
+    //   console.log("else2", isAuthenticated);
+
+    //   try {
+    //     const decodedToken = jwtDecode(token);
+    //     setUserId(decodedToken.id);
+    //     setUserRole(decodedToken.role);
+    //   } catch (error) {
+    //     console.error("Failed to decode token:", error);
+    //     setSubmissionError("Invalid token.");
+    //     return;
+    //   } finally {
+    //     setPswLoading(false);
+    //   }
+    // }
+
+    // setLoading(false);
+  }, []);
+  // to here
+  const checkToken = () => {
+    if (token) {
+      return "map";
+    }
+    return "login";
+  };
   const handleLogout = async () => {
     try {
       const response = await axios.post(`${serverDomain}/api/auth/logout`);
@@ -530,6 +576,7 @@ export const AuthProvider = ({ children }) => {
         handleLogout,
         setIsRegister,
         resetPassword,
+        checkToken,
         isRegister,
         userRole,
         userId,

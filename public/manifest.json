@@ -3,12 +3,12 @@
   "name": "Piantami Per Amore",
   "icons": [
     {
-      "src": "ti pianto per amore-APP-verde.png",
+      "src": "public/ti-pianto-per-amore-APP-verde-quadrato.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "ti pianto per amore-APP-verde.png",
+      "src": "public/ti-pianto-per-amore-APP-verde-quadrato.png",
       "type": "image/png",
       "sizes": "512x512"
     }

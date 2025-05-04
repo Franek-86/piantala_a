@@ -37,12 +37,17 @@ import Error from "./components/Error";
 import Reset from "./pages/Reset";
 import PasswordReset from "./pages/PasswordReset";
 import EmailVerificationReset from "./pages/EmailVerificationReset";
+import Landing from "./pages/Landing";
 
 serviceWorkerRegistration.register();
 
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <Landing />,
+  },
+  {
+    path: "/login",
     element: <Login />,
   },
   {
