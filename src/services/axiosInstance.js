@@ -31,11 +31,8 @@ axios.interceptors.response.use(
     // Any status codes that falls outside the range of 2xx cause this function to trigger
     // Do something with response error
     const config = error?.config;
-    if (
-      error?.response?.status === 401 &&
-      !config?.sent &&
-      !error.config._retry
-    ) {
+    const stopLoop = 1;
+    if (error?.response?.status === 401 && !config?.sent && stopLoop === 2) {
       console.log("p123");
       config.sent = true;
       error.config._retry = true;
