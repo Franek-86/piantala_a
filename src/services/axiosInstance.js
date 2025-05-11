@@ -22,7 +22,7 @@ axios.interceptors.request.use(
 
 // Add a response interceptor
 axios.interceptors.response.use(
-  function (response) {
+  async (response) => {
     // Any status code that lie within the range of 2xx cause this function to trigger
     // Do something with response data
     return response;
@@ -30,12 +30,11 @@ axios.interceptors.response.use(
   async (error) => {
     // Any status codes that falls outside the range of 2xx cause this function to trigger
     // Do something with response error
+    console.log("configuration error", error.config);
     const config = error?.config;
-    const stopLoop = 1;
-    if (error?.response?.status === 401 && !config?.sent && stopLoop === 2) {
+    if (error?.response?.status === 401 && config?.sent !== true) {
       console.log("p123");
       config.sent = true;
-      error.config._retry = true;
       const res = await axios.post(
         `${serverDomain}/api/auth/refresh-token`,
         {},
