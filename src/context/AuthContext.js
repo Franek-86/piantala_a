@@ -358,26 +358,28 @@ export const AuthProvider = ({ children }) => {
     setLoading(false);
   }, [userId, token]);
 
-  // from here
-  useEffect(() => {
-    const tryRefresh = async () => {
-      console.log("anything");
-      try {
-        const res = await axios.post(
-          `${serverDomain}/api/auth/refresh-token`,
-          {},
-          { withCredentials: true }
-        );
-        console.log("test refresh token value", res.data.token);
-        const newAccessToken = res.data.token;
-        localStorage.setItem("userToken", newAccessToken);
-        return;
-      } catch (err) {
-        console.log("test refresh token error", err);
-      }
-    };
-    tryRefresh();
-  }, []);
+  // from here uncommented in order to avoid infinite loop
+  // useEffect(() => {
+  //   const tryRefresh = async () => {
+  //     console.log("anything");
+  //     try {
+  //       const res = await axios.post(
+  //         `${serverDomain}/api/auth/refresh-token`,
+  //         {},
+  //         { withCredentials: true }
+  //       );
+  //       console.log("test refresh token value", res.data.token);
+  //       const newAccessToken = res.data.token;
+  //       localStorage.setItem("userToken", newAccessToken);
+  //       return;
+  //     } catch (err) {
+  //       console.log("test refresh token error", err);
+  //     }
+  //   };
+  //   tryRefresh();
+  // }, []);
+  // to here for avoiding infinite loop
+
   // const refreshAccessToken = async () => {
   //   try {
   //     const response = await axios.post(

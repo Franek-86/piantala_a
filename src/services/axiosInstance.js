@@ -31,10 +31,13 @@ axios.interceptors.response.use(
     // Any status codes that falls outside the range of 2xx cause this function to trigger
     // Do something with response error
     console.log("configuration error", error.config);
-    const config = error?.config;
-    if (error?.response?.status === 401 && config?.sent !== true) {
+    const config = error.config;
+    console.log("prima della condizione", error.config.sent);
+
+    if (error?.response?.status === 401 && !error.config.sent) {
       console.log("p123");
       config.sent = true;
+      console.log("nella condizione", error.config.sent);
       const res = await axios.post(
         `${serverDomain}/api/auth/refresh-token`,
         {},
