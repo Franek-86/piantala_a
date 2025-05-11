@@ -146,23 +146,25 @@ export const AuthProvider = ({ children }) => {
 
   const getUserInfo = async (userId) => {
     console.log("bba", userId);
-    try {
-      const response = await axios.get(
-        `${serverDomain}/api/auth/user/${userId}`
-      );
-      if (response) {
-        console.log("response", response.data);
-        // return response;
-        console.log("test1", response.data);
-        setLoggedUserInfo({
-          ...loggedUserInfo,
-          userName: response.data.userName,
-          email: response.data.email,
-        });
-        return response.data;
+    if (userId) {
+      try {
+        const response = await axios.get(
+          `${serverDomain}/api/auth/user/${userId}`
+        );
+        if (response) {
+          console.log("response", response.data);
+          // return response;
+          console.log("test1", response.data);
+          setLoggedUserInfo({
+            ...loggedUserInfo,
+            userName: response.data.userName,
+            email: response.data.email,
+          });
+          return response.data;
+        }
+      } catch (err) {
+        console.log(err.message);
       }
-    } catch (err) {
-      console.log(err.message);
     }
   };
   const getOtherUserInfo = async (userId) => {
@@ -341,6 +343,7 @@ export const AuthProvider = ({ children }) => {
 
       try {
         const decodedToken = jwtDecode(token);
+        console.log("test321", decodedToken);
         setUserId(decodedToken.id);
         setUserRole(decodedToken.role);
       } catch (error) {
@@ -358,34 +361,37 @@ export const AuthProvider = ({ children }) => {
   // from here
   useEffect(() => {
     const tryRefresh = async () => {
+      console.log("anything");
       try {
         const res = await axios.post(
           `${serverDomain}/api/auth/refresh-token`,
           {},
           { withCredentials: true }
         );
-        console.log("test refresh token value", res.data?.newToken);
-        return res;
+        console.log("test refresh token value", res.data.token);
+        const newAccessToken = res.data.token;
+        localStorage.setItem("userToken", newAccessToken);
+        return;
       } catch (err) {
         console.log("test refresh token error", err);
       }
     };
     tryRefresh();
   }, []);
-  const refreshAccessToken = async () => {
-    try {
-      const response = await axios.post(
-        `${serverDomain}/api/auth/refresh-token`,
-        null,
-        { withCredentials: true }
-      );
-      const newToken = response.data.newToken;
-      console.log("new access token", newToken);
-      return newToken;
-    } catch (err) {
-      console.error("failed to refresh token");
-    }
-  };
+  // const refreshAccessToken = async () => {
+  //   try {
+  //     const response = await axios.post(
+  //       `${serverDomain}/api/auth/refresh-token`,
+  //       null,
+  //       { withCredentials: true }
+  //     );
+  //     const newToken = response.data.newToken;
+  //     console.log("new access token", newToken);
+  //     return newToken;
+  //   } catch (err) {
+  //     console.error("failed to refresh token");
+  //   }
+  // };
   // to here
   const checkToken = () => {
     if (token) {

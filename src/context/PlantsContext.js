@@ -1,8 +1,8 @@
-import axios from "axios";
 import React, { createContext, useState, useEffect, useContext } from "react";
 import { jwtDecode } from "jwt-decode";
 import { AuthContext } from "./AuthContext";
 import { ToastContainer, toast } from "react-toastify";
+import axios from "../services/axiosInstance";
 export const PlantsContext = createContext();
 export const PlantsProvider = ({ children }) => {
   const { token, getOtherUserInfo } = useContext(AuthContext);
@@ -88,23 +88,15 @@ export const PlantsProvider = ({ children }) => {
     console.log(id, owner_id, comment, plantType, purchase_date, "test23");
 
     try {
-      await axios.patch(
-        `${serverDomain}/api/plants/${id}/ownership`,
-        {
-          status: "booked",
-          owner_id,
-          id,
-          owner_id,
-          comment,
-          plantType,
-          purchase_date,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`, // Include the token in the headers
-          },
-        }
-      );
+      await axios.patch(`${serverDomain}/api/plants/${id}/ownership`, {
+        status: "booked",
+        owner_id,
+        id,
+        owner_id,
+        comment,
+        plantType,
+        purchase_date,
+      });
     } catch (err) {
       // setError(err.message);
     }
@@ -144,12 +136,7 @@ export const PlantsProvider = ({ children }) => {
     try {
       const response = await axios.patch(
         `${serverDomain}/api/plants/clear-plate`,
-        { id, plate_hash },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`, // Include the token in the headers
-          },
-        }
+        { id, plate_hash }
       );
       console.log("sta12", response);
       // setPlants(response.data);
@@ -209,11 +196,7 @@ export const PlantsProvider = ({ children }) => {
     try {
       setSinglePlantLoading(true);
       const token = localStorage.getItem("userToken"); // Retrieve the token from localStorage
-      await axios.delete(`${serverDomain}/api/plants/${plantId}/delete`, {
-        headers: {
-          Authorization: `Bearer ${token}`, // Include the token in the headers
-        },
-      });
+      await axios.delete(`${serverDomain}/api/plants/${plantId}/delete`);
 
       getAllPlants("delete");
     } catch (err) {
@@ -285,18 +268,14 @@ export const PlantsProvider = ({ children }) => {
 
   const handleStatusChange = async (newStatus, plantId, comment) => {
     // const token = localStorage.getItem("userToken"); // Retrieve the token from localStorage
-    console.log(newStatus, plantId, comment);
+    console.log("wwww", newStatus, plantId, comment);
     try {
       await axios.patch(
         `${serverDomain}/api/plants/${plantId}/status`,
+
         {
           status: newStatus,
           rejection_comment: comment,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`, // Include the token in the headers
-          },
         }
       );
 
@@ -345,7 +324,7 @@ export const PlantsProvider = ({ children }) => {
     try {
       let response = axios.post(`${serverDomain}/api/plants/add-plant`, data, {
         headers: {
-          "Content-Type": "multipart/form-data", // Important for file uploads
+          // "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`, // Optional: Send the token if needed
         },
       });
@@ -395,12 +374,7 @@ export const PlantsProvider = ({ children }) => {
     console.log("salve 0.1", ownerId);
     try {
       const response = await axios.get(
-        `${serverDomain}/api/plants/user/owner/${ownerId}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
+        `${serverDomain}/api/plants/user/owner/${ownerId}`
       );
       if (response) {
         console.log("qua", response.data);
@@ -435,12 +409,7 @@ export const PlantsProvider = ({ children }) => {
     // let updatedObj = {};
     try {
       const response = await axios.get(
-        `${serverDomain}/api/plants/user/reporter/${userId}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`, // Include the token in the headers
-          },
-        }
+        `${serverDomain}/api/plants/user/reporter/${userId}`
       );
       if (response) {
         setReporterInfo({
