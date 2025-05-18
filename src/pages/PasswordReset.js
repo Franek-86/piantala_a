@@ -31,7 +31,6 @@ const PasswordReset = () => {
   }, []);
   const navigate = useNavigate();
   const { token } = useParams();
-  console.log(token);
   const backToLogin = () => {
     navigate("/");
   };
