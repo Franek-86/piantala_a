@@ -183,7 +183,7 @@ const Plant = () => {
                     ? "rejectedPlant"
                     : status_piantina === "booked"
                     ? "bookedPlant"
-                    : "pendingPlant"
+                    : status_piantina
                 }
               >
                 {status_piantina === "pending"
