@@ -192,6 +192,8 @@ const Plant = () => {
                   ? "approvata"
                   : status_piantina === "rejected"
                   ? "non approvata"
+                  : status_piantina === "booked"
+                  ? "acquistata"
                   : status_piantina}
               </span>
             </ListGroup.Item>
