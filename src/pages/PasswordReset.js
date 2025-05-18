@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../context/AuthContext";
 import { Form, Button, FloatingLabel } from "react-bootstrap";
@@ -10,7 +10,12 @@ import Col from "react-bootstrap/Col";
 import logo from "../assets/images/ti pianto per amore-APP-verde.png";
 import { toast } from "react-toastify";
 import Loading from "./Loading";
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
+
 const PasswordReset = () => {
+  const [showPassword1, setShowPassword1] = useState(false);
+  const [showPassword2, setShowPassword2] = useState(false);
   const {
     register,
     handleSubmit,
@@ -90,8 +95,18 @@ const PasswordReset = () => {
                   controlId='floatingPasswordFirst'
                   label='Nuova password'
                 >
+                  <span
+                    className='showHidePassword'
+                    onClick={() => setShowPassword1(!showPassword1)}
+                  >
+                    {showPassword1 ? (
+                      <FaEye className='showHidePasswordIcon' />
+                    ) : (
+                      <FaEyeSlash className='showHidePasswordIcon' />
+                    )}
+                  </span>
                   <Form.Control
-                    type='password'
+                    type={showPassword1 ? "text" : "password"}
                     placeholder='Password'
                     // disabled={loading}
                     {...register("password1", {
@@ -115,8 +130,19 @@ const PasswordReset = () => {
                   controlId='floatingPasswordSecond'
                   label='Ripeti Password'
                 >
+                  <span
+                    className='showHidePassword'
+                    onClick={() => setShowPassword2(!showPassword2)}
+                  >
+                    {showPassword2 ? (
+                      <FaEye className='showHidePasswordIcon' />
+                    ) : (
+                      <FaEyeSlash className='showHidePasswordIcon' />
+                    )}
+                  </span>
+
                   <Form.Control
-                    type='password'
+                    type={showPassword2 ? "text" : "password"}
                     placeholder='Password'
                     // disabled={loading}
                     {...register("password2", {

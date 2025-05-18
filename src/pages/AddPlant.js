@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect, useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Button, Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
+
 // import { jwtDecode } from "jwt-decode";
 import axios from "axios";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
@@ -11,8 +12,8 @@ import { AuthContext } from "../context/AuthContext";
 import { toast, ToastContainer } from "react-toastify";
 import Loading from "./Loading";
 import { useLocation } from "react-router-dom";
+
 const AddPlant = ({ setting }) => {
-  console.log("qui", setting);
   const {
     register,
     handleSubmit,
@@ -22,7 +23,7 @@ const AddPlant = ({ setting }) => {
     reset,
     setValue,
   } = useForm();
-  const { userId } = useContext(AuthContext);
+  const { userId, handleLogout } = useContext(AuthContext);
   const location = useLocation();
   const fromManual = location.state?.fromManual;
 
@@ -175,7 +176,7 @@ const AddPlant = ({ setting }) => {
     <>
       {loading && <Loading />}
       {!loading && (
-        <section className='section-background section-full-page'>
+        <section className='section-background section-full-page section-map-page'>
           <div className='section-center'>
             <div className='back-btn'>
               <MdBackspace

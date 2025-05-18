@@ -12,7 +12,10 @@ import logo from "../assets/images/ti pianto per amore-APP-verde.png";
 // import { SiStreamrunners } from "react-icons/si";
 import { GrUndo } from "react-icons/gr";
 import { toast } from "react-toastify";
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
 const AuthForm = () => {
+  const [showPassword, setShowPassword] = useState(false);
   const {
     setUserRole,
     setIsRegister,
@@ -194,8 +197,18 @@ const AuthForm = () => {
             </Form.Group>
             <Form.Group className='mb-3' controlId='formBasicPassword'>
               <FloatingLabel controlId='floatingPassword' label='Password'>
+                <span
+                  className='showHidePassword'
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? (
+                    <FaEye className='showHidePasswordIcon' />
+                  ) : (
+                    <FaEyeSlash className='showHidePasswordIcon' />
+                  )}
+                </span>
                 <Form.Control
-                  type='password'
+                  type={showPassword ? "text" : "password"}
                   placeholder='Password'
                   disabled={loading}
                   {...register("password", {

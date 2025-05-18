@@ -42,43 +42,44 @@ const Contacts = () => {
         </div>
       </div>
       {loading && <Loading />}
-      <div className='section-center'>
-        <section className='section-page section-background'>
+
+      <section className='section-page section-background'>
+        <div className='section-center menu-section-center'>
           <article className='mb-3'>
-            <div className='section-center menu-section-center'>
-              <h2 className='section-title'>I nostri contatti</h2>
-              <Form onSubmit={handleSubmit(onSubmit)}>
-                {/* <h5 className='mb-3'>Scrivici una mail (non attivo)</h5> */}
-                <Form.Group
-                  className='mb-3'
-                  controlId='exampleForm.ControlInput1'
+            <h2 className='section-title'>I nostri contatti</h2>
+
+            <Form onSubmit={handleSubmit(onSubmit)}>
+              {/* <h5 className='mb-3'>Scrivici una mail (non attivo)</h5> */}
+              <Form.Group
+                className='mb-3'
+                controlId='exampleForm.ControlInput1'
+              >
+                {/* <Form.Label>La tua mail</Form.Label> */}
+                {/* <Form.Control type='email' placeholder='la tua mail' /> */}
+              </Form.Group>
+              <Form.Group
+                className='mb-3'
+                controlId='exampleForm.ControlTextarea1'
+              >
+                <Form.Control
+                  placeholder='Come possiamo aiutarti?'
+                  as='textarea'
+                  {...register("messageBody", { minLength: 2 })}
+                  rows={4}
+                />
+              </Form.Group>
+              <div className='d-flex justify-content-center'>
+                <Button
+                  className='w-100 text-align-center'
+                  variant='primary'
+                  type='submit'
                 >
-                  {/* <Form.Label>La tua mail</Form.Label> */}
-                  {/* <Form.Control type='email' placeholder='la tua mail' /> */}
-                </Form.Group>
-                <Form.Group
-                  className='mb-3'
-                  controlId='exampleForm.ControlTextarea1'
-                >
-                  <Form.Control
-                    placeholder='Come possiamo aiutarti?'
-                    as='textarea'
-                    {...register("messageBody", { minLength: 2 })}
-                    rows={4}
-                  />
-                </Form.Group>
-                <div className='d-flex justify-content-center'>
-                  <Button
-                    className='w-100 text-align-center'
-                    variant='primary'
-                    type='submit'
-                  >
-                    Invia mail
-                  </Button>
-                </div>
-              </Form>
-            </div>
+                  Invia mail
+                </Button>
+              </div>
+            </Form>
           </article>
+
           <hr />
           <article className='my-3'>
             <div className='contacts-location mb-3 d-flex align-items-center'>
@@ -138,8 +139,8 @@ const Contacts = () => {
               </div>
             </div>
           </article>
-        </section>
-      </div>
+        </div>
+      </section>
     </section>
   );
 };

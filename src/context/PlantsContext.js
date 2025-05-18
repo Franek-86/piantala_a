@@ -195,11 +195,22 @@ export const PlantsProvider = ({ children }) => {
   const deletePlant = async (plantId) => {
     try {
       setSinglePlantLoading(true);
-      const token = localStorage.getItem("userToken"); // Retrieve the token from localStorage
+
       await axios.delete(`${serverDomain}/api/plants/${plantId}/delete`);
 
       getAllPlants("delete");
     } catch (err) {
+      console.error("Logout error:", err);
+      toast.error(`${err.code}`, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
       setError(err.message);
       setSinglePlantLoading(false);
     } finally {
@@ -270,14 +281,21 @@ export const PlantsProvider = ({ children }) => {
     // const token = localStorage.getItem("userToken"); // Retrieve the token from localStorage
     console.log("wwww", newStatus, plantId, comment);
     try {
-      await axios.patch(
-        `${serverDomain}/api/plants/${plantId}/status`,
-
-        {
+      // const resp = await axios.patch(`/api/plants/${plantId}/status`, {
+      //   status: newStatus,
+      //   rejection_comment: comment,
+      // });
+      await axios({
+        method: "patch",
+        url: `/api/plants/${plantId}/status`,
+        data: {
           status: newStatus,
           rejection_comment: comment,
-        }
-      );
+        },
+        headers: {
+          "content-type": "application/json",
+        },
+      });
 
       if (newStatus === "approved") {
         console.log("new status", newStatus);
@@ -320,18 +338,13 @@ export const PlantsProvider = ({ children }) => {
     }
   };
 
-  const addPlant = (data) => {
+  const addPlant = async (data) => {
     try {
-      let response = axios.post(`${serverDomain}/api/plants/add-plant`, data, {
-        headers: {
-          // "Content-Type": "multipart/form-data",
-          Authorization: `Bearer ${token}`, // Optional: Send the token if needed
-        },
-      });
-
+      let response = await axios.post(`/api/plants/add-plant`, data);
+      console.log("1111", response);
       return response;
     } catch (error) {
-      console.log(error);
+      console.log("t32", error);
     }
   };
 

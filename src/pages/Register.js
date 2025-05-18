@@ -9,7 +9,8 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Loading from "./Loading";
-
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
 // import logo from "../assets/images/logo_albero_green.png";
 import logo from "../assets/images/ti pianto per amore-APP-verde.png";
 // import { SiStreamrunners } from "react-icons/si";
@@ -20,6 +21,8 @@ const Register = () => {
   const [successMessage, setSuccessMessage] = useState(false);
   const [loading, setLoading] = useState(false);
   const [disabled, setDisabled] = useState(true);
+  const [showPassword1, setShowPassword1] = useState(false);
+  const [showPassword2, setShowPassword2] = useState(false);
   const ref = useRef(null);
   const handleClick = () => {
     console.log("sta");
@@ -112,6 +115,24 @@ const Register = () => {
 
   const onSubmit = async (data) => {
     setLoading(true);
+
+    const password = watch("password");
+    const password2 = watch("password2");
+    if (password !== password2) {
+      toast.error("Le password inserite non corrispondono", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        // transition: Bounce,
+      });
+      setLoading(false);
+      return;
+    }
 
     const isValid = await validateFiscalCode(data.fiscalCode);
     if (!isValid) {
@@ -484,11 +505,56 @@ const Register = () => {
 
               <Form.Group className='mb-3' controlId='formBasicPassword'>
                 <FloatingLabel controlId='floatingPassword' label='Password'>
+                  <span
+                    className='showHidePassword'
+                    onClick={() => setShowPassword1(!showPassword1)}
+                  >
+                    {showPassword1 ? (
+                      <FaEye className='showHidePasswordIcon' />
+                    ) : (
+                      <FaEyeSlash className='showHidePasswordIcon' />
+                    )}
+                  </span>
                   <Form.Control
-                    type='password'
+                    type={showPassword1 ? "text" : "password"}
                     placeholder='Password'
                     disabled={loading}
                     {...register("password", {
+                      required: "Password necessaria",
+                      minLength: {
+                        value: 6,
+                        message:
+                          "La password deve essere di almeno 6 caratteri",
+                      },
+                    })}
+                  />
+                </FloatingLabel>
+                {errors.password && (
+                  <span className='text-danger'>
+                    {errors?.password?.message}
+                  </span>
+                )}
+              </Form.Group>
+              <Form.Group className='mb-3' controlId='formBasicPassword'>
+                <FloatingLabel
+                  controlId='floatingPassword'
+                  label='Ripeti Password'
+                >
+                  <span
+                    className='showHidePassword'
+                    onClick={() => setShowPassword2(!showPassword2)}
+                  >
+                    {showPassword2 ? (
+                      <FaEye className='showHidePasswordIcon' />
+                    ) : (
+                      <FaEyeSlash className='showHidePasswordIcon' />
+                    )}
+                  </span>
+                  <Form.Control
+                    type={showPassword2 ? "text" : "password"}
+                    placeholder='Password'
+                    disabled={loading}
+                    {...register("password2", {
                       required: "Password necessaria",
                       minLength: {
                         value: 6,

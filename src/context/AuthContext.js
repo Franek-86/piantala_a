@@ -1,10 +1,13 @@
 import React, { createContext, useState, useEffect } from "react";
 import { jwtDecode } from "jwt-decode";
 import axios, { Axios } from "axios";
+
 import { toast } from "react-toastify";
+import axiosInstance from "../services/axiosInstance";
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
+  const [isRefreshTokenExpired, setIsRefreshTokenExpired] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userToken, setUserToken] = useState(null);
   const [loading, setLoading] = useState(true); // New loading state
@@ -109,9 +112,6 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     getRegions();
     console.log("regions", regions);
-
-    // getDistricts();
-    // getCities();
   }, []);
 
   const generateFiscalCode = async (data) => {
@@ -148,7 +148,7 @@ export const AuthProvider = ({ children }) => {
     console.log("bba", userId);
     if (userId) {
       try {
-        const response = await axios.get(
+        const response = await axiosInstance.get(
           `${serverDomain}/api/auth/user/${userId}`
         );
         if (response) {
@@ -169,9 +169,7 @@ export const AuthProvider = ({ children }) => {
   };
   const getOtherUserInfo = async (userId) => {
     try {
-      const response = await axios.get(
-        `${serverDomain}/api/auth/user/${userId}`
-      );
+      const response = await axiosInstance.get(`/api/auth/user/${userId}`);
       if (response) {
         console.log("response", response.data);
         // return response;
@@ -193,7 +191,7 @@ export const AuthProvider = ({ children }) => {
   }, [userId]);
   const getAllUsers = async () => {
     try {
-      const response = await axios.get(`${serverDomain}/api/auth/users`);
+      const response = await axiosInstance.get(`/api/auth/users`);
       if (response) {
         let allUsers = response.data.usersToBeSent;
 
@@ -273,7 +271,6 @@ export const AuthProvider = ({ children }) => {
         draggable: true,
         progress: undefined,
         theme: "light",
-        // transition: Bounce,
       });
     } catch (err) {
       toast.error(`${err.response.data.message}`, {
@@ -285,14 +282,12 @@ export const AuthProvider = ({ children }) => {
         draggable: true,
         progress: undefined,
         theme: "light",
-        // transition: Bounce,
       });
     } finally {
       setEmailLoading(false);
     }
   };
   const newPassword = async (data) => {
-    console.log("test123", data);
     setPswLoading(true);
 
     try {
@@ -312,7 +307,6 @@ export const AuthProvider = ({ children }) => {
           draggable: true,
           progress: undefined,
           theme: "light",
-          // transition: Bounce,
         });
         return "ok";
       }
@@ -420,16 +414,17 @@ export const AuthProvider = ({ children }) => {
     console.log("t123", token);
     setLoading(true);
     try {
-      const response = await axios.patch(
-        `${serverDomain}/api/auth/role`,
+      const response = await axiosInstance.patch(
+        `/api/auth/role`,
         {
           payload: { userInfo },
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`, // Include the token in the headers
-          },
         }
+        // ,
+        // {
+        //   headers: {
+        //     Authorization: `Bearer ${token}`, // Include the token in the headers
+        //   },
+        // }
       );
       if (response.status === 200) {
         setLoading(false);
@@ -467,6 +462,16 @@ export const AuthProvider = ({ children }) => {
       }
     } catch (error) {
       console.error("Logout error:", error);
+      toast.error(`${error.code}`, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
       setLoading(false);
     }
   };
@@ -474,18 +479,9 @@ export const AuthProvider = ({ children }) => {
   const changeUserStatus = async () => {
     setLoading(true);
     try {
-      const response = await axios.patch(
-        `${serverDomain}/api/auth/status`,
-        {
-          payload: { userInfo },
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`, // Include the token in the headers
-          },
-        }
-      );
-      console.log("this", response);
+      const response = await axiosInstance.patch(`/api/auth/status`, {
+        payload: { userInfo },
+      });
       if (response.status === 200) {
         setLoading(false);
         setUserInfo({ ...userInfo, status: 0 });
@@ -499,7 +495,6 @@ export const AuthProvider = ({ children }) => {
             draggable: true,
             progress: undefined,
             theme: "light",
-            // transition: Bounce,
           });
         } else {
           setUserInfo({ ...userInfo, status: 1 });
@@ -512,7 +507,6 @@ export const AuthProvider = ({ children }) => {
             draggable: true,
             progress: undefined,
             theme: "light",
-            // transition: Bounce,
           });
         }
       } else {
@@ -521,13 +515,23 @@ export const AuthProvider = ({ children }) => {
       }
     } catch (error) {
       console.error("Logout error:", error);
+      toast.error(`${error.code}`, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
       setLoading(false);
     }
   };
   const sendEmail = async (messageBody) => {
     setLoading(true);
     try {
-      const response = await axios.post(`${serverDomain}/api/auth/send`, {
+      const response = await axiosInstance.post(`/api/auth/send`, {
         payload: { messageBody, loggedUserInfo },
       });
       if (response.status === 200) {
@@ -597,6 +601,8 @@ export const AuthProvider = ({ children }) => {
         changeUserRole,
         changeUserStatus,
         getOtherUserInfo,
+        setIsRefreshTokenExpired,
+        isRefreshTokenExpired,
         otherUserInfo,
         userName,
         sessionLoading,

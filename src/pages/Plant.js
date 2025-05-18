@@ -186,7 +186,13 @@ const Plant = () => {
                     : "pendingPlant"
                 }
               >
-                {status_piantina}
+                {status_piantina === "pending"
+                  ? "in attesa di approvazione"
+                  : status_piantina === "approved"
+                  ? "approvata"
+                  : status_piantina === "rejected"
+                  ? "non approvata"
+                  : status_piantina}
               </span>
             </ListGroup.Item>
             <ListGroup.Item>
