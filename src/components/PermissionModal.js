@@ -36,7 +36,7 @@ const PermissionModal = () => {
     <Modal
       show={showPermissionModal}
       onHide={handleClosePermissionModal}
-      centred
+      centered
     >
       <Modal.Header>
         <Modal.Title>Consenti localizzazione</Modal.Title>
