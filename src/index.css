@@ -337,7 +337,7 @@ element {
 }
 @media screen and (max-width: 992px) {
   .bottom-bar {
-    height: 13vh;
+    height: 10vh;
   }
 }
 @media screen and (min-width: 992px) {

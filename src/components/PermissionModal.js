@@ -12,8 +12,8 @@ const PermissionModal = () => {
     handleLogout,
     handleShowPermissionModal,
   } = useContext(AuthContext);
-  const ensurePermissionAndCloseModal = () => {
-    const permission = ensurePermission();
+  const ensurePermissionAndCloseModal = async () => {
+    const permission = await ensurePermission();
     if (!permission) {
       handleLogout();
       toast.error(`geolocalizzazione necessaria`, {
@@ -38,7 +38,7 @@ const PermissionModal = () => {
       onHide={handleClosePermissionModal}
       centred
     >
-      <Modal.Header closeButton>
+      <Modal.Header>
         <Modal.Title>Consenti localizzazione</Modal.Title>
       </Modal.Header>
 
