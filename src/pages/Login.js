@@ -113,6 +113,7 @@ const AuthForm = () => {
       console.log("here1", response);
       if (response.status === 201 || response.status === 200) {
         setIsAuthenticated(true);
+        localStorage.setItem("justLoggedIn", "true");
         navigate("/map");
 
         const {

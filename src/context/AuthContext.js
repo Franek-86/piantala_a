@@ -29,12 +29,14 @@ export const AuthProvider = ({ children }) => {
     userName: "",
     email: "",
   });
+  const [showPermissionModal, setShowPermissionModal] = useState(false);
   const [pageError, setPageError] = useState(false);
   const [userSession, setUserSession] = useState(null);
   const [userName, setUserName] = useState(null);
   const [regionsLoading, setRegionsLoading] = useState(true);
   const [emailLoading, setEmailLoading] = useState(false);
-
+  const handleShowPermissionModal = () => setShowPermissionModal(true);
+  const handleClosePermissionModal = () => setShowPermissionModal(false);
   console.log(allUsers);
   // const [allUsers, setAllUsers] = useState({});
 
@@ -352,43 +354,6 @@ export const AuthProvider = ({ children }) => {
     setLoading(false);
   }, [userId, token]);
 
-  // from here uncommented in order to avoid infinite loop
-  // useEffect(() => {
-  //   const tryRefresh = async () => {
-  //     console.log("anything");
-  //     try {
-  //       const res = await axios.post(
-  //         `${serverDomain}/api/auth/refresh-token`,
-  //         {},
-  //         { withCredentials: true }
-  //       );
-  //       console.log("test refresh token value", res.data.token);
-  //       const newAccessToken = res.data.token;
-  //       localStorage.setItem("userToken", newAccessToken);
-  //       return;
-  //     } catch (err) {
-  //       console.log("test refresh token error", err);
-  //     }
-  //   };
-  //   tryRefresh();
-  // }, []);
-  // to here for avoiding infinite loop
-
-  // const refreshAccessToken = async () => {
-  //   try {
-  //     const response = await axios.post(
-  //       `${serverDomain}/api/auth/refresh-token`,
-  //       null,
-  //       { withCredentials: true }
-  //     );
-  //     const newToken = response.data.newToken;
-  //     console.log("new access token", newToken);
-  //     return newToken;
-  //   } catch (err) {
-  //     console.error("failed to refresh token");
-  //   }
-  // };
-  // to here
   const checkToken = () => {
     if (token) {
       return "map";
@@ -402,6 +367,7 @@ export const AuthProvider = ({ children }) => {
       // Optionally, handle the response if needed (e.g., check response status)
       if (response.status === 200) {
         localStorage.removeItem("userToken");
+        localStorage.removeItem("refreshToken");
         setIsAuthenticated(false);
       } else {
         console.error("Unexpected response:", response);
@@ -615,6 +581,10 @@ export const AuthProvider = ({ children }) => {
         pswLoading,
         emailLoading,
         regionsLoading,
+        showPermissionModal,
+        setShowPermissionModal,
+        handleShowPermissionModal,
+        handleClosePermissionModal,
       }}
     >
       {children}

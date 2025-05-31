@@ -12,6 +12,7 @@ import iconYellow from "./assets/images/ti pianto per amore-APP-giallo.png";
 import iconRed from "./assets/images/ti pianto per amore-APP-rosso.png";
 import iconBlue from "./assets/images/ti pianto per amore-APP-azzurro.png";
 import iconLocation from "leaflet/dist/images/marker-icon.png";
+
 // import iconLocation from "./assets/images//marker-icon.png";
 import copy from "copy-to-clipboard";
 // import iconShadow from "leaflet/dist/images/marker-shadow.png";
@@ -27,6 +28,11 @@ import { Button } from "react-bootstrap";
 import { FilterContext } from "./context/FilterContext";
 import SideBar from "./components/SideBar";
 import useIsLargeScreen from "./utils/useIsLargeScreen";
+import { ensurePermission } from "./utils/utils";
+import PermissionModal from "./components/PermissionModal";
+import { AuthContext } from "./context/AuthContext";
+import { Geolocation } from "@capacitor/geolocation";
+import { Capacitor } from "@capacitor/core";
 
 // test
 // Set default icon
@@ -70,6 +76,7 @@ function App() {
   const { plants, setPlants, getAllPlants, loading, sendValuesToAddPlant } =
     useContext(PlantsContext);
   const { filters, handleFilterChange } = useContext(FilterContext);
+  const { setShowPermissionModal } = useContext(AuthContext);
 
   const [copyText, setCopyText] = useState("");
   const isLargeScreen = useIsLargeScreen();
@@ -87,6 +94,32 @@ function App() {
   //     [name]: value,
   //   }));
   // };
+  // useEffect(() => {
+  //   ensurePermission();
+  // }, []);
+  useEffect(() => {
+    const checkPermissionsAndShowModal = async () => {
+      const platform = Capacitor.getPlatform();
+      console.log("Platform:", platform);
+      if (Capacitor.getPlatform() === "web") return;
+      const justLoggedIn = localStorage.getItem("justLoggedIn") === "true";
+      const locationAlreadyGranted =
+        localStorage.getItem("locationGranted") === "true";
+
+      if (!justLoggedIn || locationAlreadyGranted) return;
+
+      localStorage.setItem("justLoggedIn", "false");
+
+      const perm = await Geolocation.checkPermissions();
+      if (perm.location === "granted") {
+        localStorage.setItem("locationGranted", "true");
+      } else {
+        setShowPermissionModal(true);
+      }
+    };
+
+    checkPermissionsAndShowModal();
+  }, []);
   const filteredPlants = plants.filter((plant) => {
     return (
       (filters.status === "" || plant.status_piantina === filters.status) &&
@@ -224,6 +257,7 @@ function App() {
       )}
       <Outlet />
       {isLargeScreen && <SideBar />}
+      <PermissionModal />
     </>
   );
 }
