@@ -8,6 +8,11 @@ const config: CapacitorConfig = {
     url: "https://piantala-a.onrender.com",
     cleartext: true,
   },
+  plugins: {
+    Keyboard: {
+      resize: "body", // options: 'body', 'ionic', 'native', 'none'
+    },
+  },
 };
 
 export default config;

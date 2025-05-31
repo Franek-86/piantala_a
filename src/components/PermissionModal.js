@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { ensurePermission } from "../utils/utils";
 import { AuthContext } from "../context/AuthContext";
+import { toast } from "react-toastify";
 
 const PermissionModal = () => {
   const {
@@ -12,12 +13,31 @@ const PermissionModal = () => {
     handleShowPermissionModal,
   } = useContext(AuthContext);
   const ensurePermissionAndCloseModal = () => {
-    ensurePermission();
-    handleClosePermissionModal();
+    const permission = ensurePermission();
+    if (!permission) {
+      handleLogout();
+      toast.error(`geolocalizzazione necessaria`, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        // transition: Bounce,
+      });
+    } else {
+      handleClosePermissionModal();
+    }
   };
 
   return (
-    <Modal show={showPermissionModal} onHide={handleClosePermissionModal}>
+    <Modal
+      show={showPermissionModal}
+      onHide={handleClosePermissionModal}
+      centred
+    >
       <Modal.Header closeButton>
         <Modal.Title>Consenti localizzazione</Modal.Title>
       </Modal.Header>
@@ -30,7 +50,9 @@ const PermissionModal = () => {
       </Modal.Body>
 
       <Modal.Footer>
-        <Button variant='secondary'>Esci dall'app</Button>
+        <Button variant='secondary' onClick={() => handleLogout()}>
+          Esci dall'app
+        </Button>
         <Button
           variant='primary'
           onClick={() => ensurePermissionAndCloseModal()}

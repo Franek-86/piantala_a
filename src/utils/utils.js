@@ -17,9 +17,12 @@ export const ensurePermission = async () => {
 
     if (result.location !== "granted") {
       alert("Location permission is required to use this app.");
+      return false;
+
       // You can force logout or exit here if needed
     } else {
       localStorage.setItem("locationGranted", "true");
+      return true;
     }
   } else {
     localStorage.setItem("locationGranted", "true");
