@@ -77,19 +77,27 @@ const Register = () => {
   }, [district]);
   useEffect(() => {
     if (Capacitor.getPlatform() === "web") return;
-
-    const showSub = Keyboard.addListener("keyboardWillShow", () => {
+    Keyboard.addListener("keyboardDidShow", () => {
+      alert("KEYBOARD DID SHOW");
       document.body.classList.add("keyboard-open");
     });
-
-    const hideSub = Keyboard.addListener("keyboardWillHide", () => {
+    Keyboard.addListener("keyboardDidHide", () => {
+      alert("KEYBOARD DID HIDE");
       document.body.classList.remove("keyboard-open");
     });
 
-    return () => {
-      showSub.remove();
-      hideSub.remove();
-    };
+    // const showSub = Keyboard.addListener("keyboardWillShow", () => {
+    //   document.body.classList.add("keyboard-open");
+    // });
+
+    // const hideSub = Keyboard.addListener("keyboardWillHide", () => {
+    //   document.body.classList.remove("keyboard-open");
+    // });
+
+    // return () => {
+    //   showSub.remove();
+    //   hideSub.remove();
+    // };
   }, []);
 
   // console.log("aaa", fields);
