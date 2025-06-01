@@ -259,7 +259,7 @@ const Register = () => {
       </div>
       <div
         ref={formWrapperRef}
-        className='form-wrapper d-flex flex-column py-5 justify-content-center'
+        className='form-wrapper d-flex flex-column pt-5 justify-content-center'
       >
         <Row className='d-flex justify-content-center'>
           <Col className='col-xs-8 col-sm-7'>
