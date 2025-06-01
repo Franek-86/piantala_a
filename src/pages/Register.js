@@ -75,16 +75,29 @@ const Register = () => {
       getCities(district);
     }
   }, [district]);
+  const formWrapperRef = useRef(null);
   useEffect(() => {
     if (Capacitor.getPlatform() === "web") return;
 
-    const showSub = Keyboard.addListener("keyboardWillShow", () => {
-      document.body.classList.add("keyboard-open");
-    });
+    // const showSub = Keyboard.addListener("keyboardWillShow", () => {
+    //   document.body.classList.add("keyboard-open");
+    // });
 
-    const hideSub = Keyboard.addListener("keyboardWillHide", () => {
-      document.body.classList.remove("keyboard-open");
-    });
+    // const hideSub = Keyboard.addListener("keyboardWillHide", () => {
+    //   document.body.classList.remove("keyboard-open");
+    // });
+    const onKeyboardShow = (info) => {
+      const keyboardHeight = info.keyboardHeight || 300; // fallback height
+      if (formWrapperRef.current) {
+        formWrapperRef.current.style.paddingBottom = `${keyboardHeight}px`;
+      }
+    };
+
+    const onKeyboardHide = () => {
+      if (formWrapperRef.current) {
+        formWrapperRef.current.style.paddingBottom = `0px`;
+      }
+    };
 
     const handleFocus = (e) => {
       setTimeout(() => {
@@ -94,10 +107,15 @@ const Register = () => {
         });
       }, 300); // wait for keyboard to animate in
     };
-
+    const showSub = Keyboard.addListener("keyboardDidShow", onKeyboardShow);
+    const hideSub = Keyboard.addListener("keyboardDidHide", onKeyboardHide);
     const inputs = document.querySelectorAll("input, textarea");
     inputs.forEach((input) => input.addEventListener("focus", handleFocus));
 
+    return () => {
+      showSub.remove();
+      hideSub.remove();
+    };
     return () => {
       inputs.forEach((input) =>
         input.removeEventListener("focus", handleFocus)
@@ -237,7 +255,10 @@ const Register = () => {
           />
         </div>
       </div>
-      <Container className='form-wrapper d-flex flex-column py-5 justify-content-center'>
+      <Container
+        ref={formWrapperRef}
+        className='form-wrapper d-flex flex-column py-5 justify-content-center'
+      >
         <Row className='d-flex justify-content-center'>
           <Col className='col-xs-8 col-sm-7'>
             <Form onSubmit={handleSubmit(onSubmit)}>
