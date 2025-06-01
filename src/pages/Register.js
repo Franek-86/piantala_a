@@ -250,7 +250,7 @@ const Register = () => {
       {" "}
       {regionsLoading && <Loading />}
       <div className='section-center'>
-        <div className='back-btn' ref={ref}>
+        <div className='back-btn'>
           <MdBackspace
             onClick={() => {
               backToLogin();
