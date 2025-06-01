@@ -31,15 +31,12 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Users from "./pages/Users";
 import { ToastContainer } from "react-toastify";
-import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import Register from "./pages/Register";
 import Error from "./components/Error";
 import Reset from "./pages/Reset";
 import PasswordReset from "./pages/PasswordReset";
 import EmailVerificationReset from "./pages/EmailVerificationReset";
 import Landing from "./pages/Landing";
-
-serviceWorkerRegistration.register();
 
 const router = createBrowserRouter([
   {

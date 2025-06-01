@@ -16,7 +16,7 @@ const PermissionModal = () => {
     const permission = await ensurePermission();
     if (!permission) {
       handleLogout();
-      toast.error(`geolocalizzazione necessaria`, {
+      toast.error(`Logged out`, {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
@@ -39,13 +39,13 @@ const PermissionModal = () => {
       centered
     >
       <Modal.Header>
-        <Modal.Title>Consenti localizzazione</Modal.Title>
+        <Modal.Title>Consenti geolocalizzazione</Modal.Title>
       </Modal.Header>
 
       <Modal.Body>
         <p>
           Per utilizzare questa app e segnalare le zone di piantagione è
-          necessario fornire informazioni relative alla geolocalizzazione
+          necessario fornire informazioni relative alla prpria posizione
         </p>
       </Modal.Body>
 
@@ -57,7 +57,7 @@ const PermissionModal = () => {
           variant='primary'
           onClick={() => ensurePermissionAndCloseModal()}
         >
-          Accetta geolocalizzazione
+          Gestisci permessi
         </Button>
       </Modal.Footer>
     </Modal>

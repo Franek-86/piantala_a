@@ -16,10 +16,10 @@ export const ensurePermission = async () => {
     const result = await Geolocation.requestPermissions();
 
     if (result.location !== "granted") {
-      alert("Location permission is required to use this app.");
+      alert(
+        "Il consenso alla geolocalizzazione è necessario per l'utilizzo di questa app, verrai dunque rediretto alla pagina di log in."
+      );
       return false;
-
-      // You can force logout or exit here if needed
     } else {
       localStorage.setItem("locationGranted", "true");
       return true;
