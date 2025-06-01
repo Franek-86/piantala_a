@@ -124,7 +124,10 @@ fieldset:disabled .btn {
   outline: 0;
   box-shadow: 0 0 0 0.25rem var(--clr-primary-2);
 }
-.keyboard-open .vh-100 {
+.keyboard-open .form-wrapper {
+  /* height: auto !important; */
+
+  background-color: red;
   height: auto !important;
 }
 .text-primary {
@@ -222,6 +225,11 @@ hr {
   }
   .offcanvas.offcanvas-top {
     left: 300px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .back-btn {
+    padding-top: 1rem;
   }
 }
 /*----------------------------------------- login section----------------------------------------------- */

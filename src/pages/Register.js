@@ -222,7 +222,7 @@ const Register = () => {
           />
         </div>
       </div>
-      <Container className='d-flex flex-column py-5 justify-content-center'>
+      <Container className='form-wrapper d-flex flex-column py-5 justify-content-center'>
         <Row className='d-flex justify-content-center'>
           <Col className='col-xs-8 col-sm-7'>
             <Form onSubmit={handleSubmit(onSubmit)}>
