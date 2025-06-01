@@ -91,6 +91,9 @@ const Register = () => {
       if (formWrapperRef.current) {
         formWrapperRef.current.style.paddingBottom = `${keyboardHeight}px`;
       }
+      alert(
+        `${keyboardHeight} is the keyboard height and ${formWrapperRef.current} is the element where I apply the style`
+      );
     };
 
     const onKeyboardHide = () => {
@@ -107,8 +110,8 @@ const Register = () => {
         });
       }, 300); // wait for keyboard to animate in
     };
-    const showSub = Keyboard.addListener("keyboardDidShow", onKeyboardShow);
-    const hideSub = Keyboard.addListener("keyboardDidHide", onKeyboardHide);
+    const showSub = Keyboard.addListener("keyboardWillShow", onKeyboardShow);
+    const hideSub = Keyboard.addListener("keyboardWillHide", onKeyboardHide);
     const inputs = document.querySelectorAll("input, textarea");
     inputs.forEach((input) => input.addEventListener("focus", handleFocus));
 
