@@ -60,22 +60,22 @@ const AuthForm = () => {
       setDisabled(true);
     }
   }, [name, lastName, gender, city, birthday]);
-  useEffect(() => {
-    if (Capacitor.getPlatform() === "web") return;
+  // useEffect(() => {
+  //   if (Capacitor.getPlatform() === "web") return;
 
-    const showSub = Keyboard.addListener("keyboardWillShow", () => {
-      document.body.classList.add("keyboard-open");
-    });
+  //   const showSub = Keyboard.addListener("keyboardWillShow", () => {
+  //     document.body.classList.add("keyboard-open");
+  //   });
 
-    const hideSub = Keyboard.addListener("keyboardWillHide", () => {
-      document.body.classList.remove("keyboard-open");
-    });
+  //   const hideSub = Keyboard.addListener("keyboardWillHide", () => {
+  //     document.body.classList.remove("keyboard-open");
+  //   });
 
-    return () => {
-      showSub.remove();
-      hideSub.remove();
-    };
-  }, []);
+  //   return () => {
+  //     showSub.remove();
+  //     hideSub.remove();
+  //   };
+  // }, []);
   const generateCF = async () => {
     const fields = watch();
     const { name, lastName, gender, city, birthday } = fields;

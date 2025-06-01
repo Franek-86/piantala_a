@@ -77,27 +77,34 @@ const Register = () => {
   }, [district]);
   useEffect(() => {
     if (Capacitor.getPlatform() === "web") return;
-    Keyboard.addListener("keyboardDidShow", () => {
-      alert("KEYBOARD DID SHOW");
+
+    const showSub = Keyboard.addListener("keyboardWillShow", () => {
       document.body.classList.add("keyboard-open");
     });
-    Keyboard.addListener("keyboardDidHide", () => {
-      alert("KEYBOARD DID HIDE");
+
+    const hideSub = Keyboard.addListener("keyboardWillHide", () => {
       document.body.classList.remove("keyboard-open");
     });
 
-    // const showSub = Keyboard.addListener("keyboardWillShow", () => {
-    //   document.body.classList.add("keyboard-open");
-    // });
+    const handleFocus = (e) => {
+      setTimeout(() => {
+        e.target.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+      }, 300); // wait for keyboard to animate in
+    };
 
-    // const hideSub = Keyboard.addListener("keyboardWillHide", () => {
-    //   document.body.classList.remove("keyboard-open");
-    // });
+    const inputs = document.querySelectorAll("input, textarea");
+    inputs.forEach((input) => input.addEventListener("focus", handleFocus));
 
-    // return () => {
-    //   showSub.remove();
-    //   hideSub.remove();
-    // };
+    return () => {
+      inputs.forEach((input) =>
+        input.removeEventListener("focus", handleFocus)
+      );
+      showSub.remove();
+      hideSub.remove();
+    };
   }, []);
 
   // console.log("aaa", fields);
