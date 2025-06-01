@@ -124,6 +124,9 @@ fieldset:disabled .btn {
   outline: 0;
   box-shadow: 0 0 0 0.25rem var(--clr-primary-2);
 }
+.form-wrapper {
+  padding-bottom: 3rem;
+}
 .keyboard-open .form-wrapper {
   /* height: auto !important; */
 
@@ -470,6 +473,7 @@ element {
   place-content: center;
   height: 100%;
   width: 100%;
+  padding-bottom: 1rem;
 }
 .underline {
   position: absolute;

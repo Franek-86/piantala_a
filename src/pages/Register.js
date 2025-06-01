@@ -90,14 +90,12 @@ const Register = () => {
       const keyboardHeight = info.keyboardHeight || 300; // fallback height
       if (formWrapperRef.current) {
         formWrapperRef.current.style.paddingBottom = `${keyboardHeight}px`;
-        formWrapperRef.current.style.backgroundColor = "rgba(255, 0, 0, 0.2)";
-        alert("test:", formWrapperRef.current.style.paddingBottom);
       }
     };
 
     const onKeyboardHide = () => {
       if (formWrapperRef.current) {
-        formWrapperRef.current.style.paddingBottom = `0px`;
+        formWrapperRef.current.style.paddingBottom = `3rem`;
       }
     };
 

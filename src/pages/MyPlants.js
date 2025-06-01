@@ -38,7 +38,7 @@ const MyPlants = () => {
     <>
       <section className='section-page section-background section-large'>
         <div className='section-center'>
-          <h2 className='section-title d-lg-none'>Le mie segnalazioni</h2>
+          <h2 className='section-title d-lg-none pt-5'>Le mie segnalazioni</h2>
 
           {loadingReports ? (
             <Loading />

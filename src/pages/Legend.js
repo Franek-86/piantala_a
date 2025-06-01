@@ -13,7 +13,7 @@ const Legend = () => {
     <>
       <section className='section-page section-background section-large'>
         <div className='section-center'>
-          <h2 className='section-title d-lg-none'>legenda</h2>
+          <h2 className='section-title pt-5 d-lg-none'>legenda</h2>
           <ul>
             <li className='plants-list'>
               <div className='legend-box-container'>
