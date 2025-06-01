@@ -124,6 +124,9 @@ fieldset:disabled .btn {
   outline: 0;
   box-shadow: 0 0 0 0.25rem var(--clr-primary-2);
 }
+.keyboard-open .vh-100 {
+  height: auto !important;
+}
 .text-primary {
   color: var(--clr-primary-5) !important;
 }

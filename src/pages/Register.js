@@ -11,11 +11,13 @@ import Col from "react-bootstrap/Col";
 import Loading from "./Loading";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
+import { Capacitor } from "@capacitor/core";
 // import logo from "../assets/images/logo_albero_green.png";
 import logo from "../assets/images/ti pianto per amore-APP-verde.png";
 // import { SiStreamrunners } from "react-icons/si";
 import { GrUndo } from "react-icons/gr";
 import { toast } from "react-toastify";
+import { Keyboard } from "@capacitor/keyboard";
 const Register = () => {
   const [serverError, setServerError] = useState("");
   const [successMessage, setSuccessMessage] = useState(false);
@@ -73,6 +75,22 @@ const Register = () => {
       getCities(district);
     }
   }, [district]);
+  useEffect(() => {
+    if (Capacitor.getPlatform() === "web") return;
+
+    const showSub = Keyboard.addListener("keyboardWillShow", () => {
+      document.body.classList.add("keyboard-open");
+    });
+
+    const hideSub = Keyboard.addListener("keyboardWillHide", () => {
+      document.body.classList.remove("keyboard-open");
+    });
+
+    return () => {
+      showSub.remove();
+      hideSub.remove();
+    };
+  }, []);
 
   // console.log("aaa", fields);
   useEffect(() => {

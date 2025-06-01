@@ -9,6 +9,7 @@
     "@capacitor/geolocation": "^7.1.2",
     "@capacitor/google-maps": "^7.0.2",
     "@capacitor/ios": "^7.2.0",
+    "@capacitor/keyboard": "^7.0.1",
     "@dotenvx/dotenvx": "^1.24.0",
     "@fancyapps/ui": "^5.0.36",
     "@libsql/client": "^0.14.0",

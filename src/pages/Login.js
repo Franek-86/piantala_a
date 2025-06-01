@@ -4,9 +4,11 @@ import { AuthContext } from "../context/AuthContext";
 import { Form, Button, FloatingLabel } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Capacitor } from "@capacitor/core";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { Keyboard } from "@capacitor/keyboard";
 // import logo from "../assets/images/logo_albero_green.png";
 import logo from "../assets/images/ti pianto per amore-APP-verde.png";
 // import { SiStreamrunners } from "react-icons/si";
@@ -58,6 +60,22 @@ const AuthForm = () => {
       setDisabled(true);
     }
   }, [name, lastName, gender, city, birthday]);
+  useEffect(() => {
+    if (Capacitor.getPlatform() === "web") return;
+
+    const showSub = Keyboard.addListener("keyboardWillShow", () => {
+      document.body.classList.add("keyboard-open");
+    });
+
+    const hideSub = Keyboard.addListener("keyboardWillHide", () => {
+      document.body.classList.remove("keyboard-open");
+    });
+
+    return () => {
+      showSub.remove();
+      hideSub.remove();
+    };
+  }, []);
   const generateCF = async () => {
     const fields = watch();
     const { name, lastName, gender, city, birthday } = fields;
