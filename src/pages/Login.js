@@ -169,7 +169,7 @@ const AuthForm = () => {
   };
 
   return (
-    <Container className='form-wrapper d-flex flex-column py-5 justify-content-center '>
+    <Container className='d-flex flex-column justify-content-center vh-100 pb-5'>
       {!isRegister && (
         <div className='logo-container ms-auto me-auto pb-5'>
           <img src={logo} class='img-fluid' alt='Responsive image'></img>

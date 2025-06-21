@@ -259,7 +259,7 @@ const Register = () => {
         ref={formWrapperRef}
         className='form-wrapper d-flex flex-column pt-5 justify-content-center'
       >
-        <Row className='d-flex justify-content-center'>
+        <Row className='d-flex justify-content-center px-3'>
           <Col className='col-xs-8 col-sm-7'>
             <Form onSubmit={handleSubmit(onSubmit)}>
               {/* Server error message */}

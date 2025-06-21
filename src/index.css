@@ -237,7 +237,7 @@ hr {
 }
 /*----------------------------------------- login section----------------------------------------------- */
 .logo-container {
-  width: 7rem;
+  width: 3rem;
 }
 
 /* small.text-muted.ms-3.form-text {
@@ -473,7 +473,7 @@ element {
   place-content: center;
   height: 100%;
   width: 100%;
-  padding-bottom: 1rem;
+  padding-bottom: 0.5rem;
 }
 .underline {
   position: absolute;
@@ -486,6 +486,9 @@ element {
 @media screen and (min-width: 992px) {
   .underline {
     top: calc(100% - 2px);
+  }
+  .bottom-bar a {
+    padding-bottom: 0;
   }
 }
 .avatar {
@@ -1186,4 +1189,9 @@ element {
   --bs-offcanvas-box-shadow: var(--bs-box-shadow-sm);
   --bs-offcanvas-transition: transform 0.3s ease-in-out;
   --bs-offcanvas-title-line-height: 1.5;
+}
+@media screen and (max-width: 992px) {
+  .offcanvas-header {
+    padding-top: 2.5rem;
+  }
 }
