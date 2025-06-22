@@ -532,6 +532,47 @@ export const AuthProvider = ({ children }) => {
       setLoading(false);
     }
   };
+  const sendPaymentConfirmationEmail = async (address) => {
+    setLoading(true);
+    try {
+      const response = await axiosInstance.post(
+        `/api/auth/send-payment-confirmation-email`,
+        {
+          payload: address,
+        }
+      );
+      if (response.status === 200) {
+        console.log("inviata");
+        toast("🌱 Email inviata", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          // transition: Bounce,
+        });
+        return response;
+      }
+      console.log(response);
+    } catch (err) {
+      toast.error("Invio Email fallito", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        // transition: Bounce,
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <AuthContext.Provider
@@ -585,6 +626,7 @@ export const AuthProvider = ({ children }) => {
         setShowPermissionModal,
         handleShowPermissionModal,
         handleClosePermissionModal,
+        sendPaymentConfirmationEmail,
       }}
     >
       {children}

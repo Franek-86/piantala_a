@@ -51,7 +51,7 @@ const PlantForm = () => {
             <option value='Melocotogno'>Melocotogno</option>
           </Form.Select>
           {errors.plantType && (
-            <p className='text-danger'>Please select a plant type.</p>
+            <p className='text-danger'>È necessario selezionare una pianta</p>
           )}
         </FloatingLabel>
         <FloatingLabel
@@ -66,7 +66,8 @@ const PlantForm = () => {
           />
           {errors.comment && (
             <p className='text-danger'>
-              Comment is required and should be less than 500 characters.
+              È necessario un testo da inserire nella targa, il testo deve
+              essere di meno di 500 caratteri.
             </p>
           )}
         </FloatingLabel>

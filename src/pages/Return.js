@@ -13,7 +13,8 @@ export const Return = () => {
   const [customerEmail, setCustomerEmail] = useState("");
   const [timer, setTimer] = useState(10);
   const { handleBookedPlant, clearBookedStorage } = useContext(PlantsContext);
-  const { setIsAuthenticated } = useContext(AuthContext);
+  const { setIsAuthenticated, sendPaymentConfirmationEmail } =
+    useContext(AuthContext);
   const navigate = useNavigate();
   useEffect(() => {
     const interval = setInterval(() => {
@@ -27,7 +28,7 @@ export const Return = () => {
       console.log("timeout");
       clearBookedStorage();
       navigate("/map");
-    }, 10000);
+    }, 5000);
   };
   useEffect(() => {
     const queryString = window.location.search;
@@ -38,10 +39,15 @@ export const Return = () => {
       .then((data) => {
         setStatus(data.status);
         setCustomerEmail(data.customer_email);
+
         test();
       });
   }, []);
-
+  useEffect(() => {
+    if (customerEmail) {
+      sendPaymentConfirmationEmail(customerEmail);
+    }
+  }, [customerEmail]);
   if (status === "open") {
     return <Navigate to='/checkout' />;
   }
@@ -58,8 +64,8 @@ export const Return = () => {
             <h5 class='card-title'>Grazie per l'acquisto</h5>
             <p class='card-text'>
               Ci fa molto piacere che tu abbia voluto dare il tuo contributo!
-              Una email di conferma sarà inviata al {customerEmail}. In caso di
-              domande contattaci all'indirizzo{" "}
+              Stiamo inviando una mail di conferma al {customerEmail}. In caso
+              di domande contattaci all'indirizzo{" "}
               <a href='mailto:amicidiernestverner@gmail.com'>
                 amicidiernestverner@gmail.com
               </a>
