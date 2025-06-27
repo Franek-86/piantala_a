@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.piantala.app",
+      "sha256_cert_fingerprints": [
+        "E2:7C:AC:FC:71:9F:2E:44:D9:24:55:5B:0E:33:2A:A8:DE:0C:20:4F:2D:16:75:C2:49:DC:9C:CA:D6:81:7D:B7"
+      ]
+    }
+  }
+]
