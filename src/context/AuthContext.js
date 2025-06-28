@@ -256,6 +256,19 @@ export const AuthProvider = ({ children }) => {
     );
     return response;
   };
+  // qui
+  const verificationEmail = async (data) => {
+    try {
+      const response = await axios.get(
+        `${serverDomain}/api/auth/verify?token=${data}`
+      );
+      console.log("qui va il response della verification email", response);
+
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const resetPassword = async (data) => {
     setEmailLoading(true);
     try {
@@ -627,6 +640,7 @@ export const AuthProvider = ({ children }) => {
         handleShowPermissionModal,
         handleClosePermissionModal,
         sendPaymentConfirmationEmail,
+        verificationEmail,
       }}
     >
       {children}

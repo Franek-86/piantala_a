@@ -119,8 +119,12 @@ const router = createBrowserRouter([
         path: "users",
         element: <Users />,
       },
+      // {
+      //   path: "verification-success",
+      //   element: <EmailVerification />,
+      // },
       {
-        path: "verification-success",
+        path: "verify/:token",
         element: <EmailVerification />,
       },
       {
