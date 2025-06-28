@@ -37,89 +37,97 @@ import Reset from "./pages/Reset";
 import PasswordReset from "./pages/PasswordReset";
 import EmailVerificationReset from "./pages/EmailVerificationReset";
 import Landing from "./pages/Landing";
+import CommonRoutesComponent from "./components/CommonRoutesComponent";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Landing />,
-  },
-  {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/register",
-    element: <Register />,
-  },
-  {
-    path: "/reset",
-    element: <Reset />,
-  },
-  {
-    path: "/passwordReset/:token",
-    element: <PasswordReset />,
-  },
-  {
-    path: "/map",
-    element: (
-      <ProtectedRoute>
-        <App />
-      </ProtectedRoute>
-    ),
+    element: <CommonRoutesComponent />,
+
     children: [
       {
-        path: "addPlant",
-        element: <AddPlant />,
+        path: "/",
+        element: <Landing />,
       },
       {
-        path: ":plantId",
-        element: <Plant />,
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
+      },
+      {
+        path: "/reset",
+        element: <Reset />,
+      },
+      {
+        path: "/passwordReset/:token",
+        element: <PasswordReset />,
+      },
+      {
+        path: "/map",
+        element: (
+          <ProtectedRoute>
+            <App />
+          </ProtectedRoute>
+        ),
+        children: [
+          {
+            path: "addPlant",
+            element: <AddPlant />,
+          },
+          {
+            path: ":plantId",
+            element: <Plant />,
+          },
+        ],
+      },
+      {
+        path: "myPlants",
+        element: <MyPlants />,
+      },
+      {
+        path: "legend",
+        element: <Legend />,
+      },
+      {
+        path: "info",
+        element: <Info />,
+      },
+      {
+        path: "checkout",
+        element: <CheckoutForm />,
+      },
+      {
+        path: "return",
+        element: <Return />,
+      },
+      {
+        path: "bookedPlants",
+        element: <OwnedPlants />,
+      },
+      {
+        path: "plates",
+        element: <Plates />,
+      },
+      {
+        path: "contacts",
+        element: <Contacts />,
+      },
+      {
+        path: "users",
+        element: <Users />,
+      },
+      {
+        path: "verification-success",
+        element: <EmailVerification />,
+      },
+      {
+        path: "verification-success-reset/:token",
+        element: <EmailVerificationReset />,
       },
     ],
-  },
-  {
-    path: "myPlants",
-    element: <MyPlants />,
-  },
-  {
-    path: "legend",
-    element: <Legend />,
-  },
-  {
-    path: "info",
-    element: <Info />,
-  },
-  {
-    path: "checkout",
-    element: <CheckoutForm />,
-  },
-  {
-    path: "return",
-    element: <Return />,
-  },
-  {
-    path: "bookedPlants",
-    element: <OwnedPlants />,
-  },
-  {
-    path: "plates",
-    element: <Plates />,
-  },
-  {
-    path: "contacts",
-    element: <Contacts />,
-  },
-  {
-    path: "users",
-    element: <Users />,
-  },
-  {
-    path: "verification-success",
-    element: <EmailVerification />,
-  },
-  {
-    path: "verification-success-reset/:token",
-    element: <EmailVerificationReset />,
   },
 ]);
 

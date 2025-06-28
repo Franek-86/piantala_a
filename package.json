@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@capacitor/android": "^7.2.0",
+    "@capacitor/app": "^7.0.1",
     "@capacitor/cli": "^7.2.0",
     "@capacitor/core": "^7.2.0",
     "@capacitor/geolocation": "^7.1.2",
@@ -22,6 +23,7 @@
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.3",
     "bootstrap": "^5.3.3",
+    "capacitor": "^0.5.6",
     "connect-mysql": "^4.0.0",
     "copy-to-clipboard": "^3.3.3",
     "cors": "^2.8.5",
