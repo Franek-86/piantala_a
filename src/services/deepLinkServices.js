@@ -1,14 +1,12 @@
-let navigationFunk;
+let navigate;
 
-export const navigationDeepLink = (navigation) => {
-  navigationFunk = navigation;
+export const navigateFunction = (nav) => {
+  navigate = nav;
 };
 
-export const deepLinkFunk = (url) => {
-  let newUrl = new URL(url);
-  let splittedUrl = newUrl.pathname.split("/");
-  let token = splittedUrl[2];
-
-  console.log("this is the token from deep link console log", token);
-  navigationFunk(`/verify/${token}`);
+export const navigateToFunction = (url) => {
+  let urlPath = new URL(url).pathname;
+  let splitPath = urlPath.split("/");
+  let token = splitPath[2];
+  navigate(`verify/${token}`);
 };

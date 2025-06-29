@@ -1,19 +1,17 @@
-import { Outlet, useNavigate } from "react-router-dom";
-import React, { useEffect } from "react";
-
 import { App } from "@capacitor/app";
-import { deepLinkFunk, navigationDeepLink } from "../services/deepLinkServices";
-
+import { Outlet, useNavigate } from "react-router-dom";
+import {
+  navigateFunction,
+  navigateToFunction,
+} from "../services/deepLinkServices";
 const CommonRoutesComponent = () => {
   const navigate = useNavigate();
+  navigateFunction(navigate);
 
   useEffect(() => {
-    navigationDeepLink(navigate);
-    console.log("this 2");
     App.addListener("appUrlOpen", (data) => {
-      console.log("this 3");
       let url = data.url;
-      deepLinkFunk(url);
+      navigateToFunction(url);
     });
   }, [navigate]);
   return <Outlet />;
