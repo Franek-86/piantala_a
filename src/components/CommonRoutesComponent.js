@@ -11,6 +11,7 @@ const CommonRoutesComponent = () => {
     navigationDeepLink(navigate);
     console.log("this 2");
     App.addListener("appUrlOpen", (data) => {
+      console.log("this 3");
       let url = data.url;
       deepLinkFunk(url);
     });
