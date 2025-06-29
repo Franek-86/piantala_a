@@ -5,7 +5,10 @@ export const navigationDeepLink = (navigation) => {
 };
 
 export const deepLinkFunk = (url) => {
-  const token = new URLSearchParams(url).get("token");
+  let newUrl = new URL(url);
+  let splittedUrl = newUrl.pathname.split("/");
+  let token = splittedUrl[2];
+
   console.log("this is the token from deep link console log", token);
-  navigationDeepLink(`/verify/${token}`);
+  navigationFunk(`/verify/${token}`);
 };
