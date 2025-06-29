@@ -23,9 +23,17 @@ const EmailVerification = () => {
   const { token } = useParams();
   useEffect(() => {
     const getResponse = async () => {
-      const response = await verificationEmail(token);
-      if (response.status === 200) {
-        navigate("/");
+      try {
+        const response = await verificationEmail(token);
+        if (response?.status === 200) {
+          navigate("/");
+        } else {
+          console.log(
+            "verification status is diffferent then 200 but we have a result anyway"
+          );
+        }
+      } catch (e) {
+        console.log("API call catched an error and is the following:");
       }
     };
     getResponse();
