@@ -115,6 +115,10 @@ function App() {
       localStorage.setItem("justLoggedIn", "false");
 
       const perm = await Geolocation.checkPermissions();
+      console.log(
+        "test android 3 permission from geolocation.permission is (should be either 'granted' or something else):",
+        perm.location
+      );
       if (perm.location === "granted") {
         localStorage.setItem("locationGranted", "true");
       } else {
