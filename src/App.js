@@ -102,10 +102,14 @@ function App() {
       const platform = Capacitor.getPlatform();
       console.log("Platform:", platform);
       if (Capacitor.getPlatform() === "web") return;
+      let testAndroid1 = localStorage.getItem("justLoggedIn");
+      console.log("test android 1 for hust logged in", testAndroid1);
       const justLoggedIn = localStorage.getItem("justLoggedIn") === "true";
       const locationAlreadyGranted =
         localStorage.getItem("locationGranted") === "true";
 
+      const testAndroid2 = localStorage.getItem("locationGranted");
+      console.log("test android 2 for location granting", testAndroid2);
       if (!justLoggedIn || locationAlreadyGranted) return;
 
       localStorage.setItem("justLoggedIn", "false");
