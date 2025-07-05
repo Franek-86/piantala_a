@@ -105,23 +105,22 @@ function App() {
       let testAndroid1 = localStorage.getItem("justLoggedIn");
       console.log("test android 1 for hust logged in", testAndroid1);
       const justLoggedIn = localStorage.getItem("justLoggedIn") === "true";
-      const locationAlreadyGranted =
-        localStorage.getItem("locationGranted") === "true";
 
-      const testAndroid2 = localStorage.getItem("locationGranted");
-      console.log("test android 2 for location granting", testAndroid2);
-      if (!justLoggedIn || locationAlreadyGranted) return;
+      if (!justLoggedIn) return;
 
       localStorage.setItem("justLoggedIn", "false");
 
       const perm = await Geolocation.checkPermissions();
-      console.log(
-        "test android 3 permission from geolocation.permission is (should be either 'granted' or something else):",
-        perm.location
-      );
+      if (perm)
+        console.log(
+          "test android 3 permission from geolocation.permission is (should be either 'granted' or something else):",
+          perm.location
+        );
       if (perm.location === "granted") {
-        localStorage.setItem("locationGranted", "true");
+        console.log("location is already granted");
+        return;
       } else {
+        console.log("location is not granted opening modal");
         setShowPermissionModal(true);
       }
     };
