@@ -101,7 +101,7 @@ function App() {
     const checkPermissionsAndShowModal = async () => {
       const platform = Capacitor.getPlatform();
       console.log("Platform:", platform);
-      // if (Capacitor.getPlatform() === "web") return;
+      if (Capacitor.getPlatform() === "web") return;
       let testAndroid1 = localStorage.getItem("justLoggedIn");
       console.log("test android 1 for hust logged in", testAndroid1);
       const justLoggedIn = localStorage.getItem("justLoggedIn") === "true";
