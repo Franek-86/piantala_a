@@ -128,7 +128,7 @@ const router = createBrowserRouter([
         element: <EmailVerification />,
       },
       {
-        path: "verification-success-reset/:token",
+        path: "verify-reset/:token",
         element: <EmailVerificationReset />,
       },
     ],

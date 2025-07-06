@@ -269,6 +269,17 @@ export const AuthProvider = ({ children }) => {
       console.log(error);
     }
   };
+  const verificationEmailPasswordReset = async (data) => {
+    console.log("a123333", data);
+    try {
+      const response = axios.get(
+        `${serverDomain}/api/auth/reset-password/verify?token=${data}`
+      );
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const resetPassword = async (data) => {
     setEmailLoading(true);
     try {
@@ -276,6 +287,7 @@ export const AuthProvider = ({ children }) => {
         `${serverDomain}/api/auth/password-reset`,
         { data }
       );
+
       console.log("response", response);
       toast(`🌱 ${response.data.message}`, {
         position: "top-right",
@@ -641,6 +653,7 @@ export const AuthProvider = ({ children }) => {
         handleClosePermissionModal,
         sendPaymentConfirmationEmail,
         verificationEmail,
+        verificationEmailPasswordReset,
       }}
     >
       {children}
