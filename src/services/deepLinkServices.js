@@ -13,6 +13,6 @@ export const navigateToFunction = (url) => {
     navigate(`verify/${token}`);
   } else if (splitPath[1] === "verify-reset") {
     let token = splitPath[2];
-    navigate(`verify-reset'/${token}`);
+    navigate(`verify-reset/${token}`);
   }
 };
