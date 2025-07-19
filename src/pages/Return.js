@@ -3,6 +3,8 @@ import React, { useCallback, useState, useEffect, useContext } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { PlantsContext } from "../context/PlantsContext";
 import { AuthContext } from "../context/AuthContext";
+import { OrdersContext } from "../context/OrdersContext";
+
 const serverDomain =
   process.env.REACT_APP_NODE_ENV === "test"
     ? process.env.REACT_APP_TEST_DOMAIN_NAME_SERVER
@@ -15,21 +17,22 @@ export const Return = () => {
   const { handleBookedPlant, clearBookedStorage } = useContext(PlantsContext);
   const { setIsAuthenticated, sendPaymentConfirmationEmail } =
     useContext(AuthContext);
+  const { postPayment } = useContext(OrdersContext);
   const navigate = useNavigate();
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTimer(timer - 1);
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [timer]);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setTimer(timer - 1);
+  //   }, 1000);
+  //   return () => clearInterval(interval);
+  // }, [timer]);
 
-  const test = () => {
-    return setTimeout(() => {
-      console.log("timeout");
-      clearBookedStorage();
-      navigate("/map");
-    }, 5000);
-  };
+  // const test = () => {
+  //   return setTimeout(() => {
+  //     console.log("timeout");
+  //     clearBookedStorage();
+  //     navigate("/map");
+  //   }, 5000);
+  // };
   useEffect(() => {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
@@ -40,14 +43,22 @@ export const Return = () => {
         setStatus(data.status);
         setCustomerEmail(data.customer_email);
 
-        test();
+        // test();
       });
   }, []);
   useEffect(() => {
     if (customerEmail) {
-      sendPaymentConfirmationEmail(customerEmail);
+      postPayment(customerEmail);
     }
   }, [customerEmail]);
+  // useEffect(() => {
+
+  //   if (customerEmail) {
+  //     addOrder();
+  //     sendPaymentConfirmationEmail(customerEmail);
+  //   }
+  // }, [customerEmail]);
+
   if (status === "open") {
     return <Navigate to='/checkout' />;
   }

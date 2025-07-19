@@ -557,13 +557,14 @@ export const AuthProvider = ({ children }) => {
       setLoading(false);
     }
   };
-  const sendPaymentConfirmationEmail = async (address) => {
+  const sendPaymentConfirmationEmail = async (data) => {
+    console.log("sendPaymentConfirmationEmailData", data);
     setLoading(true);
     try {
       const response = await axiosInstance.post(
         `/api/auth/send-payment-confirmation-email`,
         {
-          payload: address,
+          payload: data,
         }
       );
       if (response.status === 200) {

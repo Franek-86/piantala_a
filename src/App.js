@@ -23,6 +23,7 @@ import BottomBar from "./components/BottomBar";
 import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import Loading from "./pages/Loading";
 import { PlantsContext } from "../src/context/PlantsContext";
+import { OrdersContext } from "./context/OrdersContext";
 import { loadStripe } from "@stripe/stripe-js";
 import { Button } from "react-bootstrap";
 import { FilterContext } from "./context/FilterContext";
@@ -75,6 +76,8 @@ function App() {
   const [locationMarkerTag, setLocationMarkerTag] = useState(null);
   const { plants, setPlants, getAllPlants, loading, sendValuesToAddPlant } =
     useContext(PlantsContext);
+  const { test } = useContext(OrdersContext);
+  console.log("test from orders", test);
   const { filters, handleFilterChange } = useContext(FilterContext);
   const { setShowPermissionModal } = useContext(AuthContext);
 

@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import { PlantsProvider } from "./context/PlantsContext";
+import { OrdersProvider } from "./context/OrdersContext";
 import Login from "./pages/Login";
 import Plant from "./pages/Plant";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -139,11 +140,13 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
       <PlantsProvider>
-        <FilterProvider>
-          <ToastContainer />
-          <Error />
-          <RouterProvider router={router} />
-        </FilterProvider>
+        <OrdersProvider>
+          <FilterProvider>
+            <ToastContainer />
+            <Error />
+            <RouterProvider router={router} />
+          </FilterProvider>
+        </OrdersProvider>
       </PlantsProvider>
     </AuthProvider>
   </React.StrictMode>
