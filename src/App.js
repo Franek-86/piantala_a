@@ -6,6 +6,7 @@ import {
   Marker,
   useMapEvent,
 } from "react-leaflet";
+
 import L, { latLng } from "leaflet";
 import iconGreen from "./assets/images/ti pianto per amore-APP-verde.png";
 import iconYellow from "./assets/images/ti pianto per amore-APP-giallo.png";
@@ -100,6 +101,7 @@ function App() {
   // useEffect(() => {
   //   ensurePermission();
   // }, []);
+
   useEffect(() => {
     const checkPermissionsAndShowModal = async () => {
       const platform = Capacitor.getPlatform();

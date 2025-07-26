@@ -13,6 +13,7 @@ import { PlantsProvider } from "./context/PlantsContext";
 import { OrdersProvider } from "./context/OrdersContext";
 import Login from "./pages/Login";
 import Plant from "./pages/Plant";
+import Orders from "./pages/Orders";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 import AddPlant from "./pages/AddPlant";
@@ -115,6 +116,10 @@ const router = createBrowserRouter([
       {
         path: "contacts",
         element: <Contacts />,
+      },
+      {
+        path: "orders",
+        element: <Orders />,
       },
       {
         path: "users",

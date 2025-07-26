@@ -6,6 +6,7 @@ const { createContext, useState } = require("react");
 export const OrdersContext = createContext();
 
 export const OrdersProvider = ({ children }) => {
+  const [allOrders, setAllOrders] = useState([]);
   const { sendPaymentConfirmationEmail } = useContext(AuthContext);
   const addOrder = async () => {
     let bookedPlant = JSON.parse(localStorage.getItem("booked-plant"));
@@ -44,8 +45,21 @@ export const OrdersProvider = ({ children }) => {
       sendPaymentConfirmationEmail(data);
     }
   };
+  const getAllOrders = async () => {
+    try {
+      const response = await AxiosInstance.get("/api/orders/all-orders");
+      if (response.status === 200) {
+        console.log("nn", response.data);
+        setAllOrders(response.data);
+      } else {
+        console.log(response.status);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
-    <OrdersContext.Provider value={{ postPayment }}>
+    <OrdersContext.Provider value={{ postPayment, getAllOrders, allOrders }}>
       {children}
     </OrdersContext.Provider>
   );
