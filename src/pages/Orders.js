@@ -5,7 +5,9 @@ import { MdBackspace } from "react-icons/md";
 import { OrdersContext } from "../context/OrdersContext";
 import { formatDate } from "../utils/utils";
 import OrderModal from "../components/OrderModal";
-
+import { Button } from "react-bootstrap";
+import { FaPen } from "react-icons/fa";
+import { FaRegEye } from "react-icons/fa";
 const Orders = () => {
   const {
     getAllOrders,
@@ -23,7 +25,11 @@ const Orders = () => {
   useEffect(() => {
     console.log("salve a tutti");
     getAllOrders();
-  }, [updateOrder]);
+  }, [modalShow]);
+
+  const goToPlantPage = (prop) => {
+    navigate(`/map/${prop}`, { state: { from: "/orders" } });
+  };
 
   return (
     <>
@@ -45,25 +51,36 @@ const Orders = () => {
                 <th>Data</th>
                 <th>Ordine</th>
                 <th>Stato</th>
+                <th>Azione</th>
                 {/* <th>Last Name</th>
                 <th>Username</th> */}
               </tr>
             </thead>
             <tbody>
               {allOrders.map((i, index) => {
-                const { id, order_number, status, created_at } = i;
+                const { id, order_number, status, created_at, product_id } = i;
                 return (
                   <>
-                    <tr
-                      key={index}
-                      onClick={() => {
-                        setModalShow(true);
-                        setOrderId(id);
-                      }}
-                    >
+                    <tr key={index}>
                       <td>{formatDate(created_at)}</td>
                       <td>{order_number}</td>
                       <td>{status}</td>
+                      <td>
+                        {" "}
+                        <div className='d-flex gap-1'>
+                          <Button
+                            onClick={() => {
+                              setModalShow(true);
+                              setOrderId(id);
+                            }}
+                          >
+                            <FaPen />
+                          </Button>
+                          <Button onClick={() => goToPlantPage(product_id)}>
+                            <FaRegEye />
+                          </Button>
+                        </div>
+                      </td>
                     </tr>
 
                     <OrderModal
