@@ -122,23 +122,28 @@ const OwnedPlants = () => {
                           </ListGroup.Item>
                           <ListGroup.Item>
                             Numero ordine: {order?.order_number}
-                            <span> {order?.s}</span>{" "}
+                            <span>
+                              {" "}
+                              {order?.order_number
+                                ? order?.order_number
+                                : "N/A"}
+                            </span>{" "}
                           </ListGroup.Item>
                           <ListGroup.Item>
                             Stato ordine:{" "}
                             <span
                               className={
-                                order.status === "in progress"
+                                order?.status === "in progress"
                                   ? "approvedPlant"
-                                  : order.status === "pending"
+                                  : order?.status === "pending"
                                   ? "rejectedPlant"
-                                  : order.status === "completed"
+                                  : order?.status === "completed"
                                   ? "bookedPlant"
                                   : "pendingPlant"
                               }
                             >
                               {" "}
-                              {order?.status}
+                              {order?.status ? order?.status : "N/A"}
                             </span>{" "}
                           </ListGroup.Item>
                           <ListGroup.Item>
