@@ -45,8 +45,8 @@ const PlantForm = () => {
       container.current.container.style.paddingBottom = `3rem`;
     };
 
-    const onShow = Keyboard.addListener("keyboardWillShow", onKeyboardShow);
-    const onHide = Keyboard.addListener("keyboardDidShow", onKeyboardHide);
+    Keyboard.addListener("keyboardWillShow", onKeyboardShow);
+    Keyboard.addListener("keyboardDidShow", onKeyboardHide);
     const input = document.querySelector("textarea");
     console.log("111", input);
     const onFocus = (e) => {

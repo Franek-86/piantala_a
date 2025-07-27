@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import Table from "react-bootstrap/Table";
+import Loading from "./Loading";
 import { useNavigate } from "react-router-dom";
 import { MdBackspace } from "react-icons/md";
 import { OrdersContext } from "../context/OrdersContext";
@@ -8,6 +9,7 @@ import OrderModal from "../components/OrderModal";
 import { Button } from "react-bootstrap";
 import { FaPen } from "react-icons/fa";
 import { FaRegEye } from "react-icons/fa";
+
 const Orders = () => {
   const {
     getAllOrders,
@@ -17,6 +19,7 @@ const Orders = () => {
     setModalShow,
     orderId,
     setOrderId,
+    loading,
   } = useContext(OrdersContext);
   const navigate = useNavigate();
   const backToMap = () => {
@@ -33,6 +36,7 @@ const Orders = () => {
 
   return (
     <>
+      {loading && <Loading />}
       <section className='section-page section-background'>
         <div className='back-container'>
           <div className='back-btn'>

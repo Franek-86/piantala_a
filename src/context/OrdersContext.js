@@ -9,6 +9,7 @@ export const OrdersContext = createContext();
 
 export const OrdersProvider = ({ children }) => {
   const [allOrders, setAllOrders] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [orderId, setOrderId] = useState();
   const { sendPaymentConfirmationEmail } = useContext(AuthContext);
 
@@ -51,6 +52,7 @@ export const OrdersProvider = ({ children }) => {
     }
   };
   const getAllOrders = async () => {
+    setLoading(true);
     try {
       const response = await AxiosInstance.get("/api/orders/all-orders");
       if (response.status === 200) {
@@ -61,10 +63,13 @@ export const OrdersProvider = ({ children }) => {
       }
     } catch (err) {
       console.log(err);
+    } finally {
+      setLoading(false);
     }
   };
   const updateOrder = async (data) => {
     console.log("qqq", data);
+    setLoading(true);
     try {
       const response = await AxiosInstance({
         method: "patch",
@@ -78,6 +83,8 @@ export const OrdersProvider = ({ children }) => {
       }
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
   return (
@@ -91,6 +98,7 @@ export const OrdersProvider = ({ children }) => {
         setModalShow,
         orderId,
         setOrderId,
+        loading,
       }}
     >
       {children}
