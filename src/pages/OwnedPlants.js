@@ -16,7 +16,7 @@ import { OrdersContext } from "../context/OrdersContext";
 const OwnedPlants = () => {
   const { getMyPlants, myPlants } = useContext(PlantsContext);
   const { userId, token } = useContext(AuthContext);
-  const { allOrders } = useContext(OrdersContext);
+  const { allOrders, getAllOrders } = useContext(OrdersContext);
   const isLargeScreen = useIsLargeScreen();
   const navigate = useNavigate();
   const backToMap = () => {
@@ -24,6 +24,7 @@ const OwnedPlants = () => {
   };
   useEffect(() => {
     getMyPlants(userId);
+    getAllOrders();
   }, [userId]);
   const goToPlantPage = (prop) => {
     navigate(`/map/${prop}`, { state: { from: "/bookedPlants" } });
@@ -121,13 +122,8 @@ const OwnedPlants = () => {
                             Tipo pianta: {plant.plant_type}
                           </ListGroup.Item>
                           <ListGroup.Item>
-                            Numero ordine: {order?.order_number}
-                            <span>
-                              {" "}
-                              {order?.order_number
-                                ? order?.order_number
-                                : "N/A"}
-                            </span>{" "}
+                            Numero ordine:{" "}
+                            {order?.order_number ? order?.order_number : "N/A"}
                           </ListGroup.Item>
                           <ListGroup.Item>
                             Stato ordine:{" "}
