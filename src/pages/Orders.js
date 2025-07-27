@@ -45,7 +45,7 @@ const Orders = () => {
         </div>
         <div className='section-center menu-section-center'>
           <h2 className='section-title'>Ordini</h2>
-          <Table striped hover>
+          <Table size='sm' striped hover>
             <thead>
               <tr>
                 <th>Data</th>
@@ -69,6 +69,7 @@ const Orders = () => {
                         {" "}
                         <div className='d-flex gap-1'>
                           <Button
+                            size='sm'
                             onClick={() => {
                               setModalShow(true);
                               setOrderId(id);
@@ -76,7 +77,10 @@ const Orders = () => {
                           >
                             <FaPen />
                           </Button>
-                          <Button onClick={() => goToPlantPage(product_id)}>
+                          <Button
+                            size='sm'
+                            onClick={() => goToPlantPage(product_id)}
+                          >
                             <FaRegEye />
                           </Button>
                         </div>
