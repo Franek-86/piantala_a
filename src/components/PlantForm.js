@@ -18,14 +18,11 @@ const PlantForm = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    // const date = new Date().toLocaleDateString("it-IT");
-    // console.log("poi", date);
     let date = new Date();
     let day = date.getDate();
     let month = date.getMonth() + 1;
     let year = date.getFullYear();
     let currentDate = `${year}-${month}-${day}`;
-    console.log("currentDate", currentDate);
 
     data.id = parseInt(plantId);
     data.owner_id = userId;
