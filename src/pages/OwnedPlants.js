@@ -11,9 +11,12 @@ import BottomBar from "../components/BottomBar";
 import { copyToClipboard } from "../utils/utils";
 import useIsLargeScreen from "../utils/useIsLargeScreen";
 import SideBar from "../components/SideBar";
+import { OrdersContext } from "../context/OrdersContext";
+
 const OwnedPlants = () => {
   const { getMyPlants, myPlants } = useContext(PlantsContext);
   const { userId, token } = useContext(AuthContext);
+  const { allOrders } = useContext(OrdersContext);
   const isLargeScreen = useIsLargeScreen();
   const navigate = useNavigate();
   const backToMap = () => {
@@ -39,6 +42,7 @@ const OwnedPlants = () => {
         return "bg-secondary text-white text-center"; // Default styling for unknown status
     }
   };
+  console.log(allOrders);
 
   return (
     <>
@@ -60,6 +64,9 @@ const OwnedPlants = () => {
             <Row xs={1} md={2} className='g-4'>
               {myPlants &&
                 myPlants.map((plant, index) => {
+                  const order = allOrders.find((i) => {
+                    return i.product_id === plant.id;
+                  });
                   const formatDate = (date) => {
                     const newDate = new Date(date);
                     return newDate.toLocaleDateString("en-GB");
@@ -112,6 +119,27 @@ const OwnedPlants = () => {
                         <ListGroup variant='flush'>
                           <ListGroup.Item>
                             Tipo pianta: {plant.plant_type}
+                          </ListGroup.Item>
+                          <ListGroup.Item>
+                            Numero ordine: {order?.order_number}
+                            <span> {order?.s}</span>{" "}
+                          </ListGroup.Item>
+                          <ListGroup.Item>
+                            Stato ordine:{" "}
+                            <span
+                              className={
+                                order.status === "in progress"
+                                  ? "approvedPlant"
+                                  : order.status === "pending"
+                                  ? "rejectedPlant"
+                                  : order.status === "completed"
+                                  ? "bookedPlant"
+                                  : "pendingPlant"
+                              }
+                            >
+                              {" "}
+                              {order?.status}
+                            </span>{" "}
                           </ListGroup.Item>
                           <ListGroup.Item>
                             <Card.Link

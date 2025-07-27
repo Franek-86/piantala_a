@@ -19,20 +19,20 @@ export const Return = () => {
     useContext(AuthContext);
   const { postPayment } = useContext(OrdersContext);
   const navigate = useNavigate();
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setTimer(timer - 1);
-  //   }, 1000);
-  //   return () => clearInterval(interval);
-  // }, [timer]);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTimer(timer - 1);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [timer]);
 
-  // const test = () => {
-  //   return setTimeout(() => {
-  //     console.log("timeout");
-  //     clearBookedStorage();
-  //     navigate("/map");
-  //   }, 5000);
-  // };
+  const getOut = () => {
+    return setTimeout(() => {
+      console.log("timeout");
+      clearBookedStorage();
+      navigate("/map");
+    }, 10000);
+  };
   useEffect(() => {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
@@ -42,8 +42,7 @@ export const Return = () => {
       .then((data) => {
         setStatus(data.status);
         setCustomerEmail(data.customer_email);
-
-        // test();
+        getOut();
       });
   }, []);
   useEffect(() => {
@@ -68,15 +67,15 @@ export const Return = () => {
     setIsAuthenticated(true);
 
     return (
-      <section id='success'>
+      <section class='vh-100 d-flex align-items-center' id='success'>
         <div class='card text-center'>
-          <div class='card-header'>Piantami per amore</div>
+          <div class='card-header'>Ti Pianto Per Amore</div>
           <div class='card-body'>
             <h5 class='card-title'>Grazie per l'acquisto</h5>
             <p class='card-text'>
               Ci fa molto piacere che tu abbia voluto dare il tuo contributo!
-              Stiamo inviando una mail di conferma al {customerEmail}. In caso
-              di domande contattaci all'indirizzo{" "}
+              Stiamo inviando una mail di conferma allindirizzo mail "
+              {customerEmail}". In caso di domande contattaci all'indirizzo{" "}
               <a href='mailto:amicidiernestverner@gmail.com'>
                 amicidiernestverner@gmail.com
               </a>

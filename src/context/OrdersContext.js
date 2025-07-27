@@ -2,12 +2,17 @@ import { useContext } from "react";
 import AxiosInstance from "../services/axiosInstance";
 import { AuthContext } from "./AuthContext";
 import { formatDate } from "../utils/utils";
+import { toast } from "react-toastify";
+
 const { createContext, useState } = require("react");
 export const OrdersContext = createContext();
 
 export const OrdersProvider = ({ children }) => {
   const [allOrders, setAllOrders] = useState([]);
+  const [orderId, setOrderId] = useState();
   const { sendPaymentConfirmationEmail } = useContext(AuthContext);
+
+  const [modalShow, setModalShow] = useState(false);
   const addOrder = async () => {
     let bookedPlant = JSON.parse(localStorage.getItem("booked-plant"));
     console.log("plant-approved-after-payment", bookedPlant);
@@ -58,8 +63,36 @@ export const OrdersProvider = ({ children }) => {
       console.log(err);
     }
   };
+  const updateOrder = async (data) => {
+    console.log("qqq", data);
+    try {
+      const response = await AxiosInstance({
+        method: "patch",
+        url: "/api/orders/update-order",
+        data,
+      });
+      console.log("updateresponse", response);
+      if (response.status === 200) {
+        const text = response.data.message;
+        toast(`${text}`);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
-    <OrdersContext.Provider value={{ postPayment, getAllOrders, allOrders }}>
+    <OrdersContext.Provider
+      value={{
+        postPayment,
+        getAllOrders,
+        allOrders,
+        updateOrder,
+        modalShow,
+        setModalShow,
+        orderId,
+        setOrderId,
+      }}
+    >
       {children}
     </OrdersContext.Provider>
   );

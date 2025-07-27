@@ -4,9 +4,18 @@ import { useNavigate } from "react-router-dom";
 import { MdBackspace } from "react-icons/md";
 import { OrdersContext } from "../context/OrdersContext";
 import { formatDate } from "../utils/utils";
+import OrderModal from "../components/OrderModal";
 
 const Orders = () => {
-  const { getAllOrders, allOrders } = useContext(OrdersContext);
+  const {
+    getAllOrders,
+    allOrders,
+    updateOrder,
+    modalShow,
+    setModalShow,
+    orderId,
+    setOrderId,
+  } = useContext(OrdersContext);
   const navigate = useNavigate();
   const backToMap = () => {
     navigate("/map");
@@ -14,7 +23,8 @@ const Orders = () => {
   useEffect(() => {
     console.log("salve a tutti");
     getAllOrders();
-  }, []);
+  }, [updateOrder]);
+
   return (
     <>
       <section className='section-page section-background'>
@@ -40,14 +50,28 @@ const Orders = () => {
               </tr>
             </thead>
             <tbody>
-              {allOrders.map((i) => {
-                const { order_number, status, created_at } = i;
+              {allOrders.map((i, index) => {
+                const { id, order_number, status, created_at } = i;
                 return (
-                  <tr>
-                    <td>{formatDate(created_at)}</td>
-                    <td>{order_number}</td>
-                    <td>{status}</td>
-                  </tr>
+                  <>
+                    <tr
+                      key={index}
+                      onClick={() => {
+                        setModalShow(true);
+                        setOrderId(id);
+                      }}
+                    >
+                      <td>{formatDate(created_at)}</td>
+                      <td>{order_number}</td>
+                      <td>{status}</td>
+                    </tr>
+
+                    <OrderModal
+                      show={modalShow}
+                      onHide={() => setModalShow(false)}
+                      id={orderId}
+                    />
+                  </>
                 );
               })}
             </tbody>
