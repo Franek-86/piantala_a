@@ -79,13 +79,6 @@ const Register = () => {
   useEffect(() => {
     if (Capacitor.getPlatform() === "web") return;
 
-    // const showSub = Keyboard.addListener("keyboardWillShow", () => {
-    //   document.body.classList.add("keyboard-open");
-    // });
-
-    // const hideSub = Keyboard.addListener("keyboardWillHide", () => {
-    //   document.body.classList.remove("keyboard-open");
-    // });
     const onKeyboardShow = (info) => {
       const keyboardHeight = info.keyboardHeight || 300; // fallback height
       if (formWrapperRef.current) {
@@ -113,13 +106,6 @@ const Register = () => {
     inputs.forEach((input) => input.addEventListener("focus", handleFocus));
 
     return () => {
-      showSub.remove();
-      hideSub.remove();
-    };
-    return () => {
-      inputs.forEach((input) =>
-        input.removeEventListener("focus", handleFocus)
-      );
       showSub.remove();
       hideSub.remove();
     };

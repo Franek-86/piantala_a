@@ -1,14 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { Form, Button, FloatingLabel } from "react-bootstrap";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 // import { PlantsContext } from "../context/PlantsContext";
-
+import { Capacitor } from "@capacitor/core";
+import { Keyboard } from "@capacitor/keyboard";
 const PlantForm = () => {
   const { userId } = useContext(AuthContext);
   const { plantId } = useParams();
   console.log("test", plantId);
+  const container = useRef(null);
   const navigate = useNavigate();
   const {
     register,
@@ -31,8 +33,40 @@ const PlantForm = () => {
     localStorage.setItem("booked-plant", JSON.stringify(data));
     navigate("/checkout");
   };
+  useEffect(() => {
+    if (Capacitor.getPlatform() === "web") return;
+    const onKeyboardShow = (info) => {
+      const keyboardHeight = info.keyboardHeight || 300;
+      container.current.style.paddingBottom = `${keyboardHeight}px`;
+      console.log("keyboard will show with height:", info.keyboardHeight);
+    };
+    const onKeyboardHide = (info) => {
+      console.log("keyboard will show with height:", info.keyboardHeight);
+      container.current.container.style.paddingBottom = `3rem`;
+    };
+
+    const onShow = Keyboard.addListener("keyboardWillShow", onKeyboardShow);
+    const onHide = Keyboard.addListener("keyboardDidShow", onKeyboardHide);
+    const input = document.querySelector("textarea");
+    console.log("111", input);
+    const onFocus = (e) => {
+      setTimeout(() => {
+        e.target.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+      }, 300);
+    };
+
+    input.addEventListener("focus", onFocus);
+
+    return () => {
+      Keyboard.removeAllListeners();
+    };
+  });
+
   return (
-    <article className='plant-form-article mt-3 w-100 pb-5'>
+    <article ref={container} className='plant-form-article mt-3 w-100 pb-5'>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <FloatingLabel
           controlId='formPlantType'
