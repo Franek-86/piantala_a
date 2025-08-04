@@ -41,12 +41,12 @@ const PlantForm = () => {
       console.log("keyboard will show with height:", info.keyboardHeight);
     };
     const onKeyboardHide = (info) => {
-      console.log("keyboard will show with height:", info.keyboardHeight);
+      console.log("keyboardWillHide:", info.keyboardHeight);
       container.current.style.paddingBottom = `3rem`;
     };
 
     Keyboard.addListener("keyboardWillShow", onKeyboardShow);
-    Keyboard.addListener("keyboardDidShow", onKeyboardHide);
+    Keyboard.addListener("keyboardWillHide", onKeyboardHide);
     const input = document.querySelector("textarea");
     console.log("111", input);
     const onFocus = (e) => {
