@@ -849,6 +849,10 @@ element {
   --bs-card-border-radius: var(--bs-border-radius) !important;
 }
 
+.plant-form-article {
+  padding-bottom: 3rem;
+}
+
 @media screen and (min-width: 768px) {
   .card-plant-info1 .plant-info-image {
     max-width: 50%;

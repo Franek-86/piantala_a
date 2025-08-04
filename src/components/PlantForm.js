@@ -66,7 +66,7 @@ const PlantForm = () => {
   });
 
   return (
-    <article ref={container} className='plant-form-article mt-3 w-100 pb-5'>
+    <article ref={container} className='plant-form-article mt-3 w-100'>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <FloatingLabel
           controlId='formPlantType'
