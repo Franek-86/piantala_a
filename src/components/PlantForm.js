@@ -10,7 +10,7 @@ const PlantForm = () => {
   const { userId } = useContext(AuthContext);
   const { plantId } = useParams();
   console.log("test", plantId);
-  const container = useRef(null);
+  const container = useRef();
   const navigate = useNavigate();
   const {
     register,
@@ -42,7 +42,7 @@ const PlantForm = () => {
     };
     const onKeyboardHide = (info) => {
       console.log("keyboard will show with height:", info.keyboardHeight);
-      container.current.container.style.paddingBottom = `3rem`;
+      container.current.style.paddingBottom = `3rem`;
     };
 
     Keyboard.addListener("keyboardWillShow", onKeyboardShow);
