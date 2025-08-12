@@ -150,8 +150,6 @@ function App() {
       });
     };
     const deletePlant = (arg) => {
-      console.log("arg", arg);
-
       setPlants((old) => {
         const newArr = old.filter((i) => i.id != arg);
         return newArr;
