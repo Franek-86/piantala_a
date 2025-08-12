@@ -342,6 +342,7 @@ export const PlantsProvider = ({ children }) => {
     try {
       let response = await axios.post(`/api/plants/add-plant`, data);
       console.log("1111", response);
+
       return response;
     } catch (error) {
       console.log("t32", error);
