@@ -149,9 +149,19 @@ function App() {
         return [...old, arg];
       });
     };
+    const deletePlant = (arg) => {
+      console.log("arg", arg);
+
+      setPlants((old) => {
+        const newArr = old.filter((i) => i.id != arg);
+        return newArr;
+      });
+    };
     socket.on("add-plant", addPlant);
+    socket.on("delete-plant", deletePlant);
     return () => {
       socket.off("add-plant", addPlant);
+      socket.off("delete-plant", deletePlant);
     };
   }, []);
   const filteredPlants = plants.filter((plant) => {
