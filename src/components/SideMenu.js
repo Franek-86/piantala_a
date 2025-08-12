@@ -14,7 +14,7 @@ import { FaUsers } from "react-icons/fa";
 import { MdOutlineShoppingCartCheckout } from "react-icons/md";
 
 const SideMenu = ({ onLogout, ...props }) => {
-  const { handleLogout } = useContext(AuthContext);
+  const { handleLogout, userRole } = useContext(AuthContext);
   return (
     <Offcanvas show={props.show} onHide={props.handleClose}>
       <Offcanvas.Header closeButton>
@@ -48,12 +48,14 @@ const SideMenu = ({ onLogout, ...props }) => {
               <span class='ms-2 d-sm-inline'>Utenti</span>
             </Link>
           </ListGroup.Item>
-          <ListGroup.Item>
-            <Link to='/orders' class='nav-link text-truncate'>
-              <MdOutlineShoppingCartCheckout />
-              <span class='ms-2 d-sm-inline'>Ordini</span>
-            </Link>
-          </ListGroup.Item>
+          {userRole === "admin" && (
+            <ListGroup.Item>
+              <Link to='/orders' class='nav-link text-truncate'>
+                <MdOutlineShoppingCartCheckout />
+                <span class='ms-2 d-sm-inline'>Ordini</span>
+              </Link>
+            </ListGroup.Item>
+          )}
           <ListGroup.Item>
             <Link to='/' onClick={handleLogout} class='nav-link text-truncate'>
               <RiLogoutBoxLine />
