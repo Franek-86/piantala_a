@@ -5,6 +5,7 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Form from "react-bootstrap/Form";
+import { useEffect } from "react";
 
 const FilterControls = ({ showFilters, handleCloseFilters }) => {
   const { filters, handleFilterChange } = useContext(FilterContext);
@@ -17,12 +18,18 @@ const FilterControls = ({ showFilters, handleCloseFilters }) => {
     });
     return [...new Set(test)];
   };
+
   const statusPlants = getUniqueValues(plants, "status_piantina");
   const suburbPlants = getUniqueValues(plants, "suburb");
+
   console.log("statusPlants", statusPlants);
   // const [showFilters, setShowFilters] = useState(false);
   // const handleCloseFilters = () => setShowFilters(false);
   // const handleShowFilters = () => setShowFilters(true);
+
+  useEffect(() => {
+    handleFilterChange("test");
+  }, []);
   return (
     <>
       {/* <Button variant='primary' onClick={handleShowFilters}>

@@ -143,31 +143,56 @@ function App() {
     socket.on("connect", () => {
       console.log("socket", socket.id);
     });
-    const addPlant = (arg) => {
-      console.log("arg", arg);
-      setPlants((old) => {
-        return [...old, arg];
-      });
+    // const addPlant = (arg) => {
+    //   console.log("arg", arg);
+    //   setPlants((old) => {
+    //     return [...old, arg];
+    //   });
+    // };
+    // const deletePlant = (arg) => {
+    //   setPlants((old) => {
+    //     const newArr = old.filter((i) => i.id != arg);
+    //     return newArr;
+    //   });
+    // };
+    // const updateStatus = (arg1, arg2) => {
+    //   console.log("args", arg1, arg2);
+    //   setPlants((old) => {
+    //     const newArr = old.map((i) => {
+    //       if (i.id == arg1) {
+    //         return { ...i, status: arg2 };
+    //       } else {
+    //         return i;
+    //       }
+    //     });
+    //     console.log("new arr from socket", newArr);
+    //     return newArr;
+    //   });
+    // };
+
+    const getAllPlants = (arg1) => {
+      setPlants(arg1);
     };
-    const deletePlant = (arg) => {
-      setPlants((old) => {
-        const newArr = old.filter((i) => i.id != arg);
-        return newArr;
-      });
-    };
-    socket.on("add-plant", addPlant);
-    socket.on("delete-plant", deletePlant);
+
+    socket.on("all-plants", getAllPlants);
     return () => {
-      socket.off("add-plant", addPlant);
-      socket.off("delete-plant", deletePlant);
+      socket.off("all-plants", getAllPlants);
     };
   }, []);
-  const filteredPlants = plants.filter((plant) => {
+  let filteredPlants = plants.filter((plant) => {
     return (
       (filters.status === "" || plant.status_piantina === filters.status) &&
       (filters.suburb === "" || plant.suburb === filters.suburb)
     );
   });
+
+  const checkFilteredPlants = () => {
+    const filteredPlantsLength = filteredPlants.length;
+    if (filteredPlantsLength === 0) {
+      filteredPlants = [...plants];
+    }
+  };
+  checkFilteredPlants();
 
   // end filters
 

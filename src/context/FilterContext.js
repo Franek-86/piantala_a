@@ -8,11 +8,18 @@ export const FilterProvider = ({ children }) => {
   });
   const handleFilterChange = (e) => {
     console.log("ttt1");
-    const { name, value } = e.target;
-    setFilters((prevFilters) => ({
-      ...prevFilters,
-      [name]: value,
-    }));
+    if (e === "test") {
+      console.log("ttt4");
+    }
+    if (e?.target) {
+      const { name, value } = e.target;
+      console.log("tt2", name, value);
+      console.log("pq", name, value);
+      setFilters((prevFilters) => ({
+        ...prevFilters,
+        [name]: value,
+      }));
+    }
   };
   // const filteredPlants = plants.filter((plant) => {
   //   return (
