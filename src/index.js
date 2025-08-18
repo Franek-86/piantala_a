@@ -40,7 +40,13 @@ import PasswordReset from "./pages/PasswordReset";
 import EmailVerificationReset from "./pages/EmailVerificationReset";
 import Landing from "./pages/Landing";
 import CommonRoutesComponent from "./components/CommonRoutesComponent";
-
+import OpenChat from "./pages/OpenChat";
+import { io } from "socket.io-client";
+const url =
+  process.env.REACT_APP_NODE_ENV === "test"
+    ? process.env.REACT_APP_TEST_DOMAIN_NAME_SERVER
+    : process.env.REACT_APP_DOMAIN_NAME_SERVER;
+const socket = io(url);
 const router = createBrowserRouter([
   {
     path: "/",
@@ -71,7 +77,7 @@ const router = createBrowserRouter([
         path: "/map",
         element: (
           <ProtectedRoute>
-            <App />
+            <App socket={socket} />
           </ProtectedRoute>
         ),
         children: [
@@ -124,6 +130,10 @@ const router = createBrowserRouter([
       {
         path: "users",
         element: <Users />,
+      },
+      {
+        path: "chat",
+        element: <OpenChat socket={socket} />,
       },
       // {
       //   path: "verification-success",

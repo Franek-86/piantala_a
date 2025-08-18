@@ -1,0 +1,29 @@
+import React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
+
+const ChatBar = ({ socket }) => {
+  const [users, setUsers] = useState([]);
+  useEffect(() => {
+    socket.on("newUserResponse", (data) => {
+      setUsers(data);
+    });
+  }, [users]);
+  // console.log("mm", users);
+  return (
+    <div className='chat__sidebar'>
+      <h2>Chat</h2>
+
+      <div>
+        <h4 className='chat__header'>Utenti online</h4>
+        <div className='chat__users'>
+          {users.map((user) => {
+            return <p>{user.userName}</p>;
+          })}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ChatBar;

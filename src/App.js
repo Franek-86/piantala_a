@@ -6,7 +6,7 @@ import {
   Marker,
   useMapEvent,
 } from "react-leaflet";
-import { io } from "socket.io-client";
+// import { io } from "socket.io-client";
 import L, { latLng } from "leaflet";
 import iconGreen from "./assets/images/ti pianto per amore-APP-verde.png";
 import iconYellow from "./assets/images/ti pianto per amore-APP-giallo.png";
@@ -70,7 +70,7 @@ const iconMap = {
 
 //
 
-function App() {
+function App({ socket }) {
   const markerRef = useRef(null);
   const [map, setMap] = useState(null);
   const [position, setPosition] = useState(null);
@@ -134,11 +134,11 @@ function App() {
     checkPermissionsAndShowModal();
   }, []);
 
-  const url =
-    process.env.REACT_APP_NODE_ENV === "test"
-      ? process.env.REACT_APP_TEST_DOMAIN_NAME_SERVER
-      : process.env.REACT_APP_DOMAIN_NAME_SERVER;
-  const socket = io(url);
+  // const url =
+  //   process.env.REACT_APP_NODE_ENV === "test"
+  //     ? process.env.REACT_APP_TEST_DOMAIN_NAME_SERVER
+  //     : process.env.REACT_APP_DOMAIN_NAME_SERVER;
+  // const socket = io(url);
   useEffect(() => {
     socket.on("connect", () => {
       console.log("socket", socket.id);
