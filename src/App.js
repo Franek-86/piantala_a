@@ -6,7 +6,6 @@ import {
   Marker,
   useMapEvent,
 } from "react-leaflet";
-// import { io } from "socket.io-client";
 import L, { latLng } from "leaflet";
 import iconGreen from "./assets/images/ti pianto per amore-APP-verde.png";
 import iconYellow from "./assets/images/ti pianto per amore-APP-giallo.png";
@@ -35,6 +34,7 @@ import PermissionModal from "./components/PermissionModal";
 import { AuthContext } from "./context/AuthContext";
 import { Geolocation } from "@capacitor/geolocation";
 import { Capacitor } from "@capacitor/core";
+import { SocketContext } from "./context/SocketContext";
 
 // test
 // Set default icon
@@ -70,13 +70,15 @@ const iconMap = {
 
 //
 
-function App({ socket }) {
+function App() {
   const markerRef = useRef(null);
   const [map, setMap] = useState(null);
   const [position, setPosition] = useState(null);
   const [locationMarkerTag, setLocationMarkerTag] = useState(null);
   const { plants, setPlants, getAllPlants, loading, sendValuesToAddPlant } =
     useContext(PlantsContext);
+  const { socket } = useContext(SocketContext);
+
   const { test } = useContext(OrdersContext);
   console.log("test from orders", test);
   const { filters, handleFilterChange } = useContext(FilterContext);
@@ -85,23 +87,6 @@ function App({ socket }) {
   const [copyText, setCopyText] = useState("");
   const isLargeScreen = useIsLargeScreen();
   const [show, setShow] = useState(false);
-
-  // filters
-
-  // const [filters, setFilters] = useState({
-  //   status: "",
-  //   suburb: "",
-  // });
-  // const handleFilterChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setFilters((prevFilters) => ({
-  //     ...prevFilters,
-  //     [name]: value,
-  //   }));
-  // };
-  // useEffect(() => {
-  //   ensurePermission();
-  // }, []);
 
   useEffect(() => {
     const checkPermissionsAndShowModal = async () => {
@@ -141,34 +126,8 @@ function App({ socket }) {
   // const socket = io(url);
   useEffect(() => {
     socket.on("connect", () => {
-      console.log("socket", socket.id);
+      console.log("socket from app.js", socket);
     });
-    // const addPlant = (arg) => {
-    //   console.log("arg", arg);
-    //   setPlants((old) => {
-    //     return [...old, arg];
-    //   });
-    // };
-    // const deletePlant = (arg) => {
-    //   setPlants((old) => {
-    //     const newArr = old.filter((i) => i.id != arg);
-    //     return newArr;
-    //   });
-    // };
-    // const updateStatus = (arg1, arg2) => {
-    //   console.log("args", arg1, arg2);
-    //   setPlants((old) => {
-    //     const newArr = old.map((i) => {
-    //       if (i.id == arg1) {
-    //         return { ...i, status: arg2 };
-    //       } else {
-    //         return i;
-    //       }
-    //     });
-    //     console.log("new arr from socket", newArr);
-    //     return newArr;
-    //   });
-    // };
 
     const getAllPlants = (arg1) => {
       setPlants(arg1);

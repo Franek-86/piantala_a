@@ -10,9 +10,9 @@ import sidebarLogo from "../assets/images/logo_albero_dritto_sidebar.png";
 import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
 import { BsInfo } from "react-icons/bs";
-import { IoMdChatbubbles } from "react-icons/io";
 import { FaUsers } from "react-icons/fa";
 import { MdOutlineShoppingCartCheckout } from "react-icons/md";
+import { IoMdChatbubbles } from "react-icons/io";
 
 const SideMenu = ({ onLogout, ...props }) => {
   const { handleLogout, userRole } = useContext(AuthContext);
@@ -49,12 +49,14 @@ const SideMenu = ({ onLogout, ...props }) => {
               <span class='ms-2 d-sm-inline'>Utenti</span>
             </Link>
           </ListGroup.Item>
-          <ListGroup.Item>
-            <Link to='/chat' class='nav-link text-truncate'>
-              <IoMdChatbubbles />
-              <span class='ms-2 d-sm-inline'>Chat</span>
-            </Link>
-          </ListGroup.Item>
+          {userRole === "admin" && (
+            <ListGroup.Item>
+              <Link to='/chat' class='nav-link text-truncate'>
+                <IoMdChatbubbles />
+                <span class='ms-2 d-sm-inline'>Chat</span>
+              </Link>
+            </ListGroup.Item>
+          )}
           {userRole === "admin" && (
             <ListGroup.Item>
               <Link to='/orders' class='nav-link text-truncate'>

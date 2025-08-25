@@ -29,6 +29,7 @@ import Contacts from "./pages/Contacts";
 import EmailVerification from "./pages/EmailVerification";
 import Plates from "./pages/Plates";
 import { FilterProvider } from "./context/FilterContext";
+import { SocketProvider } from "./context/SocketContext";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Users from "./pages/Users";
@@ -40,13 +41,16 @@ import PasswordReset from "./pages/PasswordReset";
 import EmailVerificationReset from "./pages/EmailVerificationReset";
 import Landing from "./pages/Landing";
 import CommonRoutesComponent from "./components/CommonRoutesComponent";
-import OpenChat from "./pages/OpenChat";
-import { io } from "socket.io-client";
-const url =
-  process.env.REACT_APP_NODE_ENV === "test"
-    ? process.env.REACT_APP_TEST_DOMAIN_NAME_SERVER
-    : process.env.REACT_APP_DOMAIN_NAME_SERVER;
-const socket = io(url);
+import Chat from "./pages/Chat";
+import { ChatProvider } from "./context/ChatContext";
+
+// import { io } from "socket.io-client";
+// const url =
+//   process.env.REACT_APP_NODE_ENV === "test"
+//     ? process.env.REACT_APP_TEST_DOMAIN_NAME_SERVER
+//     : process.env.REACT_APP_DOMAIN_NAME_SERVER;
+// const socket = io(url);
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -77,7 +81,7 @@ const router = createBrowserRouter([
         path: "/map",
         element: (
           <ProtectedRoute>
-            <App socket={socket} />
+            <App />
           </ProtectedRoute>
         ),
         children: [
@@ -133,7 +137,7 @@ const router = createBrowserRouter([
       },
       {
         path: "chat",
-        element: <OpenChat socket={socket} />,
+        element: <Chat />,
       },
       // {
       //   path: "verification-success",
@@ -154,15 +158,19 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
-      <PlantsProvider>
-        <OrdersProvider>
-          <FilterProvider>
-            <ToastContainer />
-            <Error />
-            <RouterProvider router={router} />
-          </FilterProvider>
-        </OrdersProvider>
-      </PlantsProvider>
+      <SocketProvider>
+        <ChatProvider>
+          <PlantsProvider>
+            <OrdersProvider>
+              <FilterProvider>
+                <ToastContainer />
+                <Error />
+                <RouterProvider router={router} />
+              </FilterProvider>
+            </OrdersProvider>
+          </PlantsProvider>
+        </ChatProvider>
+      </SocketProvider>
     </AuthProvider>
   </React.StrictMode>
 );
