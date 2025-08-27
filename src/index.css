@@ -1359,7 +1359,7 @@ body {
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
   padding: 10px;
-  height: 50vh;
+  height: 70vh;
 }
 .box-header:before,
 .box-body:before,
@@ -1582,4 +1582,12 @@ body {
 }
 .pull-left {
   float: left;
+}
+.chat-footer {
+  position: absolute !important;
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+  /* align-items: stretch; */
+  width: 90%;
+  bottom: 1rem;
 }

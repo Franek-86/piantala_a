@@ -23,7 +23,7 @@ const ChatForm = () => {
     setMessage("");
   };
   return (
-    <InputGroup className='pb-2'>
+    <InputGroup className='pb-2 chat-footer'>
       <Form.Control
         placeholder='messaggio...'
         aria-label='message'
