@@ -74,7 +74,7 @@ const Users = () => {
                             <Avatar
                               // src='https://example.com/user-avatar.jpg'
                               maxInitials={2}
-                              className='avatar'
+                              className='direct-chat-img'
                               name={user_name}
                             />
 

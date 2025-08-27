@@ -29,6 +29,7 @@ export const AuthProvider = ({ children }) => {
     userName: "",
     email: "",
   });
+
   const [showPermissionModal, setShowPermissionModal] = useState(false);
   const [pageError, setPageError] = useState(false);
   const [userSession, setUserSession] = useState(null);
