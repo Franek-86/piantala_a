@@ -1359,7 +1359,7 @@ body {
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
   padding: 10px;
-  /* height: 62vh; */
+  height: 50vh;
 }
 .box-header:before,
 .box-body:before,

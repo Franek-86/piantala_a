@@ -75,8 +75,8 @@ const Chat = () => {
                       </div>
                     </div> */}
                 <ChatBody />
-                <ChatForm />
               </div>
+              <ChatForm />
             </div>
           </div>
         </section>
