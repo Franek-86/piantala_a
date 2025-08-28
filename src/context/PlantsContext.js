@@ -347,7 +347,7 @@ export const PlantsProvider = ({ children }) => {
         method: "patch",
         url: `/api/plants/${plantId}/type`,
         data: {
-          plant_type: "Carrubo",
+          plant_type: type,
         },
         headers: {
           "content-type": "application/json",
