@@ -5,7 +5,6 @@ import { FaRegCopy } from "react-icons/fa";
 import ListGroup from "react-bootstrap/ListGroup";
 import { AuthContext } from "../context/AuthContext";
 import { Link, useParams, useNavigate, useLocation } from "react-router-dom";
-
 import axios from "axios";
 import { MdBackspace } from "react-icons/md";
 import { PlantsContext } from "../context/PlantsContext";
@@ -20,6 +19,7 @@ import { FaRegUser } from "react-icons/fa6";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { IoIosRemoveCircleOutline } from "react-icons/io";
 import { copyToClipboard } from "../utils/utils";
+import PlantFormSelect from "../components/PlantFormSelect";
 
 const Plant = () => {
   // const [loading, setLoading] = useState(true);
@@ -237,7 +237,7 @@ const Plant = () => {
                 <ListGroup.Item>
                   {" "}
                   <span className='fw-medium'>Tipo di pianta:</span>{" "}
-                  <span>{plant_type}</span>
+                  <span>{plant_type ? plant_type : "in elaborazione"}</span>
                 </ListGroup.Item>
                 <ListGroup.Item>
                   {" "}
@@ -378,7 +378,7 @@ const Plant = () => {
               </button>
             </div>
             <hr />
-            <h5 className='mb-3'>Operazioni di amministrazione</h5>
+            <h5 className='mb-3'>Operazioni targa</h5>
             <div className='d-grid gap-2'>
               {!plate && (
                 <>
@@ -417,6 +417,9 @@ const Plant = () => {
                 </div>
               )}
             </div>
+            <hr />
+            <h5 className='mb-3'>Operazioni tipo pianta</h5>
+            <PlantFormSelect />
           </div>
         ) : (
           <></>

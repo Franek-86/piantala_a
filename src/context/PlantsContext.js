@@ -337,6 +337,47 @@ export const PlantsProvider = ({ children }) => {
       setError(err.message);
     }
   };
+  const handleTypeUpdate = async (type, plantId) => {
+    // const token = localStorage.getItem("userToken"); // Retrieve the token from localStorage
+    console.log("wwww", type, plantId);
+    setLoading(true);
+    try {
+      console.log("tipo");
+      const response = await axios({
+        method: "patch",
+        url: `/api/plants/${plantId}/type`,
+        data: {
+          plant_type: "Carrubo",
+        },
+        headers: {
+          "content-type": "application/json",
+        },
+      });
+      if (response.status === 200) {
+        toast(`🌱 Tipo pianta ${type} aggiunto`, {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          // transition: Bounce,
+        });
+        setPlant((prevPlant) => ({
+          ...prevPlant,
+          plant_type: type,
+        }));
+        getAllPlants();
+      }
+    } catch (err) {
+      console.log("erer", err);
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const addPlant = async (data) => {
     try {
@@ -485,6 +526,7 @@ export const PlantsProvider = ({ children }) => {
         singlePlantError,
         loading,
         handleBookedPlant,
+        handleTypeUpdate,
         fetchUserPlants,
         getUserName,
         getReporterInfo,
