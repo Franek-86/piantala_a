@@ -224,7 +224,7 @@ hr {
     margin-left: 300px;
   }
   .section-center {
-    width: 90%;
+    width: 90vw;
   }
   .offcanvas.offcanvas-top {
     left: 300px;
@@ -1585,9 +1585,10 @@ body {
 }
 .chat-footer {
   position: absolute !important;
-  /* display: flex; */
-  /* flex-wrap: wrap; */
-  /* align-items: stretch; */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
   width: 90%;
   bottom: 1rem;
+  max-width: 768px;
 }

@@ -4,12 +4,12 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import { ChatContext } from "../../context/ChatContext";
 import { AuthContext } from "../../context/AuthContext";
-
 import { useContext } from "react";
 
 const ChatForm = () => {
   const { setMessage, message, sendMessage } = useContext(ChatContext);
   const { userId, loggedUserInfo } = useContext(AuthContext);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("tu", message);

@@ -1,17 +1,23 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { ChatContext } from "../../context/ChatContext";
 import { AuthContext } from "../../context/AuthContext";
 import { useContext } from "react";
 import moment from "moment";
+
 import { formatDate } from "../../utils/utils";
 import Avatar from "react-avatar";
 const ChatBody = () => {
   const { messages } = useContext(ChatContext);
   const { userId } = useContext(AuthContext);
-
+  const lastRef = useRef(null);
+  useEffect(() => {
+    if (lastRef.current) {
+      lastRef.current.scrollTop = lastRef.current.scrollHeight;
+    }
+  }, [messages]);
   return (
     <div className='box-body'>
-      <div className='direct-chat-messages'>
+      <div ref={lastRef} className='direct-chat-messages'>
         {messages.map((message) => {
           return (
             <div

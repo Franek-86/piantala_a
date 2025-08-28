@@ -28,7 +28,7 @@ const Chat = () => {
       </div>
 
       <div className='section-center'>
-        <section className='section-page section-background'>
+        <section className='section-page section-background pb-0'>
           <div className='section-center'>
             <h2 className='section-title' style={{ "padding-top": "4rem" }}>
               Chat aperta
