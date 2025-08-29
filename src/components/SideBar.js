@@ -26,21 +26,9 @@ const SideBar = () => {
       <Offcanvas.Body>
         <ListGroup className='sidebar-section' variant='flush'>
           <ListGroup.Item>
-            <Link to='/contacts' class='nav-link text-truncate'>
-              <RiContactsLine />
-              <span class='ms-2 d-sm-inline'>Contattaci</span>
-            </Link>
-          </ListGroup.Item>
-          <ListGroup.Item>
-            <Link to='/plates' class='nav-link text-truncate'>
-              <GiMetalPlate />
-              <span class='ms-2 d-sm-inline'>Le vostre targhe</span>
-            </Link>
-          </ListGroup.Item>
-          <ListGroup.Item>
             <Link to='/info' class='nav-link text-truncate'>
               <BsInfo />
-              <span class='ms-2 d-sm-inline'>Info</span>
+              <span class='ms-2 d-sm-inline'>Chi siamo</span>
             </Link>
           </ListGroup.Item>
           <ListGroup.Item>
@@ -51,20 +39,34 @@ const SideBar = () => {
           </ListGroup.Item>
           {userRole === "admin" && (
             <ListGroup.Item>
-              <Link to='/chat' class='nav-link text-truncate'>
-                <IoMdChatbubbles />
-                <span class='ms-2 d-sm-inline'>Chat</span>
-              </Link>
-            </ListGroup.Item>
-          )}
-          {userRole === "admin" && (
-            <ListGroup.Item>
               <Link to='/orders' class='nav-link text-truncate'>
                 <MdOutlineShoppingCartCheckout />
                 <span class='ms-2 d-sm-inline'>Ordini</span>
               </Link>
             </ListGroup.Item>
           )}
+
+          <ListGroup.Item>
+            <Link to='/plates' class='nav-link text-truncate'>
+              <GiMetalPlate />
+              <span class='ms-2 d-sm-inline'>Le vostre targhe</span>
+            </Link>
+          </ListGroup.Item>
+
+          {userRole === "admin" && (
+            <ListGroup.Item>
+              <Link to='/chat' class='nav-link text-truncate'>
+                <IoMdChatbubbles />
+                <span class='ms-2 d-sm-inline'>Chat</span>
+              </Link>
+            </ListGroup.Item>
+          )}
+          <ListGroup.Item>
+            <Link to='/contacts' class='nav-link text-truncate'>
+              <RiContactsLine />
+              <span class='ms-2 d-sm-inline'>Contattaci</span>
+            </Link>
+          </ListGroup.Item>
           <ListGroup.Item>
             <Link to='/' onClick={handleLogout} class='nav-link text-truncate'>
               <RiLogoutBoxLine />
