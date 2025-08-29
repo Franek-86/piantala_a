@@ -1,11 +1,4 @@
-import {
-  MapContainer,
-  TileLayer,
-  useMap,
-  Popup,
-  Marker,
-  useMapEvent,
-} from "react-leaflet";
+import { MapContainer, TileLayer, useMap, Popup, Marker } from "react-leaflet";
 import L, { latLng } from "leaflet";
 import iconGreen from "./assets/images/ti pianto per amore-APP-verde.png";
 import iconYellow from "./assets/images/ti pianto per amore-APP-giallo.png";
@@ -35,9 +28,7 @@ import { AuthContext } from "./context/AuthContext";
 import { Geolocation } from "@capacitor/geolocation";
 import { Capacitor } from "@capacitor/core";
 import { SocketContext } from "./context/SocketContext";
-
-// test
-// Set default icon
+import MapResize from "./components/MapResize";
 
 const DefaultIcon = L.icon({
   iconUrl: iconLocation, // This can be your default icon
@@ -67,8 +58,6 @@ const iconMap = {
     iconSize: [25, 41], // Adjust size here
   }),
 };
-
-//
 
 function App() {
   const markerRef = useRef(null);
@@ -119,6 +108,7 @@ function App() {
     checkPermissionsAndShowModal();
   }, []);
 
+  //
   // const url =
   //   process.env.REACT_APP_NODE_ENV === "test"
   //     ? process.env.REACT_APP_TEST_DOMAIN_NAME_SERVER
@@ -191,6 +181,7 @@ function App() {
   }
 
   const isChildRoute = location.pathname.includes("/map/");
+
   if (loading) {
     return <Loading />;
   }
@@ -211,8 +202,13 @@ function App() {
                   attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                   url='https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png'
                 />
+                <MapResize />
                 {/* <MyTest /> */}
-                <Buttons setPosition={setPosition} markerRef={markerRef} />
+                <Buttons
+                  setPosition={setPosition}
+                  position={position}
+                  markerRef={markerRef}
+                />
                 {filteredPlants.length > 0 &&
                   filteredPlants.map((e) => {
                     const iconType = e.status_piantina;
@@ -230,7 +226,6 @@ function App() {
                       ></Marker>
                     );
                   })}
-
                 {position && (
                   <Marker ref={markerRef} position={position}>
                     <Popup>

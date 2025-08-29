@@ -94,12 +94,12 @@ const Contacts = () => {
               </span>
               <span> amicidiernestverner@gmail.com </span>
             </div>
-            <div className='contacts-phone mb-3 d-flex align-items-center'>
+            {/* <div className='contacts-phone mb-3 d-flex align-items-center'>
               <span className='contacts-location-icon pe-3'>
                 <MdLocalPhone />
               </span>
               <span> +39 3485384563</span>
-            </div>
+            </div> */}
           </article>
           <hr />
           <article className='d-flex align-items-center mt-3'>

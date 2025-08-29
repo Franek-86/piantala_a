@@ -12,7 +12,7 @@ import FilterControls from "./FilterControls";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import { useMap } from "react-leaflet";
+import { useMap, useMapEvent } from "react-leaflet";
 import Avatar from "react-avatar";
 import Loading from "../pages/Loading";
 
@@ -22,9 +22,12 @@ import ProfileModal from "./ProfileModal";
 import { RiH1 } from "react-icons/ri";
 import LocationLoading from "./LocationLoading";
 
-const Buttons = ({ setPosition, langMatch, latMatch, markerRef }) => {
-  const { getUserInfo, userId, loggedUserInfo } = useContext(AuthContext);
+const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
+  const { getUserInfo, userId, loggedUserInfo, isAdmin } =
+    useContext(AuthContext);
+  console.log("asdf", position);
   const [locationLoading, setLocationLoading] = useState(false);
+  const [showCenter, setShowCenter] = useState(null);
   const [show, setShow] = useState(false);
   const [showFilters, setShowFilters] = useState(false);
   const handleClose = () => setShow(false);
@@ -34,10 +37,19 @@ const Buttons = ({ setPosition, langMatch, latMatch, markerRef }) => {
   const handleShowFilters = () => setShowFilters(true);
   const navigate = useNavigate(); // Initialize the navigate function
   const map = useMap();
-  const test = () => {
-    console.log("test111");
-  };
+
   console.log("test1", smShow);
+
+  useMapEvent("move", () => {
+    let check = map.getCenter().lng;
+    let center = "16.871995925903324";
+    console.log("aaa", center, check);
+    if (check != center) {
+      setShowCenter(true);
+    } else {
+      setShowCenter(false);
+    }
+  });
   return (
     <div className='section buttons-section'>
       {locationLoading && <Loading />}
@@ -94,13 +106,15 @@ const Buttons = ({ setPosition, langMatch, latMatch, markerRef }) => {
         >
           <MdAddLocationAlt />
         </Button>
-        <Link
-          className='circle-button add-plant-manual'
-          to='addPlant'
-          state={{ fromManual: true }}
-        >
-          <MdAdd />
-        </Link>
+        {isAdmin && (
+          <Link
+            className='circle-button add-plant-manual'
+            to='addPlant'
+            state={{ fromManual: true }}
+          >
+            <MdAdd />
+          </Link>
+        )}
         <Button
           variant='primary'
           onClick={handleShowFilters}
@@ -109,18 +123,19 @@ const Buttons = ({ setPosition, langMatch, latMatch, markerRef }) => {
           <MdFilterAlt />
         </Button>
 
-        <Button
-          onClick={() => {
-            console.log("ciao");
-            map.flyTo([41.118778112249046, 16.871917818963464], 13);
-          }}
-          className='circle-button p-0 '
-        >
-          <MdCenterFocusStrong />
-        </Button>
-        <a className='circle-button' href='tel:+393485384563'>
+        {showCenter ? (
+          <Button
+            onClick={() => {
+              map.flyTo([41.118778112249046, 16.871917818963464], 13);
+            }}
+            className='circle-button p-0 '
+          >
+            <MdCenterFocusStrong />
+          </Button>
+        ) : null}
+        {/* <a className='circle-button' href='tel:+393485384563'>
           <MdLocalPhone />
-        </a>
+        </a> */}
       </div>
       {/* Include the SideMenu component */}
       <SideMenu
