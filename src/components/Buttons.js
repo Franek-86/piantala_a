@@ -40,17 +40,8 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
 
   console.log("test1", smShow);
 
-  useMapEvent("move", () => {
-    let check = map.getCenter().lng;
-    let center1 = "16.871995925903324";
-    let center2 = "16.871910095214847";
-
-    console.log("aaa", center1, center2, check);
-    if (check != center1 || check != center2) {
-      setShowCenter(true);
-    } else {
-      setShowCenter(false);
-    }
+  useMapEvent("dragend", () => {
+    setShowCenter(true);
   });
   return (
     <div className='section buttons-section'>
@@ -84,6 +75,7 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
           onClick={() => {
             console.log("sta");
             setLocationLoading(true);
+
             if (map) {
               map
                 .locate({ timeout: 15000, enableHighAccuracy: true })
@@ -129,6 +121,7 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
           <Button
             onClick={() => {
               map.flyTo([41.118778112249046, 16.871917818963464], 13);
+              setShowCenter(false);
             }}
             className='circle-button p-0 '
           >
