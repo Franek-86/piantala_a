@@ -43,6 +43,7 @@ import Landing from "./pages/Landing";
 import CommonRoutesComponent from "./components/CommonRoutesComponent";
 import Chat from "./pages/Chat";
 import { ChatProvider } from "./context/ChatContext";
+import ChiSiamo from "./pages/ChiSiamo";
 
 // import { io } from "socket.io-client";
 // const url =
@@ -106,6 +107,10 @@ const router = createBrowserRouter([
       {
         path: "info",
         element: <Info />,
+      },
+      {
+        path: "chi-siamo",
+        element: <ChiSiamo />,
       },
       {
         path: "checkout",

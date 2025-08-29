@@ -11,6 +11,7 @@ import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
 import { BsInfo } from "react-icons/bs";
 import { FaUsers } from "react-icons/fa";
+import { GiLion } from "react-icons/gi";
 import { MdOutlineShoppingCartCheckout } from "react-icons/md";
 import { IoMdChatbubbles } from "react-icons/io";
 
@@ -26,17 +27,25 @@ const SideBar = () => {
       <Offcanvas.Body>
         <ListGroup className='sidebar-section' variant='flush'>
           <ListGroup.Item>
-            <Link to='/info' class='nav-link text-truncate'>
-              <BsInfo />
+            <Link to='/chi-siamo' class='nav-link text-truncate'>
+              <GiLion />
               <span class='ms-2 d-sm-inline'>Chi siamo</span>
             </Link>
           </ListGroup.Item>
           <ListGroup.Item>
-            <Link to='/users' class='nav-link text-truncate'>
-              <FaUsers />
-              <span class='ms-2 d-sm-inline'>Utenti</span>
+            <Link to='/info' class='nav-link text-truncate'>
+              <BsInfo />
+              <span class='ms-2 d-sm-inline'>Info</span>
             </Link>
           </ListGroup.Item>
+          {userRole === "admin" && (
+            <ListGroup.Item>
+              <Link to='/users' class='nav-link text-truncate'>
+                <FaUsers />
+                <span class='ms-2 d-sm-inline'>Utenti</span>
+              </Link>
+            </ListGroup.Item>
+          )}
           {userRole === "admin" && (
             <ListGroup.Item>
               <Link to='/orders' class='nav-link text-truncate'>

@@ -42,9 +42,11 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
 
   useMapEvent("move", () => {
     let check = map.getCenter().lng;
-    let center = "16.871995925903324";
-    console.log("aaa", center, check);
-    if (check != center) {
+    let center1 = "16.871995925903324";
+    let center2 = "16.871910095214847";
+
+    console.log("aaa", center1, center2, check);
+    if (check != center1 || check != center2) {
       setShowCenter(true);
     } else {
       setShowCenter(false);
