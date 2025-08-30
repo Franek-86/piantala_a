@@ -94,10 +94,13 @@ const Info = () => {
                       </ListGroup.Item>
                       <Alert variant='info' className='mt-3'>
                         L'amministratore provvederà a verificare la possibilità
-                        di piantare un albero sul punto indicato (per verificare
-                        lo stato della segnalazione V. Leggenda inserire icona).
-                        In caso positivo, l'utente potrà procedere al pagamento
-                        e alla scrittura della dedica.
+                        di piantare un albero sul punto indicato. In caso
+                        positivo, l'amministratore modificherà lo stato della
+                        piantina in "approvata" e l'utente potrà procedere alla
+                        scrittura della dedica e al pagamento. La modifica dello
+                        stato della segnalazione sarà immediatamente visibile
+                        sulla mappa (vedi la <Link to={"/legend"}>legenda</Link>{" "}
+                        per informazione completa sugli stati delle piantine).
                       </Alert>
                     </ListGroup>
                     {/* <Alert variant='info' className='mt-3'>
@@ -197,11 +200,11 @@ const Info = () => {
                         l'eventuale nota in caso di respinta saranno visibili
                         sia sulla pagina "Le mie segnalazioni" in corrispondenza
                         della propria segnazione, che sulla mappa cliccando
-                        sull'alberello relativo alla segnalazione in oggetto. La
-                        modifica dello stato della segnalazione e anche
-                        immediatamente visibile sulla mappa in quanto
-                        l'alberello cambia subito colore a seguito della
-                        modifica dello stato da parte dell'amministratore (vedi{" "}
+                        sull'alberello relativo alla segnalazione in oggetto.
+                        Tale modifica è anche immediatamente visibile sulla
+                        mappa in quanto l'alberello cambia subito colore a
+                        seguito della modifica dello stato da parte
+                        dell'amministratore (vedi{" "}
                         <Link to={"/legend"}>legenda </Link> per informazione
                         completa sugli stati delle piantine).
                       </Alert>
