@@ -35,18 +35,17 @@ const Info = () => {
               <Accordion.Body>
                 <p>
                   La richiesta di piantumazione può partire dalla volontà di
-                  piantare su una zona già segnalata da un'altro utente
-                  (segalazione di terzi) oppure dalla volontà di segnalare
-                  personalmente la zona di piantagione (segnalazione propria).
+                  piantare su una zona già segnalata da un'altro utente (segn.
+                  terzi) oppure dalla volontà di segnalare personalmente la zona
+                  di piantagione (segn. propria).
                 </p>
                 <Tabs
                   defaultActiveKey='profile'
                   id='uncontrolled-tab-example'
                   className='mb-3'
                 >
-                  <Tab eventKey='profile' title='Segnalazione terzi'>
+                  <Tab eventKey='profile' title='Segn. terzi'>
                     <p>
-                      {" "}
                       Nel caso si voglia piantare su una zolla segnalata da
                       terzi l'utente dovrà semplicemente selezionare dalla mappa
                       una piantina acquistabile, le piantine acquistabili sono
@@ -60,7 +59,7 @@ const Info = () => {
                       reindirizzato sulla piattaforma di pagamento.
                     </p>
                   </Tab>
-                  <Tab eventKey='home' title='Segnalazione propria'>
+                  <Tab eventKey='home' title='Segn. propria'>
                     <p>
                       Nel caso in cui l'utente voglia segnalare personalmente la
                       zona di piantagione dove poi aquistare eventualmente il
