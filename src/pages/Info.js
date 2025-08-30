@@ -44,7 +44,7 @@ const Info = () => {
                   id='uncontrolled-tab-example'
                   className='mb-3'
                 >
-                  <Tab eventKey='profile' title='Segnalzione di terzi'>
+                  <Tab eventKey='profile' title='Segnalazione terzi'>
                     <p>
                       {" "}
                       Nel caso si voglia piantare su una zolla segnalata da
