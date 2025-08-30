@@ -26,9 +26,12 @@ const ChiSiamo = () => {
             L'iniziativa "Ti pianto per amore" voluta dall'Associazione
             culturale no-profit "Amici di Ernest Verner" promuove l'adozione di
             alberi da parte di privati da piantare in punti della città di Bari
-            privi di verde, in base alla delibera del Comune nr. del . L'app
-            permette di localizzare queste zone e prenotare l'acquisto di un
-            albero con apposita targa da dedicare. La filosofia di questa
+            privi di verde, in base alla delibera del Comune nr. del .
+          </p>
+          <p>
+            {" "}
+            L'app permette di localizzare queste zone e prenotare l'acquisto di
+            un albero con apposita targa da dedicare. La filosofia di questa
             iniziativa è prendersi cura del verde pubblico ed è per questo che
             coloro che acquistano gli alberi si impegnano a innaffiarli
             regolarmente, soprattutto d'estate, almeno nei primi due anni dalla

@@ -87,6 +87,7 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
                     lng: e.latlng.lng,
                   });
                   setLocationLoading(false);
+                  setShowCenter(true);
                 })
                 .on("locationerror", function (err) {
                   console.log("location error", err);

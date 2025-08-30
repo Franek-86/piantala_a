@@ -1592,3 +1592,11 @@ body {
   bottom: 1rem;
   max-width: 768px;
 }
+/* informazioni */
+
+.section-info ul {
+  padding-left: 1rem;
+}
+.section-info ul li {
+  list-style-type: disc;
+}
