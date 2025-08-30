@@ -1,11 +1,12 @@
 import React from "react";
 import BottomBar from "../components/BottomBar";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { MdBackspace } from "react-icons/md";
 import Alert from "react-bootstrap/Alert";
 import ListGroup from "react-bootstrap/ListGroup";
 import Accordion from "react-bootstrap/Accordion";
 import Tab from "react-bootstrap/Tab";
+
 import Tabs from "react-bootstrap/Tabs";
 const Info = () => {
   const navigate = useNavigate();
@@ -27,7 +28,7 @@ const Info = () => {
         <div className='section-center menu-section-center section-info'>
           <h2 className='section-title'>Informazioni</h2>
 
-          <Accordion defaultActiveKey='0'>
+          <Accordion>
             <Accordion.Item eventKey='0'>
               <Accordion.Header>
                 Richiedere piantumazione albero
@@ -35,9 +36,10 @@ const Info = () => {
               <Accordion.Body>
                 <p>
                   La richiesta di piantumazione può partire dalla volontà di
-                  piantare su una zona già segnalata da un'altro utente (segn.
-                  terzi) oppure dalla volontà di segnalare personalmente la zona
-                  di piantagione (segn. propria).
+                  piantare su una zona già segnalata da un'altro utente (vedi
+                  tab "segn. terzi") oppure dalla volontà di segnalare
+                  personalmente la zona di piantagione ( vedi tab "segn.
+                  propria").
                 </p>
                 <Tabs
                   defaultActiveKey='profile'
@@ -49,14 +51,17 @@ const Info = () => {
                       Nel caso si voglia piantare su una zolla segnalata da
                       terzi l'utente dovrà semplicemente selezionare dalla mappa
                       una piantina acquistabile, le piantine acquistabili sono
-                      tutte quelle piantie colorate di verde (vedi legenda per
-                      informazione completa sugli stati delle piantine) e
-                      procedere alla scrittura della dedica ed al pagamento.
+                      tutte quelle colorate di verde (vedi{" "}
+                      <Link to={"/legend"}>legenda </Link> per informazione
+                      completa sugli stati delle piantine).
                     </p>
                     <p>
-                      Una volta scritto il testo della targa, cliccando su
+                      Selezionata la piantina l'utente dovrà scrivere il testo
+                      della targa, questo sarà il testo che verrà riportato
+                      sulla targa della pianta. Successivamenete, cliccando su
                       "procedi con il pagamento", l'utente sarà direttamente
-                      reindirizzato sulla piattaforma di pagamento.
+                      reindirizzato sulla piattaforma di pagamento per
+                      completare l'acquisto.
                     </p>
                   </Tab>
                   <Tab eventKey='home' title='Segn. propria'>
@@ -112,7 +117,7 @@ const Info = () => {
                 <p>
                   {" "}
                   Successivamente all'avvenuto acquisto verrà inviata una mail
-                  con i dettagli dell'ordine tra cui un numero d'ordine, questa
+                  con i dettagli dell'ordine tra cui il numero d'ordine, questa
                   mail rappresenta la conferma dell'avvenuto acquisto.
                 </p>
                 <p>
@@ -190,9 +195,15 @@ const Info = () => {
                       <Alert variant='info' className='mt-3'>
                         La modifica dello stato della segnalazione così come
                         l'eventuale nota in caso di respinta saranno visibili
-                        sia pagina "Le mie segnalazioni" in corrispondenza della
-                        segnazione specifica, che sulla mappa cliccando
-                        sull'alberello relativo alla segnalazione in oggetto.
+                        sia sulla pagina "Le mie segnalazioni" in corrispondenza
+                        della propria segnazione, che sulla mappa cliccando
+                        sull'alberello relativo alla segnalazione in oggetto. La
+                        modifica dello stato della segnalazione e anche
+                        immediatamente visibile sulla mappa in quanto
+                        l'alberello cambia subito colore a seguito della
+                        modifica dello stato da parte dell'amministratore (vedi{" "}
+                        <Link to={"/legend"}>legenda </Link> per informazione
+                        completa sugli stati delle piantine).
                       </Alert>
                     </p>
                   </ListGroup.Item>
