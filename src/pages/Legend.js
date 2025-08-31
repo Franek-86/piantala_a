@@ -43,7 +43,7 @@ const Legend = () => {
                   {/* <img src={greenPlant} alt='' /> */}
                   <MdCenterFocusStrong className='legend-icon' />
                 </div>
-                <span className='legend-description'>Riaccentra mappa</span>
+                <span className='legend-description'>Accentra mappa</span>
               </div>
             </li>
             <li className='plants-list'>
