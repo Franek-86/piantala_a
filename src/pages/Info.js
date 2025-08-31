@@ -66,33 +66,64 @@ const Info = () => {
                   </ListGroup.Item> */}{" "}
                   <Alert variant='info' className='mt-3'>
                     L'amministratore verificherà la possibilità di piantare un
-                    albero sul punto indicato. Un'icona a forma di piantina,
-                    inizialmente di colore arancione (vedi{" "}
-                    <Link to={"/legend"}>legenda </Link> per informazione
-                    completa sugli stati delle piantine), sarà da subito
-                    visibile sulla mappa.
+                    albero sul punto indicato.
                   </Alert>
                 </ListGroup>
               </Accordion.Body>
             </Accordion.Item>
             <Accordion.Item eventKey='1'>
               <Accordion.Header>
+                Monitorare le proprie segnalazioni
+              </Accordion.Header>
+              <Accordion.Body>
+                <p>
+                  {" "}
+                  Dopo l'invio di una segnalazione, sulla mappa apparirà
+                  un'icona a forma di piantina di colore arancione nella
+                  posizione scelta. Cliccandoci su sarà possibile verificare i
+                  dettagli della segnalazione.
+                </p>
+                <p>
+                  Nella pagina "Le mie segnalazioni" sarà visibile una scheda
+                  con le informazioni inerenti la segnalazione, tra queste è
+                  presente lo stato della segnalazione. <br /> Lo stato può
+                  essere:
+                </p>
+                <ListGroup as='ol' numbered>
+                  <ListGroup.Item as='li'>
+                    <span className='pendingPlant'>
+                      In attesa di approvazione:{" "}
+                    </span>
+                    lo è inizialmente ogni segnalazione nella fase che precede
+                    la verifica della stessa da parte dell'amministrazione.
+                    Sulla mappa apparirà una icona a forma di piantina di colore
+                    arancione.
+                  </ListGroup.Item>
+                  <ListGroup.Item as='li'>
+                    <span className='rejectedPlant'>non approvata:</span>{" "}
+                    l'amministrazione non ha approvato la segnalazione. Nella
+                    scheda relativa a questa segnalazione sarà visibile la
+                    motivazione rilasciata dall'amministrazione per il non aver
+                    approvato la segnalazione in oggetto. Sulla mappa apparirà
+                    una icona a forma di piantina di colore rosso.
+                  </ListGroup.Item>
+                  <ListGroup.Item as='li'>
+                    <span className='approvedPlant'>Approvata: </span>
+                    l'amministrazione ha approvato la segnalazione. In
+                    corrispondenza di questo stato sulla mappa apparirà una
+                    icona a forma di piantina di colore verde.
+                  </ListGroup.Item>
+                </ListGroup>
+              </Accordion.Body>
+            </Accordion.Item>
+            <Accordion.Item eventKey='2'>
+              <Accordion.Header>
                 Richiedere piantumazione albero
               </Accordion.Header>
               <Accordion.Body>
-                <p>La richiesta di piantumazione può partire da:</p>
-                <ListGroup as='ol' numbered>
-                  <ListGroup.Item as='li'>
-                    una zona già segnalata da un'altro utente
-                  </ListGroup.Item>
-                  <ListGroup.Item as='li'>
-                    oppure dalla volontà di segnalare personalmente una nuova
-                    zona
-                  </ListGroup.Item>
-                </ListGroup>
-                <p className='mt-3'>
-                  {" "}
-                  Se si sceglie una zona già segnalata da altri:
+                <p>
+                  È possibile richiedere la piantumazione seguendo i seguenti
+                  passaggi.
                 </p>
 
                 <ListGroup as='ol' numbered>
@@ -110,24 +141,60 @@ const Info = () => {
                     reindirizzato sulla piattaforma di pagamento
                   </ListGroup.Item>
                 </ListGroup>
-                <p className='mt-3'>
-                  {" "}
-                  Se si vuole segnalare personalmente una zona da acquistare
-                  vanno prima seguiti i passaggi elencati nella sezione
-                  informativa "Segnalare zona di piantagione", attesa
-                  l'approvazione della amminsitrazione e successivamente seguiti
-                  i tre passaggi di cui sopra.
-                </p>
-                {/* <Alert variant='info' className='mt-3'>
-                      Il prezzo forfettario di 200 euro per ciascun albero
-                      comprende l'iscrizione all'associazione Amici di Ernest
-                      Verner, la realizzazione e stampa della targa in alluminio
-                      con la dedica e la piantumazione. La tipologia di albero
-                      sarà concordato con i competenti uffici del Comune.
-                    </Alert> */}
+
+                <Alert variant='info' className='mt-3'>
+                  Se si vuole segnalare una zona da acquistare vanno prima
+                  seguiti i passaggi elencati nella sezione informativa
+                  "Segnalare zona di piantagione", attesa l'approvazione della
+                  amminsitrazione e successivamente seguiti i tre passaggi di
+                  cui sopra.
+                </Alert>
               </Accordion.Body>
             </Accordion.Item>
-            <Accordion.Item eventKey='2'>
+            <Accordion.Item eventKey='3'>
+              <Accordion.Header>
+                Servizio offerto, costi e tempi
+              </Accordion.Header>
+              <Accordion.Body>
+                <p>
+                  Il servizio offerto è volto a promuove l'adozione di alberi da
+                  parte di privati da piantare in punti della città di Bari
+                  privi di verde.
+                </p>
+                <p>
+                  La filosofia di questa iniziativa è prendersi cura del verde
+                  pubblico ed è per questo che coloro che acquistano gli alberi
+                  si impegnano a innaffiarli regolarmente, soprattutto d'estate,
+                  almeno nei primi due anni dalla piantumazione. La tipologia di
+                  albero sarà concordato con i competenti uffici del Comune.
+                </p>
+                <p>
+                  {" "}
+                  Il prezzo forfettario per ciascun albero è di 200 euro e
+                  comprende:
+                </p>
+                <ListGroup as='ol' numbered>
+                  <ListGroup.Item as='li'>
+                    la messa a dimora dell'albero
+                  </ListGroup.Item>
+                  <ListGroup.Item as='li'>
+                    la realizzazione e stampa della targa in alluminio con la
+                    dedica
+                  </ListGroup.Item>
+                  <ListGroup.Item as='li'>la piantumazione</ListGroup.Item>
+                  <ListGroup.Item as='li'>
+                    l'iscrizione all'associazione Amici di Ernest Verner
+                  </ListGroup.Item>
+                </ListGroup>
+                <p className='mt-3'>
+                  {" "}
+                  La tipologia di albero sarà concordata con i competenti uffici
+                  del Comune e resa visibile online nella scheda di acquisto e
+                  nei dettagli della piantina non appena stabilita.
+                </p>
+              </Accordion.Body>
+            </Accordion.Item>
+            <Accordion.Item eventKey='4'>
               <Accordion.Header>Monitorare i propri acquisti</Accordion.Header>
               <Accordion.Body>
                 <p>
@@ -153,41 +220,6 @@ const Info = () => {
                   <ListGroup.Item as='li'>
                     <span className='approvedPlant'>Completato</span>: l'ordine
                     è stato completato.
-                  </ListGroup.Item>
-                </ListGroup>
-              </Accordion.Body>
-            </Accordion.Item>
-            <Accordion.Item eventKey='3'>
-              <Accordion.Header>
-                Monitorare le proprie segnalazioni
-              </Accordion.Header>
-              <Accordion.Body>
-                <p>
-                  {" "}
-                  Dopo l'invio di una segnalazione, sulla mappa apparirà
-                  un'icona a forma di piantina di colore arancione nella
-                  posizione scelta.
-                </p>
-                <p>
-                  Nella pagina "Le mie segnalazioni" sarà visibile una scheda
-                  con le informazioni inerenti la segnalazione, tra queste è
-                  presente lo stato della segnalazione. <br /> Lo stato può
-                  essere:
-                </p>
-                <ListGroup as='ol' numbered>
-                  <ListGroup.Item as='li'>
-                    <span className='pendingPlant'>
-                      In attesa di approvazione:
-                    </span>
-                    l'amministrazione deve ancora verificare la segnalazione.
-                  </ListGroup.Item>
-                  <ListGroup.Item as='li'>
-                    <span className='rejectedPlant'>non approvata:</span>{" "}
-                    l'amministrazione non ha approvato la segnalazione.
-                  </ListGroup.Item>
-                  <ListGroup.Item as='li'>
-                    <span className='approvedPlant'>Approvato: </span>
-                    l'amministrazione ha approvato la segnalazione.
                   </ListGroup.Item>
                 </ListGroup>
               </Accordion.Body>
