@@ -139,7 +139,13 @@ const OwnedPlants = () => {
                               }
                             >
                               {" "}
-                              {order?.status ? order?.status : "N/A"}
+                              {order?.status === "pending"
+                                ? "in attesa"
+                                : order?.status === "In progress"
+                                ? "in elaborazione"
+                                : order?.status === "completed"
+                                ? "completato"
+                                : "N/A"}
                             </span>{" "}
                           </ListGroup.Item>
                           <ListGroup.Item>

@@ -49,53 +49,29 @@ const Info = () => {
                   </ListGroup.Item>
                   <ListGroup.Item as='li'>
                     {" "}
-                    Cliccare sull'icona della geolocalizzazione (a forma di
-                    goccia) in alto a destra (riportare i l simbolo) e
-                    successivamente su "aggiungi alla mappa". Si aprirà una
-                    finestra con le coordinate del luogo prescelto: qui sarà
-                    necessario caricare la foto scattata e iviare la
-                    segnalazione.
+                    Cliccare sull'icona della geolocalizzazione (icona a forma
+                    di goccia; vedi <Link to={"/legend"}>legenda </Link> per
+                    informazione completa sulle icone della mappa).
                   </ListGroup.Item>
                   <ListGroup.Item as='li'>
+                    {" "}
+                    Si aprirà una finestra con le coordinate del luogo
+                    prescelto: qui sarà necessario caricare la foto scattata e
+                    inviare la segnalazione.
+                  </ListGroup.Item>
+                  {/* <ListGroup.Item as='li'>
                     Una volta inviata la segnalazione, un'icona a forma di
                     piantina (inizialmente di colore arancione) sarà subito
                     visibile sulla mappa.
-                  </ListGroup.Item>
-                  <ListGroup.Item as='li' className='info-list'>
-                    {" "}
+                  </ListGroup.Item> */}{" "}
+                  <Alert variant='info' className='mt-3'>
                     L'amministratore verificherà la possibilità di piantare un
-                    albero sul punto indicato.
-                    {/* <p>
-                      {" "}
-                      A seguito della verifica da parte dell'amministratore, la
-                      segnalazione inoltrata potrà essere approvata o respinta.
-                      <ul>
-                        <li>
-                          Nel caso in cui la segnalazione venga approvata la
-                          zona sarà acquistabile sia dal segnalatore che da
-                          terzi.
-                        </li>
-                        <li>
-                          Nel caso in cui la segnalazione venga respinta
-                          l'amministratore si impegna a dichiarare i motivi
-                          della mancata approvazione.
-                        </li>
-                      </ul>
-                      <Alert variant='info' className='mt-3'>
-                        La modifica dello stato della segnalazione così come
-                        l'eventuale nota in caso di respinta saranno visibili
-                        sia sulla pagina "Le mie segnalazioni" in corrispondenza
-                        della propria segnazione, che sulla mappa cliccando
-                        sull'alberello relativo alla segnalazione in oggetto.
-                        Tale modifica è anche immediatamente visibile sulla
-                        mappa in quanto l'alberello cambia subito colore a
-                        seguito della modifica dello stato da parte
-                        dell'amministratore (vedi{" "}
-                        <Link to={"/legend"}>legenda </Link> per informazione
-                        completa sugli stati delle piantine).
-                      </Alert>
-                    </p> */}
-                  </ListGroup.Item>
+                    albero sul punto indicato. Un'icona a forma di piantina,
+                    inizialmente di colore arancione (vedi{" "}
+                    <Link to={"/legend"}>legenda </Link> per informazione
+                    completa sugli stati delle piantine), sarà da subito
+                    visibile sulla mappa.
+                  </Alert>
                 </ListGroup>
               </Accordion.Body>
             </Accordion.Item>
@@ -136,9 +112,11 @@ const Info = () => {
                 </ListGroup>
                 <p className='mt-3'>
                   {" "}
-                  Se si vuole segnalare personalmente una nuova zona vanno prima
-                  seguiti i passaggi elencati nella sezione informativa
-                  soprastante "Segnalare zona di piantagione".
+                  Se si vuole segnalare personalmente una zona da acquistare
+                  vanno prima seguiti i passaggi elencati nella sezione
+                  informativa "Segnalare zona di piantagione", attesa
+                  l'approvazione della amminsitrazione e successivamente seguiti
+                  i tre passaggi di cui sopra.
                 </p>
                 {/* <Alert variant='info' className='mt-3'>
                       Il prezzo forfettario di 200 euro per ciascun albero
@@ -153,25 +131,28 @@ const Info = () => {
               <Accordion.Header>Monitorare i propri acquisti</Accordion.Header>
               <Accordion.Body>
                 <p>
-                  Dopo l'acquisti verrà inviata un'e-mail con i dettagli
-                  dell'ordine (incluso il numero d'ordine). Quest'email
+                  Dopo ciascun acquisto verrà inviata un'e-mail con i dettagli
+                  dell'ordine (incluso il numero d'ordine). Quest'e-mail
                   rapresenta la conferma dell'acquisto.
                 </p>
                 <p>
                   Nella pagina "Acquisti" apparirà una scheda con le
                   informazioni inerenti i propri aquisti, tra queste è presente
                   il numero del proprio ordine ed è anche possibile verificare
-                  lo stato dell'ordine. Lo stato può essere:
+                  lo stato dell'ordine. <br /> Lo stato dell'ordine può essere:
                 </p>
                 <ListGroup as='ol' numbered>
                   <ListGroup.Item as='li'>
-                    Pending: l'ordine non è stato ancora preso in carico.
+                    <span className='rejectedPlant'>In attesa</span>: l'ordine
+                    non è stato ancora preso in carico.
                   </ListGroup.Item>
                   <ListGroup.Item as='li'>
-                    In progress: l'ordine è stato preso in carico.
+                    <span className='pendingPlant'>In elaborazione</span>:
+                    l'ordine è stato preso in carico.
                   </ListGroup.Item>
                   <ListGroup.Item as='li'>
-                    Completed: l'ordine è stato completato.
+                    <span className='approvedPlant'>Completato</span>: l'ordine
+                    è stato completato.
                   </ListGroup.Item>
                 </ListGroup>
               </Accordion.Body>
@@ -189,21 +170,24 @@ const Info = () => {
                 </p>
                 <p>
                   Nella pagina "Le mie segnalazioni" sarà visibile una scheda
-                  con le informazioni inerenti le proprie segnalazioni, tra
-                  queste è presente lo stato della segnalazione. Lo stato può
+                  con le informazioni inerenti la segnalazione, tra queste è
+                  presente lo stato della segnalazione. <br /> Lo stato può
                   essere:
                 </p>
                 <ListGroup as='ol' numbered>
                   <ListGroup.Item as='li'>
-                    In attesa di approvazione: l'amministrazione deve ancora
-                    verificare la segnalazione.
+                    <span className='pendingPlant'>
+                      In attesa di approvazione:
+                    </span>
+                    l'amministrazione deve ancora verificare la segnalazione.
                   </ListGroup.Item>
                   <ListGroup.Item as='li'>
-                    Rejected: l'amministrazione non ha approvato la
-                    segnalazione.
+                    <span className='rejectedPlant'>non approvata:</span>{" "}
+                    l'amministrazione non ha approvato la segnalazione.
                   </ListGroup.Item>
                   <ListGroup.Item as='li'>
-                    Approvato: l'amministrazione ha approvato la segnalazione.
+                    <span className='approvedPlant'>Approvato: </span>
+                    l'amministrazione ha approvato la segnalazione.
                   </ListGroup.Item>
                 </ListGroup>
               </Accordion.Body>
