@@ -31,127 +31,17 @@ const Info = () => {
           <Accordion>
             <Accordion.Item eventKey='0'>
               <Accordion.Header>
-                Richiedere piantumazione albero
-              </Accordion.Header>
-              <Accordion.Body>
-                <p>
-                  La richiesta di piantumazione può partire dalla volontà di
-                  piantare su una zona già segnalata da un'altro utente (vedi
-                  tab "segn. terzi") oppure dalla volontà di segnalare
-                  personalmente la zona di piantagione ( vedi tab "segn.
-                  propria").
-                </p>
-                <Tabs
-                  defaultActiveKey='profile'
-                  id='uncontrolled-tab-example'
-                  className='mb-3'
-                >
-                  <Tab eventKey='profile' title='Segn. terzi'>
-                    <p>
-                      Nel caso si voglia piantare su una zolla segnalata da
-                      terzi l'utente dovrà semplicemente selezionare dalla mappa
-                      una piantina acquistabile, le piantine acquistabili sono
-                      tutte quelle colorate di verde (vedi{" "}
-                      <Link to={"/legend"}>legenda </Link> per informazione
-                      completa sugli stati delle piantine).
-                    </p>
-                    <p>
-                      Selezionata la piantina l'utente dovrà scrivere il testo
-                      della targa, questo sarà il testo che verrà riportato
-                      sulla targa della pianta. Successivamenete, cliccando su
-                      "procedi con il pagamento", l'utente sarà direttamente
-                      reindirizzato sulla piattaforma di pagamento per
-                      completare l'acquisto.
-                    </p>
-                  </Tab>
-                  <Tab eventKey='home' title='Segn. propria'>
-                    <p>
-                      Nel caso in cui l'utente voglia segnalare personalmente la
-                      zona di piantagione dove poi aquistare eventualmente il
-                      servizio di piantumazione sarà necessario seguire i
-                      seguenti passaggi.
-                    </p>
-                    <ListGroup as='ol' numbered>
-                      <ListGroup.Item as='li'>
-                        {" "}
-                        Recarsi sul punto dove si vuole piantare l'albero (una
-                        buca senza ceppo o uno spazio privo di verde).
-                      </ListGroup.Item>
-                      <ListGroup.Item as='li'>
-                        Scattare una fotografia del punto e del contesto
-                        circostante.
-                      </ListGroup.Item>
-                      <ListGroup.Item as='li'>
-                        {" "}
-                        Cliccare sull'icona della geolocalizzazione (a forma di
-                        goccia) in alto a destra (riportare i l simbolo). Si
-                        aprirà una finestra che riporta le coordinate del luogo
-                        prescelto.
-                      </ListGroup.Item>
-                      <ListGroup.Item as='li'>
-                        In caso positivo, l'utente potrà procedere al pagamento
-                        e alla scrittura della dedica.
-                      </ListGroup.Item>
-                      <Alert variant='info' className='mt-3'>
-                        L'amministratore provvederà a verificare la possibilità
-                        di piantare un albero sul punto indicato. In caso
-                        positivo, l'amministratore modificherà lo stato della
-                        piantina in "approvata" e l'utente potrà procedere alla
-                        scrittura della dedica e al pagamento. La modifica dello
-                        stato della segnalazione sarà immediatamente visibile
-                        sulla mappa (vedi la <Link to={"/legend"}>legenda</Link>{" "}
-                        per informazione completa sugli stati delle piantine).
-                      </Alert>
-                    </ListGroup>
-                    {/* <Alert variant='info' className='mt-3'>
-                      Il prezzo forfettario di 200 euro per ciascun albero
-                      comprende l'iscrizione all'associazione Amici di Ernest
-                      Verner, la realizzazione e stampa della targa in alluminio
-                      con la dedica e la piantumazione. La tipologia di albero
-                      sarà concordato con i competenti uffici del Comune.
-                    </Alert> */}
-                  </Tab>
-                </Tabs>
-              </Accordion.Body>
-            </Accordion.Item>
-            <Accordion.Item eventKey='1'>
-              <Accordion.Header>Monitoraggio aquisti</Accordion.Header>
-              <Accordion.Body>
-                <p>
-                  {" "}
-                  Successivamente all'avvenuto acquisto verrà inviata una mail
-                  con i dettagli dell'ordine tra cui il numero d'ordine, questa
-                  mail rappresenta la conferma dell'avvenuto acquisto.
-                </p>
-                <p>
-                  Nella pagina "Aquisti" apparirà una scheda con le informazioni
-                  inerenti i propri aquisti, tra queste è presente il numero del
-                  proprio ordine ed è anche posibile verificare lo stato
-                  dell'ordine che può essere "in progress", "pending" o
-                  "completated". pending: l'ordine non è stato ancora preso in
-                  carico in progress: l'ordine è stato preso in carico complete:
-                  l'ordine è concluso.
-                </p>
-                <p>
-                  In caso di dubbi o domande sul proprio ordine sarà possibile
-                  inviare una mail direttamente dalla pagina "Contattaci"
-                  riportando il numero d'ordine del proprio acquisto.
-                </p>
-              </Accordion.Body>
-            </Accordion.Item>
-            <Accordion.Item eventKey='2'>
-              <Accordion.Header>
                 Segnalare zona di piantumazione
               </Accordion.Header>
               <Accordion.Body>
                 <p>
-                  È possibile segnalare la zona di piantagione seguendo i
+                  È possibile segnalare la zona di piantumazione seguendo i
                   seguenti passaggi.
                 </p>
                 <ListGroup as='ol' numbered>
                   <ListGroup.Item as='li'>
-                    Recarsi sul punto dove si vuole piantare l'albero (una buca
-                    senza ceppo o uno spazio privo di verde).
+                    Recarsi sul punto in cui si desidera piantare un albero (una
+                    buca senza ceppo o uno spazio privo di verde).
                   </ListGroup.Item>
                   <ListGroup.Item as='li'>
                     Scattare una fotografia del punto e del contesto
@@ -160,26 +50,22 @@ const Info = () => {
                   <ListGroup.Item as='li'>
                     {" "}
                     Cliccare sull'icona della geolocalizzazione (a forma di
-                    goccia) in alto a destra (riportare i l simbolo) e cliccare
+                    goccia) in alto a destra (riportare i l simbolo) e
                     successivamente su "aggiungi alla mappa". Si aprirà una
-                    finestra che riporta le coordinate del luogo prescelto. Qui
-                    sarà necessariio caricare l'immagine precedentemente
-                    scattata per poi procedere con l'invio della segnalazione.
+                    finestra con le coordinate del luogo prescelto: qui sarà
+                    necessario caricare la foto scattata e iviare la
+                    segnalazione.
                   </ListGroup.Item>
                   <ListGroup.Item as='li'>
-                    Una volta inviata la segnalazione, un'alberello
-                    (inizialmente di colore arancione) sarà da subito visibile
-                    sulla mappa. La stessa segnalazione varrà inoltre salvata
-                    sulla pagina dell'utente segnalante in modo da rendere più
-                    facilmente accessibile tutte le informazioni inerenti le
-                    proprie segnalazioni.
+                    Una volta inviata la segnalazione, un'icona a forma di
+                    piantina (inizialmente di colore arancione) sarà subito
+                    visibile sulla mappa.
                   </ListGroup.Item>
-
                   <ListGroup.Item as='li' className='info-list'>
                     {" "}
-                    L'amministratore provvederà a verificare la possibilità di
-                    piantare un albero sul punto indicato.
-                    <p>
+                    L'amministratore verificherà la possibilità di piantare un
+                    albero sul punto indicato.
+                    {/* <p>
                       {" "}
                       A seguito della verifica da parte dell'amministratore, la
                       segnalazione inoltrata potrà essere approvata o respinta.
@@ -208,7 +94,116 @@ const Info = () => {
                         <Link to={"/legend"}>legenda </Link> per informazione
                         completa sugli stati delle piantine).
                       </Alert>
-                    </p>
+                    </p> */}
+                  </ListGroup.Item>
+                </ListGroup>
+              </Accordion.Body>
+            </Accordion.Item>
+            <Accordion.Item eventKey='1'>
+              <Accordion.Header>
+                Richiedere piantumazione albero
+              </Accordion.Header>
+              <Accordion.Body>
+                <p>La richiesta di piantumazione può partire da:</p>
+                <ListGroup as='ol' numbered>
+                  <ListGroup.Item as='li'>
+                    una zona già segnalata da un'altro utente
+                  </ListGroup.Item>
+                  <ListGroup.Item as='li'>
+                    oppure dalla volontà di segnalare personalmente una nuova
+                    zona
+                  </ListGroup.Item>
+                </ListGroup>
+                <p className='mt-3'>
+                  {" "}
+                  Se si sceglie una zona già segnalata da altri:
+                </p>
+
+                <ListGroup as='ol' numbered>
+                  <ListGroup.Item as='li'>
+                    selezionare dalla mappa una piantina acquistabile (quelle di
+                    colore verde; vedi <Link to={"/legend"}>legenda </Link> per
+                    informazione completa sugli stati delle piantine).
+                  </ListGroup.Item>
+                  <ListGroup.Item as='li'>
+                    Inserire il testo che si vuole riportare sulla targa che
+                    verrà apposta sulla piantina{" "}
+                  </ListGroup.Item>
+                  <ListGroup.Item as='li'>
+                    Cliccare su "procedi con il pagamento" per essere
+                    reindirizzato sulla piattaforma di pagamento
+                  </ListGroup.Item>
+                </ListGroup>
+                <p className='mt-3'>
+                  {" "}
+                  Se si vuole segnalare personalmente una nuova zona vanno prima
+                  seguiti i passaggi elencati nella sezione informativa
+                  soprastante "Segnalare zona di piantagione".
+                </p>
+                {/* <Alert variant='info' className='mt-3'>
+                      Il prezzo forfettario di 200 euro per ciascun albero
+                      comprende l'iscrizione all'associazione Amici di Ernest
+                      Verner, la realizzazione e stampa della targa in alluminio
+                      con la dedica e la piantumazione. La tipologia di albero
+                      sarà concordato con i competenti uffici del Comune.
+                    </Alert> */}
+              </Accordion.Body>
+            </Accordion.Item>
+            <Accordion.Item eventKey='2'>
+              <Accordion.Header>Monitorare i propri acquisti</Accordion.Header>
+              <Accordion.Body>
+                <p>
+                  Dopo l'acquisti verrà inviata un'e-mail con i dettagli
+                  dell'ordine (incluso il numero d'ordine). Quest'email
+                  rapresenta la conferma dell'acquisto.
+                </p>
+                <p>
+                  Nella pagina "Acquisti" apparirà una scheda con le
+                  informazioni inerenti i propri aquisti, tra queste è presente
+                  il numero del proprio ordine ed è anche possibile verificare
+                  lo stato dell'ordine. Lo stato può essere:
+                </p>
+                <ListGroup as='ol' numbered>
+                  <ListGroup.Item as='li'>
+                    Pending: l'ordine non è stato ancora preso in carico.
+                  </ListGroup.Item>
+                  <ListGroup.Item as='li'>
+                    In progress: l'ordine è stato preso in carico.
+                  </ListGroup.Item>
+                  <ListGroup.Item as='li'>
+                    Completed: l'ordine è stato completato.
+                  </ListGroup.Item>
+                </ListGroup>
+              </Accordion.Body>
+            </Accordion.Item>
+            <Accordion.Item eventKey='3'>
+              <Accordion.Header>
+                Monitorare le proprie segnalazioni
+              </Accordion.Header>
+              <Accordion.Body>
+                <p>
+                  {" "}
+                  Dopo l'invio di una segnalazione, sulla mappa apparirà
+                  un'icona a forma di piantina di colore arancione nella
+                  posizione scelta.
+                </p>
+                <p>
+                  Nella pagina "Le mie segnalazioni" sarà visibile una scheda
+                  con le informazioni inerenti le proprie segnalazioni, tra
+                  queste è presente lo stato della segnalazione. Lo stato può
+                  essere:
+                </p>
+                <ListGroup as='ol' numbered>
+                  <ListGroup.Item as='li'>
+                    In attesa di approvazione: l'amministrazione deve ancora
+                    verificare la segnalazione.
+                  </ListGroup.Item>
+                  <ListGroup.Item as='li'>
+                    Rejected: l'amministrazione non ha approvato la
+                    segnalazione.
+                  </ListGroup.Item>
+                  <ListGroup.Item as='li'>
+                    Approvato: l'amministrazione ha approvato la segnalazione.
                   </ListGroup.Item>
                 </ListGroup>
               </Accordion.Body>

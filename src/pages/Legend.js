@@ -6,7 +6,9 @@ import redPlant from "../assets/images/ti pianto per amore-APP-rosso.png";
 import bluePlant from "../assets/images/ti pianto per amore-APP-azzurro.png";
 import useIsLargeScreen from "../utils/useIsLargeScreen";
 import SideBar from "../components/SideBar";
-
+import { MdAddLocationAlt } from "react-icons/md";
+import { MdFilterAlt } from "react-icons/md";
+import { MdCenterFocusStrong } from "react-icons/md";
 const Legend = () => {
   const isLargeScreen = useIsLargeScreen();
   return (
@@ -15,6 +17,35 @@ const Legend = () => {
         <div className='section-center'>
           <h2 className='section-title pt-5 d-lg-none'>legenda</h2>
           <ul>
+            <li className='plants-list'>
+              <div className='legend-box-container'>
+                <div className='legend-image icon '>
+                  {/* <img src={greenPlant} alt='' /> */}
+                  <MdAddLocationAlt className='legend-icon' />
+                </div>
+                <span className='legend-description'>geolocalizzazione</span>
+              </div>
+            </li>
+            <li className='plants-list'>
+              <div className='legend-box-container'>
+                <div className='legend-image icon '>
+                  {/* <img src={greenPlant} alt='' /> */}
+                  <MdFilterAlt className='legend-icon' />
+                </div>
+                <span className='legend-description'>
+                  filtra risultati di ricerca
+                </span>
+              </div>
+            </li>
+            <li className='plants-list'>
+              <div className='legend-box-container'>
+                <div className='legend-image icon '>
+                  {/* <img src={greenPlant} alt='' /> */}
+                  <MdCenterFocusStrong className='legend-icon' />
+                </div>
+                <span className='legend-description'>Riaccentra mappa</span>
+              </div>
+            </li>
             <li className='plants-list'>
               <div className='legend-box-container'>
                 <div className='legend-image approved'>
