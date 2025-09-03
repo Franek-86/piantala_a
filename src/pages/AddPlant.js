@@ -125,12 +125,20 @@ const AddPlant = ({ setting }) => {
         getAllPlants("add");
 
         // }, 1000);
+      } else if (response.status === 500) {
+        setSuccessMessage(response.status, response);
+      } else {
+        setSuccessMessage("response status:", response.status);
       }
     } catch (error) {
       setLoading(false);
       console.error("Error adding plant:", error);
+      // setSubmissionError(
+      //   error.response?.data?.message || "Errore nella compilazione del modulo"
+      // );
       setSubmissionError(
-        error.response?.data?.message || "Errore nella compilazione del modulo"
+        "catch",
+        error?.response || "Errore nella compilazione del modulo"
       );
     }
 
