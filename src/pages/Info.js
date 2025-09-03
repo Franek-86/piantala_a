@@ -143,11 +143,11 @@ const Info = () => {
                 </ListGroup>
 
                 <Alert variant='info' className='mt-3'>
-                  Se si vuole segnalare una zona da acquistare vanno prima
-                  seguiti i passaggi elencati nella sezione informativa
-                  "Segnalare zona di piantagione", attesa l'approvazione della
-                  amminsitrazione e successivamente seguiti i tre passaggi di
-                  cui sopra.
+                  Se si vuole acquistare un albero da piantare in un punto
+                  specifico vanno prima seguiti i passaggi elencati nella
+                  sezione informativa "Segnalare zona di piantagione", bisogna
+                  attendere l'approvazione dell'amministrazione e
+                  successivamente seguire i tre passaggi di cui sopra.
                 </Alert>
               </Accordion.Body>
             </Accordion.Item>
@@ -157,8 +157,8 @@ const Info = () => {
               </Accordion.Header>
               <Accordion.Body>
                 <p>
-                  Il servizio offerto è volto a promuove l'adozione di alberi da
-                  parte di privati da piantare in punti della città di Bari
+                  Il servizio offerto è volto a promuovere l'adozione di alberi
+                  da parte di privati da piantare in punti della città di Bari
                   privi di verde.
                 </p>
                 <p>
@@ -181,7 +181,9 @@ const Info = () => {
                     la realizzazione e stampa della targa in alluminio con la
                     dedica
                   </ListGroup.Item>
-                  <ListGroup.Item as='li'>la piantumazione</ListGroup.Item>
+                  <ListGroup.Item as='li'>
+                    la piantumazione entro sei mesi dalla richiesta
+                  </ListGroup.Item>
                   <ListGroup.Item as='li'>
                     l'iscrizione all'associazione Amici di Ernest Verner
                   </ListGroup.Item>
@@ -199,14 +201,14 @@ const Info = () => {
               <Accordion.Body>
                 <p>
                   Dopo ciascun acquisto verrà inviata un'e-mail con i dettagli
-                  dell'ordine (incluso il numero d'ordine). Quest'e-mail
+                  dell'ordine (incluso il numero d'ordine). Questa e-mail
                   rapresenta la conferma dell'acquisto.
                 </p>
                 <p>
                   Nella pagina "Acquisti" apparirà una scheda con le
-                  informazioni inerenti i propri aquisti, tra queste è presente
-                  il numero del proprio ordine ed è anche possibile verificare
-                  lo stato dell'ordine. <br /> Lo stato dell'ordine può essere:
+                  informazioni inerenti ai propri aquisti ed è anche possibile
+                  verificare lo stato dell'ordine. <br /> Lo stato dell'ordine
+                  può essere:
                 </p>
                 <ListGroup as='ol' numbered>
                   <ListGroup.Item as='li'>

@@ -193,12 +193,7 @@ const OwnedPlants = () => {
                 })}
             </Row>
           ) : (
-            <p>
-              Non hai ancora nessuna piantina, puoi scegliere di acquistare una
-              piantina direttamente dalla mappa scegliendo tra le piantine
-              approvate. In alternativa puoi scegliere una piantina approvata
-              dalla lista delle tue segnalazioni.
-            </p>
+            <p>Non hai ancora acquistato nessun albero.</p>
           )}
         </div>
       </section>
