@@ -27,7 +27,7 @@ const ChiSiamo = () => {
             culturale no-profit "Amici di Ernest Verner" promuove l'adozione di
             alberi da parte di privati da piantare in punti della città di Bari
             privi di verde, in ottemperanza al Disciplinare tecnico (20/05/25)
-            dell'iniziativa "Dona un albero alla tua città del Comune di Bari.
+            dell'iniziativa "Dona un albero alla tua città" del Comune di Bari.
           </p>
           <p>
             {" "}
