@@ -260,7 +260,7 @@ const AuthForm = () => {
                     disabled={loading}
                     onClick={() => navigate("/register")}
                   >
-                    Registati
+                    Registrati
                   </Button>
                 </Form.Text>
                 <Form.Text className='text-muted d-block'>
