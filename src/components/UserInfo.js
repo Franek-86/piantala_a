@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import ListGroup from "react-bootstrap/ListGroup";
 const UserInfo = (props) => {
-  console.log("qui", props.user);
+  // console.log("qui", props.user);
   const {
     cratedAt,
     email,

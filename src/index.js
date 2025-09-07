@@ -44,6 +44,7 @@ import CommonRoutesComponent from "./components/CommonRoutesComponent";
 import Chat from "./pages/Chat";
 import { ChatProvider } from "./context/ChatContext";
 import ChiSiamo from "./pages/ChiSiamo";
+import UserProfile from "./pages/UserProfile";
 
 // import { io } from "socket.io-client";
 // const url =
@@ -143,6 +144,10 @@ const router = createBrowserRouter([
       {
         path: "chat",
         element: <Chat />,
+      },
+      {
+        path: "profile",
+        element: <UserProfile />,
       },
       // {
       //   path: "verification-success",

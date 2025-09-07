@@ -4,6 +4,7 @@ import axios, { Axios } from "axios";
 
 import { toast } from "react-toastify";
 import axiosInstance from "../services/axiosInstance";
+
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -22,8 +23,10 @@ export const AuthProvider = ({ children }) => {
   const [userInfo, setUserInfo] = useState({ id: "", role: "", status: "" });
   const [pswLoading, setPswLoading] = useState(false);
   const [loggedUserInfo, setLoggedUserInfo] = useState({
+    id: "",
     userName: "",
     email: "",
+    phone: "",
   });
   const [otherUserInfo, setOtherUserInfo] = useState({
     userName: "",
@@ -160,8 +163,10 @@ export const AuthProvider = ({ children }) => {
           console.log("test1", response.data);
           setLoggedUserInfo({
             ...loggedUserInfo,
+            id: response.data.id,
             userName: response.data.userName,
             email: response.data.email,
+            phone: response.data.phone,
           });
           return response.data;
         }
@@ -600,6 +605,49 @@ export const AuthProvider = ({ children }) => {
       setLoading(false);
     }
   };
+  const deleteProfile = async (data) => {
+    setLoading(true);
+    try {
+      const response = await axiosInstance.delete("/api/auth/delete-user", {
+        data: { id: data },
+      });
+      if (response.status === 200) {
+        localStorage.removeItem("userToken");
+        localStorage.removeItem("refreshToken");
+        setIsAuthenticated(false);
+        toast("Utente cancellato", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        return;
+      }
+    } catch (error) {
+      console.log("tt33", error);
+      toast.error(
+        "Utente non cancellato, ak momengto non è possibile cancellare l'utente",
+        {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          // transition: Bounce,
+        }
+      );
+      return;
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <AuthContext.Provider
@@ -615,6 +663,7 @@ export const AuthProvider = ({ children }) => {
         setIsRegister,
         resetPassword,
         checkToken,
+        deleteProfile,
         isRegister,
         userRole,
         userId,

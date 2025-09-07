@@ -252,17 +252,20 @@ export const PlantsProvider = ({ children }) => {
             (item) => item.id === parseInt(plantId)
           );
           if (item) {
+            setPlant(item);
             console.log("111");
             const userInfo = await getOtherUserInfo(item.user_id);
 
-            if (userInfo.userName) {
+            if (userInfo?.userName) {
               console.log("123321", userInfo);
 
-              setPlant(item);
               setUserInfo(userInfo.userName);
               setUserId(item.user_id);
-              setOwnerId(item.owner_id);
+
               console.log("userInfo", userInfo);
+            }
+            if (item?.owner_id) {
+              setOwnerId(item.owner_id);
             }
             console.log("123321123", userInfo);
           }

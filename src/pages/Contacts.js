@@ -92,7 +92,7 @@ const Contacts = () => {
               <span className='contacts-location-icon pe-3'>
                 <MdEmail />
               </span>
-              <span> amicidiernestverner@gmail.com </span>
+              <span> tipiantoperamore@gmail.com </span>
             </div>
             {/* <div className='contacts-phone mb-3 d-flex align-items-center'>
               <span className='contacts-location-icon pe-3'>
@@ -121,7 +121,7 @@ const Contacts = () => {
                 <div className='contacts-social-icon ps-3'>
                   <a
                     target='_blank'
-                    href='https://www.instagram.com/_amici_di_ernest_verner_/'
+                    href='https://www.instagram.com/tipiantoperamore?igsh=MWY5cTFhZWJ2NXM2eQ=='
                   >
                     {" "}
                     <FaInstagram />
@@ -130,7 +130,7 @@ const Contacts = () => {
                 <div className='contacts-social-icon ps-3'>
                   <a
                     target='_blank'
-                    href='https://www.facebook.com/amicidiernestverner?locale=it_IT'
+                    href='https://www.facebook.com/ti.pianto.per.amore/'
                   >
                     {" "}
                     <FaFacebookF />

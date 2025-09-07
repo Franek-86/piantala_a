@@ -134,7 +134,7 @@ const Plant = () => {
             <ListGroup.Item>
               {" "}
               <span className='fw-medium'>Segnalatore:</span>{" "}
-              <span>{userInfo}</span>
+              <span>{userInfo ? userInfo : "utente rimosso"}</span>
             </ListGroup.Item>
             <ListGroup.Item>
               {" "}

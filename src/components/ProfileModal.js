@@ -22,12 +22,13 @@ const ProfileModal = ({ smShow, setSmShow }) => {
       </Modal.Header>
       <Modal.Body>
         <span> {loggedUserInfo.email}</span>
-        <div className='profile-links mt-2'>
+        <div className='profile-links mt-2 d-flex flex-row justify-content-between'>
           {/* <Link className='d-block w-100 mb-2'>Immagine profilo</Link> */}
           <Link to='\' onClick={handleLogout}>
             {" "}
             Logout
           </Link>
+          {/* <Link to='/profile'> Modifica profilo</Link> */}
         </div>
       </Modal.Body>
     </Modal>
