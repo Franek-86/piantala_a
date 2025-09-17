@@ -105,6 +105,7 @@ export const PlantsProvider = ({ children }) => {
   const handlePlateUpload = async (id, event) => {
     console.log("aoo");
     const file = event.target.files[0];
+    console.log("qui", file);
     if (file) {
       setPlateLoading(true);
       console.log("File uploaded:", file);

@@ -20,9 +20,10 @@ const UserProfile = () => {
   const backToMap = () => {
     navigate("/map");
   };
-  const { loggedUserInfo, deleteProfile } = useContext(AuthContext);
+  const { loggedUserInfo, deleteProfile, handleUserPic } =
+    useContext(AuthContext);
   console.log("logged user info", loggedUserInfo);
-  const { id, userName, phone } = loggedUserInfo;
+  const { id, userName, phone, pic } = loggedUserInfo;
 
   return (
     <>
@@ -42,7 +43,17 @@ const UserProfile = () => {
           <Card>
             <Card.Body>
               <div className='d-flex flex-column align-items-center py-3'>
-                <Avatar />
+                <Avatar name={userName} src={pic} />
+                {!pic && (
+                  <input
+                    className=''
+                    type='file'
+                    onChange={(event) => {
+                      handleUserPic(event, id);
+                    }}
+                  />
+                )}
+
                 <h6 className='mt-3'>{userName}</h6>
               </div>
             </Card.Body>

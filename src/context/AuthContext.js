@@ -4,6 +4,7 @@ import axios, { Axios } from "axios";
 
 import { toast } from "react-toastify";
 import axiosInstance from "../services/axiosInstance";
+import { FormControl } from "react-bootstrap";
 
 export const AuthContext = createContext();
 
@@ -27,6 +28,7 @@ export const AuthProvider = ({ children }) => {
     userName: "",
     email: "",
     phone: "",
+    pic: "",
   });
   const [otherUserInfo, setOtherUserInfo] = useState({
     userName: "",
@@ -167,6 +169,7 @@ export const AuthProvider = ({ children }) => {
             userName: response.data.userName,
             email: response.data.email,
             phone: response.data.phone,
+            pic: response.data.pic,
           });
           return response.data;
         }
@@ -630,7 +633,7 @@ export const AuthProvider = ({ children }) => {
     } catch (error) {
       console.log("tt33", error);
       toast.error(
-        "Utente non cancellato, ak momengto non è possibile cancellare l'utente",
+        "Utente non cancellato, al momento non è possibile cancellare l'utente",
         {
           position: "top-right",
           autoClose: 2000,
@@ -648,7 +651,31 @@ export const AuthProvider = ({ children }) => {
       setLoading(false);
     }
   };
+  const handleUserPic = async (event, id) => {
+    console.log("salveID", id);
+    console.log("salveEVENT", event.target.files[0]);
+    const file = event.target.files[0];
+    const formData = new FormData();
+    formData.append("pic", file);
+    formData.append("id", id);
+    // formData.append("id", id);
+    console.log("test123321", formData);
 
+    try {
+      const response = await axiosInstance.patch(
+        `/api/auth/set-user-pic`,
+        formData,
+        { headers: { "Content-Type": "multipart/form-data" } }
+      );
+      if (response.status === 200) {
+        const url = response.data.url;
+        setLoggedUserInfo({ ...loggedUserInfo, pic: url });
+        console.log("salveRESP", response);
+      }
+    } catch (err) {
+      console.log("what is the error", err);
+    }
+  };
   return (
     <AuthContext.Provider
       value={{
@@ -705,6 +732,7 @@ export const AuthProvider = ({ children }) => {
         sendPaymentConfirmationEmail,
         verificationEmail,
         verificationEmailPasswordReset,
+        handleUserPic,
       }}
     >
       {children}

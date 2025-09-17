@@ -25,6 +25,7 @@ import LocationLoading from "./LocationLoading";
 const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
   const { getUserInfo, userId, loggedUserInfo, isAdmin } =
     useContext(AuthContext);
+  const { pic } = loggedUserInfo;
   console.log("asdf", position);
   const [locationLoading, setLocationLoading] = useState(false);
   const [showCenter, setShowCenter] = useState(null);
@@ -62,6 +63,7 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
       </div>
       <div className='rightButtons'>
         <Avatar
+          src={pic}
           size='3rem'
           round='50%'
           // src='https://example.com/user-avatar.jpg'

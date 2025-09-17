@@ -100,7 +100,7 @@ const Info = () => {
                     arancione.
                   </ListGroup.Item>
                   <ListGroup.Item as='li'>
-                    <span className='rejectedPlant'>non approvata:</span>{" "}
+                    <span className='rejectedPlant'>Non approvata:</span>{" "}
                     l'amministrazione non ha approvato la segnalazione. Nella
                     scheda relativa a questa segnalazione sarà visibile la
                     motivazione rilasciata dall'amministrazione per il non aver
@@ -165,8 +165,7 @@ const Info = () => {
                   La filosofia di questa iniziativa è prendersi cura del verde
                   pubblico ed è per questo che coloro che acquistano gli alberi
                   si impegnano a innaffiarli regolarmente, soprattutto d'estate,
-                  almeno nei primi due anni dalla piantumazione. La tipologia di
-                  albero sarà concordato con i competenti uffici del Comune.
+                  almeno nei primi due anni dalla piantumazione.
                 </p>
                 <p>
                   {" "}
@@ -221,7 +220,7 @@ const Info = () => {
                   </ListGroup.Item>
                   <ListGroup.Item as='li'>
                     <span className='approvedPlant'>Completato</span>: l'ordine
-                    è stato completato.
+                    è stato concluso.
                   </ListGroup.Item>
                 </ListGroup>
               </Accordion.Body>

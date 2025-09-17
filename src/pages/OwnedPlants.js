@@ -56,7 +56,7 @@ const OwnedPlants = () => {
             }}
           />
         </div> */}
-          <h2 className='section-title d-lg-none pt-5'>Le mie piante</h2>
+          <h2 className='section-title d-lg-none pt-5'>I miei alberi</h2>
           {myPlants && myPlants?.length > 0 ? (
             /* <th>Data acquisto</th>
                 <th>Tipo</th>

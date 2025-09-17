@@ -23,8 +23,15 @@ const Users = () => {
     navigate("/map");
   };
 
-  const { allUsers, getAllUsers, setUserInfo, userRole, loading, userInfo } =
-    useContext(AuthContext);
+  const {
+    allUsers,
+    getAllUsers,
+    setUserInfo,
+    userRole,
+    loading,
+    userInfo,
+    loggedUserInfo: { pic },
+  } = useContext(AuthContext);
 
   useEffect(() => {
     getAllUsers();
@@ -72,9 +79,9 @@ const Users = () => {
                           <div className='d-flex'>
                             {/* <Avatar facebookId='100008343750912' size='100' /> */}
                             <Avatar
-                              // src='https://example.com/user-avatar.jpg'
+                              src={pic}
                               maxInitials={2}
-                              className='direct-chat-img'
+                              // className='direct-chat-img'
                               name={user_name}
                             />
 

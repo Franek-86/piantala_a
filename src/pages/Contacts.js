@@ -106,12 +106,12 @@ const Contacts = () => {
             <span className='text-center'>Seguici</span>
             <div className='contacts-socials-container'>
               <div className='social-icons-center d-flex justify-content-around align-items-center w-75'>
-                <div className='contacts-social-icon ps-3'>
+                {/* <div className='contacts-social-icon ps-3'>
                   <a target='_blank' href='  https://x.com/Amici_ErnestV'>
                     {" "}
                     <FaXTwitter />
                   </a>
-                </div>
+                </div> */}
                 <div className='contacts-social-icon ps-3'>
                   <a target='_blank' href='https://www.ernestverner.it/'>
                     {" "}
