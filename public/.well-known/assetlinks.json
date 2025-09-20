@@ -5,7 +5,8 @@
       "namespace": "android_app",
       "package_name": "com.piantala.app",
       "sha256_cert_fingerprints": [
-        "2D:C1:49:7B:54:14:CF:EB:31:C6:57:EB:0D:E9:07:98:01:B7:4C:7F:A2:4F:28:0B:99:CA:26:AB:4C:13:3C:16"
+        "2D:C1:49:7B:54:14:CF:EB:31:C6:57:EB:0D:E9:07:98:01:B7:4C:7F:A2:4F:28:0B:99:CA:26:AB:4C:13:3C:16",
+        "01:B1:ED:CC:B2:F4:F4:79:8D:9B:FB:24:E3:16:5D:85:BC:41:80:49:DE:97:21:F9:2C:2F:C8:26:1F:87:2D:3F"
       ]
     }
   }
