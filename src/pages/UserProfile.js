@@ -64,7 +64,7 @@ const UserProfile = () => {
                 {
                   // do something
                 }
-                {Capacitor.getPlatform() === "ios" &&
+                {Capacitor.getPlatform() === "android" &&
                   userName === "Franek2" && (
                     <button onClick={() => takePicture(id)}>test</button>
                   )}
