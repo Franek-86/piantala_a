@@ -5,7 +5,7 @@ import axios, { Axios } from "axios";
 import { toast } from "react-toastify";
 import axiosInstance from "../services/axiosInstance";
 import { FormControl } from "react-bootstrap";
-
+import { Camera, CameraResultType } from "@capacitor/camera";
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -652,6 +652,23 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const takePicture = async () => {
+    const image = await Camera.getPhoto({
+      quality: 90,
+      allowEditing: true,
+      resultType: CameraResultType.Uri,
+    });
+
+    // image.webPath will contain a path that can be set as an image src.
+    // You can access the original file using image.path, which can be
+    // passed to the Filesystem API to read the raw data of the image,
+    // if desired (or pass resultType: CameraResultType.Base64 to getPhoto)
+    var imageUrl = image.webPath;
+    var imageRow = image.path;
+
+    // Can be set to the src of an image now
+  };
+
   const handleUserPic = async (event, id) => {
     console.log("salveID", id);
     console.log("salveEVENT", event.target.files[0]);
@@ -801,6 +818,7 @@ export const AuthProvider = ({ children }) => {
         changeUserStatus,
         getOtherUserInfo,
         setIsRefreshTokenExpired,
+        takePicture,
         isRefreshTokenExpired,
         otherUserInfo,
         userName,

@@ -13,13 +13,14 @@ import { IoIosAddCircleOutline } from "react-icons/io";
 import { IoIosRemoveCircleOutline } from "react-icons/io";
 import Loading from "./Loading";
 import { Camera, CameraResultType } from "@capacitor/camera";
+import { Capacitor } from "@capacitor/core";
+
 const UserProfile = () => {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const inputRefDel = useRef(null);
   const inputRefAdd = useRef(null);
   const handleCloseDeleteModal = () => setShowDeleteModal(false);
   const handleShowDeleteModal = () => setShowDeleteModal(true);
-
   const navigate = useNavigate();
   const backToMap = () => {
     navigate("/map");
@@ -31,6 +32,7 @@ const UserProfile = () => {
     deleteProfilePic,
     loading,
     getUserInfo,
+    takePicture,
   } = useContext(AuthContext);
   console.log("logged user info", loggedUserInfo);
   const { id, userName, phone, pic } = loggedUserInfo;
@@ -38,23 +40,6 @@ const UserProfile = () => {
   const handleRefClick = () => {
     inputRefAdd.current.click();
   };
-
-  // const takePicture = async () => {
-  //   const image = await Camera.getPhoto({
-  //     quality: 90,
-  //     allowEditing: true,
-  //     resultType: CameraResultType.Uri,
-  //   });
-
-  //   // image.webPath will contain a path that can be set as an image src.
-  //   // You can access the original file using image.path, which can be
-  //   // passed to the Filesystem API to read the raw data of the image,
-  //   // if desired (or pass resultType: CameraResultType.Base64 to getPhoto)
-  //   var imageUrl = image.webPath;
-
-  //   // Can be set to the src of an image now
-  //   imageElement.src = imageUrl;
-  // };
 
   return (
     <>
@@ -75,6 +60,14 @@ const UserProfile = () => {
             <Card.Body>
               <div className='d-flex flex-column align-items-center py-3'>
                 <Avatar name={userName} src={pic} />
+
+                {
+                  // do something
+                }
+                {Capacitor.getPlatform() === "ios" &&
+                  userName === "Franek2" && (
+                    <button onClick={() => takePicture(id)}>test</button>
+                  )}
                 <input
                   ref={inputRefAdd}
                   className='d-none'
@@ -104,7 +97,6 @@ const UserProfile = () => {
                     </div>
                   </>
                 )}
-
                 <h6 className='mt-3'>{userName}</h6>
               </div>
             </Card.Body>
