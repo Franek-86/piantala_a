@@ -59,7 +59,7 @@ const ChatBody = () => {
               /> */}
 
               <Avatar
-                src={pic}
+                src={message.pic}
                 maxInitials={2}
                 label='U'
                 className='direct-chat-img'

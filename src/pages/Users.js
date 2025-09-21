@@ -72,6 +72,7 @@ const Users = () => {
                         role,
                         createdAt,
                         status,
+                        pic,
                       } = i;
                       console.log("qui", i);
                       return (

@@ -9,7 +9,7 @@ import { useContext } from "react";
 const ChatForm = () => {
   const { setMessage, message, sendMessage } = useContext(ChatContext);
   const { userId, loggedUserInfo } = useContext(AuthContext);
-
+  console.log("asdf", loggedUserInfo.pic);
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("tu", message);
@@ -17,6 +17,7 @@ const ChatForm = () => {
       sender_id: userId,
       sender_username: loggedUserInfo.userName,
       receiver_id: null,
+      pic: loggedUserInfo.pic,
       content: message,
     };
     sendMessage(data);
