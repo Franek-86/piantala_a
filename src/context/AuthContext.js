@@ -670,6 +670,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const handleUserPic = async (event, id) => {
+    setLoading(true);
     console.log("salveID", id);
     console.log("salveEVENT", event.target.files[0]);
     const file = event.target.files[0];
@@ -678,7 +679,7 @@ export const AuthProvider = ({ children }) => {
     formData.append("id", id);
     // formData.append("id", id);
     console.log("test123321", formData);
-    setLoading(true);
+
     try {
       const response = await axiosInstance.patch(
         `/api/auth/set-user-pic`,
