@@ -8,7 +8,11 @@ import { formatDate } from "../../utils/utils";
 import Avatar from "react-avatar";
 const ChatBody = () => {
   const { messages } = useContext(ChatContext);
-  const { userId } = useContext(AuthContext);
+  const {
+    userId,
+    loggedUserInfo: { pic },
+  } = useContext(AuthContext);
+
   const lastRef = useRef(null);
   useEffect(() => {
     if (lastRef.current) {
@@ -55,8 +59,8 @@ const ChatBody = () => {
               /> */}
 
               <Avatar
-                // src='https://example.com/user-avatar.jpg'
-                // maxInitials={2}
+                src={pic}
+                maxInitials={2}
                 label='U'
                 className='direct-chat-img'
                 name={message.sender_username}

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { MdBackspace } from "react-icons/md";
 import Card from "react-bootstrap/Card";
@@ -9,10 +9,14 @@ import Avatar from "react-avatar";
 import { AuthContext } from "../context/AuthContext";
 import { useState } from "react";
 import DeleteProfile from "../components/user-profile/DeleteProfile";
+import { IoIosAddCircleOutline } from "react-icons/io";
+import { IoIosRemoveCircleOutline } from "react-icons/io";
+import Loading from "./Loading";
 
 const UserProfile = () => {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
-
+  const inputRefDel = useRef(null);
+  const inputRefAdd = useRef(null);
   const handleCloseDeleteModal = () => setShowDeleteModal(false);
   const handleShowDeleteModal = () => setShowDeleteModal(true);
 
@@ -20,14 +24,24 @@ const UserProfile = () => {
   const backToMap = () => {
     navigate("/map");
   };
-  const { loggedUserInfo, deleteProfile, handleUserPic } =
-    useContext(AuthContext);
+  const {
+    loggedUserInfo,
+    deleteProfile,
+    handleUserPic,
+    deleteProfilePic,
+    loading,
+    getUserInfo,
+  } = useContext(AuthContext);
   console.log("logged user info", loggedUserInfo);
   const { id, userName, phone, pic } = loggedUserInfo;
 
+  const handleRefClick = () => {
+    inputRefAdd.current.click();
+  };
+
   return (
     <>
-      {/* {loading && <Loading />} */}
+      {loading && <Loading />}
       <section className='section-page section-background'>
         <div className='back-container'>
           <div className='back-btn'>
@@ -44,14 +58,34 @@ const UserProfile = () => {
             <Card.Body>
               <div className='d-flex flex-column align-items-center py-3'>
                 <Avatar name={userName} src={pic} />
-                {!pic && (
-                  <input
-                    className=''
-                    type='file'
-                    onChange={(event) => {
-                      handleUserPic(event, id);
-                    }}
-                  />
+                <input
+                  ref={inputRefAdd}
+                  className='d-none'
+                  type='file'
+                  onChange={(event) => {
+                    handleUserPic(event, id);
+                  }}
+                />
+                {!pic ? (
+                  <div
+                    onClick={handleRefClick}
+                    className='btn btn-small btn-warning mt-2 d-flex align-items-center'
+                  >
+                    <IoIosAddCircleOutline className='me-2 fs-6' />
+
+                    <span className='me-2 fs-6'>Aggiungi immagine</span>
+                  </div>
+                ) : (
+                  <>
+                    <div
+                      onClick={() => deleteProfilePic(id)}
+                      className='btn btn-small btn-danger mt-2 d-flex align-items-center'
+                    >
+                      <IoIosRemoveCircleOutline className='me-2 fs-6' />
+
+                      <span className='me-2 fs-6'>Rimuovi immagine</span>
+                    </div>
+                  </>
                 )}
 
                 <h6 className='mt-3'>{userName}</h6>

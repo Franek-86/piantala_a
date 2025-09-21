@@ -651,6 +651,7 @@ export const AuthProvider = ({ children }) => {
       setLoading(false);
     }
   };
+
   const handleUserPic = async (event, id) => {
     console.log("salveID", id);
     console.log("salveEVENT", event.target.files[0]);
@@ -660,7 +661,7 @@ export const AuthProvider = ({ children }) => {
     formData.append("id", id);
     // formData.append("id", id);
     console.log("test123321", formData);
-
+    setLoading(true);
     try {
       const response = await axiosInstance.patch(
         `/api/auth/set-user-pic`,
@@ -670,11 +671,98 @@ export const AuthProvider = ({ children }) => {
       if (response.status === 200) {
         const url = response.data.url;
         setLoggedUserInfo({ ...loggedUserInfo, pic: url });
-        console.log("salveRESP", response);
+        toast("Immagine profilo aggiunta", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       }
     } catch (err) {
       console.log("what is the error", err);
+      toast.error("Errore nel caricamento dell'immagine profilo", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        // transition: Bounce,
+      });
+    } finally {
+      setLoading(false);
     }
+  };
+  const deleteProfilePic = async (id) => {
+    setLoading(true);
+    try {
+      const response = await axiosInstance.patch(`/api/auth/delete-user-pic`, {
+        id,
+      });
+
+      if (response.status === 200) {
+        toast("Immagine profilo rimossa", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
+      console.log("here the response from delete pic", response);
+      setLoggedUserInfo({
+        ...loggedUserInfo,
+        pic: "",
+      });
+      return;
+    } catch (err) {
+      toast.error("Errore nella rimozione immagine profilo", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        // transition: Bounce,
+      });
+    } finally {
+      setLoading(false);
+    }
+
+    // console.log("salveID", id);
+    // console.log("salveEVENT", event.target.files[0]);
+    // const file = event.target.files[0];
+    // const formData = new FormData();
+    // formData.append("pic", file);
+    // formData.append("id", id);
+    // // formData.append("id", id);
+    // console.log("test123321", formData);
+
+    // try {
+    //   const response = await axiosInstance.patch(
+    //     `/api/auth/set-user-pic`,
+    //     formData,
+    //     { headers: { "Content-Type": "multipart/form-data" } }
+    //   );
+    //   if (response.status === 200) {
+    //     const url = response.data.url;
+    //     setLoggedUserInfo({ ...loggedUserInfo, pic: url });
+    //     console.log("salveRESP", response);
+    //   }
+    // } catch (err) {
+    //   console.log("what is the error", err);
+    // }
   };
   return (
     <AuthContext.Provider
@@ -691,6 +779,7 @@ export const AuthProvider = ({ children }) => {
         resetPassword,
         checkToken,
         deleteProfile,
+        deleteProfilePic,
         isRegister,
         userRole,
         userId,

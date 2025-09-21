@@ -466,29 +466,46 @@ export const PlantsProvider = ({ children }) => {
   const getReporterInfo = async () => {
     console.log("salve 0", userId);
     // let updatedObj = {};
-    try {
-      const response = await axios.get(
-        `${serverDomain}/api/plants/user/reporter/${userId}`
-      );
-      if (response) {
-        setReporterInfo({
-          ...reporterInfo,
-          firstName: response.data.firstName,
-          lastName: response.data.lastName,
-          user: response.data.user,
-          phone: response.data.phone,
-          role: response.data.role,
-          email: response.data.email,
-          cratedAt: response.data.cratedAt,
-        });
-        setRequest("reporter");
+    if (userId) {
+      try {
+        const response = await axios.get(
+          `${serverDomain}/api/plants/user/reporter/${userId}`
+        );
+        if (response) {
+          setReporterInfo({
+            ...reporterInfo,
+            firstName: response.data.firstName,
+            lastName: response.data.lastName,
+            user: response.data.user,
+            phone: response.data.phone,
+            role: response.data.role,
+            email: response.data.email,
+            cratedAt: response.data.cratedAt,
+          });
+          setRequest("reporter");
 
-        setModalUserShow(true);
+          setModalUserShow(true);
+        }
+      } catch (err) {
+        console.log("salve 2", err);
+      } finally {
+        console.log("salve 3");
       }
-    } catch (err) {
-      console.log("salve 2", err);
-    } finally {
-      console.log("salve 3");
+    } else {
+      console.log("salve 1");
+      setReporterInfo({
+        ...reporterInfo,
+        firstName: "N/A (utente rimosso)",
+        lastName: "N/A (utente rimosso)",
+        user: "N/A (utente rimosso)",
+        phone: "N/A (utente rimosso)",
+        role: "N/A (utente rimosso)",
+        email: "N/A (utente rimosso)",
+        cratedAt: "N/A (utente rimosso)",
+      });
+      setRequest("reporter");
+
+      setModalUserShow(true);
     }
   };
   const filterPlates = plants.filter((e) => {

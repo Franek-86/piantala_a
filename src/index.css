@@ -495,6 +495,9 @@ element {
   background-color: var(--clr-primary-5) !important;
   color: var(--clr-secondary-2) !important;
 }
+.avatar:hover {
+  cursor: pointer;
+}
 
 /* add plant button */
 .circle-button {

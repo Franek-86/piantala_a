@@ -21,6 +21,7 @@ import { AuthContext } from "../context/AuthContext";
 import ProfileModal from "./ProfileModal";
 import { RiH1 } from "react-icons/ri";
 import LocationLoading from "./LocationLoading";
+import { hover } from "motion";
 
 const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
   const { getUserInfo, userId, loggedUserInfo, isAdmin } =
