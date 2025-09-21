@@ -64,10 +64,9 @@ const UserProfile = () => {
                 {
                   // do something
                 }
-                {Capacitor.getPlatform() === "android" &&
-                  userName === "Franek2" && (
-                    <button onClick={() => takePicture(id)}>test</button>
-                  )}
+                {Capacitor.isNativePlatform() && userName === "Franek2" && (
+                  <button onClick={() => takePicture(id)}>test</button>
+                )}
                 <input
                   ref={inputRefAdd}
                   className='d-none'
