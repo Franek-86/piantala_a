@@ -40,7 +40,7 @@ const UserProfile = () => {
   const handleRefClick = () => {
     inputRefAdd.current.click();
   };
-
+  console.log("capacitor test", Capacitor.isNativePlatform());
   return (
     <>
       {loading && <Loading />}
