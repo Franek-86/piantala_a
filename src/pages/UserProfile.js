@@ -12,7 +12,7 @@ import DeleteProfile from "../components/user-profile/DeleteProfile";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { IoIosRemoveCircleOutline } from "react-icons/io";
 import Loading from "./Loading";
-
+import { Camera, CameraResultType } from "@capacitor/camera";
 const UserProfile = () => {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const inputRefDel = useRef(null);
@@ -38,6 +38,23 @@ const UserProfile = () => {
   const handleRefClick = () => {
     inputRefAdd.current.click();
   };
+
+  // const takePicture = async () => {
+  //   const image = await Camera.getPhoto({
+  //     quality: 90,
+  //     allowEditing: true,
+  //     resultType: CameraResultType.Uri,
+  //   });
+
+  //   // image.webPath will contain a path that can be set as an image src.
+  //   // You can access the original file using image.path, which can be
+  //   // passed to the Filesystem API to read the raw data of the image,
+  //   // if desired (or pass resultType: CameraResultType.Base64 to getPhoto)
+  //   var imageUrl = image.webPath;
+
+  //   // Can be set to the src of an image now
+  //   imageElement.src = imageUrl;
+  // };
 
   return (
     <>
@@ -69,7 +86,7 @@ const UserProfile = () => {
                 {!pic ? (
                   <div
                     onClick={handleRefClick}
-                    className='btn btn-small btn-warning mt-2 d-flex align-items-center'
+                    className='btn btn-small btn-outline-primary mt-2 d-flex align-items-center'
                   >
                     <IoIosAddCircleOutline className='me-2 fs-6' />
 
@@ -79,7 +96,7 @@ const UserProfile = () => {
                   <>
                     <div
                       onClick={() => deleteProfilePic(id)}
-                      className='btn btn-small btn-danger mt-2 d-flex align-items-center'
+                      className='btn btn-outline-danger mt-2 d-flex align-items-center'
                     >
                       <IoIosRemoveCircleOutline className='me-2 fs-6' />
 
