@@ -670,10 +670,12 @@ export const AuthProvider = ({ children }) => {
   };
 
   const handleUserPic = async (event, id) => {
+    console.log("aaam", event.target);
     setLoading(true);
     console.log("salveID", id);
     console.log("salveEVENT", event.target.files[0]);
     const file = event.target.files[0];
+
     const formData = new FormData();
     formData.append("pic", file);
     formData.append("id", id);
@@ -714,6 +716,7 @@ export const AuthProvider = ({ children }) => {
         // transition: Bounce,
       });
     } finally {
+      event.target.value = null;
       setLoading(false);
     }
   };

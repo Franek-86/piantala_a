@@ -60,10 +60,6 @@ const UserProfile = () => {
             <Card.Body>
               <div className='d-flex flex-column align-items-center py-3'>
                 <Avatar name={userName} src={pic} />
-
-                {
-                  // do something
-                }
                 {Capacitor.isNativePlatform() && userName === "Franek2" && (
                   <button onClick={() => takePicture(id)}>test</button>
                 )}
@@ -129,14 +125,9 @@ const UserProfile = () => {
                 className='modal-delete-btn'
                 href='#'
                 onClick={handleShowDeleteModal}
-                // onClick={() => deleteProfile(id)}
               >
-                {/* <Button variant='primary' onClick={handleShowDeleteModal}>
-                  Launch demo modal
-                </Button> */}
                 Cancella profilo
               </Card.Link>
-              {/* <Card.Link href='#'>Another Link</Card.Link> */}
             </Card.Body>
           </Card>
         </div>
