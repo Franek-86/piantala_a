@@ -652,7 +652,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const takePicture = async () => {
+  const takePicture = async (id) => {
     const image = await Camera.getPhoto({
       quality: 90,
       allowEditing: true,
@@ -665,6 +665,54 @@ export const AuthProvider = ({ children }) => {
     // if desired (or pass resultType: CameraResultType.Base64 to getPhoto)
     var imageUrl = image.webPath;
     var imageRow = image.path;
+
+    setLoading(true);
+
+    const file = image.path;
+
+    const formData = new FormData();
+    formData.append("pic", file);
+    formData.append("id", id);
+    // formData.append("id", id);
+    console.log("test123321", formData);
+
+    try {
+      const response = await axiosInstance.patch(
+        `/api/auth/set-user-pic`,
+        formData,
+        { headers: { "Content-Type": "multipart/form-data" } }
+      );
+      if (response.status === 200) {
+        const url = response.data.url;
+        setLoggedUserInfo({ ...loggedUserInfo, pic: url });
+        toast("Immagine profilo aggiunta", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
+    } catch (err) {
+      console.log("what is the error", err);
+      toast.error("Errore nel caricamento dell'immagine profilo", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        // transition: Bounce,
+      });
+    } finally {
+      // event.target.value = null;
+      setLoading(false);
+    }
 
     // Can be set to the src of an image now
   };
