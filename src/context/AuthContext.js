@@ -656,7 +656,7 @@ export const AuthProvider = ({ children }) => {
     const image = await Camera.getPhoto({
       quality: 90,
       allowEditing: true,
-      resultType: CameraResultType.Base64,
+      resultType: CameraResultType.Uri,
     });
     // const blob = new Blob([new Uint8Array(decode(image.base64String))], {
     //   type: `image/${Camera.format}`,
