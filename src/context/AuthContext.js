@@ -1,7 +1,7 @@
 import React, { createContext, useState, useEffect } from "react";
 import { jwtDecode } from "jwt-decode";
 import axios, { Axios } from "axios";
-
+import { decode } from "base64-arraybuffer";
 import { toast } from "react-toastify";
 import axiosInstance from "../services/axiosInstance";
 import { FormControl } from "react-bootstrap";
@@ -652,22 +652,40 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const takePicture = async () => {
+  const takePicture = async (id) => {
     const image = await Camera.getPhoto({
       quality: 90,
       allowEditing: true,
-      resultType: CameraResultType.Uri,
-      // resultType: CameraResultType.Base64,
+      resultType: CameraResultType.Base64,
     });
-
+    // const blob = new Blob([new Uint8Array(decode(image.base64String))], {
+    //   type: `image/${Camera.format}`,
+    // });
+    var pic = image.path;
+    console.log("t00file", pic);
     // image.webPath will contain a path that can be set as an image src.
     // You can access the original file using image.path, which can be
     // passed to the Filesystem API to read the raw data of the image,
     // if desired (or pass resultType: CameraResultType.Base64 to getPhoto)
-    var imageUrl = image.webPath;
-    var imageRow = image.path;
-    console.log("a00", image, "a01", imageUrl, "a02", imageRow);
-    // Can be set to the src of an image now
+    // var imageUrl = image.webPath;
+    // var imageRow = image.path;
+    const formData = new FormData();
+    formData.append("pic", pic);
+    formData.append("id", id);
+    // formData.append("id", id);
+    console.log("t00formData", formData);
+
+    try {
+      const response = await axiosInstance.patch(
+        `/api/auth/set-user-pic`,
+        formData,
+        { headers: { "Content-Type": "multipart/form-data" } }
+      );
+      console.log("t00response", response);
+      // Can be set to the src of an image now
+    } catch (err) {
+      console.log("error here");
+    }
   };
 
   const handleUserPic = async (event, id) => {
@@ -676,7 +694,7 @@ export const AuthProvider = ({ children }) => {
     console.log("salveID", id);
     console.log("salveEVENT", event.target.files[0]);
     const file = event.target.files[0];
-
+    console.log("t01file", file);
     const formData = new FormData();
     formData.append("pic", file);
     formData.append("id", id);

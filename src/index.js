@@ -45,14 +45,14 @@ import Chat from "./pages/Chat";
 import { ChatProvider } from "./context/ChatContext";
 import ChiSiamo from "./pages/ChiSiamo";
 import UserProfile from "./pages/UserProfile";
-
+import { defineCustomElements } from "@ionic/pwa-elements/loader";
 // import { io } from "socket.io-client";
 // const url =
 //   process.env.REACT_APP_NODE_ENV === "test"
 //     ? process.env.REACT_APP_TEST_DOMAIN_NAME_SERVER
 //     : process.env.REACT_APP_DOMAIN_NAME_SERVER;
 // const socket = io(url);
-
+defineCustomElements(window);
 const router = createBrowserRouter([
   {
     path: "/",

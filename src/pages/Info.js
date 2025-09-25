@@ -169,7 +169,7 @@ const Info = () => {
                 </p>
                 <p>
                   {" "}
-                  Il prezzo forfettario per ciascun albero è di 200 euro e
+                  Il prezzo forfettario per ciascun albero è di 190 euro e
                   comprende:
                 </p>
                 <ListGroup as='ol' numbered>

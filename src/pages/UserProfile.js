@@ -60,9 +60,12 @@ const UserProfile = () => {
             <Card.Body>
               <div className='d-flex flex-column align-items-center py-3'>
                 <Avatar name={userName} src={pic} />
-                {Capacitor.isNativePlatform() && userName === "Franek2" && (
+                {userName === "Franek2" && (
                   <button onClick={() => takePicture(id)}>test</button>
                 )}
+                {/* {Capacitor.isNativePlatform() && userName === "Franek2" && (
+                  <button onClick={() => takePicture(id)}>test</button>
+                )} */}
                 <input
                   ref={inputRefAdd}
                   className='d-none'
