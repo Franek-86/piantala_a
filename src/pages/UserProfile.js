@@ -86,7 +86,7 @@ const UserProfile = () => {
 
                     <span className='me-2 fs-6'>Aggiungi immagine</span>
                   </div>
-                ) : !pic && !Capacitor.isNativePlatform() ? (
+                ) : !pic && Capacitor.isNativePlatform() ? (
                   <span
                     className="btn btn-small btn-outline-primary mt-2 d-flex align-items-center'"
                     onClick={() => takePicture(id)}
