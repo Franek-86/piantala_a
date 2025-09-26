@@ -94,7 +94,7 @@ const UserProfile = () => {
                     <IoIosAddCircleOutline className='me-2 fs-6' />
                     Aggiungi immagine
                   </span>
-                ) : (
+                ) : pic ? (
                   <>
                     <div
                       onClick={() => deleteProfilePic(id)}
@@ -105,6 +105,8 @@ const UserProfile = () => {
                       <span className='me-2 fs-6'>Rimuovi immagine</span>
                     </div>
                   </>
+                ) : (
+                  <></>
                 )}
                 <h6 className='mt-3'>{userName}</h6>
               </div>
