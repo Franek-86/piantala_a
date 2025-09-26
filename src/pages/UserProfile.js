@@ -77,7 +77,7 @@ const UserProfile = () => {
                     handleUserPic(event, id);
                   }}
                 />
-                {!pic ? (
+                {!pic && !Capacitor.isNativePlatform() ? (
                   <div
                     onClick={handleRefClick}
                     className='btn btn-small btn-outline-primary mt-2 d-flex align-items-center'
@@ -86,6 +86,14 @@ const UserProfile = () => {
 
                     <span className='me-2 fs-6'>Aggiungi immagine</span>
                   </div>
+                ) : !pic && !Capacitor.isNativePlatform() ? (
+                  <span
+                    className="btn btn-small btn-outline-primary mt-2 d-flex align-items-center'"
+                    onClick={() => takePicture(id)}
+                  >
+                    <IoIosAddCircleOutline className='me-2 fs-6' />
+                    Aggiungi immagine
+                  </span>
                 ) : (
                   <>
                     <div
