@@ -52,7 +52,7 @@ import { defineCustomElements } from "@ionic/pwa-elements/loader";
 //     ? process.env.REACT_APP_TEST_DOMAIN_NAME_SERVER
 //     : process.env.REACT_APP_DOMAIN_NAME_SERVER;
 // const socket = io(url);
-defineCustomElements(window);
+// defineCustomElements(window);
 const router = createBrowserRouter([
   {
     path: "/",
