@@ -655,24 +655,27 @@ export const AuthProvider = ({ children }) => {
   const takePicture = async (id) => {
     const image = await Camera.getPhoto({
       quality: 90,
-      allowEditing: true,
-      resultType: CameraResultType.Uri,
+      allowEditing: false,
+      resultType: CameraResultType.Base64,
     });
     // const blob = new Blob([new Uint8Array(decode(image.base64String))], {
     //   type: `image/${Camera.format}`,
     // });
-    var pic = image.path;
-    console.log("t00file", pic);
-    // image.webPath will contain a path that can be set as an image src.
-    // You can access the original file using image.path, which can be
-    // passed to the Filesystem API to read the raw data of the image,
-    // if desired (or pass resultType: CameraResultType.Base64 to getPhoto)
-    // var imageUrl = image.webPath;
-    // var imageRow = image.path;
+    // console.log("t00file", image);
+    setLoading(true);
+    const rawData = atob(image.base64String);
+    const bytes = new Array(rawData.length);
+    for (let x = 0; x < rawData.length; x++) {
+      bytes[x] = rawData.charCodeAt(x);
+    }
+    const arr = new Uint8Array(bytes);
+    console.log("arr", arr);
+    const blob = new Blob([arr], { type: "image/" + image.format });
+    console.log("t01file", blob);
+
     const formData = new FormData();
-    formData.append("pic", pic);
+    formData.append("pic", blob);
     formData.append("id", id);
-    // formData.append("id", id);
     console.log("t00formData", formData);
 
     try {
@@ -681,10 +684,35 @@ export const AuthProvider = ({ children }) => {
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );
-      console.log("t00response", response);
-      // Can be set to the src of an image now
+      if (response.status === 200) {
+        const url = response.data.url;
+        setLoggedUserInfo({ ...loggedUserInfo, pic: url });
+        toast("Immagine profilo aggiunta", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
     } catch (err) {
-      console.log("error here");
+      console.log("what is the error", err);
+      toast.error("Errore nel caricamento dell'immagine profilo", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        // transition: Bounce,
+      });
+    } finally {
+      setLoading(false);
     }
   };
 
