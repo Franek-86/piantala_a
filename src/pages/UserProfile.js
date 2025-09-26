@@ -60,12 +60,15 @@ const UserProfile = () => {
             <Card.Body>
               <div className='d-flex flex-column align-items-center py-3'>
                 <Avatar name={userName} src={pic} />
-                {userName === "Franek2" && (
-                  <button onClick={() => takePicture(id)}>test</button>
+                {Capacitor.isNativePlatform() && (
+                  <span
+                    className="btn btn-small btn-outline-primary mt-2 d-flex align-items-center'"
+                    onClick={() => takePicture(id)}
+                  >
+                    <IoIosAddCircleOutline className='me-2 fs-6' />
+                    Aggiungi immagine
+                  </span>
                 )}
-                {/* {Capacitor.isNativePlatform() && userName === "Franek2" && (
-                  <button onClick={() => takePicture(id)}>test</button>
-                )} */}
                 <input
                   ref={inputRefAdd}
                   className='d-none'
