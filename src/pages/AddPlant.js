@@ -341,7 +341,7 @@ const AddPlant = ({ setting }) => {
                 </Form.Group>
               )}
 
-              {!Capacitor.isNativePlatform() && (
+              {Capacitor.isNativePlatform() && (
                 <span
                   className={
                     file ? "btn btn-sm btn-link" : "btn btn-outline-primary"
