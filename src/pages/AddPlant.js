@@ -341,8 +341,12 @@ const AddPlant = ({ setting }) => {
                 </Form.Group>
               )}
 
-              {Capacitor.isNativePlatform() && (
-                <span className='btn btn-outline-primary'>
+              {!Capacitor.isNativePlatform() && (
+                <span
+                  className={
+                    file ? "btn btn-sm btn-link" : "btn btn-outline-primary"
+                  }
+                >
                   {!file && <IoIosAddCircleOutline />}
                   <span className={!file && "ps-1"} onClick={getPic}>
                     {file ? "Sostituisci immagine caricata" : "Aggiungi foto"}
