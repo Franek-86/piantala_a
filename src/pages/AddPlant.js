@@ -44,7 +44,7 @@ const AddPlant = ({ setting }) => {
   const [submissionError, setSubmissionError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [loading, setLoading] = useState(false);
-  const [file, setFile] = useState();
+  const [file, setFile] = useState(null);
   const fileInputRef = useRef(null);
   const navigate = useNavigate(); // For navigation
 
@@ -179,6 +179,7 @@ const AddPlant = ({ setting }) => {
         // setTimeout(() => {
         backToMap();
         setSuccessMessage("");
+        setFile(null);
         reset();
         getAllPlants("add");
 
