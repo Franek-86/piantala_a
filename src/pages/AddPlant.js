@@ -345,7 +345,7 @@ const AddPlant = ({ setting }) => {
                 <span className='btn btn-outline-primary'>
                   <IoIosAddCircleOutline />
                   <span className='ps-1' onClick={getPic}>
-                    {file ? "Aggiungi foto" : "Sostituisci foto"}
+                    {file ? "Sostituisci" : "Aggiungi foto"}
                   </span>
                 </span>
               )}
