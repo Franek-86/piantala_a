@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect, useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Button, Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-
+import { Capacitor } from "@capacitor/core";
 // import { jwtDecode } from "jwt-decode";
 import axios from "axios";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
@@ -12,6 +12,8 @@ import { AuthContext } from "../context/AuthContext";
 import { toast, ToastContainer } from "react-toastify";
 import Loading from "./Loading";
 import { useLocation } from "react-router-dom";
+import { IoIosAddCircleOutline } from "react-icons/io";
+import { Camera, CameraResultType } from "@capacitor/camera";
 
 const AddPlant = ({ setting }) => {
   const {
@@ -23,10 +25,10 @@ const AddPlant = ({ setting }) => {
     reset,
     setValue,
   } = useForm();
-  const { userId, handleLogout } = useContext(AuthContext);
+  const { userId, handleLogout, loggedUserInfo } = useContext(AuthContext);
   const location = useLocation();
   const fromManual = location.state?.fromManual;
-
+  const { userName } = loggedUserInfo;
   const {
     getAllPlants,
     // userId,
@@ -42,6 +44,7 @@ const AddPlant = ({ setting }) => {
   const [submissionError, setSubmissionError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [file, setFile] = useState();
   const fileInputRef = useRef(null);
   const navigate = useNavigate(); // For navigation
 
@@ -75,17 +78,66 @@ const AddPlant = ({ setting }) => {
     return true;
   };
 
+  const getPic = async () => {
+    const image = await Camera.getPhoto({
+      quality: 90,
+      allowEditing: false,
+      resultType: CameraResultType.Base64,
+    });
+
+    console.log("yoo", image);
+    const rawData = atob(image.base64String);
+    const bytes = new Array(rawData.length);
+    for (let x = 0; x < rawData.length; x++) {
+      bytes[x] = rawData.charCodeAt(x);
+    }
+    const arr = new Uint8Array(bytes);
+    console.log("arr", arr);
+    const blob = new Blob([arr], { type: "image/" + image.format });
+
+    setFile(blob);
+    toast(`🌱 immagine caricata`, {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
+
   const onSubmit = async (data) => {
-    const { longitude, latitude, file } = data;
+    const { longitude, latitude, file: dataFile } = data;
     console.log("locationInfo", locationInfo);
     const { road, residential, suburb, city, shop, house_number } =
       locationInfo;
-    if (!file || !file[0]) {
-      setError("file", {
-        type: "manual",
-        message: "È necessario aggiungere una immagine.",
-      });
-      return;
+
+    if (Capacitor.isNativePlatform()) {
+      if (!file) {
+        toast.error("Aggiungi immagine", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          // transition: Bounce,
+        });
+        return;
+      }
+    }
+    if (!Capacitor.isNativePlatform()) {
+      if (!dataFile || !dataFile[0]) {
+        setError("file", {
+          type: "manual",
+          message: "È necessario aggiungere una immagine.",
+        });
+        return;
+      }
     }
 
     // // To access the actual file, use file[0]
@@ -105,7 +157,13 @@ const AddPlant = ({ setting }) => {
     formData.append("city", city);
     formData.append("lat", latitude);
     formData.append("lang", longitude);
-    formData.append("image", file[0]);
+    if (Capacitor.isNativePlatform()) {
+      formData.append("image", file);
+    }
+    if (!Capacitor.isNativePlatform()) {
+      formData.append("image", dataFile[0]);
+    }
+
     formData.append("user_id", userId);
 
     try {
@@ -264,20 +322,32 @@ const AddPlant = ({ setting }) => {
               </Form.Group>
 
               {/* File input for uploading image */}
-              <Form.Group className='mb-3' controlId='formImage'>
-                <Form.Label>Carica immagine</Form.Label>
-                <Form.Control
-                  type='file'
-                  // accept='image/*'
-                  {...register("file", { required: "Image file is required." })}
-                  // ref={fileInputRef}
-                  onChange={() => clearErrors("file")}
-                />
-                {errors.file && (
-                  <small className='text-danger'>{errors.file.message}</small>
-                )}
-              </Form.Group>
+              {!Capacitor.isNativePlatform() && (
+                <Form.Group className='mb-3' controlId='formImage'>
+                  <Form.Label>Carica immagine</Form.Label>
+                  <Form.Control
+                    type='file'
+                    // accept='image/*'
+                    {...register("file", {
+                      required: "Image file is required.",
+                    })}
+                    // ref={fileInputRef}
+                    onChange={() => clearErrors("file")}
+                  />
+                  {errors.file && (
+                    <small className='text-danger'>{errors.file.message}</small>
+                  )}
+                </Form.Group>
+              )}
 
+              {Capacitor.isNativePlatform() && (
+                <span className='btn btn-outline-primary'>
+                  <IoIosAddCircleOutline />
+                  <span className='ps-1' onClick={getPic}>
+                    Aggiungi foto
+                  </span>
+                </span>
+              )}
               {/* Submit Button */}
               <div className='text-center mt-5'>
                 <Button variant='primary' type='submit'>
