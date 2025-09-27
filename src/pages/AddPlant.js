@@ -281,7 +281,7 @@ const AddPlant = ({ setting }) => {
               <Form.Group className='mb-3' controlId='formLatitude'>
                 <FloatingLabel
                   controlId='formLatitude'
-                  label='Inserisci latitudine'
+                  label='Latitudine'
                   className='mb-3'
                 >
                   <Form.Control
@@ -302,7 +302,7 @@ const AddPlant = ({ setting }) => {
               <Form.Group className='mb-3' controlId='formLongitude'>
                 <FloatingLabel
                   controlId='formLongitude'
-                  label='Inserisci longitudine'
+                  label='Longitudine'
                   className='mb-3'
                 >
                   <Form.Control
@@ -344,7 +344,7 @@ const AddPlant = ({ setting }) => {
                 <span className='btn btn-outline-primary'>
                   <IoIosAddCircleOutline />
                   <span className='ps-1' onClick={getPic}>
-                    Aggiungi foto
+                    {file ? "Aggiungi foto" : "Sostituisci foto"}
                   </span>
                 </span>
               )}

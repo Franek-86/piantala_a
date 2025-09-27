@@ -43,10 +43,10 @@ const Info = () => {
                     Recarsi sul punto in cui si desidera piantare un albero (una
                     buca senza ceppo o uno spazio privo di verde).
                   </ListGroup.Item>
-                  <ListGroup.Item as='li'>
+                  {/* <ListGroup.Item as='li'>
                     Scattare una fotografia del punto e del contesto
                     circostante.
-                  </ListGroup.Item>
+                  </ListGroup.Item> */}
                   <ListGroup.Item as='li'>
                     {" "}
                     Cliccare sull'icona della geolocalizzazione (icona a forma
@@ -56,8 +56,9 @@ const Info = () => {
                   <ListGroup.Item as='li'>
                     {" "}
                     Si aprirà una finestra con le coordinate del luogo
-                    prescelto: qui sarà necessario caricare la foto scattata e
-                    inviare la segnalazione.
+                    prescelto. Qui sarà necessario aggiungere una fotografia del
+                    punto e del contesto circostante e successivamente inviare
+                    la segnalazione.
                   </ListGroup.Item>
                   {/* <ListGroup.Item as='li'>
                     Una volta inviata la segnalazione, un'icona a forma di
