@@ -341,16 +341,21 @@ const AddPlant = ({ setting }) => {
                 </Form.Group>
               )}
 
-              {Capacitor.isNativePlatform() && (
-                <span
-                  className={
-                    file ? "btn btn-sm btn-link" : "btn btn-outline-primary"
-                  }
-                >
-                  {!file && <IoIosAddCircleOutline />}
-                  <span className={!file && "ps-1"} onClick={getPic}>
-                    {file ? "Sostituisci immagine caricata" : "Aggiungi foto"}
+              {Capacitor.isNativePlatform() && !file && (
+                <span className='btn btn-outline-primary'>
+                  <IoIosAddCircleOutline />
+                  <span className='ps-1' onClick={getPic}>
+                    Aggiungi foto
                   </span>
+                </span>
+              )}
+              {Capacitor.isNativePlatform() && file && (
+                <span className=''>
+                  Puoi sostituire l'immagine caricata{" "}
+                  <span className='btn-link' onClick={getPic}>
+                    cliccando qui
+                  </span>{" "}
+                  oppure procedere con l'invio della segnalazione.
                 </span>
               )}
               {/* Submit Button */}
