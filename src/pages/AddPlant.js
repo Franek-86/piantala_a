@@ -343,9 +343,9 @@ const AddPlant = ({ setting }) => {
 
               {Capacitor.isNativePlatform() && (
                 <span className='btn btn-outline-primary'>
-                  <IoIosAddCircleOutline />
-                  <span className='ps-1' onClick={getPic}>
-                    {file ? "Sostituisci" : "Aggiungi foto"}
+                  {!file && <IoIosAddCircleOutline />}
+                  <span className={!file && "ps-1"} onClick={getPic}>
+                    {file ? "Sostituisci immagine caricata" : "Aggiungi foto"}
                   </span>
                 </span>
               )}
