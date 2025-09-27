@@ -534,6 +534,9 @@ element {
   width: 24px; /* Icon size */
   height: 24px; /* Icon size */
 }
+.btn-link.change-pic {
+  color: var(--clr-primary-5);
+}
 
 /* .leaflet-pane :nth-child(2) {
   z-index: 567 !important;

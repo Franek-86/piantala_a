@@ -350,12 +350,13 @@ const AddPlant = ({ setting }) => {
                 </span>
               )}
               {Capacitor.isNativePlatform() && file && (
-                <span className=''>
-                  Puoi sostituire l'immagine caricata{" "}
-                  <span className='btn-link' onClick={getPic}>
-                    cliccando qui
+                <span>
+                  <span className='btn-link change-pic' onClick={getPic}>
+                    Sostituisci l'immagine
                   </span>{" "}
-                  oppure procedere con l'invio della segnalazione.
+                  <span className=''>
+                    caricata oppure procedi con l'invio della segnalazione.
+                  </span>
                 </span>
               )}
               {/* Submit Button */}
