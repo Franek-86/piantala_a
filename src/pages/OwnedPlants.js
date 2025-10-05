@@ -49,7 +49,7 @@ const OwnedPlants = () => {
   return (
     <>
       <section className='section-page section-background section-large'>
-        <div className='section-center'>
+        <div className='section-center section-center-map'>
           {/* <div className='back-btn'>
           <MdBackspace
             onClick={() => {
@@ -63,7 +63,7 @@ const OwnedPlants = () => {
                 <th>Tipo</th>
                 <th>Targa</th> */
 
-            <Row xs={1} md={2} className='g-4'>
+            <Row xs={1} xl={2} className='g-4 mt-lg-5'>
               {myPlants &&
                 myPlants.map((plant, index) => {
                   const order = allOrders.find((i) => {

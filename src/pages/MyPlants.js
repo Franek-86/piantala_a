@@ -38,7 +38,7 @@ const MyPlants = () => {
   return (
     <>
       <section className='section-page section-background section-large'>
-        <div className='section-center'>
+        <div className='section-center section-center-map'>
           <h2 className='section-title d-lg-none pt-5'>Le mie segnalazioni</h2>
 
           {loadingReports ? (
@@ -47,7 +47,7 @@ const MyPlants = () => {
             <p>Non hai ancora effettuato segalazioni.</p>
           ) : (
             <div>
-              <Row xs={1} md={2} className='g-4'>
+              <Row xs={1} md={2} xl={3} className='g-4 mt-lg-5'>
                 {myReports.map((plant, index) => (
                   // <Col key={index}>
                   <div className='d-flex mb-2'>

@@ -15,9 +15,9 @@ const Legend = () => {
   return (
     <>
       <section className='section-page section-background section-large'>
-        <div className='section-center'>
+        <div className='section-center section-center-map'>
           <h2 className='section-title pt-5 d-lg-none'>legenda</h2>
-          <ul>
+          <ul className='mt-lg-5'>
             <li className='plants-list'>
               <div className='legend-box-container'>
                 <div className='legend-image icon '>

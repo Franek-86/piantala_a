@@ -215,9 +215,13 @@ hr {
   .section-large {
     margin-left: 300px;
     width: calc(100% - 300px);
-    display: grid;
-    place-items: center;
+    /* display: grid;
+    place-items: center; */
     height: 100vh;
+    padding-top: 3rem;
+  }
+  .section-center-map {
+    max-width: calc(90vw - 300px);
   }
   .section-map-page {
     width: calc(100% - 300px);
