@@ -7,11 +7,12 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { ListGroup } from "react-bootstrap";
-import BottomBar from "../components/BottomBar";
+import BottomBar from "../components/map/BottomBar";
 import { copyToClipboard } from "../utils/utils";
 import useIsLargeScreen from "../utils/useIsLargeScreen";
-import SideBar from "../components/SideBar";
+
 import { OrdersContext } from "../context/OrdersContext";
+import SideBar from "../components/map/SideBar";
 
 const OwnedPlants = () => {
   const { getMyPlants, myPlants } = useContext(PlantsContext);

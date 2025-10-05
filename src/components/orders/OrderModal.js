@@ -2,7 +2,7 @@ import React from "react";
 import { useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import { OrdersContext } from "../context/OrdersContext";
+import { OrdersContext } from "../../context/OrdersContext";
 
 const OrderModal = (props) => {
   const { modalShow, setModalShow, updateOrder } = useContext(OrdersContext);

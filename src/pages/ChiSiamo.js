@@ -1,4 +1,4 @@
-import BottomBar from "../components/BottomBar";
+import BottomBar from "../components/map/BottomBar";
 import { useNavigate } from "react-router-dom";
 import { MdBackspace } from "react-icons/md";
 import React from "react";

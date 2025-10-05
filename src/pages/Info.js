@@ -1,5 +1,5 @@
 import React from "react";
-import BottomBar from "../components/BottomBar";
+import BottomBar from "../components/map/BottomBar";
 import { Link, useNavigate } from "react-router-dom";
 import { MdBackspace } from "react-icons/md";
 import Alert from "react-bootstrap/Alert";

@@ -8,10 +8,7 @@ import { formatDate } from "../../utils/utils";
 import Avatar from "react-avatar";
 const ChatBody = () => {
   const { messages } = useContext(ChatContext);
-  const {
-    userId,
-    loggedUserInfo: { pic },
-  } = useContext(AuthContext);
+  const { userId } = useContext(AuthContext);
 
   const lastRef = useRef(null);
   useEffect(() => {

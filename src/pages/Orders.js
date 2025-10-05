@@ -5,10 +5,11 @@ import { useNavigate } from "react-router-dom";
 import { MdBackspace } from "react-icons/md";
 import { OrdersContext } from "../context/OrdersContext";
 import { formatDate } from "../utils/utils";
-import OrderModal from "../components/OrderModal";
+// import OrderModal from "../components/OrderModal";
 import { Button } from "react-bootstrap";
 import { FaPen } from "react-icons/fa";
 import { FaRegEye } from "react-icons/fa";
+import OrderModal from "../components/orders/OrderModal";
 
 const Orders = () => {
   const {

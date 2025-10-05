@@ -1,14 +1,15 @@
 import React from "react";
-import BottomBar from "../components/BottomBar";
+import BottomBar from "../components/map/BottomBar";
 import greenPlant from "../assets/images/ti pianto per amore-APP-verde.png";
 import yellowPlant from "../assets/images/ti pianto per amore-APP-giallo.png";
 import redPlant from "../assets/images/ti pianto per amore-APP-rosso.png";
 import bluePlant from "../assets/images/ti pianto per amore-APP-azzurro.png";
 import useIsLargeScreen from "../utils/useIsLargeScreen";
-import SideBar from "../components/SideBar";
+
 import { MdAddLocationAlt } from "react-icons/md";
 import { MdFilterAlt } from "react-icons/md";
 import { MdCenterFocusStrong } from "react-icons/md";
+import SideBar from "../components/map/SideBar";
 const Legend = () => {
   const isLargeScreen = useIsLargeScreen();
   return (

@@ -16,20 +16,15 @@ export const OrdersProvider = ({ children }) => {
   const [modalShow, setModalShow] = useState(false);
   const addOrder = async () => {
     let bookedPlant = JSON.parse(localStorage.getItem("booked-plant"));
-    console.log("plant-approved-after-payment", bookedPlant);
 
     const { id, owner_id } = bookedPlant;
     try {
       let data = { id, owner_id };
       const response = await AxiosInstance.post("/api/orders/add-order", data);
       if (response.status === 201) {
-        console.log("responsedata", response.data);
-        console.log("responseresp", response);
       }
       return response.data.order;
-    } catch (error) {
-      console.log("error from add order", error);
-    }
+    } catch (error) {}
   };
 
   const postPayment = async (email) => {
@@ -44,8 +39,6 @@ export const OrdersProvider = ({ children }) => {
         user_id,
       } = order;
       const created_at = formatDate(createdAt);
-      console.log("order number from payment function", order_number);
-      console.log("oder in general", order);
       // sendPaymentConfirmationEmail(email, order_number, created_at);
       const data = { email, order_number, created_at };
       sendPaymentConfirmationEmail(data);
@@ -56,19 +49,15 @@ export const OrdersProvider = ({ children }) => {
     try {
       const response = await AxiosInstance.get("/api/orders/all-orders");
       if (response.status === 200) {
-        console.log("nn", response.data);
         setAllOrders(response.data);
       } else {
-        console.log(response.status);
       }
     } catch (err) {
-      console.log(err);
     } finally {
       setLoading(false);
     }
   };
   const updateOrder = async (data) => {
-    console.log("qqq", data);
     setLoading(true);
     try {
       const response = await AxiosInstance({
@@ -76,13 +65,11 @@ export const OrdersProvider = ({ children }) => {
         url: "/api/orders/update-order",
         data,
       });
-      console.log("updateresponse", response);
       if (response.status === 200) {
         const text = response.data.message;
         toast(`${text}`);
       }
     } catch (error) {
-      console.log(error);
     } finally {
       setLoading(false);
     }

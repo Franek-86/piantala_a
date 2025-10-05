@@ -4,7 +4,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import {
   navigateFunction,
   navigateToFunction,
-} from "../services/deepLinkServices";
+} from "../../services/deepLinkServices";
 import { useEffect } from "react";
 const CommonRoutesComponent = () => {
   const navigate = useNavigate();

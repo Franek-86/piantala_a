@@ -8,22 +8,20 @@ import { Link, useParams, useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import { MdBackspace } from "react-icons/md";
 import { PlantsContext } from "../context/PlantsContext";
-import PlantForm from "../components/PlantForm";
-import RejectionModal from "../components/RejectionModal";
-import PlantImage from "../components/PlantImage";
+
 import Loading from "./Loading";
 import logo from "../assets/images/ti pianto per amore-APP-verde.png";
-import UserInfo from "../components/UserInfo";
+
 import { FaLeftLong, FaUser } from "react-icons/fa6";
 import { FaRegUser } from "react-icons/fa6";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { IoIosRemoveCircleOutline } from "react-icons/io";
 import { copyToClipboard } from "../utils/utils";
-import PlantFormSelect from "../components/PlantFormSelect";
-
+import PlantFormSelect from "../components/plant/PlantFormSelect";
+import RejectionModal from "../components/plant/RejectionModal";
+import UserInfo from "../components/plant/UserInfo";
+import PlantForm from "../components/plant/PlantForm";
 const Plant = () => {
-  // const [loading, setLoading] = useState(true);
-  // const [error, setError] = useState(null);
   const [show, setShow] = useState(false);
   const [modalShow, setModalShow] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);

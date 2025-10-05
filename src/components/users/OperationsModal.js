@@ -1,12 +1,13 @@
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
+import { UsersContext } from "../../context/UsersContext";
 
 const OperationsModal = (props) => {
-  const { userInfo, changeUserRole, changeUserStatus } =
-    useContext(AuthContext);
-  console.log("user info1", userInfo);
+  // const { userInfo } = useContext(AuthContext);
+  const { changeUserRole, changeUserStatus, userInfo } =
+    useContext(UsersContext);
 
   return (
     <Modal

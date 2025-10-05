@@ -10,8 +10,9 @@ import Avatar from "react-avatar";
 import { Card, Col, Row } from "react-bootstrap";
 import { formatDate } from "../utils/utils";
 import Button from "react-bootstrap/Button";
-import OperationsModal from "../components/OperationsModal";
 import Loading from "./Loading";
+import { UsersContext } from "../context/UsersContext";
+import OperationsModal from "../components/users/OperationsModal";
 
 const Users = () => {
   const [modalOperationsShow, setModalOperationsShow] = useState(false);
@@ -24,19 +25,31 @@ const Users = () => {
   };
 
   const {
-    allUsers,
-    getAllUsers,
-    setUserInfo,
+    // allUsers,
+    // getAllUsers,
+    // setUserInfo,
     userRole,
     loading,
-    userInfo,
-    loggedUserInfo: { pic },
+    // userInfo,
+    // loggedUserInfo: { pic },
   } = useContext(AuthContext);
 
+  const {
+    setUserInfo,
+    userInfo,
+    getAllUsers,
+    allUsers,
+    loggedUserInfo: { pic },
+    loading: userLoading,
+  } = useContext(UsersContext);
+  console.log("test123", getAllUsers);
+  // useEffect(() => {
+  //   getAllUsers();
+  // }, [userInfo.status, userInfo.role]);
   useEffect(() => {
     getAllUsers();
-  }, [userInfo.status, userInfo.role]);
-  console.log("aaa", allUsers);
+  }, [userInfo]);
+
   return (
     <section className='section-background section-full-page section-users'>
       <div className='back-container'>
@@ -57,6 +70,7 @@ const Users = () => {
             </h2>
             <div className='d-md-flex justify-content-md-center'>
               {loading && <Loading />}
+              {userLoading && <Loading />}
 
               <Col md={6} className='justify-content-md-center'>
                 <ListGroup>

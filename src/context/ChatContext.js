@@ -15,14 +15,12 @@ export const ChatProvider = ({ children }) => {
       socket.on("message", (message) => {
         setMessages([...messages, message]);
       });
-      console.log("data da socket è", messages);
     }
   }, [messages, socket]);
 
   const sendMessage = async (data) => {
     const response = await AxiosInstance.post("api/chat/new-message", data);
     if ((response.status = 200)) {
-      console.log("response", response);
       return response;
     }
   };
@@ -30,7 +28,6 @@ export const ChatProvider = ({ children }) => {
   const getMessages = async (data) => {
     const response = await AxiosInstance.get("api/chat/all-messages");
     if (response) {
-      console.log("get response", response.data.messages);
       setMessages(response.data.messages);
       return;
     }

@@ -6,7 +6,6 @@ import { MdCenterFocusStrong } from "react-icons/md";
 import { MdFilterAlt } from "react-icons/md";
 import { BiMenu } from "react-icons/bi";
 import { MdAddLocationAlt } from "react-icons/md";
-import SideMenu from "./SideMenu";
 
 import FilterControls from "./FilterControls";
 import axios from "axios";
@@ -14,18 +13,15 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { useMap, useMapEvent } from "react-leaflet";
 import Avatar from "react-avatar";
-import Loading from "../pages/Loading";
-
-import L from "leaflet";
-import { AuthContext } from "../context/AuthContext";
-import ProfileModal from "./ProfileModal";
-import { RiH1 } from "react-icons/ri";
-import LocationLoading from "./LocationLoading";
-import { hover } from "motion";
+import Loading from "../../pages/Loading";
+import { AuthContext } from "../../context/AuthContext";
+import { UsersContext } from "../../context/UsersContext";
+import ProfileModal from "./../user-profile/ProfileModal";
+import SideMenu from "../menu/SideMenu";
 
 const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
-  const { getUserInfo, userId, loggedUserInfo, isAdmin } =
-    useContext(AuthContext);
+  const { isAdmin } = useContext(AuthContext);
+  const { loggedUserInfo } = useContext(UsersContext);
   const { pic } = loggedUserInfo;
   console.log("asdf", position);
   const [locationLoading, setLocationLoading] = useState(false);

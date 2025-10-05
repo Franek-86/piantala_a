@@ -4,7 +4,7 @@ import { PlantsContext } from "../context/PlantsContext";
 // import "react-fancybox/lib/fancybox.css";
 import { MdBackspace } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
-import Fancybox from "../components/Fancybox";
+import Fancybox from "../components/plates/Fancybox";
 import Slider from "react-slick";
 const Plates = () => {
   const { getAllPlants, plates } = useContext(PlantsContext);

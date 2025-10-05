@@ -5,10 +5,12 @@ import InputGroup from "react-bootstrap/InputGroup";
 import { ChatContext } from "../../context/ChatContext";
 import { AuthContext } from "../../context/AuthContext";
 import { useContext } from "react";
+import { UsersContext } from "../../context/UsersContext";
 
 const ChatForm = () => {
   const { setMessage, message, sendMessage } = useContext(ChatContext);
-  const { userId, loggedUserInfo } = useContext(AuthContext);
+  const { userId } = useContext(AuthContext);
+  const { loggedUserInfo } = useContext(UsersContext);
   console.log("asdf", loggedUserInfo.pic);
   const handleSubmit = (e) => {
     e.preventDefault();

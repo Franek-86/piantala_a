@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { Form, Button, FloatingLabel } from "react-bootstrap";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
+import { AuthContext } from "../../context/AuthContext";
 // import { PlantsContext } from "../context/PlantsContext";
 import { Capacitor } from "@capacitor/core";
 import { Keyboard } from "@capacitor/keyboard";
@@ -68,26 +68,6 @@ const PlantForm = () => {
   return (
     <article ref={container} className='plant-form-article mt-3 w-100'>
       <Form onSubmit={handleSubmit(onSubmit)}>
-        {/* <FloatingLabel
-          controlId='formPlantType'
-          label='Tipo di pianta'
-          className='mb-3'
-        >
-          <Form.Select {...register("plantType", { required: true })}>
-            <option value=''>Seleziona una pianta</option>
-            <option value='Bagolaro'>Bagolaro</option>
-            <option value='Carrubo'>Carrubo</option>
-            <option value='Cercis'>Cercis</option>
-            <option value='Quercia Vallonea'>Quercia Vallonea</option>
-            <option value='Alloro'>Alloro</option>
-            <option value='Pino Halepensis'>Pino Halepensis</option>
-            <option value='Tamarice'>Tamarice</option>
-            <option value='Melocotogno'>Melocotogno</option>
-          </Form.Select>
-          {errors.plantType && (
-            <p className='text-danger'>È necessario selezionare una pianta</p>
-          )}
-        </FloatingLabel> */}
         <FloatingLabel
           controlId='formComment'
           label='Testo targa'

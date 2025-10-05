@@ -15,13 +15,15 @@ import { IoLocationSharp } from "react-icons/io5";
 import { MdLocalPhone } from "react-icons/md";
 import { MdEmail } from "react-icons/md";
 import Loading from "./Loading";
+import { UsersContext } from "../context/UsersContext";
+
 const Contacts = () => {
   const navigate = useNavigate();
   const backToMap = () => {
     navigate("/map");
   };
   const { register, handleSubmit, reset } = useForm();
-  const { sendEmail, loading } = useContext(AuthContext);
+  const { sendEmail, loading } = useContext(UsersContext);
   const onSubmit = async (data) => {
     console.log(data.messageBody);
     const response = await sendEmail(data.messageBody);

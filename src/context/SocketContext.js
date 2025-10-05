@@ -13,7 +13,6 @@ export const SocketProvider = ({ children }) => {
   useEffect(() => {
     const newSocket = io(url);
     setSocket(newSocket);
-    console.log("sta123", newSocket);
   }, []);
 
   return (

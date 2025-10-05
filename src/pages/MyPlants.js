@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Loading from "./Loading";
-import BottomBar from "../components/BottomBar";
+import BottomBar from "../components/map/BottomBar";
 import Table from "react-bootstrap/Table";
 import { PlantsContext } from "../context/PlantsContext";
 import Card from "react-bootstrap/Card";
@@ -14,7 +14,8 @@ import CardImg from "react-bootstrap/CardImg";
 
 import { copyToClipboard } from "../utils/utils";
 import useIsLargeScreen from "../utils/useIsLargeScreen";
-import SideBar from "../components/SideBar";
+import SideBar from "../components/map/SideBar";
+
 const MyPlants = () => {
   const { myReports, loadingReports, fetchUserPlants } =
     useContext(PlantsContext);

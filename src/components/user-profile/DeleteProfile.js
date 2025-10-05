@@ -3,12 +3,13 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { UsersContext } from "../../context/UsersContext";
 
 const DeleteProfile = ({ show, handleClose }) => {
   const {
-    loggedUserInfo: { id },
     deleteProfile,
-  } = useContext(AuthContext);
+    loggedUserInfo: { id },
+  } = useContext(UsersContext);
   const navigate = useNavigate();
   return (
     <Modal show={show} onHide={handleClose}>

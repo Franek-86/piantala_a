@@ -9,26 +9,26 @@ import iconLocation from "leaflet/dist/images/marker-icon.png";
 // import iconLocation from "./assets/images//marker-icon.png";
 import copy from "copy-to-clipboard";
 // import iconShadow from "leaflet/dist/images/marker-shadow.png";
-import Buttons from "./components/Buttons";
+
 import { useState, useEffect, useContext, useRef } from "react";
 import axios from "axios";
-import BottomBar from "./components/BottomBar";
+import BottomBar from "./components/map/BottomBar";
 import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import Loading from "./pages/Loading";
-import { PlantsContext } from "../src/context/PlantsContext";
+import { PlantsContext } from "./context/PlantsContext";
 import { OrdersContext } from "./context/OrdersContext";
 import { loadStripe } from "@stripe/stripe-js";
 import { Button } from "react-bootstrap";
 import { FilterContext } from "./context/FilterContext";
-import SideBar from "./components/SideBar";
 import useIsLargeScreen from "./utils/useIsLargeScreen";
 import { ensurePermission } from "./utils/utils";
-import PermissionModal from "./components/PermissionModal";
+import PermissionModal from "./components/map/PermissionModal";
 import { AuthContext } from "./context/AuthContext";
 import { Geolocation } from "@capacitor/geolocation";
 import { Capacitor } from "@capacitor/core";
 import { SocketContext } from "./context/SocketContext";
-import MapResize from "./components/MapResize";
+import Buttons from "./components/map/Buttons";
+import SideBar from "./components/map/SideBar";
 
 const DefaultIcon = L.icon({
   iconUrl: iconLocation, // This can be your default icon
@@ -59,7 +59,7 @@ const iconMap = {
   }),
 };
 
-function App() {
+function Map() {
   const markerRef = useRef(null);
   const [map, setMap] = useState(null);
   const [position, setPosition] = useState(null);
@@ -202,7 +202,6 @@ function App() {
                   attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                   url='https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png'
                 />
-                <MapResize />
                 {/* <MyTest /> */}
                 <Buttons
                   setPosition={setPosition}
@@ -283,4 +282,4 @@ function App() {
   );
 }
 
-export default App;
+export default Map;

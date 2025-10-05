@@ -6,20 +6,20 @@ import { RiLogoutBoxLine } from "react-icons/ri";
 import { TbReportMedical } from "react-icons/tb";
 import { RiContactsLine } from "react-icons/ri";
 import { GiMetalPlate } from "react-icons/gi";
-import sidebarLogo from "../assets/images/logo_albero_dritto_sidebar.png";
-import { AuthContext } from "../context/AuthContext";
+import sidebarLogo from "../../assets/images/logo_albero_dritto_sidebar.png";
+import { AuthContext } from "../../context/AuthContext";
 import { useContext } from "react";
 import { BsInfo } from "react-icons/bs";
-import { FaUsers } from "react-icons/fa";
 import { GiLion } from "react-icons/gi";
+import { FaUsers } from "react-icons/fa";
 import { MdOutlineShoppingCartCheckout } from "react-icons/md";
 import { IoMdChatbubbles } from "react-icons/io";
 
-const SideBar = () => {
+const SideMenu = ({ onLogout, ...props }) => {
   const { handleLogout, userRole } = useContext(AuthContext);
   return (
-    <section className='sidebar-large'>
-      <Offcanvas.Header>
+    <Offcanvas show={props.show} onHide={props.handleClose}>
+      <Offcanvas.Header closeButton>
         <Offcanvas.Title>
           <img class='sidebar-logo' src={sidebarLogo} alt='' srcset='' />
         </Offcanvas.Title>
@@ -54,28 +54,25 @@ const SideBar = () => {
               </Link>
             </ListGroup.Item>
           )}
-
           <ListGroup.Item>
             <Link to='/plates' class='nav-link text-truncate'>
               <GiMetalPlate />
               <span class='ms-2 d-sm-inline'>Le vostre targhe</span>
             </Link>
           </ListGroup.Item>
-
-          {userRole === "admin" && (
-            <ListGroup.Item>
-              <Link to='/chat' class='nav-link text-truncate'>
-                <IoMdChatbubbles />
-                <span class='ms-2 d-sm-inline'>Chat</span>
-              </Link>
-            </ListGroup.Item>
-          )}
+          <ListGroup.Item>
+            <Link to='/chat' class='nav-link text-truncate'>
+              <IoMdChatbubbles />
+              <span class='ms-2 d-sm-inline'>Chat</span>
+            </Link>
+          </ListGroup.Item>
           <ListGroup.Item>
             <Link to='/contacts' class='nav-link text-truncate'>
               <RiContactsLine />
               <span class='ms-2 d-sm-inline'>Contattaci</span>
             </Link>
           </ListGroup.Item>
+
           <ListGroup.Item>
             <Link to='/' onClick={handleLogout} class='nav-link text-truncate'>
               <RiLogoutBoxLine />
@@ -84,8 +81,8 @@ const SideBar = () => {
           </ListGroup.Item>
         </ListGroup>
       </Offcanvas.Body>
-    </section>
+    </Offcanvas>
   );
 };
 
-export default SideBar;
+export default SideMenu;

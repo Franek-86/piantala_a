@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
+// import App from "./App";
+
 import reportWebVitals from "./reportWebVitals";
 import {
   BrowserRouter,
@@ -17,14 +18,14 @@ import Orders from "./pages/Orders";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 import AddPlant from "./pages/AddPlant";
-import ProtectedRoute from "./components/ProtectedRoute";
+import ProtectedRoute from "./components/routes/ProtectedRoute";
 import MyPlants from "./pages/MyPlants";
 import Legend from "./pages/Legend";
 import Info from "./pages/Info";
-import BottomBar from "./components/BottomBar";
 import { CheckoutForm } from "./pages/CheckoutForm";
 import { Return } from "./pages/Return";
 import OwnedPlants from "./pages/OwnedPlants";
+
 import Contacts from "./pages/Contacts";
 import EmailVerification from "./pages/EmailVerification";
 import Plates from "./pages/Plates";
@@ -35,17 +36,20 @@ import "slick-carousel/slick/slick-theme.css";
 import Users from "./pages/Users";
 import { ToastContainer } from "react-toastify";
 import Register from "./pages/Register";
-import Error from "./components/Error";
+import Error from "./pages/Error";
 import Reset from "./pages/Reset";
 import PasswordReset from "./pages/PasswordReset";
 import EmailVerificationReset from "./pages/EmailVerificationReset";
 import Landing from "./pages/Landing";
-import CommonRoutesComponent from "./components/CommonRoutesComponent";
+import CommonRoutesComponent from "./components/routes/CommonRoutesComponent";
 import Chat from "./pages/Chat";
 import { ChatProvider } from "./context/ChatContext";
 import ChiSiamo from "./pages/ChiSiamo";
 import UserProfile from "./pages/UserProfile";
 import { defineCustomElements } from "@ionic/pwa-elements/loader";
+import { UsersProvider } from "./context/UsersContext";
+import Map from "./Map";
+
 // import { io } from "socket.io-client";
 // const url =
 //   process.env.REACT_APP_NODE_ENV === "test"
@@ -83,7 +87,7 @@ const router = createBrowserRouter([
         path: "/map",
         element: (
           <ProtectedRoute>
-            <App />
+            <Map />
           </ProtectedRoute>
         ),
         children: [
@@ -168,19 +172,21 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
-      <SocketProvider>
-        <ChatProvider>
-          <PlantsProvider>
-            <OrdersProvider>
-              <FilterProvider>
-                <ToastContainer />
-                <Error />
-                <RouterProvider router={router} />
-              </FilterProvider>
-            </OrdersProvider>
-          </PlantsProvider>
-        </ChatProvider>
-      </SocketProvider>
+      <UsersProvider>
+        <SocketProvider>
+          <ChatProvider>
+            <PlantsProvider>
+              <OrdersProvider>
+                <FilterProvider>
+                  <ToastContainer />
+                  <Error />
+                  <RouterProvider router={router} />
+                </FilterProvider>
+              </OrdersProvider>
+            </PlantsProvider>
+          </ChatProvider>
+        </SocketProvider>
+      </UsersProvider>
     </AuthProvider>
   </React.StrictMode>
 );

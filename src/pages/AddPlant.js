@@ -14,6 +14,7 @@ import Loading from "./Loading";
 import { useLocation } from "react-router-dom";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { Camera, CameraResultType } from "@capacitor/camera";
+import { UsersContext } from "../context/UsersContext";
 
 const AddPlant = ({ setting }) => {
   const {
@@ -25,7 +26,8 @@ const AddPlant = ({ setting }) => {
     reset,
     setValue,
   } = useForm();
-  const { userId, handleLogout, loggedUserInfo } = useContext(AuthContext);
+  const { userId } = useContext(AuthContext);
+  const { loggedUserInfo } = useContext(UsersContext);
   const location = useLocation();
   const fromManual = location.state?.fromManual;
   const { userName } = loggedUserInfo;

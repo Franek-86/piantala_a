@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 import { PiPlantFill } from "react-icons/pi";
 import { NavLink, useLocation } from "react-router-dom";
 import { GiPlantSeed } from "react-icons/gi";
-import useIsLargeScreen from "../utils/useIsLargeScreen";
+import useIsLargeScreen from "../../utils/useIsLargeScreen";
 
 const BottomBar = () => {
   const [selectedTab, setSelectedTab] = useState("test");

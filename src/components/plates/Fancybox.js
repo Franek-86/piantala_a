@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { Fancybox as NativeFancybox } from "@fancyapps/ui";
-import { PlantsContext } from "../context/PlantsContext";
+import { PlantsContext } from "../../context/PlantsContext";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 const Fancybox = (props) => {
   const containerRef = useRef(null);

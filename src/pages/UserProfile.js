@@ -14,6 +14,7 @@ import { IoIosRemoveCircleOutline } from "react-icons/io";
 import Loading from "./Loading";
 import { Camera, CameraResultType } from "@capacitor/camera";
 import { Capacitor } from "@capacitor/core";
+import { UsersContext } from "../context/UsersContext";
 
 const UserProfile = () => {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -22,18 +23,26 @@ const UserProfile = () => {
   const handleCloseDeleteModal = () => setShowDeleteModal(false);
   const handleShowDeleteModal = () => setShowDeleteModal(true);
   const navigate = useNavigate();
+
   const backToMap = () => {
     navigate("/map");
   };
   const {
-    loggedUserInfo,
-    deleteProfile,
-    handleUserPic,
-    deleteProfilePic,
-    loading,
-    getUserInfo,
-    takePicture,
+    // loggedUserInfo,
+    // deleteProfile,
+    // handleUserPic,
+    // deleteProfilePic,
+    // loading,
+    // getUserInfo,
+    // takePicture,
   } = useContext(AuthContext);
+  const {
+    loggedUserInfo,
+    handleUserPic,
+    takePicture,
+    deleteProfilePic,
+    loading: userLoading,
+  } = useContext(UsersContext);
   console.log("logged user info", loggedUserInfo);
   const { id, userName, phone, pic } = loggedUserInfo;
 
@@ -43,7 +52,8 @@ const UserProfile = () => {
 
   return (
     <>
-      {loading && <Loading />}
+      {userLoading && <Loading />}
+      {/* {userLoading && <Loading />} */}
       <section className='section-page section-background'>
         <div className='back-container'>
           <div className='back-btn'>

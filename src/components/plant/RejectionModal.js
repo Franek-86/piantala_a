@@ -4,7 +4,7 @@ import Modal from "react-bootstrap/Modal";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
 import { useForm } from "react-hook-form";
-import { PlantsContext } from "../context/PlantsContext";
+import { PlantsContext } from "../../context/PlantsContext";
 
 const RejectionModal = (props) => {
   const { handleStatusChange } = useContext(PlantsContext);

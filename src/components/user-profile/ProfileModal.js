@@ -2,11 +2,13 @@ import React, { useContext } from "react";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import { AuthContext } from "../context/AuthContext";
+import { AuthContext } from "../../context/AuthContext";
 import { Link } from "react-router-dom";
+import { UsersContext } from "../../context/UsersContext";
 
 const ProfileModal = ({ smShow, setSmShow }) => {
-  const { loggedUserInfo, handleLogout } = useContext(AuthContext);
+  const { handleLogout } = useContext(AuthContext);
+  const { loggedUserInfo } = useContext(UsersContext);
   return (
     <Modal
       className='profile-modal'

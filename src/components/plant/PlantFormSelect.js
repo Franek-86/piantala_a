@@ -2,8 +2,8 @@ import React, { useContext, useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { Form, Button, FloatingLabel } from "react-bootstrap";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
-import { PlantsContext } from "../context/PlantsContext";
+import { AuthContext } from "../../context/AuthContext";
+import { PlantsContext } from "../../context/PlantsContext";
 import { Capacitor } from "@capacitor/core";
 import { Keyboard } from "@capacitor/keyboard";
 const PlantFormSelect = () => {

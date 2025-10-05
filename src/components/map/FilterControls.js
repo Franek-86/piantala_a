@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import { FilterContext } from "../context/FilterContext";
-import { PlantsContext } from "../context/PlantsContext";
+import { FilterContext } from "../../context/FilterContext";
+import { PlantsContext } from "../../context/PlantsContext";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";

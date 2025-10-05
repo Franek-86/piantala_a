@@ -1,11 +1,11 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
 import { jwtDecode } from "jwt-decode";
-import { AuthContext } from "./AuthContext";
 import { ToastContainer, toast } from "react-toastify";
 import axios from "../services/axiosInstance";
+import { UsersContext } from "./UsersContext";
 export const PlantsContext = createContext();
 export const PlantsProvider = ({ children }) => {
-  const { token, getOtherUserInfo } = useContext(AuthContext);
+  const { getOtherUserInfo } = useContext(UsersContext);
   const [plants, setPlants] = useState([]);
   const [myPlants, setMyPlants] = useState(null);
   const [plant, setPlant] = useState(null);
@@ -57,15 +57,11 @@ export const PlantsProvider = ({ children }) => {
     try {
       const userToken = localStorage.getItem("userToken");
       if (!userToken) {
-        console.log("here122", userToken);
         console.error("No user token found");
         return;
       }
-      console.log("here121");
       const payload = JSON.parse(atob(userToken.split(".")[1]));
-      console.log("here1222", payload);
       const userId = payload.id;
-      console.log("here123", userId);
       const response = await axios.get(
         `${serverDomain}/api/plants/user-plants`,
         {
@@ -74,7 +70,6 @@ export const PlantsProvider = ({ children }) => {
       );
       setMyReports(response.data); // Store the plants in state
     } catch (error) {
-      console.log(error);
     } finally {
       setLoadingReports(false); // Set loading to false after fetching
     }
@@ -82,10 +77,8 @@ export const PlantsProvider = ({ children }) => {
 
   const handleBookedPlant = async () => {
     let bookedPlant = JSON.parse(localStorage.getItem("booked-plant"));
-    console.log("plant-approved-after-payment", bookedPlant);
 
     const { id, owner_id, comment, plantType, purchase_date } = bookedPlant;
-    console.log(id, owner_id, comment, plantType, purchase_date, "test23");
 
     try {
       await axios.patch(`${serverDomain}/api/plants/${id}/ownership`, {
@@ -103,12 +96,9 @@ export const PlantsProvider = ({ children }) => {
   };
 
   const handlePlateUpload = async (id, event) => {
-    console.log("aoo");
     const file = event.target.files[0];
-    console.log("qui", file);
     if (file) {
       setPlateLoading(true);
-      console.log("File uploaded:", file);
       const formData = new FormData();
       formData.append("plate", file);
       try {
@@ -124,22 +114,18 @@ export const PlantsProvider = ({ children }) => {
         const plate = response.data.image_url;
         setPlateUrl(plate);
         setPlateLoading(false);
-        console.log("server response", response.data);
       } catch (err) {
-        console.log(err);
         setPlateLoading(false);
       }
     }
   };
   const handlePlateRemoval = async (id, plate_hash) => {
-    console.log("123321", id, plate_hash);
     setLoading(true);
     try {
       const response = await axios.patch(
         `${serverDomain}/api/plants/clear-plate`,
         { id, plate_hash }
       );
-      console.log("sta12", response);
       // setPlants(response.data);
     } catch (err) {
       // setError(err.message);
@@ -153,11 +139,9 @@ export const PlantsProvider = ({ children }) => {
     localStorage.removeItem("booked-plant");
   };
   const getAllPlants = async (action) => {
-    console.log("test", action);
     setLoading(true);
     try {
       const response = await axios.get(`${serverDomain}/api/plants`);
-      console.log(response);
       setPlants(response.data);
     } catch (err) {
       setError(err.message);
@@ -220,7 +204,6 @@ export const PlantsProvider = ({ children }) => {
   };
 
   const getMyPlants = async (userId) => {
-    console.log("here3", userId);
     setLoading(true);
     try {
       const response = await axios.get(
@@ -231,7 +214,6 @@ export const PlantsProvider = ({ children }) => {
           },
         }
       );
-      console.log("resp", response);
       setMyPlants(response.data);
     } catch (err) {
       setError(err.message);
@@ -246,29 +228,21 @@ export const PlantsProvider = ({ children }) => {
       try {
         setSinglePlantLoading(true);
         const response = await axios.get(`${serverDomain}/api/plants`);
-        console.log(response.data);
         if (response) {
-          console.log("asdf", response);
           const item = response.data.find(
             (item) => item.id === parseInt(plantId)
           );
           if (item) {
             setPlant(item);
-            console.log("111");
             const userInfo = await getOtherUserInfo(item.user_id);
 
             if (userInfo?.userName) {
-              console.log("123321", userInfo);
-
               setUserInfo(userInfo.userName);
               setUserId(item.user_id);
-
-              console.log("userInfo", userInfo);
             }
             if (item?.owner_id) {
               setOwnerId(item.owner_id);
             }
-            console.log("123321123", userInfo);
           }
         }
       } catch (err) {
@@ -283,7 +257,6 @@ export const PlantsProvider = ({ children }) => {
 
   const handleStatusChange = async (newStatus, plantId, comment) => {
     // const token = localStorage.getItem("userToken"); // Retrieve the token from localStorage
-    console.log("wwww", newStatus, plantId, comment);
     try {
       // const resp = await axios.patch(`/api/plants/${plantId}/status`, {
       //   status: newStatus,
@@ -302,7 +275,6 @@ export const PlantsProvider = ({ children }) => {
       });
 
       if (newStatus === "approved") {
-        console.log("new status", newStatus);
         toast("🌱 Piantina approvata", {
           position: "top-right",
           autoClose: 2000,
@@ -317,7 +289,6 @@ export const PlantsProvider = ({ children }) => {
         });
       }
       if (newStatus === "rejected") {
-        console.log("new status", newStatus);
         toast("🌱 Piantina rifiutata", {
           position: "top-right",
           autoClose: 2000,
@@ -343,10 +314,8 @@ export const PlantsProvider = ({ children }) => {
   };
   const handleTypeUpdate = async (type, plantId) => {
     // const token = localStorage.getItem("userToken"); // Retrieve the token from localStorage
-    console.log("wwww", type, plantId);
     setLoading(true);
     try {
-      console.log("tipo");
       const response = await axios({
         method: "patch",
         url: `/api/plants/${plantId}/type`,
@@ -376,7 +345,6 @@ export const PlantsProvider = ({ children }) => {
         getAllPlants();
       }
     } catch (err) {
-      console.log("erer", err);
       setError(err.message);
     } finally {
       setLoading(false);
@@ -386,30 +354,24 @@ export const PlantsProvider = ({ children }) => {
   const addPlant = async (data) => {
     try {
       let response = await axios.post(`/api/plants/add-plant`, data);
-      console.log("1111", response);
 
       return response;
-    } catch (error) {
-      console.log("t32", error);
-    }
+    } catch (error) {}
   };
 
   const addLocationInfo = async (lat, lang) => {
     try {
-      console.log("addLocationInfo0");
       // setSinglePlantLoading(true);
       const response = await axios.get(
         `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lang}&format=json`
       );
       if (response) {
-        console.log("addLocationInfo1", response.data);
         setLocationInfo(response.data.address);
         // return response.data.address;
       }
     } catch (err) {
       // setError(err.message);
       // setSinglePlantLoading(false);
-      console.log(err);
     } finally {
       // setSinglePlantLoading(false);
     }
@@ -430,13 +392,11 @@ export const PlantsProvider = ({ children }) => {
     }
   };
   const getOwnerInfo = async () => {
-    console.log("salve 0.1", ownerId);
     try {
       const response = await axios.get(
         `${serverDomain}/api/plants/user/owner/${ownerId}`
       );
       if (response) {
-        console.log("qua", response.data);
         setOwnerInfo({
           // ...ownerInfo,
           firstName: response.data.firstName,
@@ -451,20 +411,15 @@ export const PlantsProvider = ({ children }) => {
           cratedAt: response.data.cratedAt,
         });
         setRequest("owner");
-        console.log("owner info", ownerInfo);
         setModalUserShow(true);
       }
 
       // {email,user_name,phone, createdAt}
-      console.log("resp123", ownerInfo);
     } catch (err) {
-      console.log("salve 2", err);
     } finally {
-      console.log("salve 3");
     }
   };
   const getReporterInfo = async () => {
-    console.log("salve 0", userId);
     // let updatedObj = {};
     if (userId) {
       try {
@@ -487,12 +442,9 @@ export const PlantsProvider = ({ children }) => {
           setModalUserShow(true);
         }
       } catch (err) {
-        console.log("salve 2", err);
       } finally {
-        console.log("salve 3");
       }
     } else {
-      console.log("salve 1");
       setReporterInfo({
         ...reporterInfo,
         firstName: "N/A (utente rimosso)",
@@ -570,7 +522,6 @@ export const PlantsProvider = ({ children }) => {
 
 // useEffect(() => {
 //   const token = localStorage.getItem("userToken");
-//   console.log("hdwgcvegycvyewgqcvgv", token);
 //   if (token) {
 //     setUserToken(token);
 //   }
