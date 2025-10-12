@@ -26,11 +26,16 @@ const ChiSiamo = () => {
         <div className='section-center menu-section-center'>
           <h2 className='section-title'>Chi siamo</h2>
           <p>
-            L'iniziativa "Ti pianto per amore" voluta dall'Associazione
-            culturale no-profit "Amici di Ernest Verner" promuove l'adozione di
-            alberi da parte di privati da piantare in punti della città di Bari
-            privi di verde, in ottemperanza al Disciplinare tecnico (20/05/25)
-            dell'iniziativa "Dona un albero alla tua città" del Comune di Bari.
+            L'iniziativa{" "}
+            <span className='primary-green fw-bold'>"Ti pianto per amore"</span>{" "}
+            voluta dall'Associazione culturale no-profit{" "}
+            <span className='primary-green fw-bold'>
+              "Amici di Ernest Verner"
+            </span>{" "}
+            promuove l'adozione di alberi da parte di privati da piantare in
+            punti della città di Bari privi di verde, in ottemperanza al
+            Disciplinare tecnico (20/05/25) dell'iniziativa "Dona un albero alla
+            tua città" del Comune di Bari.
           </p>
           <p>
             {" "}

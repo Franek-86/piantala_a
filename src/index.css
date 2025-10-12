@@ -106,7 +106,9 @@ fieldset:disabled .btn {
   background-color: var(--clr-primary-1) !important;
   opacity: 1;
 }
-
+.primary-green {
+  color: var(--clr-primary-5);
+}
 .form-select {
   color: var(--clr-primary-8);
   background-color: var(--bs-body-bg);
@@ -1245,6 +1247,13 @@ element {
   .offcanvas-header {
     padding-top: 2.5rem;
   }
+}
+.sidebar-active,
+.sidebar-active > svg {
+  color: var(--clr-primary-6);
+}
+.sidebar-active:hover {
+  color: var(--clr-primary-6);
 }
 
 /* Return page */

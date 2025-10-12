@@ -69,63 +69,50 @@ const FilterControls = ({ showFilters, handleCloseFilters }) => {
           <Offcanvas.Title>Filtra i risultati di ricerca</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body className='filters-container'>
-          {/* <Form.Select
-            name='status'
-            value={filters.status}
-            onChange={handleFilterChange}
-            // style={{ marginRight: "10px" }}
-            className='mb-2'
-          >
-            <option name='stato' value='approved'>
-              Acquistabili
-            </option>
-            {statusPlants.map((i, index) => {
-              return (
-                <option name='stato' value={i} key={index}>
-                  {i}
-                </option>
-              );
-            })}
-          </Form.Select> */}
-          <span className='d-inline-block mb-3 fst-italic small'>
+          <span className='d-inline-block mb-4 fst-italic small'>
             Filtra la ricerca in base allo stato delle piantine
           </span>
-          <Form.Check
-            className='d-flex flex-row align-items-center'
-            checked={"approved" === filters.status}
-            type='radio'
-            label={
-              <div className='ms-2'>
-                <span>Disponibili all'acquisto</span>
-                <img class='filter-plant' src={greenPlants}></img>
-              </div>
-            }
-            name='status'
-            value='approved'
-            onChange={handleFilterChange}
-          />
-          {statusPlants.map((i, index) => {
-            if (i === "approved") {
-              return;
-            }
-            return (
-              <Form.Check
-                className='d-flex flex-row align-items-center'
-                type='radio'
-                key={index}
-                checked={i === filters.status}
-                label={
-                  i === "pending" ? pending : i === "booked" ? booked : rejected
-                }
-                name='status'
-                value={i}
-                onChange={handleFilterChange}
-              />
-            );
-          })}
-          <span className='d-inline-block mt-5 mb-3 small fst-italic'>
-            Filtra la ricerca in base al quartiere dove dove si trovano le
-            piantine
+          <div className='check-container mt-2'>
+            <Form.Check
+              className='d-flex flex-row align-items-center mb-3'
+              checked={"approved" === filters.status}
+              type='radio'
+              label={
+                <div className='ms-2'>
+                  <span>Disponibili all'acquisto</span>
+                  <img class='filter-plant' src={greenPlants}></img>
+                </div>
+              }
+              name='status'
+              value='approved'
+              onChange={handleFilterChange}
+            />
+            {statusPlants.map((i, index) => {
+              if (i === "approved") {
+                return;
+              }
+              return (
+                <Form.Check
+                  className='d-flex flex-row align-items-center mb-3'
+                  type='radio'
+                  key={index}
+                  checked={i === filters.status}
+                  label={
+                    i === "pending"
+                      ? pending
+                      : i === "booked"
+                      ? booked
+                      : rejected
+                  }
+                  name='status'
+                  value={i}
+                  onChange={handleFilterChange}
+                />
+              );
+            })}
+          </div>
+          <span className='d-inline-block mt-5 mb-4 small fst-italic'>
+            Filtra la ricerca in base al quartiere
           </span>
           <Form.Select
             name='suburb'
