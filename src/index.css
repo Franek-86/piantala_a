@@ -232,7 +232,13 @@ hr {
     /* display: grid;
     place-items: center; */
     height: 100vh;
+    /* padding-top: 3rem; */
+  }
+  .section-large.map {
     padding-top: 3rem;
+  }
+  .back-container {
+    display: none;
   }
   .section-center-map {
     max-width: calc(90vw - 300px);

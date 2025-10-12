@@ -12,7 +12,7 @@ import { copyToClipboard } from "../utils/utils";
 import useIsLargeScreen from "../utils/useIsLargeScreen";
 
 import { OrdersContext } from "../context/OrdersContext";
-import SideBar from "../components/map/SideBar";
+import SideBar from "../components/menu/SideBar";
 
 const OwnedPlants = () => {
   const { getMyPlants, myPlants } = useContext(PlantsContext);
@@ -48,7 +48,7 @@ const OwnedPlants = () => {
 
   return (
     <>
-      <section className='section-page section-background section-large'>
+      <section className='section-page section-background section-large map'>
         <div className='section-center section-center-map'>
           {/* <div className='back-btn'>
           <MdBackspace

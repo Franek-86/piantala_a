@@ -6,16 +6,18 @@ import Alert from "react-bootstrap/Alert";
 import ListGroup from "react-bootstrap/ListGroup";
 import Accordion from "react-bootstrap/Accordion";
 import Tab from "react-bootstrap/Tab";
-
+import useIsLargeScreen from "../utils/useIsLargeScreen";
+import SideBar from "../components/menu/SideBar";
 import Tabs from "react-bootstrap/Tabs";
 const Info = () => {
   const navigate = useNavigate();
+  const isLargeScreen = useIsLargeScreen();
   const backToMap = () => {
     navigate("/map");
   };
   return (
     <>
-      <section className='section-page section-background'>
+      <section className='section-page section-background section-large'>
         <div className='back-container'>
           <div className='back-btn'>
             <MdBackspace
@@ -231,6 +233,7 @@ const Info = () => {
           </Accordion>
         </div>
       </section>
+      {isLargeScreen && <SideBar />}
     </>
   );
 };

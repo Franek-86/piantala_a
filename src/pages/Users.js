@@ -13,8 +13,10 @@ import Button from "react-bootstrap/Button";
 import Loading from "./Loading";
 import { UsersContext } from "../context/UsersContext";
 import OperationsModal from "../components/users/OperationsModal";
-
+import useIsLargeScreen from "../utils/useIsLargeScreen";
+import SideBar from "../components/menu/SideBar";
 const Users = () => {
+  const isLargeScreen = useIsLargeScreen();
   const [modalOperationsShow, setModalOperationsShow] = useState(false);
 
   const handleClose = () => setModalOperationsShow(false);
@@ -51,102 +53,105 @@ const Users = () => {
   }, [userInfo]);
 
   return (
-    <section className='section-background section-full-page section-users'>
-      <div className='back-container'>
-        <div className='back-btn'>
-          <MdBackspace
-            onClick={() => {
-              backToMap();
-            }}
-          />
+    <>
+      <section className='section-background section-full-page section-users section-large'>
+        <div className='back-container'>
+          <div className='back-btn'>
+            <MdBackspace
+              onClick={() => {
+                backToMap();
+              }}
+            />
+          </div>
         </div>
-      </div>
 
-      <div className='section-center'>
-        <section className='section-page section-background'>
-          <div className='section-center'>
-            <h2 className='section-title' style={{ "padding-top": "4rem" }}>
-              Lista Utenti
-            </h2>
-            <div className='d-md-flex justify-content-md-center'>
-              {loading && <Loading />}
-              {userLoading && <Loading />}
+        <div className='section-center'>
+          <section className='section-page section-background'>
+            <div className='section-center'>
+              <h2 className='section-title' style={{ "padding-top": "4rem" }}>
+                Lista Utenti
+              </h2>
+              <div className='d-md-flex justify-content-md-center'>
+                {loading && <Loading />}
+                {userLoading && <Loading />}
 
-              <Col md={6} className='justify-content-md-center'>
-                <ListGroup>
-                  {allUsers &&
-                    allUsers.map((i) => {
-                      const {
-                        id,
-                        first_name,
-                        last_name,
-                        birthday,
-                        city,
-                        user_name,
-                        role,
-                        createdAt,
-                        status,
-                        pic,
-                      } = i;
-                      console.log("qui", i);
-                      return (
-                        <ListGroup.Item className='mt-2 p-0'>
-                          <div className='d-flex'>
-                            {/* <Avatar facebookId='100008343750912' size='100' /> */}
-                            <Avatar
-                              src={pic}
-                              maxInitials={2}
-                              // className='direct-chat-img'
-                              name={user_name}
-                            />
+                <Col md={6} className='justify-content-md-center'>
+                  <ListGroup>
+                    {allUsers &&
+                      allUsers.map((i) => {
+                        const {
+                          id,
+                          first_name,
+                          last_name,
+                          birthday,
+                          city,
+                          user_name,
+                          role,
+                          createdAt,
+                          status,
+                          pic,
+                        } = i;
+                        console.log("qui", i);
+                        return (
+                          <ListGroup.Item className='mt-2 p-0'>
+                            <div className='d-flex'>
+                              {/* <Avatar facebookId='100008343750912' size='100' /> */}
+                              <Avatar
+                                src={pic}
+                                maxInitials={2}
+                                // className='direct-chat-img'
+                                name={user_name}
+                              />
 
-                            <div className='d-flex flex-column justify-content-center ps-4'>
-                              <span>
-                                {" "}
-                                Nome: {user_name}{" "}
-                                {status === 1 && <ImBlocked />}
-                              </span>
-                              <span> Ruolo: {role}</span>
-                              <span>Registrato: {formatDate(createdAt)}</span>
-                              {userRole === "admin" && (
-                                <Card.Link
-                                  className='copy'
-                                  variant='primary'
-                                  onClick={() => {
-                                    handleShow(true);
-                                    setUserInfo({
-                                      id,
-                                      role,
-                                      status,
-                                    });
-                                  }}
-                                >
-                                  Modifica
-                                </Card.Link>
-                              )}
-                              {/* <Button
+                              <div className='d-flex flex-column justify-content-center ps-4'>
+                                <span>
+                                  {" "}
+                                  Nome: {user_name}{" "}
+                                  {status === 1 && <ImBlocked />}
+                                </span>
+                                <span> Ruolo: {role}</span>
+                                <span>Registrato: {formatDate(createdAt)}</span>
+                                {userRole === "admin" && (
+                                  <Card.Link
+                                    className='copy'
+                                    variant='primary'
+                                    onClick={() => {
+                                      handleShow(true);
+                                      setUserInfo({
+                                        id,
+                                        role,
+                                        status,
+                                      });
+                                    }}
+                                  >
+                                    Modifica
+                                  </Card.Link>
+                                )}
+                                {/* <Button
                                 onClick={() => setModalOperationsShow(true)}
                                 variant='link'
                               >
                                 Link
                               </Button> */}
+                              </div>
                             </div>
-                          </div>
-                        </ListGroup.Item>
-                      );
-                    })}
-                </ListGroup>
-              </Col>
+                          </ListGroup.Item>
+                        );
+                      })}
+                  </ListGroup>
+                </Col>
+              </div>
             </div>
-          </div>
-        </section>
-      </div>
-      <OperationsModal
-        handleClose={handleClose}
-        show={modalOperationsShow}
-        onHide={() => handleClose()}
-      />
-    </section>
+          </section>
+        </div>
+        <OperationsModal
+          handleClose={handleClose}
+          show={modalOperationsShow}
+          onHide={() => handleClose()}
+        />
+      </section>
+      {isLargeScreen && <SideBar />}
+    </>
   );
 };
 

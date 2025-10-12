@@ -14,7 +14,7 @@ import { FaUsers } from "react-icons/fa";
 import { GiLion } from "react-icons/gi";
 import { MdOutlineShoppingCartCheckout } from "react-icons/md";
 import { IoMdChatbubbles } from "react-icons/io";
-
+import { PiPottedPlantBold } from "react-icons/pi";
 const SideBar = () => {
   const { handleLogout, userRole } = useContext(AuthContext);
   return (
@@ -26,6 +26,12 @@ const SideBar = () => {
       </Offcanvas.Header>
       <Offcanvas.Body>
         <ListGroup className='sidebar-section' variant='flush'>
+          <ListGroup.Item>
+            <Link to='/map' class='nav-link text-truncate'>
+              <PiPottedPlantBold />
+              <span class='ms-2 d-sm-inline'>Home</span>
+            </Link>
+          </ListGroup.Item>
           <ListGroup.Item>
             <Link to='/chi-siamo' class='nav-link text-truncate'>
               <GiLion />

@@ -2,15 +2,18 @@ import BottomBar from "../components/map/BottomBar";
 import { useNavigate } from "react-router-dom";
 import { MdBackspace } from "react-icons/md";
 import React from "react";
+import useIsLargeScreen from "../utils/useIsLargeScreen";
+import SideBar from "../components/menu/SideBar";
 
 const ChiSiamo = () => {
   const navigate = useNavigate();
+  const isLargeScreen = useIsLargeScreen();
   const backToMap = () => {
     navigate("/map");
   };
   return (
     <>
-      <section className='section-page section-background'>
+      <section className='section-page section-background section-large'>
         <div className='back-container'>
           <div className='back-btn'>
             <MdBackspace
@@ -40,6 +43,7 @@ const ChiSiamo = () => {
           </p>
         </div>
       </section>
+      {isLargeScreen && <SideBar />}
     </>
   );
 };

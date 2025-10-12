@@ -16,9 +16,12 @@ import { MdLocalPhone } from "react-icons/md";
 import { MdEmail } from "react-icons/md";
 import Loading from "./Loading";
 import { UsersContext } from "../context/UsersContext";
+import useIsLargeScreen from "../utils/useIsLargeScreen";
+import SideBar from "../components/menu/SideBar";
 
 const Contacts = () => {
   const navigate = useNavigate();
+  const isLargeScreen = useIsLargeScreen();
   const backToMap = () => {
     navigate("/map");
   };
@@ -33,117 +36,120 @@ const Contacts = () => {
     }
   };
   return (
-    <section className='section-background section-full-page'>
-      <div className='back-container'>
-        <div className='back-btn'>
-          <MdBackspace
-            onClick={() => {
-              backToMap();
-            }}
-          />
+    <>
+      <section className='section-background section-full-page section-large'>
+        <div className='back-container'>
+          <div className='back-btn'>
+            <MdBackspace
+              onClick={() => {
+                backToMap();
+              }}
+            />
+          </div>
         </div>
-      </div>
-      {loading && <Loading />}
+        {loading && <Loading />}
 
-      <section className='section-page section-background'>
-        <div className='section-center menu-section-center'>
-          <article className='mb-3'>
-            <h2 className='section-title'>I nostri contatti</h2>
+        <section className='section-page section-background'>
+          <div className='section-center menu-section-center'>
+            <article className='mb-3'>
+              <h2 className='section-title'>I nostri contatti</h2>
 
-            <Form onSubmit={handleSubmit(onSubmit)}>
-              {/* <h5 className='mb-3'>Scrivici una mail (non attivo)</h5> */}
-              <Form.Group
-                className='mb-3'
-                controlId='exampleForm.ControlInput1'
-              >
-                {/* <Form.Label>La tua mail</Form.Label> */}
-                {/* <Form.Control type='email' placeholder='la tua mail' /> */}
-              </Form.Group>
-              <Form.Group
-                className='mb-3'
-                controlId='exampleForm.ControlTextarea1'
-              >
-                <Form.Control
-                  placeholder='Come possiamo aiutarti?'
-                  as='textarea'
-                  {...register("messageBody", { minLength: 2 })}
-                  rows={4}
-                />
-              </Form.Group>
-              <div className='d-flex justify-content-center'>
-                <Button
-                  className='w-100 text-align-center'
-                  variant='primary'
-                  type='submit'
+              <Form onSubmit={handleSubmit(onSubmit)}>
+                {/* <h5 className='mb-3'>Scrivici una mail (non attivo)</h5> */}
+                <Form.Group
+                  className='mb-3'
+                  controlId='exampleForm.ControlInput1'
                 >
-                  Invia mail
-                </Button>
-              </div>
-            </Form>
-          </article>
+                  {/* <Form.Label>La tua mail</Form.Label> */}
+                  {/* <Form.Control type='email' placeholder='la tua mail' /> */}
+                </Form.Group>
+                <Form.Group
+                  className='mb-3'
+                  controlId='exampleForm.ControlTextarea1'
+                >
+                  <Form.Control
+                    placeholder='Come possiamo aiutarti?'
+                    as='textarea'
+                    {...register("messageBody", { minLength: 2 })}
+                    rows={4}
+                  />
+                </Form.Group>
+                <div className='d-flex justify-content-center'>
+                  <Button
+                    className='w-100 text-align-center'
+                    variant='primary'
+                    type='submit'
+                  >
+                    Invia mail
+                  </Button>
+                </div>
+              </Form>
+            </article>
 
-          <hr />
-          <article className='my-3'>
-            <div className='contacts-location mb-3 d-flex align-items-center'>
-              <span className='contacts-location-icon pe-3'>
-                <IoLocationSharp />{" "}
-              </span>
-              <span> contrada gravinella, 60 Fasano</span>
-            </div>
-            <div className='contacts-email mb-3 d-flex align-items-center'>
-              <span className='contacts-location-icon pe-3'>
-                <MdEmail />
-              </span>
-              <span> tipiantoperamore@gmail.com </span>
-            </div>
-            {/* <div className='contacts-phone mb-3 d-flex align-items-center'>
+            <hr />
+            <article className='my-3'>
+              <div className='contacts-location mb-3 d-flex align-items-center'>
+                <span className='contacts-location-icon pe-3'>
+                  <IoLocationSharp />{" "}
+                </span>
+                <span> contrada gravinella, 60 Fasano</span>
+              </div>
+              <div className='contacts-email mb-3 d-flex align-items-center'>
+                <span className='contacts-location-icon pe-3'>
+                  <MdEmail />
+                </span>
+                <span> tipiantoperamore@gmail.com </span>
+              </div>
+              {/* <div className='contacts-phone mb-3 d-flex align-items-center'>
               <span className='contacts-location-icon pe-3'>
                 <MdLocalPhone />
               </span>
               <span> +39 3485384563</span>
             </div> */}
-          </article>
-          <hr />
-          <article className='d-flex align-items-center mt-3'>
-            <span className='text-center'>Seguici</span>
-            <div className='contacts-socials-container'>
-              <div className='social-icons-center d-flex justify-content-around align-items-center w-75'>
-                {/* <div className='contacts-social-icon ps-3'>
+            </article>
+            <hr />
+            <article className='d-flex align-items-center mt-3'>
+              <span className='text-center'>Seguici</span>
+              <div className='contacts-socials-container'>
+                <div className='social-icons-center d-flex justify-content-around align-items-center w-75'>
+                  {/* <div className='contacts-social-icon ps-3'>
                   <a target='_blank' href='  https://x.com/Amici_ErnestV'>
                     {" "}
                     <FaXTwitter />
                   </a>
                 </div> */}
-                <div className='contacts-social-icon ps-3'>
-                  <a target='_blank' href='https://www.ernestverner.it/'>
-                    {" "}
-                    <GiLion />
-                  </a>
-                </div>
-                <div className='contacts-social-icon ps-3'>
-                  <a
-                    target='_blank'
-                    href='https://www.instagram.com/tipiantoperamore?igsh=MWY5cTFhZWJ2NXM2eQ=='
-                  >
-                    {" "}
-                    <FaInstagram />
-                  </a>
-                </div>
-                <div className='contacts-social-icon ps-3'>
-                  <a
-                    target='_blank'
-                    href='https://www.facebook.com/ti.pianto.per.amore/'
-                  >
-                    {" "}
-                    <FaFacebookF />
-                  </a>
+                  <div className='contacts-social-icon ps-3'>
+                    <a target='_blank' href='https://www.ernestverner.it/'>
+                      {" "}
+                      <GiLion />
+                    </a>
+                  </div>
+                  <div className='contacts-social-icon ps-3'>
+                    <a
+                      target='_blank'
+                      href='https://www.instagram.com/tipiantoperamore?igsh=MWY5cTFhZWJ2NXM2eQ=='
+                    >
+                      {" "}
+                      <FaInstagram />
+                    </a>
+                  </div>
+                  <div className='contacts-social-icon ps-3'>
+                    <a
+                      target='_blank'
+                      href='https://www.facebook.com/ti.pianto.per.amore/'
+                    >
+                      {" "}
+                      <FaFacebookF />
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
-          </article>
-        </div>
+            </article>
+          </div>
+        </section>
       </section>
-    </section>
+      {isLargeScreen && <SideBar />}
+    </>
   );
 };
 

@@ -14,7 +14,7 @@ import CardImg from "react-bootstrap/CardImg";
 
 import { copyToClipboard } from "../utils/utils";
 import useIsLargeScreen from "../utils/useIsLargeScreen";
-import SideBar from "../components/map/SideBar";
+import SideBar from "../components/menu/SideBar";
 
 const MyPlants = () => {
   const { myReports, loadingReports, fetchUserPlants } =
@@ -37,7 +37,7 @@ const MyPlants = () => {
 
   return (
     <>
-      <section className='section-page section-background section-large'>
+      <section className='section-page section-background section-large map'>
         <div className='section-center section-center-map'>
           <h2 className='section-title d-lg-none pt-5'>Le mie segnalazioni</h2>
 

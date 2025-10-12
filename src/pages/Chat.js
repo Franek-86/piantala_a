@@ -5,9 +5,11 @@ import ChatForm from "../components/chat/ChatForm";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { MdBackspace } from "react-icons/md";
-
+import useIsLargeScreen from "../utils/useIsLargeScreen";
+import SideBar from "../components/menu/SideBar";
 const Chat = () => {
   const { getMessages, messages, message } = useContext(ChatContext);
+  const isLargeScreen = useIsLargeScreen();
   useEffect(() => {
     getMessages();
   }, []);
@@ -16,27 +18,28 @@ const Chat = () => {
     navigate("/map");
   };
   return (
-    <section className='section-background section-full-page section-users'>
-      <div className='back-container'>
-        <div className='back-btn'>
-          <MdBackspace
-            onClick={() => {
-              backToMap();
-            }}
-          />
+    <>
+      <section className='section-background section-full-page section-users section-large'>
+        <div className='back-container'>
+          <div className='back-btn'>
+            <MdBackspace
+              onClick={() => {
+                backToMap();
+              }}
+            />
+          </div>
         </div>
-      </div>
 
-      <div className='section-center'>
-        <section className='section-page section-background pb-0'>
-          <div className='section-center'>
-            <h2 className='section-title' style={{ "padding-top": "4rem" }}>
-              Chat aperta
-            </h2>
-            <div class='page-content page-container' id='page-content'>
-              <div class='col-md-4'></div>
-              <div className='box box-warning direct-chat direct-chat-warning'>
-                {/* <div class='box-header with-border'>
+        <div className='section-center'>
+          <section className='section-page section-background pb-0'>
+            <div className='section-center'>
+              <h2 className='section-title' style={{ "padding-top": "4rem" }}>
+                Chat aperta
+              </h2>
+              <div class='page-content page-container' id='page-content'>
+                <div class='col-md-4'></div>
+                <div className='box box-warning direct-chat direct-chat-warning'>
+                  {/* <div class='box-header with-border'>
                       <h3 class='box-title'>Messaggi</h3>
 
                       <div class='box-tools pull-right'>
@@ -74,14 +77,16 @@ const Chat = () => {
                         </button>
                       </div>
                     </div> */}
-                <ChatBody />
+                  <ChatBody />
+                </div>
+                <ChatForm />
               </div>
-              <ChatForm />
             </div>
-          </div>
-        </section>
-      </div>
-    </section>
+          </section>
+        </div>
+      </section>
+      {isLargeScreen && <SideBar />}
+    </>
   );
 };
 

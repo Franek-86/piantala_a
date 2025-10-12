@@ -9,12 +9,13 @@ import useIsLargeScreen from "../utils/useIsLargeScreen";
 import { MdAddLocationAlt } from "react-icons/md";
 import { MdFilterAlt } from "react-icons/md";
 import { MdCenterFocusStrong } from "react-icons/md";
-import SideBar from "../components/map/SideBar";
+import SideBar from "../components/menu/SideBar";
+
 const Legend = () => {
   const isLargeScreen = useIsLargeScreen();
   return (
     <>
-      <section className='section-page section-background section-large'>
+      <section className='section-page section-background section-large map'>
         <div className='section-center section-center-map'>
           <h2 className='section-title pt-5 d-lg-none'>legenda</h2>
           <ul className='mt-lg-5'>

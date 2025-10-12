@@ -6,11 +6,14 @@ import { MdBackspace } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import Fancybox from "../components/plates/Fancybox";
 import Slider from "react-slick";
+
+import useIsLargeScreen from "../utils/useIsLargeScreen";
+import SideBar from "../components/menu/SideBar";
 const Plates = () => {
   const { getAllPlants, plates } = useContext(PlantsContext);
 
   const [isLoaded, setIsLoaded] = useState(false);
-
+  const isLargeScreen = useIsLargeScreen();
   const handleImageLoad = () => {
     setIsLoaded(true);
   };
@@ -33,59 +36,64 @@ const Plates = () => {
   };
   console.log("e1", plates);
   return (
-    <section className='section-background section-full-page'>
-      <div className='back-container'>
-        <div className='back-btn'>
-          <MdBackspace
-            onClick={() => {
-              backToMap();
-            }}
-          />
+    <>
+      <section className='section-background section-full-page section-large'>
+        <div className='back-container'>
+          <div className='back-btn'>
+            <MdBackspace
+              onClick={() => {
+                backToMap();
+              }}
+            />
+          </div>
         </div>
-      </div>
-      <div className='section-center'>
-        <section className='section-page section-background'>
-          <div className='section-center menu-section-center'>
-            <h2 className='section-title'>Le vostre targhe</h2>
-            {plates?.length === 0 && <p>Non ci sono targhe da visualizzare.</p>}
-            {plates?.length === 1 && (
-              <img
-                onLoad={handleImageLoad}
-                className={`plates-img transition-opacity duration-500 ${
-                  isLoaded ? "opacity-100" : "opacity-0"
-                }`}
-                alt=''
-                src={plates[0].plate}
-              />
-            )}
-            {plates?.length > 1 && (
-              <Fancybox>
-                <Slider {...settings}>
-                  {plates.map((e, index) => {
-                    return (
-                      <a data-fancybox='gallery' href={e.plate} key={index}>
-                        <img
-                          onLoad={handleImageLoad}
-                          className={`plates-img transition-opacity duration-500 ${
-                            isLoaded ? "opacity-100" : "opacity-0"
-                          }`}
-                          alt=''
-                          src={e.plate}
-                        />
-                      </a>
-                    );
-                  })}
-                </Slider>
-              </Fancybox>
-            )}
-            {/* <ReactFancyBox
+        <div className='section-center'>
+          <section className='section-page section-background'>
+            <div className='section-center menu-section-center'>
+              <h2 className='section-title'>Le vostre targhe</h2>
+              {plates?.length === 0 && (
+                <p>Non ci sono targhe da visualizzare.</p>
+              )}
+              {plates?.length === 1 && (
+                <img
+                  onLoad={handleImageLoad}
+                  className={`plates-img transition-opacity duration-500 ${
+                    isLoaded ? "opacity-100" : "opacity-0"
+                  }`}
+                  alt=''
+                  src={plates[0].plate}
+                />
+              )}
+              {plates?.length > 1 && (
+                <Fancybox>
+                  <Slider {...settings}>
+                    {plates.map((e, index) => {
+                      return (
+                        <a data-fancybox='gallery' href={e.plate} key={index}>
+                          <img
+                            onLoad={handleImageLoad}
+                            className={`plates-img transition-opacity duration-500 ${
+                              isLoaded ? "opacity-100" : "opacity-0"
+                            }`}
+                            alt=''
+                            src={e.plate}
+                          />
+                        </a>
+                      );
+                    })}
+                  </Slider>
+                </Fancybox>
+              )}
+              {/* <ReactFancyBox
               thumbnail='https://loremflickr.com/320/240'
               image='https://www.w3schools.com/howto/img_forest.jpg'
             /> */}
-          </div>
-        </section>
-      </div>
-    </section>
+            </div>
+          </section>
+        </div>
+      </section>
+      {isLargeScreen && <SideBar />}
+    </>
   );
 };
 

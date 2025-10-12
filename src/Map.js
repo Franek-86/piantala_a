@@ -28,7 +28,7 @@ import { Geolocation } from "@capacitor/geolocation";
 import { Capacitor } from "@capacitor/core";
 import { SocketContext } from "./context/SocketContext";
 import Buttons from "./components/map/Buttons";
-import SideBar from "./components/map/SideBar";
+import SideBar from "./components/menu/SideBar";
 
 const DefaultIcon = L.icon({
   iconUrl: iconLocation, // This can be your default icon

@@ -10,7 +10,8 @@ import { Button } from "react-bootstrap";
 import { FaPen } from "react-icons/fa";
 import { FaRegEye } from "react-icons/fa";
 import OrderModal from "../components/orders/OrderModal";
-
+import useIsLargeScreen from "../utils/useIsLargeScreen";
+import SideBar from "../components/menu/SideBar";
 const Orders = () => {
   const {
     getAllOrders,
@@ -22,6 +23,7 @@ const Orders = () => {
     setOrderId,
     loading,
   } = useContext(OrdersContext);
+  const isLargeScreen = useIsLargeScreen();
   const navigate = useNavigate();
   const backToMap = () => {
     navigate("/map");
@@ -38,7 +40,7 @@ const Orders = () => {
   return (
     <>
       {loading && <Loading />}
-      <section className='section-page section-background'>
+      <section className='section-page section-background section-large'>
         <div className='back-container'>
           <div className='back-btn'>
             <MdBackspace
@@ -104,6 +106,7 @@ const Orders = () => {
           </Table>
         </div>
       </section>
+      {isLargeScreen && <SideBar />}
     </>
   );
 };
