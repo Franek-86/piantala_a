@@ -57,7 +57,7 @@ const OwnedPlants = () => {
             }}
           />
         </div> */}
-          <h2 className='section-title d-lg-none pt-5'>I miei alberi</h2>
+          <h2 className='section-title d-lg-none pt-5'>Le mie piante</h2>
           {myPlants && myPlants?.length > 0 ? (
             /* <th>Data acquisto</th>
                 <th>Tipo</th>
@@ -194,7 +194,7 @@ const OwnedPlants = () => {
                 })}
             </Row>
           ) : (
-            <p>Non hai ancora acquistato nessun albero.</p>
+            <p className='mt-lg-3'>Non hai ancora acquistato nessun albero.</p>
           )}
         </div>
       </section>
