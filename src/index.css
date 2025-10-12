@@ -124,6 +124,20 @@ fieldset:disabled .btn {
   outline: 0;
   box-shadow: 0 0 0 0.25rem var(--clr-primary-2);
 }
+.form-check-input:checked {
+  background-color: var(--clr-primary-5);
+  border-color: var(--clr-primary-5);
+}
+
+.form-check-input:focus {
+  border-color: var(--clr-primary-6);
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem var(--clr-primary-3);
+}
+.form-check-input:active {
+  background-color: var(--clr-primary-5);
+  border-color: var(--clr-primary-5);
+}
 .form-wrapper {
   padding-bottom: 3rem;
 }
@@ -993,6 +1007,15 @@ element {
 
 /* filters */
 
+.form-check-input {
+  margin-bottom: 0.4rem !important;
+}
+.filter-plant {
+  width: 5%;
+  margin-left: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+/* 
 .offcanvas-body {
   flex-grow: 1;
   padding: var(--bs-offcanvas-padding-y) var(--bs-offcanvas-padding-x);
@@ -1002,8 +1025,10 @@ element {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
+} */
+/* .offcanvas {
+  bottom: 0;
+} */
 /* owned plants / my plants cards */
 
 .card-my,

@@ -70,7 +70,7 @@ function Map() {
 
   const { test } = useContext(OrdersContext);
   console.log("test from orders", test);
-  const { filters, handleFilterChange } = useContext(FilterContext);
+  const { filters, setFilters } = useContext(FilterContext);
   const { setShowPermissionModal } = useContext(AuthContext);
 
   const [copyText, setCopyText] = useState("");
@@ -128,6 +128,7 @@ function Map() {
       socket.off("all-plants", getAllPlants);
     };
   }, []);
+  console.log("statusPlants t", filters.status);
   let filteredPlants = plants.filter((plant) => {
     return (
       (filters.status === "" || plant.status_piantina === filters.status) &&
@@ -135,13 +136,26 @@ function Map() {
     );
   });
 
+  console.log("statusPlants t2", filteredPlants);
   const checkFilteredPlants = () => {
     const filteredPlantsLength = filteredPlants.length;
     if (filteredPlantsLength === 0) {
-      filteredPlants = [...plants];
+      // filteredPlants = [...plants];
+      setFilters({
+        status: "approved",
+        suburb: "",
+      });
+      filteredPlants = plants.filter((plant) => {
+        return (
+          (filters.status === "" || plant.status_piantina === filters.status) &&
+          (filters.suburb === "" || plant.suburb === filters.suburb)
+        );
+      });
     }
   };
-  checkFilteredPlants();
+  useContext(() => {
+    checkFilteredPlants();
+  }, [filteredPlants]);
 
   // end filters
 

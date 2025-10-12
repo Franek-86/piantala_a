@@ -2,11 +2,13 @@ import React, { useState, useContext, createContext } from "react";
 export const FilterContext = createContext();
 export const FilterProvider = ({ children }) => {
   const [filters, setFilters] = useState({
-    status: "",
+    status: "approved",
     suburb: "",
   });
+  const [isChecked, setIsChecked] = useState(false);
   const handleFilterChange = (e) => {
-    if (e === "test") {
+    if (e?.target?.type === "radio") {
+      // e.target.isChecked = true;
     }
     if (e?.target) {
       const { name, value } = e.target;
@@ -27,6 +29,7 @@ export const FilterProvider = ({ children }) => {
       value={{
         filters,
         handleFilterChange,
+        setFilters,
       }}
     >
       {children}

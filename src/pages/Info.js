@@ -78,17 +78,10 @@ const Info = () => {
               </Accordion.Header>
               <Accordion.Body>
                 <p>
-                  {" "}
-                  Dopo l'invio di una segnalazione, sulla mappa apparirà
-                  un'icona a forma di piantina di colore arancione nella
-                  posizione scelta. Cliccandoci su sarà possibile verificare i
-                  dettagli della segnalazione.
-                </p>
-                <p>
-                  Nella pagina "Le mie segnalazioni" sarà visibile una scheda
-                  con le informazioni inerenti la segnalazione, tra queste è
-                  presente lo stato della segnalazione. <br /> Lo stato può
-                  essere:
+                  Dopo l'invio di una segnalazione, nella pagina "Le mie
+                  segnalazioni" apparirà una scheda informativa con i dettagli
+                  inerenti la propria segnalazione, tra queste è presente lo
+                  stato della segnalazione. <br /> Lo stato può essere:
                 </p>
                 <ListGroup as='ol' numbered>
                   <ListGroup.Item as='li'>
@@ -115,6 +108,15 @@ const Info = () => {
                     icona a forma di piantina di colore verde.
                   </ListGroup.Item>
                 </ListGroup>
+                <p className='mt-3'>
+                  {" "}
+                  Sulla mappa inoltre apparirà un'icona a forma di piantina,
+                  inizialmente di colore arancione, nella posizione scelta. Per
+                  poterla visualizzare sarà necessario filtrare i risultati di
+                  ricerca selezionando le piantine "in attesa di approvazione".
+                  Cliccandoci su sarà possibile verificare i dettagli della
+                  segnalazione.
+                </p>
               </Accordion.Body>
             </Accordion.Item>
             <Accordion.Item eventKey='2'>

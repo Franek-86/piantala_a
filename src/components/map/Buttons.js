@@ -20,7 +20,7 @@ import ProfileModal from "./../user-profile/ProfileModal";
 import SideMenu from "../menu/SideMenu";
 
 const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
-  const { isAdmin } = useContext(AuthContext);
+  const { userRole } = useContext(AuthContext);
   const { loggedUserInfo } = useContext(UsersContext);
   const { pic } = loggedUserInfo;
   console.log("asdf", position);
@@ -100,7 +100,7 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
         >
           <MdAddLocationAlt />
         </Button>
-        {isAdmin && (
+        {userRole === "admin" && (
           <Link
             className='circle-button add-plant-manual'
             to='addPlant'
