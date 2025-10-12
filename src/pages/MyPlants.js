@@ -44,7 +44,7 @@ const MyPlants = () => {
           {loadingReports ? (
             <Loading />
           ) : myReports.length === 0 ? (
-            <p className='mt-lg-3'>Non hai ancora effettuato segalazioni.</p>
+            <p className='mt-lg-5'>Non hai ancora effettuato segalazioni.</p>
           ) : (
             <div>
               <Row xs={1} md={2} xl={3} className='g-4 mt-lg-5'>

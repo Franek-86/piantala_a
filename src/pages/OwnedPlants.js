@@ -194,7 +194,7 @@ const OwnedPlants = () => {
                 })}
             </Row>
           ) : (
-            <p className='mt-lg-3'>Non hai ancora acquistato nessun albero.</p>
+            <p className='mt-lg-5'>Non hai ancora acquistato nessun albero.</p>
           )}
         </div>
       </section>
