@@ -54,21 +54,21 @@ const ChiSiamo = () => {
             <h3>Patrocini</h3>
           </div>
           <div className='logo-container d-flex flex-column flex-lg-row justify-content-around w-100'>
-            <div className='single-logo mb-sm-4'>
+            <div className='single-logo mb-4 mb-lg-0'>
               {" "}
               <a href='https://www.comune.bari.it/'>
                 {" "}
                 <img src={logoBari} alt='' srcset='' />
               </a>
             </div>
-            <div className='single-logo mb-sm-4'>
+            <div className='single-logo mb-4 mb-lg-0'>
               {" "}
               <a href=''>
                 {" "}
                 <img src={donaBari} alt='' srcset='' />
               </a>
             </div>
-            <div className='single-logo mb-sm-4'>
+            <div className='single-logo mb-4 mb-lg-0'>
               {" "}
               <a href=''>
                 {" "}
