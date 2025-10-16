@@ -4,7 +4,9 @@ import { MdBackspace } from "react-icons/md";
 import React from "react";
 import useIsLargeScreen from "../utils/useIsLargeScreen";
 import SideBar from "../components/menu/SideBar";
-
+import logoBari from "../assets/images/layout_set_logo.png";
+import donaBari from "../assets/images/donalogo.jpg";
+import logoVerner from "../assets/images/logoverner.jpg";
 const ChiSiamo = () => {
   const navigate = useNavigate();
   const isLargeScreen = useIsLargeScreen();
@@ -47,6 +49,34 @@ const ChiSiamo = () => {
             piantumazione.
           </p>
         </div>
+        <article className='section-center'>
+          <div className='logo-header my-5 text-center'>
+            <h3>Patrocini</h3>
+          </div>
+          <div className='logo-container d-flex flex-column flex-lg-row justify-content-around w-100'>
+            <div className='single-logo mb-sm-4'>
+              {" "}
+              <a href='https://www.comune.bari.it/'>
+                {" "}
+                <img src={logoBari} alt='' srcset='' />
+              </a>
+            </div>
+            <div className='single-logo mb-sm-4'>
+              {" "}
+              <a href=''>
+                {" "}
+                <img src={donaBari} alt='' srcset='' />
+              </a>
+            </div>
+            <div className='single-logo mb-sm-4'>
+              {" "}
+              <a href=''>
+                {" "}
+                <img src={logoVerner} alt='' srcset='' />
+              </a>
+            </div>
+          </div>
+        </article>
       </section>
       {isLargeScreen && <SideBar />}
     </>

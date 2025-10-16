@@ -37,7 +37,7 @@ const SideBar = () => {
               }
             >
               <PiPottedPlantBold />
-              <span class='ms-2 d-sm-inline'>Home</span>
+              <span class='ms-2 d-sm-inline'>Mappa</span>
             </NavLink>
           </ListGroup.Item>
           <ListGroup.Item>

@@ -1687,3 +1687,18 @@ body {
 .modal-delete-btn {
   color: #dc3545;
 }
+
+/* Chi siamo */
+
+.single-logo {
+  /* border: 1px solid red; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo-container .single-logo img {
+  /* border: 1px solid red; */
+  height: 150px;
+  display: flex;
+  align-items: center;
+}
