@@ -63,14 +63,14 @@ const ChiSiamo = () => {
             </div>
             <div className='single-logo mb-4 mb-lg-0'>
               {" "}
-              <a href=''>
+              <a href='https://www.comune.bari.it/web/ambiente-verde-energia-e-impianti/dona-un-albero-alla-tua-citta'>
                 {" "}
                 <img src={donaBari} alt='' srcset='' />
               </a>
             </div>
             <div className='single-logo mb-4 mb-lg-0'>
               {" "}
-              <a href=''>
+              <a href='https://www.ernestverner.it/'>
                 {" "}
                 <img src={logoVerner} alt='' srcset='' />
               </a>
