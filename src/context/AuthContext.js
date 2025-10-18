@@ -101,21 +101,21 @@ export const AuthProvider = ({ children }) => {
     getRegions();
   }, []);
 
-  const generateFiscalCode = async (data) => {
-    try {
-      const response = await axios.post(
-        `${serverDomain}/api/auth/login/generate-fiscal-code`,
-        { payload: data }
-      );
-      if (response?.status === 200) {
-        return response.data;
-        return "error";
-      }
-      return;
-    } catch (error) {
-      console.error("Something went wrong", error);
-    }
-  };
+  // const generateFiscalCode = async (data) => {
+  //   try {
+  //     const response = await axios.post(
+  //       `${serverDomain}/api/auth/login/generate-fiscal-code`,
+  //       { payload: data }
+  //     );
+  //     if (response?.status === 200) {
+  //       return response.data;
+  //       return "error";
+  //     }
+  //     return;
+  //   } catch (error) {
+  //     console.error("Something went wrong", error);
+  //   }
+  // };
   const validateFiscalCode = async (data) => {
     try {
       const response = await axios.post(
@@ -151,7 +151,7 @@ export const AuthProvider = ({ children }) => {
       birthday,
       city: city,
       gender: gender,
-      fiscalCode: fiscal_code,
+      // fiscalCode: fiscal_code,
       email,
       password: user_password,
       user: user_name,
@@ -163,7 +163,7 @@ export const AuthProvider = ({ children }) => {
       last_name,
       address,
       birthday,
-      fiscal_code,
+      // fiscal_code,
       city,
       gender,
       user_name,
@@ -375,7 +375,7 @@ export const AuthProvider = ({ children }) => {
         login,
         registerUser,
         setIsAuthenticated,
-        generateFiscalCode,
+        // generateFiscalCode,
         validateFiscalCode,
         newPassword,
         pageError,

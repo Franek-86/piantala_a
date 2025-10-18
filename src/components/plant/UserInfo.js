@@ -47,9 +47,9 @@ const UserInfo = (props) => {
               <ListGroup.Item>
                 <span>Comune di residenza:</span> {city}
               </ListGroup.Item>
-              <ListGroup.Item>
+              {/* <ListGroup.Item>
                 <span>Codice Fiscale:</span> {fiscalCode}
-              </ListGroup.Item>
+              </ListGroup.Item> */}
             </>
           )}
           <ListGroup.Item>

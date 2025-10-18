@@ -44,7 +44,7 @@ const Register = () => {
     generateFiscalCode,
     getCities,
     regionsLoading,
-    validateFiscalCode: checkFiscalCode,
+    // validateFiscalCode: checkFiscalCode,
   } = useContext(AuthContext);
   const {
     register,
@@ -119,36 +119,36 @@ const Register = () => {
       setDisabled(true);
     }
   }, [name, lastName, gender, city, birthday]);
-  const generateCF = async () => {
-    const fields = watch();
-    const { name, lastName, gender, city, birthday } = fields;
-    console.log("f", fields);
-    if (name && lastName && gender && city && birthday) {
-      const regex = /^(\d{4})-(\d{2})-(\d{2})$/;
-      const match = birthday.match(regex);
+  // const generateCF = async () => {
+  //   const fields = watch();
+  //   const { name, lastName, gender, city, birthday } = fields;
+  //   console.log("f", fields);
+  //   if (name && lastName && gender && city && birthday) {
+  //     const regex = /^(\d{4})-(\d{2})-(\d{2})$/;
+  //     const match = birthday.match(regex);
 
-      if (match) {
-        const year = match[1]; // "1986"
-        const month = match[2]; // "12"
-        const day = match[3]; // "27"
+  //     if (match) {
+  //       const year = match[1]; // "1986"
+  //       const month = match[2]; // "12"
+  //       const day = match[3]; // "27"
 
-        const data = { name, lastName, gender, city, year, month, day };
-        const response = await generateFiscalCode(data);
-        if (response && response !== "error") {
-          setValue("fiscalCode", response);
-        }
-      }
-    }
-  };
+  //       const data = { name, lastName, gender, city, year, month, day };
+  //       const response = await generateFiscalCode(data);
+  //       if (response && response !== "error") {
+  //         setValue("fiscalCode", response);
+  //       }
+  //     }
+  //   }
+  // };
 
-  const validateFiscalCode = async (cf) => {
-    const response = await checkFiscalCode(cf);
-    if (response === "Codice fiscale valido") {
-      return true;
-    }
+  // const validateFiscalCode = async (cf) => {
+  //   const response = await checkFiscalCode(cf);
+  //   if (response === "Codice fiscale valido") {
+  //     return true;
+  //   }
 
-    return false;
-  };
+  //   return false;
+  // };
 
   const onSubmit = async (data) => {
     setLoading(true);
@@ -171,11 +171,11 @@ const Register = () => {
       return;
     }
 
-    const isValid = await validateFiscalCode(data.fiscalCode);
-    if (!isValid) {
-      setLoading(false);
-      return;
-    }
+    // const isValid = await validateFiscalCode(data.fiscalCode);
+    // if (!isValid) {
+    //   setLoading(false);
+    //   return;
+    // }
 
     try {
       const response = await registerUser(data);
@@ -186,7 +186,7 @@ const Register = () => {
           "🌱 Controlla la tua casella di posta per completare la registrazione.",
           {
             position: "top-right",
-            autoClose: false,
+            autoClose: 10000,
             hideProgressBar: false,
             closeOnClick: false,
             pauseOnHover: true,
@@ -456,7 +456,7 @@ const Register = () => {
                   <span className='text-danger'>{errors?.gender?.message}</span>
                 )}
               </Form.Group>
-              <Form.Group className='' controlId='formBasicUser'>
+              {/* <Form.Group className='' controlId='formBasicUser'>
                 <div className='d-flex w-100 mt-4 mb-3'>
                   <FloatingLabel
                     controlId='floatingInput'
@@ -485,7 +485,7 @@ const Register = () => {
                     onClick={() => generateCF()}
                   >
                     <GrUndo />
-                    {/* <SiStreamrunners /> */}
+
                   </Button>
                 </div>
                 {errors.user && (
@@ -493,7 +493,7 @@ const Register = () => {
                     {errors?.fiscalCode?.message}
                   </span>
                 )}
-              </Form.Group>
+              </Form.Group> */}
 
               <Form.Group className='my-3' controlId='formBasicUser'>
                 <FloatingLabel
