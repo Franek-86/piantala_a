@@ -51,29 +51,29 @@ const ChiSiamo = () => {
         </div>
         <article className='section-center'>
           <div className='logo-header my-5 text-center'>
-            <h3>Patrocini</h3>
+            <h4>Patrocini</h4>
           </div>
           <div className='logo-container d-flex flex-column flex-lg-row justify-content-around w-100'>
-            <div className='single-logo mb-4 mb-lg-0'>
+            <div className='single-logo mb-5 mb-lg-0'>
               {" "}
-              <a href='https://www.comune.bari.it/'>
-                {" "}
-                <img src={logoBari} alt='' srcset='' />
-              </a>
+              <a
+                href='https://www.comune.bari.it/'
+                className='logo-background logo-city'
+              ></a>
             </div>
-            <div className='single-logo mb-4 mb-lg-0'>
+            <div className='single-logo mb-5 mb-lg-0'>
               {" "}
-              <a href='https://www.comune.bari.it/web/ambiente-verde-energia-e-impianti/dona-un-albero-alla-tua-citta'>
-                {" "}
-                <img src={donaBari} alt='' srcset='' />
-              </a>
+              <a
+                href='https://www.comune.bari.it/web/ambiente-verde-energia-e-impianti/dona-un-albero-alla-tua-citta'
+                className='logo-background logo-dona'
+              ></a>
             </div>
-            <div className='single-logo mb-4 mb-lg-0'>
+            <div className='single-logo mb-5 mb-lg-0'>
               {" "}
-              <a href='https://www.ernestverner.it/'>
-                {" "}
-                <img src={logoVerner} alt='' srcset='' />
-              </a>
+              <a
+                href='https://www.ernestverner.it/'
+                className='logo-background logo-verner'
+              ></a>
             </div>
           </div>
         </article>

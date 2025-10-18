@@ -1702,3 +1702,21 @@ body {
   display: flex;
   align-items: center;
 }
+.logo-background {
+  display: block;
+  width: 5rem;
+  height: 5rem;
+}
+.logo-city {
+  background: url("../src/assets/images/layout_set_logo.png") no-repeat center;
+  background-size: cover;
+}
+
+.logo-dona {
+  background: url("../src/assets/images/donalogo.jpg") no-repeat center;
+  background-size: cover;
+}
+.logo-verner {
+  background: url("../src/assets/images/logoverner.jpg") no-repeat center;
+  background-size: cover;
+}

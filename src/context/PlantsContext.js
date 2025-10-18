@@ -327,7 +327,7 @@ export const PlantsProvider = ({ children }) => {
         },
       });
       if (response.status === 200) {
-        toast(`🌱 Tipo pianta ${type} aggiunto`, {
+        toast(`Tipo pianta ${type} aggiunto`, {
           position: "top-right",
           autoClose: 2000,
           hideProgressBar: false,
@@ -345,6 +345,17 @@ export const PlantsProvider = ({ children }) => {
         getAllPlants();
       }
     } catch (err) {
+      toast.error(`${err.message}`, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        // transition: Bounce,
+      });
       setError(err.message);
     } finally {
       setLoading(false);

@@ -72,61 +72,69 @@ const FilterControls = ({ showFilters, handleCloseFilters }) => {
           <span className='d-inline-block mb-4 fst-italic small'>
             Filtra la ricerca in base allo stato delle piantine
           </span>
-
-          <Form.Check
-            className='d-flex flex-row align-items-center mb-3'
-            checked={"approved" === filters.status}
-            type='radio'
-            label={
-              <div className='ms-2'>
-                <span>Disponibili all'acquisto</span>
-                <img class='filter-plant' src={greenPlants}></img>
-              </div>
-            }
-            name='status'
-            value='approved'
-            onChange={handleFilterChange}
-          />
-          {statusPlants.map((i, index) => {
-            if (i === "approved") {
-              return;
-            }
-            return (
-              <Form.Check
-                className='d-flex flex-row align-items-center mb-3'
-                type='radio'
-                key={index}
-                checked={i === filters.status}
-                label={
-                  i === "pending" ? pending : i === "booked" ? booked : rejected
-                }
-                name='status'
-                value={i}
-                onChange={handleFilterChange}
-              />
-            );
-          })}
-
+          <Form>
+            <Form.Check
+              className='d-flex flex-row align-items-center mb-3'
+              checked={"approved" === filters.status}
+              type='radio'
+              label={
+                <div className='ms-2'>
+                  <span>Disponibili all'acquisto</span>
+                  <img class='filter-plant' src={greenPlants}></img>
+                </div>
+              }
+              name='status'
+              value='approved'
+              onChange={handleFilterChange}
+              id='default-radio'
+            />
+            {statusPlants.map((i, index) => {
+              if (i === "approved") {
+                return;
+              }
+              return (
+                <Form.Check
+                  className='d-flex flex-row align-items-center mb-3'
+                  type='radio'
+                  key={index}
+                  checked={i === filters.status}
+                  label={
+                    i === "pending"
+                      ? pending
+                      : i === "booked"
+                      ? booked
+                      : rejected
+                  }
+                  name='status'
+                  value={i}
+                  id={`${i}-check}`}
+                  onChange={handleFilterChange}
+                />
+              );
+            })}
+          </Form>
           <span className='d-inline-block mt-5 mb-4 small fst-italic'>
             Filtra la ricerca in base al quartiere
           </span>
-          <Form.Select
-            name='suburb'
-            value={filters.suburb}
-            onChange={handleFilterChange}
-            // style={{ marginRight: "10px" }}
-          >
-            <option name='suburb' value=''>
-              Tutti i quartieri
-            </option>
-            {suburbPlants.map((i, index) => {
-              return (
-                <option name='suburb' value={i} key={index}>
-                  {i}
-                </option>
-              );
-            })}
-          </Form.Select>
+          <Form>
+            <Form.Select
+              name='suburb'
+              value={filters.suburb}
+              onChange={handleFilterChange}
+              // style={{ marginRight: "10px" }}
+            >
+              <option name='suburb' value=''>
+                Tutti i quartieri
+              </option>
+              {suburbPlants.map((i, index) => {
+                return (
+                  <option name='suburb' value={i} key={index}>
+                    {i}
+                  </option>
+                );
+              })}
+            </Form.Select>
+          </Form>
         </Offcanvas.Body>
       </Offcanvas>
     </>
