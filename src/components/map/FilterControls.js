@@ -65,7 +65,7 @@ const FilterControls = ({ showFilters, handleCloseFilters }) => {
         onHide={handleCloseFilters}
         placement={"end"}
       >
-        <Offcanvas.Header closeButton>
+        <Offcanvas.Header>
           <Offcanvas.Title>Filtra i risultati di ricerca</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body className='filters-container'>
@@ -136,6 +136,11 @@ const FilterControls = ({ showFilters, handleCloseFilters }) => {
             </Form.Select>
           </Form>
         </Offcanvas.Body>
+        <div className='text-center'>
+          <Button className='mt-5' onClick={handleCloseFilters}>
+            Chiudi
+          </Button>
+        </div>
       </Offcanvas>
     </>
   );
