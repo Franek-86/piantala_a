@@ -55,7 +55,7 @@ const UserProfile = () => {
       {userLoading && <Loading />}
       {/* {userLoading && <Loading />} */}
       <section className='section-page section-background'>
-        <div className='back-container'>
+        <div className='back-container profile'>
           <div className='back-btn'>
             <MdBackspace
               onClick={() => {

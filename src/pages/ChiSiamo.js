@@ -25,7 +25,7 @@ const ChiSiamo = () => {
             />
           </div>
         </div>
-        <div className='section-center menu-section-center'>
+        <div className='section-center menu-section-center pb-lg-5'>
           <h2 className='section-title'>Chi siamo</h2>
           <p>
             L'iniziativa{" "}

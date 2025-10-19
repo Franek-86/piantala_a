@@ -258,7 +258,9 @@ const Register = () => {
                   <div className='login-loader'></div>
                 </div>
               )}
-
+              {/*-----------------------------------------INIZIO INFORMAZIONI DI BASE-------------------------------------------------*/}
+              {/* NOME E COGNOME */}
+              <h6 className='mb-4'>Informazioni di base</h6>
               <Form.Group className='mb-3' controlId='formBasicUser'>
                 <FloatingLabel
                   controlId='floatingInput'
@@ -310,6 +312,222 @@ const Register = () => {
                   </span>
                 )}
               </Form.Group>
+              {/* DATA DI NASCITA */}
+              <Form.Group className='mb-4' controlId='formBasicUser'>
+                <FloatingLabel
+                  controlId='floatingInput'
+                  label='Data di nascita'
+                  className='mb-3'
+                >
+                  <Form.Control
+                    type='date'
+                    placeholder='Data di nascita'
+                    disabled={loading}
+                    {...register("birthday", {
+                      required: "Data di nascita necessaria",
+                    })}
+                  />
+                </FloatingLabel>
+
+                {errors.user && (
+                  <span className='text-danger'>
+                    {errors?.birthday?.message}
+                  </span>
+                )}
+              </Form.Group>
+              {/* GENERE */}
+              <Form.Group className='mb-3' controlId='formBasicUser'>
+                {/* <label htmlFor='' className='mb-2'>
+                  Genere
+                </label> */}
+                <div className='d-flex justify-content-start mb-3'>
+                  <Form.Check
+                    id='Uomo'
+                    type='radio'
+                    label='Uomo'
+                    value='M'
+                    disabled={loading}
+                    {...register("gender", {
+                      required: "Necessario specificare il genere",
+                    })}
+                  />
+                  <Form.Check
+                    id='Donna'
+                    className='ms-3'
+                    type='radio'
+                    label='Donna'
+                    value='F'
+                    disabled={loading}
+                    {...register("gender", {
+                      required: "Necessario specicare il genere",
+                    })}
+                  />
+                  <Form.Check
+                    id='Preferisco non dirlo'
+                    className='ms-3'
+                    type='radio'
+                    label='Preferisco non dirlo'
+                    value='N'
+                    disabled={loading}
+                    {...register("gender", {
+                      required: "Necessario specicare il genere",
+                    })}
+                  />
+                </div>
+                {errors.user && (
+                  <span className='text-danger'>{errors?.gender?.message}</span>
+                )}
+              </Form.Group>
+              <hr className='my-5' />
+              {/*-----------------------------------------FINE INFORMAZIONI DI BASE-------------------------------------------------- */}
+              {/*-----------------------------------------INIZIO DATI DI CONTATTO---------------------------------------------------- */}
+              <h6 className='mb-4'>
+                Dati di contatto (utilizzare la stessa mail con cui si intende
+                registrarsi)
+              </h6>
+              <Form.Group className='mb-3' controlId='formBasicEmail'>
+                <FloatingLabel
+                  controlId='floatingInput'
+                  label='Indirizzo e-mail'
+                  className='mb-3'
+                >
+                  <Form.Control
+                    type='email'
+                    placeholder='Inserisci email'
+                    disabled={loading}
+                    {...register("email", {
+                      required: "Email necessaria",
+                      pattern: {
+                        value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                        message: "Invalido formato email",
+                      },
+                    })}
+                  />
+                </FloatingLabel>
+
+                {errors.email && (
+                  <span className='text-danger'>{errors?.email?.message}</span>
+                )}
+              </Form.Group>
+              <Form.Group className='mb-3' controlId='formBasicPhone'>
+                <FloatingLabel
+                  controlId='floatingInput'
+                  label='Numero di telefono'
+                  className='mb-3'
+                >
+                  <Form.Control
+                    type='phone'
+                    placeholder='Numero di telefono necessario'
+                    disabled={loading}
+                    {...register("phone", {
+                      required: "Numero di telefono necessario",
+                    })}
+                  />
+                </FloatingLabel>
+
+                {errors.phone && (
+                  <span className='text-danger'>{errors?.phone?.message}</span>
+                )}
+              </Form.Group>
+              <hr className='my-5' />
+              {/*-----------------------------------------FINE DATI DI CONTATTO------------------------------------------------------ */}
+              {/*-----------------------------------------INIZIO INFORMAZIONI PER LA WEBAPP------------------------------------------ */}
+              <h6 className='mb-4'>Dati per utilizzo "Ti Pianto Per Amore"</h6>
+              {/* NOME UTENTE PIANTAMI */}
+              <Form.Group className='my-3' controlId='formBasicUser'>
+                <FloatingLabel
+                  controlId='floatingInput'
+                  label='Nome utente piantami'
+                  className='mb-3'
+                >
+                  <Form.Control
+                    type='text'
+                    // qui
+                    placeholder='Nome utente'
+                    disabled={loading}
+                    {...register("user", {
+                      required: "Nome utente necessario",
+                      maxLength: {
+                        value: 15,
+                        message:
+                          "Il nome utente può essere di massimo 15 caratteri",
+                      },
+                    })}
+                  />
+                </FloatingLabel>
+
+                {errors?.user && (
+                  <span className='text-danger'>{errors.user.message}</span>
+                )}
+              </Form.Group>
+              <Form.Group className='mb-3' controlId='formBasicPassword'>
+                <FloatingLabel controlId='floatingPassword' label='Password'>
+                  <span
+                    className='showHidePassword'
+                    onClick={() => setShowPassword1(!showPassword1)}
+                  >
+                    {showPassword1 ? (
+                      <FaEye className='showHidePasswordIcon' />
+                    ) : (
+                      <FaEyeSlash className='showHidePasswordIcon' />
+                    )}
+                  </span>
+                  <Form.Control
+                    type={showPassword1 ? "text" : "password"}
+                    placeholder='Password'
+                    disabled={loading}
+                    {...register("password", {
+                      required: "Password necessaria",
+                      minLength: {
+                        value: 6,
+                        message:
+                          "La password deve essere di almeno 6 caratteri",
+                      },
+                    })}
+                  />
+                </FloatingLabel>
+                {errors.password && (
+                  <span className='text-danger'>
+                    {errors?.password?.message}
+                  </span>
+                )}
+              </Form.Group>
+              <Form.Group className='mb-3' controlId='formBasicPassword'>
+                <FloatingLabel
+                  controlId='floatingPassword'
+                  label='Ripeti Password'
+                >
+                  <span
+                    className='showHidePassword'
+                    onClick={() => setShowPassword2(!showPassword2)}
+                  >
+                    {showPassword2 ? (
+                      <FaEye className='showHidePasswordIcon' />
+                    ) : (
+                      <FaEyeSlash className='showHidePasswordIcon' />
+                    )}
+                  </span>
+                  <Form.Control
+                    type={showPassword2 ? "text" : "password"}
+                    placeholder='Password'
+                    disabled={loading}
+                    {...register("password2", {
+                      required: "Password necessaria",
+                      minLength: {
+                        value: 6,
+                        message:
+                          "La password deve essere di almeno 6 caratteri",
+                      },
+                    })}
+                  />
+                </FloatingLabel>
+                {errors.password && (
+                  <span className='text-danger'>
+                    {errors?.password?.message}
+                  </span>
+                )}
+              </Form.Group>
+              {/* RESIDENZA */}
               <Form.Group className='mb-3' controlId='formBasicUser'>
                 <FloatingLabel
                   controlId='floatingInput'
@@ -398,248 +616,13 @@ const Register = () => {
                   )}
                 </Form.Group>
               )}
-              <Form.Group className='mb-4' controlId='formBasicUser'>
-                <FloatingLabel
-                  controlId='floatingInput'
-                  label='Data di nascita'
-                  className='mb-3'
-                >
-                  <Form.Control
-                    type='date'
-                    placeholder='Data di nascita'
-                    disabled={loading}
-                    {...register("birthday", {
-                      required: "Data di nascita necessaria",
-                    })}
-                  />
-                </FloatingLabel>
-
-                {errors.user && (
-                  <span className='text-danger'>
-                    {errors?.birthday?.message}
-                  </span>
-                )}
-              </Form.Group>
-              <Form.Group className='mb-3' controlId='formBasicUser'>
-                {/* <FloatingLabel
-                      controlId='floatingInput'
-                      label='Gender'
-                      className='mb-3'
-                    > */}
-                <label htmlFor='' className='mb-2'>
-                  Sesso
-                </label>
-                <div className='d-flex justify-content-start mb-3'>
-                  <Form.Check
-                    type='radio'
-                    label='Maschio'
-                    value='M'
-                    disabled={loading}
-                    {...register("gender", {
-                      required: "Necessario specificare il sesso",
-                    })}
-                  />
-                  <Form.Check
-                    className='ms-3'
-                    type='radio'
-                    label='Femmina'
-                    value='F'
-                    disabled={loading}
-                    {...register("gender", {
-                      required: "Necessario specicare il sesso",
-                    })}
-                  />
-                </div>
-                {/* </FloatingLabel> */}
-
-                {errors.user && (
-                  <span className='text-danger'>{errors?.gender?.message}</span>
-                )}
-              </Form.Group>
-              {/* <Form.Group className='' controlId='formBasicUser'>
-                <div className='d-flex w-100 mt-4 mb-3'>
-                  <FloatingLabel
-                    controlId='floatingInput'
-                    label='Codice Fiscale'
-                    className='w-100'
-                  >
-                    <Form.Control
-                      className='cf-input'
-                      type='text'
-                      placeholder='Codice fiscale'
-                      disabled={loading}
-                      {...register("fiscalCode", {
-                        required: "Codice fiscale necessario",
-                        maxLength: {
-                          value: 17,
-                          message: "codice fiscale errato",
-                        },
-                        validate: validateFiscalCode,
-                      })}
-                    />
-                  </FloatingLabel>
-                  <Button
-                    disabled={disabled}
-                    className='cf-Btn'
-                    type='button'
-                    onClick={() => generateCF()}
-                  >
-                    <GrUndo />
-
-                  </Button>
-                </div>
-                {errors.user && (
-                  <span className='text-danger'>
-                    {errors?.fiscalCode?.message}
-                  </span>
-                )}
-              </Form.Group> */}
-
-              <Form.Group className='my-3' controlId='formBasicUser'>
-                <FloatingLabel
-                  controlId='floatingInput'
-                  label='Nome utente piantami'
-                  className='mb-3'
-                >
-                  <Form.Control
-                    type='text'
-                    // qui
-                    placeholder='Nome utente'
-                    disabled={loading}
-                    {...register("user", {
-                      required: "Nome utente necessario",
-                      maxLength: {
-                        value: 15,
-                        message:
-                          "Il nome utente può essere di massimo 15 caratteri",
-                      },
-                    })}
-                  />
-                </FloatingLabel>
-
-                {errors?.user && (
-                  <span className='text-danger'>{errors.user.message}</span>
-                )}
-              </Form.Group>
-
-              <Form.Group className='mb-3' controlId='formBasicPhone'>
-                <FloatingLabel
-                  controlId='floatingInput'
-                  label='Numero di telefono'
-                  className='mb-3'
-                >
-                  <Form.Control
-                    type='phone'
-                    placeholder='Numero di telefono necessario'
-                    disabled={loading}
-                    {...register("phone", {
-                      required: "Numero di telefono necessario",
-                    })}
-                  />
-                </FloatingLabel>
-
-                {errors.phone && (
-                  <span className='text-danger'>{errors?.phone?.message}</span>
-                )}
-              </Form.Group>
-
-              <Form.Group className='mb-3' controlId='formBasicPassword'>
-                <FloatingLabel controlId='floatingPassword' label='Password'>
-                  <span
-                    className='showHidePassword'
-                    onClick={() => setShowPassword1(!showPassword1)}
-                  >
-                    {showPassword1 ? (
-                      <FaEye className='showHidePasswordIcon' />
-                    ) : (
-                      <FaEyeSlash className='showHidePasswordIcon' />
-                    )}
-                  </span>
-                  <Form.Control
-                    type={showPassword1 ? "text" : "password"}
-                    placeholder='Password'
-                    disabled={loading}
-                    {...register("password", {
-                      required: "Password necessaria",
-                      minLength: {
-                        value: 6,
-                        message:
-                          "La password deve essere di almeno 6 caratteri",
-                      },
-                    })}
-                  />
-                </FloatingLabel>
-                {errors.password && (
-                  <span className='text-danger'>
-                    {errors?.password?.message}
-                  </span>
-                )}
-              </Form.Group>
-              <Form.Group className='mb-3' controlId='formBasicPassword'>
-                <FloatingLabel
-                  controlId='floatingPassword'
-                  label='Ripeti Password'
-                >
-                  <span
-                    className='showHidePassword'
-                    onClick={() => setShowPassword2(!showPassword2)}
-                  >
-                    {showPassword2 ? (
-                      <FaEye className='showHidePasswordIcon' />
-                    ) : (
-                      <FaEyeSlash className='showHidePasswordIcon' />
-                    )}
-                  </span>
-                  <Form.Control
-                    type={showPassword2 ? "text" : "password"}
-                    placeholder='Password'
-                    disabled={loading}
-                    {...register("password2", {
-                      required: "Password necessaria",
-                      minLength: {
-                        value: 6,
-                        message:
-                          "La password deve essere di almeno 6 caratteri",
-                      },
-                    })}
-                  />
-                </FloatingLabel>
-                {errors.password && (
-                  <span className='text-danger'>
-                    {errors?.password?.message}
-                  </span>
-                )}
-              </Form.Group>
-              <Form.Group className='mb-3' controlId='formBasicEmail'>
-                <FloatingLabel
-                  controlId='floatingInput'
-                  label='Indirizzo e-mail'
-                  className='mb-3'
-                >
-                  <Form.Control
-                    type='email'
-                    placeholder='Inserisci email'
-                    disabled={loading}
-                    {...register("email", {
-                      required: "Email necessaria",
-                      pattern: {
-                        value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                        message: "Invalido formato email",
-                      },
-                    })}
-                  />
-                </FloatingLabel>
-
-                {errors.email && (
-                  <span className='text-danger'>{errors?.email?.message}</span>
-                )}
-              </Form.Group>
-
+              {/*-----------------------------------------FINE INFORMAZIONI PER LA WEBAPP-------------------------------------------- */}
               <Button
                 onClick={() => handleClick()}
                 variant='primary'
                 type='submit'
                 disabled={loading}
+                className='mt-3 btn btn-lg'
               >
                 Registrati
               </Button>

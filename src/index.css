@@ -1111,6 +1111,13 @@ element {
   }
 }
 
+/* user profile */
+@media screen and (min-width: 992px) {
+  .back-container.profile {
+    display: block;
+  }
+}
+
 /* contatti */
 
 .contacts-social-icon a {

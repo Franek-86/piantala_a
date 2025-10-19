@@ -15,7 +15,8 @@ import { GiLion } from "react-icons/gi";
 import { MdOutlineShoppingCartCheckout } from "react-icons/md";
 import { IoMdChatbubbles } from "react-icons/io";
 import { PiPottedPlantBold } from "react-icons/pi";
-
+import { FaMap } from "react-icons/fa";
+import { RiSeedlingFill } from "react-icons/ri";
 const SideBar = () => {
   const { handleLogout, userRole } = useContext(AuthContext);
   return (
@@ -36,7 +37,7 @@ const SideBar = () => {
                   : "nav-link text-truncate"
               }
             >
-              <PiPottedPlantBold />
+              <FaMap />
               <span class='ms-2 d-sm-inline'>Mappa</span>
             </NavLink>
           </ListGroup.Item>
@@ -49,7 +50,7 @@ const SideBar = () => {
                   : "nav-link text-truncate"
               }
             >
-              <GiLion />
+              <RiSeedlingFill />
               <span class='ms-2 d-sm-inline'>Chi siamo</span>
             </NavLink>
           </ListGroup.Item>
