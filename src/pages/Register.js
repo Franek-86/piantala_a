@@ -378,7 +378,7 @@ const Register = () => {
                   <span className='text-danger'>{errors?.gender?.message}</span>
                 )}
               </Form.Group>
-              <hr className='my-5' />
+              <hr className='mb-5' />
               {/*-----------------------------------------FINE INFORMAZIONI DI BASE-------------------------------------------------- */}
               {/*-----------------------------------------INIZIO DATI DI CONTATTO---------------------------------------------------- */}
               <h6 className='mb-4'>
@@ -429,7 +429,7 @@ const Register = () => {
                   <span className='text-danger'>{errors?.phone?.message}</span>
                 )}
               </Form.Group>
-              <hr className='my-5' />
+              <hr className='mb-5' />
               {/*-----------------------------------------FINE DATI DI CONTATTO------------------------------------------------------ */}
               {/*-----------------------------------------INIZIO INFORMAZIONI PER LA WEBAPP------------------------------------------ */}
               <h6 className='mb-4'>Dati per utilizzo "Ti Pianto Per Amore"</h6>
