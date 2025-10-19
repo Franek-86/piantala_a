@@ -337,9 +337,9 @@ const Register = () => {
               </Form.Group>
               {/* GENERE */}
               <Form.Group className='mb-3' controlId='formBasicUser'>
-                {/* <label htmlFor='' className='mb-2'>
+                <label htmlFor='' className='mb-2'>
                   Genere
-                </label> */}
+                </label>
                 <div className='d-flex justify-content-start mb-3'>
                   <Form.Check
                     id='Uomo'
