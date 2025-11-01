@@ -99,7 +99,7 @@ const RegisterLast = () => {
   };
   const birthday = userData?.birthday;
   return (
-    <section className='section-center mt-5'>
+    <section className='section-center d-flex flex-column justify-content-center vh-100'>
       <h4 className='mb-4'>
         Verifica i tuoi dati{" "}
         <span className='small fw-normal fst-italic pag'>(5/5)</span>

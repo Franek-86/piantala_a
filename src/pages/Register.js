@@ -121,17 +121,16 @@ const Register = () => {
 
   return (
     <>
-      <div className='section-center'>
-        <div className='back-btn'>
+      <div className='section-center position-relative'>
+        <div className='back-btn position-absolute end-0'>
           <MdBackspace
             onClick={() => {
               backToLogin();
             }}
           />
         </div>
-      </div>
-      <section className='section-center mt-5'>
-        {" "}
+      </div>{" "}
+      <section className='section-center d-flex flex-column justify-content-center vh-100'>
         {regionsLoading && <Loading />}
         {/* <div
         ref={formWrapperRef}

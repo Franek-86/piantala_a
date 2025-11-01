@@ -50,7 +50,7 @@ const RegisterTwo = () => {
     navigate("/register");
   };
   return (
-    <section className='section-center mt-5'>
+    <section className='section-center d-flex flex-column justify-content-center vh-100'>
       <h4 className='mb-4'>
         Dati di contatto{" "}
         <span className='small fw-normal fst-italic pag'>(2/5)</span>

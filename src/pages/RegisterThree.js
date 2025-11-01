@@ -61,7 +61,7 @@ const RegisterThree = () => {
   }, [userData]);
 
   return (
-    <section className='section-center mt-5'>
+    <section className='section-center d-flex flex-column justify-content-center vh-100'>
       <h4 className='mb-4'>
         Informazioni "Ti Pianto Per Amore"{" "}
         <span className='small fw-normal fst-italic pag'>(3/5)</span>
@@ -108,9 +108,9 @@ const RegisterThree = () => {
               onClick={() => setShowPassword1(!showPassword1)}
             >
               {showPassword1 ? (
-                <FaEye className='showHidePasswordIcon' />
-              ) : (
                 <FaEyeSlash className='showHidePasswordIcon' />
+              ) : (
+                <FaEye className='showHidePasswordIcon' />
               )}
             </span>
             <Form.Control
@@ -142,9 +142,9 @@ const RegisterThree = () => {
               onClick={() => setShowPassword2(!showPassword2)}
             >
               {showPassword2 ? (
-                <FaEye className='showHidePasswordIcon' />
-              ) : (
                 <FaEyeSlash className='showHidePasswordIcon' />
+              ) : (
+                <FaEye className='showHidePasswordIcon' />
               )}
             </span>
             <Form.Control

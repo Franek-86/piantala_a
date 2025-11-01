@@ -146,7 +146,7 @@ const RegisterFour = () => {
   // }, [userData]);
 
   return (
-    <section className='section-center mt-5'>
+    <section className='section-center d-flex flex-column justify-content-center vh-100'>
       {/* Server error message */}
       {serverError && <p className='text-danger'>{serverError}</p>}
       {successMessage && <p className='text-success'>{successMessage}</p>}
