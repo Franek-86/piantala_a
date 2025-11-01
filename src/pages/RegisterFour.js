@@ -155,7 +155,7 @@ const RegisterFour = () => {
       </div>{" "}
       <section className='section-center mt-5'>
         <h4 className='mb-5'>
-          Informazioni aggiuntive{" "}
+          Residenza{" "}
           <span className='small fw-normal fst-italic pag'>(4/5)</span>
         </h4>
         <form
@@ -169,7 +169,7 @@ const RegisterFour = () => {
             <Form.Group className='mb-3' controlId='formBasicUser'>
               <FloatingLabel
                 controlId='floatingInput'
-                label='Comune di nascita'
+                label='Comune di residenza'
                 className='mb-3'
               >
                 <Form.Select
@@ -177,7 +177,7 @@ const RegisterFour = () => {
                   // placeholder='Nato a'
                   disabled={loading}
                   {...register("city", {
-                    required: "Comune necessario",
+                    required: "Seleziona il comune di residenza",
                     onChange: (e) => {
                       handleChange(e);
                     },
@@ -199,13 +199,13 @@ const RegisterFour = () => {
               <Form.Group className='mb-3' controlId='formBasicUser'>
                 <FloatingLabel
                   controlId='floatingInput'
-                  label='Regione di provenienza'
+                  label='Regione'
                   className='mb-3'
                 >
                   <Form.Select
                     disabled={loading || district || city}
                     {...register("region", {
-                      required: "Regione necessaria",
+                      required: "Selezionare la regione di residenza",
                     })}
                   >
                     <option value=''>Seleziona regione</option>
@@ -226,7 +226,7 @@ const RegisterFour = () => {
                 <Form.Group className='mb-3' controlId='formBasicUser'>
                   <FloatingLabel
                     controlId='floatingInput'
-                    label='Provincia di provenienza'
+                    label='Provincia'
                     className='mb-3'
                   >
                     <Form.Select
@@ -234,7 +234,7 @@ const RegisterFour = () => {
                       // placeholder='Nato a'
                       disabled={loading || city}
                       {...register("district", {
-                        required: "Provincia necessaria",
+                        required: "Selezionare la provincia di residenza",
                       })}
                     >
                       <option value=''>Seleziona provincia</option>
@@ -257,7 +257,7 @@ const RegisterFour = () => {
                 <Form.Group>
                   <FloatingLabel
                     controlId='floatingInput'
-                    label='Provincia di provenienza'
+                    label='Provincia'
                     className='mb-3'
                   >
                     <Form.Select
@@ -285,7 +285,7 @@ const RegisterFour = () => {
                 <Form.Group className='mb-3' controlId='formBasicUser'>
                   <FloatingLabel
                     controlId='floatingInput'
-                    label='Comune di nascita'
+                    label='Comune'
                     className='mb-3'
                   >
                     <Form.Select
@@ -293,7 +293,7 @@ const RegisterFour = () => {
                       // placeholder='Nato a'
                       disabled={loading}
                       {...register("city", {
-                        required: "Comune necessario",
+                        required: "Selezionare il comune di residenza",
                         onChange: (e) => {
                           handleChange(e);
                         },

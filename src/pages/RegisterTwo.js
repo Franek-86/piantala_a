@@ -107,7 +107,7 @@ const RegisterTwo = () => {
                 name='phone'
                 value={userData.phone}
                 {...register("phone", {
-                  required: "Numero di telefono necessario",
+                  required: "Inserisci numero di telefono",
                   onChange: (e) => {
                     handleChange(e);
                   },

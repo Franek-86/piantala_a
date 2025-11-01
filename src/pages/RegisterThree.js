@@ -92,7 +92,7 @@ const RegisterThree = () => {
                 disabled={loading}
                 value={userData.user}
                 {...register("user", {
-                  required: "Nome utente necessario",
+                  required: "Inserisci nome utente",
                   maxLength: {
                     value: 15,
                     message:
@@ -128,7 +128,7 @@ const RegisterThree = () => {
                 name='password'
                 value={userData.password}
                 {...register("password", {
-                  required: "Password necessaria",
+                  required: "Inserisci password",
                   minLength: {
                     value: 6,
                     message: "La password deve essere di almeno 6 caratteri",
@@ -162,7 +162,7 @@ const RegisterThree = () => {
                 disabled={loading}
                 value={userData.password2}
                 {...register("password2", {
-                  required: "Password necessaria",
+                  required: "Inserisci password",
                   minLength: {
                     value: 6,
                     message: "La password deve essere di almeno 6 caratteri",
