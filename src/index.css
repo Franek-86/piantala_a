@@ -116,7 +116,7 @@ fieldset:disabled .btn {
   border-radius: var(--bs-border-radius);
 }
 .form-select:disabled {
-  background-color: var(--clr-primary-1);
+  background-color: var(--clr-secondary-0);
 }
 /* .form-select {
   border: var(--bs-border-width) solid var(--clr-primary-5);
@@ -261,6 +261,13 @@ hr {
     padding-top: 1rem;
   }
 }
+
+/*----------------------------------------- login section----------------------------------------------- */
+
+.resume-input {
+  border: none;
+  width: 50%;
+}
 /*----------------------------------------- login section----------------------------------------------- */
 .logo-container {
   width: 3rem;
@@ -305,9 +312,14 @@ element {
 }
 .showHidePasswordIcon {
   font-size: 1.275rem;
-  color: var(--clr-primary-6);
+  color: var(--clr-secondary-3);
 }
-
+.showHidePasswordReview:hover {
+  cursor: pointer;
+}
+.pag {
+  color: var(--clr-secondary-2);
+}
 /* ----------------------sidebar-------------------------------------*/
 .sidebar-logo {
   width: 10.5rem;

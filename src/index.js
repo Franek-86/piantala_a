@@ -9,6 +9,7 @@ import {
   Outlet,
   RouterProvider,
 } from "react-router-dom";
+
 import { AuthProvider } from "./context/AuthContext";
 import { PlantsProvider } from "./context/PlantsContext";
 import { OrdersProvider } from "./context/OrdersContext";
@@ -49,6 +50,10 @@ import UserProfile from "./pages/UserProfile";
 import { defineCustomElements } from "@ionic/pwa-elements/loader";
 import { UsersProvider } from "./context/UsersContext";
 import Map from "./Map";
+import RegisterTwo from "./pages/RegisterTwo";
+import RegisterThree from "./pages/RegisterThree";
+import RegisterFour from "./pages/RegisterFour";
+import RegisterLast from "./pages/RegisterLast";
 
 // import { io } from "socket.io-client";
 // const url =
@@ -74,6 +79,26 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/register2",
+        element: <RegisterTwo />,
+      },
+      {
+        path: "/register3",
+        element: <RegisterThree />,
+      },
+      {
+        path: "/register3",
+        element: <RegisterThree />,
+      },
+      {
+        path: "/register4",
+        element: <RegisterFour />,
+      },
+      {
+        path: "/register5",
+        element: <RegisterLast />,
       },
       {
         path: "/reset",

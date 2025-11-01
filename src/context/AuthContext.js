@@ -6,9 +6,23 @@ import { toast } from "react-toastify";
 import axiosInstance from "../services/axiosInstance";
 import { FormControl } from "react-bootstrap";
 import { Camera, CameraResultType } from "@capacitor/camera";
+import { navigateToLoginFunction } from "../services/deepLinkServices";
+
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
+  const [userData, setUserData] = useState({
+    name: "",
+    lastName: "",
+    birthday: "",
+    gender: "",
+    email: "",
+    phone: "",
+    user: "",
+    password: "",
+    password2: "",
+    city: "",
+  });
   const [isRefreshTokenExpired, setIsRefreshTokenExpired] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userToken, setUserToken] = useState(null);
@@ -101,34 +115,6 @@ export const AuthProvider = ({ children }) => {
     getRegions();
   }, []);
 
-  // const generateFiscalCode = async (data) => {
-  //   try {
-  //     const response = await axios.post(
-  //       `${serverDomain}/api/auth/login/generate-fiscal-code`,
-  //       { payload: data }
-  //     );
-  //     if (response?.status === 200) {
-  //       return response.data;
-  //       return "error";
-  //     }
-  //     return;
-  //   } catch (error) {
-  //     console.error("Something went wrong", error);
-  //   }
-  // };
-  const validateFiscalCode = async (data) => {
-    try {
-      const response = await axios.post(
-        `${serverDomain}/api/auth/login/validate-fiscal-code`,
-        { payload: data }
-      );
-
-      return response.data.message;
-    } catch (error) {
-      console.error("Something went wrong", error);
-    }
-  };
-
   const login = async (data) => {
     const { email, password: user_password } = data;
 
@@ -136,6 +122,19 @@ export const AuthProvider = ({ children }) => {
 
     const response = await axios.post(
       `${serverDomain}/api/auth/login`,
+      payload,
+      {
+        withCredentials: true,
+      }
+    );
+    return response;
+  };
+  const checkEmail = async (data) => {
+    const { email } = data;
+    const payload = { email };
+
+    const response = await axios.post(
+      `${serverDomain}/api/auth/check-email`,
       payload,
       {
         withCredentials: true,
@@ -151,7 +150,6 @@ export const AuthProvider = ({ children }) => {
       birthday,
       city: city,
       gender: gender,
-      // fiscalCode: fiscal_code,
       email,
       password: user_password,
       user: user_name,
@@ -179,8 +177,50 @@ export const AuthProvider = ({ children }) => {
         widthCredentials: true,
       }
     );
+
     return response;
   };
+  useEffect(() => {
+    const local = JSON.parse(localStorage.getItem("registration"));
+    if (local) {
+      setUserData(local);
+    }
+  }, []);
+
+  // registration
+  // useEffect(() => {
+  //   const local = JSON.parse(localStorage.getItem("registration"));
+  //   if (local) {
+  //     let timer = setTimeout(() => {
+  //       localStorage.removeItem("registration");
+
+  //       setUserData({
+  //         name: "",
+  //         lastName: "",
+  //         birthday: "",
+  //         gender: "",
+  //         email: "",
+  //         phone: "",
+  //         user: "",
+  //         password: "",
+  //         password2: "",
+  //         city: "",
+  //       });
+  //       navigateToLoginFunction();
+  //       toast(`🌱 Registration timeout`, {
+  //         position: "top-right",
+  //         autoClose: 2000,
+  //         hideProgressBar: false,
+  //         closeOnClick: false,
+  //         pauseOnHover: true,
+  //         draggable: true,
+  //         progress: undefined,
+  //         theme: "light",
+  //       });
+  //     }, 900000);
+  //     return () => clearTimeout(timer);
+  //   }
+  // }, [userData]);
 
   const verificationEmail = async (data) => {
     try {
@@ -356,6 +396,15 @@ export const AuthProvider = ({ children }) => {
       setLoading(false);
     }
   };
+  const handleChange = (e) => {
+    const value = e.target.value;
+    const name = e.target.name;
+    localStorage.setItem(
+      "registration",
+      JSON.stringify({ ...userData, [name]: value })
+    );
+    setUserData({ ...userData, [name]: value });
+  };
 
   return (
     <AuthContext.Provider
@@ -368,6 +417,8 @@ export const AuthProvider = ({ children }) => {
         setIsRegister,
         resetPassword,
         checkToken,
+        handleChange,
+        checkEmail,
         isRegister,
         userRole,
         userId,
@@ -375,8 +426,10 @@ export const AuthProvider = ({ children }) => {
         login,
         registerUser,
         setIsAuthenticated,
+        userData,
+        setUserData,
         // generateFiscalCode,
-        validateFiscalCode,
+        // validateFiscalCode,
         newPassword,
         pageError,
         cities,

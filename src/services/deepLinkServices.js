@@ -16,3 +16,7 @@ export const navigateToFunction = (url) => {
     navigate(`verify-reset/${token}`);
   }
 };
+
+export const navigateToLoginFunction = (url) => {
+  navigate("/");
+};
