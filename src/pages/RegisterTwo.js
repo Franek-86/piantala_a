@@ -118,7 +118,7 @@ const RegisterTwo = () => {
               <em className='text-danger small'>{errors?.phone?.message}</em>
             )}
           </Form.Group>
-          <div className='d-flex justify-content-between'>
+          <div className='d-flex justify-content-between mt-5'>
             <button
               onClick={back}
               type='button'

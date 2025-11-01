@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import moment from "moment/moment";
+import { MdBackspace } from "react-icons/md";
 
 const RegisterLast = () => {
   const [serverError, setServerError] = useState("");
@@ -99,81 +100,85 @@ const RegisterLast = () => {
   };
   const birthday = userData?.birthday;
   return (
-    <section className='section-center d-flex flex-column justify-content-center vh-100'>
-      <h4 className='mb-4'>
-        Verifica i tuoi dati{" "}
-        <span className='small fw-normal fst-italic pag'>(5/5)</span>
-      </h4>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <ListGroup>
-          <ListGroup.Item>
-            Nome: <span>{userData?.name}</span>
-          </ListGroup.Item>
-          <ListGroup.Item>
-            Cognome: <span>{userData?.lastName}</span>
-          </ListGroup.Item>
-          <ListGroup.Item>
-            Data di nascita: <span>{moment(birthday).format("L")}</span>
-          </ListGroup.Item>
-          <ListGroup.Item>
-            Genere:{" "}
-            <span>
-              {userData?.gender === "U"
-                ? "Uomo"
-                : userData?.gender === "F"
-                ? "Donna"
-                : "Preserisco non dirlo"}
-            </span>
-          </ListGroup.Item>
-          <ListGroup.Item>
-            E-mail: <span>{userData?.email}</span>
-          </ListGroup.Item>
-          <ListGroup.Item>
-            Numero di telefono: <span>{userData?.phone}</span>
-          </ListGroup.Item>
-          <ListGroup.Item>
-            Nome utente: <span>{userData?.user}</span>
-          </ListGroup.Item>
-          <ListGroup.Item>
-            Password:{" "}
-            <span>
-              <input
-                type={showPassword ? "text" : "password"}
-                readOnly='true'
-                value={userData?.password}
-                className='resume-input'
-              />
-            </span>
-            <span
-              onClick={() => {
-                setShowPassword(!showPassword);
-              }}
-            >
-              {showPassword ? (
-                <FaEyeSlash className='showHidePasswordReview' />
-              ) : (
-                <FaEye className='showHidePasswordReview' />
-              )}
-            </span>
-          </ListGroup.Item>
-          <ListGroup.Item>
-            Comune di residenza: <span>{userData?.city}</span>
-          </ListGroup.Item>
-        </ListGroup>
-        <div className='d-flex  flex-column  mt-3'>
-          <button
-            onClick={back}
-            type='button'
-            className='btn btn-primary w-100'
-          >
-            Modifica
-          </button>
-          <button type='submit' className='btn btn-primary w-100 my-3'>
-            Registrati
-          </button>
+    <>
+      <div className='section-center'>
+        <div className='back-btn'>
+          <MdBackspace
+            onClick={() => {
+              back();
+            }}
+          />
         </div>
-      </form>
-    </section>
+      </div>{" "}
+      <section className='section-center mt-5'>
+        <h4 className='mb-5'>
+          Verifica i tuoi dati{" "}
+          <span className='small fw-normal fst-italic pag'>(5/5)</span>
+        </h4>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <ListGroup>
+            <ListGroup.Item>
+              Nome: <span>{userData?.name}</span>
+            </ListGroup.Item>
+            <ListGroup.Item>
+              Cognome: <span>{userData?.lastName}</span>
+            </ListGroup.Item>
+            <ListGroup.Item>
+              Data di nascita: <span>{moment(birthday).format("L")}</span>
+            </ListGroup.Item>
+            <ListGroup.Item>
+              Genere:{" "}
+              <span>
+                {userData?.gender === "U"
+                  ? "Uomo"
+                  : userData?.gender === "F"
+                  ? "Donna"
+                  : "Preserisco non dirlo"}
+              </span>
+            </ListGroup.Item>
+            <ListGroup.Item>
+              E-mail: <span>{userData?.email}</span>
+            </ListGroup.Item>
+            <ListGroup.Item>
+              Numero di telefono: <span>{userData?.phone}</span>
+            </ListGroup.Item>
+            <ListGroup.Item>
+              Nome utente: <span>{userData?.user}</span>
+            </ListGroup.Item>
+            <ListGroup.Item>
+              Password:{" "}
+              <span>
+                <input
+                  type={showPassword ? "text" : "password"}
+                  readOnly='true'
+                  value={userData?.password}
+                  className='resume-input'
+                />
+              </span>
+              <span
+                onClick={() => {
+                  setShowPassword(!showPassword);
+                }}
+              >
+                {showPassword ? (
+                  <FaEyeSlash className='showHidePasswordReview' />
+                ) : (
+                  <FaEye className='showHidePasswordReview' />
+                )}
+              </span>
+            </ListGroup.Item>
+            <ListGroup.Item>
+              Comune di residenza: <span>{userData?.city}</span>
+            </ListGroup.Item>
+          </ListGroup>
+          <div className='mt-3'>
+            <button type='submit' className='btn btn-primary w-100 my-3'>
+              Registrati
+            </button>
+          </div>
+        </form>
+      </section>
+    </>
   );
 };
 

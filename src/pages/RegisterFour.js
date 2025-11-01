@@ -336,7 +336,7 @@ const RegisterFour = () => {
             </>
           )}
 
-          <div className='d-flex justify-content-between'>
+          <div className='d-flex justify-content-between mt-5'>
             <button
               onClick={back}
               type='button'

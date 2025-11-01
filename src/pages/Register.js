@@ -304,7 +304,7 @@ const Register = () => {
               >
                 Registrati
               </Button> */}
-          <div className='text-end'>
+          <div className='text-end mt-5'>
             <button className='btn btn-primary w-25 '>Next</button>
           </div>
         </form>
