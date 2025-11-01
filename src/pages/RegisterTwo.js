@@ -4,6 +4,7 @@ import { Col, FloatingLabel, Form, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
+import { MdBackspace } from "react-icons/md";
 const RegisterTwo = () => {
   const {
     register,
@@ -50,76 +51,88 @@ const RegisterTwo = () => {
     navigate("/register");
   };
   return (
-    <section className='section-center d-flex flex-column justify-content-center vh-100'>
-      <h4 className='mb-4'>
-        Dati di contatto{" "}
-        <span className='small fw-normal fst-italic pag'>(2/5)</span>
-      </h4>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        {/* Mobile */}
-        <Form.Group className='mb-3' controlId='formBasicEmail'>
-          <FloatingLabel
-            controlId='floatingInput'
-            label='Indirizzo e-mail'
-            className=''
-          >
-            <Form.Control
-              type='email'
-              placeholder='Inserisci email'
-              disabled={loading}
-              name='email'
-              value={userData.email}
-              {...register("email", {
-                required: "Email necessaria",
-                pattern: {
-                  value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                  message: "Invalido formato email",
-                },
-                onChange: (e) => {
-                  handleChange(e);
-                },
-              })}
-            />
-          </FloatingLabel>
-          {errors?.email && (
-            <em className='text-danger small'>{errors?.email?.message}</em>
-          )}
-        </Form.Group>
-        {/* Mobile */}
-        <Form.Group className='mb-3' controlId='formBasicPhone'>
-          <FloatingLabel
-            controlId='floatingInput'
-            label='Numero di telefono'
-            className=''
-          >
-            <Form.Control
-              type='phone'
-              placeholder='Numero di telefono necessario'
-              disabled={loading}
-              name='phone'
-              value={userData.phone}
-              {...register("phone", {
-                required: "Numero di telefono necessario",
-                onChange: (e) => {
-                  handleChange(e);
-                },
-              })}
-            />
-          </FloatingLabel>
-          {errors?.phone && (
-            <em className='text-danger small'>{errors?.phone?.message}</em>
-          )}
-        </Form.Group>
-        <div className='d-flex justify-content-between'>
-          <button onClick={back} type='button' className='btn btn-primary w-25'>
-            Prev
-          </button>
-          <button type='submit' className='btn btn-primary w-25'>
-            Next
-          </button>
+    <>
+      {" "}
+      <div className='section-center invisible'>
+        <div className='back-btn'>
+          <MdBackspace />
         </div>
-      </form>
-    </section>
+      </div>{" "}
+      <section className='section-center mt-5'>
+        <h4 className='mb-5'>
+          Dati di contatto{" "}
+          <span className='small fw-normal fst-italic pag'>(2/5)</span>
+        </h4>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          {/* Mobile */}
+          <Form.Group className='mb-3' controlId='formBasicEmail'>
+            <FloatingLabel
+              controlId='floatingInput'
+              label='Indirizzo e-mail'
+              className=''
+            >
+              <Form.Control
+                type='email'
+                placeholder='Inserisci email'
+                disabled={loading}
+                name='email'
+                value={userData.email}
+                {...register("email", {
+                  required: "Inserisci indirizzo e-mail",
+                  pattern: {
+                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                    message: "Invalido formato email",
+                  },
+                  onChange: (e) => {
+                    handleChange(e);
+                  },
+                })}
+              />
+            </FloatingLabel>
+            {errors?.email && (
+              <em className='text-danger small'>{errors?.email?.message}</em>
+            )}
+          </Form.Group>
+          {/* Mobile */}
+          <Form.Group className='mb-3' controlId='formBasicPhone'>
+            <FloatingLabel
+              controlId='floatingInput'
+              label='Numero di telefono'
+              className=''
+            >
+              <Form.Control
+                type='phone'
+                placeholder='Numero di telefono necessario'
+                disabled={loading}
+                name='phone'
+                value={userData.phone}
+                {...register("phone", {
+                  required: "Numero di telefono necessario",
+                  onChange: (e) => {
+                    handleChange(e);
+                  },
+                })}
+              />
+            </FloatingLabel>
+            {errors?.phone && (
+              <em className='text-danger small'>{errors?.phone?.message}</em>
+            )}
+          </Form.Group>
+          <div className='d-flex justify-content-between'>
+            <button
+              onClick={back}
+              type='button'
+              className='btn btn-primary w-25'
+            >
+              Prev
+            </button>
+            <button type='submit' className='btn btn-primary w-25'>
+              Next
+            </button>
+          </div>
+        </form>
+      </section>
+    </>
   );
 };
 

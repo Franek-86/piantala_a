@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Form, Button, FloatingLabel } from "react-bootstrap";
+import { MdBackspace } from "react-icons/md";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { useContext, useEffect, useRef, useState } from "react";
@@ -146,101 +147,70 @@ const RegisterFour = () => {
   // }, [userData]);
 
   return (
-    <section className='section-center d-flex flex-column justify-content-center vh-100'>
-      {/* Server error message */}
-      {serverError && <p className='text-danger'>{serverError}</p>}
-      {successMessage && <p className='text-success'>{successMessage}</p>}
-      {loading && (
-        <div className='login-loader-container'>
-          <div className='login-loader'></div>
+    <>
+      <div className='section-center invisible'>
+        <div className='back-btn'>
+          <MdBackspace />
         </div>
-      )}
-      <h4 className='mb-4'>
-        Informazioni aggiuntive{" "}
-        <span className='small fw-normal fst-italic pag'>(4/5)</span>
-      </h4>
-      <form
-        className='my-3'
-        onSubmit={handleSubmit(onSubmit)}
-        controlId='formBasicUser'
-      >
-        {/* RESIDENZA */}
+      </div>{" "}
+      <section className='section-center mt-5'>
+        <h4 className='mb-5'>
+          Informazioni aggiuntive{" "}
+          <span className='small fw-normal fst-italic pag'>(4/5)</span>
+        </h4>
+        <form
+          className='my-3'
+          onSubmit={handleSubmit(onSubmit)}
+          controlId='formBasicUser'
+        >
+          {/* RESIDENZA */}
 
-        {userData.city ? (
-          <Form.Group className='mb-3' controlId='formBasicUser'>
-            <FloatingLabel
-              controlId='floatingInput'
-              label='Comune di nascita'
-              className='mb-3'
-            >
-              <Form.Select
-                // type='text'
-                // placeholder='Nato a'
-                disabled={loading}
-                {...register("city", {
-                  required: "Comune necessario",
-                  onChange: (e) => {
-                    handleChange(e);
-                  },
-                })}
-                // value={userData.city}
-              >
-                <option value=''>Seleziona regione e provincia</option>
-
-                <option selected>{userData.city}</option>
-              </Form.Select>
-            </FloatingLabel>
-
-            {errors.city && (
-              <span className='text-danger'>{errors?.city?.message}</span>
-            )}
-          </Form.Group>
-        ) : (
-          <>
+          {userData.city ? (
             <Form.Group className='mb-3' controlId='formBasicUser'>
               <FloatingLabel
                 controlId='floatingInput'
-                label='Regione di provenienza'
+                label='Comune di nascita'
                 className='mb-3'
               >
                 <Form.Select
-                  disabled={loading || district || city}
-                  {...register("region", {
-                    required: "Regione necessaria",
+                  // type='text'
+                  // placeholder='Nato a'
+                  disabled={loading}
+                  {...register("city", {
+                    required: "Comune necessario",
+                    onChange: (e) => {
+                      handleChange(e);
+                    },
                   })}
+                  // value={userData.city}
                 >
-                  <option value=''>Seleziona regione</option>
-                  {regions?.length > 0 &&
-                    regions?.map((i, index) => (
-                      <option key={index} value={i.geonameId}>
-                        {i.toponymName}
-                      </option>
-                    ))}
+                  <option value=''>Seleziona regione e provincia</option>
+
+                  <option selected>{userData.city}</option>
                 </Form.Select>
               </FloatingLabel>
 
-              {errors.region && (
-                <span className='text-danger'>{errors?.region?.message}</span>
+              {errors.city && (
+                <span className='text-danger'>{errors?.city?.message}</span>
               )}
             </Form.Group>
-            {region ? (
+          ) : (
+            <>
               <Form.Group className='mb-3' controlId='formBasicUser'>
                 <FloatingLabel
                   controlId='floatingInput'
-                  label='Provincia di provenienza'
+                  label='Regione di provenienza'
                   className='mb-3'
                 >
                   <Form.Select
-                    // type='text'
-                    // placeholder='Nato a'
-                    disabled={loading || city}
-                    {...register("district", {
-                      required: "Provincia necessaria",
+                    disabled={loading || district || city}
+                    {...register("region", {
+                      required: "Regione necessaria",
                     })}
                   >
-                    <option value=''>Seleziona provincia</option>
-                    {districts?.length > 0 &&
-                      districts?.map((i, index) => (
+                    <option value=''>Seleziona regione</option>
+                    {regions?.length > 0 &&
+                      regions?.map((i, index) => (
                         <option key={index} value={i.geonameId}>
                           {i.toponymName}
                         </option>
@@ -248,105 +218,139 @@ const RegisterFour = () => {
                   </Form.Select>
                 </FloatingLabel>
 
-                {errors.district && (
-                  <span className='text-danger'>
-                    {errors?.district?.message}
-                  </span>
+                {errors.region && (
+                  <span className='text-danger'>{errors?.region?.message}</span>
                 )}
               </Form.Group>
-            ) : (
-              <Form.Group>
-                <FloatingLabel
-                  controlId='floatingInput'
-                  label='Provincia di provenienza'
-                  className='mb-3'
-                >
-                  <Form.Select
-                    // type='text'
-                    // placeholder='Nato a'
-                    disabled='true'
+              {region ? (
+                <Form.Group className='mb-3' controlId='formBasicUser'>
+                  <FloatingLabel
+                    controlId='floatingInput'
+                    label='Provincia di provenienza'
+                    className='mb-3'
                   >
-                    <option value=''>seleziona prima la regione</option>
-                    {/* {districts?.length > 0 &&
+                    <Form.Select
+                      // type='text'
+                      // placeholder='Nato a'
+                      disabled={loading || city}
+                      {...register("district", {
+                        required: "Provincia necessaria",
+                      })}
+                    >
+                      <option value=''>Seleziona provincia</option>
+                      {districts?.length > 0 &&
+                        districts?.map((i, index) => (
+                          <option key={index} value={i.geonameId}>
+                            {i.toponymName}
+                          </option>
+                        ))}
+                    </Form.Select>
+                  </FloatingLabel>
+
+                  {errors.district && (
+                    <span className='text-danger'>
+                      {errors?.district?.message}
+                    </span>
+                  )}
+                </Form.Group>
+              ) : (
+                <Form.Group>
+                  <FloatingLabel
+                    controlId='floatingInput'
+                    label='Provincia di provenienza'
+                    className='mb-3'
+                  >
+                    <Form.Select
+                      // type='text'
+                      // placeholder='Nato a'
+                      disabled='true'
+                    >
+                      <option value=''>seleziona prima la regione</option>
+                      {/* {districts?.length > 0 &&
                   districts?.map((i, index) => (
                     <option key={index} value={i.geonameId}>
                       {i.toponymName}
                     </option>
                   ))} */}
-                  </Form.Select>
-                </FloatingLabel>
-                {errors.district && (
-                  <span className='text-danger'>
-                    {errors?.district?.message}
-                  </span>
-                )}
-              </Form.Group>
-            )}
-            {district ? (
-              <Form.Group className='mb-3' controlId='formBasicUser'>
-                <FloatingLabel
-                  controlId='floatingInput'
-                  label='Comune di nascita'
-                  className='mb-3'
-                >
-                  <Form.Select
-                    // type='text'
-                    // placeholder='Nato a'
-                    disabled={loading}
-                    {...register("city", {
-                      required: "Comune necessario",
-                      onChange: (e) => {
-                        handleChange(e);
-                      },
-                    })}
-                    value={userData.city}
+                    </Form.Select>
+                  </FloatingLabel>
+                  {errors.district && (
+                    <span className='text-danger'>
+                      {errors?.district?.message}
+                    </span>
+                  )}
+                </Form.Group>
+              )}
+              {district ? (
+                <Form.Group className='mb-3' controlId='formBasicUser'>
+                  <FloatingLabel
+                    controlId='floatingInput'
+                    label='Comune di nascita'
+                    className='mb-3'
                   >
-                    <option value=''>Seleziona comune</option>
-                    {cities?.length > 0 &&
-                      cities?.map((i, index) => (
-                        <option key={index} value={i.toponymName}>
-                          {i.toponymName}
-                        </option>
-                      ))}
-                  </Form.Select>
-                </FloatingLabel>
+                    <Form.Select
+                      // type='text'
+                      // placeholder='Nato a'
+                      disabled={loading}
+                      {...register("city", {
+                        required: "Comune necessario",
+                        onChange: (e) => {
+                          handleChange(e);
+                        },
+                      })}
+                      value={userData.city}
+                    >
+                      <option value=''>Seleziona comune</option>
+                      {cities?.length > 0 &&
+                        cities?.map((i, index) => (
+                          <option key={index} value={i.toponymName}>
+                            {i.toponymName}
+                          </option>
+                        ))}
+                    </Form.Select>
+                  </FloatingLabel>
 
-                {errors.city && (
-                  <span className='text-danger'>{errors?.city?.message}</span>
-                )}
-              </Form.Group>
-            ) : (
-              <Form.Group>
-                <FloatingLabel
-                  controlId='floatingInput'
-                  label='Comune di nascita'
-                  className='mb-3'
-                >
-                  <Form.Select disabled='true' value={userData.city}>
-                    <option value=''>seleziona prima la provincia</option>
-                    {/* {cities?.length > 0 &&
+                  {errors.city && (
+                    <span className='text-danger'>{errors?.city?.message}</span>
+                  )}
+                </Form.Group>
+              ) : (
+                <Form.Group>
+                  <FloatingLabel
+                    controlId='floatingInput'
+                    label='Comune di nascita'
+                    className='mb-3'
+                  >
+                    <Form.Select disabled='true' value={userData.city}>
+                      <option value=''>seleziona prima la provincia</option>
+                      {/* {cities?.length > 0 &&
                   cities?.map((i, index) => (
                     <option key={index} value={i.toponymName}>
                       {i.toponymName}
                     </option>
                   ))} */}
-                  </Form.Select>
-                </FloatingLabel>
-              </Form.Group>
-            )}
-          </>
-        )}
+                    </Form.Select>
+                  </FloatingLabel>
+                </Form.Group>
+              )}
+            </>
+          )}
 
-        <div className='d-flex justify-content-between'>
-          <button onClick={back} type='button' className='btn btn-primary w-25'>
-            Prev
-          </button>
-          <button type='submit' className='btn btn-primary w-50'>
-            Verifica dati
-          </button>
-        </div>
-      </form>
-    </section>
+          <div className='d-flex justify-content-between'>
+            <button
+              onClick={back}
+              type='button'
+              className='btn btn-primary w-25'
+            >
+              Prev
+            </button>
+            <button type='submit' className='btn btn-primary w-50'>
+              Verifica dati
+            </button>
+          </div>
+        </form>
+      </section>
+    </>
   );
 };
 

@@ -121,8 +121,8 @@ const Register = () => {
 
   return (
     <>
-      <div className='section-center position-relative'>
-        <div className='back-btn position-absolute end-0'>
+      <div className='section-center'>
+        <div className='back-btn'>
           <MdBackspace
             onClick={() => {
               backToLogin();
@@ -130,7 +130,7 @@ const Register = () => {
           />
         </div>
       </div>{" "}
-      <section className='section-center d-flex flex-column justify-content-center vh-100'>
+      <section className='section-center mt-5'>
         {regionsLoading && <Loading />}
         {/* <div
         ref={formWrapperRef}
@@ -146,8 +146,8 @@ const Register = () => {
             </div>
           )}
           {/*-----------------------------------------INIZIO INFORMAZIONI DI BASE-------------------------------------------------*/}
-          <h4 className='mb-4'>
-            Informazioni di base{" "}
+          <h4 className='mb-5'>
+            Informazioni base{" "}
             <span className='small fw-normal fst-italic pag'>(1/5)</span>{" "}
           </h4>
 
@@ -162,7 +162,7 @@ const Register = () => {
                 value={userData.name}
                 // onChange={handleChange}
                 {...register("name", {
-                  required: "Nome necessario",
+                  required: "Inserisci nome",
                   maxLength: {
                     value: 15,
                     message: "Il nome può essere di massimo 15 caratteri",
@@ -192,7 +192,7 @@ const Register = () => {
                 name='lastName'
                 value={userData.lastName}
                 {...register("lastName", {
-                  required: "Cognome necessario",
+                  required: "Inserisci cognome",
                   maxLength: {
                     value: 15,
                     message: "Il cognome può essere di massimo 15 caratteri",
@@ -222,7 +222,7 @@ const Register = () => {
                 name='birthday'
                 value={userData.birthday}
                 {...register("birthday", {
-                  required: "Data di nascita necessaria",
+                  required: "Inserisci data di nascita",
                   onChange: (e) => {
                     handleChange(e);
                   },
@@ -249,7 +249,7 @@ const Register = () => {
                 disabled={loading}
                 name='gender'
                 {...register("gender", {
-                  required: "Necessario specificare il genere",
+                  required: "Scegli una delle ozioni relative al genere",
                   onChange: (e) => {
                     handleChange(e);
                   },
