@@ -1012,10 +1012,20 @@ element {
   display: grid;
   grid-template-columns: 1fr;
 }
-
+.sliders-img {
+  display: block;
+  width: 80%;
+  height: 10rem;
+  /* background-image: url("https://media.istockphoto.com/id/816752606/photo/tv-test-card-or-test-pattern-generic.jpg?s=612x612&w=0&k=20&c=63Jcx_5bFnvBw9elRDLrLKjtDYXr70pKtUK0jXJ2_uY="); */
+}
 @media screen and (min-width: 768px) {
   .plates-gallery {
     grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (max-width: 577px) {
+  .fancybox__toolbar__column.is-right {
+    padding-top: 2rem;
   }
 }
 

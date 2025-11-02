@@ -8,15 +8,24 @@ import { RiContactsLine } from "react-icons/ri";
 import { GiMetalPlate } from "react-icons/gi";
 import sidebarLogo from "../../assets/images/logo_albero_dritto_sidebar.png";
 import { AuthContext } from "../../context/AuthContext";
+
 import { useContext } from "react";
 import { BsInfo } from "react-icons/bs";
 import { GiLion } from "react-icons/gi";
 import { FaUsers } from "react-icons/fa";
 import { MdOutlineShoppingCartCheckout } from "react-icons/md";
 import { IoMdChatbubbles } from "react-icons/io";
+import { PlantsContext } from "../../context/PlantsContext";
+import Fancybox from "../plates/Fancybox";
 
 const SideMenu = ({ onLogout, ...props }) => {
   const { handleLogout, userRole } = useContext(AuthContext);
+  const { getAllPlants, plates } = useContext(PlantsContext);
+  const [isLoaded, setIsLoaded] = useState(false);
+  // const isLargeScreen = useIsLargeScreen();
+  const handleImageLoad = () => {
+    setIsLoaded(true);
+  };
   return (
     <Offcanvas show={props.show} onHide={props.handleClose}>
       <Offcanvas.Header closeButton>
@@ -55,11 +64,46 @@ const SideMenu = ({ onLogout, ...props }) => {
             </ListGroup.Item>
           )}
           <ListGroup.Item>
-            <Link to='/plates' class='nav-link text-truncate'>
-              <GiMetalPlate />
-              <span class='ms-2 d-sm-inline'>Le vostre targhe</span>
-            </Link>
+            {plates?.length > 1 ? (
+              <Fancybox>
+                {/* <Slider {...settings}> */}
+                <a
+                  data-fancybox='gallery'
+                  href={plates[0].plate}
+                  class='nav-link text-truncate'
+                >
+                  <GiMetalPlate />
+                  <span class='ms-2 d-sm-inline'>Le vostre targhe</span>
+                </a>
+
+                {plates.map((e, index) => {
+                  if (index === 0) {
+                    return;
+                  }
+                  return (
+                    <a
+                      data-fancybox='gallery'
+                      href={e.plate}
+                      key={index}
+                      // onLoad={handleImageLoad}
+                    >
+                      {/* <Link to='' class='nav-link text-truncate'>
+                        <GiMetalPlate />
+                        <span class='ms-2 d-sm-inline'>Le vostre targhe</span>
+                      </Link> */}
+                    </a>
+                  );
+                })}
+                {/* </Slider> */}
+              </Fancybox>
+            ) : (
+              <Link to='/plates' class='nav-link text-truncate'>
+                <GiMetalPlate />
+                <span class='ms-2 d-sm-inline'>Le vostre targhe</span>
+              </Link>
+            )}
           </ListGroup.Item>
+
           <ListGroup.Item>
             <Link to='/chat' class='nav-link text-truncate'>
               <IoMdChatbubbles />
