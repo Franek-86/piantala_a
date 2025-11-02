@@ -280,7 +280,18 @@ const Plant = () => {
         {/* plant form or feedback time */}
 
         {status_piantina === "approved" ? (
-          <PlantForm />
+          <>
+            {" "}
+            <PlantForm /> <hr />{" "}
+            {userRole === "admin" && (
+              <button
+                className='btn btn-dark '
+                onClick={() => deleteAndGo(plantId)}
+              >
+                Elimina segnalazione
+              </button>
+            )}
+          </>
         ) : status_piantina === "pending" ? (
           <i className='small mt-3'>
             Il tempo medio di approvazione è di una settimana lavorativa dalla
@@ -375,13 +386,7 @@ const Plant = () => {
                 <FaRegUser />
               </button>
             </div>
-            <hr />{" "}
-            <button
-              className='btn btn-dark '
-              onClick={() => deleteAndGo(plantId)}
-            >
-              Elimina segnalazione
-            </button>
+
             <hr />
             <h5 className='mb-3'>Operazioni targa</h5>
             <div className='d-grid gap-2'>
