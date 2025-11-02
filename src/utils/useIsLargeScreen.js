@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 
 const useIsLargeScreen = () => {
-  const [isLarge, setIsLarge] = useState(window.innerWidth >= 992);
+  const [isLarge, setIsLarge] = useState(window.innerWidth >= 767);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsLarge(window.innerWidth >= 992);
+      setIsLarge(window.innerWidth >= 767);
     };
 
     window.addEventListener("resize", handleResize);

@@ -30,7 +30,7 @@ const Plates = () => {
   var settings = {
     dots: true,
     infinite: true,
-    slidesToShow: 3,
+    slidesToShow: isLargeScreen ? 2 : 3,
     slidesToScroll: 2,
     vertical: true,
     verticalSwiping: true,
