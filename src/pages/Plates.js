@@ -79,22 +79,24 @@ const Plates = () => {
                       {plates.map((e, index) => {
                         return (
                           <a data-fancybox='gallery' href={e.plate} key={index}>
-                            <div
+                            {/* <div
                               className='slide-plate'
                               style={{
                                 backgroundImage: `url(${e.plate})`,
                                 backgroundRepeat: "no-repeat",
                                 backgroundSize: "cover",
+                                objectFit: "cover",
                               }}
-                            ></div>
-                            {/* <img
-                            onLoad={handleImageLoad}
-                            className={`plates-img transition-opacity duration-500 ${
-                              isLoaded ? "opacity-100" : "opacity-0"
-                            }`}
-                            alt=''
-                            src={e.plate}
-                          /> */}
+                            ></div> */}
+                            <img
+                              className='plate-img'
+                              onLoad={handleImageLoad}
+                              // className={`plates-img transition-opacity duration-500 ${
+                              //   isLoaded ? "opacity-100" : "opacity-0"
+                              // }`}
+                              alt=''
+                              src={e.plate}
+                            />
                           </a>
                         );
                       })}

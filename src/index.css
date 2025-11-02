@@ -1078,14 +1078,26 @@ element {
   .fancybox__toolbar__column.is-right {
     padding-top: 2rem;
   }
+  .slide-plate {
+    width: 80%;
+    /* height: 25vh; */
+  }
 }
-
+.plate-img {
+  max-width: 80%;
+  margin: auto;
+}
 .plates-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-
+@media screen and (min-width: 768px) {
+  .plate-img {
+    width: 50%;
+    max-width: 35rem;
+  }
+}
 /* filters */
 
 .form-check-input {
