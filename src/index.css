@@ -1084,7 +1084,8 @@ element {
   }
 }
 .plate-img {
-  max-width: 80%;
+  width: 80%;
+  max-width: 15rem;
   margin: auto;
 }
 .plates-img {
@@ -1092,7 +1093,7 @@ element {
   height: 100%;
   object-fit: cover;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 992px) {
   .plate-img {
     width: 50%;
     max-width: 35rem;

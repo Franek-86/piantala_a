@@ -282,14 +282,18 @@ const Plant = () => {
         {status_piantina === "approved" ? (
           <>
             {" "}
-            <PlantForm /> <hr />{" "}
+            <PlantForm />
             {userRole === "admin" && (
-              <button
-                className='btn btn-dark '
-                onClick={() => deleteAndGo(plantId)}
-              >
-                Elimina segnalazione
-              </button>
+              <>
+                <hr />
+                <h5 className='mb-3'>Operazioni di amministrazione</h5>
+                <button
+                  className='btn btn-dark '
+                  onClick={() => deleteAndGo(plantId)}
+                >
+                  Elimina segnalazione
+                </button>
+              </>
             )}
           </>
         ) : status_piantina === "pending" ? (
