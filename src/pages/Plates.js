@@ -28,9 +28,9 @@ const Plates = () => {
     navigate("/map");
   };
   var settings = {
-    dots: false,
+    dots: true,
     infinite: true,
-    slidesToShow: 3,
+    slidesToShow: 2,
     slidesToScroll: 1,
     vertical: true,
     verticalSwiping: true,
@@ -74,25 +74,20 @@ const Plates = () => {
               )}
               {plates?.length > 1 && (
                 <Fancybox>
-                  <Slider {...settings}>
-                    {plates.map((e, index) => {
-                      return (
-                        <a data-fancybox='gallery' href={e.plate} key={index}>
-                          <div
-                            style={{
-                              height: "13rem",
-                              width: "95%",
-                              marginLeft: "auto",
-                              marginRight: "auto",
-                              border: "2px solid #856666",
-                              borderRadius: "1rem",
-                              backgroundImage: `url(${e.plate})`,
-                              backgroundRepeat: "no-repeat",
-                              backgroundPosition: "center",
-                              backgroundSize: "cover",
-                            }}
-                          ></div>
-                          {/* <img
+                  <div className='slider-container'>
+                    <Slider {...settings}>
+                      {plates.map((e, index) => {
+                        return (
+                          <a data-fancybox='gallery' href={e.plate} key={index}>
+                            <div
+                              className='slide-plate'
+                              style={{
+                                backgroundImage: `url(${e.plate})`,
+                                backgroundRepeat: "no-repeat",
+                                backgroundSize: "cover",
+                              }}
+                            ></div>
+                            {/* <img
                             onLoad={handleImageLoad}
                             className={`plates-img transition-opacity duration-500 ${
                               isLoaded ? "opacity-100" : "opacity-0"
@@ -100,10 +95,11 @@ const Plates = () => {
                             alt=''
                             src={e.plate}
                           /> */}
-                        </a>
-                      );
-                    })}
-                  </Slider>
+                          </a>
+                        );
+                      })}
+                    </Slider>
+                  </div>
                 </Fancybox>
               )}
               {/* <ReactFancyBox

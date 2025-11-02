@@ -1018,9 +1018,59 @@ element {
   height: 10rem;
   /* background-image: url("https://media.istockphoto.com/id/816752606/photo/tv-test-card-or-test-pattern-generic.jpg?s=612x612&w=0&k=20&c=63Jcx_5bFnvBw9elRDLrLKjtDYXr70pKtUK0jXJ2_uY="); */
 }
-@media screen and (min-width: 768px) {
-  .plates-gallery {
+
+.slick-arrow.slick-prev,
+.slick-arrow.slick-next {
+  color: var(--clr-secondary-3);
+  width: 5rem;
+  height: 5rem;
+}
+.slick-arrow.slick-prev:before,
+.slick-arrow.slick-next:before {
+  color: var(--clr-secondary-3);
+}
+.slide-plate {
+  height: 25vh;
+  width: 80%;
+  max-width: 25rem;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid #856666;
+  border-radius: 1rem;
+  background-position: left;
+}
+.slick-dots {
+  bottom: -5rem !important;
+}
+.slick-dots li {
+  height: 0 !important;
+}
+/* .slick-dots li {
+} */
+.slick-dots li button::before {
+  font-family: "slick";
+  font-size: 6px;
+  line-height: 5px !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  content: "•";
+  text-align: center;
+  opacity: 0.25;
+  color: black;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+@media screen and (min-width: 458px) {
+  /* .plates-gallery {
     grid-template-columns: 1fr 1fr;
+  } */
+  .slide-plate {
+    width: 60%;
+    height: 30vh;
+    /* max-width: 30rem; */
   }
 }
 @media screen and (max-width: 577px) {
