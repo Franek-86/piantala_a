@@ -64,44 +64,10 @@ const SideMenu = ({ onLogout, ...props }) => {
             </ListGroup.Item>
           )}
           <ListGroup.Item>
-            {plates?.length > 1 ? (
-              <Fancybox>
-                {/* <Slider {...settings}> */}
-                <a
-                  data-fancybox='gallery'
-                  href={plates[0].plate}
-                  class='nav-link text-truncate'
-                >
-                  <GiMetalPlate />
-                  <span class='ms-2 d-sm-inline'>Le vostre targhe</span>
-                </a>
-
-                {plates.map((e, index) => {
-                  if (index === 0) {
-                    return;
-                  }
-                  return (
-                    <a
-                      data-fancybox='gallery'
-                      href={e.plate}
-                      key={index}
-                      // onLoad={handleImageLoad}
-                    >
-                      {/* <Link to='' class='nav-link text-truncate'>
-                        <GiMetalPlate />
-                        <span class='ms-2 d-sm-inline'>Le vostre targhe</span>
-                      </Link> */}
-                    </a>
-                  );
-                })}
-                {/* </Slider> */}
-              </Fancybox>
-            ) : (
-              <Link to='/plates' class='nav-link text-truncate'>
-                <GiMetalPlate />
-                <span class='ms-2 d-sm-inline'>Le vostre targhe</span>
-              </Link>
-            )}
+            <Link to='/plates' class='nav-link text-truncate'>
+              <GiMetalPlate />
+              <span class='ms-2 d-sm-inline'>Le vostre targhe</span>
+            </Link>
           </ListGroup.Item>
 
           <ListGroup.Item>

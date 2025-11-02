@@ -28,11 +28,19 @@ const Plates = () => {
     navigate("/map");
   };
   var settings = {
-    dots: true,
+    dots: false,
     infinite: true,
-    speed: 500,
-    slidesToShow: 1,
+    slidesToShow: 3,
     slidesToScroll: 1,
+    vertical: true,
+    verticalSwiping: true,
+    swipeToSlide: true,
+    beforeChange: function (currentSlide, nextSlide) {
+      console.log("before change", currentSlide, nextSlide);
+    },
+    afterChange: function (currentSlide) {
+      console.log("after change", currentSlide);
+    },
   };
   console.log("e1", plates);
   return (
@@ -70,14 +78,28 @@ const Plates = () => {
                     {plates.map((e, index) => {
                       return (
                         <a data-fancybox='gallery' href={e.plate} key={index}>
-                          <img
+                          <div
+                            style={{
+                              height: "13rem",
+                              width: "95%",
+                              marginLeft: "auto",
+                              marginRight: "auto",
+                              border: "2px solid #856666",
+                              borderRadius: "1rem",
+                              backgroundImage: `url(${e.plate})`,
+                              backgroundRepeat: "no-repeat",
+                              backgroundPosition: "center",
+                              backgroundSize: "cover",
+                            }}
+                          ></div>
+                          {/* <img
                             onLoad={handleImageLoad}
                             className={`plates-img transition-opacity duration-500 ${
                               isLoaded ? "opacity-100" : "opacity-0"
                             }`}
                             alt=''
                             src={e.plate}
-                          />
+                          /> */}
                         </a>
                       );
                     })}
