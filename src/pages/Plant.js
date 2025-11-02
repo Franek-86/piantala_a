@@ -375,6 +375,13 @@ const Plant = () => {
                 <FaRegUser />
               </button>
             </div>
+            <hr />{" "}
+            <button
+              className='btn btn-dark '
+              onClick={() => deleteAndGo(plantId)}
+            >
+              Elimina segnalazione
+            </button>
             <hr />
             <h5 className='mb-3'>Operazioni targa</h5>
             <div className='d-grid gap-2'>
