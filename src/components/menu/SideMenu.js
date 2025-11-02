@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import ListGroup from "react-bootstrap/ListGroup";
 import { Link } from "react-router-dom";
-import { RiLogoutBoxLine } from "react-icons/ri";
+import { RiLogoutBoxLine, RiSeedlingFill } from "react-icons/ri";
 import { TbReportMedical } from "react-icons/tb";
 import { RiContactsLine } from "react-icons/ri";
 import { GiMetalPlate } from "react-icons/gi";
@@ -37,7 +37,7 @@ const SideMenu = ({ onLogout, ...props }) => {
         <ListGroup className='sidebar-section' variant='flush'>
           <ListGroup.Item>
             <Link to='/chi-siamo' class='nav-link text-truncate'>
-              <GiLion />
+              <RiSeedlingFill />
               <span class='ms-2 d-sm-inline'>Chi siamo</span>
             </Link>
           </ListGroup.Item>

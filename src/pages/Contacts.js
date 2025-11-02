@@ -118,12 +118,7 @@ const Contacts = () => {
                     <FaXTwitter />
                   </a>
                 </div> */}
-                  <div className='contacts-social-icon ps-3'>
-                    <a target='_blank' href='https://www.ernestverner.it/'>
-                      {" "}
-                      <GiLion />
-                    </a>
-                  </div>
+
                   <div className='contacts-social-icon ps-3'>
                     <a
                       target='_blank'
