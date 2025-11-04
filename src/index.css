@@ -1043,14 +1043,21 @@ element {
 .slick-arrow.slick-prev,
 .slick-arrow.slick-next {
   color: var(--clr-secondary-3);
-  width: 5rem;
+  width: 1rem;
   height: 5rem;
+  position: absolute;
+  z-index: 1000;
 }
 .slick-arrow.slick-prev:before,
 .slick-arrow.slick-next:before {
   color: var(--clr-secondary-3);
 }
-
+.slick-arrow.slick-prev {
+  left: 5px;
+}
+.slick-arrow.slick-next {
+  right: 5px;
+}
 .slick-dots {
   bottom: -5rem !important;
 }
