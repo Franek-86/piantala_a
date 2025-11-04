@@ -108,7 +108,7 @@ const PlantBooked = () => {
             }}
           />
         </div>
-        <h2 className='section-title'>Piantina di {ownerInfo.user}</h2>
+        <h2 className='section-title'>Piantina</h2>
         <h5 className='mb-3'>Zona di piantagione</h5>
         <InfoCard />
 
