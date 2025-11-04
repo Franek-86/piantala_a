@@ -902,8 +902,13 @@ element {
 .plant-form-article {
   padding-bottom: 3rem;
 }
-
+.flex-md-row.card-plant-info1.card {
+  max-width: 25rem;
+}
 @media screen and (min-width: 768px) {
+  .flex-md-row.card-plant-info1.card {
+    max-width: 100%;
+  }
   .card-plant-info1 .plant-info-image {
     max-width: 50%;
   }
@@ -941,6 +946,13 @@ element {
     padding-bottom: 0;
     padding-right: 0;
   }
+}
+.textPlateContainer {
+  min-height: 5rem;
+}
+.textPlate {
+  height: 100% !important;
+  max-width: 25rem;
 }
 /* -----------------rejection modal------------------ */
 .rejection-modal {
@@ -993,6 +1005,15 @@ element {
 
 .info-plant-container + i {
   justify-self: left;
+}
+
+.plant-info-image {
+  height: 50vh;
+  width: 100%;
+  max-height: 30rem;
+  max-width: 35rem;
+  background-position: center;
+  background-size: cover;
 }
 /* plate */
 

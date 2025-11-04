@@ -178,6 +178,7 @@ export const PlantsProvider = ({ children }) => {
     }
   };
   const deletePlant = async (plantId) => {
+    console.log("hh2", plantId);
     try {
       setSinglePlantLoading(true);
 

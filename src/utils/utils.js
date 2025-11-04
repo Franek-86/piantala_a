@@ -1,5 +1,7 @@
 import copy from "copy-to-clipboard";
+
 import { Geolocation } from "@capacitor/geolocation";
+
 export const formatDate = (date) => {
   const newDate = new Date(date);
   return newDate.toLocaleDateString("en-GB");
@@ -26,5 +28,18 @@ export const ensurePermission = async () => {
     }
   } else {
     localStorage.setItem("locationGranted", "true");
+  }
+};
+
+export const deleteAndGo = async (deletePlant, plantId, navigate) => {
+  // setSinglePlantLoading(true);
+  try {
+    await deletePlant(plantId);
+  } catch (err) {
+    console.log(err);
+    // setSinglePlantLoading(false);
+  } finally {
+    navigate("/map");
+    // setSinglePlantLoading(false);
   }
 };

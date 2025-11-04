@@ -6,10 +6,11 @@ import { AuthContext } from "../../context/AuthContext";
 // import { PlantsContext } from "../context/PlantsContext";
 import { Capacitor } from "@capacitor/core";
 import { Keyboard } from "@capacitor/keyboard";
+import { PlantsContext } from "../../context/PlantsContext";
 const PlantForm = () => {
-  const { userId } = useContext(AuthContext);
+  const { userId, userRole } = useContext(AuthContext);
+  const { deletePlant } = useContext(PlantsContext);
   const { plantId } = useParams();
-  console.log("test", plantId);
   const container = useRef();
   const navigate = useNavigate();
   const {
@@ -19,13 +20,11 @@ const PlantForm = () => {
   } = useForm();
   const onSubmit = (data) => {
     // const date = new Date().toLocaleDateString("it-IT");
-    // console.log("poi", date);
     let date = new Date();
     let day = date.getDate();
     let month = date.getMonth() + 1;
     let year = date.getFullYear();
     let currentDate = `${year}-${month}-${day}`;
-    console.log("currentDate", currentDate);
 
     data.id = parseInt(plantId);
     data.owner_id = userId;
@@ -38,17 +37,14 @@ const PlantForm = () => {
     const onKeyboardShow = (info) => {
       const keyboardHeight = info.keyboardHeight || 300;
       container.current.style.paddingBottom = `${keyboardHeight}px`;
-      console.log("keyboard will show with height:", info.keyboardHeight);
     };
     const onKeyboardHide = (info) => {
-      console.log("keyboardWillHide:", info.keyboardHeight);
       container.current.style.paddingBottom = `3rem`;
     };
 
     Keyboard.addListener("keyboardWillShow", onKeyboardShow);
     Keyboard.addListener("keyboardWillHide", onKeyboardHide);
     const input = document.querySelector("textarea");
-    console.log("111", input);
     const onFocus = (e) => {
       setTimeout(() => {
         e.target.scrollIntoView({
@@ -64,32 +60,57 @@ const PlantForm = () => {
       Keyboard.removeAllListeners();
     };
   });
-
+  const deleteAndGo = async (plantId) => {
+    // setSinglePlantLoading(true);
+    try {
+      await deletePlant(plantId);
+    } catch (err) {
+      // setSinglePlantLoading(false);
+    } finally {
+      navigate("/map");
+      // setSinglePlantLoading(false);
+    }
+  };
   return (
-    <article ref={container} className='plant-form-article mt-3 w-100'>
-      <Form onSubmit={handleSubmit(onSubmit)}>
-        <FloatingLabel
-          controlId='formComment'
-          label='Testo targa'
-          className='mb-3'
-        >
-          <Form.Control
-            as='textarea'
-            rows={3}
-            {...register("comment", { required: true, maxLength: 500 })}
-          />
-          {errors.comment && (
-            <p className='text-danger'>
-              È necessario un testo da inserire nella targa, il testo deve
-              essere di meno di 500 caratteri.
-            </p>
-          )}
-        </FloatingLabel>
-        <button className='btn btn-success' type='submit'>
-          Procedi con il pagamento
-        </button>
-      </Form>
-    </article>
+    <>
+      <article ref={container} className='plant-form-article mt-3 w-100'>
+        <Form onSubmit={handleSubmit(onSubmit)}>
+          <FloatingLabel
+            controlId='formComment'
+            label='Testo targa'
+            className='textPlateContainer mb-3'
+          >
+            <Form.Control
+              className='textPlate'
+              as='textarea'
+              rows={3}
+              {...register("comment", { required: true, maxLength: 500 })}
+            />
+            {errors.comment && (
+              <p className='text-danger'>
+                È necessario un testo da inserire nella targa, il testo deve
+                essere di meno di 500 caratteri.
+              </p>
+            )}
+          </FloatingLabel>
+          <button className='btn btn-success' type='submit'>
+            Procedi con il pagamento
+          </button>
+        </Form>
+      </article>
+      {userRole === "admin" && (
+        <>
+          <hr />
+          <h5 className='mb-3'>Operazioni di amministrazione</h5>
+          <button
+            className='btn btn-dark '
+            onClick={() => deleteAndGo(plantId)}
+          >
+            Elimina segnalazione
+          </button>
+        </>
+      )}
+    </>
   );
 };
 
