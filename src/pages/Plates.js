@@ -31,16 +31,18 @@ const Plates = () => {
     dots: true,
     infinite: true,
     slidesToShow: isLargeScreen ? 2 : 3,
-    slidesToScroll: 2,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 5000,
     vertical: true,
     verticalSwiping: true,
     swipeToSlide: true,
-    beforeChange: function (currentSlide, nextSlide) {
-      console.log("before change", currentSlide, nextSlide);
-    },
-    afterChange: function (currentSlide) {
-      console.log("after change", currentSlide);
-    },
+    // beforeChange: function (currentSlide, nextSlide) {
+    //   console.log("before change", currentSlide, nextSlide);
+    // },
+    // afterChange: function (currentSlide) {
+    //   console.log("after change", currentSlide);
+    // },
   };
   console.log("e1", plates);
   return (
@@ -89,11 +91,9 @@ const Plates = () => {
                               }}
                             ></div> */}
                             <img
-                              className='plate-img'
+                              className='plate-img transition-opacity duration-500 ${
+                                isLoaded ? "opacity-100" : "opacity-0'
                               onLoad={handleImageLoad}
-                              // className={`plates-img transition-opacity duration-500 ${
-                              //   isLoaded ? "opacity-100" : "opacity-0"
-                              // }`}
                               alt=''
                               src={e.plate}
                             />

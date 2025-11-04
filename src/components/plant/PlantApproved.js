@@ -43,16 +43,27 @@ const PlantApproved = () => {
             />
           </div>
           <h2 className='section-title'>Piantami per amore &#127793;</h2>
-          <h5 className='mb-3'>Zona di piantagione</h5>
+          <p>
+            Verifica qui di seguito le informazioni sulla zona di piantagione
+            tenendo a mente che, li dove non c'è un sistema di irrigazione, sarà
+            tua premura prenderti cura della tua piantina dandogli tutta l'acqua
+            di cui ha bisogno.
+          </p>
+          <p>
+            Potrai successivamente inserire il testo che riporteremo nella targa
+            da apporre sull'albero e proseguire con l'acquisto della tua
+            piantina.
+          </p>
+          <h5 className='mt-4 mb-3'>Zona di piantagione</h5>
           <InfoCard />
           <h5 className='mt-5 mb-3'>Targa</h5>
           <p>
-            Definisci il testo che verrà successivamente da noi riportato sulla
-            targa da apporre sulla tua piantina. Il testo può essere di non più
-            di 500 caratteri.
+            Definisci qui il testo della tua targa, noi lo riporteremo su una
+            targa relizzata in alluminio. Il testo può essere di non più di 500
+            caratteri.
           </p>
           Tutte le targe sono esposte nella pagina{" "}
-          <Link to={"/plates"}> "le vostre targhe"</Link>.
+          <Link to={"/plates"}>"le vostre targhe"</Link>.
           <PlantForm />
         </div>
       </section>

@@ -1068,8 +1068,8 @@ element {
 } */
 .slick-dots li button::before {
   font-family: "slick";
-  font-size: 6px;
-  line-height: 5px !important;
+  font-size: 20px !important;
+  line-height: 10px !important;
   position: absolute;
   top: 0;
   left: 0;
@@ -1078,10 +1078,34 @@ element {
   content: "•";
   text-align: center;
   opacity: 0.25;
-  color: black;
+  color: var(--clr-secondary-2) !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+/* .slick-dots li button::after {
+  font-family: "slick";
+  font-size: 20px !important;
+  line-height: 10px !important;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  content: "•";
+  text-align: center;
+  opacity: 0.25;
+  color: var(--clr-secondary-3) !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+} */
+.slick-dots .slick-active button::before {
+  color: var(--clr-primary-5) !important;
+}
+/* .slick-dots li button {
+  border: 2px solid red !important;
+  border-radius: 50% !important;
+} */
 .slide-plate {
   height: 35vh;
   width: 90%;

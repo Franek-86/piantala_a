@@ -93,6 +93,22 @@ const PlantForm = () => {
               </p>
             )}
           </FloatingLabel>
+          <h5 className='mt-5 mb-3'>Pagamento</h5>
+          <p>
+            Il prezzo di una piantina è di 190 euro ed include la messa a dimora
+            dell'albero, la realizzazione e stampa della targa, la piantumazione
+            entro 6 mesi dalla richiesta e l'iscrizione all'associazione Amici
+            di Ernest Verner.
+          </p>
+          <p>
+            La tipologia di albero sarà concordata con i competenti uffici del
+            Comune e resa visibile online sia nella tua scheda di acquisto che
+            su questa stessa pagina.
+          </p>
+          <p>
+            Procedendo con il pagamento verrai reindirizzato sulla piattaforma
+            di pagamento.
+          </p>
           <button className='btn btn-success' type='submit'>
             Procedi con il pagamento
           </button>
