@@ -74,9 +74,9 @@ const PlantPending = () => {
           però essere necessario più tempo.
         </p>
         <p>
-          Per richiedere informazioni, anche inderenti lo stato della vostra
-          segnalazione, potete utilizzare uno dei nostri contatti nella pagina
-          contatti o in alternativa scrivere nella chat aperta.
+          Per richiedere informazioni inerenti lo stato della vostra
+          segnalazione potete utilizzare uno dei nostri contatti nella pagina
+          "contatti" o in alternativa scrivere nella "chat aperta".
         </p>
         <h5 className='mb-3 mt-5'>Informazioni segnalazione</h5>
         <InfoCard />
