@@ -1873,3 +1873,53 @@ body {
   background: url("../src/assets/images/logoverner.jpg") no-repeat center;
   background-size: cover;
 }
+
+/* steps */
+.step-container {
+  max-width: 3rem;
+  position: relative;
+}
+.step-box {
+  width: 4rem;
+  height: 4rem;
+  border: 3px solid var(--clr-primary-5);
+  border-radius: 50%;
+  background-color: var(--clr-primary-1);
+}
+.step-box {
+  font-size: 2rem;
+  color: var(--clr-secondary-3);
+}
+.step-container:not(:last-child):before {
+  content: "";
+  position: absolute;
+  width: 3rem;
+  height: 2rem;
+  border-top: 3px dotted var(--clr-secondary-2);
+  left: calc(100% + 0.7rem);
+  top: 1.75rem;
+}
+@media screen and (min-width: 400px) {
+  .step-container:not(:last-child):before {
+    width: 7rem;
+  }
+}
+@media screen and (min-width: 500px) {
+  .step-container:not(:last-child):before {
+    width: 8rem;
+  }
+}
+@media screen and (min-width: 640px) {
+  .step-container:not(:last-child):before {
+    width: 9.5rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .step-container {
+    max-width: 8rem;
+  }
+  .step-container:not(:last-child):before {
+    width: 12rem;
+    left: 75%;
+  }
+}
