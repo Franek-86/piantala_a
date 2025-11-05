@@ -63,9 +63,9 @@ const InfoCard = () => {
     getSinglePlant(plantId);
   }, [plantId, plateUrl]);
 
-  if (singlePlantLoading) return <Loading />;
-  if (singlePlantError) return <div className='error'>{singlePlantError}</div>;
-  if (!plant) return <div>No plant found.</div>;
+  // if (singlePlantLoading) return <Loading />;
+  // if (singlePlantError) return <div className='error'>{singlePlantError}</div>;
+  // if (!plant) return <div>No plant found.</div>;
   const {
     lat,
     lang,

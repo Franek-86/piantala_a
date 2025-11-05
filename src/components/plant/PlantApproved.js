@@ -20,18 +20,18 @@ const PlantApproved = () => {
   const { plant, userInfo } = useContext(PlantsContext);
 
   const fromPage = location.state?.from || "/map";
-  const { getSinglePlant, singlePlantError, plateUrl } =
+  const { getSinglePlant, singlePlantError, plateUrl, singlePlantLoading } =
     useContext(PlantsContext);
   const backToMap = () => {
     navigate(fromPage);
   };
-  useEffect(() => {
-    getSinglePlant(plantId);
-  }, [plantId, plateUrl]);
+  // useEffect(() => {
+  //   getSinglePlant(plantId);
+  // }, [plantId, plateUrl]);
 
-  if (singlePlantError) return <div className='error'>{singlePlantError}</div>;
-  if (!plant) return <div>No plant found.</div>;
-
+  // if (singlePlantError) return <div className='error'>{singlePlantError}</div>;
+  // if (!plant) return <div>No plant found.</div>;
+  // if (singlePlantLoading) return <Loading />;
   return (
     <div>
       {" "}

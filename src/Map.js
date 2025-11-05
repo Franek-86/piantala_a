@@ -172,6 +172,7 @@ function Map() {
   console.log("last", plants.length);
 
   useEffect(() => {
+    console.log("a1");
     getAllPlants();
   }, []);
 

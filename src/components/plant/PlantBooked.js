@@ -37,6 +37,7 @@ const PlantBooked = () => {
     getOwnerInfo,
     reporterInfo,
     ownerInfo,
+    getOwnerUserName,
     request,
   } = useContext(PlantsContext);
 
@@ -53,6 +54,7 @@ const PlantBooked = () => {
     handlePlateRemoval,
     modalUserShow,
     setModalUserShow,
+    ownerId,
   } = useContext(PlantsContext);
 
   const backToMap = () => {
@@ -60,10 +62,14 @@ const PlantBooked = () => {
   };
   useEffect(() => {
     getSinglePlant(plantId);
+    // getOwnerUserName();
   }, [plantId, plateUrl]);
+  // useEffect(() => {
+  //   getOwnerUserName();
+  // }, [ownerId]);
 
-  if (singlePlantError) return <div className='error'>{singlePlantError}</div>;
-  if (!plant) return <div>No plant found.</div>;
+  // if (singlePlantError) return <div className='error'>{singlePlantError}</div>;
+  // if (!plant) return <div>No plant found.</div>;
   const {
     lat,
     lang,
@@ -109,7 +115,7 @@ const PlantBooked = () => {
           />
         </div>
         <h2 className='section-title'>Piantina</h2>
-        <h5 className='mb-3'>Zona di piantagione</h5>
+        <h5 className='mb-3'>Posizione</h5>
         <InfoCard />
 
         <br />
@@ -117,7 +123,7 @@ const PlantBooked = () => {
           <div className='plant-info-image'>
             {plate && !plateLoading && status_piantina === "booked" && (
               <div className='plate-info-pic'>
-                <h5 className='mb-3'> Immagine targa</h5>
+                <h5 className='mb-3'>Targa</h5>
 
                 <Card.Img
                   variant='bottom'
@@ -131,7 +137,7 @@ const PlantBooked = () => {
             )}
             {status_piantina === "booked" && !plate && (
               <div className='plate-info-pic'>
-                <h5 className='mb-3'> Immagine targa</h5>
+                <h5 className='mb-3'>Targa</h5>
                 <Card.Img
                   class='placeholder-image'
                   variant='top'

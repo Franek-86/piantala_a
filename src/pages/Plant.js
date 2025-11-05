@@ -10,8 +10,7 @@ import PlantRejected from "../components/plant/PlantRejected";
 const Plant = () => {
   const { plantId } = useParams();
 
-  const { plant } = useContext(PlantsContext);
-  const { getSinglePlant, singlePlantError, plateUrl } =
+  const { getSinglePlant, singlePlantError, plateUrl, plant } =
     useContext(PlantsContext);
 
   useEffect(() => {
@@ -19,7 +18,7 @@ const Plant = () => {
   }, [plantId, plateUrl]);
 
   if (singlePlantError) return <div className='error'>{singlePlantError}</div>;
-  if (!plant) return <div>No plant found.</div>;
+  if (!plant) return <Loading />;
   const { status_piantina } = plant;
 
   return (

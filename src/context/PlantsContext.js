@@ -403,7 +403,37 @@ export const PlantsProvider = ({ children }) => {
       addLocationInfo(latMatch, langMatch);
     }
   };
+  const getOwnerUserName = async () => {
+    try {
+      const response = await axios.get(
+        `${serverDomain}/api/plants/user/owner/${ownerId}`
+      );
+      if (response) {
+        setOwnerInfo({
+          ...ownerInfo,
+          // firstName: response.data.firstName,
+          // lastName: response.data.lastName,
+          // birthday: response.data.birthday,
+          // city: response.data.city,
+          // fiscalCode: response.data.fiscalCode,
+          user: response.data.user,
+          // role: response.data.role,
+          // phone: response.data.phone,
+          // email: response.data.email,
+          // cratedAt: response.data.cratedAt,
+        });
+        // setRequest("owner");
+        // setModalUserShow(true);
+      }
+
+      // {email,user_name,phone, createdAt}
+    } catch (err) {
+    } finally {
+      setLoading(false);
+    }
+  };
   const getOwnerInfo = async () => {
+    setLoading(true);
     try {
       const response = await axios.get(
         `${serverDomain}/api/plants/user/owner/${ownerId}`
@@ -429,8 +459,11 @@ export const PlantsProvider = ({ children }) => {
       // {email,user_name,phone, createdAt}
     } catch (err) {
     } finally {
+      setLoading(false);
     }
   };
+  console.log("owner username 1", ownerId);
+
   const getReporterInfo = async () => {
     // let updatedObj = {};
     if (userId) {
@@ -494,6 +527,7 @@ export const PlantsProvider = ({ children }) => {
         plateLoading,
         setPlants,
         getAllPlants,
+        getOwnerUserName,
         getSinglePlant,
         getMyPlants,
         sendValuesToAddPlant,
@@ -524,7 +558,6 @@ export const PlantsProvider = ({ children }) => {
         request,
         filterPlates,
         plates,
-        getAllPlants,
       }}
     >
       {children}
