@@ -48,6 +48,7 @@ export const PlantsProvider = ({ children }) => {
     email: "",
     cratedAt: "",
   });
+  const [userOwner, setUserOwner] = useState(null);
   const serverDomain =
     process.env.REACT_APP_NODE_ENV === "test"
       ? process.env.REACT_APP_TEST_DOMAIN_NAME_SERVER
@@ -403,35 +404,7 @@ export const PlantsProvider = ({ children }) => {
       addLocationInfo(latMatch, langMatch);
     }
   };
-  const getOwnerUserName = async () => {
-    try {
-      const response = await axios.get(
-        `${serverDomain}/api/plants/user/owner/${ownerId}`
-      );
-      if (response) {
-        setOwnerInfo({
-          ...ownerInfo,
-          // firstName: response.data.firstName,
-          // lastName: response.data.lastName,
-          // birthday: response.data.birthday,
-          // city: response.data.city,
-          // fiscalCode: response.data.fiscalCode,
-          user: response.data.user,
-          // role: response.data.role,
-          // phone: response.data.phone,
-          // email: response.data.email,
-          // cratedAt: response.data.cratedAt,
-        });
-        // setRequest("owner");
-        // setModalUserShow(true);
-      }
 
-      // {email,user_name,phone, createdAt}
-    } catch (err) {
-    } finally {
-      setLoading(false);
-    }
-  };
   const getOwnerInfo = async () => {
     setLoading(true);
     try {
@@ -528,10 +501,10 @@ export const PlantsProvider = ({ children }) => {
         setPlants,
         setPlant,
         getAllPlants,
-        getOwnerUserName,
         getSinglePlant,
         getMyPlants,
         sendValuesToAddPlant,
+        setUserOwner,
         addPlant,
         setLatMatch,
         setLangMatch,
@@ -558,6 +531,8 @@ export const PlantsProvider = ({ children }) => {
         ownerInfo,
         request,
         filterPlates,
+        setOwnerInfo,
+        setUserOwner,
         plates,
       }}
     >

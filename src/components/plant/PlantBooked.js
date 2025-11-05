@@ -37,7 +37,6 @@ const PlantBooked = () => {
     getOwnerInfo,
     reporterInfo,
     ownerInfo,
-    getOwnerUserName,
     request,
   } = useContext(PlantsContext);
 
@@ -54,13 +53,15 @@ const PlantBooked = () => {
     handlePlateRemoval,
     modalUserShow,
     setModalUserShow,
-    ownerId,
     setPlant,
+    userOwner,
+    setUserOwner,
   } = useContext(PlantsContext);
 
   const backToMap = () => {
     navigate(fromPage);
     setPlant(null);
+    setUserOwner(null);
   };
   useEffect(() => {
     getSinglePlant(plantId);
@@ -106,6 +107,7 @@ const PlantBooked = () => {
       // setSinglePlantLoading(false);
     }
   };
+
   return (
     <section className='section-background plant-section section-large'>
       <div className='section-center mb-5'>
