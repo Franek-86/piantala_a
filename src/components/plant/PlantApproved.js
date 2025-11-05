@@ -84,7 +84,7 @@ const PlantApproved = () => {
               </div>
             </div>
           </section>
-          <h5 className='mt-4 mb-3'>Zona di piantagione</h5>
+          <h5 className='mt-4 mb-3'>Posizione</h5>
           <p>
             {" "}
             Verifica qui di seguito le informazioni su questa zona di
