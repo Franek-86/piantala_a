@@ -23,6 +23,7 @@ const PlantPending = () => {
     plateUrl,
     modalUserShow,
     setModalUserShow,
+    setPlant,
   } = useContext(PlantsContext);
   const backToMap = () => {
     navigate(fromPage);
@@ -64,6 +65,7 @@ const PlantPending = () => {
           <MdBackspace
             onClick={() => {
               backToMap();
+              setPlant(null);
             }}
           />
         </div>

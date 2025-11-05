@@ -20,8 +20,13 @@ const PlantApproved = () => {
   const { plant, userInfo } = useContext(PlantsContext);
 
   const fromPage = location.state?.from || "/map";
-  const { getSinglePlant, singlePlantError, plateUrl, singlePlantLoading } =
-    useContext(PlantsContext);
+  const {
+    getSinglePlant,
+    singlePlantError,
+    plateUrl,
+    singlePlantLoading,
+    setPlant,
+  } = useContext(PlantsContext);
   const backToMap = () => {
     navigate(fromPage);
   };
@@ -41,6 +46,7 @@ const PlantApproved = () => {
             <MdBackspace
               onClick={() => {
                 backToMap();
+                setPlant(null);
               }}
             />
           </div>

@@ -55,10 +55,12 @@ const PlantBooked = () => {
     modalUserShow,
     setModalUserShow,
     ownerId,
+    setPlant,
   } = useContext(PlantsContext);
 
   const backToMap = () => {
     navigate(fromPage);
+    setPlant(null);
   };
   useEffect(() => {
     getSinglePlant(plantId);

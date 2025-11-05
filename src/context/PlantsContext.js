@@ -526,6 +526,7 @@ export const PlantsProvider = ({ children }) => {
         locationInfo,
         plateLoading,
         setPlants,
+        setPlant,
         getAllPlants,
         getOwnerUserName,
         getSinglePlant,

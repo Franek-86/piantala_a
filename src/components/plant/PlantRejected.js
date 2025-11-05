@@ -24,6 +24,7 @@ const PlantRejected = () => {
     handleStatusChange,
     plateUrl,
     deletePlant,
+    setPlant,
   } = useContext(PlantsContext);
   const backToMap = () => {
     navigate(fromPage);
@@ -53,6 +54,7 @@ const PlantRejected = () => {
           <MdBackspace
             onClick={() => {
               backToMap();
+              setPlant(null);
             }}
           />
         </div>
