@@ -1875,6 +1875,10 @@ body {
 }
 
 /* steps */
+
+.steps-section {
+  margin: 5rem 0;
+}
 .step-container {
   max-width: 3rem;
   position: relative;
@@ -1922,4 +1926,8 @@ body {
     width: 12rem;
     left: 75%;
   }
+}
+.step-title {
+  font-size: 1.5rem;
+  color: var(--clr-secondary-3);
 }

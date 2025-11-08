@@ -7,6 +7,7 @@ import { AuthContext } from "../../context/AuthContext";
 import { Capacitor } from "@capacitor/core";
 import { Keyboard } from "@capacitor/keyboard";
 import { PlantsContext } from "../../context/PlantsContext";
+import { MdPayment } from "react-icons/md";
 const PlantForm = () => {
   const { userId, userRole } = useContext(AuthContext);
   const { deletePlant } = useContext(PlantsContext);
@@ -93,7 +94,12 @@ const PlantForm = () => {
               </p>
             )}
           </FloatingLabel>
-          <h5 className='mt-5 mb-3'>Pagamento</h5>
+          <span className='mt-5 mb-3 h5 d-flex flex-row align-items-center'>
+            <div className='step-title pb-2 pe-1'>
+              <MdPayment />
+            </div>
+            Infomazioni sul pagamento
+          </span>
           <p>
             Il prezzo di una piantina è di 190 euro ed include la messa a dimora
             dell'albero, la realizzazione e stampa della targa, la piantumazione

@@ -6,6 +6,7 @@ import Loading from "../../pages/Loading";
 import RejectionModal from "./RejectionModal";
 import UserInfo from "./UserInfo";
 import InfoCard from "./InfoCard";
+import { deleteAndGo } from "../../utils/utils";
 
 const PlantPending = () => {
   const [modalShow, setModalShow] = useState(false);
@@ -38,19 +39,19 @@ const PlantPending = () => {
     setModalShow(true);
   };
 
-  const deleteAndGo = async (plantId) => {
-    // setSinglePlantLoading(true);
+  // const deleteAndGo = async (deletePlant, plantId, navigate) => {
+  //   // setSinglePlantLoading(true);
 
-    try {
-      await deletePlant(plantId);
-    } catch (err) {
-      console.log(err);
-      // setSinglePlantLoading(false);
-    } finally {
-      navigate("/map");
-      // setSinglePlantLoading(false);
-    }
-  };
+  //   try {
+  //     await deletePlant(plantId);
+  //   } catch (err) {
+  //     console.log(err);
+  //     // setSinglePlantLoading(false);
+  //   } finally {
+  //     navigate("/map");
+  //     // setSinglePlantLoading(false);
+  //   }
+  // };
   return (
     <section className='section-background plant-section section-large'>
       <RejectionModal

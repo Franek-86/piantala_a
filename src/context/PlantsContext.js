@@ -485,6 +485,23 @@ export const PlantsProvider = ({ children }) => {
     setPlates(filterPlates);
   }, [plants]);
 
+  const updatePlantPic = async (plantId, event) => {
+    const formData = new FormData();
+    const file = event.currentTarget.files[0];
+    const deleteHash = plant.delete_hash;
+    formData.append("plantPic", file);
+    formData.append("deleteHash", deleteHash);
+    console.log(formData);
+    const response = await axios.patch(
+      `${serverDomain}/api/plants/update-plant-pic/${plantId}`,
+      formData,
+      { headers: { "content-type": "multiform-data" } }
+    );
+    if (response) {
+      console.log("aa resp", response);
+    }
+  };
+
   return (
     <PlantsContext.Provider
       value={{
@@ -516,6 +533,7 @@ export const PlantsProvider = ({ children }) => {
         addLocationInfo,
         handlePlateUpload,
         handlePlateRemoval,
+        updatePlantPic,
         singlePlantError,
         loading,
         handleBookedPlant,

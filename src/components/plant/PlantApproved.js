@@ -50,12 +50,12 @@ const PlantApproved = () => {
               }}
             />
           </div>
-          <h2 className='section-title mb-5'>Piantami per amore &#127793;</h2>
+          <h2 className='section-title mb-5'>Ti pianto per amore &#127793;</h2>
           {/* <p>
             Informazioni sulla zona di piantantagione, inserimento testo targa e
             procedura di pagamento.
           </p> */}
-          <section className='steps-section mb-5 d-flex flex-row justify-content-around'>
+          <section className='steps-section d-flex flex-row justify-content-around'>
             <div className='step-container d-flex flex-column align-items-center'>
               <div className='step-box d-flex flex-row align-items-center justify-content-center'>
                 <TiLocation />
@@ -90,16 +90,24 @@ const PlantApproved = () => {
               </div>
             </div>
           </section>
-          <h5 className='mt-4 mb-3'>Posizione</h5>
+          <span className='mt-5 mb-3 h5 d-flex flex-row align-items-center'>
+            <div className='step-title pb-2 pe-1'>
+              <TiLocation />
+            </div>
+            Voglio essere piantata qui!
+          </span>
           <p>
-            {" "}
-            Verifica qui di seguito le informazioni su questa zona di
-            piantagione tenendo a mente che, li dove non c'è un sistema di
-            irrigazione, sarà tua premura prenderti cura della tua piantina
-            dandogli tutta l'acqua di cui ha bisogno.
+            Li dove non c'è un sistema di irrigazione, sarà tua premura
+            prenderti cura di me dandomi tutta l'acqua di cui ho bisogno.
+            Controlla se sono vicino a te o a chi dovrà prendersi cura di me.
           </p>
           <InfoCard />
-          <h5 className='mt-5 mb-3'>Targa</h5>
+          <span className='mt-5 mb-3 h5 d-flex flex-row align-items-center'>
+            <div className='step-title pb-2 pe-2'>
+              <BsVectorPen />
+            </div>
+            Dedicami a qualcuno
+          </span>
           <p>
             Definisci qui il testo della tua targa, noi lo riporteremo su una
             targa relizzata in alluminio. Il testo può essere di non più di 500

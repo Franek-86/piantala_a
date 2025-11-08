@@ -26,6 +26,7 @@ const PlantBooked = () => {
     setIsLoaded(true);
   };
 
+  const updateImageRef = useRef();
   const { plantId } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
@@ -38,6 +39,7 @@ const PlantBooked = () => {
     reporterInfo,
     ownerInfo,
     request,
+    updatePlantPic,
   } = useContext(PlantsContext);
 
   const fromPage = location.state?.from || "/map";
@@ -107,6 +109,9 @@ const PlantBooked = () => {
       // setSinglePlantLoading(false);
     }
   };
+  const updatePlant = () => {
+    updateImageRef.current.click();
+  };
 
   return (
     <section className='section-background plant-section section-large'>
@@ -121,7 +126,23 @@ const PlantBooked = () => {
         <h2 className='section-title'>Piantina</h2>
         <h5 className='mb-3'>Posizione</h5>
         <InfoCard />
-
+        <input
+          className='d-none'
+          onChange={(event) => {
+            updatePlantPic(plantId, event);
+          }}
+          ref={updateImageRef}
+          type='file'
+          name=''
+          id=''
+        />
+        <button
+          // onClick={() => updatePlantPic(id)}
+          className='btn btn-warning my-3'
+          onClick={updatePlant}
+        >
+          Update pic
+        </button>
         <br />
         <section className='plate-section'>
           <div className='plant-info-image'>
