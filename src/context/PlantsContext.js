@@ -486,19 +486,31 @@ export const PlantsProvider = ({ children }) => {
   }, [plants]);
 
   const updatePlantPic = async (plantId, event) => {
-    const formData = new FormData();
-    const file = event.currentTarget.files[0];
-    const deleteHash = plant.delete_hash;
-    formData.append("plantPic", file);
-    formData.append("deleteHash", deleteHash);
-    console.log(formData);
-    const response = await axios.patch(
-      `${serverDomain}/api/plants/update-plant-pic/${plantId}`,
-      formData,
-      { headers: { "content-type": "multiform-data" } }
-    );
-    if (response) {
-      console.log("aa resp", response);
+    setLoading(true);
+    try {
+      const formData = new FormData();
+      const file = event.currentTarget.files[0];
+      const deleteHash = plant.delete_hash;
+      formData.append("plantPic", file);
+      formData.append("deleteHash", deleteHash);
+      console.log(formData);
+      const response = await axios.patch(
+        `${serverDomain}/api/plants/update-plant-pic/${plantId}`,
+        formData,
+        { headers: { "content-type": "multiform-data" } }
+      );
+      if (response) {
+        console.log("aa resp", response);
+        setPlant({
+          ...plant,
+          image_url: response.image_url,
+          delete_hash: response.delete_hash,
+        });
+      }
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setLoading(false);
     }
   };
 

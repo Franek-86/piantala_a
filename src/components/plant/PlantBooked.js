@@ -30,7 +30,7 @@ const PlantBooked = () => {
   const { plantId } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
-  const { userRole } = useContext(AuthContext);
+  const { userRole, userId } = useContext(AuthContext);
   const {
     plant,
     userInfo,
@@ -65,16 +65,6 @@ const PlantBooked = () => {
     setPlant(null);
     setUserOwner(null);
   };
-  useEffect(() => {
-    getSinglePlant(plantId);
-    // getOwnerUserName();
-  }, [plantId, plateUrl]);
-  // useEffect(() => {
-  //   getOwnerUserName();
-  // }, [ownerId]);
-
-  // if (singlePlantError) return <div className='error'>{singlePlantError}</div>;
-  // if (!plant) return <div>No plant found.</div>;
   const {
     lat,
     lang,
@@ -91,7 +81,19 @@ const PlantBooked = () => {
     house_number,
     plate,
     plate_hash,
+    ownerId,
   } = plant;
+
+  useEffect(() => {
+    getSinglePlant(plantId);
+    // getOwnerUserName();
+  }, [plantId, plateUrl, image_url]);
+  // useEffect(() => {
+  //   getOwnerUserName();
+  // }, [ownerId]);
+
+  // if (singlePlantError) return <div className='error'>{singlePlantError}</div>;
+  // if (!plant) return <div>No plant found.</div>;
 
   const handleButtonClick = () => {
     fileInputRef.current.click();
@@ -136,13 +138,17 @@ const PlantBooked = () => {
           name=''
           id=''
         />
-        <button
-          // onClick={() => updatePlantPic(id)}
-          className='btn btn-warning my-3'
-          onClick={updatePlant}
-        >
-          Update pic
-        </button>
+        {userRole === "admin" || userId === ownerId ? (
+          <button
+            // onClick={() => updatePlantPic(id)}
+            className='btn btn-warning my-3'
+            onClick={updatePlant}
+          >
+            Aggiorna immagine
+          </button>
+        ) : (
+          <></>
+        )}
         <br />
         <section className='plate-section'>
           <div className='plant-info-image'>

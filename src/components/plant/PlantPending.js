@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext, useRef } from "react";
-import { useParams, useNavigate, useLocation } from "react-router-dom";
+import { useParams, useNavigate, useLocation, Link } from "react-router-dom";
 import { MdBackspace } from "react-icons/md";
 import { PlantsContext } from "../../context/PlantsContext";
 import Loading from "../../pages/Loading";
@@ -7,6 +7,7 @@ import RejectionModal from "./RejectionModal";
 import UserInfo from "./UserInfo";
 import InfoCard from "./InfoCard";
 import { deleteAndGo } from "../../utils/utils";
+import { AuthContext } from "../../context/AuthContext";
 
 const PlantPending = () => {
   const [modalShow, setModalShow] = useState(false);
@@ -16,6 +17,7 @@ const PlantPending = () => {
   const { plant, getReporterInfo, reporterInfo, ownerInfo, request } =
     useContext(PlantsContext);
   const fromPage = location.state?.from || "/map";
+  const { userRole } = useContext(AuthContext);
   const {
     getSinglePlant,
     singlePlantError,
@@ -71,60 +73,54 @@ const PlantPending = () => {
           />
         </div>
         <h2 className='section-title'>Segnalazione</h2>
+
         <p>
-          Il tempo medio di approvazione è di una settimana lavorativa dalla
-          data di ricezione della segnalazione. Per alcune segnalazioni potrebbe
-          però essere necessario più tempo.
-        </p>
-        <p>
-          Per richiedere informazioni inerenti lo stato della vostra
-          segnalazione potete utilizzare uno dei nostri contatti nella pagina
-          "contatti" o in alternativa scrivere nella "chat aperta".
+          Per richiedere informazioni inerenti questa segnalazione, ulteriori
+          rispetto a quelle riportate qui in basso, puoi utilizzare uno dei
+          nostri <Link to='/contacts'>contatti</Link> o in alternativa scrivere
+          nella <Link to='/chat'> chat aperta</Link>.
         </p>
         <h5 className='mb-3 mt-5'>Informazioni segnalazione</h5>
         <InfoCard />
+        <span className='small fst-italic'>
+          Il tempo medio di approvazione è di una settimana lavorativa dalla
+          ricezione della segnalazione. Per alcune segnalazioni potrebbe essere
+          necessario più tempo
+        </span>
         {/* </div> */}
 
-        <div className='admin-controls pt-5 pb-3'>
-          <UserInfo
-            role={request === "reporter" ? reporterInfo.role : ownerInfo.role}
-            user={request === "reporter" ? reporterInfo : ownerInfo}
-            show={modalUserShow}
-            onHide={() => setModalUserShow(false)}
-          />
-          <hr />
-          <h5 className='mb-3'>Informazioni utente</h5>
-          <div className='d-grid gap-2'>
-            <button
-              className='btn btn-outline-info'
-              onClick={() => getReporterInfo()}
-            >
-              Informazioni Segnalatore
-            </button>
+        {userRole === "admin" && (
+          <div className='admin-controls pt-5 pb-3'>
+            <UserInfo
+              role={request === "reporter" ? reporterInfo.role : ownerInfo.role}
+              user={request === "reporter" ? reporterInfo : ownerInfo}
+              show={modalUserShow}
+              onHide={() => setModalUserShow(false)}
+            />
+            <hr />
+            <h5 className='mb-3'>Operazioni di amministrazione</h5>
+            <div className='d-grid gap-2'>
+              <button
+                className='btn btn-success'
+                onClick={() => handleStatusChange("approved", plantId)}
+              >
+                Approva segnalazione
+              </button>
+              <button
+                className='btn btn-danger'
+                onClick={() => openRejectionModal()}
+              >
+                Rigetta segnalazione
+              </button>
+              <button
+                className='btn btn-dark '
+                onClick={() => deleteAndGo(deletePlant, plantId, navigate)}
+              >
+                Elimina segnalazione
+              </button>
+            </div>
           </div>
-          <hr />
-          <h5 className='mb-3'>Operazioni di amministrazione</h5>
-          <div className='d-grid gap-2'>
-            <button
-              className='btn btn-success'
-              onClick={() => handleStatusChange("approved", plantId)}
-            >
-              Approva segnalazione
-            </button>
-            <button
-              className='btn btn-danger'
-              onClick={() => openRejectionModal()}
-            >
-              Rigetta segnalazione
-            </button>
-            <button
-              className='btn btn-dark '
-              onClick={() => deleteAndGo(deletePlant, plantId, navigate)}
-            >
-              Elimina segnalazione
-            </button>
-          </div>
-        </div>
+        )}
       </div>
     </section>
   );
