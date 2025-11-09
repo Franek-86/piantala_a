@@ -49,7 +49,7 @@ const PlantRejected = () => {
         handleStatusChange={() => handleStatusChange("rejected", plantId)}
         plantId={plantId}
       />
-      <div className='section-center mb-5'>
+      <div className='section-center pb-5'>
         <div className='back-btn'>
           <MdBackspace
             onClick={() => {

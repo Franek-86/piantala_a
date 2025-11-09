@@ -109,7 +109,7 @@ const Contacts = () => {
             </article>
             <hr />
             <article className='d-flex align-items-center mt-3'>
-              <span className='text-center'>Seguici</span>
+              <span className='text-center'>Seguici sui nostri canali</span>
               <div className='contacts-socials-container'>
                 <div className='social-icons-center d-flex justify-content-around align-items-center w-75'>
                   {/* <div className='contacts-social-icon ps-3'>
