@@ -1931,3 +1931,7 @@ body {
   font-size: 1.5rem;
   color: var(--clr-secondary-3);
 }
+
+.slick-list {
+  min-height: 50vh;
+}
