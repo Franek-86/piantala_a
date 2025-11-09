@@ -151,7 +151,7 @@ const PlantBooked = () => {
         )}
         <br />
         <section className='plate-section'>
-          <div className='plant-info-image'>
+          <div className=''>
             {plate && !plateLoading && status_piantina === "booked" && (
               <div className='plate-info-pic'>
                 <h5 className='mb-3'>Targa</h5>
