@@ -17,6 +17,7 @@ import {
 import PlantFormSelect from "./PlantFormSelect";
 import logo from "../../assets/images/ti pianto per amore-APP-verde.png";
 import InfoCard from "./InfoCard";
+import { TiLocation } from "react-icons/ti";
 
 const PlantBooked = () => {
   const [modalShow, setModalShow] = useState(false);
@@ -40,6 +41,7 @@ const PlantBooked = () => {
     ownerInfo,
     request,
     updatePlantPic,
+    getOwnerPublicInfo,
   } = useContext(PlantsContext);
 
   const fromPage = location.state?.from || "/map";
@@ -58,6 +60,7 @@ const PlantBooked = () => {
     setPlant,
     userOwner,
     setUserOwner,
+    ownerPublicInfo,
   } = useContext(PlantsContext);
 
   const backToMap = () => {
@@ -81,11 +84,12 @@ const PlantBooked = () => {
     house_number,
     plate,
     plate_hash,
-    ownerId,
+    owner_id,
   } = plant;
 
   useEffect(() => {
     getSinglePlant(plantId);
+    getOwnerPublicInfo(owner_id);
     // getOwnerUserName();
   }, [plantId, plateUrl, image_url]);
   // useEffect(() => {
@@ -125,8 +129,15 @@ const PlantBooked = () => {
             }}
           />
         </div>
-        <h2 className='section-title'>Piantina</h2>
-        <h5 className='mb-3'>Posizione</h5>
+        <h2 className='section-title'>
+          Piantina <span className='lower-case'>di</span> {ownerPublicInfo}
+        </h2>
+        <span className='mt-5 mb-3 h5 d-flex flex-row align-items-center'>
+          <div className='step-title pb-2 pe-1'>
+            <TiLocation />
+          </div>
+          Mi trovo qui!
+        </span>
         <InfoCard />
         <input
           className='d-none'
@@ -138,7 +149,7 @@ const PlantBooked = () => {
           name=''
           id=''
         />
-        {userRole === "admin" || userId === ownerId ? (
+        {userRole === "admin" || userId === owner_id ? (
           <button
             // onClick={() => updatePlantPic(id)}
             className='btn btn-warning my-3'

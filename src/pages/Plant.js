@@ -10,8 +10,13 @@ import PlantRejected from "../components/plant/PlantRejected";
 const Plant = () => {
   const { plantId } = useParams();
 
-  const { getSinglePlant, singlePlantError, plateUrl, plant } =
-    useContext(PlantsContext);
+  const {
+    getSinglePlant,
+    singlePlantError,
+    plateUrl,
+    plant,
+    getOwnerPublicInfo,
+  } = useContext(PlantsContext);
 
   useEffect(() => {
     getSinglePlant(plantId);

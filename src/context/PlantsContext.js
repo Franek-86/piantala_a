@@ -20,6 +20,7 @@ export const PlantsProvider = ({ children }) => {
   const [userId, setUserId] = useState(null);
   const [ownerId, setOwnerId] = useState(null);
   const [request, setRequest] = useState(null);
+  const [ownerPublicInfo, setOwnerPublicInfo] = useState(null);
   // const [userId, setUserId] = useState(null);
   // const [submissionError, setSubmissionError] = useState("");
   const [plates, setPlates] = useState([]);
@@ -389,8 +390,15 @@ export const PlantsProvider = ({ children }) => {
       // setSinglePlantLoading(false);
     }
   };
-  const getUserName = (user_id) => {
-    return user_id;
+  const getOwnerPublicInfo = async (owner_id) => {
+    console.log("aa", ownerId);
+    const response = await axios.get(
+      `${serverDomain}/api/plants/user/owner-public-info/${owner_id}`
+    );
+    if (response.status === 200) {
+      const ownerUserName = response.data.ownerUserName;
+      setOwnerPublicInfo(ownerUserName);
+    }
   };
   const sendValuesToAddPlant = (val) => {
     const coordsMatch = val.match(/^(-?\d+(\.\d+)?),\s*(-?\d+(\.\d+)?)/);
@@ -520,6 +528,8 @@ export const PlantsProvider = ({ children }) => {
         plants,
         plant,
         plateUrl,
+        getOwnerPublicInfo,
+        ownerPublicInfo,
         myPlants,
         latMatch,
         langMatch,
@@ -551,7 +561,6 @@ export const PlantsProvider = ({ children }) => {
         handleBookedPlant,
         handleTypeUpdate,
         fetchUserPlants,
-        getUserName,
         getReporterInfo,
         getOwnerInfo,
         userInfo,

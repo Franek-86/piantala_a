@@ -162,6 +162,9 @@ ul li {
 ul {
   padding: 0;
 }
+.lower-case {
+  text-transform: lowercase;
+}
 .section-page {
   /* height: 90vh; */
   height: 100vh;
