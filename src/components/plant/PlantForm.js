@@ -101,7 +101,7 @@ const PlantForm = () => {
             Infomazioni sul pagamento
           </span>
           <p>
-            Il prezzo di una piantina è di 190 euro ed include la messa a dimora
+            Il prezzo di una piantina è di 200 euro ed include la messa a dimora
             dell'albero, la realizzazione e stampa della targa, la piantumazione
             entro 6 mesi dalla richiesta e l'iscrizione all'associazione Amici
             di Ernest Verner.
