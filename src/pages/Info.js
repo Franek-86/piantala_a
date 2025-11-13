@@ -35,14 +35,14 @@ const Info = () => {
               <Accordion.Header>Scarica l'app come "tester"</Accordion.Header>
               <Accordion.Body>
                 <p>
-                  Al fine di rendere l'app disponibile il prima possibile a
-                  tutti gli utenti su Google Play, vi invitiamo a scaricare
-                  l'app di "Ti Pianto Per Amore" come "tester" seguendo le
-                  indicazioni che riportiamo qui di seguito.
+                  Al fine di rendere l'app disponibile a tutti gli utenti su
+                  Google Play, vi invitiamo a scaricare l'app di "Ti Pianto Per
+                  Amore" come "tester" seguendo le indicazioni che riportiamo
+                  qui di seguito.
                 </p>
                 <p>
                   Più o meno 24h dopo esservi registrati potrete installare
-                  l'app sceglierdo tra una delle due opzioni che riporto in
+                  l'app scegliendo tra una delle due opzioni che riporto in
                   basso.
                 </p>
                 <ListGroup as='ol'>

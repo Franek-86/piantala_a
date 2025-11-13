@@ -94,19 +94,19 @@ const PlantApproved = () => {
             <div className='step-title pb-2 pe-1'>
               <TiLocation />
             </div>
-            Voglio essere piantata qui!
+            Piantetemi qui!
           </span>
-          <p>
+          {/* <p>
             Controlla se sono vicino a te o a chi dovrà prendersi cura di me. Li
             dove non c'è un sistema di irrigazione sarà tua premura accertarti
             che mi sia data tutta l'acqua di cui ho bisogno.
-          </p>
+          </p> */}
           <InfoCard />
           <span className='mt-5 mb-3 h5 d-flex flex-row align-items-center'>
             <div className='step-title pb-2 pe-1'>
               <BsVectorPen />
             </div>
-            Dedicami a qualcuno
+            Dedicatemi a qualcuno!
           </span>
           <p>
             Definisci qui il testo della tua targa, noi lo riporteremo su una
