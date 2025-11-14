@@ -18,6 +18,7 @@ import PlantFormSelect from "./PlantFormSelect";
 import logo from "../../assets/images/ti pianto per amore-APP-verde.png";
 import InfoCard from "./InfoCard";
 import { TiLocation } from "react-icons/ti";
+import { Capacitor } from "@capacitor/core";
 
 const PlantBooked = () => {
   const [modalShow, setModalShow] = useState(false);
@@ -42,6 +43,7 @@ const PlantBooked = () => {
     request,
     updatePlantPic,
     getOwnerPublicInfo,
+    updatePicMob,
   } = useContext(PlantsContext);
 
   const fromPage = location.state?.from || "/map";
@@ -139,16 +141,30 @@ const PlantBooked = () => {
           Mi trovo qui!
         </span>
         <InfoCard />
-        <input
-          className='d-none'
-          onChange={(event) => {
-            updatePlantPic(plantId, event);
-          }}
-          ref={updateImageRef}
-          type='file'
-          name=''
-          id=''
-        />
+        {!Capacitor.isNativePlatform() ? (
+          <input
+            className='d-none'
+            onChange={(event) => {
+              updatePlantPic(plantId, event);
+            }}
+            ref={updateImageRef}
+            type='file'
+            name=''
+            id=''
+          />
+        ) : (
+          <input
+            className='d-none'
+            onChange={(event) => {
+              updatePicMob(plantId, event);
+            }}
+            ref={updateImageRef}
+            type='file'
+            name=''
+            id=''
+          />
+        )}
+
         {userRole === "admin" || userId === owner_id ? (
           <button
             // onClick={() => updatePlantPic(id)}

@@ -3,6 +3,7 @@ import { jwtDecode } from "jwt-decode";
 import { ToastContainer, toast } from "react-toastify";
 import axios from "../services/axiosInstance";
 import { UsersContext } from "./UsersContext";
+import { Camera, CameraResultType } from "@capacitor/camera";
 export const PlantsContext = createContext();
 export const PlantsProvider = ({ children }) => {
   const { getOtherUserInfo } = useContext(UsersContext);
@@ -521,6 +522,47 @@ export const PlantsProvider = ({ children }) => {
       setLoading(false);
     }
   };
+  const updatePicMob = async (plantId, event) => {
+    try {
+      const image = await Camera.getPhoto({
+        quality: 90,
+        allowEditing: false,
+        resultType: CameraResultType.Base64,
+      });
+      setLoading(true);
+
+      const rawData = atob(image.base64String);
+      const bytes = new Array(rawData.length);
+      for (let x = 0; x < rawData.length; x++) {
+        bytes[x] = rawData.charCodeAt(x);
+      }
+      const arr = new Uint8Array(bytes);
+      const blob = new Blob([arr], { type: "image/" + image.format });
+
+      const formData = new FormData();
+      const deleteHash = plant.delete_hash;
+      formData.append("plantPic", blob);
+      formData.append("deleteHash", deleteHash);
+      console.log(formData);
+      const response = await axios.patch(
+        `${serverDomain}/api/plants/update-plant-pic/${plantId}`,
+        formData,
+        { headers: { "content-type": "multiform-data" } }
+      );
+      if (response) {
+        console.log("aa resp", response);
+        setPlant({
+          ...plant,
+          image_url: response.image_url,
+          delete_hash: response.delete_hash,
+        });
+      }
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <PlantsContext.Provider
@@ -572,6 +614,7 @@ export const PlantsProvider = ({ children }) => {
         filterPlates,
         setOwnerInfo,
         setUserOwner,
+        updatePicMob,
         plates,
       }}
     >

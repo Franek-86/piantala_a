@@ -106,11 +106,11 @@ const PlantApproved = () => {
             <div className='step-title pb-2 pe-1'>
               <BsVectorPen />
             </div>
-            Dedicatemi a qualcuno!
+            Dedicatemi a qualcuno
           </span>
           <p>
             Definisci qui il testo della tua targa, noi lo riporteremo su una
-            targa relizzata in alluminio. Il testo può essere di non più di 500
+            targa realizzata in alluminio. Il testo può essere di non più di 500
             caratteri.
           </p>
           Tutte le targe sono esposte nella pagina{" "}
