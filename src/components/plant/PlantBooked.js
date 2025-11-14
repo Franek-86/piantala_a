@@ -141,31 +141,26 @@ const PlantBooked = () => {
           Mi trovo qui!
         </span>
         <InfoCard />
-        {!Capacitor.isNativePlatform() ? (
-          <input
-            className='d-none'
-            onChange={(event) => {
-              updatePlantPic(plantId, event);
-            }}
-            ref={updateImageRef}
-            type='file'
-            name=''
-            id=''
-          />
-        ) : (
+        <input
+          className='d-none'
+          onChange={(event) => {
+            updatePlantPic(plantId, event);
+          }}
+          ref={updateImageRef}
+          type='file'
+          name=''
+          id=''
+        />
+        {Capacitor.isNativePlatform() && (
           <button
-            className=''
-            onClick={() => {
-              updatePicMob(plantId);
-            }}
-            ref={updateImageRef}
-            type='file'
-            name=''
-            id=''
-          />
+            onClick={() => updatePicMob(plantId)}
+            className='mt-3 mb-5 btn btn-primary'
+          >
+            Aggiorna immagine
+          </button>
         )}
-
-        {userRole === "admin" || userId === owner_id ? (
+        {(!Capacitor.isNativePlatform() && userRole === "admin") ||
+        (!Capacitor.isNativePlatform() && userId === owner_id) ? (
           <button
             // onClick={() => updatePlantPic(id)}
             className='btn btn-warning my-3'

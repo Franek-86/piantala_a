@@ -113,8 +113,15 @@ const PlantApproved = () => {
             targa realizzata in alluminio. Il testo può essere di non più di 500
             caratteri.
           </p>
-          Tutte le targe sono esposte nella pagina{" "}
-          <Link to={"/plates"}>"le vostre targhe"</Link>.
+          <p>
+            {" "}
+            Tutte le targe sono esposte nella{" "}
+            <Link className='page-link d-inline' to={"/plates"}>
+              pagina
+            </Link>{" "}
+            dedicata alle terghe.
+          </p>
+
           <PlantForm />
         </div>
       </section>
