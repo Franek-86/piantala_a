@@ -153,10 +153,10 @@ const PlantBooked = () => {
             id=''
           />
         ) : (
-          <input
-            className='d-none'
-            onChange={(event) => {
-              updatePicMob(plantId, event);
+          <button
+            className=''
+            onClick={() => {
+              updatePicMob(plantId);
             }}
             ref={updateImageRef}
             type='file'

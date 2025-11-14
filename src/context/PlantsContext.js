@@ -522,7 +522,7 @@ export const PlantsProvider = ({ children }) => {
       setLoading(false);
     }
   };
-  const updatePicMob = async (plantId, event) => {
+  const updatePicMob = async (plantId) => {
     try {
       const image = await Camera.getPhoto({
         quality: 90,
