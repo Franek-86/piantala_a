@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaFacebookMessenger, FaShare, FaWhatsapp } from "react-icons/fa";
 import { PlantsContext } from "../../context/PlantsContext";
 
