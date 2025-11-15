@@ -1,12 +1,21 @@
 import React, { useContext, useState } from "react";
-import { FaFacebookMessenger, FaShare, FaWhatsapp } from "react-icons/fa";
+import {
+  FaClipboardCheck,
+  FaFacebookMessenger,
+  FaRegClipboard,
+  FaShare,
+  FaWhatsapp,
+} from "react-icons/fa";
 import { PlantsContext } from "../../context/PlantsContext";
+import { PiAlignCenterVerticalSimple } from "react-icons/pi";
+import { copyToClipboard } from "../../utils/utils";
 
 const ShareButton = ({ text, url }) => {
   const {
     plant: { image_url },
   } = useContext(PlantsContext);
   const [shareNow, setShareNow] = useState(false);
+  const [isCopied, setIsCopied] = useState(false);
 
   const handleWhatsAppShare = () => {
     window.open(`https://wa.me/?text=${image_url}`, "_blank");
@@ -14,20 +23,46 @@ const ShareButton = ({ text, url }) => {
   const handleMessengerShare = () => {
     window.open(`fb-messenger://share/?link=${image_url}`, "_blank");
   };
+  const handleCopy = () => {
+    copyToClipboard(image_url, "noalert");
+    setIsCopied(true);
+    setTimeout(() => {
+      setIsCopied(false);
+    }, 1500);
+  };
+
   return (
     <div>
-      <button
+      <div
+        className='btn btn-primary'
         onClick={() => {
           setShareNow(!shareNow);
         }}
       >
-        Share
-      </button>
-
+        Condividi Immagine {""}
+        <FaShare />
+      </div>
       {shareNow && (
-        <section>
-          <button onClick={() => handleWhatsAppShare()}>wapp</button>
-          <button onClick={() => handleMessengerShare()}>messenger</button>
+        <section className='d-flex mt-2 w-50'>
+          <div
+            className='contacts-social-icon'
+            onClick={() => handleWhatsAppShare()}
+          >
+            <FaWhatsapp />
+          </div>
+          <div
+            className='contacts-social-icon ms-3'
+            onClick={() => handleMessengerShare()}
+          >
+            <FaFacebookMessenger />
+          </div>
+          <div
+            className='contacts-social-icon ms-3'
+            onClick={() => handleCopy()}
+          >
+            {!isCopied ? <FaRegClipboard /> : <FaClipboardCheck />}
+          </div>
+          {isCopied && <small className='fst-italic mt-3'>Copiato!</small>}
         </section>
       )}
     </div>

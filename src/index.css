@@ -1278,11 +1278,15 @@ element {
 /* contatti */
 
 .contacts-social-icon a {
-  color: var(--clr-primary-5);
+  color: var(--clr-secondary-3);
+  font-size: 2rem;
+}
+.contacts-social-icon {
+  color: var(--clr-secondary-3);
   font-size: 2rem;
 }
 .contacts-location-icon {
-  color: var(--clr-primary-5);
+  color: var(--clr-secondary-3);
   font-size: 2rem;
 }
 

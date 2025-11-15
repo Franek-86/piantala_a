@@ -5,6 +5,7 @@ import {
   FaClipboardCheck,
   FaRegCopy,
   FaRegUser,
+  FaShare,
   FaUser,
 } from "react-icons/fa";
 import ListGroup from "react-bootstrap/ListGroup";
@@ -16,6 +17,7 @@ import Loading from "../../pages/Loading";
 import { copyToClipboard } from "../../utils/utils";
 import RejectionModal from "./RejectionModal";
 import UserInfo from "./UserInfo";
+
 import {
   IoIosAddCircleOutline,
   IoIosRemoveCircleOutline,
@@ -179,8 +181,7 @@ const PlantBooked = () => {
         ) : (
           <></>
         )}
-        {(loggedUserInfo.userName === "Test" ||
-          loggedUserInfo.userName === "Franek2") && <ShareButton />}
+        {Capacitor.isNativePlatform() && <ShareButton />}
         <br />
         <section className='plate-section'>
           <div className=''>

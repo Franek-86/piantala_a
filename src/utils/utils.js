@@ -6,10 +6,12 @@ export const formatDate = (date) => {
   const newDate = new Date(date);
   return newDate.toLocaleDateString("en-GB");
 };
-export const copyToClipboard = (copyText) => {
+export const copyToClipboard = (copyText, flag) => {
   console.log("ciao");
   copy(copyText);
-  alert(`You have copied "${copyText}"`);
+  if (!flag) {
+    alert(`You have copied "${copyText}"`);
+  }
 };
 export const ensurePermission = async () => {
   const perm = await Geolocation.checkPermissions();
