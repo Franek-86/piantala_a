@@ -174,7 +174,7 @@ const PlantBooked = () => {
           <></>
         )}
         {(loggedUserInfo.userName === "Test" ||
-          loggedUserInfo.userName === "Franek") && <ShareButton />}
+          loggedUserInfo.userName === "Franek2") && <ShareButton />}
         <br />
         <section className='plate-section'>
           <div className=''>

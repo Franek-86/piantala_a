@@ -5,7 +5,16 @@ const ShareButton = ({ text, url }) => {
   const [shareNow, setShareNow] = useState(false);
 
   const handleWhatsAppShare = () => {
-    window.open(`https://wa.me/?text=https://piantala-a.onrender.com/map/182`);
+    window.open(
+      `https://wa.me/?text=https://piantala-a.onrender.com/map/182`,
+      "_blank"
+    );
+  };
+  const handleMessengerShare = () => {
+    window.open(
+      `fb-messenger://share/?link=https://piantala-a.onrender.com/map/182`,
+      "_blank"
+    );
   };
   return (
     <div>
@@ -19,7 +28,8 @@ const ShareButton = ({ text, url }) => {
 
       {shareNow && (
         <section>
-          <button onClick={() => handleWhatsAppShare()}>test</button>
+          <button onClick={() => handleWhatsAppShare()}>wapp</button>
+          <button onClick={() => handleMessengerShare()}>messenger</button>
         </section>
       )}
     </div>
