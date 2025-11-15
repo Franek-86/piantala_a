@@ -1,6 +1,12 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 import Card from "react-bootstrap/Card";
-import { FaRegCopy, FaRegUser, FaUser } from "react-icons/fa";
+import {
+  FaClipboard,
+  FaClipboardCheck,
+  FaRegCopy,
+  FaRegUser,
+  FaUser,
+} from "react-icons/fa";
 import ListGroup from "react-bootstrap/ListGroup";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { MdBackspace } from "react-icons/md";

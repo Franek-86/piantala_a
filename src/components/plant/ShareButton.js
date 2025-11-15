@@ -1,20 +1,18 @@
 import React, { useState } from "react";
 import { FaFacebookMessenger, FaShare, FaWhatsapp } from "react-icons/fa";
+import { PlantsContext } from "../../context/PlantsContext";
 
 const ShareButton = ({ text, url }) => {
+  const {
+    plant: { image_url },
+  } = useContext(PlantsContext);
   const [shareNow, setShareNow] = useState(false);
 
   const handleWhatsAppShare = () => {
-    window.open(
-      `https://wa.me/?text=https://piantala-a.onrender.com/map/182`,
-      "_blank"
-    );
+    window.open(`https://wa.me/?text=${image_url}`, "_blank");
   };
   const handleMessengerShare = () => {
-    window.open(
-      `fb-messenger://share/?link=https://piantala-a.onrender.com/map/182`,
-      "_blank"
-    );
+    window.open(`fb-messenger://share/?link=${image_url}`, "_blank");
   };
   return (
     <div>
