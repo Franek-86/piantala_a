@@ -499,7 +499,7 @@ export const PlantsProvider = ({ children }) => {
     try {
       const formData = new FormData();
       const file = event.currentTarget.files[0];
-      const deleteHash = plant.delete_hash;
+      const deleteHash = plant?.delete_hash;
       formData.append("plantPic", file);
       formData.append("deleteHash", deleteHash);
       console.log(formData);
@@ -508,8 +508,13 @@ export const PlantsProvider = ({ children }) => {
         formData,
         { headers: { "content-type": "multiform-data" } }
       );
-      if (response) {
-        console.log("aa resp", response);
+
+      if (response.status === 201) {
+        console.log("sta qui il 201");
+        return;
+      }
+      if (response.status === 200) {
+        console.log("aa resp 200", response);
         setPlant({
           ...plant,
           image_url: response.image_url,
