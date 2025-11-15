@@ -19,6 +19,8 @@ import logo from "../../assets/images/ti pianto per amore-APP-verde.png";
 import InfoCard from "./InfoCard";
 import { TiLocation } from "react-icons/ti";
 import { Capacitor } from "@capacitor/core";
+import ShareButton from "./ShareButton";
+import { UsersContext } from "../../context/UsersContext";
 
 const PlantBooked = () => {
   const [modalShow, setModalShow] = useState(false);
@@ -45,7 +47,7 @@ const PlantBooked = () => {
     getOwnerPublicInfo,
     updatePicMob,
   } = useContext(PlantsContext);
-
+  const { loggedUserInfo } = useContext(UsersContext);
   const fromPage = location.state?.from || "/map";
   const fileInputRef = useRef(null);
   const {
@@ -171,6 +173,8 @@ const PlantBooked = () => {
         ) : (
           <></>
         )}
+        {(loggedUserInfo.userName === "Test" ||
+          loggedUserInfo.userName === "Franek") && <ShareButton />}
         <br />
         <section className='plate-section'>
           <div className=''>
