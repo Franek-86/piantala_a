@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 
 import {
   FaClipboardCheck,
+  FaFacebook,
   FaFacebookMessenger,
   FaRegClipboard,
   FaShare,
@@ -32,6 +33,12 @@ const ShareButton = ({ text, url }) => {
 
   const handleMessengerShare = () => {
     window.open(`fb-messenger://share/?link=${image_url}`, "_blank");
+  };
+  const handleFacebookPost = () => {
+    window.open(
+      `https://facebook.com/sharer/sharer.php?u=${image_url}`,
+      "_blank"
+    );
   };
   const handleCopy = () => {
     copyToClipboard(image_url, "noalert");
@@ -68,11 +75,21 @@ const ShareButton = ({ text, url }) => {
           </div>
           <div
             className='contacts-social-icon ms-3'
+            onClick={() => handleFacebookPost()}
+          >
+            <FaFacebook />
+          </div>
+          <div
+            className='contacts-social-icon ms-3 position-relative'
             onClick={() => handleCopy()}
           >
+            {isCopied && (
+              <small className='fst-italic mt-3  position-absolute copiato'>
+                Copiato!
+              </small>
+            )}
             {!isCopied ? <FaRegClipboard /> : <FaClipboardCheck />}
           </div>
-          {isCopied && <small className='fst-italic mt-3'>Copiato!</small>}
         </section>
       )}
     </div>

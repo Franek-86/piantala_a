@@ -1950,3 +1950,14 @@ body {
 .slick-list {
   min-height: 50vh;
 }
+
+/* booked plant */
+
+.copiato {
+  top: 1.5rem;
+  right: 0.2rem;
+  font-size: 0.867rem;
+}
+.contacts-social-icon:hover {
+  cursor: pointer;
+}
