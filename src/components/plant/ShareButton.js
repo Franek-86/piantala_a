@@ -22,10 +22,9 @@ const ShareButton = ({ text, url }) => {
   useEffect(() => {
     window.FB.getLoginStatus((response) => {
       setFacebookUserAccessToken(response.authResponse?.accessToken);
-      console.log("fb", facebookUserAccessToken);
     });
   }, []);
-  console.log("fb", facebookUserAccessToken);
+
   const handleWhatsAppShare = () => {
     window.open(`https://wa.me/?text=${image_url}`, "_blank");
   };
