@@ -1,4 +1,5 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+
 import {
   FaClipboardCheck,
   FaFacebookMessenger,
@@ -14,12 +15,21 @@ const ShareButton = ({ text, url }) => {
   const {
     plant: { image_url },
   } = useContext(PlantsContext);
+
   const [shareNow, setShareNow] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
-
+  const [facebookUserAccessToken, setFacebookUserAccessToken] = useState("");
+  useEffect(() => {
+    window.FB.getLoginStatus((response) => {
+      setFacebookUserAccessToken(response.authResponse?.accessToken);
+      console.log("fb", facebookUserAccessToken);
+    });
+  }, []);
+  console.log("fb", facebookUserAccessToken);
   const handleWhatsAppShare = () => {
     window.open(`https://wa.me/?text=${image_url}`, "_blank");
   };
+
   const handleMessengerShare = () => {
     window.open(`fb-messenger://share/?link=${image_url}`, "_blank");
   };
@@ -39,7 +49,7 @@ const ShareButton = ({ text, url }) => {
           setShareNow(!shareNow);
         }}
       >
-        Condividi Immagine {""}
+        Condividi {""}
         <FaShare />
       </div>
       {shareNow && (

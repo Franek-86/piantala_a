@@ -161,27 +161,35 @@ const PlantBooked = () => {
           name=''
           id=''
         />
-        {Capacitor.isNativePlatform() && (
-          <button
-            onClick={() => updatePicMob(plantId)}
-            className='mt-3 mb-5 btn btn-primary'
-          >
-            Aggiorna immagine
-          </button>
-        )}
-        {(!Capacitor.isNativePlatform() && userRole === "admin") ||
-        (!Capacitor.isNativePlatform() && userId === owner_id) ? (
-          <button
-            // onClick={() => updatePlantPic(id)}
-            className='btn btn-warning my-3'
-            onClick={updatePlant}
-          >
-            Aggiorna immagine
-          </button>
-        ) : (
-          <></>
-        )}
-        {Capacitor.isNativePlatform() && <ShareButton />}
+        <div className='d-flex justify-content-between mt-3'>
+          <div>
+            {Capacitor.isNativePlatform() && (
+              <button
+                onClick={() => updatePicMob(plantId)}
+                className=' mb-5 btn btn-primary'
+              >
+                Aggiorna immagine
+              </button>
+            )}
+            {(!Capacitor.isNativePlatform() && userRole === "admin") ||
+            (!Capacitor.isNativePlatform() && userId === owner_id) ? (
+              <button
+                // onClick={() => updatePlantPic(id)}
+                className='btn btn-warning'
+                onClick={updatePlant}
+              >
+                Aggiorna immagine
+              </button>
+            ) : (
+              <></>
+            )}
+            {/* {Capacitor.isNativePlatform() && <ShareButton />} */}
+          </div>
+          <div>
+            <ShareButton />
+          </div>
+        </div>
+
         <br />
         <section className='plate-section'>
           <div className=''>
