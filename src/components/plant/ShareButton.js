@@ -24,6 +24,7 @@ const ShareButton = ({ text, url }) => {
       setFacebookUserAccessToken(response.authResponse?.accessToken);
     });
   }, []);
+  console.log(facebookUserAccessToken);
 
   const handleWhatsAppShare = () => {
     window.open(`https://wa.me/?text=${image_url}`, "_blank");
