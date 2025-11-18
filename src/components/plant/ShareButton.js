@@ -20,11 +20,11 @@ const ShareButton = ({ text, url }) => {
   const [shareNow, setShareNow] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
   const [facebookUserAccessToken, setFacebookUserAccessToken] = useState("");
-  useEffect(() => {
-    window.FB.getLoginStatus((response) => {
-      setFacebookUserAccessToken(response.authResponse?.accessToken);
-    });
-  }, []);
+  // useEffect(() => {
+  //   window.FB.getLoginStatus((response) => {
+  //     setFacebookUserAccessToken(response.authResponse?.accessToken);
+  //   });
+  // }, []);
   console.log(facebookUserAccessToken);
 
   const handleWhatsAppShare = () => {
