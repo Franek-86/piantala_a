@@ -5,7 +5,7 @@ export const initFacebookSdk = () => {
       window.FB.init({
         appId: "1558542848644058",
         xfbml: true,
-        version: "v2.7",
+        version: "v24.0",
       });
     };
     resolve();
