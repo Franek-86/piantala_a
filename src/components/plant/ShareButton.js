@@ -95,12 +95,12 @@ const ShareButton = ({ text, url }) => {
           >
             <FaAdjust />
           </div>
-          <div
+          {/* <div
             className='contacts-social-icon ms-3'
             onClick={() => getFacebookLoginStatus()}
           >
             <FaAdjust />
-          </div>
+          </div> */}
           <div
             className='contacts-social-icon ms-3 position-relative'
             onClick={() => handleCopy()}
