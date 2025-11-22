@@ -91,7 +91,13 @@ const ShareButton = ({ text, url }) => {
           </div>
           <div
             className='contacts-social-icon ms-3'
-            onClick={() => postOnFacebook()}
+            onClick={() => postOnFacebook(image_url)}
+          >
+            <FaAdjust />
+          </div>
+          <div
+            className='contacts-social-icon ms-3'
+            onClick={() => getFacebookLoginStatus()}
           >
             <FaAdjust />
           </div>
