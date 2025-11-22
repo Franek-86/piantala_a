@@ -54,6 +54,7 @@ import RegisterTwo from "./pages/RegisterTwo";
 import RegisterThree from "./pages/RegisterThree";
 import RegisterFour from "./pages/RegisterFour";
 import RegisterLast from "./pages/RegisterLast";
+import Policy from "./pages/Policy";
 
 // import { io } from "socket.io-client";
 // const url =
@@ -79,6 +80,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/register/privacy",
+        element: <Policy />,
       },
       {
         path: "/register2",
