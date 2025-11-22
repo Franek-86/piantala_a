@@ -45,7 +45,7 @@ export const postOnFacebook = (url) => {
   window.FB.ui(
     {
       method: "share",
-      href: `https://facebook.com/sharer/sharer.php?u=${url}`,
+      href: url,
     },
     function (response) {
       console.log("post on facebook", response);
