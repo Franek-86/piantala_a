@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 
 import {
+  FaAdjust,
   FaClipboardCheck,
   FaFacebook,
   FaFacebookMessenger,
@@ -11,6 +12,11 @@ import {
 import { PlantsContext } from "../../context/PlantsContext";
 import { PiAlignCenterVerticalSimple } from "react-icons/pi";
 import { copyToClipboard } from "../../utils/utils";
+import {
+  getFacebookLoginStatus,
+  initFacebookSdk,
+  postOnFacebook,
+} from "../../utils/facebookSDK";
 
 const ShareButton = ({ text, url }) => {
   const {
@@ -20,11 +26,9 @@ const ShareButton = ({ text, url }) => {
   const [shareNow, setShareNow] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
   const [facebookUserAccessToken, setFacebookUserAccessToken] = useState("");
-  // useEffect(() => {
-  //   window.FB.getLoginStatus((response) => {
-  //     setFacebookUserAccessToken(response.authResponse?.accessToken);
-  //   });
-  // }, []);
+  useEffect(() => {
+    initFacebookSdk();
+  }, []);
   console.log(facebookUserAccessToken);
 
   const handleWhatsAppShare = () => {
@@ -47,7 +51,13 @@ const ShareButton = ({ text, url }) => {
       setIsCopied(false);
     }, 1500);
   };
-
+  // useEffect(() => {
+  //   initFacebookSdk().then(() => {
+  //     getFacebookLoginStatus().then((resp) => {
+  //       console.log("qui", resp);
+  //     });
+  //   });
+  // }, []);
   return (
     <div>
       <div
@@ -78,6 +88,12 @@ const ShareButton = ({ text, url }) => {
             onClick={() => handleFacebookPost()}
           >
             <FaFacebook />
+          </div>
+          <div
+            className='contacts-social-icon ms-3'
+            onClick={() => postOnFacebook()}
+          >
+            <FaAdjust />
           </div>
           <div
             className='contacts-social-icon ms-3 position-relative'
