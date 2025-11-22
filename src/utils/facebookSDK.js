@@ -3,8 +3,8 @@ export const initFacebookSdk = () => {
     console.log("di stare sta");
     window.fbAsyncInit = function () {
       window.FB.init({
-        // appId: "1558542848644058",
-        appId: "2708025572871352",
+        appId: "1558542848644058",
+        // appId: "2708025572871352",
         xfbml: true,
         version: "v2.7",
       });
