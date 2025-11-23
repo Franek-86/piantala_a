@@ -7,6 +7,7 @@ import axiosInstance from "../services/axiosInstance";
 import { FormControl } from "react-bootstrap";
 import { Camera, CameraResultType } from "@capacitor/camera";
 import { navigateToLoginFunction } from "../services/deepLinkServices";
+import { navigateToMap } from "../utils/utils";
 
 export const AuthContext = createContext();
 
@@ -128,6 +129,36 @@ export const AuthProvider = ({ children }) => {
       }
     );
     return response;
+  };
+
+  const googleAccess = async (data, navigate) => {
+    const payload = data;
+    console.log("this is navigate", navigate);
+    console.log(payload);
+    const response = await axios.post(
+      `${serverDomain}/api/auth/google-access`,
+      payload,
+      {
+        withCredentials: true,
+      }
+    );
+    console.log("google response", response);
+    if (response.status === 200) {
+      setIsAuthenticated(true);
+      localStorage.setItem("justLoggedIn", "true");
+
+      const {
+        token,
+        user: { role },
+      } = response.data;
+      console.log("here2", role);
+      console.log("here22", response.data);
+
+      setUserRole(role);
+
+      localStorage.setItem("userToken", token);
+      navigateToMap(navigate);
+    }
   };
   const checkEmail = async (data) => {
     const { email } = data;
@@ -428,6 +459,7 @@ export const AuthProvider = ({ children }) => {
         setIsAuthenticated,
         userData,
         setUserData,
+        googleAccess,
         // generateFiscalCode,
         // validateFiscalCode,
         newPassword,

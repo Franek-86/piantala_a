@@ -45,3 +45,6 @@ export const deleteAndGo = async (deletePlant, plantId, navigate) => {
     // setSinglePlantLoading(false);
   }
 };
+export const navigateToMap = (navigate) => {
+  navigate("/map");
+};

@@ -16,6 +16,9 @@ import { GrUndo } from "react-icons/gr";
 import { toast } from "react-toastify";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
+import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
+import Google from "../components/registration/Google";
+
 const AuthForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const {
@@ -252,18 +255,15 @@ const AuthForm = () => {
                     Login
                   </Button>
                 </div>
-                <Form.Text className='text-muted ps-0 d-block'>
-                  Non hai un account?
-                  <Button
-                    className='btn-small p-0 ps-1'
-                    variant='link'
-                    disabled={loading}
-                    onClick={() => navigate("/register")}
-                  >
-                    Registrati
-                  </Button>
-                </Form.Text>
-                <Form.Text className='text-muted d-block'>
+                <Button
+                  className='d-block w-100'
+                  variant='primary'
+                  disabled={loading}
+                  onClick={() => navigate("/register")}
+                >
+                  Registrati
+                </Button>
+                <Form.Text className='text-muted d-block pt-2 pb-4'>
                   Hai dimenticato la password?
                   <Button
                     className='btn-small p-0 ps-1'
@@ -271,9 +271,10 @@ const AuthForm = () => {
                     disabled={loading}
                     onClick={() => navigate("/reset")}
                   >
-                    Reset
+                    Reset password
                   </Button>
                 </Form.Text>
+                <Google />
               </>
             )}
           </Form>

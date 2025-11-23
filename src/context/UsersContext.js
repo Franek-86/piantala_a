@@ -315,8 +315,8 @@ export const UsersProvider = ({ children }) => {
             id: response.data.id,
             userName: response.data.userName,
             email: response.data.email,
-            phone: response.data.phone,
-            pic: response.data.pic,
+            phone: response.data?.phone,
+            pic: response.data?.pic,
           });
           return response.data;
         }
