@@ -133,8 +133,7 @@ export const AuthProvider = ({ children }) => {
 
   const googleAccess = async (data, navigate) => {
     const payload = data;
-    console.log("this is navigate", navigate);
-    console.log(payload);
+
     const response = await axios.post(
       `${serverDomain}/api/auth/google-access`,
       payload,
@@ -142,7 +141,7 @@ export const AuthProvider = ({ children }) => {
         withCredentials: true,
       }
     );
-    console.log("google response", response);
+
     if (response.status === 200) {
       setIsAuthenticated(true);
       localStorage.setItem("justLoggedIn", "true");
@@ -151,8 +150,6 @@ export const AuthProvider = ({ children }) => {
         token,
         user: { role },
       } = response.data;
-      console.log("here2", role);
-      console.log("here22", response.data);
 
       setUserRole(role);
 
