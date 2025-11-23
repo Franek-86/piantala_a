@@ -5,12 +5,19 @@ import React from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { Capacitor } from "@capacitor/core";
 
+const device = Capacitor.getPlatform();
+console.log("qui", device);
+let clientId =
+  device === "android"
+    ? process.env.REACT_APP_GOOGLE_ID_ANDROID
+    : process.env.REACT_APP_GOOGLE_ID_WEB;
 const Google = () => {
   const navigate = useNavigate();
   const { googleAccess } = useContext(AuthContext);
   return (
-    <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_ID}>
+    <GoogleOAuthProvider clientId={clientId}>
       <GoogleLogin
         onSuccess={(credentialResponse) => {
           googleAccess(credentialResponse, navigate);
