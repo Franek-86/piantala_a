@@ -17,7 +17,7 @@ const Google = () => {
   const navigate = useNavigate();
   const { googleAccess } = useContext(AuthContext);
   return (
-    <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_ID_WEB}>
+    <GoogleOAuthProvider clientId={clientId}>
       <GoogleLogin
         onSuccess={(credentialResponse) => {
           googleAccess(credentialResponse, navigate);
