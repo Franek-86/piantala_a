@@ -7,17 +7,25 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Capacitor } from "@capacitor/core";
 
-const device = Capacitor.getPlatform();
+import { GoogleService } from "./GoogleService";
 
-let clientId =
-  device === "android"
-    ? process.env.REACT_APP_GOOGLE_ID_ANDROID
-    : process.env.REACT_APP_GOOGLE_ID_WEB;
+const platform = Capacitor.getPlatform();
+
 const Google = () => {
+  // const init = GoogleAuth.initialize({
+  //   clientId: process.env.REACT_APP_GOOGLE_ID_ANDROID,
+  //   scopes: ["profile", "email"],
+  // });
+
+  const test = async () => {
+    const gl = new GoogleService();
+    await gl.login();
+  };
+
   const navigate = useNavigate();
   const { googleAccess } = useContext(AuthContext);
-  return (
-    <GoogleOAuthProvider clientId={clientId}>
+  return platform === "web" ? (
+    <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_ID_WEB}>
       <GoogleLogin
         onSuccess={(credentialResponse) => {
           googleAccess(credentialResponse, navigate);
@@ -27,6 +35,8 @@ const Google = () => {
         }}
       ></GoogleLogin>
     </GoogleOAuthProvider>
+  ) : (
+    <button onClick={() => test()}>Test, non cliccare</button>
   );
 };
 
