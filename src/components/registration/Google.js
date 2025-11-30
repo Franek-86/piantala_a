@@ -22,10 +22,10 @@ const Google = () => {
   //   scopes: ["profile", "email"],
   // });
 
-  // const test = async () => {
-  //   const gl = new GoogleService();
-  //   await gl.login();
-  // };
+  const test = async () => {
+    const gl = new GoogleService();
+    await gl.login();
+  };
   // const test = async () => {
   //   let googleUser = await registerPlugin.GoogleAuth.signIn();
   //   console.log("here", googleUser);
@@ -55,7 +55,7 @@ const Google = () => {
 
   const navigate = useNavigate();
   const { googleAccess } = useContext(AuthContext);
-  return platform === "web" ? (
+  return platform !== "web" ? (
     <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_ID_WEB}>
       <GoogleLogin
         onSuccess={(credentialResponse) => {
@@ -67,8 +67,8 @@ const Google = () => {
       ></GoogleLogin>
     </GoogleOAuthProvider>
   ) : (
-    <button className='test-temp' onClick={() => test1()}>
-      a
+    <button className='test-temp' onClick={() => test()}>
+      c
     </button>
   );
 };
