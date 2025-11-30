@@ -1961,3 +1961,6 @@ body {
 .contacts-social-icon:hover {
   cursor: pointer;
 }
+.test-temp {
+  font-size: 0.1rem !important;
+}

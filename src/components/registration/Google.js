@@ -1,6 +1,6 @@
 import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 
-import React from "react";
+import React, { useEffect } from "react";
 
 import { AuthContext } from "../../context/AuthContext";
 import { useContext } from "react";
@@ -8,7 +8,12 @@ import { useNavigate } from "react-router-dom";
 import { Capacitor } from "@capacitor/core";
 
 import { GoogleService } from "./GoogleService";
+//
+import { SocialLogin } from "@capgo/capacitor-social-login";
+// import "@codetrix-studio/capacitor-google-auth";
+// import { registerPlugin } from "@capacitor/core";
 
+//
 const platform = Capacitor.getPlatform();
 
 const Google = () => {
@@ -17,14 +22,37 @@ const Google = () => {
   //   scopes: ["profile", "email"],
   // });
 
-  const test = async () => {
-    const gl = new GoogleService();
-    await gl.login();
+  // const test = async () => {
+  //   const gl = new GoogleService();
+  //   await gl.login();
+  // };
+  // const test = async () => {
+  //   let googleUser = await registerPlugin.GoogleAuth.signIn();
+  //   console.log("here", googleUser);
+  // };
+
+  const test1 = async () => {
+    await SocialLogin.initialize({
+      google: {
+        webclientId: process.env.REACT_APP_GOOGLE_ID_WEB,
+        iOSClientId: "",
+        mode: "offline",
+      },
+    });
+
+    await SocialLogin.login({
+      provider: "google",
+      options: {
+        scopes: ["email", "profile"],
+        forceRefreshToken: true,
+      },
+    });
+    // console.log("response tetst 1", response);
   };
 
   const navigate = useNavigate();
   const { googleAccess } = useContext(AuthContext);
-  return platform === "web" ? (
+  return platform !== "web" ? (
     <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_ID_WEB}>
       <GoogleLogin
         onSuccess={(credentialResponse) => {
@@ -36,7 +64,9 @@ const Google = () => {
       ></GoogleLogin>
     </GoogleOAuthProvider>
   ) : (
-    <button onClick={() => test()}>Test, non cliccare</button>
+    <button className='test-temp' onClick={() => test1()}>
+      test
+    </button>
   );
 };
 
