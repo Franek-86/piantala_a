@@ -83,7 +83,9 @@ const Google = () => {
         provider: "google",
         options: {},
       });
-      console.log("check this", JSON.stringify(res));
+      const credentialResponse = JSON.stringify(res);
+
+      googleAccess(credentialResponse, navigate);
     } catch (err) {
       console.log("check this", err);
     }
