@@ -53,26 +53,45 @@ const Google = () => {
   //     console.log("error da test1", err);
   //   }
   // };
-
-  useEffect(() => {
-    SocialLogin.initialize({
+  let resp;
+  const test = async () => {
+    const resp = await SocialLogin.initialize({
       google: {
         webClientId: process.env.REACT_APP_GOOGLE_ID_WEB,
       },
     });
+    console.log("check test", resp);
+  };
+  if (resp) {
+    console.log("check test", resp);
+  }
+  useEffect(() => {
+    const init = async () => {
+      await SocialLogin.initialize({
+        google: {
+          webClientId: process.env.REACT_APP_GOOGLE_ID_WEB,
+          redirectUrl: "http://localhost:3000/map",
+        },
+      });
+    };
+    init();
   }, []);
 
   const test0 = async () => {
-    const res = await SocialLogin.login({
-      provider: "google",
-      options: {},
-    });
-    console.log(JSON.stringify(res));
+    try {
+      const res = await SocialLogin.login({
+        provider: "google",
+        options: {},
+      });
+      console.log("check this", JSON.stringify(res));
+    } catch (err) {
+      console.log("check this", err);
+    }
   };
 
   const navigate = useNavigate();
   const { googleAccess } = useContext(AuthContext);
-  return platform === "web" ? (
+  return platform !== "web" ? (
     <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_ID_WEB}>
       <GoogleLogin
         onSuccess={(credentialResponse) => {
