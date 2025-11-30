@@ -91,7 +91,7 @@ const Google = () => {
 
   const navigate = useNavigate();
   const { googleAccess } = useContext(AuthContext);
-  return platform !== "web" ? (
+  return platform === "web" ? (
     <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_ID_WEB}>
       <GoogleLogin
         onSuccess={(credentialResponse) => {
@@ -104,7 +104,7 @@ const Google = () => {
     </GoogleOAuthProvider>
   ) : (
     <button className='test-temp' onClick={() => test0()}>
-      c
+      a
     </button>
   );
 };
