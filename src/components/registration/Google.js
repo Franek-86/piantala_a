@@ -40,14 +40,14 @@ const Google = () => {
       },
     });
 
-    await SocialLogin.login({
+    const response = await SocialLogin.login({
       provider: "google",
       options: {
         scopes: ["email", "profile"],
         forceRefreshToken: true,
       },
     });
-    // console.log("response tetst 1", response);
+    console.log("response da test1", response);
   };
 
   const navigate = useNavigate();
@@ -64,9 +64,9 @@ const Google = () => {
       ></GoogleLogin>
     </GoogleOAuthProvider>
   ) : (
-    <button className='test-temp' onClick={() => test1()}>
+    <span className='test-temp' onClick={() => test1()}>
       test
-    </button>
+    </span>
   );
 };
 
