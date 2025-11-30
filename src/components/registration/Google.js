@@ -32,22 +32,25 @@ const Google = () => {
   // };
 
   const test1 = async () => {
-    await SocialLogin.initialize({
-      google: {
-        webclientId: process.env.REACT_APP_GOOGLE_ID_WEB,
-        iOSClientId: "",
-        mode: "offline",
-      },
-    });
-
-    const response = await SocialLogin.login({
-      provider: "google",
-      options: {
-        scopes: ["email", "profile"],
-        forceRefreshToken: true,
-      },
-    });
-    console.log("response da test1", response);
+    try {
+      await SocialLogin.initialize({
+        google: {
+          webclientId: process.env.REACT_APP_GOOGLE_ID_WEB,
+          iOSClientId: "",
+          mode: "offline",
+        },
+      });
+      const response = await SocialLogin.login({
+        provider: "google",
+        options: {
+          scopes: ["email", "profile"],
+          forceRefreshToken: true,
+        },
+      });
+      console.log("response da test1", response);
+    } catch (err) {
+      console.log("error da test1", err);
+    }
   };
 
   const navigate = useNavigate();
@@ -64,9 +67,9 @@ const Google = () => {
       ></GoogleLogin>
     </GoogleOAuthProvider>
   ) : (
-    <span className='test-temp' onClick={() => test1()}>
-      test
-    </span>
+    <button className='test-temp' onClick={() => test1()}>
+      a
+    </button>
   );
 };
 
