@@ -160,28 +160,28 @@ export const AuthProvider = ({ children }) => {
   const googleAccessTest = async (data, navigate) => {
     const payload = data;
     console.log("test payload", payload);
-    // const response = await axios.post(
-    //   `${serverDomain}/api/auth/google-access`,
-    //   payload,
-    //   {
-    //     withCredentials: true,
-    //   }
-    // );
+    const response = await axios.post(
+      `${serverDomain}/api/auth/google-access`,
+      payload,
+      {
+        withCredentials: true,
+      }
+    );
 
-    // if (response.status === 200) {
-    //   setIsAuthenticated(true);
-    //   localStorage.setItem("justLoggedIn", "true");
+    if (response.status === 200) {
+      setIsAuthenticated(true);
+      localStorage.setItem("justLoggedIn", "true");
 
-    //   const {
-    //     token,
-    //     user: { role },
-    //   } = response.data;
+      const {
+        token,
+        user: { role },
+      } = response.data;
 
-    //   setUserRole(role);
+      setUserRole(role);
 
-    //   localStorage.setItem("userToken", token);
-    //   navigateToMap(navigate);
-    // }
+      localStorage.setItem("userToken", token);
+      navigateToMap(navigate);
+    }
   };
   const checkEmail = async (data) => {
     const { email } = data;
