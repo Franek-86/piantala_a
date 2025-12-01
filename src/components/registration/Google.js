@@ -46,10 +46,9 @@ const Google = () => {
       ></GoogleLogin>
     </GoogleOAuthProvider>
   ) : (
-    // <button className='test-temp' onClick={() => test0()}>
-    //   a
-    // </button>
-    <button>test</button>
+    <button className='test-temp' onClick={() => test0()}>
+      t
+    </button>
   );
 };
 
