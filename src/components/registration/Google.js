@@ -36,7 +36,7 @@ const Google = () => {
       });
       const credentialResponse = JSON.stringify(res);
 
-      googleAccessTest(credentialResponse);
+      googleAccessTest(credentialResponse, navigate);
     } catch (err) {
       console.log("check this", err);
     }
@@ -57,7 +57,7 @@ const Google = () => {
     </GoogleOAuthProvider>
   ) : (
     <button className='test-temp' onClick={() => test0()}>
-      t
+      test
     </button>
   );
 };
