@@ -30,7 +30,9 @@ const Google = () => {
     try {
       const res = await SocialLogin.login({
         provider: "google",
-        options: {},
+        options: {
+          scopes: ["email", "name"],
+        },
       });
       const credentialResponse = JSON.stringify(res);
 
@@ -55,7 +57,7 @@ const Google = () => {
     </GoogleOAuthProvider>
   ) : (
     <button className='test-temp' onClick={() => test0()}>
-      test
+      t
     </button>
   );
 };
