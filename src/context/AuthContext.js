@@ -130,7 +130,6 @@ export const AuthProvider = ({ children }) => {
     );
     return response;
   };
-
   const googleAccess = async (data, navigate) => {
     const payload = data;
     console.log("test payload", payload);
@@ -156,6 +155,33 @@ export const AuthProvider = ({ children }) => {
       localStorage.setItem("userToken", token);
       navigateToMap(navigate);
     }
+  };
+
+  const googleAccessTest = async (data, navigate) => {
+    const payload = data;
+    console.log("test payload", payload);
+    // const response = await axios.post(
+    //   `${serverDomain}/api/auth/google-access`,
+    //   payload,
+    //   {
+    //     withCredentials: true,
+    //   }
+    // );
+
+    // if (response.status === 200) {
+    //   setIsAuthenticated(true);
+    //   localStorage.setItem("justLoggedIn", "true");
+
+    //   const {
+    //     token,
+    //     user: { role },
+    //   } = response.data;
+
+    //   setUserRole(role);
+
+    //   localStorage.setItem("userToken", token);
+    //   navigateToMap(navigate);
+    // }
   };
   const checkEmail = async (data) => {
     const { email } = data;
@@ -457,6 +483,7 @@ export const AuthProvider = ({ children }) => {
         userData,
         setUserData,
         googleAccess,
+        googleAccessTest,
         // generateFiscalCode,
         // validateFiscalCode,
         newPassword,
