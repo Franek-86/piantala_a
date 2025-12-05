@@ -163,7 +163,7 @@ export const AuthProvider = ({ children }) => {
       google: {
         // webClientId:
         //   "349628103780-laqfu0q8jg5nb58q1sbq3cfk7ai6lfu8.apps.googleusercontent.com",
-        webClientId: shouldProcessLinkClick.ENV.REACT_APP_GOOGLE_ID_ANDROID,
+        webClientId: process.env.REACT_APP_GOOGLE_ID_ANDROID,
         redirectUrl: "https://piantala-a.onrender.com/map",
         mode: "online",
       },
