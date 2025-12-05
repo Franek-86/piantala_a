@@ -8,6 +8,7 @@ import { FormControl } from "react-bootstrap";
 import { Camera, CameraResultType } from "@capacitor/camera";
 import { navigateToLoginFunction } from "../services/deepLinkServices";
 import { navigateToMap } from "../utils/utils";
+import { SocialLogin } from "@capgo/capacitor-social-login";
 
 export const AuthContext = createContext();
 
@@ -158,29 +159,47 @@ export const AuthProvider = ({ children }) => {
   };
 
   const googleAccessTest = async (data, navigate) => {
-    const payload = data;
-    // console.log("test payload", payload);
-    const response = await axios.post(
-      `${serverDomain}/api/auth/google-access`,
-      payload,
-      {
-        withCredentials: true,
+    await SocialLogin.initialize({
+      google: {
+        webClientId:
+          "349628103780-laqfu0q8jg5nb58q1sbq3cfk7ai6lfu8.apps.googleusercontent.com",
+      },
+    });
+
+    const res = await SocialLogin.login({
+      provider: "google",
+      options: {
+        scopes: ["email", "name"],
+      },
+    });
+    console.log("abcd", res);
+
+    if (res.response === "online") {
+      const payload = data;
+      // console.log("test payload", payload);
+      const response = await axios.post(
+        `${serverDomain}/api/auth/google-access`,
+        payload,
+        {
+          withCredentials: true,
+        }
+      );
+
+      if (response.status === 200) {
+        setIsAuthenticated(true);
+        localStorage.setItem("justLoggedIn", "true");
+
+        const {
+          token,
+          user: { role },
+        } = response.data;
+
+        setUserRole(role);
+
+        localStorage.setItem("userToken", token);
       }
-    );
 
-    if (response.status === 200) {
-      setIsAuthenticated(true);
-      localStorage.setItem("justLoggedIn", "true");
-
-      const {
-        token,
-        user: { role },
-      } = response.data;
-
-      setUserRole(role);
-
-      localStorage.setItem("userToken", token);
-      navigateToMap(navigate);
+      // navigateToMap(navigate);
     }
   };
   const checkEmail = async (data) => {

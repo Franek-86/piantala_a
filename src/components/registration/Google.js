@@ -18,29 +18,29 @@ import { SocialLogin } from "@capgo/capacitor-social-login";
 const platform = Capacitor.getPlatform();
 
 const Google = () => {
-  useEffect(() => {
-    SocialLogin.initialize({
-      google: {
-        webClientId:
-          "349628103780-laqfu0q8jg5nb58q1sbq3cfk7ai6lfu8.apps.googleusercontent.com",
-      },
-    });
-  });
-  const test0 = async () => {
-    try {
-      const res = await SocialLogin.login({
-        provider: "google",
-        options: {
-          scopes: ["email", "name"],
-        },
-      });
-      const credentialResponse = JSON.stringify(res);
+  // useEffect(() => {
+  //   SocialLogin.initialize({
+  //     google: {
+  //       webClientId:
+  //         "349628103780-laqfu0q8jg5nb58q1sbq3cfk7ai6lfu8.apps.googleusercontent.com",
+  //     },
+  //   });
+  // });
+  // const test0 = async () => {
+  //   try {
+  //     const res = await SocialLogin.login({
+  //       provider: "google",
+  //       options: {
+  //         scopes: ["email", "name"],
+  //       },
+  //     });
+  //     const credentialResponse = JSON.stringify(res);
 
-      googleAccessTest(credentialResponse, navigate);
-    } catch (err) {
-      console.log("check this", err);
-    }
-  };
+  //     googleAccessTest(credentialResponse, navigate);
+  //   } catch (err) {
+  //     console.log("check this", err);
+  //   }
+  // };
 
   const navigate = useNavigate();
   const { googleAccess, googleAccessTest } = useContext(AuthContext);
@@ -56,10 +56,10 @@ const Google = () => {
       ></GoogleLogin>
     </GoogleOAuthProvider>
   ) : (
-    // <button className='test-temp' onClick={() => test0()}>
-    //   test
-    // </button>
-    <span></span>
+    <button className='test-temp' onClick={() => googleAccessTest()}>
+      test
+    </button>
+    // <span></span>
   );
 };
 
