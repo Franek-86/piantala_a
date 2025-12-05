@@ -56,10 +56,10 @@ const Google = () => {
       ></GoogleLogin>
     </GoogleOAuthProvider>
   ) : (
-    <button className='test-temp' onClick={() => googleAccessTest()}>
-      t
-    </button>
-    // <span></span>
+    // <button className='test-temp' onClick={() => googleAccessTest()}>
+    //   t
+    // </button>
+    <span></span>
   );
 };
 
