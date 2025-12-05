@@ -158,11 +158,13 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const googleAccessTest = async (data, navigate) => {
+  const googleAccessTest = async (data) => {
     await SocialLogin.initialize({
       google: {
         webClientId:
           "349628103780-laqfu0q8jg5nb58q1sbq3cfk7ai6lfu8.apps.googleusercontent.com",
+        redirectUrl: "https://piantala-a.onrender.com/map",
+        mode: "online",
       },
     });
 
@@ -172,9 +174,8 @@ export const AuthProvider = ({ children }) => {
         scopes: ["email", "name"],
       },
     });
-    console.log("abcd", res);
 
-    if (res.response === "online") {
+    if (res.result.responseType === "online") {
       const payload = data;
       // console.log("test payload", payload);
       const response = await axios.post(
