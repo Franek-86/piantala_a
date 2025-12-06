@@ -274,10 +274,10 @@ const AuthForm = () => {
                     Reset password
                   </Button>
                 </Form.Text>
-                <Google />
               </>
             )}
           </Form>
+          <Google />
         </Col>
       </Row>
     </Container>
