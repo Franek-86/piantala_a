@@ -175,7 +175,7 @@ export const AuthProvider = ({ children }) => {
       },
     });
     if (!res) {
-      toast.error(`funzionalità ancora non attivata`, {
+      toast.error(`funzionalità ancora non attivata ${res}`, {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,

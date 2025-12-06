@@ -57,7 +57,7 @@ const Google = () => {
     </GoogleOAuthProvider>
   ) : (
     <button className='test-temp' onClick={() => googleAccessTest()}>
-      t
+      test
     </button>
     // <span></span>
   );
