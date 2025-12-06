@@ -174,7 +174,21 @@ export const AuthProvider = ({ children }) => {
         scopes: ["email", "name"],
       },
     });
-    console.log("res", res);
+    const payload = res;
+    try {
+      const response = await axios.post(
+        `${serverDomain}google-access-android`,
+        payload,
+        {
+          withCredentials: true,
+        }
+      );
+      if (response.status === 200) {
+        console.log("sta0", response);
+      }
+    } catch (e) {
+      console.log("sta1", 1);
+    }
     // try {
     //   if (res.result.responseType === "online") {
     //     const payload = "test";
