@@ -174,6 +174,19 @@ export const AuthProvider = ({ children }) => {
         scopes: ["email", "name"],
       },
     });
+    if (!res) {
+      toast.error(`funzionalità ancora non attivata`, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      return;
+    }
     const payload = res;
     try {
       const response = await axios.post(
