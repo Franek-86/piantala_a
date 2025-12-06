@@ -161,7 +161,7 @@ export const AuthProvider = ({ children }) => {
   const googleAccessTest = async () => {
     await SocialLogin.initialize({
       google: {
-        webClientId: process.env.REACT_APP_GOOGLE_ID_ANDROID,
+        webClientId: process.env.REACT_APP_GOOGLE_ID_WEB,
         // webClientId: process.env.REACT_APP_GOOGLE_ID_ANDROID2,
         // redirectUrl: "https://piantala-a.onrender.com/map",
         mode: "online",
