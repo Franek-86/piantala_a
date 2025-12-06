@@ -176,7 +176,7 @@ export const AuthProvider = ({ children }) => {
     });
     try {
       if (res.result.responseType === "online") {
-        const payload = data;
+        const payload = "test";
         // console.log("test payload", payload);
         const response = await axios.post(
           `${serverDomain}/api/auth/google-access`,
