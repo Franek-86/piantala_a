@@ -174,36 +174,37 @@ export const AuthProvider = ({ children }) => {
         scopes: ["email", "name"],
       },
     });
-    try {
-      if (res.result.responseType === "online") {
-        const payload = "test";
-        // console.log("test payload", payload);
-        const response = await axios.post(
-          `${serverDomain}/api/auth/google-access`,
-          payload,
-          {
-            withCredentials: true,
-          }
-        );
+    console.log("res", res);
+    // try {
+    //   if (res.result.responseType === "online") {
+    //     const payload = "test";
+    //     // console.log("test payload", payload);
+    //     const response = await axios.post(
+    //       `${serverDomain}/api/auth/google-access`,
+    //       payload,
+    //       {
+    //         withCredentials: true,
+    //       }
+    //     );
 
-        if (response.status === 200) {
-          setIsAuthenticated(true);
-          localStorage.setItem("justLoggedIn", "true");
+    //     if (response.status === 200) {
+    //       setIsAuthenticated(true);
+    //       localStorage.setItem("justLoggedIn", "true");
 
-          const {
-            token,
-            user: { role },
-          } = response.data;
+    //       const {
+    //         token,
+    //         user: { role },
+    //       } = response.data;
 
-          setUserRole(role);
+    //       setUserRole(role);
 
-          localStorage.setItem("userToken", token);
-        }
-      }
-      // navigateToMap(navigate);
-    } catch (e) {
-      console.log("error from piantala", e);
-    }
+    //       localStorage.setItem("userToken", token);
+    //     }
+    //   }
+    //   // navigateToMap(navigate);
+    // } catch (e) {
+    //   console.log("error from piantala", e);
+    // }
   };
   const checkEmail = async (data) => {
     const { email } = data;
