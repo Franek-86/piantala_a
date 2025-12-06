@@ -158,7 +158,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const googleAccessTest = async (data) => {
+  const googleAccessTest = async () => {
     await SocialLogin.initialize({
       google: {
         webClientId: process.env.REACT_APP_GOOGLE_ID_WEB,
