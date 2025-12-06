@@ -161,7 +161,7 @@ export const AuthProvider = ({ children }) => {
   const googleAccessTest = async () => {
     await SocialLogin.initialize({
       google: {
-        webClientId: process.env.REACT_APP_GOOGLE_ID_WEB,
+        webClientId: process.env.REACT_APP_GOOGLE_ID_ANDROID,
         // webClientId: process.env.REACT_APP_GOOGLE_ID_ANDROID2,
         // redirectUrl: "https://piantala-a.onrender.com/map",
         mode: "online",
@@ -175,32 +175,31 @@ export const AuthProvider = ({ children }) => {
       },
     });
     try {
-      console.log("ciao", res);
-      // if (res.result.responseType === "online") {
-      //   const payload = data;
-      //   // console.log("test payload", payload);
-      //   const response = await axios.post(
-      //     `${serverDomain}/api/auth/google-access`,
-      //     payload,
-      //     {
-      //       withCredentials: true,
-      //     }
-      //   );
+      if (res.result.responseType === "online") {
+        const payload = data;
+        // console.log("test payload", payload);
+        const response = await axios.post(
+          `${serverDomain}/api/auth/google-access`,
+          payload,
+          {
+            withCredentials: true,
+          }
+        );
 
-      // if (response.status === 200) {
-      //   setIsAuthenticated(true);
-      //   localStorage.setItem("justLoggedIn", "true");
+        if (response.status === 200) {
+          setIsAuthenticated(true);
+          localStorage.setItem("justLoggedIn", "true");
 
-      //   const {
-      //     token,
-      //     user: { role },
-      //   } = response.data;
+          const {
+            token,
+            user: { role },
+          } = response.data;
 
-      //   setUserRole(role);
+          setUserRole(role);
 
-      //   localStorage.setItem("userToken", token);
-      // }
-
+          localStorage.setItem("userToken", token);
+        }
+      }
       // navigateToMap(navigate);
     } catch (e) {
       console.log("error from piantala", e);
