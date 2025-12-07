@@ -170,9 +170,7 @@ export const AuthProvider = ({ children }) => {
 
       const res = await SocialLogin.login({
         provider: "google",
-        options: {
-          scopes: ["email", "name"],
-        },
+        options: {},
       });
       const test = JSON.stringify(res);
       toast.error(`errore test 1 ${test}`, {
