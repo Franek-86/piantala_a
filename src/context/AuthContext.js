@@ -158,7 +158,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const googleAccessTest = async () => {
+  const googleAccessTest = async (navigate) => {
     try {
       await SocialLogin.initialize({
         google: {
