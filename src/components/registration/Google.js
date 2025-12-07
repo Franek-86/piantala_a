@@ -45,16 +45,21 @@ const Google = () => {
   const navigate = useNavigate();
   const { googleAccess, googleAccessTest } = useContext(AuthContext);
   return platform === "web" ? (
-    <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_ID_WEB}>
-      <GoogleLogin
-        onSuccess={(credentialResponse) => {
-          googleAccess(credentialResponse, navigate);
-        }}
-        onError={() => {
-          console.log("error");
-        }}
-      ></GoogleLogin>
-    </GoogleOAuthProvider>
+    <>
+      <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_ID_WEB}>
+        <GoogleLogin
+          onSuccess={(credentialResponse) => {
+            googleAccess(credentialResponse, navigate);
+          }}
+          onError={() => {
+            console.log("error");
+          }}
+        ></GoogleLogin>
+      </GoogleOAuthProvider>
+      <button className='test-temp' onClick={() => googleAccessTest()}>
+        test
+      </button>
+    </>
   ) : (
     <button className='test-temp' onClick={() => googleAccessTest()}>
       test
