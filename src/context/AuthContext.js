@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect, cloneElement } from "react";
 import { jwtDecode } from "jwt-decode";
 import axios, { Axios } from "axios";
 import { decode } from "base64-arraybuffer";
@@ -176,7 +176,7 @@ export const AuthProvider = ({ children }) => {
       const test2 = res.result.profile;
       const payload = test2;
       const response = await axios.post(
-        `${serverDomain}/api/auth/google-access`,
+        `${serverDomain}/api/auth/google-access-android`,
         payload,
         {
           withCredentials: true,
@@ -184,6 +184,18 @@ export const AuthProvider = ({ children }) => {
       );
       if (response.status === 200) {
         navigate("/map");
+      }
+      if (response.status !== 200) {
+        toast.error(`non è possibile auntenticarsi`, {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       }
 
       // toast.error(`errore test 1 ${test}`, {
