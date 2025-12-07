@@ -172,7 +172,6 @@ export const AuthProvider = ({ children }) => {
         provider: "google",
         options: {},
       });
-      const test = JSON.stringify(res.result.profile);
       const test2 = res.result.profile;
       // toast.error(`errore tes 1, test ${test}, "test2", ${test2}`, {
       //   position: "top-right",
@@ -194,6 +193,7 @@ export const AuthProvider = ({ children }) => {
       );
       if (response.status === 200) {
         navigate("/map");
+        return;
       }
       if (response.status !== 200) {
         toast.error(`non è possibile auntenticarsi`, {
@@ -206,9 +206,10 @@ export const AuthProvider = ({ children }) => {
           progress: undefined,
           theme: "light",
         });
+        return;
       }
     } catch (error) {
-      toast.error(`errore tes 2 ${error}`, {
+      toast.error(`errore test2 ${error}`, {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
