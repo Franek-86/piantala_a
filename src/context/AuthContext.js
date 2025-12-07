@@ -174,42 +174,41 @@ export const AuthProvider = ({ children }) => {
       });
       const test = JSON.stringify(res.result.profile);
       const test2 = res.result.profile;
-      const payload = test;
-      const response = await axios.post(
-        `${serverDomain}/api/auth/google-access-android`,
-        payload,
-        {
-          withCredentials: true,
-        }
-      );
-      if (response.status === 200) {
-        navigate("/map");
-      }
-      if (response.status !== 200) {
-        toast.error(`non è possibile auntenticarsi`, {
-          position: "top-right",
-          autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: false,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
-      }
-
-      // toast.error(`errore test 1 ${test}`, {
-      //   position: "top-right",
-      //   autoClose: 2000,
-      //   hideProgressBar: false,
-      //   closeOnClick: false,
-      //   pauseOnHover: true,
-      //   draggable: true,
-      //   progress: undefined,
-      //   theme: "light",
-      // });
+      toast.error(`errore tes 1, test ${test}, "test2", ${test2}`, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      // const payload = test;
+      // const response = await axios.post(
+      //   `${serverDomain}/api/auth/google-access-android`,
+      //   payload,
+      //   {
+      //     withCredentials: true,
+      //   }
+      // );
+      // if (response.status === 200) {
+      //   navigate("/map");
+      // }
+      // if (response.status !== 200) {
+      //   toast.error(`non è possibile auntenticarsi`, {
+      //     position: "top-right",
+      //     autoClose: 2000,
+      //     hideProgressBar: false,
+      //     closeOnClick: false,
+      //     pauseOnHover: true,
+      //     draggable: true,
+      //     progress: undefined,
+      //     theme: "light",
+      //   });
+      // }
     } catch (e) {
-      toast.error(`errore tes 2 ${(e, test)}`, {
+      toast.error(`errore tes 2 ${e}`, {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
