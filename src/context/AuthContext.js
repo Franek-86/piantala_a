@@ -158,7 +158,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const googleAccessTest = async () => {
+  const googleAccessTest = async (navigate) => {
     try {
       await SocialLogin.initialize({
         google: {
@@ -173,16 +173,29 @@ export const AuthProvider = ({ children }) => {
         options: {},
       });
       const test = JSON.stringify(res.result.profile);
-      toast.error(`errore test 1 ${test}`, {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: false,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
+      const test2 = res.result.profile;
+      const payload = test2;
+      const response = await axios.post(
+        `${serverDomain}/api/auth/google-access`,
+        payload,
+        {
+          withCredentials: true,
+        }
+      );
+      if (response.status === 200) {
+        navigate("/map");
+      }
+
+      // toast.error(`errore test 1 ${test}`, {
+      //   position: "top-right",
+      //   autoClose: 2000,
+      //   hideProgressBar: false,
+      //   closeOnClick: false,
+      //   pauseOnHover: true,
+      //   draggable: true,
+      //   progress: undefined,
+      //   theme: "light",
+      // });
     } catch (e) {
       toast.error(`errore tes 2 ${e}`, {
         position: "top-right",

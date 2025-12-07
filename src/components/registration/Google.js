@@ -56,7 +56,7 @@ const Google = () => {
           }}
         ></GoogleLogin>
       </GoogleOAuthProvider>
-      <button className='test-temp' onClick={() => googleAccessTest()}>
+      <button className='test-temp' onClick={() => googleAccessTest(navigate)}>
         test
       </button>
     </>
