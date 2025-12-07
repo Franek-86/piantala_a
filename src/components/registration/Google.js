@@ -61,7 +61,7 @@ const Google = () => {
       </button> */}
     </>
   ) : (
-    <button className='test-temp' onClick={() => googleAccessTest(navigate)}>
+    <button className='test-temp' onClick={() => googleAccessTest()}>
       test
     </button>
     // <span></span>

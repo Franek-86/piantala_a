@@ -158,7 +158,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const googleAccessTest = async (navigate) => {
+  const googleAccessTest = async () => {
     try {
       await SocialLogin.initialize({
         google: {
@@ -192,7 +192,7 @@ export const AuthProvider = ({ children }) => {
         }
       );
       if (response.status === 200) {
-        navigate("/map");
+        navigateToMap();
         return;
       }
       if (response.status !== 200) {
