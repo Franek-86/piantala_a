@@ -61,15 +61,14 @@ const Google = () => {
       </button> */}
     </>
   ) : (
-    <button className='test-temp' onClick={() => googleAccessTest(navigate)}>
-      test
-    </button>
-    // <Button
-    //   className='d-block w-100'
-    //   variant='primary'
-    //   onClick={() => googleAccessTest(navigate)}
-    // ></Button>
-    // <span></span>
+    // <button className='test-temp' onClick={() => googleAccessTest(navigate)}>
+    //   test
+    // </button>
+    <Button
+      className='d-block w-100'
+      variant='primary'
+      onClick={() => googleAccessTest(navigate)}
+    ></Button>
   );
 };
 

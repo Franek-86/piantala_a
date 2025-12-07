@@ -133,7 +133,7 @@ export const AuthProvider = ({ children }) => {
   };
   const googleAccess = async (data, navigate) => {
     const payload = data;
-    console.log("test payload", payload);
+
     const response = await axios.post(
       `${serverDomain}/api/auth/google-access`,
       payload,
