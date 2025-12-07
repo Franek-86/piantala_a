@@ -174,7 +174,7 @@ export const AuthProvider = ({ children }) => {
       });
       const test = JSON.stringify(res.result.profile);
       const test2 = res.result.profile;
-      const payload = test2;
+      const payload = test;
       const response = await axios.post(
         `${serverDomain}/api/auth/google-access-android`,
         payload,
@@ -209,7 +209,7 @@ export const AuthProvider = ({ children }) => {
       //   theme: "light",
       // });
     } catch (e) {
-      toast.error(`errore tes 2 ${e}`, {
+      toast.error(`errore tes 2 ${(e, test)}`, {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
