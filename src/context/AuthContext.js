@@ -207,8 +207,8 @@ export const AuthProvider = ({ children }) => {
           theme: "light",
         });
       }
-    } catch (e) {
-      toast.error(`errore tes 2 ${e}`, {
+    } catch (error) {
+      toast.error(`errore tes 2 ${error}`, {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
