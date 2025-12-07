@@ -68,7 +68,10 @@ const Google = () => {
       className='d-block w-100'
       variant='primary'
       onClick={() => googleAccessTest(navigate)}
-    ></Button>
+    >
+      {" "}
+      Accedi con Google
+    </Button>
   );
 };
 
