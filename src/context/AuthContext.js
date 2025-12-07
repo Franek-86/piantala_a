@@ -172,7 +172,7 @@ export const AuthProvider = ({ children }) => {
         provider: "google",
         options: {},
       });
-      const test = JSON.stringify(res);
+      const test = JSON.stringify(res.result.profile);
       toast.error(`errore test 1 ${test}`, {
         position: "top-right",
         autoClose: 2000,
