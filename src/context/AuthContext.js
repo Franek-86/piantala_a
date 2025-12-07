@@ -192,7 +192,7 @@ export const AuthProvider = ({ children }) => {
         }
       );
       if (response.status === 200) {
-        navigateToMap();
+        navigateToMap(navigate);
         return;
       }
       if (response.status !== 200) {
