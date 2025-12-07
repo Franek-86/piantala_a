@@ -159,31 +159,45 @@ export const AuthProvider = ({ children }) => {
   };
 
   const googleAccessTest = async () => {
-    await SocialLogin.initialize({
-      google: {
-        webClientId: process.env.REACT_APP_GOOGLE_ID_WEB,
-        // webClientId: process.env.REACT_APP_GOOGLE_ID_ANDROID2,
-        // redirectUrl: "https://piantala-a.onrender.com/map",
-        mode: "online",
-      },
-    });
+    try {
+      await SocialLogin.initialize({
+        google: {
+          webClientId: process.env.REACT_APP_GOOGLE_ID_WEB,
+          // webClientId: process.env.REACT_APP_GOOGLE_ID_ANDROID2,
+          // redirectUrl: "https://piantala-a.onrender.com/map",
+          mode: "online",
+        },
+      });
 
-    const res = await SocialLogin.login({
-      provider: "google",
-      options: {
-        scopes: ["email", "name"],
-      },
-    });
-    toast.error(`funzionalità ancora non attivata ${res}`, {
-      position: "top-right",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: false,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
+      const res = await SocialLogin.login({
+        provider: "google",
+        options: {
+          // scopes: ["email", "name"],
+        },
+      });
+      toast.error(`errore test ${res}`, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    } catch (e) {
+      toast.error(`errore test ${e}`, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
+
     // if (!res) {
     //   toast.error(`funzionalità ancora non attivata ${res}`, {
     //     position: "top-right",
