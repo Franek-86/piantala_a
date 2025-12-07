@@ -163,8 +163,7 @@ export const AuthProvider = ({ children }) => {
       await SocialLogin.initialize({
         google: {
           webClientId: process.env.REACT_APP_GOOGLE_ID_WEB,
-          // webClientId: process.env.REACT_APP_GOOGLE_ID_ANDROID2,
-          // redirectUrl: "https://piantala-a.onrender.com/map",
+          redirectUrl: "https://piantala-a.onrender.com/login",
           mode: "online",
         },
       });
@@ -175,7 +174,8 @@ export const AuthProvider = ({ children }) => {
           // scopes: ["email", "name"],
         },
       });
-      toast.error(`errore test ${res}`, {
+      const test = JSON.stringify(res);
+      toast.error(`errore test 1 ${test}`, {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
@@ -186,7 +186,7 @@ export const AuthProvider = ({ children }) => {
         theme: "light",
       });
     } catch (e) {
-      toast.error(`errore test ${e}`, {
+      toast.error(`errore tes 2 ${e}`, {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
