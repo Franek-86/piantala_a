@@ -184,7 +184,7 @@ export const AuthProvider = ({ children }) => {
       //   progress: undefined,
       //   theme: "light",
       // });
-      const payload = test2;
+      const payload = test;
       const response = await axios.post(
         `${serverDomain}/api/auth/google-access-android`,
         payload,
