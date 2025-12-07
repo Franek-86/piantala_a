@@ -192,11 +192,21 @@ export const AuthProvider = ({ children }) => {
         }
       );
       if (response.status === 200) {
+        setIsAuthenticated(true);
+        localStorage.setItem("justLoggedIn", "true");
+
+        const {
+          token,
+          user: { role },
+        } = response.data;
+
+        setUserRole(role);
+
+        localStorage.setItem("userToken", token);
         navigateToMap(navigate);
-        return;
       }
       if (response.status !== 200) {
-        toast.error(`non è possibile auntenticarsi`, {
+        toast.error(`non è stato possibile auntenticarsi`, {
           position: "top-right",
           autoClose: 2000,
           hideProgressBar: false,
@@ -206,7 +216,6 @@ export const AuthProvider = ({ children }) => {
           progress: undefined,
           theme: "light",
         });
-        return;
       }
     } catch (error) {
       toast.error(`errore test2 ${error}`, {

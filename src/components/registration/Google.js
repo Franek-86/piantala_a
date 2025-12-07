@@ -6,10 +6,10 @@ import { AuthContext } from "../../context/AuthContext";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Capacitor } from "@capacitor/core";
-
 import { GoogleService } from "./GoogleService";
 //
 import { SocialLogin } from "@capgo/capacitor-social-login";
+import { Button } from "react-bootstrap";
 // import "@codetrix-studio/capacitor-google-auth";
 // import { registerPlugin } from "@capacitor/core";
 
@@ -64,6 +64,11 @@ const Google = () => {
     <button className='test-temp' onClick={() => googleAccessTest(navigate)}>
       test
     </button>
+    // <Button
+    //   className='d-block w-100'
+    //   variant='primary'
+    //   onClick={() => googleAccessTest(navigate)}
+    // ></Button>
     // <span></span>
   );
 };
