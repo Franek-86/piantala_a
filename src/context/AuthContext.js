@@ -171,7 +171,7 @@ export const AuthProvider = ({ children }) => {
       const res = await SocialLogin.login({
         provider: "google",
         options: {
-          // scopes: ["email", "name"],
+          scopes: ["email", "name"],
         },
       });
       const test = JSON.stringify(res);
