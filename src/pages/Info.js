@@ -32,42 +32,6 @@ const Info = () => {
 
           <Accordion>
             <Accordion.Item eventKey='0'>
-              <Accordion.Header>Scarica l'app come "tester"</Accordion.Header>
-              <Accordion.Body>
-                <p>
-                  Al fine di rendere l'app disponibile a tutti gli utenti su
-                  Google Play, vi invitiamo a scaricare l'app di "Ti Pianto Per
-                  Amore" come "tester" seguendo le indicazioni che riportiamo
-                  qui di seguito.
-                </p>
-                <p>
-                  Più o meno 24h dopo esservi registrati potrete installare
-                  l'app scegliendo tra una delle due opzioni che riporto in
-                  basso.
-                </p>
-                <ListGroup as='ol'>
-                  <ListGroup.Item variant='info' as='li'>
-                    {" "}
-                    Accedere alla app di "Ti Pianto Per Amore" da Google Play su
-                    Android cliccando{" "}
-                    <a href='https://play.google.com/store/apps/details?id=com.piantala.app'>
-                      qui
-                    </a>{" "}
-                    ed installarla sul vostro dispositivo android.
-                  </ListGroup.Item>
-                  <ListGroup.Item as='li' variant='info'>
-                    In alternativa potete accedere ed installare l'app di "Ti
-                    Pianto Per Amore" da web cliccando{" "}
-                    <a href='https://play.google.com/apps/testing/com.piantala.app'>
-                      qui
-                    </a>{" "}
-                    ed effettuando l'installazione sul vostro dispositivo mobile
-                    android direttamente da web
-                  </ListGroup.Item>
-                </ListGroup>
-              </Accordion.Body>
-            </Accordion.Item>
-            <Accordion.Item eventKey='1'>
               <Accordion.Header>
                 Segnalare zona di piantumazione
               </Accordion.Header>
@@ -110,7 +74,7 @@ const Info = () => {
                 </ListGroup>
               </Accordion.Body>
             </Accordion.Item>
-            <Accordion.Item eventKey='2'>
+            <Accordion.Item eventKey='1'>
               <Accordion.Header>
                 Monitorare le proprie segnalazioni
               </Accordion.Header>
@@ -157,7 +121,7 @@ const Info = () => {
                 </p>
               </Accordion.Body>
             </Accordion.Item>
-            <Accordion.Item eventKey='3'>
+            <Accordion.Item eventKey='2'>
               <Accordion.Header>
                 Richiedere piantumazione albero
               </Accordion.Header>
@@ -192,7 +156,7 @@ const Info = () => {
                 </Alert>
               </Accordion.Body>
             </Accordion.Item>
-            <Accordion.Item eventKey='4'>
+            <Accordion.Item eventKey='3'>
               <Accordion.Header>
                 Servizio offerto, costi e tempi
               </Accordion.Header>
@@ -236,7 +200,7 @@ const Info = () => {
                 </p>
               </Accordion.Body>
             </Accordion.Item>
-            <Accordion.Item eventKey='5'>
+            <Accordion.Item eventKey='4'>
               <Accordion.Header>Monitorare i propri acquisti</Accordion.Header>
               <Accordion.Body>
                 <p>
