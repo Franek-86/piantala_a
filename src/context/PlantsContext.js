@@ -533,6 +533,10 @@ export const PlantsProvider = ({ children }) => {
         quality: 90,
         allowEditing: false,
         resultType: CameraResultType.Base64,
+        promptLabelHeader:
+          "Scatta una foto o selezionala dalla tua galleria immagini",
+        promptLabelPhoto: "Seleziona foto in galleria",
+        promptLabelPicture: "Scatta foto",
       });
       setLoading(true);
 
