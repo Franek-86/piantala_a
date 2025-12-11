@@ -530,11 +530,10 @@ export const PlantsProvider = ({ children }) => {
   const updatePicMob = async (plantId) => {
     try {
       const image = await Camera.getPhoto({
-        quality: 90,
+        quality: 50,
         allowEditing: false,
         resultType: CameraResultType.Base64,
-        promptLabelHeader:
-          "Scatta una foto o selezionala dalla tua galleria immagini",
+        promptLabelHeader: "Scatta una foto o selezionala dalla tua galleria",
         promptLabelPhoto: "Seleziona foto in galleria",
         promptLabelPicture: "Scatta foto",
       });

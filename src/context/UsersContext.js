@@ -106,9 +106,12 @@ export const UsersProvider = ({ children }) => {
   };
   const takePicture = async (id) => {
     const image = await Camera.getPhoto({
-      quality: 90,
+      quality: 50,
       allowEditing: false,
       resultType: CameraResultType.Base64,
+      promptLabelHeader: "Scatta una foto o selezionala dalla tua galleria",
+      promptLabelPhoto: "Seleziona foto in galleria",
+      promptLabelPicture: "Scatta foto",
     });
     // const blob = new Blob([new Uint8Array(decode(image.base64String))], {
     //   type: `image/${Camera.format}`,
