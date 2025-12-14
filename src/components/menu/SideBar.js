@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import ListGroup from "react-bootstrap/ListGroup";
 import { Link, NavLink } from "react-router-dom";
-import { RiLogoutBoxLine } from "react-icons/ri";
+import { RiLogoutBoxLine, RiLoginBoxLine } from "react-icons/ri";
 import { TbReportMedical } from "react-icons/tb";
 import { RiContactsLine } from "react-icons/ri";
 import { GiMetalPlate } from "react-icons/gi";
@@ -18,7 +18,7 @@ import { PiPottedPlantBold } from "react-icons/pi";
 import { FaMap } from "react-icons/fa";
 import { RiSeedlingFill } from "react-icons/ri";
 const SideBar = () => {
-  const { handleLogout, userRole } = useContext(AuthContext);
+  const { handleLogout, userRole, isAuthenticated } = useContext(AuthContext);
   return (
     <section className='sidebar-large'>
       <Offcanvas.Header>
@@ -111,22 +111,19 @@ const SideBar = () => {
               <span class='ms-2 d-sm-inline'>Le vostre targhe</span>
             </NavLink>
           </ListGroup.Item>
-
-          {userRole === "admin" && (
-            <ListGroup.Item>
-              <NavLink
-                to='/chat'
-                className={({ isActive }) =>
-                  isActive
-                    ? "nav-link text-truncate sidebar-active"
-                    : "nav-link text-truncate"
-                }
-              >
-                <IoMdChatbubbles />
-                <span class='ms-2 d-sm-inline'>Chat</span>
-              </NavLink>
-            </ListGroup.Item>
-          )}
+          <ListGroup.Item>
+            <NavLink
+              to='/'
+              className={({ isActive }) =>
+                isActive
+                  ? "nav-link text-truncate sidebar-active"
+                  : "nav-link text-truncate"
+              }
+            >
+              <IoMdChatbubbles />
+              <span class='ms-2 d-sm-inline'>Chat</span>
+            </NavLink>
+          </ListGroup.Item>
           <ListGroup.Item>
             <NavLink
               to='/contacts'
@@ -140,20 +137,36 @@ const SideBar = () => {
               <span class='ms-2 d-sm-inline'>Contattaci</span>
             </NavLink>
           </ListGroup.Item>
-          <ListGroup.Item>
-            <NavLink
-              to='/'
-              onClick={handleLogout}
-              className={({ isActive }) =>
-                isActive
-                  ? "nav-link text-truncate sidebar-active"
-                  : "nav-link text-truncate"
-              }
-            >
-              <RiLogoutBoxLine />
-              <span class='ms-2 d-sm-inline'>Log out</span>
-            </NavLink>
-          </ListGroup.Item>
+          {isAuthenticated ? (
+            <ListGroup.Item>
+              <NavLink
+                to='/'
+                onClick={handleLogout}
+                className={({ isActive }) =>
+                  isActive
+                    ? "nav-link text-truncate sidebar-active"
+                    : "nav-link text-truncate"
+                }
+              >
+                <RiLogoutBoxLine />
+                <span class='ms-2 d-sm-inline'>Log out</span>
+              </NavLink>
+            </ListGroup.Item>
+          ) : (
+            <ListGroup.Item>
+              <NavLink
+                to='/'
+                className={({ isActive }) =>
+                  isActive
+                    ? "nav-link text-truncate sidebar-active"
+                    : "nav-link text-truncate"
+                }
+              >
+                <RiLoginBoxLine />
+                <span class='ms-2 d-sm-inline'>Login/Registrati</span>
+              </NavLink>
+            </ListGroup.Item>
+          )}
         </ListGroup>
       </Offcanvas.Body>
     </section>

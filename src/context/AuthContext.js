@@ -36,7 +36,7 @@ export const AuthProvider = ({ children }) => {
   const [cities, setCities] = useState([]);
   const [regions, setRegions] = useState([]);
   const [districts, setDistricts] = useState([]);
-
+  const [logReg, setLogReg] = useState(false);
   const [pswLoading, setPswLoading] = useState(false);
 
   const [showPermissionModal, setShowPermissionModal] = useState(false);
@@ -49,12 +49,22 @@ export const AuthProvider = ({ children }) => {
   const handleClosePermissionModal = () => setShowPermissionModal(false);
 
   const [isRegister, setIsRegister] = useState(null);
+  const [clientDomain, setClientDomain] = useState(null);
   const token = localStorage.getItem("userToken");
 
   const serverDomain =
     process.env.REACT_APP_NODE_ENV === "test"
       ? process.env.REACT_APP_TEST_DOMAIN_NAME_SERVER
       : process.env.REACT_APP_DOMAIN_NAME_SERVER;
+  const client =
+    process.env.REACT_APP_NODE_ENV === "test"
+      ? process.env.REACT_APP_DOMAIN_NAME_CLIENT
+      : process.env.REACT_APP_DOMAIN_NAME_CLIENT_PRODUCTIONR;
+
+  useEffect(() => {
+    setClientDomain(client);
+  }, []);
+  console.log("test1234", clientDomain);
 
   const getRegions = async () => {
     setLoading(true);
@@ -131,7 +141,8 @@ export const AuthProvider = ({ children }) => {
     );
     return response;
   };
-  const googleAccess = async (data, navigate) => {
+  const googleAccess = async (data, navigate, plantId) => {
+    console.log("123456", plantId);
     const payload = data;
 
     const response = await axios.post(
@@ -144,6 +155,7 @@ export const AuthProvider = ({ children }) => {
 
     if (response.status === 200) {
       setIsAuthenticated(true);
+      setLogReg(false);
       localStorage.setItem("justLoggedIn", "true");
 
       const {
@@ -154,7 +166,11 @@ export const AuthProvider = ({ children }) => {
       setUserRole(role);
 
       localStorage.setItem("userToken", token);
-      navigateToMap(navigate);
+      if (plantId) {
+        navigate(`/map/${plantId}`);
+      } else {
+        navigateToMap(navigate);
+      }
     }
   };
 
@@ -173,16 +189,7 @@ export const AuthProvider = ({ children }) => {
         options: {},
       });
       const test2 = res.result.profile;
-      // toast.error(`errore tes 1, test ${test}, "test2", ${test2}`, {
-      //   position: "top-right",
-      //   autoClose: 2000,
-      //   hideProgressBar: false,
-      //   closeOnClick: false,
-      //   pauseOnHover: true,
-      //   draggable: true,
-      //   progress: undefined,
-      //   theme: "light",
-      // });
+
       const payload = test2;
       const response = await axios.post(
         `${serverDomain}/api/auth/google-access-android`,
@@ -229,65 +236,6 @@ export const AuthProvider = ({ children }) => {
         theme: "light",
       });
     }
-
-    // if (!res) {
-    //   toast.error(`funzionalità ancora non attivata ${res}`, {
-    //     position: "top-right",
-    //     autoClose: 2000,
-    //     hideProgressBar: false,
-    //     closeOnClick: false,
-    //     pauseOnHover: true,
-    //     draggable: true,
-    //     progress: undefined,
-    //     theme: "light",
-    //   });
-    //   return;
-    // }
-
-    // try {
-    //   const response = await axios.post(
-    //     `${serverDomain}google-access-android`,
-    //     payload,
-    //     {
-    //       withCredentials: true,
-    //     }
-    //   );
-    //   if (response.status === 200) {
-    //     console.log("sta0", response);
-    //   }
-    // } catch (e) {
-    //   console.log("sta1", 1);
-    // }
-    // try {
-    //   if (res.result.responseType === "online") {
-    //     const payload = "test";
-    //     // console.log("test payload", payload);
-    //     const response = await axios.post(
-    //       `${serverDomain}/api/auth/google-access`,
-    //       payload,
-    //       {
-    //         withCredentials: true,
-    //       }
-    //     );
-
-    //     if (response.status === 200) {
-    //       setIsAuthenticated(true);
-    //       localStorage.setItem("justLoggedIn", "true");
-
-    //       const {
-    //         token,
-    //         user: { role },
-    //       } = response.data;
-
-    //       setUserRole(role);
-
-    //       localStorage.setItem("userToken", token);
-    //     }
-    //   }
-    //   // navigateToMap(navigate);
-    // } catch (e) {
-    //   console.log("error from piantala", e);
-    // }
   };
   const checkEmail = async (data) => {
     const { email } = data;
@@ -500,15 +448,17 @@ export const AuthProvider = ({ children }) => {
     }
     return "login";
   };
+
   const handleLogout = async () => {
     try {
       const response = await axios.post(`${serverDomain}/api/auth/logout`);
 
       // Optionally, handle the response if needed (e.g., check response status)
       if (response.status === 200) {
+        setIsAuthenticated(false);
+        console.log("test123456", isAuthenticated);
         localStorage.removeItem("userToken");
         localStorage.removeItem("refreshToken");
-        setIsAuthenticated(false);
       } else {
         console.error("Unexpected response:", response);
       }
@@ -608,12 +558,15 @@ export const AuthProvider = ({ children }) => {
         emailLoading,
         regionsLoading,
         showPermissionModal,
+        clientDomain,
         setShowPermissionModal,
         handleShowPermissionModal,
         handleClosePermissionModal,
         sendPaymentConfirmationEmail,
         verificationEmail,
         verificationEmailPasswordReset,
+        logReg,
+        setLogReg,
       }}
     >
       {children}

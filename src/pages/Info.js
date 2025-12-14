@@ -110,15 +110,6 @@ const Info = () => {
                     icona a forma di piantina di colore verde.
                   </ListGroup.Item>
                 </ListGroup>
-                <p className='mt-3'>
-                  {" "}
-                  Sulla mappa inoltre apparirà un'icona a forma di piantina,
-                  inizialmente di colore arancione, nella posizione scelta. Per
-                  poterla visualizzare sarà necessario filtrare i risultati di
-                  ricerca selezionando le piantine "in attesa di approvazione".
-                  Cliccandoci su sarà possibile verificare i dettagli della
-                  segnalazione.
-                </p>
               </Accordion.Body>
             </Accordion.Item>
             <Accordion.Item eventKey='2'>

@@ -26,6 +26,7 @@ const AuthForm = () => {
     setIsRegister,
     isRegister,
     login,
+    setLogReg,
     setIsAuthenticated,
     getCities,
     cities,
@@ -134,6 +135,7 @@ const AuthForm = () => {
       console.log("here1", response);
       if (response.status === 201 || response.status === 200) {
         setIsAuthenticated(true);
+        setLogReg(false);
         localStorage.setItem("justLoggedIn", "true");
         navigate("/map");
 

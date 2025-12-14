@@ -29,6 +29,8 @@ import { Capacitor } from "@capacitor/core";
 import { SocketContext } from "./context/SocketContext";
 import Buttons from "./components/map/Buttons";
 import SideBar from "./components/menu/SideBar";
+import { RiH1 } from "react-icons/ri";
+import LoginReg from "./components/registration/LoginReg";
 
 const DefaultIcon = L.icon({
   iconUrl: iconLocation, // This can be your default icon
@@ -71,7 +73,7 @@ function Map() {
   const { test } = useContext(OrdersContext);
   console.log("test from orders", test);
   const { filters, setFilters } = useContext(FilterContext);
-  const { setShowPermissionModal } = useContext(AuthContext);
+  const { setShowPermissionModal, logReg } = useContext(AuthContext);
 
   const [copyText, setCopyText] = useState("");
   const isLargeScreen = useIsLargeScreen();
@@ -108,26 +110,26 @@ function Map() {
     checkPermissionsAndShowModal();
   }, []);
 
-  //
-  // const url =
-  //   process.env.REACT_APP_NODE_ENV === "test"
-  //     ? process.env.REACT_APP_TEST_DOMAIN_NAME_SERVER
-  //     : process.env.REACT_APP_DOMAIN_NAME_SERVER;
-  // const socket = io(url);
+  // 0001
+
   useEffect(() => {
-    socket.on("connect", () => {
-      console.log("socket from app.js", socket);
-    });
+    if (socket) {
+      socket.on("connect", () => {
+        console.log("socket from app.js", socket);
+      });
 
-    const getAllPlants = (arg1) => {
-      setPlants(arg1);
-    };
+      const getAllPlants = (arg1) => {
+        setPlants(arg1);
+      };
 
-    socket.on("all-plants", getAllPlants);
-    return () => {
-      socket.off("all-plants", getAllPlants);
-    };
+      socket.on("all-plants", getAllPlants);
+      return () => {
+        socket.off("all-plants", getAllPlants);
+      };
+    }
   }, []);
+
+  // 0002
   console.log("statusPlants t", filters.status);
   let filteredPlants = plants.filter((plant) => {
     return (
@@ -243,40 +245,41 @@ function Map() {
                 {position && (
                   <Marker ref={markerRef} position={position}>
                     <Popup>
-                      <h6>Ti trovi qui</h6>
-                      <p>
-                        Segnalaci la zona di piantagione aggiungendo una
-                        piantina alla mappa oppure copia le coordinate per
-                        poterle condividere con altri utenti.
-                      </p>
-                      {/* <ul>
-                        <li>
-                          <span>{`latitudine: ${position.lat}`}</span>
-                        </li>
-                        <li>
-                          <span>{`longitudine: ${position.lng}`}</span>
-                        </li>
-                      </ul> */}
-                      <div className='d-flex flex-column pb-3'>
-                        <Button
-                          className='mb-2'
-                          onClick={() =>
-                            copyToClipboard([`${position.lat},${position.lng}`])
-                          }
-                        >
-                          copia coordinate
-                        </Button>
+                      {logReg && <LoginReg val='map' />}
 
-                        <Button
-                          onClick={() => (
-                            sendValuesToAddPlant(
-                              `${position.lat},${position.lng}`
-                            ),
-                            navigate("/map/addPlant")
-                          )}
-                        >
-                          aggiungi alla mappa
-                        </Button>
+                      <div className={logReg ? "d-none" : "d-block"}>
+                        <h6>Ti trovi qui!</h6>
+                        <p>
+                          Segnalaci la zona di piantagione aggiungendo una
+                          piantina alla mappa oppure copia le coordinate per
+                          poterle condividere con altri utenti.
+                        </p>
+                        <div className='d-flex flex-column pb-3'>
+                          <Button
+                            className='mb-2'
+                            onClick={() =>
+                              copyToClipboard([
+                                `${position.lat},${position.lng}`,
+                              ])
+                            }
+                          >
+                            copia coordinate
+                          </Button>
+
+                          <Button
+                            onClick={
+                              () =>
+                                sendValuesToAddPlant(
+                                  `${position.lat},${position.lng}`,
+                                  navigate
+                                )
+                              // ,
+                              // navigate("/map/addPlant")
+                            }
+                          >
+                            aggiungi alla mappa
+                          </Button>
+                        </div>
                       </div>
                     </Popup>
                   </Marker>

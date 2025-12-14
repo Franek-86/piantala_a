@@ -107,13 +107,27 @@ const router = createBrowserRouter([
         path: "/passwordReset/:token",
         element: <PasswordReset />,
       },
+      // {
+      //   path: "/map",
+      //   element: (
+      //     <ProtectedRoute>
+      //       <Map />
+      //     </ProtectedRoute>
+      //   ),
+      //   children: [
+      //     {
+      //       path: "addPlant",
+      //       element: <AddPlant />,
+      //     },
+      //     {
+      //       path: ":plantId",
+      //       element: <Plant />,
+      //     },
+      //   ],
+      // },
       {
         path: "/map",
-        element: (
-          <ProtectedRoute>
-            <Map />
-          </ProtectedRoute>
-        ),
+        element: <Map />,
         children: [
           {
             path: "addPlant",

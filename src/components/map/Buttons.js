@@ -20,7 +20,7 @@ import ProfileModal from "./../user-profile/ProfileModal";
 import SideMenu from "../menu/SideMenu";
 
 const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
-  const { userRole } = useContext(AuthContext);
+  const { userRole, isAuthenticated } = useContext(AuthContext);
   const { loggedUserInfo } = useContext(UsersContext);
   const { pic } = loggedUserInfo;
   console.log("asdf", position);
@@ -44,7 +44,7 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
   return (
     <div className='section buttons-section'>
       {locationLoading && <Loading />}
-      <ProfileModal smShow={smShow} setSmShow={setSmShow} />
+      {<ProfileModal smShow={smShow} setSmShow={setSmShow} />}
       <div className='leftButton d-lg-none'>
         {/* <div className='test1'>
           <img src={logo} alt='' className='map-logo' />
@@ -59,16 +59,18 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
         </Button>
       </div>
       <div className='rightButtons'>
-        <Avatar
-          src={pic}
-          size='3rem'
-          round='50%'
-          // src='https://example.com/user-avatar.jpg'
-          className='avatar'
-          fgColor='#0e722d'
-          name={loggedUserInfo.userName}
-          onClick={() => setSmShow(true)}
-        />
+        {isAuthenticated && (
+          <Avatar
+            src={pic}
+            size='3rem'
+            round='50%'
+            // src='https://example.com/user-avatar.jpg'
+            className='avatar'
+            fgColor='#0e722d'
+            name={loggedUserInfo.userName}
+            onClick={() => setSmShow(true)}
+          />
+        )}
 
         <Button
           onClick={() => {

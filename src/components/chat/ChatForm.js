@@ -9,7 +9,7 @@ import { UsersContext } from "../../context/UsersContext";
 
 const ChatForm = () => {
   const { setMessage, message, sendMessage } = useContext(ChatContext);
-  const { userId } = useContext(AuthContext);
+  const { isAuthenticated, userId } = useContext(AuthContext);
   const { loggedUserInfo } = useContext(UsersContext);
   console.log("asdf", loggedUserInfo.pic);
   const handleSubmit = (e) => {
@@ -28,9 +28,14 @@ const ChatForm = () => {
   return (
     <InputGroup className='pb-2 chat-footer'>
       <Form.Control
-        placeholder='messaggio...'
+        placeholder={
+          isAuthenticated
+            ? "messaggio..."
+            : "Per scrivere in chat è necessario loggarsi"
+        }
         aria-label='message'
         aria-describedby='basic-addon2'
+        disabled={!isAuthenticated}
         value={message}
         onChange={(e) => {
           setMessage(e.target.value);
@@ -42,6 +47,7 @@ const ChatForm = () => {
           onClick={handleSubmit}
           variant='outline-secondary'
           id='button-addon2'
+          disabled={!isAuthenticated}
         >
           Invia
         </Button>

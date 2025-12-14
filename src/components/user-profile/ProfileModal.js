@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { UsersContext } from "../../context/UsersContext";
 
 const ProfileModal = ({ smShow, setSmShow }) => {
-  const { handleLogout } = useContext(AuthContext);
+  const { handleLogout, clientDomain } = useContext(AuthContext);
   const { loggedUserInfo } = useContext(UsersContext);
   return (
     <Modal
@@ -26,7 +26,7 @@ const ProfileModal = ({ smShow, setSmShow }) => {
         <span> {loggedUserInfo.email}</span>
         <div className='profile-links mt-2 d-flex flex-row justify-content-between'>
           {/* <Link className='d-block w-100 mb-2'>Immagine profilo</Link> */}
-          <Link to='\' onClick={handleLogout}>
+          <Link to={`${clientDomain}/login`} onClick={handleLogout}>
             {" "}
             Logout
           </Link>

@@ -8,8 +8,10 @@ import { Capacitor } from "@capacitor/core";
 import { Keyboard } from "@capacitor/keyboard";
 import { PlantsContext } from "../../context/PlantsContext";
 import { MdPayment } from "react-icons/md";
+import LoginReg from "../registration/LoginReg";
 const PlantForm = () => {
-  const { userId, userRole } = useContext(AuthContext);
+  const { userId, userRole, isAuthenticated, setLogReg, logReg } =
+    useContext(AuthContext);
   const { deletePlant } = useContext(PlantsContext);
   const { plantId } = useParams();
   const container = useRef();
@@ -20,6 +22,10 @@ const PlantForm = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
+    if (!isAuthenticated) {
+      setLogReg(true);
+      return;
+    }
     // const date = new Date().toLocaleDateString("it-IT");
     let date = new Date();
     let day = date.getDate();
@@ -115,10 +121,14 @@ const PlantForm = () => {
             Procedendo con il pagamento verrai reindirizzato sulla piattaforma
             di pagamento.
           </p>
-          <button className='btn btn-success' type='submit'>
+          <button
+            className={!logReg ? "d-block btn btn-success" : "d-none"}
+            type='submit'
+          >
             Procedi con il pagamento
           </button>
         </Form>
+        {logReg && <LoginReg val='plant' id={plantId} />}
       </article>
       {userRole === "admin" && (
         <>

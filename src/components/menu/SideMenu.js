@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import ListGroup from "react-bootstrap/ListGroup";
 import { Link } from "react-router-dom";
-import { RiLogoutBoxLine, RiSeedlingFill } from "react-icons/ri";
+import {
+  RiLogoutBoxLine,
+  RiSeedlingFill,
+  RiLoginBoxLine,
+} from "react-icons/ri";
 import { TbReportMedical } from "react-icons/tb";
 import { RiContactsLine } from "react-icons/ri";
 import { GiMetalPlate } from "react-icons/gi";
@@ -19,7 +23,7 @@ import { PlantsContext } from "../../context/PlantsContext";
 import Fancybox from "../plates/Fancybox";
 
 const SideMenu = ({ onLogout, ...props }) => {
-  const { handleLogout, userRole } = useContext(AuthContext);
+  const { handleLogout, userRole, isAuthenticated } = useContext(AuthContext);
   const { getAllPlants, plates } = useContext(PlantsContext);
   const [isLoaded, setIsLoaded] = useState(false);
   // const isLargeScreen = useIsLargeScreen();
@@ -83,12 +87,25 @@ const SideMenu = ({ onLogout, ...props }) => {
             </Link>
           </ListGroup.Item>
 
-          <ListGroup.Item>
-            <Link to='/' onClick={handleLogout} class='nav-link text-truncate'>
-              <RiLogoutBoxLine />
-              <span class='ms-2 d-sm-inline'>Log out</span>
-            </Link>
-          </ListGroup.Item>
+          {isAuthenticated ? (
+            <ListGroup.Item>
+              <Link
+                to='/'
+                onClick={handleLogout}
+                class='nav-link text-truncate'
+              >
+                <RiLogoutBoxLine />
+                <span class='ms-2 d-sm-inline'>Log out</span>
+              </Link>
+            </ListGroup.Item>
+          ) : (
+            <ListGroup.Item>
+              <Link to='/' class='nav-link text-truncate'>
+                <RiLoginBoxLine />
+                <span class='ms-2 d-sm-inline'>Login/Registrati</span>
+              </Link>
+            </ListGroup.Item>
+          )}
         </ListGroup>
       </Offcanvas.Body>
     </Offcanvas>

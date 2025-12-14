@@ -7,9 +7,10 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Capacitor } from "@capacitor/core";
 import { GoogleService } from "./GoogleService";
-//
+
 import { SocialLogin } from "@capgo/capacitor-social-login";
 import { Button } from "react-bootstrap";
+import { PlantsContext } from "../../context/PlantsContext";
 // import "@codetrix-studio/capacitor-google-auth";
 // import { registerPlugin } from "@capacitor/core";
 
@@ -17,7 +18,7 @@ import { Button } from "react-bootstrap";
 
 const platform = Capacitor.getPlatform();
 
-const Google = () => {
+const Google = ({ id: plantId }) => {
   // useEffect(() => {
   //   SocialLogin.initialize({
   //     google: {
@@ -44,12 +45,14 @@ const Google = () => {
 
   const navigate = useNavigate();
   const { googleAccess, googleAccessTest } = useContext(AuthContext);
+
+  console.log("12345", plantId);
   return platform === "web" ? (
     <>
       <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_ID_WEB}>
         <GoogleLogin
           onSuccess={(credentialResponse) => {
-            googleAccess(credentialResponse, navigate);
+            googleAccess(credentialResponse, navigate, plantId);
           }}
           onError={() => {
             console.log("error");

@@ -10,9 +10,11 @@ import bluePlants from "../../assets/images/ti pianto per amore-APP-azzurro.png"
 import greenPlants from "../../assets/images/ti pianto per amore-APP-verde.png";
 import yellowPlants from "../../assets/images/ti pianto per amore-APP-giallo.png";
 import redPlants from "../../assets/images/ti pianto per amore-APP-rosso.png";
+import { AuthContext } from "../../context/AuthContext";
 const FilterControls = ({ showFilters, handleCloseFilters }) => {
   const { filters, handleFilterChange } = useContext(FilterContext);
   const { plants } = useContext(PlantsContext);
+  const { isAdmin } = useContext(AuthContext);
 
   console.log("ppp", plants);
   const getUniqueValues = (data, item) => {
@@ -94,7 +96,13 @@ const FilterControls = ({ showFilters, handleCloseFilters }) => {
               }
               return (
                 <Form.Check
-                  className='d-flex flex-row align-items-center mb-3'
+                  className={
+                    isAdmin
+                      ? "d-flex flex-row align-items-center mb-3"
+                      : i === "pending" || i === "rejected"
+                      ? "d-none"
+                      : "d-flex flex-row align-items-center mb-3"
+                  }
                   type='radio'
                   key={index}
                   checked={i === filters.status}

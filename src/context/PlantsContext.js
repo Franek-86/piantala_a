@@ -4,9 +4,12 @@ import { ToastContainer, toast } from "react-toastify";
 import axios from "../services/axiosInstance";
 import { UsersContext } from "./UsersContext";
 import { Camera, CameraResultType } from "@capacitor/camera";
+import { AuthContext } from "./AuthContext";
 export const PlantsContext = createContext();
 export const PlantsProvider = ({ children }) => {
   const { getOtherUserInfo } = useContext(UsersContext);
+  const { isAuthenticated, logReg, setLogReg } = useContext(AuthContext);
+
   const [plants, setPlants] = useState([]);
   const [myPlants, setMyPlants] = useState(null);
   const [plant, setPlant] = useState(null);
@@ -28,9 +31,9 @@ export const PlantsProvider = ({ children }) => {
   const [latMatch, setLatMatch] = useState(null);
   const [langMatch, setLangMatch] = useState(null);
   const [modalUserShow, setModalUserShow] = useState(false);
-
   const [myReports, setMyReports] = useState([]);
   const [loadingReports, setLoadingReports] = useState(true);
+
   const [reporterInfo, setReporterInfo] = useState({
     type: "reporter",
     firstName: "",
@@ -401,7 +404,11 @@ export const PlantsProvider = ({ children }) => {
       setOwnerPublicInfo(ownerUserName);
     }
   };
-  const sendValuesToAddPlant = (val) => {
+  const sendValuesToAddPlant = (val, nav) => {
+    if (!isAuthenticated) {
+      setLogReg(true);
+      return;
+    }
     const coordsMatch = val.match(/^(-?\d+(\.\d+)?),\s*(-?\d+(\.\d+)?)/);
 
     // If coordinates are found in the correct format (lat, long)
@@ -411,6 +418,7 @@ export const PlantsProvider = ({ children }) => {
       setLatMatch(latMatch);
       setLangMatch(langMatch);
       addLocationInfo(latMatch, langMatch);
+      nav("/map/addPlant");
     }
   };
 

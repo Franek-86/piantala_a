@@ -26,6 +26,7 @@ const Contacts = () => {
     navigate("/map");
   };
   const { register, handleSubmit, reset } = useForm();
+  const { isAuthenticated } = useContext(AuthContext);
   const { sendEmail, loading } = useContext(UsersContext);
   const onSubmit = async (data) => {
     console.log(data.messageBody);
@@ -68,7 +69,12 @@ const Contacts = () => {
                   controlId='exampleForm.ControlTextarea1'
                 >
                   <Form.Control
-                    placeholder='Come possiamo aiutarti?'
+                    placeholder={
+                      isAuthenticated
+                        ? "Come possiamo aiutarti?"
+                        : "Login per utilizzare questo form"
+                    }
+                    disabled={!isAuthenticated}
                     as='textarea'
                     {...register("messageBody", { minLength: 2 })}
                     rows={4}
@@ -76,6 +82,7 @@ const Contacts = () => {
                 </Form.Group>
                 <div className='d-flex justify-content-center'>
                   <Button
+                    disabled={!isAuthenticated}
                     className='w-100 text-align-center'
                     variant='primary'
                     type='submit'

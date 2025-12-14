@@ -109,8 +109,8 @@ const PlantApproved = () => {
             Dedicatemi a qualcuno
           </span>
           <p>
-            Definisci qui il testo della tua targa, noi lo riporteremo su una
-            targa realizzata in alluminio. Il testo può essere di non più di 500
+            Definisci il testo della tua targa, noi lo riporteremo su una targa
+            realizzata in alluminio. Il testo può essere di non più di 500
             caratteri.
           </p>
           <p>
