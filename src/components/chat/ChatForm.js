@@ -28,11 +28,7 @@ const ChatForm = () => {
   return (
     <InputGroup className='pb-2 chat-footer'>
       <Form.Control
-        placeholder={
-          isAuthenticated
-            ? "messaggio..."
-            : "Per scrivere in chat è necessario loggarsi"
-        }
+        placeholder={isAuthenticated ? "messaggio..." : "Login necessario"}
         aria-label='message'
         aria-describedby='basic-addon2'
         disabled={!isAuthenticated}

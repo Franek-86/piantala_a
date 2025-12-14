@@ -59,7 +59,7 @@ export const AuthProvider = ({ children }) => {
   const client =
     process.env.REACT_APP_NODE_ENV === "test"
       ? process.env.REACT_APP_DOMAIN_NAME_CLIENT
-      : process.env.REACT_APP_DOMAIN_NAME_CLIENT_PRODUCTIONR;
+      : process.env.REACT_APP_DOMAIN_NAME_CLIENT_PRODUCTION;
 
   useEffect(() => {
     setClientDomain(client);
@@ -456,7 +456,6 @@ export const AuthProvider = ({ children }) => {
       // Optionally, handle the response if needed (e.g., check response status)
       if (response.status === 200) {
         setIsAuthenticated(false);
-        console.log("test123456", isAuthenticated);
         localStorage.removeItem("userToken");
         localStorage.removeItem("refreshToken");
       } else {

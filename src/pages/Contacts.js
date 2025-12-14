@@ -72,7 +72,7 @@ const Contacts = () => {
                     placeholder={
                       isAuthenticated
                         ? "Come possiamo aiutarti?"
-                        : "Login per utilizzare questo form"
+                        : "Effettua il Login per utilizzare questo form."
                     }
                     disabled={!isAuthenticated}
                     as='textarea'
