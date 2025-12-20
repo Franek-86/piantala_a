@@ -6,6 +6,7 @@ import { ChatContext } from "../../context/ChatContext";
 import { AuthContext } from "../../context/AuthContext";
 import { useContext } from "react";
 import { UsersContext } from "../../context/UsersContext";
+import { Alert } from "react-bootstrap";
 
 const ChatForm = () => {
   const { setMessage, message, sendMessage } = useContext(ChatContext);
@@ -25,13 +26,12 @@ const ChatForm = () => {
     sendMessage(data);
     setMessage("");
   };
-  return (
+  return isAuthenticated ? (
     <InputGroup className='pb-2 chat-footer'>
       <Form.Control
-        placeholder={isAuthenticated ? "messaggio..." : "Login necessario"}
+        placeholder='messaggio...'
         aria-label='message'
         aria-describedby='basic-addon2'
-        disabled={!isAuthenticated}
         value={message}
         onChange={(e) => {
           setMessage(e.target.value);
@@ -43,12 +43,15 @@ const ChatForm = () => {
           onClick={handleSubmit}
           variant='outline-secondary'
           id='button-addon2'
-          disabled={!isAuthenticated}
         >
           Invia
         </Button>
       </span>
     </InputGroup>
+  ) : (
+    <Alert className='chat-footer p-1 chat-footer-info' variant='info'>
+      Loggati per poter partecipare attivamente alla chat!
+    </Alert>
   );
 };
 

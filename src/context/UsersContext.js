@@ -398,11 +398,21 @@ export const UsersProvider = ({ children }) => {
   };
 
   // temp
-  const sendEmail = async (messageBody) => {
+  const sendEmail = async (data) => {
+    let address;
+    const { messageBody, email } = data;
+    if (email && !loggedUserInfo.email) {
+      address = email;
+    } else if (!email && loggedUserInfo.email) {
+      address = loggedUserInfo.email;
+    } else {
+      console.log("errore indirizzo mail");
+    }
+
     setLoading(true);
     try {
       const response = await axiosInstance.post(`/api/users/send`, {
-        payload: { messageBody, loggedUserInfo },
+        payload: { messageBody, address },
       });
       if (response.status === 200) {
         toast("🌱 Email inviata", {

@@ -25,12 +25,18 @@ const Contacts = () => {
   const backToMap = () => {
     navigate("/map");
   };
-  const { register, handleSubmit, reset } = useForm();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
   const { isAuthenticated } = useContext(AuthContext);
   const { sendEmail, loading } = useContext(UsersContext);
   const onSubmit = async (data) => {
     console.log(data.messageBody);
-    const response = await sendEmail(data.messageBody);
+
+    const response = await sendEmail(data);
 
     if (response?.status === 200) {
       reset();
@@ -57,32 +63,54 @@ const Contacts = () => {
 
               <Form onSubmit={handleSubmit(onSubmit)}>
                 {/* <h5 className='mb-3'>Scrivici una mail (non attivo)</h5> */}
-                <Form.Group
-                  className='mb-3'
-                  controlId='exampleForm.ControlInput1'
-                >
-                  {/* <Form.Label>La tua mail</Form.Label> */}
-                  {/* <Form.Control type='email' placeholder='la tua mail' /> */}
-                </Form.Group>
+
+                {!isAuthenticated && (
+                  <Form.Group
+                    className='mb-3'
+                    controlId='exampleForm.ControlTextarea1'
+                  >
+                    <Form.Control
+                      type='email'
+                      placeholder='Inserisci il tuo indirizzo mail'
+                      disabled={loading}
+                      {...register("email", {
+                        required: "inserisci indirizzo mail",
+                        pattern: {
+                          value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                        },
+                      })}
+                    />
+                    {errors.email && (
+                      <em className='text-danger small'>
+                        {errors.email?.message}
+                      </em>
+                    )}
+                  </Form.Group>
+                )}
                 <Form.Group
                   className='mb-3'
                   controlId='exampleForm.ControlTextarea1'
                 >
                   <Form.Control
-                    placeholder={
-                      isAuthenticated
-                        ? "Come possiamo aiutarti?"
-                        : "Effettua il Login per utilizzare questo form."
-                    }
-                    disabled={!isAuthenticated}
+                    placeholder='Come possiamo aiutarti?'
+                    disabled={loading}
                     as='textarea'
-                    {...register("messageBody", { minLength: 2 })}
+                    {...register("messageBody", {
+                      required: "inserisci un messaggio",
+                      minLength: 2,
+                      message: "test",
+                    })}
                     rows={4}
                   />
+                  {errors.messageBody && (
+                    <em className='text-danger small'>
+                      {errors.messageBody?.message}
+                    </em>
+                  )}
                 </Form.Group>
                 <div className='d-flex justify-content-center'>
                   <Button
-                    disabled={!isAuthenticated}
+                    disabled={loading}
                     className='w-100 text-align-center'
                     variant='primary'
                     type='submit'

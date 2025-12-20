@@ -600,6 +600,10 @@ element {
   z-index: 567 !important;
 }
 
+.card.logreg {
+  --bs-card-border-width: 0;
+}
+
 /* .add-plant-manual {
   display: none;
 }
@@ -1818,6 +1822,9 @@ body {
   width: 90%;
   bottom: 1rem;
   max-width: 768px;
+}
+.chat-footer-info {
+  border-radius: 0;
 }
 /* informazioni */
 

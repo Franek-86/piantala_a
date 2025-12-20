@@ -28,8 +28,8 @@ const LoginReg = ({ val, id: plantId }) => {
   }
   console.log("111", page, text);
   return (
-    <Card>
-      <Card.Header>Ti Pianto Per Amore</Card.Header>
+    <Card className='logreg'>
+      {/* <Card.Header>Ti Pianto Per Amore</Card.Header> */}
       <Card.Body>
         <Card.Title>Accedi o Registrati</Card.Title>
         <Card.Text>{text}</Card.Text>

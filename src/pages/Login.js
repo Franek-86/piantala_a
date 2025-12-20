@@ -195,7 +195,7 @@ const AuthForm = () => {
               <FloatingLabel
                 controlId='floatingInput'
                 label='Indirizzo e-mail'
-                className='mb-3'
+                className=''
               >
                 <Form.Control
                   type='email'
@@ -212,7 +212,7 @@ const AuthForm = () => {
               </FloatingLabel>
 
               {errors.email && (
-                <span className='text-danger'>{errors?.email?.message}</span>
+                <em className='text-danger small'>{errors?.email?.message}</em>
               )}
             </Form.Group>
             <Form.Group className='mb-3' controlId='formBasicPassword'>
@@ -241,7 +241,9 @@ const AuthForm = () => {
                 />
               </FloatingLabel>
               {errors.password && (
-                <span className='text-danger'>{errors?.password?.message}</span>
+                <em className='text-danger small'>
+                  {errors?.password?.message}
+                </em>
               )}
             </Form.Group>{" "}
             {!loading && (
