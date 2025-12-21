@@ -113,7 +113,7 @@ const SideBar = () => {
           </ListGroup.Item>
           <ListGroup.Item>
             <NavLink
-              to='/'
+              to='/chat'
               className={({ isActive }) =>
                 isActive
                   ? "nav-link text-truncate sidebar-active"

@@ -38,9 +38,10 @@ const Orders = () => {
   };
 
   return (
-    <>
+    <div className='d-flex flex-row'>
       {loading && <Loading />}
-      <section className='section-page section-background section-large'>
+      {isLargeScreen && <SideBar />}
+      <section className='section-page section-background section-large w-100'>
         <div className='back-container'>
           <div className='back-btn'>
             <MdBackspace
@@ -106,8 +107,7 @@ const Orders = () => {
           </Table>
         </div>
       </section>
-      {isLargeScreen && <SideBar />}
-    </>
+    </div>
   );
 };
 

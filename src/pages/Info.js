@@ -16,8 +16,9 @@ const Info = () => {
     navigate("/map");
   };
   return (
-    <>
-      <section className='section-page section-background section-large'>
+    <div className='d-flex flex-row'>
+      {isLargeScreen && <SideBar />}
+      <section className='section-page section-background section-large w-100'>
         <div className='back-container'>
           <div className='back-btn'>
             <MdBackspace
@@ -27,7 +28,7 @@ const Info = () => {
             />
           </div>
         </div>
-        <div className='section-center menu-section-center section-info'>
+        <article className='info-article section-center menu-section-center section-info'>
           <h2 className='section-title'>Informazioni</h2>
 
           <Accordion>
@@ -222,10 +223,9 @@ const Info = () => {
               </Accordion.Body>
             </Accordion.Item>
           </Accordion>
-        </div>
+        </article>
       </section>
-      {isLargeScreen && <SideBar />}
-    </>
+    </div>
   );
 };
 

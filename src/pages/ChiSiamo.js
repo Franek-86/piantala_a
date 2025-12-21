@@ -14,8 +14,9 @@ const ChiSiamo = () => {
     navigate("/map");
   };
   return (
-    <>
-      <section className='section-page section-background section-large'>
+    <div className='d-flex flex-row'>
+      {isLargeScreen && <SideBar />}
+      <section className='section-page section-background section-large w-100'>
         <div className='back-container'>
           <div className='back-btn'>
             <MdBackspace
@@ -25,7 +26,7 @@ const ChiSiamo = () => {
             />
           </div>
         </div>
-        <div className='section-center menu-section-center pb-lg-5'>
+        <article className='chi-article section-center menu-section-center pb-lg-5'>
           <h2 className='section-title'>Chi siamo</h2>
           <p>
             L'iniziativa{" "}
@@ -48,8 +49,8 @@ const ChiSiamo = () => {
             regolarmente, soprattutto d'estate, almeno nei primi due anni dalla
             piantumazione.
           </p>
-        </div>
-        <article className='section-center'>
+        </article>
+        <article className='logo-article section-center'>
           <div className='logo-header my-5 text-center'>
             <h4>Patrocini</h4>
           </div>
@@ -78,8 +79,7 @@ const ChiSiamo = () => {
           </div>
         </article>
       </section>
-      {isLargeScreen && <SideBar />}
-    </>
+    </div>
   );
 };
 

@@ -48,64 +48,66 @@ const OwnedPlants = () => {
 
   return (
     <>
-      <section className='section-page section-background section-large map'>
-        <div className='section-center section-center-map'>
-          {/* <div className='back-btn'>
+      <section className='section-page section-background map'>
+        <div className='d-flex flex-row'>
+          {isLargeScreen && <SideBar />}
+          <div className='section-large section-page section-center section-center-map'>
+            {/* <div className='back-btn'>
           <MdBackspace
             onClick={() => {
               backToMap();
             }}
           />
         </div> */}
-          <h2 className='section-title d-lg-none pt-5'>Le mie piante</h2>
-          {myPlants && myPlants?.length > 0 ? (
-            /* <th>Data acquisto</th>
+            <h2 className='section-title d-lg-none pt-5'>Le mie piante</h2>
+            {myPlants && myPlants?.length > 0 ? (
+              /* <th>Data acquisto</th>
                 <th>Tipo</th>
                 <th>Targa</th> */
 
-            <Row xs={1} xl={2} className='g-4 mt-lg-5'>
-              {myPlants &&
-                myPlants.map((plant, index) => {
-                  const order = allOrders.find((i) => {
-                    return i.product_id === plant.id;
-                  });
-                  const formatDate = (date) => {
-                    const newDate = new Date(date);
-                    return newDate.toLocaleDateString("en-GB");
-                  };
+              <Row xs={1} xl={2} className='g-4 section-center'>
+                {myPlants &&
+                  myPlants.map((plant, index) => {
+                    const order = allOrders.find((i) => {
+                      return i.product_id === plant.id;
+                    });
+                    const formatDate = (date) => {
+                      const newDate = new Date(date);
+                      return newDate.toLocaleDateString("en-GB");
+                    };
 
-                  return (
-                    <div className='d-flex mb-2'>
-                      <div className='card-image-container w-25 rounded-left'>
-                        <img
-                          className='image-my rounded-left'
-                          src={plant?.image_url}
-                        />
-                      </div>
-                      <Card className='w-75 card-my'>
-                        <Card.Header>
-                          {" "}
-                          <Card.Title>
-                            {plant?.road !== "undefined" &&
-                            plant?.house_number === "undefined"
-                              ? `${plant?.road}`
-                              : plant?.road !== "undefined" &&
-                                plant?.house_number !== "undefined"
-                              ? `${plant?.road} ${plant?.house_number}`
-                              : plant?.road === "undefined" &&
-                                plant?.house_number === "undefined" &&
-                                plant?.residential === "undefined"
-                              ? plant?.suburb
-                              : plant?.residential}
-                          </Card.Title>
-                          {plant?.road === "undefined" &&
-                          plant?.house_number === "undefined" &&
-                          plant?.residential === "undefined" ? (
-                            <span className='invisible'>{plant?.suburb}</span>
-                          ) : (
-                            <span>{plant?.suburb}</span>
-                          )}
-                          {/* <Card.Title>
+                    return (
+                      <div className='d-flex mb-2'>
+                        <div className='card-image-container w-25 rounded-left'>
+                          <img
+                            className='image-my rounded-left'
+                            src={plant?.image_url}
+                          />
+                        </div>
+                        <Card className='w-75 card-my'>
+                          <Card.Header>
+                            {" "}
+                            <Card.Title>
+                              {plant?.road !== "undefined" &&
+                              plant?.house_number === "undefined"
+                                ? `${plant?.road}`
+                                : plant?.road !== "undefined" &&
+                                  plant?.house_number !== "undefined"
+                                ? `${plant?.road} ${plant?.house_number}`
+                                : plant?.road === "undefined" &&
+                                  plant?.house_number === "undefined" &&
+                                  plant?.residential === "undefined"
+                                ? plant?.suburb
+                                : plant?.residential}
+                            </Card.Title>
+                            {plant?.road === "undefined" &&
+                            plant?.house_number === "undefined" &&
+                            plant?.residential === "undefined" ? (
+                              <span className='invisible'>{plant?.suburb}</span>
+                            ) : (
+                              <span>{plant?.suburb}</span>
+                            )}
+                            {/* <Card.Title>
                             {" "}
                             {plant?.road !== "undefined" &&
                             plant?.house_number === "undefined"
@@ -115,90 +117,97 @@ const OwnedPlants = () => {
                               ? `${plant?.road} ${plant?.house_number}`
                               : plant?.residential}
                           </Card.Title> */}
-                        </Card.Header>
-                        {/* <Card.Text></Card.Text> */}
-                        {/* </Card.Body> */}
-                        <ListGroup variant='flush'>
-                          <ListGroup.Item>
-                            Tipo pianta: {plant.plant_type}
-                          </ListGroup.Item>
-                          <ListGroup.Item>
-                            Numero ordine:{" "}
-                            {order?.order_number ? order?.order_number : "N/A"}
-                          </ListGroup.Item>
-                          <ListGroup.Item>
-                            Stato ordine:{" "}
-                            <span
-                              className={
-                                order?.status === "in progress"
-                                  ? "approvedPlant"
-                                  : order?.status === "pending"
-                                  ? "rejectedPlant"
-                                  : order?.status === "completed"
-                                  ? "bookedPlant"
-                                  : "pendingPlant"
-                              }
-                            >
-                              {" "}
-                              {order?.status === "pending"
-                                ? "in attesa"
-                                : order?.status === "In progress"
-                                ? "in elaborazione"
-                                : order?.status === "completed"
-                                ? "completato"
+                          </Card.Header>
+                          {/* <Card.Text></Card.Text> */}
+                          {/* </Card.Body> */}
+                          <ListGroup variant='flush'>
+                            <ListGroup.Item>
+                              Tipo pianta: {plant.plant_type}
+                            </ListGroup.Item>
+                            <ListGroup.Item>
+                              Numero ordine:{" "}
+                              {order?.order_number
+                                ? order?.order_number
                                 : "N/A"}
-                            </span>{" "}
-                          </ListGroup.Item>
-                          <ListGroup.Item>
-                            <Card.Link
-                              className='copy'
-                              onClick={() => goToPlantPage(plant.id)}
-                              href='#'
-                            >
-                              Dettagli
-                            </Card.Link>
-                            <Card.Link
-                              className='copy'
-                              onClick={() =>
-                                copyToClipboard([`${plant.lat},${plant.lang}`])
-                              }
-                              href='#'
-                            >
-                              Coordinate
-                            </Card.Link>
-                            {/* <Card.Link href='#'>Another Link</Card.Link> */}
-                          </ListGroup.Item>
-                        </ListGroup>
+                            </ListGroup.Item>
+                            <ListGroup.Item>
+                              Stato ordine:{" "}
+                              <span
+                                className={
+                                  order?.status === "in progress"
+                                    ? "approvedPlant"
+                                    : order?.status === "pending"
+                                    ? "rejectedPlant"
+                                    : order?.status === "completed"
+                                    ? "bookedPlant"
+                                    : "pendingPlant"
+                                }
+                              >
+                                {" "}
+                                {order?.status === "pending"
+                                  ? "in attesa"
+                                  : order?.status === "In progress"
+                                  ? "in elaborazione"
+                                  : order?.status === "completed"
+                                  ? "completato"
+                                  : "N/A"}
+                              </span>{" "}
+                            </ListGroup.Item>
+                            <ListGroup.Item>
+                              <Card.Link
+                                className='copy'
+                                onClick={() => goToPlantPage(plant.id)}
+                                href='#'
+                              >
+                                Dettagli
+                              </Card.Link>
+                              <Card.Link
+                                className='copy'
+                                onClick={() =>
+                                  copyToClipboard([
+                                    `${plant.lat},${plant.lang}`,
+                                  ])
+                                }
+                                href='#'
+                              >
+                                Coordinate
+                              </Card.Link>
+                              {/* <Card.Link href='#'>Another Link</Card.Link> */}
+                            </ListGroup.Item>
+                          </ListGroup>
 
-                        {/* <Card.Footer>
+                          {/* <Card.Footer>
                     <small className='text-muted'>
                       Data segnalazione {formatDate(plant.created_at)}
                     </small>
                   </Card.Footer> */}
-                      </Card>
-                    </div>
-                    // <tr
-                    //   onClick={() => {
-                    //     goToPlantPage(plant.id);
-                    //   }}
-                    //   key={index}
-                    // >
-                    //   {/* <td>{index + 1}</td> */}
-                    //   <td className='bg-info'>
-                    //     {formatDate(plant.purchase_date)}
-                    //   </td>
-                    //   <td className='bg-info'>{plant.plant_type}</td>
-                    //   <td className='bg-info'>{plant.user_comment}</td>
-                    // </tr>
-                  );
-                })}
-            </Row>
-          ) : (
-            <p className='mt-lg-5'>Non hai ancora acquistato nessun albero.</p>
-          )}
+                        </Card>
+                      </div>
+                      // <tr
+                      //   onClick={() => {
+                      //     goToPlantPage(plant.id);
+                      //   }}
+                      //   key={index}
+                      // >
+                      //   {/* <td>{index + 1}</td> */}
+                      //   <td className='bg-info'>
+                      //     {formatDate(plant.purchase_date)}
+                      //   </td>
+                      //   <td className='bg-info'>{plant.plant_type}</td>
+                      //   <td className='bg-info'>{plant.user_comment}</td>
+                      // </tr>
+                    );
+                  })}
+              </Row>
+            ) : (
+              <p className='mt-lg-5'>
+                Non hai ancora acquistato nessun albero.
+              </p>
+            )}
+          </div>
         </div>
       </section>
-      {isLargeScreen && <SideBar />}
+
       <BottomBar />
     </>
   );

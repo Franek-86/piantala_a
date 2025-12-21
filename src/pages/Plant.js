@@ -27,12 +27,12 @@ const Plant = () => {
   const { status_piantina } = plant;
 
   return (
-    <>
+    <div className='plants-container vw-100'>
       {status_piantina === "approved" && <PlantApproved />}
       {status_piantina === "pending" && <PlantPending />}
       {status_piantina === "booked" && <PlantBooked />}
       {status_piantina === "rejected" && <PlantRejected />}
-    </>
+    </div>
   );
 };
 

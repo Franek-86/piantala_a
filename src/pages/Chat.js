@@ -18,8 +18,9 @@ const Chat = () => {
     navigate("/map");
   };
   return (
-    <>
-      <section className='section-background section-full-page section-users section-large'>
+    <div className='d-flex flex-row'>
+      {isLargeScreen && <SideBar />}
+      <section className='section-background section-full-page section-users section-large w-100'>
         <div className='back-container'>
           <div className='back-btn'>
             <MdBackspace
@@ -85,8 +86,7 @@ const Chat = () => {
           </section>
         </div>
       </section>
-      {isLargeScreen && <SideBar />}
-    </>
+    </div>
   );
 };
 

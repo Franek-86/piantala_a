@@ -43,8 +43,9 @@ const Contacts = () => {
     }
   };
   return (
-    <>
-      <section className='section-background section-full-page section-large'>
+    <div className='d-flex flex-row'>
+      {isLargeScreen && <SideBar />}
+      <section className='section-background section-full-page section-large w-100'>
         <div className='back-container'>
           <div className='back-btn'>
             <MdBackspace
@@ -178,8 +179,7 @@ const Contacts = () => {
           </div>
         </section>
       </section>
-      {isLargeScreen && <SideBar />}
-    </>
+    </div>
   );
 };
 

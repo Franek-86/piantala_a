@@ -46,8 +46,9 @@ const Plates = () => {
   };
   console.log("e1", plates);
   return (
-    <>
-      <section className='section-background section-full-page section-large'>
+    <div className='d-flex flex-row'>
+      {isLargeScreen && <SideBar />}
+      <section className='section-background section-full-page section-large w-100'>
         <div className='back-container'>
           <div className='back-btn'>
             <MdBackspace
@@ -112,8 +113,7 @@ const Plates = () => {
           </section>
         </div>
       </section>
-      {isLargeScreen && <SideBar />}
-    </>
+    </div>
   );
 };
 
