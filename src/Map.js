@@ -202,6 +202,9 @@ function Map() {
   if (loading) {
     return <Loading />;
   }
+  if (isChildRoute) {
+    return <Outlet />;
+  }
 
   return (
     <div className='d-flex flex-row w-100'>
@@ -286,7 +289,6 @@ function Map() {
         {/* <article className='bottom-bar'>
         <BottomBar />
       </article> */}
-        <Outlet />
       </div>
       {!isChildRoute && <BottomBar />}
 

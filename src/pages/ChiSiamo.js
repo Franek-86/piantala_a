@@ -16,7 +16,7 @@ const ChiSiamo = () => {
   return (
     <div className='d-flex flex-row'>
       {isLargeScreen && <SideBar />}
-      <section className='section-page section-background section-large w-100'>
+      <section className='section-page section-full-page  section-background section-large w-100'>
         <div className='back-container'>
           <div className='back-btn'>
             <MdBackspace
