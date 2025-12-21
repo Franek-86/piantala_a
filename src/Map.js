@@ -209,6 +209,7 @@ function Map() {
   return (
     <div className='d-flex flex-row w-100'>
       {isLargeScreen && <SideBar />}
+
       <div className='section section-page map-h map-section section-large'>
         <article className='map'>
           <MapContainer
@@ -291,7 +292,6 @@ function Map() {
       </article> */}
       </div>
       {!isChildRoute && <BottomBar />}
-
       <PermissionModal />
     </div>
 

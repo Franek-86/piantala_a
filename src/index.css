@@ -190,6 +190,9 @@ ul {
   margin: 0 auto;
   max-width: 1768px;
 }
+.section-center.single-plant {
+  max-width: 768px;
+}
 .section-title {
   text-align: center;
   text-transform: capitalize;

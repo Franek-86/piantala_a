@@ -40,8 +40,8 @@ const PlantApproved = () => {
   return (
     <div>
       {" "}
-      <section className='section-background plant-section section-large'>
-        <div className='section-center pb-5'>
+      <section className='section-background plant-section'>
+        <div className='section-center single-plant pb-5'>
           <div className='back-btn'>
             <MdBackspace
               onClick={() => {
