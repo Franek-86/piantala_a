@@ -14,9 +14,8 @@ import { AuthContext } from "../../context/AuthContext";
 const FilterControls = ({ showFilters, handleCloseFilters }) => {
   const { filters, handleFilterChange } = useContext(FilterContext);
   const { plants } = useContext(PlantsContext);
-  const { isAdmin } = useContext(AuthContext);
+  const { userRole } = useContext(AuthContext);
 
-  console.log("ppp", plants);
   const getUniqueValues = (data, item) => {
     let test = data.map((i) => {
       return i[item];
@@ -27,8 +26,6 @@ const FilterControls = ({ showFilters, handleCloseFilters }) => {
   const statusPlants = getUniqueValues(plants, "status_piantina");
   const suburbPlants = getUniqueValues(plants, "suburb");
 
-  console.log("statusPlants", statusPlants);
-  console.log("statusPlants filters", filters);
   // const [showFilters, setShowFilters] = useState(false);
   // const handleCloseFilters = () => setShowFilters(false);
   // const handleShowFilters = () => setShowFilters(true);
@@ -96,8 +93,9 @@ const FilterControls = ({ showFilters, handleCloseFilters }) => {
               }
               return (
                 <Form.Check
+                  // className='d-flex flex-row align-items-center mb-3'
                   className={
-                    isAdmin
+                    userRole === "admin"
                       ? "d-flex flex-row align-items-center mb-3"
                       : i === "pending" || i === "rejected"
                       ? "d-none"

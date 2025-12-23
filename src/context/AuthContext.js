@@ -64,7 +64,6 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     setClientDomain(client);
   }, []);
-  console.log("test1234", clientDomain);
 
   const getRegions = async () => {
     setLoading(true);
@@ -142,7 +141,6 @@ export const AuthProvider = ({ children }) => {
     return response;
   };
   const googleAccess = async (data, navigate, plantId) => {
-    console.log("123456", plantId);
     const payload = data;
 
     const response = await axios.post(
@@ -431,7 +429,6 @@ export const AuthProvider = ({ children }) => {
         setUserId(decodedToken.id);
         setUserRole(decodedToken.role);
       } catch (error) {
-        console.error("Failed to decode token:", error);
         setSubmissionError("Invalid token.");
         return;
       } finally {
