@@ -412,14 +412,17 @@ element {
   z-index: 1000;
   position: fixed;
   width: 100%;
-  height: 10vh;
+  /* height: 10vh; */
   bottom: 0;
 }
-@media screen and (max-width: 992px) {
+.bottom-bar ul > li {
+  height: 48px;
+}
+/* @media screen and (max-width: 992px) {
   .bottom-bar {
     height: 10vh;
   }
-}
+} */
 @media screen and (min-width: 992px) {
   .bottom-bar {
     background-color: #fff;
@@ -444,7 +447,7 @@ element {
 
 .bottom-bar .fs-5 {
   border-top: 2px solid var(--clr-secondary-0);
-  height: 100%;
+  /* height: 100%; */
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -452,15 +455,14 @@ element {
   align-items: center;
 }
 
-.bottom-bar .fs-5 {
+/* .bottom-bar .fs-5 {
   border-top: 2px solid var(--clr-secondary-0);
-  height: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
   width: 100%;
   align-items: center;
-}
+} */
 /* .bottom-bar .test {
   border-top: 2px solid var(--clr-primary-5);
 } */

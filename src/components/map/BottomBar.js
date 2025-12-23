@@ -21,8 +21,8 @@ const BottomBar = () => {
             <NavLink
               className={({ isActive }) =>
                 isActive
-                  ? "text-primary text-decoration-none"
-                  : "text-dark text-decoration-none"
+                  ? "text-primary text-decoration-none pb-0"
+                  : "text-dark text-decoration-none pb-0"
               }
               onClick={() => setSelectedTab("test")}
               to='/map'
@@ -50,8 +50,8 @@ const BottomBar = () => {
               to='/legend'
               className={({ isActive }) =>
                 isActive
-                  ? "text-primary text-decoration-none"
-                  : "text-dark text-decoration-none"
+                  ? "text-primary text-decoration-none pb-0"
+                  : "text-dark text-decoration-none pb-0"
               }
             >
               {isLarge ? <span>Legenda</span> : <MdLegendToggle />}
@@ -77,8 +77,8 @@ const BottomBar = () => {
               to='/myPlants'
               className={({ isActive }) =>
                 isActive
-                  ? "text-primary text-decoration-none"
-                  : "text-dark text-decoration-none"
+                  ? "text-primary text-decoration-none pb-0"
+                  : "text-dark text-decoration-none pb-0"
               }
             >
               {isLarge ? <span>Segnalazioni</span> : <GiPlantSeed />}
@@ -98,8 +98,8 @@ const BottomBar = () => {
               to='/bookedPlants'
               className={({ isActive }) =>
                 isActive
-                  ? "text-primary text-decoration-none"
-                  : "text-dark text-decoration-none"
+                  ? "text-primary text-decoration-none pb-0"
+                  : "text-dark text-decoration-none pb-0"
               }
             >
               {/* <BsInfo /> */}
