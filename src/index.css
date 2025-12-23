@@ -168,7 +168,7 @@ ul {
 .section-page {
   /* height: 90vh; */
   height: 100vh;
-  padding-bottom: 48px;
+  padding-bottom: 4rem;
   /* overflow: scroll; */
 }
 .section-full-page {
@@ -416,7 +416,7 @@ element {
   bottom: 0;
 }
 .bottom-bar ul > li {
-  height: 48px;
+  height: 4rem;
 }
 /* @media screen and (max-width: 992px) {
   .bottom-bar {
