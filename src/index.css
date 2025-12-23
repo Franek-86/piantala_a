@@ -168,7 +168,7 @@ ul {
 .section-page {
   /* height: 90vh; */
   height: 100vh;
-  padding-bottom: 5rem;
+  padding-bottom: 48px;
   /* overflow: scroll; */
 }
 .section-full-page {
