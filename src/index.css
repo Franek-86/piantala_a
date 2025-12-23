@@ -254,7 +254,7 @@ hr {
     height: 100vh;
   }
   .section-center-map {
-    padding-top: calc(7vh + 5rem);
+    padding-top: 3rem;
   }
 
   /* .section-large {

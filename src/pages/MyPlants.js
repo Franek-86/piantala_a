@@ -40,7 +40,7 @@ const MyPlants = () => {
       <section className='section-page section-background map'>
         <div className='d-flex flex-row'>
           {isLargeScreen && <SideBar />}
-          <div className='section-large section-page section-center section-center-map w-100'>
+          <div className='section-large section-page section-center section-center-map'>
             <h2 className='section-title d-lg-none pt-5'>
               Le mie segnalazioni
             </h2>
@@ -48,7 +48,13 @@ const MyPlants = () => {
             {loadingReports ? (
               <Loading />
             ) : myReports.length === 0 ? (
-              <p className='mt-lg-5'>Non hai ancora effettuato segalazioni.</p>
+              <p
+                className={
+                  !isLargeScreen ? "mt-lg-5" : "section-center mt-lg-5"
+                }
+              >
+                Non hai ancora effettuato segalazioni.
+              </p>
             ) : (
               <div className='section-center'>
                 <Row xs={1} md={2} xl={3} className='g-4'>

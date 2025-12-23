@@ -200,7 +200,11 @@ const OwnedPlants = () => {
                   })}
               </Row>
             ) : (
-              <p className='mt-lg-5'>
+              <p
+                className={
+                  !isLargeScreen ? "mt-lg-5" : "section-center mt-lg-5"
+                }
+              >
                 Non hai ancora acquistato nessun albero.
               </p>
             )}
