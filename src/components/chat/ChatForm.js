@@ -26,32 +26,30 @@ const ChatForm = () => {
     sendMessage(data);
     setMessage("");
   };
-  return isAuthenticated ? (
-    <InputGroup className='pb-2 chat-footer'>
-      <Form.Control
-        placeholder='messaggio...'
-        aria-label='message'
-        aria-describedby='basic-addon2'
-        value={message}
-        onChange={(e) => {
-          setMessage(e.target.value);
-        }}
-      />
-      <span class='input-group-btn'>
-        <Button
-          className='btn btn-warning btn-flat'
-          onClick={handleSubmit}
-          variant='outline-secondary'
-          id='button-addon2'
-        >
-          Invia
-        </Button>
-      </span>
-    </InputGroup>
-  ) : (
-    <Alert className='chat-footer p-1 chat-footer-info' variant='info'>
-      Loggati per poter partecipare attivamente alla chat!
-    </Alert>
+  return (
+    isAuthenticated && (
+      <InputGroup className='pb-2 chat-footer'>
+        <Form.Control
+          placeholder='messaggio...'
+          aria-label='message'
+          aria-describedby='basic-addon2'
+          value={message}
+          onChange={(e) => {
+            setMessage(e.target.value);
+          }}
+        />
+        <span class='input-group-btn'>
+          <Button
+            className='btn btn-warning btn-flat'
+            onClick={handleSubmit}
+            variant='outline-secondary'
+            id='button-addon2'
+          >
+            Invia
+          </Button>
+        </span>
+      </InputGroup>
+    )
   );
 };
 

@@ -210,7 +210,7 @@ function Map() {
     <div className='d-flex flex-row w-100'>
       {isLargeScreen && <SideBar />}
 
-      <div className='section section-page map-h map-section section-large'>
+      <div className='section section-page map-section section-large w-100'>
         <article className='map'>
           <MapContainer
             center={[41.118778112249046, 16.871917818963464]}

@@ -3,12 +3,14 @@ import { ChatContext } from "../../context/ChatContext";
 import { AuthContext } from "../../context/AuthContext";
 import { useContext } from "react";
 import moment from "moment";
-
 import { formatDate } from "../../utils/utils";
 import Avatar from "react-avatar";
+import { Alert } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
 const ChatBody = () => {
   const { messages } = useContext(ChatContext);
-  const { userId } = useContext(AuthContext);
+  const { userId, isAuthenticated } = useContext(AuthContext);
 
   const lastRef = useRef(null);
   useEffect(() => {
@@ -18,6 +20,12 @@ const ChatBody = () => {
   }, [messages]);
   return (
     <div className='box-body'>
+      {!isAuthenticated && (
+        <Alert className='chat-footer p-1 chat-footer-info' variant='info'>
+          Effettua il <Link to='/login'>login </Link>per poter partecipare
+          attivamente alla chat!
+        </Alert>
+      )}
       <div ref={lastRef} className='direct-chat-messages'>
         {messages.map((message) => {
           return (
