@@ -6,18 +6,24 @@ import { PiPlantFill } from "react-icons/pi";
 import { NavLink, useLocation } from "react-router-dom";
 import { GiPlantSeed } from "react-icons/gi";
 import useIsLargeScreen from "../../utils/useIsLargeScreen";
+import { Capacitor } from "@capacitor/core";
 
 const BottomBar = () => {
   const [selectedTab, setSelectedTab] = useState("test");
   const isLarge = useIsLargeScreen();
   const { pathname } = useLocation();
-
-  console.log("location", pathname);
+  const check = Capacitor.getPlatform();
+  let padding = () => {
+    if (check !== "web") {
+      return "fs-5 test position-relative pb-2";
+    }
+    return "fs-5 test position-relative";
+  };
   return (
     <article className='bottom-bar'>
       <div className='h-100'>
         <ul className='d-flex justify-content-around h-100 p-0 m-0 list-unstyled align-items-center b-bar'>
-          <li className='fs-5 test position-relative'>
+          <li className={padding()}>
             <NavLink
               className={({ isActive }) =>
                 isActive
@@ -44,7 +50,7 @@ const BottomBar = () => {
               )} */}
             </NavLink>
           </li>
-          <li className='fs-5 position-relative'>
+          <li className={padding()}>
             <NavLink
               onClick={() => setSelectedTab("test2")}
               to='/legend'
@@ -71,7 +77,7 @@ const BottomBar = () => {
               )} */}
             </NavLink>
           </li>
-          <li className='fs-5 position-relative'>
+          <li className={padding()}>
             <NavLink
               onClick={() => setSelectedTab("test3")}
               to='/myPlants'
@@ -92,7 +98,7 @@ const BottomBar = () => {
               )}
             </NavLink>
           </li>
-          <li className='fs-5 position-relative'>
+          <li className={padding()}>
             <NavLink
               onClick={() => setSelectedTab("test4")}
               to='/bookedPlants'
