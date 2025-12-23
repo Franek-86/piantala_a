@@ -430,7 +430,7 @@ element {
     z-index: 1000;
     position: absolute;
     width: 60%;
-    height: 7vh;
+    height: 3rem;
     bottom: 0;
     margin: 0 auto;
     left: 30%;
@@ -553,10 +553,14 @@ element {
 }
 @media screen and (min-width: 992px) {
   .underline {
-    top: calc(100% - 2px);
+    top: 3rem;
+    height: 3px;
   }
   .bottom-bar a {
     padding-bottom: 0;
+  }
+  .bottom-bar .fs-5 {
+    height: 100%;
   }
 }
 .avatar {
