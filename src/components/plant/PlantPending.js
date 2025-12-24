@@ -55,7 +55,7 @@ const PlantPending = () => {
   //   }
   // };
   return (
-    <section className='section-background plant-section section-large'>
+    <section className='section-background section-center plant-section section-large'>
       <RejectionModal
         show={modalShow}
         onHide={() => setModalShow(false)}

@@ -1993,3 +1993,10 @@ body {
 .test-temp {
   font-size: 0.1rem !important;
 }
+.bg-map {
+  position: absolute;
+  width: 80%;
+  height: 100%;
+  left: 20%;
+  z-index: -1;
+}

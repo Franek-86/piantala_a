@@ -56,7 +56,7 @@ const MyPlants = () => {
                 Non hai ancora effettuato segalazioni.
               </p>
             ) : (
-              <div className='section-center'>
+              <div className='section-center mt-lg-5'>
                 <Row xs={1} md={2} xl={3} className='g-4'>
                   {myReports.map((plant, index) => (
                     // <Col key={index}>
