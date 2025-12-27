@@ -129,7 +129,7 @@ const UserProfile = () => {
                 <div className='profile-item d-flex justify-content-between'>
                   <div className='profile-info'>
                     <span>Telefono: </span>
-                    <span>{phone}</span>
+                    <span>{phone ? phone : "N/A"}</span>
                   </div>
                   {/* <div className='profile-icon'>
                     <FaEdit />
