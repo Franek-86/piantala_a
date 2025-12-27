@@ -249,7 +249,7 @@ hr {
 }
 @media screen and (min-width: 992px) {
   .section-large {
-    width: 80%;
+    width: calc(100% - 20rem);
     padding-bottom: 0;
     height: 100vh;
   }
