@@ -23,44 +23,54 @@ const Google = ({ id: plantId }) => {
   const { googleAccess, googleAccessTest, googleAccessTest2 } =
     useContext(AuthContext);
 
-  return platform !== "web" ? (
-    <>
-      <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_ID_WEB}>
-        <GoogleLogin
-          onSuccess={(credentialResponse) => {
-            googleAccess(credentialResponse, navigate, plantId);
-          }}
-          onError={() => {
-            console.log("error");
-          }}
-        ></GoogleLogin>
-      </GoogleOAuthProvider>
-      {/* <button className='test-temp' onClick={() => googleAccessTest(navigate)}>
-        test
-      </button> */}
-    </>
-  ) : (
-    // <button className='test-temp' onClick={() => googleAccessTest(navigate)}>
-    //   test
-    // </button>
-    <>
-      <Button
-        className='d-block w-100'
-        variant='primary'
-        onClick={() => googleAccess(navigate, plantId)}
-      >
-        {" "}
-        Accedi con Google
-      </Button>
-      {/* <Button
-        className='d-block w-100'
-        variant='primary'
-        onClick={() => googleAccessTest2(navigate)}
-      >
-        {" "}
-        Test
-      </Button> */}
-    </>
+  return (
+    // platform !== "web" ? (
+    //   <>
+    //     <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_ID_WEB}>
+    //       <GoogleLogin
+    //         onSuccess={(credentialResponse) => {
+    //           googleAccess(credentialResponse, navigate, plantId);
+    //         }}
+    //         onError={() => {
+    //           console.log("error");
+    //         }}
+    //       ></GoogleLogin>
+    //     </GoogleOAuthProvider>
+    //     {/* <button className='test-temp' onClick={() => googleAccessTest(navigate)}>
+    //       test
+    //     </button> */}
+    //   </>
+    // ) : (
+    //   // <button className='test-temp' onClick={() => googleAccessTest(navigate)}>
+    //   //   test
+    //   // </button>
+    //   <>
+    //     <Button
+    //       className='d-block w-100'
+    //       variant='primary'
+    //       onClick={() => googleAccess(navigate, plantId)}
+    //     >
+    //       {" "}
+    //       Accedi con Google
+    //     </Button>
+    //     {/* <Button
+    //       className='d-block w-100'
+    //       variant='primary'
+    //       onClick={() => googleAccessTest2(navigate)}
+    //     >
+    //       {" "}
+    //       Test
+    //     </Button> */}
+    //   </>
+    // );
+    <Button
+      className='d-block w-100'
+      variant='primary'
+      onClick={() => googleAccess(navigate, plantId)}
+    >
+      {" "}
+      Accedi con Google
+    </Button>
   );
 };
 
