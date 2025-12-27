@@ -134,7 +134,7 @@ const PlantBooked = () => {
   return (
     <section className='plant-section'>
       <div className='section-large'>
-        <div className='back-btn'>
+        <div className='back-btn pe-2'>
           <MdBackspace
             onClick={() => {
               backToMap();

@@ -50,7 +50,7 @@ const PlantRejected = () => {
           handleStatusChange={() => handleStatusChange("rejected", plantId)}
           plantId={plantId}
         />
-        <div className='back-btn'>
+        <div className='back-btn pe-2'>
           <MdBackspace
             onClick={() => {
               backToMap();
