@@ -64,7 +64,7 @@ const PlantPending = () => {
           handleStatusChange={() => handleStatusChange("rejected", plantId)}
           plantId={plantId}
         />
-        <div className='back-btn pe-2'>
+        <div className='back-btn pe-3'>
           <MdBackspace
             onClick={() => {
               backToMap();

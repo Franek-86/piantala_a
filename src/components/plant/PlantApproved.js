@@ -41,7 +41,7 @@ const PlantApproved = () => {
     <section className='plant-section'>
       {" "}
       <div className='section-large'>
-        <div className='back-btn pe-2'>
+        <div className='back-btn pe-3'>
           <MdBackspace
             onClick={() => {
               backToMap();
