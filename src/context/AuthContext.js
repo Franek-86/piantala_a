@@ -237,18 +237,17 @@ export const AuthProvider = ({ children }) => {
   //   }
   // };
   useEffect(() => {
-    const test = async () => {
-      const resp = await SocialLogin.initialize({
-        google: {
-          webClientId: process.env.REACT_APP_GOOGLE_ID_WEB,
-          redirectUrl: "https://piantala-a.onrender.com/login",
-          // redirectUrl: "http://localhost:3000/login",
-          mode: "online",
-        },
-      });
-      return resp;
-    };
-  });
+    console.log("ciao");
+
+    SocialLogin.initialize({
+      google: {
+        webClientId: process.env.REACT_APP_GOOGLE_ID_WEB,
+        redirectUrl: "https://piantala-a.onrender.com/map",
+        // redirectUrl: "http://localhost:3000/map",
+        mode: "online",
+      },
+    });
+  }, []);
   const googleAccess = async (navigate, plantId) => {
     try {
       const res = await SocialLogin.login({
