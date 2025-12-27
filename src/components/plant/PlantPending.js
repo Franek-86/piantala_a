@@ -64,15 +64,15 @@ const PlantPending = () => {
           handleStatusChange={() => handleStatusChange("rejected", plantId)}
           plantId={plantId}
         />
+        <div className='back-btn'>
+          <MdBackspace
+            onClick={() => {
+              backToMap();
+              setPlant(null);
+            }}
+          />
+        </div>
         <div className='section-center single-plant pb-5'>
-          <div className='back-btn'>
-            <MdBackspace
-              onClick={() => {
-                backToMap();
-                setPlant(null);
-              }}
-            />
-          </div>
           <h2 className='section-title'>Segnalazione</h2>
 
           <p>

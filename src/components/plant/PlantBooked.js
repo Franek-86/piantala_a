@@ -134,14 +134,14 @@ const PlantBooked = () => {
   return (
     <section className='plant-section'>
       <div className='section-large'>
+        <div className='back-btn'>
+          <MdBackspace
+            onClick={() => {
+              backToMap();
+            }}
+          />
+        </div>
         <div className='section-center single-plant pb-5'>
-          <div className='back-btn'>
-            <MdBackspace
-              onClick={() => {
-                backToMap();
-              }}
-            />
-          </div>
           <h2 className='section-title'>
             Piantina <span className='lower-case'>di</span> {ownerPublicInfo}
           </h2>

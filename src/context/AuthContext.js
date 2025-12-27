@@ -60,6 +60,10 @@ export const AuthProvider = ({ children }) => {
     process.env.REACT_APP_NODE_ENV === "test"
       ? process.env.REACT_APP_DOMAIN_NAME_CLIENT
       : process.env.REACT_APP_DOMAIN_NAME_CLIENT_PRODUCTION;
+  const redirect =
+    process.env.REACT_APP_NODE_ENV === "test"
+      ? "http://localhost:3000/map"
+      : "https://piantala-a.onrender.com/map";
 
   useEffect(() => {
     setClientDomain(client);
@@ -242,8 +246,8 @@ export const AuthProvider = ({ children }) => {
     SocialLogin.initialize({
       google: {
         webClientId: process.env.REACT_APP_GOOGLE_ID_WEB,
-        redirectUrl: "https://piantala-a.onrender.com/map",
-        // redirectUrl: "http://localhost:3000/map",
+        redirectUrl: redirect,
+
         mode: "online",
       },
     });

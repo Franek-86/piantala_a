@@ -41,15 +41,15 @@ const PlantApproved = () => {
     <section className='plant-section'>
       {" "}
       <div className='section-large'>
+        <div className='back-btn'>
+          <MdBackspace
+            onClick={() => {
+              backToMap();
+              setPlant(null);
+            }}
+          />
+        </div>
         <div className='section-center single-plant pb-5'>
-          <div className='back-btn'>
-            <MdBackspace
-              onClick={() => {
-                backToMap();
-                setPlant(null);
-              }}
-            />
-          </div>
           <h2 className='section-title mb-5'>Ti pianto per amore &#127793;</h2>
           {/* <p>
             Informazioni sulla zona di piantantagione, inserimento testo targa e
