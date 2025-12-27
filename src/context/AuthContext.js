@@ -241,8 +241,8 @@ export const AuthProvider = ({ children }) => {
       const resp = await SocialLogin.initialize({
         google: {
           webClientId: process.env.REACT_APP_GOOGLE_ID_WEB,
-          // redirectUrl: "https://piantala-a.onrender.com/login",
-          redirectUrl: "http://localhost:3000/login",
+          redirectUrl: "https://piantala-a.onrender.com/login",
+          // redirectUrl: "http://localhost:3000/login",
           mode: "online",
         },
       });
