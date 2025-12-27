@@ -41,48 +41,51 @@ const PlantRejected = () => {
   };
 
   return (
-    <section className='section-background plant-section section-large mb-5'>
-      <RejectionModal
-        show={modalShow}
-        onHide={() => setModalShow(false)}
-        onReject={() => openRejectionModal()}
-        handleStatusChange={() => handleStatusChange("rejected", plantId)}
-        plantId={plantId}
-      />
-      <div className='section-center pb-5'>
-        <div className='back-btn'>
-          <MdBackspace
-            onClick={() => {
-              backToMap();
-              setPlant(null);
-            }}
-          />
+    <section className='plant-section'>
+      <div className='section-large'>
+        <RejectionModal
+          show={modalShow}
+          onHide={() => setModalShow(false)}
+          onReject={() => openRejectionModal()}
+          handleStatusChange={() => handleStatusChange("rejected", plantId)}
+          plantId={plantId}
+        />
+        <div className='section-center single-plant pb-5'>
+          <div className='back-btn'>
+            <MdBackspace
+              onClick={() => {
+                backToMap();
+                setPlant(null);
+              }}
+            />
+          </div>
+          <h2 className='section-title'>Segnalazione</h2>
+          <p>
+            Questa segnalazione non è stata approvata, qui in basso sono
+            riportate le informazioni della segnalazione che includono le
+            motivazioni per cui non è stata approvata.
+          </p>
+          <p>
+            Manterremo questa segnalazione per un po' in modo da poter
+            informarvi delle cause della mancata approvazione e verrà in seguito
+            eliminata.{" "}
+          </p>
+          <h5 className='mb-3'>Informazioni segnalazione</h5>
+          <InfoCard />
         </div>
-        <h2 className='section-title'>Segnalazione</h2>
-        <p>
-          Questa segnalazione non è stata approvata, qui in basso sono riportate
-          le informazioni della segnalazione che includono le motivazioni per
-          cui non è stata approvata.
-        </p>
-        <p>
-          Manterremo questa segnalazione per un po' in modo da poter informarvi
-          delle cause della mancata approvazione e verrà in seguito eliminata.{" "}
-        </p>
-        <h5 className='mb-3'>Informazioni segnalazione</h5>
-        <InfoCard />
+        {userRole === "admin" && (
+          <div className='section-center single-plant pb-5'>
+            <hr />
+            <h5 className='mb-3'>Operazioni di amministrazione</h5>
+            <button
+              className='btn btn-dark '
+              onClick={() => deleteAndGo(deletePlant, plantId, navigate)}
+            >
+              Elimina segnalazione
+            </button>
+          </div>
+        )}
       </div>
-      {userRole === "admin" && (
-        <div className='section-center'>
-          <hr />
-          <h5 className='mb-3'>Operazioni di amministrazione</h5>
-          <button
-            className='btn btn-dark '
-            onClick={() => deleteAndGo(deletePlant, plantId, navigate)}
-          >
-            Elimina segnalazione
-          </button>
-        </div>
-      )}
     </section>
   );
 };

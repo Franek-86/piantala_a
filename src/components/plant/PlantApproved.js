@@ -38,9 +38,9 @@ const PlantApproved = () => {
   // if (!plant) return <div>No plant found.</div>;
   // if (singlePlantLoading) return <Loading />;
   return (
-    <div>
+    <section className='plant-section'>
       {" "}
-      <section className='plant-section'>
+      <div className='section-large'>
         <div className='section-center single-plant pb-5'>
           <div className='back-btn'>
             <MdBackspace
@@ -124,8 +124,8 @@ const PlantApproved = () => {
 
           <PlantForm />
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 };
 

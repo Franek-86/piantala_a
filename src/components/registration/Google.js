@@ -19,35 +19,11 @@ import { PlantsContext } from "../../context/PlantsContext";
 const platform = Capacitor.getPlatform();
 
 const Google = ({ id: plantId }) => {
-  // useEffect(() => {
-  //   SocialLogin.initialize({
-  //     google: {
-  //       webClientId:
-  //         "349628103780-laqfu0q8jg5nb58q1sbq3cfk7ai6lfu8.apps.googleusercontent.com",
-  //     },
-  //   });
-  // });
-  // const test0 = async () => {
-  //   try {
-  //     const res = await SocialLogin.login({
-  //       provider: "google",
-  //       options: {
-  //         scopes: ["email", "name"],
-  //       },
-  //     });
-  //     const credentialResponse = JSON.stringify(res);
-
-  //     googleAccessTest(credentialResponse, navigate);
-  //   } catch (err) {
-  //     console.log("check this", err);
-  //   }
-  // };
-
   const navigate = useNavigate();
-  const { googleAccess, googleAccessTest } = useContext(AuthContext);
+  const { googleAccess, googleAccessTest, googleAccessTest2 } =
+    useContext(AuthContext);
 
-  console.log("12345", plantId);
-  return platform === "web" ? (
+  return platform !== "web" ? (
     <>
       <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_ID_WEB}>
         <GoogleLogin
@@ -67,14 +43,24 @@ const Google = ({ id: plantId }) => {
     // <button className='test-temp' onClick={() => googleAccessTest(navigate)}>
     //   test
     // </button>
-    <Button
-      className='d-block w-100'
-      variant='primary'
-      onClick={() => googleAccessTest(navigate)}
-    >
-      {" "}
-      Accedi con Google
-    </Button>
+    <>
+      <Button
+        className='d-block w-100'
+        variant='primary'
+        onClick={() => googleAccess(navigate, plantId)}
+      >
+        {" "}
+        Accedi con Google
+      </Button>
+      {/* <Button
+        className='d-block w-100'
+        variant='primary'
+        onClick={() => googleAccessTest2(navigate)}
+      >
+        {" "}
+        Test
+      </Button> */}
+    </>
   );
 };
 

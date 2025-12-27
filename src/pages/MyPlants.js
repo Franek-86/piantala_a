@@ -40,7 +40,7 @@ const MyPlants = () => {
       <section className='section-page section-background map'>
         <div className='d-flex flex-row'>
           {isLargeScreen && <SideBar />}
-          <div className='section-large section-page section-center section-center-map'>
+          <div className='section-large section-center section-center-map'>
             <h2 className='section-title d-lg-none pt-5'>
               Le mie segnalazioni
             </h2>

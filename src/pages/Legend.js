@@ -18,9 +18,9 @@ const Legend = () => {
       <section className='section-page section-background map'>
         <div className='d-flex flex-row'>
           {isLargeScreen && <SideBar />}
-          <section className='section-large section-page section-center-map w-100'>
+          <section className='section-large section-page section-center-map'>
             <h2 className='section-title pt-5 d-lg-none'>legenda</h2>
-            <ul className='d-block section-center'>
+            <ul className='d-block section-center mt-lg-5'>
               <li className='plants-list'>
                 <div className='legend-box-container'>
                   <div className='legend-image icon '>
@@ -55,10 +55,12 @@ const Legend = () => {
                   <div className='legend-image approved'>
                     <img src={greenPlant} alt='' />
                   </div>
-                  <span className='legend-description'>piante approvate</span>
+                  <span className='legend-description'>
+                    piante disponibili all'acquisto
+                  </span>
                 </div>
               </li>
-              <li className='plants-list'>
+              {/* <li className='plants-list'>
                 <div className='legend-box-container'>
                   <div className='legend-image pending'>
                     <img src={yellowPlant} alt='' />
@@ -67,8 +69,8 @@ const Legend = () => {
                     piante in attesa di approvazione
                   </span>
                 </div>
-              </li>
-              <li className='plants-list'>
+              </li> */}
+              {/* <li className='plants-list'>
                 <div className='legend-box-container'>
                   <div className='legend-image rejected'>
                     <img src={redPlant} alt='' />
@@ -77,7 +79,7 @@ const Legend = () => {
                     piante non approvate
                   </span>
                 </div>
-              </li>
+              </li> */}
               <li className='plants-list'>
                 <div className='legend-box-container'>
                   <div className='legend-image booked'>

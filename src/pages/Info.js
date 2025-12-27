@@ -18,7 +18,7 @@ const Info = () => {
   return (
     <div className='d-flex flex-row'>
       {isLargeScreen && <SideBar />}
-      <section className='section-page section-background section-large w-100'>
+      <section className='section-page section-background section-large page-large-container'>
         <div className='back-container'>
           <div className='back-btn'>
             <MdBackspace

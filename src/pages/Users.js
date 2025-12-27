@@ -55,7 +55,7 @@ const Users = () => {
   return (
     <div className='d-flex flex-row'>
       {isLargeScreen && <SideBar />}
-      <section className='section-background section-full-page section-users section-large w-100'>
+      <section className='section-page section-background section-full-page section-users section-large page-large-container'>
         <div className='back-container'>
           <div className='back-btn'>
             <MdBackspace
@@ -65,9 +65,8 @@ const Users = () => {
             />
           </div>
         </div>
-
         <div className='section-center'>
-          <section className='section-page section-background'>
+          <section className=''>
             <div className='section-center'>
               <h2 className='section-title' style={{ "padding-top": "4rem" }}>
                 Lista Utenti

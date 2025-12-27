@@ -48,7 +48,7 @@ const Plates = () => {
   return (
     <div className='d-flex flex-row'>
       {isLargeScreen && <SideBar />}
-      <section className='section-background section-full-page section-large w-100'>
+      <section className='section-page section-background section-full-page section-users section-large section-plates page-large-container'>
         <div className='back-container'>
           <div className='back-btn'>
             <MdBackspace

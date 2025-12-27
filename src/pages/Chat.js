@@ -3,11 +3,15 @@ import ChatBody from "../components/chat/ChatBody";
 import { ChatContext } from "../context/ChatContext";
 import ChatForm from "../components/chat/ChatForm";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { MdBackspace } from "react-icons/md";
 import useIsLargeScreen from "../utils/useIsLargeScreen";
 import SideBar from "../components/menu/SideBar";
+import { AuthContext } from "../context/AuthContext";
+import { Alert } from "react-bootstrap";
+
 const Chat = () => {
+  const { userId, isAuthenticated } = useContext(AuthContext);
   const { getMessages, messages, message } = useContext(ChatContext);
   const isLargeScreen = useIsLargeScreen();
   useEffect(() => {
@@ -20,7 +24,7 @@ const Chat = () => {
   return (
     <div className='d-flex flex-row'>
       {isLargeScreen && <SideBar />}
-      <section className='section-background section-full-page section-users section-large w-100'>
+      <section className='section-page section-background section-orders section-large page-large-container section-chat'>
         <div className='back-container'>
           <div className='back-btn'>
             <MdBackspace
@@ -32,7 +36,7 @@ const Chat = () => {
         </div>
 
         <div className='section-center'>
-          <section className='section-page section-background pb-0'>
+          <section className='section-background pb-0'>
             <div className='section-center'>
               <h2 className='section-title' style={{ "padding-top": "4rem" }}>
                 Chat aperta
@@ -40,6 +44,15 @@ const Chat = () => {
               <div class='page-content page-container' id='page-content'>
                 <div class='col-md-4'></div>
                 <div className='box box-warning direct-chat direct-chat-warning'>
+                  {!isAuthenticated && (
+                    <Alert
+                      className='chat-footer p-1 chat-footer-info'
+                      variant='info'
+                    >
+                      Effettua il <Link to='/login'>login </Link>per poter
+                      partecipare attivamente alla chat!
+                    </Alert>
+                  )}
                   {/* <div class='box-header with-border'>
                       <h3 class='box-title'>Messaggi</h3>
 

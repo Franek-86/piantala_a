@@ -20,12 +20,6 @@ const ChatBody = () => {
   }, [messages]);
   return (
     <div className='box-body'>
-      {!isAuthenticated && (
-        <Alert className='chat-footer p-1 chat-footer-info' variant='info'>
-          Effettua il <Link to='/login'>login </Link>per poter partecipare
-          attivamente alla chat!
-        </Alert>
-      )}
       <div ref={lastRef} className='direct-chat-messages'>
         {messages.map((message) => {
           return (

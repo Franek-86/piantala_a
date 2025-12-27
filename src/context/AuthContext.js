@@ -140,48 +140,117 @@ export const AuthProvider = ({ children }) => {
     );
     return response;
   };
-  const googleAccess = async (data, navigate, plantId) => {
-    const payload = data;
+  // const googleAccess = async (data, navigate, plantId) => {
+  //   const payload = data;
 
-    const response = await axios.post(
-      `${serverDomain}/api/auth/google-access`,
-      payload,
-      {
-        withCredentials: true,
-      }
-    );
+  //   const response = await axios.post(
+  //     `${serverDomain}/api/auth/google-access`,
+  //     payload,
+  //     {
+  //       withCredentials: true,
+  //     }
+  //   );
 
-    if (response.status === 200) {
-      setIsAuthenticated(true);
-      setLogReg(false);
-      localStorage.setItem("justLoggedIn", "true");
+  //   if (response.status === 200) {
+  //     setIsAuthenticated(true);
+  //     setLogReg(false);
+  //     localStorage.setItem("justLoggedIn", "true");
 
-      const {
-        token,
-        user: { role },
-      } = response.data;
+  //     const {
+  //       token,
+  //       user: { role },
+  //     } = response.data;
 
-      setUserRole(role);
+  //     setUserRole(role);
 
-      localStorage.setItem("userToken", token);
-      if (plantId) {
-        navigate(`/map/${plantId}`);
-      } else {
-        navigateToMap(navigate);
-      }
-    }
-  };
+  //     localStorage.setItem("userToken", token);
+  //     if (plantId) {
+  //       navigate(`/map/${plantId}`);
+  //     } else {
+  //       navigateToMap(navigate);
+  //     }
+  //   }
+  // };
 
-  const googleAccessTest = async (navigate) => {
-    try {
-      await SocialLogin.initialize({
+  // const googleAccessTest = async (navigate) => {
+  //   try {
+  //     await SocialLogin.initialize({
+  //       google: {
+  //         webClientId: process.env.REACT_APP_GOOGLE_ID_WEB,
+  //         // redirectUrl: "https://piantala-a.onrender.com/login",
+  //         redirectUrl: "http://localhost:3000/login",
+  //         mode: "online",
+  //       },
+  //     });
+
+  //     const res = await SocialLogin.login({
+  //       provider: "google",
+  //       options: {},
+  //     });
+  //     const test2 = res.result.profile;
+
+  //     const payload = test2;
+  //     const response = await axios.post(
+  //       `${serverDomain}/api/auth/google-access-android`,
+  //       payload,
+  //       {
+  //         withCredentials: true,
+  //       }
+  //     );
+  //     if (response.status === 200) {
+  //       setIsAuthenticated(true);
+  //       localStorage.setItem("justLoggedIn", "true");
+
+  //       const {
+  //         token,
+  //         user: { role },
+  //       } = response.data;
+
+  //       setUserRole(role);
+
+  //       localStorage.setItem("userToken", token);
+  //       navigateToMap(navigate);
+  //     }
+  //     if (response.status !== 200) {
+  //       toast.error(`non è stato possibile auntenticarsi`, {
+  //         position: "top-right",
+  //         autoClose: 2000,
+  //         hideProgressBar: false,
+  //         closeOnClick: false,
+  //         pauseOnHover: true,
+  //         draggable: true,
+  //         progress: undefined,
+  //         theme: "light",
+  //       });
+  //     }
+  //   } catch (error) {
+  //     toast.error(`errore test2 ${error}`, {
+  //       position: "top-right",
+  //       autoClose: 2000,
+  //       hideProgressBar: false,
+  //       closeOnClick: false,
+  //       pauseOnHover: true,
+  //       draggable: true,
+  //       progress: undefined,
+  //       theme: "light",
+  //     });
+  //   }
+  // };
+  useEffect(() => {
+    const test = async () => {
+      const resp = await SocialLogin.initialize({
         google: {
           webClientId: process.env.REACT_APP_GOOGLE_ID_WEB,
-          redirectUrl: "https://piantala-a.onrender.com/login",
+          // redirectUrl: "https://piantala-a.onrender.com/login",
+          redirectUrl: "http://localhost:3000/login",
           mode: "online",
         },
       });
-
+      return resp;
+    };
+  });
+  const googleAccess = async (navigate, plantId) => {
+    try {
       const res = await SocialLogin.login({
         provider: "google",
         options: {},
@@ -198,6 +267,7 @@ export const AuthProvider = ({ children }) => {
       );
       if (response.status === 200) {
         setIsAuthenticated(true);
+        setLogReg(false);
         localStorage.setItem("justLoggedIn", "true");
 
         const {
@@ -208,7 +278,12 @@ export const AuthProvider = ({ children }) => {
         setUserRole(role);
 
         localStorage.setItem("userToken", token);
-        navigateToMap(navigate);
+        // navigateToMap(navigate);
+        if (plantId) {
+          navigate(`/map/${plantId}`);
+        } else {
+          navigateToMap(navigate);
+        }
       }
       if (response.status !== 200) {
         toast.error(`non è stato possibile auntenticarsi`, {
@@ -293,7 +368,6 @@ export const AuthProvider = ({ children }) => {
     }
   }, []);
 
-  // registration
   // useEffect(() => {
   //   const local = JSON.parse(localStorage.getItem("registration"));
   //   if (local) {
@@ -535,7 +609,8 @@ export const AuthProvider = ({ children }) => {
         userData,
         setUserData,
         googleAccess,
-        googleAccessTest,
+        // googleAccessTest,
+        // googleAccessTest2,
         // generateFiscalCode,
         // validateFiscalCode,
         newPassword,

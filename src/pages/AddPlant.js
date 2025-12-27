@@ -245,8 +245,8 @@ const AddPlant = ({ setting }) => {
     <>
       {loading && <Loading />}
       {!loading && (
-        <section className='section-background section-full-page section-map-page'>
-          <div className='section-center'>
+        <section className='plant-section plants-container section-large'>
+          <div className='section-center single-plant pb-5'>
             <div className='back-btn'>
               <MdBackspace
                 onClick={() => {

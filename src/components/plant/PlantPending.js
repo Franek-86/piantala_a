@@ -55,72 +55,76 @@ const PlantPending = () => {
   //   }
   // };
   return (
-    <section className='section-background section-center plant-section section-large'>
-      <RejectionModal
-        show={modalShow}
-        onHide={() => setModalShow(false)}
-        onReject={() => openRejectionModal()}
-        handleStatusChange={() => handleStatusChange("rejected", plantId)}
-        plantId={plantId}
-      />
-      <div className='section-center pb-5'>
-        <div className='back-btn'>
-          <MdBackspace
-            onClick={() => {
-              backToMap();
-              setPlant(null);
-            }}
-          />
-        </div>
-        <h2 className='section-title'>Segnalazione</h2>
-
-        <p>
-          Per richiedere informazioni inerenti questa segnalazione, ulteriori
-          rispetto a quelle riportate qui in basso, puoi utilizzare uno dei
-          nostri <Link to='/contacts'>contatti</Link> o in alternativa scrivere
-          nella <Link to='/chat'> chat aperta</Link>.
-        </p>
-        <h5 className='mb-3 mt-5'>Informazioni segnalazione</h5>
-        <InfoCard />
-        <span className='small fst-italic'>
-          Il tempo medio di approvazione è di una settimana lavorativa dalla
-          ricezione della segnalazione. Per alcune segnalazioni potrebbe essere
-          necessario più tempo
-        </span>
-        {/* </div> */}
-
-        {userRole === "admin" && (
-          <div className='admin-controls pt-5 pb-3'>
-            <UserInfo
-              role={request === "reporter" ? reporterInfo.role : ownerInfo.role}
-              user={request === "reporter" ? reporterInfo : ownerInfo}
-              show={modalUserShow}
-              onHide={() => setModalUserShow(false)}
+    <section className='plant-section'>
+      <div className='section-large'>
+        <RejectionModal
+          show={modalShow}
+          onHide={() => setModalShow(false)}
+          onReject={() => openRejectionModal()}
+          handleStatusChange={() => handleStatusChange("rejected", plantId)}
+          plantId={plantId}
+        />
+        <div className='section-center single-plant pb-5'>
+          <div className='back-btn'>
+            <MdBackspace
+              onClick={() => {
+                backToMap();
+                setPlant(null);
+              }}
             />
-            <hr />
-            <h5 className='mb-3'>Operazioni di amministrazione</h5>
-            <div className='d-grid gap-2'>
-              <button
-                className='btn btn-success'
-                onClick={() => handleStatusChange("approved", plantId)}
-              >
-                Approva segnalazione
-              </button>
-              <button
-                className='btn btn-danger'
-                onClick={() => openRejectionModal()}
-              >
-                Rigetta segnalazione
-              </button>
-              <button
-                className='btn btn-dark '
-                onClick={() => deleteAndGo(deletePlant, plantId, navigate)}
-              >
-                Elimina segnalazione
-              </button>
-            </div>
           </div>
-        )}
+          <h2 className='section-title'>Segnalazione</h2>
+
+          <p>
+            Per richiedere informazioni inerenti questa segnalazione, ulteriori
+            rispetto a quelle riportate qui in basso, puoi utilizzare uno dei
+            nostri <Link to='/contacts'>contatti</Link> o in alternativa
+            scrivere nella <Link to='/chat'> chat aperta</Link>.
+          </p>
+          <h5 className='mb-3 mt-5'>Informazioni segnalazione</h5>
+          <InfoCard />
+          <span className='small fst-italic'>
+            Il tempo medio di approvazione è di una settimana lavorativa dalla
+            ricezione della segnalazione. Per alcune segnalazioni potrebbe
+            essere necessario più tempo
+          </span>
+          {/* </div> */}
+
+          {userRole === "admin" && (
+            <div className='admin-controls pt-5 pb-3'>
+              <UserInfo
+                role={
+                  request === "reporter" ? reporterInfo.role : ownerInfo.role
+                }
+                user={request === "reporter" ? reporterInfo : ownerInfo}
+                show={modalUserShow}
+                onHide={() => setModalUserShow(false)}
+              />
+              <hr />
+              <h5 className='mb-3'>Operazioni di amministrazione</h5>
+              <div className='d-grid gap-2'>
+                <button
+                  className='btn btn-success'
+                  onClick={() => handleStatusChange("approved", plantId)}
+                >
+                  Approva segnalazione
+                </button>
+                <button
+                  className='btn btn-danger'
+                  onClick={() => openRejectionModal()}
+                >
+                  Rigetta segnalazione
+                </button>
+                <button
+                  className='btn btn-dark '
+                  onClick={() => deleteAndGo(deletePlant, plantId, navigate)}
+                >
+                  Elimina segnalazione
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </section>
   );
