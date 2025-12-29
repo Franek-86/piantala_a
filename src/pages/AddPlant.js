@@ -85,6 +85,9 @@ const AddPlant = ({ setting }) => {
       quality: 90,
       allowEditing: false,
       resultType: CameraResultType.Base64,
+      promptLabelHeader: "Scatta una foto o selezionala dalla tua galleria",
+      promptLabelPhoto: "Seleziona foto in galleria",
+      promptLabelPicture: "Scatta foto",
     });
 
     console.log("yoo", image);
