@@ -54,6 +54,8 @@ import RegisterTwo from "./pages/RegisterTwo";
 import RegisterThree from "./pages/RegisterThree";
 import RegisterFour from "./pages/RegisterFour";
 import RegisterLast from "./pages/RegisterLast";
+import TermsOfService from "./pages/TermsOfService";
+
 // import { io } from "socket.io-client";
 // const url =
 //   process.env.REACT_APP_NODE_ENV === "test"
@@ -98,6 +100,10 @@ const router = createBrowserRouter([
       {
         path: "/register5",
         element: <RegisterLast />,
+      },
+      {
+        path: "/terms",
+        element: <TermsOfService />,
       },
       {
         path: "/reset",

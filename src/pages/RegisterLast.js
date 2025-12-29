@@ -1,23 +1,33 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import ListGroup from "react-bootstrap/ListGroup";
-import { useNavigate } from "react-router-dom";
-
-// --
-
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import moment from "moment/moment";
-import { MdBackspace } from "react-icons/md";
+import { MdBackspace, MdDangerous } from "react-icons/md";
+import TermsOfService from "./TermsOfService";
+import { Form } from "react-bootstrap";
 
 const RegisterLast = () => {
   const [serverError, setServerError] = useState("");
   const [successMessage, setSuccessMessage] = useState(false);
   const [loading, setLoading] = useState(false);
-  const { reset, handleSubmit } = useForm();
+  const {
+    reset,
+    handleSubmit,
+    watch,
+    formState: { errors },
+    register,
+  } = useForm();
   const [showPassword, setShowPassword] = useState(false);
-  //
+
+  // const test = (e) => {
+  //   console.log("ciao0", e.target.value);
+  //   setUserData({ ...userData, terms: !userData.terms });
+  //   // console.log("ciao1", userData);
+  // };
   const {
     regionsLoading,
     setUserData,
@@ -31,11 +41,22 @@ const RegisterLast = () => {
     navigate("/register4");
   };
 
-  const onSubmit = async () => {
-    setLoading(true);
+  const onSubmit = async (e) => {
+    // let check = watch("terms");
+    // console.log("test", check);
+    // if (!check) {
+    //   console.log("terms not accepted");
+    //   return;
+    // } else {
+    let terms = e?.terms;
 
+    if (terms !== "true") {
+      return;
+    }
+
+    setLoading(true);
     try {
-      const response = await registerUser(userData);
+      const response = await registerUser(userData, terms);
 
       if (response.status === 201 || response.status === 200) {
         setSuccessMessage("Richiesta inviata");
@@ -100,7 +121,7 @@ const RegisterLast = () => {
   };
   const birthday = userData?.birthday;
   return (
-    <>
+    <section>
       <div className='section-center'>
         <div className='back-btn'>
           <MdBackspace
@@ -110,7 +131,7 @@ const RegisterLast = () => {
           />
         </div>
       </div>{" "}
-      <section className='section-center mt-5'>
+      <div className='section-center mt-5'>
         <h4 className='mb-5'>
           Verifica i tuoi dati{" "}
           <span className='small fw-normal fst-italic pag'>(5/5)</span>
@@ -171,14 +192,28 @@ const RegisterLast = () => {
               Comune di residenza: <span>{userData?.city}</span>
             </ListGroup.Item>
           </ListGroup>
+          <Form.Check
+            id='terms'
+            name='terms'
+            type='checkbox'
+            value='true'
+            label={<Link to='/terms'>Termini e condizioni</Link>}
+            {...register("terms", { required: true })}
+            className='mt-3'
+          />
+          {errors.terms && (
+            <span className='text-danger small fst-italic'>
+              Necessario accettare per completare la registrazione
+            </span>
+          )}
           <div className='mt-3'>
-            <button type='submit' className='btn btn-primary w-100 my-3'>
+            <button type='submit' className='btn btn-primary w-100 my-2'>
               Registrati
             </button>
           </div>
         </form>
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
 
