@@ -241,8 +241,6 @@ export const AuthProvider = ({ children }) => {
   //   }
   // };
   useEffect(() => {
-    console.log("ciao");
-
     SocialLogin.initialize({
       google: {
         webClientId: process.env.REACT_APP_GOOGLE_ID_WEB,
@@ -326,7 +324,7 @@ export const AuthProvider = ({ children }) => {
     );
     return response;
   };
-  const registerUser = async (data) => {
+  const registerUser = async (data, terms) => {
     const {
       name: first_name,
       lastName: last_name,
@@ -351,7 +349,9 @@ export const AuthProvider = ({ children }) => {
       user_name,
       phone,
       email,
+      google: 0,
       user_password,
+      terms,
     };
 
     const response = await axios.post(

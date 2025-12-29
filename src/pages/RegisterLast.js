@@ -23,11 +23,6 @@ const RegisterLast = () => {
   } = useForm();
   const [showPassword, setShowPassword] = useState(false);
 
-  // const test = (e) => {
-  //   console.log("ciao0", e.target.value);
-  //   setUserData({ ...userData, terms: !userData.terms });
-  //   // console.log("ciao1", userData);
-  // };
   const {
     regionsLoading,
     setUserData,
@@ -42,12 +37,6 @@ const RegisterLast = () => {
   };
 
   const onSubmit = async (e) => {
-    // let check = watch("terms");
-    // console.log("test", check);
-    // if (!check) {
-    //   console.log("terms not accepted");
-    //   return;
-    // } else {
     let terms = e?.terms;
 
     if (terms !== "accepted") {
@@ -197,7 +186,11 @@ const RegisterLast = () => {
             name='terms'
             type='checkbox'
             value='accepted'
-            label={<Link to='/terms'>Termini e condizioni</Link>}
+            label={
+              <Link className='small' to='/terms'>
+                Termini e condizioni
+              </Link>
+            }
             {...register("terms", { required: true })}
             className='mt-3'
           />
