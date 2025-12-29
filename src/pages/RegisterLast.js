@@ -50,7 +50,7 @@ const RegisterLast = () => {
     // } else {
     let terms = e?.terms;
 
-    if (terms !== "true") {
+    if (terms !== "accepted") {
       return;
     }
 
@@ -196,7 +196,7 @@ const RegisterLast = () => {
             id='terms'
             name='terms'
             type='checkbox'
-            value='true'
+            value='accepted'
             label={<Link to='/terms'>Termini e condizioni</Link>}
             {...register("terms", { required: true })}
             className='mt-3'
