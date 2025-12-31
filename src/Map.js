@@ -31,6 +31,7 @@ import Buttons from "./components/map/Buttons";
 import SideBar from "./components/menu/SideBar";
 import { RiH1 } from "react-icons/ri";
 import LoginReg from "./components/registration/LoginReg";
+import Terms from "./components/registration/Terms";
 
 const DefaultIcon = L.icon({
   iconUrl: iconLocation, // This can be your default icon
@@ -71,7 +72,7 @@ function Map() {
   const { socket } = useContext(SocketContext);
 
   const { test } = useContext(OrdersContext);
-  console.log("test from orders", test);
+
   const { filters, setFilters } = useContext(FilterContext);
   const { setShowPermissionModal, logReg } = useContext(AuthContext);
 
@@ -82,10 +83,8 @@ function Map() {
   useEffect(() => {
     const checkPermissionsAndShowModal = async () => {
       const platform = Capacitor.getPlatform();
-      console.log("Platform:", platform);
       if (Capacitor.getPlatform() === "web") return;
       let testAndroid1 = localStorage.getItem("justLoggedIn");
-      console.log("test android 1 for hust logged in", testAndroid1);
       const justLoggedIn = localStorage.getItem("justLoggedIn") === "true";
 
       if (!justLoggedIn) return;
@@ -93,16 +92,9 @@ function Map() {
       localStorage.setItem("justLoggedIn", "false");
 
       const perm = await Geolocation.checkPermissions();
-      if (perm)
-        console.log(
-          "test android 3 permission from geolocation.permission is (should be either 'granted' or something else):",
-          perm.location
-        );
       if (perm.location === "granted") {
-        console.log("location is already granted");
         return;
       } else {
-        console.log("location is not granted opening modal");
         setShowPermissionModal(true);
       }
     };
@@ -114,9 +106,7 @@ function Map() {
 
   useEffect(() => {
     if (socket) {
-      socket.on("connect", () => {
-        console.log("socket from app.js", socket);
-      });
+      socket.on("connect", () => {});
 
       const getAllPlants = (arg1) => {
         setPlants(arg1);
@@ -130,7 +120,6 @@ function Map() {
   }, []);
 
   // 0002
-  console.log("statusPlants t", filters.status);
   let filteredPlants = plants.filter((plant) => {
     return (
       (filters.status === "" || plant.status_piantina === filters.status) &&
@@ -138,7 +127,6 @@ function Map() {
     );
   });
 
-  console.log("statusPlants t2", filteredPlants);
   const checkFilteredPlants = () => {
     const filteredPlantsLength = filteredPlants.length;
     if (filteredPlantsLength === 0) {
@@ -171,24 +159,20 @@ function Map() {
   };
   const navigate = useNavigate();
   const location = useLocation();
-  console.log("last", plants.length);
 
   useEffect(() => {
-    console.log("a1");
     getAllPlants();
   }, []);
 
   useEffect(() => {
     if (position) {
       let locationMarker = markerRef.current;
-      console.log("location marker", locationMarker);
       setLocationMarkerTag(locationMarker);
       // test.openPopup();
     }
   }, [position]);
 
   useEffect(() => {
-    console.log("staqui");
     if (locationMarkerTag) {
       locationMarkerTag.openPopup();
     }
@@ -382,6 +366,7 @@ function Map() {
       </div>
       {!isChildRoute && <BottomBar />}
       <PermissionModal />
+      <Terms id={undefined} />
     </div>
 
     //   {!isChildRoute && (

@@ -184,7 +184,6 @@ export const PlantsProvider = ({ children }) => {
     }
   };
   const deletePlant = async (plantId) => {
-    console.log("hh2", plantId);
     try {
       setSinglePlantLoading(true);
 
@@ -395,7 +394,6 @@ export const PlantsProvider = ({ children }) => {
     }
   };
   const getOwnerPublicInfo = async (owner_id) => {
-    console.log("aa", ownerId);
     const response = await axios.get(
       `${serverDomain}/api/plants/user/owner-public-info/${owner_id}`
     );
@@ -452,7 +450,6 @@ export const PlantsProvider = ({ children }) => {
       setLoading(false);
     }
   };
-  console.log("owner username 1", ownerId);
 
   const getReporterInfo = async () => {
     // let updatedObj = {};
@@ -510,7 +507,6 @@ export const PlantsProvider = ({ children }) => {
       const deleteHash = plant?.delete_hash;
       formData.append("plantPic", file);
       formData.append("deleteHash", deleteHash);
-      console.log(formData);
       const response = await axios.patch(
         `${serverDomain}/api/plants/update-plant-pic/${plantId}`,
         formData,
@@ -518,11 +514,9 @@ export const PlantsProvider = ({ children }) => {
       );
 
       if (response.status === 201) {
-        console.log("sta qui il 201");
         return;
       }
       if (response.status === 200) {
-        console.log("aa resp 200", response);
         setPlant({
           ...plant,
           image_url: response.image_url,
@@ -559,14 +553,12 @@ export const PlantsProvider = ({ children }) => {
       const deleteHash = plant.delete_hash;
       formData.append("plantPic", blob);
       formData.append("deleteHash", deleteHash);
-      console.log(formData);
       const response = await axios.patch(
         `${serverDomain}/api/plants/update-plant-pic/${plantId}`,
         formData,
         { headers: { "content-type": "multiform-data" } }
       );
       if (response) {
-        console.log("aa resp", response);
         setPlant({
           ...plant,
           image_url: response.image_url,

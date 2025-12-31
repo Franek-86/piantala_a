@@ -282,7 +282,7 @@ export const AuthProvider = ({ children }) => {
 
         const {
           token,
-          user: { role },
+          user: { id, role },
         } = response.data;
 
         setUserRole(role);
@@ -290,7 +290,19 @@ export const AuthProvider = ({ children }) => {
         localStorage.setItem("userToken", token);
         // navigateToMap(navigate);
         if (plantId) {
-          navigate(`/map/${plantId}`);
+          // navigate(`/map/${plantId}`);
+          let data = {};
+          let date = new Date();
+          let day = date.getDate();
+          let month = date.getMonth() + 1;
+          let year = date.getFullYear();
+          let currentDate = `${year}-${month}-${day}`;
+
+          data.id = parseInt(plantId);
+          data.owner_id = id;
+          data.purchase_date = currentDate;
+          localStorage.setItem("booked-plant", JSON.stringify(data));
+          navigate("/checkout");
         } else {
           navigateToMap(navigate);
         }
@@ -322,7 +334,6 @@ export const AuthProvider = ({ children }) => {
   };
   const googleAfterTerms = async (navigate, plantId, terms) => {
     try {
-      console.log("payload sta qui", payload, "terms sta qui", terms);
       const response = await axios.post(
         `${serverDomain}/api/auth/google-access-android`,
         payload,
@@ -337,7 +348,7 @@ export const AuthProvider = ({ children }) => {
 
         const {
           token,
-          user: { role },
+          user: { role, id },
         } = response.data;
 
         setUserRole(role);
@@ -345,8 +356,19 @@ export const AuthProvider = ({ children }) => {
         localStorage.setItem("userToken", token);
 
         if (plantId) {
-          navigate(`/map/${plantId}`);
-          // navigate("/checkout");
+          // navigate(`/map/${plantId}`);
+          let data = {};
+          let date = new Date();
+          let day = date.getDate();
+          let month = date.getMonth() + 1;
+          let year = date.getFullYear();
+          let currentDate = `${year}-${month}-${day}`;
+
+          data.id = parseInt(plantId);
+          data.owner_id = id;
+          data.purchase_date = currentDate;
+          localStorage.setItem("booked-plant", JSON.stringify(data));
+          navigate("/checkout");
         } else {
           navigateToMap(navigate);
         }

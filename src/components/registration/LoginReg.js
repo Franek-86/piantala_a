@@ -26,7 +26,6 @@ const LoginReg = ({ val, id: plantId }) => {
         "Per poterci inviare una mail è necessario prima effettuare il login.";
       break;
   }
-  console.log("111", page, text);
   return (
     <Card className='logreg'>
       {/* <Card.Header>Ti Pianto Per Amore</Card.Header> */}

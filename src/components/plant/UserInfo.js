@@ -3,7 +3,6 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import ListGroup from "react-bootstrap/ListGroup";
 const UserInfo = (props) => {
-  // console.log("qui", props.user);
   const {
     cratedAt,
     email,
@@ -18,7 +17,6 @@ const UserInfo = (props) => {
   } = props.user;
   const infoUser = props.user;
   const userRole = props.user.type;
-  // console.log("user role", userRole);
   return (
     <Modal
       {...props}
@@ -42,7 +40,7 @@ const UserInfo = (props) => {
           {userRole !== "reporter" && (
             <>
               <ListGroup.Item>
-                <span>Nato il:</span> {birthday}
+                <span>Nato il:</span> {birthday ? birthday : "n/a"}
               </ListGroup.Item>
               <ListGroup.Item>
                 <span>Comune di residenza:</span> {city}
