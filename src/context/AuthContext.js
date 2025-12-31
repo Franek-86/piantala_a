@@ -38,7 +38,7 @@ export const AuthProvider = ({ children }) => {
   const [districts, setDistricts] = useState([]);
   const [logReg, setLogReg] = useState(false);
   const [pswLoading, setPswLoading] = useState(false);
-
+  const [payload, setPayload] = useState({});
   const [showPermissionModal, setShowPermissionModal] = useState(false);
   const [pageError, setPageError] = useState(false);
   const [userSession, setUserSession] = useState(null);
@@ -50,6 +50,9 @@ export const AuthProvider = ({ children }) => {
 
   const [isRegister, setIsRegister] = useState(null);
   const [clientDomain, setClientDomain] = useState(null);
+  const [showTerms, setShowTerms] = useState(false);
+  const handleCloseTerms = () => setShowTerms(false);
+  const handleShowTerms = () => setShowTerms(true);
   const token = localStorage.getItem("userToken");
 
   const serverDomain =
@@ -256,9 +259,9 @@ export const AuthProvider = ({ children }) => {
         provider: "google",
         options: {},
       });
-      const test2 = res.result.profile;
 
-      const payload = test2;
+      const payload = res.result.profile;
+
       const response = await axios.post(
         `${serverDomain}/api/auth/google-access-android`,
         payload,
@@ -266,7 +269,14 @@ export const AuthProvider = ({ children }) => {
           withCredentials: true,
         }
       );
-      if (response.status === 200) {
+      console.log("test", response);
+
+      if (response.data.message === "terms to be accepted") {
+        setPayload(payload);
+
+        setShowTerms(true);
+      }
+      if (response.data.message === "Login successful") {
         setIsAuthenticated(true);
         setLogReg(false);
         localStorage.setItem("justLoggedIn", "true");
@@ -299,7 +309,61 @@ export const AuthProvider = ({ children }) => {
         });
       }
     } catch (error) {
-      toast.error(`errore test2 ${error}`, {
+      toast.error(`error from catch, error is: ${error}`, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
+  };
+  const googleAfterTerms = async (navigate, plantId, terms) => {
+    try {
+      console.log("payload sta qui", payload, "terms sta qui", terms);
+      const response = await axios.post(
+        `${serverDomain}/api/auth/google-access-android`,
+        payload,
+        {
+          withCredentials: true,
+        }
+      );
+      if (response.data.message === "Login successful") {
+        setIsAuthenticated(true);
+        setLogReg(false);
+        localStorage.setItem("justLoggedIn", "true");
+
+        const {
+          token,
+          user: { role },
+        } = response.data;
+
+        setUserRole(role);
+
+        localStorage.setItem("userToken", token);
+
+        if (plantId) {
+          navigate(`/map/${plantId}`);
+        } else {
+          navigateToMap(navigate);
+        }
+      } else {
+        toast.error(`error from catch, error is: ${response.data}`, {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
+    } catch (error) {
+      toast.error(`error from catch, error is: ${error}`, {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
@@ -324,7 +388,7 @@ export const AuthProvider = ({ children }) => {
     );
     return response;
   };
-  const registerUser = async (data, terms) => {
+  const registerUser = async (data, terms, google) => {
     const {
       name: first_name,
       lastName: last_name,
@@ -370,40 +434,6 @@ export const AuthProvider = ({ children }) => {
       setUserData(local);
     }
   }, []);
-
-  // useEffect(() => {
-  //   const local = JSON.parse(localStorage.getItem("registration"));
-  //   if (local) {
-  //     let timer = setTimeout(() => {
-  //       localStorage.removeItem("registration");
-
-  //       setUserData({
-  //         name: "",
-  //         lastName: "",
-  //         birthday: "",
-  //         gender: "",
-  //         email: "",
-  //         phone: "",
-  //         user: "",
-  //         password: "",
-  //         password2: "",
-  //         city: "",
-  //       });
-  //       navigateToLoginFunction();
-  //       toast(`🌱 Registration timeout`, {
-  //         position: "top-right",
-  //         autoClose: 2000,
-  //         hideProgressBar: false,
-  //         closeOnClick: false,
-  //         pauseOnHover: true,
-  //         draggable: true,
-  //         progress: undefined,
-  //         theme: "light",
-  //       });
-  //     }, 900000);
-  //     return () => clearTimeout(timer);
-  //   }
-  // }, [userData]);
 
   const verificationEmail = async (data) => {
     try {
@@ -612,6 +642,7 @@ export const AuthProvider = ({ children }) => {
         userData,
         setUserData,
         googleAccess,
+        setPayload,
         // googleAccessTest,
         // googleAccessTest2,
         // generateFiscalCode,
@@ -621,6 +652,7 @@ export const AuthProvider = ({ children }) => {
         cities,
         getCities,
         setIsRefreshTokenExpired,
+        googleAfterTerms,
         isRefreshTokenExpired,
         sessionLoading,
         setSessionLoading,
@@ -641,6 +673,11 @@ export const AuthProvider = ({ children }) => {
         verificationEmailPasswordReset,
         logReg,
         setLogReg,
+        showTerms,
+        setShowTerms,
+        handleCloseTerms,
+        handleShowTerms,
+        payload,
       }}
     >
       {children}

@@ -18,6 +18,7 @@ import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 import Google from "../components/registration/Google";
+import Terms from "../components/registration/Terms";
 
 const AuthForm = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -80,30 +81,30 @@ const AuthForm = () => {
   //     hideSub.remove();
   //   };
   // }, []);
-  const generateCF = async () => {
-    const fields = watch();
-    const { name, lastName, gender, city, birthday } = fields;
-    console.log("f", fields);
-    if (name && lastName && gender && city && birthday) {
-      const regex = /^(\d{4})-(\d{2})-(\d{2})$/;
-      const match = birthday.match(regex);
+  // const generateCF = async () => {
+  //   const fields = watch();
+  //   const { name, lastName, gender, city, birthday } = fields;
+  //   console.log("f", fields);
+  //   if (name && lastName && gender && city && birthday) {
+  //     const regex = /^(\d{4})-(\d{2})-(\d{2})$/;
+  //     const match = birthday.match(regex);
 
-      if (match) {
-        const year = match[1]; // "1986"
-        const month = match[2]; // "12"
-        const day = match[3]; // "27"
+  //     if (match) {
+  //       const year = match[1]; // "1986"
+  //       const month = match[2]; // "12"
+  //       const day = match[3]; // "27"
 
-        console.log("Year:", year);
-        console.log("Month:", month);
-        console.log("Day:", day);
-        const data = { name, lastName, gender, city, year, month, day };
-        const response = await generateFiscalCode(data);
-        if (response && response !== "error") {
-          setValue("fiscalCode", response);
-        }
-      }
-    }
-  };
+  //       console.log("Year:", year);
+  //       console.log("Month:", month);
+  //       console.log("Day:", day);
+  //       const data = { name, lastName, gender, city, year, month, day };
+  //       const response = await generateFiscalCode(data);
+  //       if (response && response !== "error") {
+  //         setValue("fiscalCode", response);
+  //       }
+  //     }
+  //   }
+  // };
 
   useEffect(() => {
     getCities();
@@ -283,6 +284,7 @@ const AuthForm = () => {
           </Form>
           <Google />
         </Col>
+        <Terms />
       </Row>
     </Container>
   );

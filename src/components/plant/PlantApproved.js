@@ -13,12 +13,13 @@ import InfoCard from "./InfoCard";
 import { TiLocation } from "react-icons/ti";
 import { BsVectorPen } from "react-icons/bs";
 import { MdPayment } from "react-icons/md";
+import Terms from "../registration/Terms";
+
 const PlantApproved = () => {
   const { plantId } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
   const { plant, userInfo } = useContext(PlantsContext);
-
   const fromPage = location.state?.from || "/map";
   const {
     getSinglePlant,
@@ -39,7 +40,7 @@ const PlantApproved = () => {
   // if (singlePlantLoading) return <Loading />;
   return (
     <section className='plant-section'>
-      {" "}
+      <Terms id={plantId} />{" "}
       <div className='section-large'>
         <div className='back-btn pe-3'>
           <MdBackspace
