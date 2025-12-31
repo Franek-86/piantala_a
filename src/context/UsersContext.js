@@ -406,7 +406,7 @@ export const UsersProvider = ({ children }) => {
     } else if (!email && loggedUserInfo.email) {
       address = loggedUserInfo.email;
     } else {
-      console.log("errore indirizzo mail");
+      console.error("errore indirizzo mail");
     }
 
     setLoading(true);
