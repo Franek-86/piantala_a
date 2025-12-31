@@ -269,7 +269,6 @@ export const AuthProvider = ({ children }) => {
           withCredentials: true,
         }
       );
-      console.log("test", response);
 
       if (response.data.message === "terms to be accepted") {
         setPayload(payload);
@@ -347,6 +346,7 @@ export const AuthProvider = ({ children }) => {
 
         if (plantId) {
           navigate(`/map/${plantId}`);
+          // navigate("/checkout");
         } else {
           navigateToMap(navigate);
         }

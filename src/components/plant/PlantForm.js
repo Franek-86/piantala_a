@@ -23,6 +23,16 @@ const PlantForm = () => {
   } = useForm();
   const onSubmit = (data) => {
     if (!isAuthenticated) {
+      // let date = new Date();
+      // let day = date.getDate();
+      // let month = date.getMonth() + 1;
+      // let year = date.getFullYear();
+      // let currentDate = `${year}-${month}-${day}`;
+
+      // data.id = parseInt(plantId);
+      // data.owner_id = userId;
+      // data.purchase_date = currentDate;
+      // localStorage.setItem("booked-plant", JSON.stringify(data));
       setLogReg(true);
       return;
     }
