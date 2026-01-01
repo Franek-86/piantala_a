@@ -253,7 +253,7 @@ export const AuthProvider = ({ children }) => {
       },
     });
   }, []);
-  const googleAccess = async (navigate, plantId) => {
+  const googleAccess = async (navigate, plantId, page) => {
     try {
       const res = await SocialLogin.login({
         provider: "google",
@@ -302,9 +302,11 @@ export const AuthProvider = ({ children }) => {
           data.owner_id = id;
           data.purchase_date = currentDate;
           localStorage.setItem("booked-plant", JSON.stringify(data));
-          navigate("/checkout");
+          navigate("/map");
+        } else if (page === "map") {
+          navigate("/map/addPlant");
         } else {
-          navigateToMap(navigate);
+          navigate("/map");
         }
       }
       if (response.status !== 200) {
@@ -332,7 +334,7 @@ export const AuthProvider = ({ children }) => {
       });
     }
   };
-  const googleAfterTerms = async (navigate, plantId, terms) => {
+  const googleAfterTerms = async (navigate, plantId, page) => {
     try {
       const response = await axios.post(
         `${serverDomain}/api/auth/google-access-android`,
@@ -368,9 +370,11 @@ export const AuthProvider = ({ children }) => {
           data.owner_id = id;
           data.purchase_date = currentDate;
           localStorage.setItem("booked-plant", JSON.stringify(data));
-          navigate("/checkout");
+          navigate("/map");
+        } else if (page === "map") {
+          navigate("/addPlant");
         } else {
-          navigateToMap(navigate);
+          navigate("/map");
         }
       } else {
         toast.error(`error from catch, error is: ${response.data}`, {

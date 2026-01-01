@@ -18,7 +18,8 @@ import { PlantsContext } from "../../context/PlantsContext";
 
 const platform = Capacitor.getPlatform();
 
-const Google = ({ id: plantId }) => {
+const Google = ({ id: plantId, page }) => {
+  console.log(plantId, page, "qui");
   const navigate = useNavigate();
   const { googleAccess, googleAccessTest, googleAccessTest2 } =
     useContext(AuthContext);
@@ -66,7 +67,7 @@ const Google = ({ id: plantId }) => {
     <Button
       className='d-block w-100'
       variant='primary'
-      onClick={() => googleAccess(navigate, plantId)}
+      onClick={() => googleAccess(navigate, plantId, page)}
     >
       {" "}
       Accedi con Google

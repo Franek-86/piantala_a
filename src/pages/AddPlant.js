@@ -180,9 +180,10 @@ const AddPlant = ({ setting }) => {
         console.log("abc");
         setSubmissionError("");
         setLoading(false);
-        setSuccessMessage("Pianta aggiunta con successo!");
+        setSuccessMessage("Segnalazione inviata con successo!");
         // setTimeout(() => {
-        backToMap();
+        // backToMap();
+        navigate("/myPlants");
         setSuccessMessage("");
         setFile(null);
         reset();

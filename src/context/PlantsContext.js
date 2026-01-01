@@ -403,11 +403,17 @@ export const PlantsProvider = ({ children }) => {
     }
   };
   const sendValuesToAddPlant = (val, nav) => {
-    if (!isAuthenticated) {
+    const coordsMatch = val.match(/^(-?\d+(\.\d+)?),\s*(-?\d+(\.\d+)?)/);
+    if (!isAuthenticated && coordsMatch) {
+      const latMatch = coordsMatch[1]; // Latitude
+      const langMatch = coordsMatch[3]; // Longitude
+      setLatMatch(latMatch);
+      setLangMatch(langMatch);
+      addLocationInfo(latMatch, langMatch);
+      // nav("/map/addPlant");
       setLogReg(true);
       return;
     }
-    const coordsMatch = val.match(/^(-?\d+(\.\d+)?),\s*(-?\d+(\.\d+)?)/);
 
     // If coordinates are found in the correct format (lat, long)
     if (coordsMatch) {

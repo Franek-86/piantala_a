@@ -42,7 +42,7 @@ const LoginReg = ({ val, id: plantId }) => {
         {/* <Button className='d-block w-100' variant='primary'>
           Accedi con Google
         </Button> */}
-        <Google id={plantId} />
+        <Google id={plantId} page={page} />
       </Card.Body>
     </Card>
   );
