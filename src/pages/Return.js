@@ -30,7 +30,7 @@ export const Return = () => {
     return setTimeout(() => {
       console.log("timeout");
       clearBookedStorage();
-      navigate("/map");
+      navigate("/bookedPlants");
     }, 10000);
   };
   useEffect(() => {
@@ -82,7 +82,7 @@ export const Return = () => {
               .
             </p>
             <Link
-              to='/map'
+              to='/bookedPlants'
               class='btn btn-primary'
               onClick={() => clearBookedStorage()}
             >
@@ -90,7 +90,7 @@ export const Return = () => {
             </Link>
           </div>
           <div class='card-footer text-body-secondary'>
-            tornerai automaticamente alla mappa tra {timer}
+            tornerai automaticamente alla pagina delle tue piante tra {timer}
           </div>
         </div>
       </section>
