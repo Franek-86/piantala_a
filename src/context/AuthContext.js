@@ -302,7 +302,7 @@ export const AuthProvider = ({ children }) => {
           data.owner_id = id;
           data.purchase_date = currentDate;
           localStorage.setItem("booked-plant", JSON.stringify(data));
-          navigate("/map");
+          navigate("/checkout");
         } else if (page === "map") {
           navigate("/map/addPlant");
         } else {
@@ -370,7 +370,7 @@ export const AuthProvider = ({ children }) => {
           data.owner_id = id;
           data.purchase_date = currentDate;
           localStorage.setItem("booked-plant", JSON.stringify(data));
-          navigate("/map");
+          navigate("/checkout");
         } else if (page === "map") {
           navigate("/addPlant");
         } else {
