@@ -145,13 +145,19 @@ const PlantBooked = () => {
           <h2 className='section-title'>
             Piantina <span className='lower-case'>di</span> {ownerPublicInfo}
           </h2>
-          <span className='mt-5 mb-3 h5 d-flex flex-row align-items-center'>
+          <div className='text-end'>
+            <ShareButton share='page' />
+          </div>
+          <span className='mt-3 mt-lg-5 mb-3 h5 d-flex flex-row align-items-center'>
             <div className='step-title pb-2 pe-1'>
               <TiLocation />
             </div>
             Mi trovo qui!
           </span>
           <InfoCard />
+          <div className='mt-2 mt-lg-5 text-end'>
+            <ShareButton share='plant' />
+          </div>
           <input
             className='d-none'
             onChange={(event) => {
@@ -186,11 +192,10 @@ const PlantBooked = () => {
               )}
               {/* {Capacitor.isNativePlatform() && <ShareButton />} */}
             </div>
-            <div>
+            {/* <div>
               <ShareButton />
-            </div>
+            </div> */}
           </div>
-
           <br />
           <section className='plate-section'>
             <div className=''>
@@ -220,7 +225,6 @@ const PlantBooked = () => {
               )}
             </div>
           </section>
-
           {/* plant form or feedback time */}
           {plateLoading && (
             <div className='loading-container-mini'>
@@ -234,9 +238,7 @@ const PlantBooked = () => {
               </div>
             </div>
           )}
-
           {/* funzionalità admin */}
-
           {userRole === "admin" && (
             <div className='admin-controls py-5'>
               <hr />

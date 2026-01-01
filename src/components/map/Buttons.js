@@ -122,7 +122,8 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
         {showCenter ? (
           <Button
             onClick={() => {
-              map.flyTo([41.118778112249046, 16.871917818963464], 13);
+              map.flyTo([41.104247, 16.915281], 17);
+              // map.flyTo([41.118778112249046, 16.871917818963464], 13);
               setShowCenter(false);
             }}
             className='circle-button p-0 '

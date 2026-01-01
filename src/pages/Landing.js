@@ -3,16 +3,21 @@ import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useContext } from "react";
+import { Capacitor } from "@capacitor/core";
 
 const Landing = () => {
   const navigate = useNavigate();
-  const { checkToken } = useContext(AuthContext);
-
+  const { checkToken: check } = useContext(AuthContext);
+  const checkPlatform = Capacitor.isNativePlatform();
   useEffect(() => {
     const verify = async () => {
-      const check = await checkToken();
-      if (check === "login") {
-        navigate("/login");
+      if (checkPlatform) {
+        const checkToken = await check();
+        if (checkToken === "login") {
+          navigate("/login");
+        } else {
+          navigate("/map");
+        }
       } else {
         navigate("/map");
       }

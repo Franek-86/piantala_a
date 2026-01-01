@@ -140,7 +140,7 @@ const SideBar = () => {
           {isAuthenticated ? (
             <ListGroup.Item>
               <NavLink
-                to='/'
+                to='/login'
                 onClick={handleLogout}
                 className={({ isActive }) =>
                   isActive

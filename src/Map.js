@@ -197,8 +197,10 @@ function Map() {
         {isLargeScreen && <SideBar />}
         <article className='bg-map'>
           <MapContainer
-            center={[41.118778112249046, 16.871917818963464]}
-            zoom={13}
+            center={[41.104247, 16.915281]}
+            // center={[41.118778112249046, 16.871917818963464]}
+            zoom={16}
+            // zoom={13}
             scrollWheelZoom={false}
             zoomControl={false}
           >
@@ -286,8 +288,10 @@ function Map() {
       <div className='section section-page map-section section-large w-100'>
         <article className='map'>
           <MapContainer
-            center={[41.118778112249046, 16.871917818963464]}
-            zoom={13}
+            // center={[41.118778112249046, 16.871917818963464]}
+            // zoom={13}
+            center={[41.104247, 16.915281]}
+            zoom={17}
             scrollWheelZoom={false}
             zoomControl={false}
           >
