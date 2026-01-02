@@ -100,7 +100,7 @@ const SideMenu = ({ onLogout, ...props }) => {
             </ListGroup.Item>
           ) : (
             <ListGroup.Item>
-              <Link to='/' class='nav-link text-truncate'>
+              <Link to='/login' class='nav-link text-truncate'>
                 <RiLoginBoxLine />
                 <span class='ms-2 d-sm-inline'>Login/Registrati</span>
               </Link>

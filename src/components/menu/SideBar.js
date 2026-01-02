@@ -155,7 +155,7 @@ const SideBar = () => {
           ) : (
             <ListGroup.Item>
               <NavLink
-                to='/'
+                to='/login'
                 className={({ isActive }) =>
                   isActive
                     ? "nav-link text-truncate sidebar-active"

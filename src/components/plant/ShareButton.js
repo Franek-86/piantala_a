@@ -76,14 +76,14 @@ const ShareButton = ({ share }) => {
     }, 1500);
   };
   return (
-    <div className='d-flex align-items-center '>
+    <div className='d-flex align-items-center'>
       <div
-        className='btn btn-primary'
+        className='btn btn-primary btn-small no-wrap'
         onClick={() => {
           setShareNow(!shareNow);
         }}
       >
-        Condividi {share === "page" ? "pagina" : "immagine"}
+        Condividi {share === "page" ? "pagina   " : "foto   "}
         {""}
         <FaShare />
       </div>
@@ -99,6 +99,16 @@ const ShareButton = ({ share }) => {
           >
             <FaWhatsapp />
           </div>
+          {share === "plant" && (
+            <div
+              className='contacts-social-icon ms-3'
+              onClick={() => {
+                share === "page" ? handleFacebookPost() : handleFacebookPost();
+              }}
+            >
+              <FaFacebook />
+            </div>
+          )}
           {checkPlatform && (
             <div
               className='contacts-social-icon ms-3'

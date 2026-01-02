@@ -145,19 +145,17 @@ const PlantBooked = () => {
           <h2 className='section-title'>
             Piantina <span className='lower-case'>di</span> {ownerPublicInfo}
           </h2>
-          <div className='text-end'>
+          <div className='text-end d-flex justify-content-end'>
             <ShareButton share='page' />
           </div>
-          <span className='mt-3 mt-lg-5 mb-3 h5 d-flex flex-row align-items-center'>
+          <span className='mt-3 mt-lg-3 mb-3 h5 d-flex flex-row align-items-center'>
             <div className='step-title pb-2 pe-1'>
               <TiLocation />
             </div>
             Mi trovo qui!
           </span>
           <InfoCard />
-          <div className='mt-2 mt-lg-5 text-end'>
-            <ShareButton share='plant' />
-          </div>
+
           <input
             className='d-none'
             onChange={(event) => {
@@ -168,12 +166,15 @@ const PlantBooked = () => {
             name=''
             id=''
           />
-          <div className='d-flex justify-content-between mt-3'>
-            <div>
+          <div className='d-flex justify-content-between mt-2'>
+            <div className='d-flex align-items-center justify-content-start w-100'>
+              <div className='me-2'>
+                <ShareButton share='plant' />
+              </div>
               {Capacitor.isNativePlatform() && (
                 <button
                   onClick={() => updatePicMob(plantId)}
-                  className=' mb-5 btn btn-primary'
+                  className='btn btn-primary btn-small'
                 >
                   Aggiorna immagine
                 </button>
@@ -182,7 +183,7 @@ const PlantBooked = () => {
               (!Capacitor.isNativePlatform() && userId === owner_id) ? (
                 <button
                   // onClick={() => updatePlantPic(id)}
-                  className='btn btn-warning'
+                  className='btn btn-warning btn-small'
                   onClick={updatePlant}
                 >
                   Aggiorna immagine

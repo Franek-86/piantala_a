@@ -947,6 +947,7 @@ element {
   padding-left: 0;
   padding-bottom: 0;
   padding-right: 0;
+  max-width: 30rem;
 }
 .card-plant-info2 {
   --bs-card-border-radius: var(--bs-border-radius) !important;
@@ -1325,7 +1326,7 @@ element {
 }
 .contacts-social-icon {
   color: var(--clr-secondary-3);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 .contacts-location-icon {
   color: var(--clr-secondary-3);
@@ -2006,6 +2007,9 @@ body {
   top: 1.5rem;
   right: 0.2rem;
   font-size: 0.867rem;
+}
+.no-wrap {
+  white-space: nowrap;
 }
 .contacts-social-icon:hover {
   cursor: pointer;
