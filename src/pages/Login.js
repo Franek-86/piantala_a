@@ -284,7 +284,7 @@ const AuthForm = () => {
             Registrati
           </Button>
           <Google />
-          {Capacitor.isNativePlatform() && (
+          {!Capacitor.isNativePlatform && (
             <Button
               className='d-block w-100 mt-3'
               variant='primary'
