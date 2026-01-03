@@ -37,7 +37,7 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
   const handleShowFilters = () => setShowFilters(true);
   const navigate = useNavigate(); // Initialize the navigate function
   const map = useMap();
-  const { setFilters } = useContext(FilterContext);
+  const { setFilters, filters } = useContext(FilterContext);
   console.log("test1", smShow);
 
   useMapEvent("dragend", () => {
@@ -128,7 +128,11 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
               onClick={() => {
                 setFilters({ suburb: "", status: "approved" });
               }}
-              className='circle-button filter-plants-button filter-approved p-0'
+              className={
+                filters.status === "approved"
+                  ? "circle-button filter-plants-button filter-approved p-0"
+                  : "circle-button filter-plants-button p-0"
+              }
             >
               {/* <MdFilterAlt /> */}
               <img style={{ width: "1rem" }} src={iconGreen} alt='' />
@@ -138,7 +142,11 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
               onClick={() => {
                 setFilters({ suburb: "", status: "booked" });
               }}
-              className='circle-button filter-plants-button filter-booked p-0'
+              className={
+                filters.status === "booked"
+                  ? "circle-button filter-plants-button filter-booked p-0"
+                  : "circle-button filter-plants-button p-0"
+              }
             >
               {/* <MdFilterAlt /> */}
               <img style={{ width: "1rem" }} src={iconBlue} alt='' />

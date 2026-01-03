@@ -552,17 +552,17 @@ element {
 
 .circle-button.filter-plants-button {
   background-color: #fff;
-  outline: 1px solid;
+  /* outline: 1px solid; */
   /* border-color: #37708d;
   border-color: #6b8f00; */
 }
 .circle-button.filter-plants-button.filter-booked {
-  outline: 2px solid #37708d;
+  outline: 2px solid #37708d !important;
   /* border-color: #37708d;
   border-color: #6b8f00; */
 }
 .circle-button.filter-plants-button.filter-approved {
-  outline: 2px solid #6b8f00;
+  outline: 2px solid #6b8f00 !important;
 }
 
 /* bottom bar */
