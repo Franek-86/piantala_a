@@ -30,17 +30,16 @@ const Legend = () => {
                   <span className='legend-description'>geolocalizzazione</span>
                 </div>
               </li>
-              <li className='plants-list'>
+              {/* <li className='plants-list'>
                 <div className='legend-box-container'>
                   <div className='legend-image icon '>
-                    {/* <img src={greenPlant} alt='' /> */}
                     <MdFilterAlt className='legend-icon' />
                   </div>
                   <span className='legend-description'>
                     filtra risultati di ricerca
                   </span>
                 </div>
-              </li>
+              </li> */}
               <li className='plants-list'>
                 <div className='legend-box-container'>
                   <div className='legend-image icon '>
