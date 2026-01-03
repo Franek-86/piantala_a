@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 const TermsOfService = () => {
   return (
-    <section className='section-center'>
+    <section className='section-center mt-5 terms-section'>
       <h2>INFORMATIVA SULLA PRIVACY</h2>
       <p>Ultimo aggiornamento: 28 dicembre 2025</p>
       <p>

@@ -1,8 +1,9 @@
 import { MapContainer, TileLayer, useMap, Popup, Marker } from "react-leaflet";
 import L, { latLng } from "leaflet";
-import iconGreen from "./assets/images/ti pianto per amore-APP-verde.png";
+
 import iconYellow from "./assets/images/ti pianto per amore-APP-giallo.png";
 import iconRed from "./assets/images/ti pianto per amore-APP-rosso.png";
+import iconGreen from "./assets/images/ti pianto per amore-APP-verde.png";
 import iconBlue from "./assets/images/ti pianto per amore-APP-azzurro.png";
 import iconLocation from "leaflet/dist/images/marker-icon.png";
 
@@ -330,9 +331,9 @@ function Map() {
                   <div className={logReg ? "d-none" : "d-block"}>
                     <h6>Ti trovi qui!</h6>
                     <p>
-                      Segnalaci la zona di piantagione aggiungendo una piantina
-                      alla mappa oppure copia le coordinate per poterle
-                      condividere con altri utenti.
+                      Segnalaci la zona di piantagione oppure copia le
+                      coordinate per poterle condividere con altri utenti nella
+                      chat o con noi via mail.
                     </p>
                     <div className='d-flex flex-column pb-3'>
                       <Button
@@ -355,7 +356,7 @@ function Map() {
                           // navigate("/map/addPlant")
                         }
                       >
-                        Segnalaci zona
+                        Segnala zona
                       </Button>
                     </div>
                   </div>

@@ -6,7 +6,6 @@ import { MdCenterFocusStrong } from "react-icons/md";
 import { MdFilterAlt } from "react-icons/md";
 import { BiMenu } from "react-icons/bi";
 import { MdAddLocationAlt } from "react-icons/md";
-
 import FilterControls from "./FilterControls";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -18,6 +17,9 @@ import { AuthContext } from "../../context/AuthContext";
 import { UsersContext } from "../../context/UsersContext";
 import ProfileModal from "./../user-profile/ProfileModal";
 import SideMenu from "../menu/SideMenu";
+import iconGreen from "../../assets/images/ti pianto per amore-APP-verde.png";
+import iconBlue from "../../assets/images/ti pianto per amore-APP-azzurro.png";
+import { FilterContext } from "../../context/FilterContext";
 
 const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
   const { userRole, isAuthenticated } = useContext(AuthContext);
@@ -35,7 +37,7 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
   const handleShowFilters = () => setShowFilters(true);
   const navigate = useNavigate(); // Initialize the navigate function
   const map = useMap();
-
+  const { setFilters } = useContext(FilterContext);
   console.log("test1", smShow);
 
   useMapEvent("dragend", () => {
@@ -111,13 +113,38 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
             <MdAdd />
           </Link>
         )}
-        <Button
-          variant='primary'
-          onClick={handleShowFilters}
-          className='circle-button p-0'
-        >
-          <MdFilterAlt />
-        </Button>
+        {userRole === "admin" ? (
+          <Button
+            variant='primary'
+            onClick={handleShowFilters}
+            className='circle-button p-0'
+          >
+            <MdFilterAlt />
+          </Button>
+        ) : (
+          <>
+            <Button
+              variant='primary'
+              onClick={() => {
+                setFilters({ suburb: "", status: "approved" });
+              }}
+              className='circle-button filter-plants-button filter-approved p-0'
+            >
+              {/* <MdFilterAlt /> */}
+              <img style={{ width: "1rem" }} src={iconGreen} alt='' />
+            </Button>
+            <Button
+              variant='primary'
+              onClick={() => {
+                setFilters({ suburb: "", status: "booked" });
+              }}
+              className='circle-button filter-plants-button filter-booked p-0'
+            >
+              {/* <MdFilterAlt /> */}
+              <img style={{ width: "1rem" }} src={iconBlue} alt='' />
+            </Button>
+          </>
+        )}
 
         {showCenter ? (
           <Button

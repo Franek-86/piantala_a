@@ -90,9 +90,9 @@ const PlantForm = () => {
   };
   return (
     <>
-      <article ref={container} className='plant-form-article mt-3 w-100'>
+      <section ref={container} className='plant-form-article mt-3 w-100'>
         <Form onSubmit={handleSubmit(onSubmit)}>
-          <FloatingLabel
+          {/* <FloatingLabel
             controlId='formComment'
             label='Testo targa'
             className='textPlateContainer mb-3'
@@ -109,37 +109,41 @@ const PlantForm = () => {
                 essere di meno di 500 caratteri.
               </p>
             )}
-          </FloatingLabel>
+          </FloatingLabel> */}
           <span className='mt-5 mb-3 h5 d-flex flex-row align-items-center'>
             <div className='step-title pb-2 pe-1'>
               <MdPayment />
             </div>
             Infomazioni sul pagamento
           </span>
-          <p>
-            Il prezzo di una piantina è di 200 euro ed include la messa a dimora
-            dell'albero, la realizzazione e stampa della targa, la piantumazione
-            entro 6 mesi dalla richiesta e l'iscrizione all'associazione Amici
-            di Ernest Verner.
-          </p>
-          <p>
-            La tipologia di albero sarà concordata con i competenti uffici del
-            Comune e resa visibile online sia nella tua scheda di acquisto che
-            su questa stessa pagina.
-          </p>
-          <p>
-            Procedendo con il pagamento verrai reindirizzato sulla piattaforma
-            di pagamento.
-          </p>
-          <button
-            className={!logReg ? "d-block btn btn-success" : "d-none"}
-            type='submit'
-          >
-            Procedi con il pagamento
-          </button>
+          <article className='plant-payment-info'>
+            <p>
+              Il prezzo di una piantina è di 200 euro ed include la messa a
+              dimora dell'albero, la realizzazione e stampa della targa, la
+              piantumazione entro 6 mesi dalla richiesta e l'iscrizione
+              all'associazione Amici di Ernest Verner.
+            </p>
+            <p>
+              La tipologia di albero sarà concordata con i competenti uffici del
+              Comune e resa visibile online sia nella tua scheda di acquisto che
+              su questa stessa pagina.
+            </p>
+            <p>
+              Procedendo con il pagamento verrai reindirizzato sulla piattaforma
+              di pagamento.
+            </p>
+          </article>
+          <article className='plant-payment mt-3'>
+            <button
+              className={!logReg ? "d-block btn btn-success" : "d-none"}
+              type='submit'
+            >
+              Procedi con il pagamento
+            </button>
+          </article>
         </Form>
         {logReg && <LoginReg val='plant' id={plantId} />}
-      </article>
+      </section>
       {userRole === "admin" && (
         <>
           <hr />
