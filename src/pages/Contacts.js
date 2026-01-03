@@ -61,7 +61,17 @@ const Contacts = () => {
           <div className='section-center menu-section-center'>
             <article className='mb-3'>
               <h2 className='section-title'>I nostri contatti</h2>
-
+              <article className='contact-info'>
+                <p>
+                  Compilando il form in basso invierai una mail da
+                  "tipiantoperamore.it".
+                </p>
+                <p>
+                  Saremo felici di leggere ti informiamo che normalmente
+                  intercorre una settimana di tempo prima di ricevere una nostra
+                  risposta.
+                </p>
+              </article>
               <Form onSubmit={handleSubmit(onSubmit)}>
                 {/* <h5 className='mb-3'>Scrivici una mail (non attivo)</h5> */}
 
