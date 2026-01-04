@@ -284,16 +284,15 @@ const AuthForm = () => {
             Registrati
           </Button>
           <Google />
-          {!Capacitor.isNativePlatform && (
-            <Button
-              className='d-block w-100 mt-3'
-              variant='primary'
-              disabled={loading}
-              onClick={() => navigate("/")}
-            >
-              Continua senza accedere
-            </Button>
-          )}
+
+          <Button
+            className='d-block w-100 mt-3'
+            variant='primary'
+            disabled={loading}
+            onClick={() => navigate("/")}
+          >
+            Continua senza accedere
+          </Button>
         </article>
 
         <Terms />
