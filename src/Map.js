@@ -70,6 +70,7 @@ function Map() {
   const [locationMarkerTag, setLocationMarkerTag] = useState(null);
   const { plants, setPlants, getAllPlants, loading, sendValuesToAddPlant } =
     useContext(PlantsContext);
+
   const { socket } = useContext(SocketContext);
 
   const { test } = useContext(OrdersContext);
@@ -198,10 +199,8 @@ function Map() {
         {isLargeScreen && <SideBar />}
         <article className='bg-map'>
           <MapContainer
-            center={[41.104247, 16.915281]}
-            // center={[41.118778112249046, 16.871917818963464]}
-            zoom={16}
-            // zoom={13}
+            center={[41.118778112249046, 16.881917818963464]}
+            zoom={13}
             scrollWheelZoom={false}
             zoomControl={false}
           >
@@ -290,9 +289,8 @@ function Map() {
         <article className='map'>
           <MapContainer
             // center={[41.118778112249046, 16.871917818963464]}
-            // zoom={13}
-            center={[41.104247, 16.915281]}
-            zoom={17}
+            center={[41.118778112249046, 16.881917818963464]}
+            zoom={13}
             scrollWheelZoom={false}
             zoomControl={false}
           >
@@ -371,7 +369,11 @@ function Map() {
       </div>
       {!isChildRoute && <BottomBar />}
       <PermissionModal />
-      <Terms id={undefined} />
+      {logReg ? (
+        <Terms id={undefined} page='map' />
+      ) : (
+        <Terms id={undefined} page={undefined} />
+      )}
     </div>
   );
 }

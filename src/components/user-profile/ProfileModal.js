@@ -32,7 +32,7 @@ const ProfileModal = ({ smShow, setSmShow }) => {
             ? loggedUserInfo.email
             : "Per poter segnalare zone di piantagione o acquistare piantine, partecipare alla chat e tanto altro ancora ti invitiamo ad effettuare l'accesso"}
         </span>
-        <div className='profile-links mt-2 d-flex flex-row justify-content-between'>
+        <div className='profile-links mt-2 d-flex flex-row justify-content-between align-items-center'>
           {/* <Link className='d-block w-100 mb-2'>Immagine profilo</Link> */}
           <Link to={`${clientDomain}/login`} onClick={handleLogout}>
             {" "}
@@ -41,13 +41,14 @@ const ProfileModal = ({ smShow, setSmShow }) => {
           {isAuthenticated ? (
             <Link to='/profile'> Modifica profilo</Link>
           ) : (
-            <Button
+            <div
               onClick={() => {
                 googleAccess(navigate, null, null);
               }}
+              className='btn btn-link btn-link-google'
             >
               Accedi con Google
-            </Button>
+            </div>
           )}
         </div>
       </Modal.Body>

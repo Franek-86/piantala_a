@@ -372,7 +372,7 @@ export const AuthProvider = ({ children }) => {
           localStorage.setItem("booked-plant", JSON.stringify(data));
           navigate("/checkout");
         } else if (page === "map") {
-          navigate("/addPlant");
+          navigate("/map/addPlant");
         } else {
           navigate("/map");
         }

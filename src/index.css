@@ -1309,14 +1309,16 @@ element {
 /* profile modal */
 .profile-modal .modal-dialog {
   position: relative;
-  width: 70vw;
+  width: 80vw;
   margin: var(--bs-modal-margin);
   pointer-events: none;
   margin-left: auto;
   margin-right: 1.6rem;
   margin-top: 5rem;
 }
-
+.btn-link-google {
+  color: var(--clr-secondary-3);
+}
 @media screen and (min-width: 576px) {
   .profile-modal .modal-dialog {
     max-width: var(--bs-modal-width);

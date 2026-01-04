@@ -9,7 +9,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaLess } from "react-icons/fa";
 import { useEffect } from "react";
 
-const Terms = ({ id }) => {
+const Terms = ({ id, page }) => {
   const navigate = useNavigate();
   const {
     showTerms,
@@ -34,7 +34,7 @@ const Terms = ({ id }) => {
     const terms = e.terms;
     if (terms === true) {
       setShowTerms(false);
-      googleAfterTerms(navigate, id, terms);
+      googleAfterTerms(navigate, id, page);
     }
     // if (!test) {
     //   setError("ciao");

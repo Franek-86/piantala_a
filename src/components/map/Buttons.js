@@ -22,7 +22,7 @@ import iconBlue from "../../assets/images/ti pianto per amore-APP-azzurro.png";
 import { FilterContext } from "../../context/FilterContext";
 
 const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
-  const { userRole, isAuthenticated } = useContext(AuthContext);
+  const { userRole, isAuthenticated, showTerms } = useContext(AuthContext);
   const { loggedUserInfo } = useContext(UsersContext);
   const { pic } = loggedUserInfo;
   console.log("asdf", position);
@@ -46,7 +46,7 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
   return (
     <div className='section buttons-section'>
       {locationLoading && <Loading />}
-      {<ProfileModal smShow={smShow} setSmShow={setSmShow} />}
+      {!showTerms && <ProfileModal smShow={smShow} setSmShow={setSmShow} />}
       <div className='leftButton d-lg-none'>
         {/* <div className='test1'>
           <img src={logo} alt='' className='map-logo' />
@@ -155,8 +155,8 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
         {showCenter ? (
           <Button
             onClick={() => {
-              map.flyTo([41.104247, 16.915281], 17);
               // map.flyTo([41.118778112249046, 16.871917818963464], 13);
+              map.flyTo([41.118778112249046, 16.881917818963464], 13);
               setShowCenter(false);
             }}
             className='circle-button p-0 '
