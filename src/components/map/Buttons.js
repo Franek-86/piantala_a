@@ -61,18 +61,16 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
         </Button>
       </div>
       <div className='rightButtons'>
-        {isAuthenticated && (
-          <Avatar
-            src={pic}
-            size='3rem'
-            round='50%'
-            // src='https://example.com/user-avatar.jpg'
-            className='avatar'
-            fgColor='#0e722d'
-            name={loggedUserInfo.userName}
-            onClick={() => setSmShow(true)}
-          />
-        )}
+        <Avatar
+          src={pic}
+          size='3rem'
+          round='50%'
+          // src='https://example.com/user-avatar.jpg'
+          className='avatar'
+          fgColor='#0e722d'
+          name={isAuthenticated ? loggedUserInfo.userName : null}
+          onClick={() => setSmShow(true)}
+        />
 
         <Button
           onClick={() => {

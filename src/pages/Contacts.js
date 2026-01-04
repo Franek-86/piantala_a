@@ -61,7 +61,7 @@ const Contacts = () => {
           <div className='section-center menu-section-center mb-3'>
             <h2 className='section-title'>I nostri contatti</h2>
             <section className='contacts-form-section d-flex flex-column flex-lg-row flex-lg-row-reverse'>
-              <article className='contact-info w-100 p-lg-3 p-xl-5'>
+              <article className='contact-info w-100 p-lg-3 p-xl-4'>
                 <h4>Hai domande?</h4>
                 <p>
                   Per entrare in contatto con noi ti invitiamo a compilare il
@@ -75,7 +75,7 @@ const Contacts = () => {
                 </p>
                 <p>Non esitare a contattarci!</p>
               </article>
-              <article className='contact-form w-100 p-lg-3 p-xl-5'>
+              <article className='contact-form w-100 p-lg-3 p-xl-4'>
                 <Form onSubmit={handleSubmit(onSubmit)}>
                   {/* <h5 className='mb-3'>Scrivici una mail (non attivo)</h5> */}
 
