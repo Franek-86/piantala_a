@@ -25,7 +25,6 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
   const { userRole, isAuthenticated, showTerms } = useContext(AuthContext);
   const { loggedUserInfo } = useContext(UsersContext);
   const { pic } = loggedUserInfo;
-  console.log("asdf", position);
   const [locationLoading, setLocationLoading] = useState(false);
   const [showCenter, setShowCenter] = useState(null);
   const [show, setShow] = useState(false);
@@ -38,7 +37,6 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
   const navigate = useNavigate(); // Initialize the navigate function
   const map = useMap();
   const { setFilters, filters } = useContext(FilterContext);
-  console.log("test1", smShow);
 
   useMapEvent("dragend", () => {
     setShowCenter(true);
@@ -74,7 +72,6 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
 
         <Button
           onClick={() => {
-            console.log("sta");
             setLocationLoading(true);
 
             if (map) {
