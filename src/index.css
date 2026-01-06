@@ -601,6 +601,9 @@ element {
   cursor: pointer;
 }
 
+.leaflet-popup-close-button {
+  display: none;
+}
 /* add plant button */
 .circle-button {
   display: flex;

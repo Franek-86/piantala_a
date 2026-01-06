@@ -273,9 +273,6 @@ function Map() {
             )} */}
           </MapContainer>
         </article>
-        {/* <article className='bottom-bar'>
-        <BottomBar />
-      </article> */}
         <Outlet />
       </div>
     );
@@ -329,13 +326,13 @@ function Map() {
                   <div className={logReg ? "d-none" : "d-block"}>
                     <h6>Ti trovi qui!</h6>
                     <p>
-                      Segnalaci la zona di piantagione oppure copia le
-                      coordinate per poterle condividere con altri utenti nella
-                      chat o con noi via mail.
+                      Segnalaci questa zona di piantagione, copia le coordinate
+                      per condividerle con noi o controlla se ci sono già zone
+                      di piantagione disponibili nelle tue vicinanze.
                     </p>
                     <div className='d-flex flex-column pb-3'>
                       <Button
-                        className='mb-2'
+                        className='mb-2 btn-small'
                         onClick={() =>
                           copyToClipboard([`${position.lat},${position.lng}`])
                         }
@@ -344,6 +341,7 @@ function Map() {
                       </Button>
 
                       <Button
+                        className='mb-2 btn-small'
                         onClick={
                           () =>
                             sendValuesToAddPlant(
@@ -355,6 +353,14 @@ function Map() {
                         }
                       >
                         Segnala zona
+                      </Button>
+                      <Button
+                        className='btn-small'
+                        onClick={() => {
+                          setPosition(null);
+                        }}
+                      >
+                        Chiudi
                       </Button>
                     </div>
                   </div>

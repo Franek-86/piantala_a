@@ -125,6 +125,7 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
               variant='primary'
               onClick={() => {
                 setFilters({ suburb: "", status: "approved" });
+                setPosition(null);
               }}
               className={
                 filters.status === "approved"
@@ -139,6 +140,7 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
               variant='primary'
               onClick={() => {
                 setFilters({ suburb: "", status: "booked" });
+                setPosition(null);
               }}
               className={
                 filters.status === "booked"
