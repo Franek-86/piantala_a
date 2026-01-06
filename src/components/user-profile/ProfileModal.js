@@ -30,7 +30,7 @@ const ProfileModal = ({ smShow, setSmShow }) => {
           {" "}
           {isAuthenticated
             ? loggedUserInfo.email
-            : "Per poter segnalare zone di piantagione o acquistare piantine, partecipare alla chat e tanto altro ancora ti invitiamo ad effettuare l'accesso"}
+            : "Per poter segnalare zone di piantagione o acquistare piantine, partecipare alla chat e tanto altro ancora ti invitiamo ad effettuare l'accesso."}
         </span>
         <div className='profile-links mt-2 d-flex flex-row justify-content-between align-items-center'>
           {/* <Link className='d-block w-100 mb-2'>Immagine profilo</Link> */}
