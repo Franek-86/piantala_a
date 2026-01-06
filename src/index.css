@@ -2092,3 +2092,21 @@ body {
 .terms-section h3 {
   text-transform: uppercase;
 }
+/* zoom */
+.leaflet-control-zoom.leaflet-bar.leaflet-control {
+  display: none;
+}
+.leaflet-control-zoom a {
+  color: var(--clr-secondary-3);
+}
+.leaflet-touch .leaflet-bar {
+  border: 2px solid var(--clr-primary-5);
+  background-clip: padding-box;
+}
+@media screen and (min-width: 992px) {
+  .leaflet-control-zoom.leaflet-bar.leaflet-control {
+    margin-left: 21rem;
+    display: block;
+    margin-top: 7rem;
+  }
+}

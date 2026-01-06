@@ -289,7 +289,7 @@ function Map() {
             center={[41.118778112249046, 16.881917818963464]}
             zoom={13}
             scrollWheelZoom={false}
-            zoomControl={false}
+            zoomControl={true}
           >
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
