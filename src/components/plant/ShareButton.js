@@ -15,10 +15,10 @@ import { copyToClipboard } from "../../utils/utils";
 import { useParams } from "react-router-dom";
 import { Capacitor } from "@capacitor/core";
 
-const ShareButton = ({ share }) => {
-  const {
-    plant: { image_url },
-  } = useContext(PlantsContext);
+const ShareButton = () => {
+  // const {
+  //   plant: { image_url },
+  // } = useContext(PlantsContext);
   const base =
     process.env.REACT_APP_NODE_ENV === "test"
       ? "http://localhost:3000"
@@ -31,26 +31,11 @@ const ShareButton = ({ share }) => {
   const pageUrl = `${base}/map/${plantId}`;
   console.log("qui", pageUrl);
 
-  // image
-  const handleWhatsAppShare = () => {
-    window.open(`https://wa.me/?text=${image_url}`, "_blank");
-  };
-
-  const handleMessengerShare = () => {
-    window.open(`fb-messenger://share/?link=${image_url}`, "_blank");
-  };
-  const handleFacebookPost = () => {
+  const handleFacebookPagePost = () => {
     window.open(
-      `https://facebook.com/sharer/sharer.php?u=${image_url}`,
+      `https://www.facebook.com/dialog/share?app_id=1558542848644058&display=popup&href=${pageUrl}&redirect_uri=${pageUrl}`,
       "_blank"
     );
-  };
-  const handleCopy = () => {
-    copyToClipboard(image_url, "noalert");
-    setIsCopied(true);
-    setTimeout(() => {
-      setIsCopied(false);
-    }, 1500);
   };
 
   // page
@@ -68,13 +53,7 @@ const ShareButton = ({ share }) => {
       setIsCopied(false);
     }, 1500);
   };
-  const handleImageCopy = () => {
-    copyToClipboard(image_url, "noalert");
-    setIsCopied(true);
-    setTimeout(() => {
-      setIsCopied(false);
-    }, 1500);
-  };
+
   return (
     <div className='d-flex align-items-center'>
       <div
@@ -83,39 +62,34 @@ const ShareButton = ({ share }) => {
           setShareNow(!shareNow);
         }}
       >
-        Condividi {share === "page" ? "pagina   " : "foto   "}
-        {""}
-        <FaShare />
+        Condividi pagina
+        <FaShare className='ms-1' />
       </div>
       {shareNow && (
         <section className='d-flex w-50 ps-2'>
           <div
             className='contacts-social-icon'
             onClick={() => {
-              share === "page"
-                ? handleWhatsAppPageShare()
-                : handleWhatsAppShare();
+              handleWhatsAppPageShare();
             }}
           >
             <FaWhatsapp />
           </div>
-          {share === "plant" && (
-            <div
-              className='contacts-social-icon ms-3'
-              onClick={() => {
-                share === "page" ? handleFacebookPost() : handleFacebookPost();
-              }}
-            >
-              <FaFacebook />
-            </div>
-          )}
+
+          <div
+            className='contacts-social-icon ms-3'
+            onClick={() => {
+              handleFacebookPagePost();
+            }}
+          >
+            <FaFacebook />
+          </div>
+
           {checkPlatform && (
             <div
               className='contacts-social-icon ms-3'
               onClick={() => {
-                share === "page"
-                  ? handleMessengerPageShare()
-                  : handleMessengerShare();
+                handleMessengerPageShare();
               }}
             >
               <FaFacebookMessenger />
@@ -123,9 +97,7 @@ const ShareButton = ({ share }) => {
           )}
           <div
             className='contacts-social-icon ms-3 position-relative'
-            onClick={() => {
-              share === "page" ? handlePageCopy() : handleImageCopy();
-            }}
+            onClick={() => handlePageCopy()}
           >
             {isCopied && (
               <small className='fst-italic mt-3  position-absolute copiato'>

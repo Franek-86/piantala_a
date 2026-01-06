@@ -146,7 +146,7 @@ const PlantBooked = () => {
             Piantina <span className='lower-case'>di</span> {ownerPublicInfo}
           </h2>
           <div className='text-end d-flex justify-content-end'>
-            <ShareButton share='page' />
+            <ShareButton />
           </div>
           <span className='mt-3 mt-lg-3 mb-3 h5 d-flex flex-row align-items-center'>
             <div className='step-title pb-2 pe-1'>
@@ -167,10 +167,10 @@ const PlantBooked = () => {
             id=''
           />
           <div className='d-flex justify-content-between mt-2'>
-            <div className='d-flex align-items-center justify-content-start w-100'>
-              <div className='me-2'>
+            <div className='d-flex align-items-center justify-content-start w-100 justify-content-end'>
+              {/* <div className='me-2'>
                 <ShareButton share='plant' />
-              </div>
+              </div> */}
               {Capacitor.isNativePlatform() && (
                 <button
                   onClick={() => updatePicMob(plantId)}

@@ -1312,7 +1312,7 @@ element {
 /* profile modal */
 .profile-modal .modal-dialog {
   position: relative;
-  width: 80vw;
+  width: 90vw;
   margin: var(--bs-modal-margin);
   pointer-events: none;
   margin-left: auto;
