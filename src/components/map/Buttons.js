@@ -69,36 +69,6 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
           name={isAuthenticated ? loggedUserInfo.userName : null}
           onClick={() => setSmShow(true)}
         />
-
-        <Button
-          onClick={() => {
-            setLocationLoading(true);
-
-            if (map) {
-              map
-                .locate({ timeout: 15000, enableHighAccuracy: true })
-                .on("locationfound", function (e) {
-                  // setPosition(e.latlng);
-                  map.flyTo(e.latlng, 17);
-                  setPosition({
-                    lat: e.latlng.lat,
-                    lng: e.latlng.lng,
-                  });
-                  setLocationLoading(false);
-                  setShowCenter(true);
-                })
-                .on("locationerror", function (err) {
-                  console.log("location error", err);
-                });
-            }
-            if (!map) {
-              console.log("non sta la mappa");
-            }
-          }}
-          className='circle-button p-0'
-        >
-          <MdAddLocationAlt />
-        </Button>
         {userRole === "admin" && (
           <Link
             className='circle-button add-plant-manual'
@@ -150,7 +120,35 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
             </Button>
           </>
         )}
+        <Button
+          onClick={() => {
+            setLocationLoading(true);
 
+            if (map) {
+              map
+                .locate({ timeout: 15000, enableHighAccuracy: true })
+                .on("locationfound", function (e) {
+                  // setPosition(e.latlng);
+                  map.flyTo(e.latlng, 17);
+                  setPosition({
+                    lat: e.latlng.lat,
+                    lng: e.latlng.lng,
+                  });
+                  setLocationLoading(false);
+                  setShowCenter(true);
+                })
+                .on("locationerror", function (err) {
+                  console.log("location error", err);
+                });
+            }
+            if (!map) {
+              console.log("non sta la mappa");
+            }
+          }}
+          className='circle-button report-btn p-0'
+        >
+          <MdAddLocationAlt />
+        </Button>
         {showCenter ? (
           <Button
             onClick={() => {
@@ -158,7 +156,7 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
               map.flyTo([41.118778112249046, 16.881917818963464], 13);
               setShowCenter(false);
             }}
-            className='circle-button p-0 '
+            className='circle-button center-btn p-0 '
           >
             <MdCenterFocusStrong />
           </Button>

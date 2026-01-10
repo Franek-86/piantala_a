@@ -15,17 +15,19 @@ import { UsersContext } from "../context/UsersContext";
 import OperationsModal from "../components/users/OperationsModal";
 import useIsLargeScreen from "../utils/useIsLargeScreen";
 import SideBar from "../components/menu/SideBar";
+import useScrollDirection from "../utils/useScrollDirection";
+
 const Users = () => {
   const isLargeScreen = useIsLargeScreen();
   const [modalOperationsShow, setModalOperationsShow] = useState(false);
-
+  const direction = useScrollDirection();
   const handleClose = () => setModalOperationsShow(false);
   const handleShow = () => setModalOperationsShow(true);
   const navigate = useNavigate();
   const backToMap = () => {
     navigate("/map");
   };
-
+  console.log("test", direction);
   const {
     // allUsers,
     // getAllUsers,
@@ -44,7 +46,7 @@ const Users = () => {
     loggedUserInfo: { pic },
     loading: userLoading,
   } = useContext(UsersContext);
-  console.log("test123", getAllUsers);
+
   // useEffect(() => {
   //   getAllUsers();
   // }, [userInfo.status, userInfo.role]);
@@ -53,10 +55,16 @@ const Users = () => {
   }, [userInfo]);
 
   return (
-    <div className='d-flex flex-row'>
+    <div className='d-flex flex-row section-background '>
       {isLargeScreen && <SideBar />}
-      <section className='section-page section-background section-full-page section-users section-large page-large-container'>
-        <div className='back-container'>
+      <section className='section-page section-full-page section-users section-large page-large-container'>
+        <div
+          className={
+            direction === "down"
+              ? "back-nav back-nav-menu hide pe-3"
+              : "back-nav back-nav-menu pe-3"
+          }
+        >
           <div className='back-btn'>
             <MdBackspace
               onClick={() => {
@@ -91,7 +99,7 @@ const Users = () => {
                           status,
                           pic,
                         } = i;
-                        console.log("qui", i);
+
                         return (
                           <ListGroup.Item className='mt-2 p-0'>
                             <div className='d-flex'>
