@@ -9,6 +9,7 @@ import useIsLargeScreen from "../utils/useIsLargeScreen";
 import SideBar from "../components/menu/SideBar";
 import { AuthContext } from "../context/AuthContext";
 import { Alert } from "react-bootstrap";
+import BackBtn from "../components/menu/BackBtn";
 
 const Chat = () => {
   const { userId, isAuthenticated } = useContext(AuthContext);
@@ -25,18 +26,9 @@ const Chat = () => {
     <div className='d-flex flex-row'>
       {isLargeScreen && <SideBar />}
       <section className='section-page section-background section-orders section-large page-large-container section-chat'>
-        <div className='back-container'>
-          <div className='back-btn'>
-            <MdBackspace
-              onClick={() => {
-                backToMap();
-              }}
-            />
-          </div>
-        </div>
-
+        <BackBtn />
         <div className='section-center'>
-          <section className='section-background pb-0'>
+          <section className='pb-0'>
             <div className='section-center'>
               <h2 className='section-title' style={{ "padding-top": "4rem" }}>
                 Chat aperta

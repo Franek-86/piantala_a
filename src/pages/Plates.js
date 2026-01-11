@@ -6,9 +6,9 @@ import { MdBackspace } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import Fancybox from "../components/plates/Fancybox";
 import Slider from "react-slick";
-
 import useIsLargeScreen from "../utils/useIsLargeScreen";
 import SideBar from "../components/menu/SideBar";
+import BackBtn from "../components/menu/BackBtn";
 const Plates = () => {
   const { getAllPlants, plates } = useContext(PlantsContext);
 
@@ -49,17 +49,9 @@ const Plates = () => {
     <div className='d-flex flex-row'>
       {isLargeScreen && <SideBar />}
       <section className='section-page section-background section-full-page section-users section-large section-plates page-large-container'>
-        <div className='back-container'>
-          <div className='back-btn'>
-            <MdBackspace
-              onClick={() => {
-                backToMap();
-              }}
-            />
-          </div>
-        </div>
+        <BackBtn />
         <div className='section-center'>
-          <section className='section-page section-background'>
+          <section className='section-page'>
             <div className='section-center menu-section-center'>
               <h2 className='section-title'>Le vostre targhe</h2>
               {plates?.length === 0 && (

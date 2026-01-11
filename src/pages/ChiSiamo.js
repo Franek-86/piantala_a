@@ -7,6 +7,8 @@ import SideBar from "../components/menu/SideBar";
 import logoBari from "../assets/images/layout_set_logo.png";
 import donaBari from "../assets/images/donalogo.jpg";
 import logoVerner from "../assets/images/logoverner.jpg";
+import BackBtn from "../components/menu/BackBtn";
+
 const ChiSiamo = () => {
   const navigate = useNavigate();
   const isLargeScreen = useIsLargeScreen();
@@ -17,15 +19,7 @@ const ChiSiamo = () => {
     <div className='d-flex flex-row'>
       {isLargeScreen && <SideBar />}
       <section className='section-page section-full-page  section-background section-large page-large-container'>
-        <div className='back-container'>
-          <div className='back-btn'>
-            <MdBackspace
-              onClick={() => {
-                backToMap();
-              }}
-            />
-          </div>
-        </div>
+        <BackBtn />
         <article className='chi-article section-center menu-section-center pb-lg-5'>
           <h2 className='section-title'>Chi siamo</h2>
           <p>

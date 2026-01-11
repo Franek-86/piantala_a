@@ -12,6 +12,8 @@ import { FaRegEye } from "react-icons/fa";
 import OrderModal from "../components/orders/OrderModal";
 import useIsLargeScreen from "../utils/useIsLargeScreen";
 import SideBar from "../components/menu/SideBar";
+import BackBtn from "../components/menu/BackBtn";
+
 const Orders = () => {
   const {
     getAllOrders,
@@ -42,15 +44,7 @@ const Orders = () => {
       {loading && <Loading />}
       {isLargeScreen && <SideBar />}
       <section className='section-page section-background section-full-page section-orders section-large page-large-container'>
-        <div className='back-container'>
-          <div className='back-btn'>
-            <MdBackspace
-              onClick={() => {
-                backToMap();
-              }}
-            />
-          </div>
-        </div>
+        <BackBtn />
         <div className='section-center menu-section-center'>
           <h2 className='section-title'>Ordini</h2>
           <Table size='sm' striped hover>

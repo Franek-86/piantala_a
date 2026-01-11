@@ -18,6 +18,7 @@ import Loading from "./Loading";
 import { UsersContext } from "../context/UsersContext";
 import useIsLargeScreen from "../utils/useIsLargeScreen";
 import SideBar from "../components/menu/SideBar";
+import BackBtn from "../components/menu/BackBtn";
 
 const Contacts = () => {
   const navigate = useNavigate();
@@ -46,21 +47,13 @@ const Contacts = () => {
     <div className='d-flex flex-row'>
       {isLargeScreen && <SideBar />}
       <div className='section-page section-background section-full-page section-orders section-large page-large-container'>
-        <div className='back-container'>
-          <div className='back-btn'>
-            <MdBackspace
-              onClick={() => {
-                backToMap();
-              }}
-            />
-          </div>
-        </div>
+        <BackBtn />
         {loading && <Loading />}
 
-        <section className='section-page section-background'>
+        <section className='section-page'>
           <div className='section-center menu-section-center mb-3'>
             <h2 className='section-title'>I nostri contatti</h2>
-            <section className='contacts-form-section d-flex flex-column flex-lg-row flex-lg-row-reverse'>
+            <section className='contacts-form-section d-flex flex-column flex-lg-row flex-lg-row-reverse p-xl-5'>
               <article className='contact-info w-100 p-lg-3 p-xl-4'>
                 <h4>Hai domande?</h4>
                 <p>
@@ -138,18 +131,24 @@ const Contacts = () => {
             </section>
 
             <hr />
-            <section className='contact-info-section my-3'>
-              <div className='contacts-location mb-3 d-flex align-items-center'>
-                <span className='contacts-location-icon pe-3'>
+            <section className='contact-info-section my-3 d-flex flex-column flex-xl-row p-xl-5 justify-content-between'>
+              <div className='contacts-location mb-3 d-flex align-items-center d-flex flex-column'>
+                <span className='contacts-location-icon pe-3 pe-xl-0 pb-3'>
                   <IoLocationSharp />{" "}
                 </span>
                 <span> contrada gravinella, 60 Fasano</span>
               </div>
-              <div className='contacts-email mb-3 d-flex align-items-center'>
-                <span className='contacts-location-icon pe-3'>
+              <div className='contacts-email mb-3 d-flex align-items-center d-flex flex-column'>
+                <span className='contacts-location-icon pe-3 pe-xl-0 pb-3'>
                   <MdEmail />
                 </span>
                 <span> tipiantoperamore@gmail.com </span>
+              </div>
+              <div className='contacts-email mb-3 d-flex align-items-center d-flex flex-column'>
+                <span className='contacts-location-icon pe-3 pe-xl-0 pb-3'>
+                  <MdLocalPhone />
+                </span>
+                <span>+39 3485384563</span>
               </div>
               {/* <div className='contacts-phone mb-3 d-flex align-items-center'>
               <span className='contacts-location-icon pe-3'>
@@ -159,7 +158,7 @@ const Contacts = () => {
             </div> */}
             </section>
             <hr />
-            <section className='contact-social-section d-flex align-items-center mt-3'>
+            <section className='contact-social-section d-flex align-items-center mt-3 p-xl-5'>
               <span className='text-center'>Seguici sui nostri canali</span>
               <div className='contacts-socials-container'>
                 <div className='social-icons-center d-flex justify-content-around align-items-center w-75'>

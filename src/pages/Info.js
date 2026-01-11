@@ -9,6 +9,8 @@ import Tab from "react-bootstrap/Tab";
 import useIsLargeScreen from "../utils/useIsLargeScreen";
 import SideBar from "../components/menu/SideBar";
 import Tabs from "react-bootstrap/Tabs";
+import BackBtn from "../components/menu/BackBtn";
+
 const Info = () => {
   const navigate = useNavigate();
   const isLargeScreen = useIsLargeScreen();
@@ -19,15 +21,7 @@ const Info = () => {
     <div className='d-flex flex-row'>
       {isLargeScreen && <SideBar />}
       <section className='section-page section-background section-large page-large-container'>
-        <div className='back-container'>
-          <div className='back-btn'>
-            <MdBackspace
-              onClick={() => {
-                backToMap();
-              }}
-            />
-          </div>
-        </div>
+        <BackBtn />
         <article className='info-article section-center menu-section-center section-info'>
           <h2 className='section-title'>Informazioni</h2>
 

@@ -1355,7 +1355,7 @@ element {
 }
 .contacts-location-icon {
   color: var(--clr-secondary-3);
-  font-size: 2rem;
+  font-size: 3.5rem;
 }
 
 /* error page */
@@ -2125,7 +2125,7 @@ body {
 }
 .back-nav {
   display: flex;
-  height: 3.5rem;
+  height: 4rem;
   align-items: center;
   position: sticky;
   top: 0;
@@ -2134,9 +2134,10 @@ body {
   border-bottom: 2px solid var(--clr-primary-5);
   justify-content: space-between;
   padding: 0 1rem;
+  cursor: pointer;
 }
 .back-nav.hide {
-  top: -3.5rem;
+  top: -4rem;
 }
 @media screen and (min-width: 992px) {
   .back-nav {
