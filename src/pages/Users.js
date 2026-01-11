@@ -15,19 +15,19 @@ import { UsersContext } from "../context/UsersContext";
 import OperationsModal from "../components/users/OperationsModal";
 import useIsLargeScreen from "../utils/useIsLargeScreen";
 import SideBar from "../components/menu/SideBar";
-import useScrollDirection from "../utils/useScrollDirection";
+import BackBtn from "../components/menu/BackBtn";
 
 const Users = () => {
   const isLargeScreen = useIsLargeScreen();
   const [modalOperationsShow, setModalOperationsShow] = useState(false);
-  const direction = useScrollDirection();
+
   const handleClose = () => setModalOperationsShow(false);
   const handleShow = () => setModalOperationsShow(true);
   const navigate = useNavigate();
   const backToMap = () => {
     navigate("/map");
   };
-  console.log("test", direction);
+
   const {
     // allUsers,
     // getAllUsers,
@@ -58,21 +58,7 @@ const Users = () => {
     <div className='d-flex flex-row section-background '>
       {isLargeScreen && <SideBar />}
       <section className='section-page section-full-page section-users section-large page-large-container'>
-        <div
-          className={
-            direction === "down"
-              ? "back-nav back-nav-menu hide pe-3"
-              : "back-nav back-nav-menu pe-3"
-          }
-        >
-          <div className='back-btn'>
-            <MdBackspace
-              onClick={() => {
-                backToMap();
-              }}
-            />
-          </div>
-        </div>
+        <BackBtn />
         <div className='section-center'>
           <section className=''>
             <div className='section-center'>
