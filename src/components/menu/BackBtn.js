@@ -16,9 +16,9 @@ const BackBtn = () => {
     if (direction === "down" && !app) {
       return "back-nav hide";
     } else if (direction === "down" && app) {
-      return "back-nav mt-3 hide";
+      return "back-nav hide";
     } else if (direction !== "down" && app) {
-      return "back-nav mt-3";
+      return "back-nav";
     } else if (direction !== "down" && !app) {
       return "back-nav";
     }

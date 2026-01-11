@@ -2121,11 +2121,11 @@ body {
 }
 .back-nav-btn {
   color: var(--clr-primary-5);
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 .back-nav {
   display: flex;
-  height: 2.5rem;
+  height: 3.5rem;
   align-items: center;
   position: sticky;
   top: 0;
@@ -2136,7 +2136,7 @@ body {
   padding: 0 1rem;
 }
 .back-nav.hide {
-  top: -2.5rem;
+  top: -3.5rem;
 }
 @media screen and (min-width: 992px) {
   .back-nav {
