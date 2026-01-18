@@ -876,7 +876,7 @@ element {
     /* height: 30vh; */
     display: flex;
     align-items: center;
-    background: #d5e8eb;
+    background: #f0f1f19a;
     border: 1px solid var(--clr-primary-5);
     border-radius: 5px;
   }
