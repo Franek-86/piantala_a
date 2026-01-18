@@ -127,7 +127,7 @@ const PlantApproved = () => {
             id='location'
             className='mt-3 mt-lg-5 section-center section-plant-position'
           >
-            <span className='pt-3 mb-3 h5 d-flex flex-row align-items-center'>
+            <span className='pt-5 mb-3 h5 d-flex flex-row align-items-center'>
               <div className='step-title pb-2 pe-1'>
                 <TiLocation />
               </div>
@@ -159,7 +159,7 @@ const PlantApproved = () => {
             className='mt-3 mt-lg-5 section-plant-plate plate-background'
           >
             <div className='section-center section-plant'>
-              <span className='pt-3 mb-3 h5 d-flex flex-row align-items-center'>
+              <span className='pt-5 mb-3 h5 d-flex flex-row align-items-center'>
                 <div className='step-title pb-2 pe-1'>
                   <BsVectorPen />
                 </div>
