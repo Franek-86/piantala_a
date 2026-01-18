@@ -125,7 +125,7 @@ const PlantApproved = () => {
           </section>
           <section
             id='location'
-            className='mt-2 mt-lg-5 section-center section-plant-position'
+            className='mt-3 mt-lg-5 section-center section-plant-position'
           >
             <span className='pt-3 mb-3 h5 d-flex flex-row align-items-center'>
               <div className='step-title pb-2 pe-1'>
@@ -141,8 +141,8 @@ const PlantApproved = () => {
               i nostri riferimenti sono nella nostra{" "}
               <Alert.Link target='_blank' href='/contacts'>
                 pagina contatti
-              </Alert.Link>{" "}
-              trovi tutti i nostri rifermenti.
+              </Alert.Link>
+              .{" "}
             </Alert>
             <article className=' mt-5 d-flex btn-plant-article  justify-content-center'>
               <a
@@ -156,7 +156,7 @@ const PlantApproved = () => {
           </section>
           <section
             id='plate'
-            className='mt-2 mt-lg-5 section-plant-plate plate-background'
+            className='mt-3 mt-lg-5 section-plant-plate plate-background'
           >
             <div className='section-center section-plant'>
               <span className='pt-3 mb-3 h5 d-flex flex-row align-items-center'>

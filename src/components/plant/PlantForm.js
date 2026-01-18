@@ -93,7 +93,7 @@ const PlantForm = () => {
       <section
         id='payment'
         ref={container}
-        className='mt-2 mt-lg-5 section-plant-form section-center section-plant'
+        className='mt-3 mt-lg-5 section-plant-form section-center section-plant'
       >
         <Form onSubmit={handleSubmit(onSubmit)}>
           <span className='mt-5 pt-3 h5 d-flex flex-row align-items-center'>
