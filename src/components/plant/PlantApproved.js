@@ -136,9 +136,9 @@ const PlantApproved = () => {
             <InfoCard />
             <Alert className='mt-5' variant='info'>
               Per qualsiasi ulteriore informazione ti invitiamo a contattarci,
-              tutti i nostri riferimenti sono nella{" "}
+              tutti i nostri riferimenti sono nella pagina{" "}
               <Alert.Link target='_blank' href='/contacts'>
-                pagina "Contatti"
+                "Contatti"
               </Alert.Link>
               .{" "}
             </Alert>
@@ -216,7 +216,7 @@ const PlantApproved = () => {
                   href='#payment'
                   className='btn btn-primary d-flex align-items-center justify-content-between'
                 >
-                  <span className='pe-2'>Vai al pagamento</span>
+                  <span className='pe-2'>Informazioni sul pagamento</span>
                   <FaArrowDown />
                 </a>
               </article>
