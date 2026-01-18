@@ -135,10 +135,8 @@ const PlantApproved = () => {
             </span>
             <InfoCard />
             <Alert className='mt-5' variant='info'>
-              Verifica se questa posizione si trova nelle tue vicinanze o se è
-              nelle vicinanze di chi dovrà prendersi cura della piantina. Per
-              qualsiasi ulteriore informazione ti invitiamo a contattarci, tutti
-              i nostri riferimenti sono nella nostra{" "}
+              Per qualsiasi ulteriore informazione ti invitiamo a contattarci,
+              tutti i nostri riferimenti sono nella nostra{" "}
               <Alert.Link target='_blank' href='/contacts'>
                 pagina contatti
               </Alert.Link>
