@@ -90,27 +90,13 @@ const PlantForm = () => {
   };
   return (
     <>
-      <section ref={container} className='plant-form-article mt-3 w-100'>
+      <section
+        id='payment'
+        ref={container}
+        className='mt-2 mt-lg-5 section-plant-form section-center section-plant'
+      >
         <Form onSubmit={handleSubmit(onSubmit)}>
-          {/* <FloatingLabel
-            controlId='formComment'
-            label='Testo targa'
-            className='textPlateContainer mb-3'
-          >
-            <Form.Control
-              className='textPlate'
-              as='textarea'
-              rows={3}
-              {...register("comment", { required: true, maxLength: 500 })}
-            />
-            {errors.comment && (
-              <p className='text-danger'>
-                È necessario un testo da inserire nella targa, il testo deve
-                essere di meno di 500 caratteri.
-              </p>
-            )}
-          </FloatingLabel> */}
-          <span className='mt-5 mb-3 h5 d-flex flex-row align-items-center'>
+          <span className='mt-5 pt-3 h5 d-flex flex-row align-items-center'>
             <div className='step-title pb-2 pe-1'>
               <MdPayment />
             </div>
@@ -118,8 +104,8 @@ const PlantForm = () => {
           </span>
           <article className='plant-payment-info'>
             <p>
-              Il prezzo di una piantina è di 200 euro ed include la messa a
-              dimora dell'albero, la realizzazione e stampa della targa, la
+              Il prezzo di una piantina è di <b>200 euro</b> ed include la messa
+              a dimora dell'albero, la realizzazione e stampa della targa, la
               piantumazione entro 6 mesi dalla richiesta e l'iscrizione
               all'associazione Amici di Ernest Verner.
             </p>
@@ -133,7 +119,7 @@ const PlantForm = () => {
               di pagamento.
             </p>
           </article>
-          <article className='plant-payment mt-3'>
+          <article className='plant-payment mt-5 d-flex justify-content-center'>
             <button
               className={!logReg ? "d-block btn btn-success" : "d-none"}
               type='submit'
