@@ -876,14 +876,14 @@ element {
     /* height: 30vh; */
     display: flex;
     align-items: center;
-    background: #f0f1f19a;
+    background: #d5e8eb;
     border: 1px solid var(--clr-primary-5);
     border-radius: 5px;
   }
 }
 @media screen and (max-width: 992px) {
   .plate-background {
-    background-color: var(--clr-primary-1);
+    background-color: #e3edef;
   }
 }
 

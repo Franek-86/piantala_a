@@ -136,9 +136,9 @@ const PlantApproved = () => {
             <InfoCard />
             <Alert className='mt-5' variant='info'>
               Per qualsiasi ulteriore informazione ti invitiamo a contattarci,
-              tutti i nostri riferimenti sono nella nostra{" "}
+              tutti i nostri riferimenti sono nella{" "}
               <Alert.Link target='_blank' href='/contacts'>
-                pagina contatti
+                pagina "Contatti"
               </Alert.Link>
               .{" "}
             </Alert>
