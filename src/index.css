@@ -1100,7 +1100,7 @@ element {
   width: 100%;
 }
 .section-plant-intro {
-  min-height: calc(100vh - 4rem);
+  min-height: calc(100vh - 5rem);
 }
 .section-plant-position {
   min-height: 100vh;
@@ -2232,7 +2232,7 @@ body {
 }
 .back-nav {
   display: flex;
-  height: 4rem;
+  height: 5rem;
   align-items: center;
   position: sticky;
   top: 0;
@@ -2266,7 +2266,7 @@ body {
 }
 
 .back-nav.hide {
-  top: -4rem;
+  top: -5rem;
 }
 @media screen and (min-width: 992px) {
   .back-nav {
