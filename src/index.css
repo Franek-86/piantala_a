@@ -2207,7 +2207,7 @@ body {
   align-items: center;
   position: sticky;
   top: 0;
-  background-color: #f0f1f1;
+  background-color: #f1f1f1;
   z-index: 1000;
   border-bottom: 2px solid var(--clr-primary-5);
   justify-content: space-between;
