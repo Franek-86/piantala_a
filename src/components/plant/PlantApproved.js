@@ -19,6 +19,9 @@ import { useForm } from "react-hook-form";
 import BackBtn from "../menu/BackBtn";
 import Alert from "react-bootstrap/Alert";
 import Verner from "../../assets/images/verner.jpg";
+import useIsLargeScreen from "../../utils/useIsLargeScreen";
+import BackBtnLarge from "../menu/BackBtnLarge";
+
 const PlantApproved = () => {
   const {
     register,
@@ -39,6 +42,7 @@ const PlantApproved = () => {
   const backToMap = () => {
     navigate(fromPage);
   };
+  const isLarge = useIsLargeScreen();
   // useEffect(() => {
   //   getSinglePlant(plantId);
   // }, [plantId, plateUrl]);
@@ -50,13 +54,18 @@ const PlantApproved = () => {
     <div className='plant-section'>
       <Terms id={plantId} />{" "}
       <div className='section-large'>
-        <BackBtn />
+        <BackBtn plant />
         <div className='single-plant'>
-          <section className='section-center section-plant-intro'>
-            <h2 className='section-title pt-3 pt-md-5'>
-              Piantami <span className='text-lowercase'>a</span> {plant?.suburb}{" "}
-              &#127793;
-            </h2>
+          <section className='section-center section-plant-intro pt-5 pt-lg-0'>
+            {isLarge && (
+              <>
+                <BackBtnLarge />
+                <h2 className='section-title pt-3 pt-md-5'>
+                  Zona <span className='text-lowercase'>-</span> {plant?.suburb}{" "}
+                  &#127793;
+                </h2>
+              </>
+            )}
             {/* <h2 className='section-title mt-3 mt-md-5 mb-5'>
               Piantami <span className='text-lowercase'>a</span> {plant?.suburb}{" "}
               &#127793;

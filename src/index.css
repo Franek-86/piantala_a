@@ -2214,6 +2214,22 @@ body {
   padding: 0 1rem;
   cursor: pointer;
 }
+.plant-section .back-nav {
+  background-color: #e3edef;
+}
+.back-nav-large {
+  display: flex;
+  height: 4rem;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  background-color: #e3edef;
+  z-index: 1000;
+  border-bottom: 2px solid var(--clr-primary-5);
+  justify-content: space-between;
+  padding: 0 1rem;
+  cursor: pointer;
+}
 .back-nav.hide {
   top: -4rem;
 }
