@@ -60,7 +60,7 @@ const PlantApproved = () => {
             {isLarge && (
               <>
                 <BackBtnLarge />
-                <h2 className='section-title pt-3 pt-md-5'>
+                <h2 className='section-title pt-3 pt-xl-4'>
                   Zona <span className='text-lowercase'>-</span> {plant?.suburb}{" "}
                   &#127793;
                 </h2>
@@ -114,7 +114,7 @@ const PlantApproved = () => {
                     <MdPayment />
                   </div>
                   <div className='step-text text-center'>
-                    <span className='d-block fw-medium my-1'>Pagamento</span>
+                    <spam className='d-block fw-medium my-1'>Pagamento</spam>
                     <span className='d-block small'>
                       Informazioni e procedura pagamento
                     </span>
@@ -174,16 +174,17 @@ const PlantApproved = () => {
               </span>
               <article className='plate-info mb-5'>
                 <p>
-                  Definisci il testo della tua targa, una dedica o un tuo
+                  Definisci il <b>testo della tua targa</b>, una dedica o un tuo
                   pensiero che non superi i 500 caratteri e che noi riporteremo
-                  su una targa realizzata in alluminio avente como sfondo il
-                  quadro di Ernest Verner che riportiamo qui in basso.
+                  su una targa realizzata <b>in alluminio</b> avente come{" "}
+                  <b>sfondo</b> il quadro di <b>Ernest Verner</b> che riportiamo
+                  qui in basso.
                 </p>
                 <p className='mb-0'>
                   {" "}
                   Puoi visualizzare tutte le vostre targe già da noi realizzate
                   e applicate sui vostri alberi nella pagina{" "}
-                  <Link className='page-link d-inline' to={"/plates"}>
+                  <Link className='d-inline' to={"/plates"}>
                     "Le vostre targhe"
                   </Link>{" "}
                   dedicata alle vostre terghe.
@@ -192,7 +193,7 @@ const PlantApproved = () => {
               <article className='plate-form d-flex flex-column flex-md-row w-100'>
                 <FloatingLabel
                   controlId='formComment'
-                  label='Testo targa'
+                  label='Inserisci qui il testo della tua targa'
                   className='textPlateContainer mb-3 '
                 >
                   <Form.Control

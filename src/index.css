@@ -890,6 +890,34 @@ element {
 .btn-plant-article a {
   width: 20rem;
 }
+
+.plate-form .form-control {
+  background-color: #ebf0f1;
+}
+.single-plant .alert-info {
+  background-color: #d5e8eb;
+  border-color: var(--clr-secondary-1);
+}
+.single-plant .alert-link {
+  font-weight: 500;
+}
+.single-plant .alert-info > a,
+.plate-info a {
+  color: var(--clr-secondary-5);
+  text-decoration: none;
+}
+
+.single-plant b {
+  color: var(--clr-secondary-5);
+}
+
+.plant-payment-info ul li {
+  list-style-type: disc;
+}
+.plant-payment-info ul {
+  margin-top: 1rem;
+  padding-left: 2rem;
+}
 /* approved partial end */
 
 .plant-section {
@@ -2215,7 +2243,8 @@ body {
   cursor: pointer;
 }
 .plant-section .back-nav {
-  background-color: #e3edef;
+  /* background-color: #e3edef; */
+  background-color: #d5e8eb;
 }
 .back-nav-large {
   display: flex;
@@ -2225,11 +2254,15 @@ body {
   top: 0;
   background-color: #e3edef;
   z-index: 1000;
-  border-bottom: 2px solid var(--clr-primary-5);
+  border-bottom: 1px solid var(--clr-secondary-0);
   justify-content: space-between;
   padding: 0 1rem;
   cursor: pointer;
 }
+.back-nav-large svg {
+  color: var(--clr-secondary-2);
+}
+
 .back-nav.hide {
   top: -4rem;
 }
