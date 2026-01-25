@@ -17,7 +17,6 @@ import Loading from "../../pages/Loading";
 import { copyToClipboard } from "../../utils/utils";
 import RejectionModal from "./RejectionModal";
 import UserInfo from "./UserInfo";
-
 import {
   IoIosAddCircleOutline,
   IoIosRemoveCircleOutline,
@@ -29,11 +28,14 @@ import { TiLocation } from "react-icons/ti";
 import { Capacitor } from "@capacitor/core";
 import ShareButton from "./ShareButton";
 import { UsersContext } from "../../context/UsersContext";
+import BackBtn from "../menu/BackBtn";
+import BackBtnLarge from "../menu/BackBtnLarge";
+import useIsLargeScreen from "../../utils/useIsLargeScreen";
 
 const PlantBooked = () => {
   const [modalShow, setModalShow] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
-
+  const isLarge = useIsLargeScreen();
   const handleImageLoad = () => {
     setIsLoaded(true);
   };
@@ -134,18 +136,29 @@ const PlantBooked = () => {
   return (
     <section className='plant-section'>
       <div className='section-large'>
-        <div className='back-btn pe-3'>
+        <BackBtn plant />
+        {/* <div className='back-btn pe-3'>
           <MdBackspace
             onClick={() => {
               backToMap();
             }}
           />
-        </div>
+        </div> */}
         <div className='section-center single-plant pb-5'>
-          <h2 className='section-title'>
+          {isLarge && (
+            <>
+              <BackBtnLarge />
+              <h2 className='section-title pt-3 pt-xl-4'>
+                Piantina <span className='lower-case'>di</span>{" "}
+                {ownerPublicInfo}
+                &#127793;
+              </h2>
+            </>
+          )}
+          {/* <h2 className='section-title'>
             Piantina <span className='lower-case'>di</span> {ownerPublicInfo}
-          </h2>
-          <div className='text-end d-flex justify-content-end'>
+          </h2> */}
+          <div className='mt-3 text-end d-flex justify-content-end'>
             <ShareButton />
           </div>
           <span className='mt-3 mt-lg-3 mb-3 h5 d-flex flex-row align-items-center'>
