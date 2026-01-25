@@ -16,9 +16,9 @@ const BackBtn = ({ plant }) => {
     if (direction === "down" && !app) {
       return "back-nav hide";
     } else if (direction === "down" && app) {
-      return "back-nav hide";
+      return "back-nav pt-3 pb-1 hide";
     } else if (direction !== "down" && app) {
-      return "back-nav";
+      return "back-nav pt-3 pb-1";
     } else if (direction !== "down" && !app) {
       return "back-nav";
     }
