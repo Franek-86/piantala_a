@@ -143,14 +143,18 @@ const PlantApproved = () => {
               Voglio essere piantata qui!
             </span>
             <InfoCard />
-            <Alert className='mt-5' variant='info'>
-              Per qualsiasi ulteriore informazione ti invitiamo a contattarci,
-              tutti i nostri riferimenti sono nella pagina{" "}
-              <Alert.Link target='_blank' href='/contacts'>
-                "Contatti"
-              </Alert.Link>
-              .{" "}
-            </Alert>
+            <article className='plant-position-text mt-5'>
+              {" "}
+              <span>
+                Per qualsiasi ulteriore informazione ti invitiamo a contattarci,
+                tutti i nostri riferimenti sono nella pagina{" "}
+                <a target='_blank' href='/contacts'>
+                  "Contatti"
+                </a>
+                .{" "}
+              </span>
+            </article>
+
             <article className=' mt-5 d-flex btn-plant-article  justify-content-center'>
               <a
                 href='#plate'
@@ -177,8 +181,11 @@ const PlantApproved = () => {
                   Definisci il <b>testo della tua targa</b>, una dedica o un tuo
                   pensiero che non superi i 500 caratteri e che noi riporteremo
                   su una targa realizzata <b>in alluminio</b> avente come{" "}
-                  <b>sfondo</b> il quadro di <b>Ernest Verner</b> che riportiamo
-                  qui in basso.
+                  <b>sfondo</b> il quadro di <b>Ernest Verner</b>
+                  <span className='d-inline d-md-none'>.</span>{" "}
+                  <span className='d-none d-md-inline'>
+                    che riportiamo qui in basso.
+                  </span>
                 </p>
                 <p className='mb-0'>
                   {" "}
@@ -210,7 +217,7 @@ const PlantApproved = () => {
                   )}
                 </FloatingLabel>
                 <div
-                  className='plate-background-pic'
+                  className='plate-background-pic d-none d-md-block'
                   style={{ backgroundImage: `url(${Verner})` }}
                 >
                   {/* <img
@@ -221,7 +228,7 @@ const PlantApproved = () => {
                   /> */}
                 </div>
               </article>
-              <article className='mt-5 d-flex btn-plant-article  justify-content-center'>
+              <article className='mt-5 d-flex btn-plant-article justify-content-center'>
                 <a
                   href='#payment'
                   className='btn btn-primary d-flex align-items-center justify-content-between'
