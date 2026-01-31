@@ -2155,6 +2155,7 @@ body {
 .bg-map {
   position: absolute;
   width: 100%;
+  min-height: 100dvh;
   height: 100%;
   left: 0;
   z-index: -1;
