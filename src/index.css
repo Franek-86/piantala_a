@@ -2137,6 +2137,14 @@ body {
 
 /* booked plant */
 
+.section-booked-position {
+  min-height: 100dvh;
+}
+.booked-position-map {
+  /* border: 1px solid red; */
+  height: 40vh;
+  width: 100%;
+}
 .copiato {
   top: 1.5rem;
   right: 0.2rem;
@@ -2182,6 +2190,15 @@ body {
 .plant-payment button {
   width: 20rem;
 }
+.plant-pic {
+  height: 50vh;
+  width: 60%;
+  min-width: 20rem;
+  background-position: center;
+  background-size: cover;
+  border-radius: 5px;
+  border: 2px solid var(--clr-primary-5);
+}
 @media screen and (min-width: 992px) {
   .bg-map {
     width: calc(100% - 20rem);
@@ -2198,6 +2215,14 @@ body {
     position: fixed;
     width: calc(100% - 20rem);
     left: 20rem;
+  }
+  .booked-position-map {
+    /* border: 1px solid red; */
+    min-height: 60vh;
+  }
+  .plant-pic {
+    height: 70vh;
+    width: 80%;
   }
   .separator {
     /* background-color: red; */
@@ -2222,7 +2247,7 @@ body {
   background-clip: padding-box;
 }
 @media screen and (min-width: 992px) {
-  .leaflet-control-zoom.leaflet-bar.leaflet-control {
+  .map-section .leaflet-control-zoom.leaflet-bar.leaflet-control {
     margin-left: 21rem;
     display: block;
     margin-top: 7rem;

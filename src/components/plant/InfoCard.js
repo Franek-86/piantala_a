@@ -8,6 +8,7 @@ import { AuthContext } from "../../context/AuthContext";
 import { PlantsContext } from "../../context/PlantsContext";
 import Loading from "../../pages/Loading";
 import { copyToClipboard } from "../../utils/utils";
+import { MapContainer, TileLayer, useMap, Popup, Marker } from "react-leaflet";
 import PlantForm from "./PlantForm";
 import RejectionModal from "./RejectionModal";
 import UserInfo from "./UserInfo";
@@ -17,7 +18,11 @@ import {
 } from "react-icons/io";
 import PlantFormSelect from "./PlantFormSelect";
 import logo from "../../assets/images/ti pianto per amore-APP-verde.png";
-
+import markerBlue from "../../assets/images/ti pianto per amore-APP-azzurro.png";
+import markerGreen from "../../assets/images/ti pianto per amore-APP-verde.png";
+import markerOrange from "../../assets/images/ti pianto per amore-APP-giallo.png";
+import markerRed from "../../assets/images/ti pianto per amore-APP-rosso.png";
+import L from "leaflet";
 const InfoCard = () => {
   const [show, setShow] = useState(false);
   const [modalShow, setModalShow] = useState(false);
@@ -86,6 +91,21 @@ const InfoCard = () => {
     user_id,
   } = plant;
 
+  const iconBlue = L.icon({ iconUrl: markerBlue, iconSize: [25, 42] });
+  const iconGreen = L.icon({ iconUrl: markerGreen, iconSize: [25, 42] });
+  const iconOrange = L.icon({ iconUrl: markerOrange, iconSize: [25, 42] });
+  const iconRed = L.icon({ iconUrl: markerRed, iconSize: [25, 42] });
+  const booked = status_piantina === "booked";
+  const approved = status_piantina === "approved";
+  const pending = status_piantina === "pending";
+  const rejected = status_piantina === "rejected";
+  const markerIcon = booked
+    ? iconBlue
+    : approved
+      ? iconGreen
+      : pending
+        ? iconOrange
+        : iconRed;
   const handleButtonClick = () => {
     fileInputRef.current.click();
   };
@@ -160,21 +180,21 @@ const InfoCard = () => {
                   status_piantina === "approved"
                     ? "approvedPlant"
                     : status_piantina === "rejected"
-                    ? "rejectedPlant"
-                    : status_piantina === "booked"
-                    ? "bookedPlant"
-                    : "pendingPlant"
+                      ? "rejectedPlant"
+                      : status_piantina === "booked"
+                        ? "bookedPlant"
+                        : "pendingPlant"
                 }
               >
                 {status_piantina === "pending"
                   ? "in attesa di approvazione"
                   : status_piantina === "approved"
-                  ? "approvata"
-                  : status_piantina === "rejected"
-                  ? "non approvata"
-                  : status_piantina === "booked"
-                  ? "acquistata"
-                  : status_piantina}
+                    ? "approvata"
+                    : status_piantina === "rejected"
+                      ? "non approvata"
+                      : status_piantina === "booked"
+                        ? "acquistata"
+                        : status_piantina}
               </span>
             </ListGroup.Item>
           ))}
@@ -202,10 +222,24 @@ const InfoCard = () => {
           </ListGroup.Item>
         )}
       </ListGroup>
-      <div
-        className='plant-info-image w-100'
-        style={{ backgroundImage: `url(${image_url})` }}
-      ></div>
+      <article className='booked-position-map'>
+        <MapContainer
+          center={[41.118778112249046, 16.881917818963464]}
+          zoom={23}
+        >
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url='https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png'
+          />
+
+          <Marker
+            icon={markerIcon}
+            position={[41.118778112249046, 16.881917818963464]}
+            scrollWheelZoom={false}
+            zoomControl={false}
+          ></Marker>
+        </MapContainer>
+      </article>
     </Card>
   );
 };

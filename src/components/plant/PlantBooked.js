@@ -134,7 +134,7 @@ const PlantBooked = () => {
   };
 
   return (
-    <section className='plant-section'>
+    <div className='plant-section'>
       <div className='section-large'>
         <BackBtn plant />
         <div className='section-center single-plant pb-5'>
@@ -148,179 +148,180 @@ const PlantBooked = () => {
               </h2>
             </>
           )}
-          <div className='mt-3 text-end d-flex justify-content-end'>
-            <ShareButton />
-          </div>
-          <span className='mt-3 mt-lg-3 mb-3 h5 d-flex flex-row align-items-center'>
-            <div className='step-title pb-2 pe-1'>
-              <TiLocation />
-            </div>
-            Mi trovo qui!
-          </span>
-          <InfoCard />
 
-          <input
-            className='d-none'
-            onChange={(event) => {
-              updatePlantPic(plantId, event);
-            }}
-            ref={updateImageRef}
-            type='file'
-            name=''
-            id=''
-          />
-          <div className='d-flex justify-content-between mt-2'>
-            <div className='d-flex align-items-center justify-content-start w-100 justify-content-end'>
-              {/* <div className='me-2'>
-                <ShareButton share='plant' />
-              </div> */}
-              {Capacitor.isNativePlatform() && (
-                <button
-                  onClick={() => updatePicMob(plantId)}
-                  className='btn btn-primary btn-small'
-                >
-                  Aggiorna immagine
-                </button>
-              )}
-              {(!Capacitor.isNativePlatform() && userRole === "admin") ||
-              (!Capacitor.isNativePlatform() && userId === owner_id) ? (
-                <button
-                  // onClick={() => updatePlantPic(id)}
-                  className='btn btn-warning btn-small'
-                  onClick={updatePlant}
-                >
-                  Aggiorna immagine
-                </button>
-              ) : (
-                <></>
-              )}
-              {/* {Capacitor.isNativePlatform() && <ShareButton />} */}
-            </div>
-            {/* <div>
+          <section className='section-booked-pic'>
+            {/* share button */}
+            <div className='my-3 text-end d-flex justify-content-end'>
               <ShareButton />
-            </div> */}
-          </div>
-          <br />
-          <section className='plate-section'>
-            <div className=''>
-              {plate && !plateLoading && status_piantina === "booked" && (
-                <div className='plate-info-pic'>
-                  <h5 className='mb-3'>Targa</h5>
-
-                  <Card.Img
-                    variant='bottom'
-                    src={plate}
-                    onLoad={handleImageLoad}
-                    className={`w-100  transition-opacity duration-500 ${
-                      isLoaded ? "opacity-100" : "opacity-0"
-                    }`}
-                  />
-                </div>
-              )}
-              {status_piantina === "booked" && !plate && (
-                <div className='plate-info-pic'>
-                  <h5 className='mb-3'>Targa</h5>
-                  <Card.Img
-                    class='placeholder-image'
-                    variant='top'
-                    src='https://placehold.co/600x300/c7dd85/5c3333/?text=Targa in elaborazione&font=Montserrat'
-                  />
-                </div>
-              )}
             </div>
+            <article className='booked-plant-pic'>
+              <div
+                style={{ backgroundImage: `url(${image_url})` }}
+                className='plant-pic'
+              ></div>
+            </article>
+            <article className='update-pic-article d-flex justify-content-between mt-3'>
+              <div className='d-flex align-items-center justify-content-start w-100 justify-content-end'>
+                {Capacitor.isNativePlatform() && (
+                  <button
+                    onClick={() => updatePicMob(plantId)}
+                    className='btn btn-primary btn-small'
+                  >
+                    Aggiorna immagine
+                  </button>
+                )}
+                {(!Capacitor.isNativePlatform() && userRole === "admin") ||
+                (!Capacitor.isNativePlatform() && userId === owner_id) ? (
+                  <button
+                    // onClick={() => updatePlantPic(id)}
+                    className='btn btn-warning btn-small'
+                    onClick={updatePlant}
+                  >
+                    Aggiorna immagine
+                  </button>
+                ) : (
+                  <></>
+                )}
+              </div>
+            </article>
           </section>
-          {/* plant form or feedback time */}
-          {plateLoading && (
-            <div className='loading-container-mini'>
-              <div className='loading-content'>
-                <img
-                  src={logo}
-                  alt='loading-logo'
-                  className='loading-logo-mini'
+          <section className='plate-section'>
+            <div className='plate-info-pic'>
+              <h5 className='mb-3'>Targa</h5>
+              {plate && !plateLoading ? (
+                <Card.Img
+                  variant='bottom'
+                  src={plate}
+                  onLoad={handleImageLoad}
+                  className={`w-100  transition-opacity duration-500 ${
+                    isLoaded ? "opacity-100" : "opacity-0"
+                  }`}
                 />
-                <div className='spinner-mini'></div>
-              </div>
+              ) : (
+                <Card.Img
+                  class='placeholder-image'
+                  variant='top'
+                  src='https://placehold.co/600x300/c7dd85/5c3333/?text=Targa in elaborazione&font=Montserrat'
+                />
+              )}
             </div>
-          )}
-          {/* funzionalità admin */}
-          {userRole === "admin" && (
-            <div className='admin-controls py-5'>
-              <hr />
-              <h5 className='mb-3'>Informazioni utente</h5>
-              <div className='d-grid gap-2'>
-                <UserInfo
-                  role={
-                    request === "reporter" ? reporterInfo.role : ownerInfo.role
-                  }
-                  user={request === "reporter" ? reporterInfo : ownerInfo}
-                  show={modalUserShow}
-                  onHide={() => setModalUserShow(false)}
-                />
-                <button
-                  className='btn btn-outline-info d-flex justify-content-between align-items-center'
-                  onClick={() => getOwnerInfo()}
-                >
-                  <span className='ps-2'>Informazioni acquirente</span>
-                  <FaUser />
-                </button>
-                <button
-                  className='btn btn-outline-info d-flex justify-content-between align-items-center'
-                  onClick={() => getReporterInfo()}
-                >
-                  <span className='ps-2'>Informazioni segnalatore</span>
-                  <FaRegUser />
-                </button>
+            {plateLoading && (
+              <div className='loading-container-mini'>
+                <div className='loading-content'>
+                  <img
+                    src={logo}
+                    alt='loading-logo'
+                    className='loading-logo-mini'
+                  />
+                  <div className='spinner-mini'></div>
+                </div>
               </div>
-              <hr />
-              <h5 className='mb-3'>Operazioni targa</h5>{" "}
-              <span className='fw-medium'>Testo targa:</span>{" "}
-              <span>{user_comment}</span>
-              <div className='d-grid gap-2 mt-3'>
-                {!plate && (
-                  <>
-                    <input
-                      className='d-none'
-                      type='file'
-                      ref={fileInputRef}
-                      onChange={(event) => handlePlateUpload(plantId, event)}
-                    />
-                    <button
-                      className='btn btn-warning d-flex justify-content-between align-items-center'
-                      onClick={handleButtonClick}
-                    >
-                      <span className='ps-2'> Aggiungi targa</span>
+            )}
+          </section>
+          <section className='section-booked-position'>
+            <span className='mt-3 mt-lg-3 mb-3 h5 d-flex flex-row align-items-center'>
+              <div className='step-title pb-2 pe-1'>
+                <TiLocation />
+              </div>
+              Mi trovo qui!
+            </span>
+            <InfoCard />
 
-                      <IoIosAddCircleOutline />
-                    </button>
-                    <button
-                      className='btn btn-dark ms-0 d-flex justify-content-between align-items-center'
-                      onClick={() => deleteAndGo(plantId)}
-                    >
-                      <span className='ps-2'> Elimina targa</span>
-                      <IoIosRemoveCircleOutline />
-                    </button>
-                  </>
-                )}
-                {plate && (
-                  <div className=''>
-                    <button
-                      className='btn btn-warning d-flex justify-content-between align-items-center'
-                      onClick={() => handlePlateRemoval(plantId, plate_hash)}
-                    >
-                      <span className='ps-2'>Rimuovi targa</span>
-                      <IoIosRemoveCircleOutline />
-                    </button>
-                  </div>
-                )}
+            <input
+              className='d-none'
+              onChange={(event) => {
+                updatePlantPic(plantId, event);
+              }}
+              ref={updateImageRef}
+              type='file'
+              name=''
+              id=''
+            />
+          </section>
+
+          <section className='section-booked-admin'>
+            {/* funzionalità admin */}
+            {userRole === "admin" && (
+              <div className='admin-controls py-5'>
+                <hr />
+                <h5 className='mb-3'>Informazioni utente</h5>
+                <div className='d-grid gap-2'>
+                  <UserInfo
+                    role={
+                      request === "reporter"
+                        ? reporterInfo.role
+                        : ownerInfo.role
+                    }
+                    user={request === "reporter" ? reporterInfo : ownerInfo}
+                    show={modalUserShow}
+                    onHide={() => setModalUserShow(false)}
+                  />
+                  <button
+                    className='btn btn-outline-info d-flex justify-content-between align-items-center'
+                    onClick={() => getOwnerInfo()}
+                  >
+                    <span className='ps-2'>Informazioni acquirente</span>
+                    <FaUser />
+                  </button>
+                  <button
+                    className='btn btn-outline-info d-flex justify-content-between align-items-center'
+                    onClick={() => getReporterInfo()}
+                  >
+                    <span className='ps-2'>Informazioni segnalatore</span>
+                    <FaRegUser />
+                  </button>
+                </div>
+                <hr />
+                <h5 className='mb-3'>Operazioni targa</h5>{" "}
+                <span className='fw-medium'>Testo targa:</span>{" "}
+                <span>{user_comment}</span>
+                <div className='d-grid gap-2 mt-3'>
+                  {!plate && (
+                    <>
+                      <input
+                        className='d-none'
+                        type='file'
+                        ref={fileInputRef}
+                        onChange={(event) => handlePlateUpload(plantId, event)}
+                      />
+                      <button
+                        className='btn btn-warning d-flex justify-content-between align-items-center'
+                        onClick={handleButtonClick}
+                      >
+                        <span className='ps-2'> Aggiungi targa</span>
+
+                        <IoIosAddCircleOutline />
+                      </button>
+                      <button
+                        className='btn btn-dark ms-0 d-flex justify-content-between align-items-center'
+                        onClick={() => deleteAndGo(plantId)}
+                      >
+                        <span className='ps-2'> Elimina targa</span>
+                        <IoIosRemoveCircleOutline />
+                      </button>
+                    </>
+                  )}
+                  {plate && (
+                    <div className=''>
+                      <button
+                        className='btn btn-warning d-flex justify-content-between align-items-center'
+                        onClick={() => handlePlateRemoval(plantId, plate_hash)}
+                      >
+                        <span className='ps-2'>Rimuovi targa</span>
+                        <IoIosRemoveCircleOutline />
+                      </button>
+                    </div>
+                  )}
+                </div>
+                <hr />
+                <h5 className='mb-3'>Operazioni tipo pianta</h5>
+                <PlantFormSelect />
               </div>
-              <hr />
-              <h5 className='mb-3'>Operazioni tipo pianta</h5>
-              <PlantFormSelect />
-            </div>
-          )}
+            )}
+          </section>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
