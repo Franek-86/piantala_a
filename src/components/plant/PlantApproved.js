@@ -85,7 +85,7 @@ const PlantApproved = () => {
                 procedi infine con il <b>pagamento</b>.
               </p>
             </article>
-            <article className='d-flex justify-content-center my-5'>
+            <article className='d-flex justify-content-center my-4 my-lg-5'>
               <div className='steps-article my-2 d-flex flex-row justify-content-around p-2 p-xl-3'>
                 <div className='step-container d-flex flex-column align-items-center'>
                   <div className='step-box d-flex flex-row align-items-center justify-content-center'>
@@ -132,42 +132,43 @@ const PlantApproved = () => {
               </a>
             </article>
           </section>
-          <section
-            id='location'
-            className='mt-3 mt-lg-5 section-center section-plant-position'
-          >
-            <span className='pt-5 mb-3 h5 d-flex flex-row align-items-center'>
-              <div className='step-title pb-2 pe-1'>
-                <TiLocation />
-              </div>
-              Voglio essere piantata qui!
-            </span>
-            <InfoCard />
-            <article className='plant-position-text mt-5'>
-              {" "}
-              <span>
-                Per qualsiasi ulteriore informazione ti invitiamo a contattarci,
-                tutti i nostri riferimenti sono nella pagina{" "}
-                <a target='_blank' href='/contacts'>
-                  "Contatti"
-                </a>
-                .{" "}
+          <section id='location' className=' mt-lg-5   position-background'>
+            <div className='section-center section-plant-position'>
+              <span className='pt-5 mb-3 h5 d-flex flex-row align-items-center'>
+                <div className='step-title pb-2 pe-1'>
+                  <TiLocation />
+                </div>
+                Voglio essere piantata qui!
               </span>
-            </article>
+              <InfoCard />
+              <article className='plant-position-text mt-5'>
+                {" "}
+                <span>
+                  Per qualsiasi ulteriore informazione ti invitiamo a
+                  contattarci, tutti i nostri riferimenti sono nella pagina{" "}
+                  <a target='_blank' href='/contacts'>
+                    "Contatti"
+                  </a>
+                  .{" "}
+                </span>
+              </article>
 
-            <article className=' mt-5 d-flex btn-plant-article  justify-content-center'>
-              <a
-                href='#plate'
-                className='btn btn-primary d-flex align-items-center justify-content-between'
-              >
-                <span className='pe-2'>Definisci il testo della tua targa</span>
-                <FaArrowDown />
-              </a>
-            </article>
+              <article className=' mt-5 d-flex btn-plant-article  justify-content-center'>
+                <a
+                  href='#plate'
+                  className='btn btn-primary d-flex align-items-center justify-content-between'
+                >
+                  <span className='pe-2'>
+                    Definisci il testo della tua targa
+                  </span>
+                  <FaArrowDown />
+                </a>
+              </article>
+            </div>
           </section>
           <section
             id='plate'
-            className='mt-3 mt-lg-5 section-plant-plate plate-background'
+            className='mt-lg-5 section-plant-plate plate-background'
           >
             <div className='section-center section-plant'>
               <span className='pt-5 mb-3 h5 d-flex flex-row align-items-center'>

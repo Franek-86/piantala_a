@@ -37,6 +37,8 @@ code {
   --c-text-light-1: #2c3e50;
   --c-text-light-2: #476582;
   --c-text-light-3: #90a4b7;
+  --c-bg-map-1: #f7f7e5c1;
+  --c-bg-map-2: #e3edef7d;
   --radius: 0.5rem;
 
   --toastify-color-progress-light: linear-gradient(
@@ -883,7 +885,10 @@ element {
 }
 @media screen and (max-width: 992px) {
   .plate-background {
-    background-color: #e3edef;
+    background-color: var(--c-bg-map-2);
+  }
+  .position-background {
+    background-color: var(--c-bg-map-1);
   }
 }
 
