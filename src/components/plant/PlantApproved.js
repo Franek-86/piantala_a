@@ -66,10 +66,6 @@ const PlantApproved = () => {
                 </h2>
               </>
             )}
-            {/* <h2 className='section-title mt-3 mt-md-5 mb-5'>
-              Piantami <span className='text-lowercase'>a</span> {plant?.suburb}{" "}
-              &#127793;
-            </h2> */}
             <article className='plant-intro-text intro-article p-2 p-lg-3 p-xl-5'>
               <p className='mb-2 mb-lg-4'>
                 Puoi procedere con l'acquisto e la piantumazione della tua

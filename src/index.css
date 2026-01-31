@@ -1106,7 +1106,7 @@ element {
   width: 100%;
 }
 .section-plant-intro {
-  min-height: calc(100vh - 5rem);
+  min-height: calc(100dvh - 5rem);
 }
 .section-plant-position {
   min-height: 100vh;
