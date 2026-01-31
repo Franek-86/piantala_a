@@ -97,7 +97,7 @@ const PlantForm = () => {
       >
         <div className='section-plant section-center'>
           <Form onSubmit={handleSubmit(onSubmit)}>
-            <span className='pt-5 h5 d-flex flex-row align-items-center'>
+            <span className='mb-3 pt-5 h5 d-flex flex-row align-items-center'>
               <div className='step-title pb-2 pe-1'>
                 <MdPayment />
               </div>
