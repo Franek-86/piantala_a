@@ -190,7 +190,7 @@ const PlantBooked = () => {
               </article>
               <article className='pt-5 d-flex justify-content-center btn-plant-article'>
                 <a
-                  href='#location'
+                  href='#plate'
                   className='btn btn-primary d-flex align-items-center justify-content-between'
                 >
                   <span className='pe-2'>Targa</span>
@@ -199,7 +199,7 @@ const PlantBooked = () => {
               </article>
             </div>
           </section>
-          <section className='section-booked-plate plate-background'>
+          <section id='plate' className='section-booked-plate plate-background'>
             <div className='section-center'>
               <div className='plate-info-pic'>
                 <span className='pt-5 mb-3 h5 d-flex flex-row align-items-center'>
