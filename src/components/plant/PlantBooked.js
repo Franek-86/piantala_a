@@ -278,7 +278,7 @@ const PlantBooked = () => {
             <div className='section-center'>
               {/* funzionalità admin */}
               {userRole === "admin" && (
-                <div className='admin-controls py-5'>
+                <div className='admin-controls'>
                   <hr />
                   <h5 className='mb-3'>Informazioni utente</h5>
                   <div className='d-grid gap-2'>
