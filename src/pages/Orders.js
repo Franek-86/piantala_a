@@ -71,16 +71,19 @@ const Orders = () => {
                     <tr key={index}>
                       <td>{formatDate(created_at)}</td>
                       <td>{order_number}</td>
-                      <td className='order-icons'>
-                        {completed ? (
-                          <MdDone />
-                        ) : pending ? (
-                          <MdOutlinePending />
-                        ) : progress ? (
-                          <RiProgress3Line />
-                        ) : (
-                          <></>
-                        )}
+                      <td>
+                        <div className='order-icon d-flex justify-content-center'>
+                          {" "}
+                          {completed ? (
+                            <MdDone />
+                          ) : pending ? (
+                            <MdOutlinePending />
+                          ) : progress ? (
+                            <RiProgress3Line />
+                          ) : (
+                            <></>
+                          )}
+                        </div>
                       </td>
                       <td>
                         {" "}
