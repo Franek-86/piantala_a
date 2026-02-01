@@ -13,7 +13,9 @@ import OrderModal from "../components/orders/OrderModal";
 import useIsLargeScreen from "../utils/useIsLargeScreen";
 import SideBar from "../components/menu/SideBar";
 import BackBtn from "../components/menu/BackBtn";
-
+import { MdDone } from "react-icons/md";
+import { MdOutlinePending } from "react-icons/md";
+import { RiProgress3Line } from "react-icons/ri";
 const Orders = () => {
   const {
     getAllOrders,
@@ -61,12 +63,25 @@ const Orders = () => {
             <tbody>
               {allOrders.map((i, index) => {
                 const { id, order_number, status, created_at, product_id } = i;
+                const completed = status === "completed";
+                const pending = status === "pending";
+                const progress = status === "progress";
                 return (
                   <>
                     <tr key={index}>
                       <td>{formatDate(created_at)}</td>
                       <td>{order_number}</td>
-                      <td>{status}</td>
+                      <td className='order-icons'>
+                        {completed ? (
+                          <MdDone />
+                        ) : pending ? (
+                          <MdOutlinePending />
+                        ) : progress ? (
+                          <RiProgress3Line />
+                        ) : (
+                          <></>
+                        )}
+                      </td>
                       <td>
                         {" "}
                         <div className='d-flex gap-1'>
