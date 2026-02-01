@@ -165,7 +165,7 @@ const PlantBooked = () => {
                 ></div>
               </article>
               <article className='update-pic-article d-flex justify-content-between mt-3'>
-                <div className='d-flex align-items-center justify-content-start w-100 justify-content-end'>
+                <div className='d-flex align-items-center justify-content-start w-100 justify-content-end=start'>
                   {Capacitor.isNativePlatform() && (
                     <button
                       onClick={() => updatePicMob(plantId)}
@@ -199,7 +199,10 @@ const PlantBooked = () => {
               </article>
             </div>
           </section>
-          <section id='plate' className='section-booked-plate plate-background'>
+          <section
+            id='plate'
+            className='pt-lg-5 section-booked-plate plate-background'
+          >
             <div className='section-center'>
               <div className='plate-info-pic'>
                 <span className='pt-5 mb-3 h5 d-flex flex-row align-items-center'>
@@ -250,7 +253,7 @@ const PlantBooked = () => {
           </section>
           <section
             id='location'
-            className='section-booked-position position-background'
+            className='pt-lg-5 section-booked-position position-background'
           >
             <div className='section-center'>
               <span className='pt-5 mb-3 h5 d-flex flex-row align-items-center'>

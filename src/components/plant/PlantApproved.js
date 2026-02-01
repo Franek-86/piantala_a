@@ -84,9 +84,12 @@ const PlantApproved = () => {
             <article className='d-flex justify-content-center my-4 my-lg-5'>
               <div className='steps-article my-2 d-flex flex-row justify-content-around p-2 p-xl-3'>
                 <div className='step-container d-flex flex-column align-items-center'>
-                  <div className='step-box d-flex flex-row align-items-center justify-content-center'>
+                  <a
+                    href='#location'
+                    className='step-box d-flex flex-row align-items-center justify-content-center'
+                  >
                     <TiLocation />
-                  </div>
+                  </a>
                   <div className='step-text text-center'>
                     <span className='d-block fw-medium my-1'>Posizione</span>
                     <span className='d-block small'>
@@ -95,9 +98,12 @@ const PlantApproved = () => {
                   </div>
                 </div>
                 <div className='step-container d-flex flex-column align-items-center'>
-                  <div className='step-box d-flex flex-row align-items-center justify-content-center'>
+                  <a
+                    href='#plate'
+                    className='step-box d-flex flex-row align-items-center justify-content-center'
+                  >
                     <BsVectorPen />
-                  </div>
+                  </a>
                   <div className='step-text text-center'>
                     <span className='d-block fw-medium my-1'>Targa</span>
                     <span className='d-block small'>
@@ -106,9 +112,12 @@ const PlantApproved = () => {
                   </div>
                 </div>
                 <div className='step-container d-flex flex-column align-items-center'>
-                  <div className='step-box d-flex flex-row align-items-center justify-content-center'>
+                  <a
+                    href='#payment'
+                    className='step-box d-flex flex-row align-items-center justify-content-center'
+                  >
                     <MdPayment />
-                  </div>
+                  </a>
                   <div className='step-text text-center'>
                     <spam className='d-block fw-medium my-1'>Pagamento</spam>
                     <span className='d-block small'>
@@ -137,7 +146,7 @@ const PlantApproved = () => {
                 Voglio essere piantata qui!
               </span>
               <InfoCard />
-              <article className='plant-position-text mt-5'>
+              <article className='plant-position-text mt-2 mt-lg-5'>
                 {" "}
                 <span>
                   Per qualsiasi ulteriore informazione ti invitiamo a
