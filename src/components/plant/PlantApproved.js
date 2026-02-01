@@ -123,12 +123,12 @@ const PlantApproved = () => {
                 href='#location'
                 className='btn btn-primary d-flex align-items-center justify-content-between'
               >
-                <span className='pe-2'>Zona di piantagione</span>
+                <span className='pe-2'>Posizione</span>
                 <FaArrowDown />
               </a>
             </article>
           </section>
-          <section id='location' className=' mt-lg-5   position-background'>
+          <section id='location' className='mt-lg-5 position-background'>
             <div className='section-center section-plant-position'>
               <span className='pt-5 mb-3 h5 d-flex flex-row align-items-center'>
                 <div className='step-title pb-2 pe-1'>

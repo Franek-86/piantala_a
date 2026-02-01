@@ -2137,9 +2137,15 @@ body {
 
 /* booked plant */
 
-.section-booked-position {
+.section-booked-pic {
+  height: calc(100dvh - 5rem);
+  /* border: 2px solid red; */
+}
+.section-booked-position,
+.section-booked-plate {
   min-height: 100dvh;
 }
+
 .booked-position-map {
   /* border: 1px solid red; */
   height: 40vh;
@@ -2221,8 +2227,8 @@ body {
     min-height: 60vh;
   }
   .plant-pic {
-    height: 70vh;
-    width: 80%;
+    height: 65vh;
+    width: 50%;
   }
   .separator {
     /* background-color: red; */
