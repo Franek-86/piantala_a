@@ -37,6 +37,7 @@ const PlantForm = () => {
       return;
     }
     // const date = new Date().toLocaleDateString("it-IT");
+
     let date = new Date();
     let day = date.getDate();
     let month = date.getMonth() + 1;
@@ -46,6 +47,11 @@ const PlantForm = () => {
     data.id = parseInt(plantId);
     data.owner_id = userId;
     data.purchase_date = currentDate;
+    if (!userId) {
+      console.log("user id non può essere null");
+      return;
+    }
+    console.log("test", data);
     localStorage.setItem("booked-plant", JSON.stringify(data));
     navigate("/checkout");
   };

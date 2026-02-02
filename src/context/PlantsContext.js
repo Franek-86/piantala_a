@@ -72,7 +72,7 @@ export const PlantsProvider = ({ children }) => {
         `${serverDomain}/api/plants/user-plants`,
         {
           params: { userId },
-        }
+        },
       );
       setMyReports(response.data); // Store the plants in state
     } catch (error) {
@@ -84,20 +84,20 @@ export const PlantsProvider = ({ children }) => {
   const handleBookedPlant = async () => {
     let bookedPlant = JSON.parse(localStorage.getItem("booked-plant"));
 
-    const { id, owner_id, comment, plantType, purchase_date } = bookedPlant;
+    const { id, owner_id, comment, purchase_date } = bookedPlant;
 
     try {
       await axios.patch(`${serverDomain}/api/plants/${id}/ownership`, {
         status: "booked",
-        owner_id,
         id,
         owner_id,
         comment,
-        plantType,
+        // plantType,
         purchase_date,
       });
     } catch (err) {
       // setError(err.message);
+      console.log(err);
     }
   };
 
@@ -115,7 +115,7 @@ export const PlantsProvider = ({ children }) => {
             headers: {
               "Content-Type": "multipart/form-data",
             },
-          }
+          },
         );
         const plate = response.data.image_url;
         setPlateUrl(plate);
@@ -130,7 +130,7 @@ export const PlantsProvider = ({ children }) => {
     try {
       const response = await axios.patch(
         `${serverDomain}/api/plants/clear-plate`,
-        { id, plate_hash }
+        { id, plate_hash },
       );
       // setPlants(response.data);
     } catch (err) {
@@ -218,7 +218,7 @@ export const PlantsProvider = ({ children }) => {
           params: {
             ID: userId,
           },
-        }
+        },
       );
       setMyPlants(response.data);
     } catch (err) {
@@ -236,7 +236,7 @@ export const PlantsProvider = ({ children }) => {
         const response = await axios.get(`${serverDomain}/api/plants`);
         if (response) {
           const item = response.data.find(
-            (item) => item.id === parseInt(plantId)
+            (item) => item.id === parseInt(plantId),
           );
           if (item) {
             setPlant(item);
@@ -380,7 +380,7 @@ export const PlantsProvider = ({ children }) => {
     try {
       // setSinglePlantLoading(true);
       const response = await axios.get(
-        `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lang}&format=json`
+        `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lang}&format=json`,
       );
       if (response) {
         setLocationInfo(response.data.address);
@@ -395,7 +395,7 @@ export const PlantsProvider = ({ children }) => {
   };
   const getOwnerPublicInfo = async (owner_id) => {
     const response = await axios.get(
-      `${serverDomain}/api/plants/user/owner-public-info/${owner_id}`
+      `${serverDomain}/api/plants/user/owner-public-info/${owner_id}`,
     );
     if (response.status === 200) {
       const ownerUserName = response.data.ownerUserName;
@@ -430,7 +430,7 @@ export const PlantsProvider = ({ children }) => {
     setLoading(true);
     try {
       const response = await axios.get(
-        `${serverDomain}/api/plants/user/owner/${ownerId}`
+        `${serverDomain}/api/plants/user/owner/${ownerId}`,
       );
       if (response) {
         setOwnerInfo({
@@ -462,7 +462,7 @@ export const PlantsProvider = ({ children }) => {
     if (userId) {
       try {
         const response = await axios.get(
-          `${serverDomain}/api/plants/user/reporter/${userId}`
+          `${serverDomain}/api/plants/user/reporter/${userId}`,
         );
         if (response) {
           setReporterInfo({
@@ -516,7 +516,7 @@ export const PlantsProvider = ({ children }) => {
       const response = await axios.patch(
         `${serverDomain}/api/plants/update-plant-pic/${plantId}`,
         formData,
-        { headers: { "content-type": "multiform-data" } }
+        { headers: { "content-type": "multiform-data" } },
       );
 
       if (response.status === 201) {
@@ -562,7 +562,7 @@ export const PlantsProvider = ({ children }) => {
       const response = await axios.patch(
         `${serverDomain}/api/plants/update-plant-pic/${plantId}`,
         formData,
-        { headers: { "content-type": "multiform-data" } }
+        { headers: { "content-type": "multiform-data" } },
       );
       if (response) {
         setPlant({
