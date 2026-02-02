@@ -22,7 +22,7 @@ const PlantForm = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    if (!isAuthenticated) {
+    if (!isAuthenticated || !userId) {
       // let date = new Date();
       // let day = date.getDate();
       // let month = date.getMonth() + 1;
