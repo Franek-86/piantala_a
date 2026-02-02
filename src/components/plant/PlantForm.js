@@ -21,40 +21,40 @@ const PlantForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {
-    if (!isAuthenticated || !userId) {
-      // let date = new Date();
-      // let day = date.getDate();
-      // let month = date.getMonth() + 1;
-      // let year = date.getFullYear();
-      // let currentDate = `${year}-${month}-${day}`;
+  // const onSubmit = (data) => {
+  //   if (!isAuthenticated || !userId) {
+  //     // let date = new Date();
+  //     // let day = date.getDate();
+  //     // let month = date.getMonth() + 1;
+  //     // let year = date.getFullYear();
+  //     // let currentDate = `${year}-${month}-${day}`;
 
-      // data.id = parseInt(plantId);
-      // data.owner_id = userId;
-      // data.purchase_date = currentDate;
-      // localStorage.setItem("booked-plant", JSON.stringify(data));
-      setLogReg(true);
-      return;
-    }
-    // const date = new Date().toLocaleDateString("it-IT");
+  //     // data.id = parseInt(plantId);
+  //     // data.owner_id = userId;
+  //     // data.purchase_date = currentDate;
+  //     // localStorage.setItem("booked-plant", JSON.stringify(data));
+  //     setLogReg(true);
+  //     return;
+  //   }
+  //   // const date = new Date().toLocaleDateString("it-IT");
 
-    let date = new Date();
-    let day = date.getDate();
-    let month = date.getMonth() + 1;
-    let year = date.getFullYear();
-    let currentDate = `${year}-${month}-${day}`;
+  //   let date = new Date();
+  //   let day = date.getDate();
+  //   let month = date.getMonth() + 1;
+  //   let year = date.getFullYear();
+  //   let currentDate = `${year}-${month}-${day}`;
 
-    data.id = parseInt(plantId);
-    data.owner_id = userId;
-    data.purchase_date = currentDate;
-    if (!userId) {
-      console.log("user id non può essere null");
-      return;
-    }
-    console.log("test", data);
-    localStorage.setItem("booked-plant", JSON.stringify(data));
-    navigate("/checkout");
-  };
+  //   data.id = parseInt(plantId);
+  //   data.owner_id = userId;
+  //   data.purchase_date = currentDate;
+  //   if (!userId) {
+  //     console.log("user id non può essere null");
+  //     return;
+  //   }
+  //   console.log("test", data);
+  //   localStorage.setItem("booked-plant", JSON.stringify(data));
+  //   navigate("/checkout");
+  // };
   useEffect(() => {
     if (Capacitor.getPlatform() === "web") return;
     const onKeyboardShow = (info) => {
@@ -102,43 +102,42 @@ const PlantForm = () => {
         className='mt-lg-5 section-plant-form position-background'
       >
         <div className='section-plant section-center'>
-          <Form onSubmit={handleSubmit(onSubmit)}>
-            <span className='mb-3 pt-5 h5 d-flex flex-row align-items-center'>
-              <div className='step-title pb-2 pe-1'>
-                <MdPayment />
-              </div>
-              Infomazioni sul pagamento
-            </span>
-            <article className='plant-payment-info'>
-              <p>
-                Il <b>prezzo</b> di una piantina è di <b>200 euro</b> ed
-                include:
-                <ul>
-                  <li>la messa a dimora dell'albero</li>
-                  <li>la realizzazione e stampa della targa</li>
-                  <li>la piantumazione entro 6 mesi dalla richiesta </li>
-                  <li>l'iscrizione all'associazione Amici di Ernest Verner.</li>
-                </ul>{" "}
-              </p>
-              <p>
-                La <b>tipologia di albero</b> sarà concordata con i competenti
-                uffici del Comune e resa visibile online sia nella tua scheda di
-                acquisto che su questa stessa pagina.
-              </p>
-              <p>
-                Procedendo con il pagamento verrai reindirizzato sulla
-                piattaforma di pagamento.
-              </p>
-            </article>
-            <article className='plant-payment mt-5 d-flex justify-content-center'>
-              <button
-                className={!logReg ? "d-block btn btn-success" : "d-none"}
-                type='submit'
-              >
-                Procedi con il pagamento
-              </button>
-            </article>
-          </Form>
+          {/* <Form onSubmit={handleSubmit(onSubmit)}> */}
+          <span className='mb-3 pt-5 h5 d-flex flex-row align-items-center'>
+            <div className='step-title pb-2 pe-1'>
+              <MdPayment />
+            </div>
+            Infomazioni sul pagamento
+          </span>
+          <article className='plant-payment-info'>
+            <p>
+              Il <b>prezzo</b> di una piantina è di <b>200 euro</b> ed include:
+              <ul>
+                <li>la messa a dimora dell'albero</li>
+                <li>la realizzazione e stampa della targa</li>
+                <li>la piantumazione entro 6 mesi dalla richiesta </li>
+                <li>l'iscrizione all'associazione Amici di Ernest Verner.</li>
+              </ul>{" "}
+            </p>
+            <p>
+              La <b>tipologia di albero</b> sarà concordata con i competenti
+              uffici del Comune e resa visibile online sia nella tua scheda di
+              acquisto che su questa stessa pagina.
+            </p>
+            <p>
+              Procedendo con il pagamento verrai reindirizzato sulla piattaforma
+              di pagamento.
+            </p>
+          </article>
+          <article className='plant-payment mt-5 d-flex justify-content-center'>
+            <button
+              className={!logReg ? "d-block btn btn-success" : "d-none"}
+              type='submit'
+            >
+              Procedi con il pagamento
+            </button>
+          </article>
+          {/* </Form> */}
         </div>
         {logReg && <LoginReg val='plant' id={plantId} />}
       </section>
