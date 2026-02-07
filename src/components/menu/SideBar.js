@@ -17,8 +17,11 @@ import { IoMdChatbubbles } from "react-icons/io";
 import { PiPottedPlantBold } from "react-icons/pi";
 import { FaMap } from "react-icons/fa";
 import { RiSeedlingFill } from "react-icons/ri";
+import { PlantsContext } from "../../context/PlantsContext";
+
 const SideBar = () => {
   const { handleLogout, userRole, isAuthenticated } = useContext(AuthContext);
+  const { setPlant } = useContext(PlantsContext);
   return (
     <section className='sidebar-large'>
       <Offcanvas.Header>
@@ -31,6 +34,9 @@ const SideBar = () => {
           <ListGroup.Item>
             <NavLink
               to='/map'
+              onClick={() => {
+                setPlant(null);
+              }}
               className={({ isActive }) =>
                 isActive
                   ? "nav-link text-truncate sidebar-active"

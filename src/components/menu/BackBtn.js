@@ -1,17 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { MdBackspace } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import sidebarlogo from "../../assets/images/logo_albero_dritto_sidebar.png";
 import useScrollDirection from "../../utils/useScrollDirection";
 import { Capacitor } from "@capacitor/core";
+import { PlantsContext } from "../../context/PlantsContext";
 
 const BackBtn = ({ plant }) => {
   const navigate = useNavigate();
   const direction = useScrollDirection();
   const app = Capacitor.isNativePlatform();
-  console.log("ttttt", app);
-  console.log("direction", direction);
-  console.log("sta plant?", plant);
+  const { setPlant } = useContext(PlantsContext);
   const backNav = () => {
     if (direction === "down" && !app) {
       return "back-nav hide";
@@ -26,6 +25,7 @@ const BackBtn = ({ plant }) => {
 
   const backToMap = () => {
     navigate("/map");
+    setPlant(null);
   };
   return (
     <article className={backNav()}>

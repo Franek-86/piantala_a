@@ -64,9 +64,6 @@ const InfoCard = () => {
   const backToMap = () => {
     navigate(fromPage);
   };
-  useEffect(() => {
-    getSinglePlant(plantId);
-  }, [plantId, plateUrl]);
 
   // if (singlePlantLoading) return <Loading />;
   // if (singlePlantError) return <div className='error'>{singlePlantError}</div>;
@@ -90,6 +87,9 @@ const InfoCard = () => {
     delete_hash,
     user_id,
   } = plant;
+  useEffect(() => {
+    getSinglePlant(plantId);
+  }, [plantId, plateUrl, lat, lang]);
 
   const iconBlue = L.icon({ iconUrl: markerBlue, iconSize: [25, 42] });
   const iconGreen = L.icon({ iconUrl: markerGreen, iconSize: [25, 42] });
@@ -223,10 +223,7 @@ const InfoCard = () => {
         )}
       </ListGroup>
       <article className='booked-position-map'>
-        <MapContainer
-          center={[41.118778112249046, 16.881917818963464]}
-          zoom={23}
-        >
+        <MapContainer center={[lat, lang]} zoom={23}>
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url='https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png'
@@ -234,7 +231,7 @@ const InfoCard = () => {
 
           <Marker
             icon={markerIcon}
-            position={[41.118778112249046, 16.881917818963464]}
+            position={[lat, lang]}
             scrollWheelZoom={false}
             zoomControl={false}
           ></Marker>
