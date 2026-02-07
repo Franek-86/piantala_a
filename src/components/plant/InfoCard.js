@@ -198,7 +198,7 @@ const InfoCard = () => {
               </span>
             </ListGroup.Item>
           ))}
-        {plant_type && (
+        {plant_type && status_piantina === "pending" && (
           <ListGroup.Item>
             <span className='fw-medium'>Tipo di pianta:</span>{" "}
             <span>{plant_type}</span>

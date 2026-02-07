@@ -200,7 +200,7 @@ const PlantBooked = () => {
           </section>
           <section
             id='plate'
-            className='pt-lg-5 section-booked-plate position-background'
+            className='pt-lg-5 pb-5 section-booked-plate position-background'
           >
             <article className='section-center'>
               <div className='plate-info-pic pt-5'>
@@ -220,7 +220,7 @@ const PlantBooked = () => {
                   />
                 ) : (
                   <Card.Img
-                    className='placeholder-image'
+                    className='placeholder-image w-100'
                     variant='top'
                     src='https://placehold.co/600x300/c7dd85/5c3333/?text=Targa in elaborazione&font=Montserrat'
                   />
@@ -239,6 +239,40 @@ const PlantBooked = () => {
                 </div>
               )}
             </article>
+            <article className='pt-5 justify-content-center btn-plant-article d-none d-xl-flex'>
+              <a
+                href='#position'
+                className='btn btn-primary d-flex align-items-center justify-content-between'
+              >
+                <span className='pe-2'>Posizione</span>
+                <FaArrowDown />
+              </a>
+            </article>
+            <article className='section-center d-xl-none'>
+              <span className='pt-5 mb-3 h5 d-flex flex-row align-items-center'>
+                <div className='step-title pb-2 pe-1'>
+                  <TiLocation />
+                </div>
+                Mi trovo qui!
+              </span>
+              <InfoCard />
+
+              <input
+                className='d-none'
+                onChange={(event) => {
+                  updatePlantPic(plantId, event);
+                }}
+                ref={updateImageRef}
+                type='file'
+                name=''
+                id=''
+              />
+            </article>
+          </section>
+          <section
+            id='position'
+            className='pt-lg-5 section-booked-plate position-background d-none d-xl-block'
+          >
             <article className='section-center'>
               <span className='pt-5 mb-3 h5 d-flex flex-row align-items-center'>
                 <div className='step-title pb-2 pe-1'>
