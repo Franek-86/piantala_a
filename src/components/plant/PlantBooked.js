@@ -294,7 +294,7 @@ const PlantBooked = () => {
               />
             </article>
           </section>
-          <section className='section-booked-admin pb-5'>
+          <section className='section-booked-admin pb-5 plate-background'>
             <div className='section-center'>
               {/* funzionalità admin */}
               {userRole === "admin" && (
