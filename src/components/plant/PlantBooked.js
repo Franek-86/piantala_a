@@ -34,7 +34,7 @@ import BackBtn from "../menu/BackBtn";
 import BackBtnLarge from "../menu/BackBtnLarge";
 import useIsLargeScreen from "../../utils/useIsLargeScreen";
 import { BsVectorPen } from "react-icons/bs";
-
+import { MdOutlineFileUpload } from "react-icons/md";
 const PlantBooked = () => {
   const [modalShow, setModalShow] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -157,36 +157,37 @@ const PlantBooked = () => {
               <div className='my-3 text-end d-flex justify-content-end'>
                 <ShareButton />
               </div>
-              <article className='booked-plant-pic'>
-                <div
-                  style={{ backgroundImage: `url(${image_url})` }}
-                  className='plant-pic'
-                ></div>
-              </article>
-              <article className='update-pic-article d-flex justify-content-between mt-3'>
-                <div className='d-flex align-items-center justify-content-start w-100 justify-content-end=start'>
-                  {Capacitor.isNativePlatform() && (
-                    <button
-                      onClick={() => updatePicMob(plantId)}
-                      className='btn btn-primary btn-small'
-                    >
-                      Aggiorna immagine
-                    </button>
-                  )}
-                  {(!Capacitor.isNativePlatform() && userRole === "admin") ||
-                  (!Capacitor.isNativePlatform() && userId === owner_id) ? (
-                    <button
-                      // onClick={() => updatePlantPic(id)}
-                      className='btn btn-warning btn-small'
-                      onClick={updatePlant}
-                    >
-                      Aggiorna immagine
-                    </button>
-                  ) : (
-                    <></>
-                  )}
+              <article className='booked-plant-pic d-flex justify-content-center'>
+                <div>
+                  <div
+                    style={{ backgroundImage: `url(${image_url})` }}
+                    className='plant-pic'
+                  ></div>
+                  <div className='mt-2 update-pic d-flex justify-content-end'>
+                    {Capacitor.isNativePlatform() && (
+                      <button
+                        onClick={() => updatePicMob(plantId)}
+                        className='btn btn-primary btn-small'
+                      >
+                        Aggiorna immagine
+                      </button>
+                    )}
+                    {(!Capacitor.isNativePlatform() && userRole === "admin") ||
+                    (!Capacitor.isNativePlatform() && userId === owner_id) ? (
+                      <button
+                        // onClick={() => updatePlantPic(id)}
+                        className='btn btn-warning btn-small'
+                        onClick={updatePlant}
+                      >
+                        <MdOutlineFileUpload className='fs-4' />
+                      </button>
+                    ) : (
+                      <></>
+                    )}
+                  </div>
                 </div>
               </article>
+
               <article className='pt-5 justify-content-center btn-plant-article d-none d-xl-flex'>
                 <a
                   href='#plate'
@@ -208,6 +209,8 @@ const PlantBooked = () => {
                   <div className='step-title pb-2 pe-1'>
                     <BsVectorPen />
                   </div>
+
+                  <div className='ink'></div>
                 </span>
                 {plate && !plateLoading ? (
                   <div className='plate-image-container ms-auto me-auto'>

@@ -2185,12 +2185,15 @@ body {
 .plant-pic {
   height: calc(100vh - 20rem);
   width: 100%;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   min-width: 20rem;
   background-position: center;
   background-size: cover;
   border-radius: 5px;
   border: 2px solid var(--clr-primary-5);
+}
+.update-plant {
+  text-align: center;
 }
 @media screen and (min-width: 992px) {
   .bg-map {
@@ -2216,6 +2219,9 @@ body {
   .plant-pic {
     height: 50vh;
     width: 30%;
+  }
+  .update-pic {
+    width: 100%;
   }
   .separator {
     /* background-color: red; */
