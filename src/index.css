@@ -2180,8 +2180,9 @@ body {
   width: 20rem;
 }
 .plant-pic {
-  height: 50vh;
-  width: 60%;
+  height: calc(100vh - 20rem);
+  width: 80%;
+  margin: 0 auto;
   min-width: 20rem;
   background-position: center;
   background-size: cover;

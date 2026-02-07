@@ -150,9 +150,8 @@ const PlantBooked = () => {
           <section className='section-booked-pic'>
             <div className='section-center'>
               <h2 className='section-title pt-3 pt-xl-4'>
-                &#127793;{plant_type ? plant_type : "Piantina"}{" "}
+                {plant_type ? plant_type : "Piantina"}{" "}
                 <span className='lower-case'>di</span> {ownerPublicInfo}
-                &#127793;
               </h2>
               {/* share button */}
               <div className='my-3 text-end d-flex justify-content-end'>
@@ -188,7 +187,7 @@ const PlantBooked = () => {
                   )}
                 </div>
               </article>
-              <article className='pt-5 d-flex justify-content-center btn-plant-article'>
+              {/* <article className='pt-5 d-flex justify-content-center btn-plant-article'>
                 <a
                   href='#plate'
                   className='btn btn-primary d-flex align-items-center justify-content-between'
@@ -196,7 +195,7 @@ const PlantBooked = () => {
                   <span className='pe-2'>Targa</span>
                   <FaArrowDown />
                 </a>
-              </article>
+              </article> */}
             </div>
           </section>
           <section
