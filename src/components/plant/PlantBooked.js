@@ -33,7 +33,7 @@ import { UsersContext } from "../../context/UsersContext";
 import BackBtn from "../menu/BackBtn";
 import BackBtnLarge from "../menu/BackBtnLarge";
 import useIsLargeScreen from "../../utils/useIsLargeScreen";
-import { GiMetalPlate } from "react-icons/gi";
+import { BsVectorPen } from "react-icons/bs";
 
 const PlantBooked = () => {
   const [modalShow, setModalShow] = useState(false);
@@ -187,7 +187,7 @@ const PlantBooked = () => {
                   )}
                 </div>
               </article>
-              {/* <article className='pt-5 d-flex justify-content-center btn-plant-article'>
+              <article className='pt-5 justify-content-center btn-plant-article d-none d-xl-flex'>
                 <a
                   href='#plate'
                   className='btn btn-primary d-flex align-items-center justify-content-between'
@@ -195,12 +195,20 @@ const PlantBooked = () => {
                   <span className='pe-2'>Targa</span>
                   <FaArrowDown />
                 </a>
-              </article> */}
+              </article>
             </div>
           </section>
-          <section className='pt-lg-5 section-booked-plate position-background'>
+          <section
+            id='plate'
+            className='pt-lg-5 section-booked-plate position-background'
+          >
             <article className='section-center'>
               <div className='plate-info-pic pt-5'>
+                <span className='mb-3 h5 d-flex flex-row align-items-center'>
+                  <div className='step-title pb-2 pe-1'>
+                    <BsVectorPen />
+                  </div>
+                </span>
                 {plate && !plateLoading ? (
                   <Card.Img
                     variant='bottom'
@@ -212,7 +220,7 @@ const PlantBooked = () => {
                   />
                 ) : (
                   <Card.Img
-                    class='placeholder-image'
+                    className='placeholder-image'
                     variant='top'
                     src='https://placehold.co/600x300/c7dd85/5c3333/?text=Targa in elaborazione&font=Montserrat'
                   />

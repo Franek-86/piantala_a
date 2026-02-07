@@ -1016,7 +1016,7 @@ element {
   padding-left: 0;
   padding-bottom: 0;
   padding-right: 0;
-  max-width: 30rem;
+  /* max-width: 30rem; */
 }
 .card-plant-info2 {
   --bs-card-border-radius: var(--bs-border-radius) !important;
