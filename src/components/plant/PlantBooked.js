@@ -198,18 +198,9 @@ const PlantBooked = () => {
               </article> */}
             </div>
           </section>
-          <section
-            id='plate'
-            className='pt-lg-5 section-booked-plate plate-background'
-          >
-            <div className='section-center'>
-              <div className='plate-info-pic'>
-                <span className='pt-5 mb-3 h5 d-flex flex-row align-items-center'>
-                  <div className='step-title pb-2 pe-1'>
-                    <GiMetalPlate />
-                  </div>
-                  Targa di {ownerPublicInfo}
-                </span>
+          <section className='pt-lg-5 section-booked-plate position-background'>
+            <article className='section-center'>
+              <div className='plate-info-pic pt-5'>
                 {plate && !plateLoading ? (
                   <Card.Img
                     variant='bottom'
@@ -239,22 +230,8 @@ const PlantBooked = () => {
                   </div>
                 </div>
               )}
-              <article className='pt-5 d-flex justify-content-center btn-plant-article'>
-                <a
-                  href='#location'
-                  className='btn btn-primary d-flex align-items-center justify-content-between'
-                >
-                  <span className='pe-2'>Posizione</span>
-                  <FaArrowDown />
-                </a>
-              </article>
-            </div>
-          </section>
-          <section
-            id='location'
-            className='pt-lg-5 section-booked-position position-background'
-          >
-            <div className='section-center'>
+            </article>
+            <article className='section-center'>
               <span className='pt-5 mb-3 h5 d-flex flex-row align-items-center'>
                 <div className='step-title pb-2 pe-1'>
                   <TiLocation />
@@ -273,9 +250,8 @@ const PlantBooked = () => {
                 name=''
                 id=''
               />
-            </div>
+            </article>
           </section>
-
           <section className='section-booked-admin'>
             <div className='section-center'>
               {/* funzionalità admin */}
