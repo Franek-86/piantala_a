@@ -210,20 +210,24 @@ const PlantBooked = () => {
                   </div>
                 </span>
                 {plate && !plateLoading ? (
-                  <Card.Img
-                    variant='bottom'
-                    src={plate}
-                    onLoad={handleImageLoad}
-                    className={`w-100  transition-opacity duration-500 ${
-                      isLoaded ? "opacity-100" : "opacity-0"
-                    }`}
-                  />
+                  <div className='plate-image-container ms-auto me-auto'>
+                    <Card.Img
+                      variant='bottom'
+                      src={plate}
+                      onLoad={handleImageLoad}
+                      className={`w-100  transition-opacity duration-500 ${
+                        isLoaded ? "opacity-100" : "opacity-0"
+                      }`}
+                    />
+                  </div>
                 ) : (
-                  <Card.Img
-                    className='placeholder-image w-100'
-                    variant='top'
-                    src='https://placehold.co/600x300/c7dd85/5c3333/?text=Targa in elaborazione&font=Montserrat'
-                  />
+                  <div className='plate-image-container ms-auto me-auto'>
+                    <Card.Img
+                      className='placeholder-image w-100'
+                      variant='top'
+                      src='https://placehold.co/600x300/c7dd85/5c3333/?text=Targa in elaborazione&font=Montserrat'
+                    />
+                  </div>
                 )}
               </div>
               {plateLoading && (

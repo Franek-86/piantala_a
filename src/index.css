@@ -2128,6 +2128,9 @@ body {
 .section-booked-plate {
   min-height: 100dvh;
 }
+.plate-image-container {
+  max-width: 50rem;
+}
 
 .booked-position-map {
   /* border: 1px solid red; */
