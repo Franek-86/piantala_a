@@ -2182,11 +2182,14 @@ body {
 .plant-payment button {
   width: 20rem;
 }
+.plant-pic-container {
+  max-width: 30rem;
+}
 .plant-pic {
   height: calc(100vh - 20rem);
   width: 100%;
   /* margin: 0 auto; */
-  max-width: 30rem;
+  /* max-width: 30rem; */
   background-position: center;
   background-size: cover;
   border-radius: 5px;
@@ -2218,7 +2221,7 @@ body {
   }
   .plant-pic {
     height: 50vh;
-    width: 30%;
+    /* width: 30%; */
   }
   .update-pic {
     width: 100%;

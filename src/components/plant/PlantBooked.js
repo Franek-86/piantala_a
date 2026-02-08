@@ -158,7 +158,7 @@ const PlantBooked = () => {
                 <ShareButton />
               </div>
               <article className='booked-plant-pic d-flex justify-content-center'>
-                <div className='w-100'>
+                <div className='plant-pic-container w-100'>
                   <div
                     style={{ backgroundImage: `url(${image_url})` }}
                     className='plant-pic'
