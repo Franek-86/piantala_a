@@ -2198,6 +2198,17 @@ body {
 .update-plant {
   text-align: center;
 }
+.ink {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    var(--clr-primary-5),
+    var(--c-bg-map-1) 40%
+  );
+}
 @media screen and (min-width: 992px) {
   .bg-map {
     width: calc(100% - 20rem);

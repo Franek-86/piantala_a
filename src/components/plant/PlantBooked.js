@@ -205,15 +205,15 @@ const PlantBooked = () => {
           >
             <article className='section-center'>
               <div className='plate-info-pic pt-5'>
-                <span className='mb-3 h5 d-flex flex-row align-items-center'>
-                  <div className='step-title pb-2 pe-1'>
+                <span className='mb-3 h5 d-flex flex-row align-items-center position-relative'>
+                  <div className='step-title pe-1'>
                     <BsVectorPen />
                   </div>
 
                   <div className='ink'></div>
                 </span>
                 {plate && !plateLoading ? (
-                  <div className='plate-image-container ms-auto me-auto'>
+                  <div className='plate-image-container ms-auto me-auto pt-2'>
                     <Card.Img
                       variant='bottom'
                       src={plate}
@@ -224,7 +224,7 @@ const PlantBooked = () => {
                     />
                   </div>
                 ) : (
-                  <div className='plate-image-container ms-auto me-auto'>
+                  <div className='plate-image-container ms-auto me-auto pt-2'>
                     <Card.Img
                       className='placeholder-image w-100'
                       variant='top'
