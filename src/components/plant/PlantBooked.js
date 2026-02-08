@@ -146,7 +146,6 @@ const PlantBooked = () => {
               <BackBtnLarge />
             </>
           )}
-
           <section className='section-booked-pic'>
             <div className='section-center'>
               <h2 className='section-title pt-3 pt-xl-4'>
@@ -301,10 +300,10 @@ const PlantBooked = () => {
               />
             </article>
           </section>
-          <section className='section-booked-admin pb-5 plate-background'>
-            <div className='section-center'>
-              {/* funzionalità admin */}
-              {userRole === "admin" && (
+          {userRole === "admin" && (
+            <section className='section-booked-admin pb-5 plate-background'>
+              <div className='section-center'>
+                {/* funzionalità admin */}
                 <div className='admin-controls'>
                   <h5 className='pt-5 mb-3'>Informazioni utente</h5>
                   <div className='d-grid gap-2'>
@@ -383,9 +382,9 @@ const PlantBooked = () => {
                   <h5 className='mb-3'>Operazioni tipo pianta</h5>
                   <PlantFormSelect />
                 </div>
-              )}
-            </div>
-          </section>
+              </div>
+            </section>
+          )}
         </div>
       </div>
     </div>
