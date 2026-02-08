@@ -197,7 +197,7 @@ function Map() {
       <div className='d-flex'>
         {" "}
         {isLargeScreen && <SideBar />}
-        <article className='bg-map'>
+        <div className='bg-map'>
           <MapContainer
             center={[41.118778112249046, 16.881917818963464]}
             zoom={13}
@@ -272,7 +272,7 @@ function Map() {
               </Marker>
             )} */}
           </MapContainer>
-        </article>
+        </div>
         <Outlet />
       </div>
     );
@@ -346,7 +346,7 @@ function Map() {
                           () =>
                             sendValuesToAddPlant(
                               `${position.lat},${position.lng}`,
-                              navigate
+                              navigate,
                             )
                           // ,
                           // navigate("/map/addPlant")

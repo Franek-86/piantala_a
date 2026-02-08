@@ -138,7 +138,7 @@ const PlantBooked = () => {
 
   return (
     <div className='plant-section'>
-      <div className='section-large'>
+      <div className=''>
         <BackBtn plant />
         <div className='single-plant'>
           {isLarge && (
@@ -186,7 +186,6 @@ const PlantBooked = () => {
                   </div>
                 </div>
               </article>
-
               <article className='pt-5 justify-content-center btn-plant-article d-none d-xl-flex'>
                 <a
                   href='#plate'
@@ -277,7 +276,7 @@ const PlantBooked = () => {
           </section>
           <section
             id='position'
-            className='pt-lg-5 section-booked-plate position-background d-none d-xl-block'
+            className='pt-lg-5 section-booked-plate plate-background d-none d-xl-block'
           >
             <article className='section-center'>
               <span className='pt-5 mb-3 h5 d-flex flex-row align-items-center'>

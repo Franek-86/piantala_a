@@ -190,7 +190,7 @@ ul {
 .section-center {
   width: 90%;
   margin: 0 auto;
-  max-width: 992px;
+  /* max-width: 992px; */
 }
 
 .section-title {
@@ -249,6 +249,7 @@ hr {
 @media screen and (min-width: 992px) {
   .section-large {
     width: calc(100% - 20rem);
+    margin-left: 20rem;
     padding-bottom: 0;
     height: 100vh;
   }
@@ -867,13 +868,12 @@ element {
     border-radius: 5px;
   }
 }
-@media screen and (max-width: 992px) {
-  .plate-background {
-    background-color: var(--c-bg-map-2);
-  }
-  .position-background {
-    background-color: var(--c-bg-map-1);
-  }
+
+.plate-background {
+  background-color: var(--c-bg-map-2);
+}
+.position-background {
+  background-color: var(--c-bg-map-1);
 }
 
 .btn-plant-article a {
@@ -910,7 +910,7 @@ element {
 /* approved partial end */
 
 .plant-section {
-  height: 100vh;
+  /* height: 100vh; */
   position: relative;
   /* overflow-y: scroll; */
 }
@@ -2213,23 +2213,29 @@ body {
 .font-plate {
   font-family: cursive;
 }
+.plants-container {
+  width: 100%;
+}
 @media screen and (min-width: 992px) {
   .bg-map {
     width: calc(100% - 20rem);
     left: 20rem;
   }
   .plants-container {
+    /* overflow-y: scroll; */
+    position: relative;
+    width: calc(100% - 20rem);
+    /* border: 5px solid red; */
+    left: 20rem;
+    /* display: flex;
+    justify-content: center; */
+  }
+  /* .page-large-container {
     overflow-y: scroll;
     position: fixed;
     width: calc(100% - 20rem);
     left: 20rem;
-  }
-  .page-large-container {
-    overflow-y: scroll;
-    position: fixed;
-    width: calc(100% - 20rem);
-    left: 20rem;
-  }
+  } */
   .booked-position-map {
     /* border: 1px solid red; */
     min-height: 60vh;
@@ -2265,7 +2271,7 @@ body {
 }
 @media screen and (min-width: 992px) {
   .map-section .leaflet-control-zoom.leaflet-bar.leaflet-control {
-    margin-left: 21rem;
+    /* margin-left: 21rem; */
     display: block;
     margin-top: 7rem;
   }

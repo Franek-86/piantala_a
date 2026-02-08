@@ -97,22 +97,21 @@ const PlantApproved = () => {
 
   return (
     <div className='plant-section'>
-      <Terms id={plantId} />{" "}
-      <div className='section-large'>
-        <BackBtn plant />
-        <Form onSubmit={handleSubmit(onSubmit)}>
-          <div className='single-plant'>
-            <section className='section-center section-plant-intro pt-5 pt-lg-0'>
-              {isLarge && (
-                <>
-                  <BackBtnLarge />
-                  <h2 className='section-title pt-3 pt-xl-4'>
-                    Zona <span className='text-lowercase'>-</span>{" "}
-                    {plant?.suburb} &#127793;
-                  </h2>
-                </>
-              )}
-              <article className='plant-intro-text intro-article p-2 p-lg-3 p-xl-5'>
+      <Terms id={plantId} /> <BackBtn plant />
+      <Form onSubmit={handleSubmit(onSubmit)}>
+        <div className='single-plant'>
+          <section className='section-plant-intro pt-5 pt-lg-0'>
+            {isLarge && (
+              <>
+                <BackBtnLarge />
+                <h2 className='section-title pt-3 pt-xl-4'>
+                  Zona <span className='text-lowercase'>-</span> {plant?.suburb}{" "}
+                  &#127793;
+                </h2>
+              </>
+            )}
+            <div className='section-center'>
+              <article className='plant-intro-text intro-article p-2 p-lg-3 p-xl-4'>
                 <p className='mb-2 mb-lg-4'>
                   Puoi procedere con l'acquisto e la piantumazione della tua
                   piantina nel <b>quartiere {plant?.suburb} </b> di{" "}
@@ -127,7 +126,7 @@ const PlantApproved = () => {
                   preferisci e procedi infine con il <b>pagamento</b>.
                 </p>
               </article>
-              <article className='d-flex justify-content-center my-4 my-lg-5'>
+              <article className='d-flex justify-content-center my-4 my-lg-4'>
                 <div className='steps-article my-2 d-flex flex-row justify-content-around p-2 p-xl-3'>
                   <div className='step-container d-flex flex-column align-items-center'>
                     <a
@@ -182,122 +181,115 @@ const PlantApproved = () => {
                   <FaArrowDown />
                 </a>
               </article>
-            </section>
-            <section id='location' className='mt-lg-5 position-background'>
-              <div className='section-center section-plant-position'>
-                <span className='pt-5 mb-3 h5 d-flex flex-row align-items-center'>
-                  <div className='step-title pb-2 pe-1'>
-                    <TiLocation />
-                  </div>
-                  Voglio essere piantata qui!
+            </div>
+          </section>
+          <section id='location' className='pt-lg-3 position-background'>
+            <div className='section-center section-plant-position'>
+              <span className='pt-5 mb-3 h5 d-flex flex-row align-items-center'>
+                <div className='step-title pb-2 pe-1'>
+                  <TiLocation />
+                </div>
+                Voglio essere piantata qui!
+              </span>
+              <InfoCard />
+              <article className='plant-position-text mt-2 mt-lg-5'>
+                {" "}
+                <span>
+                  Per qualsiasi ulteriore informazione ti invitiamo a
+                  contattarci, tutti i nostri riferimenti sono nella pagina{" "}
+                  <a target='_blank' href='/contacts'>
+                    "Contatti"
+                  </a>
+                  .{" "}
                 </span>
-                <InfoCard />
-                <article className='plant-position-text mt-2 mt-lg-5'>
-                  {" "}
-                  <span>
-                    Per qualsiasi ulteriore informazione ti invitiamo a
-                    contattarci, tutti i nostri riferimenti sono nella pagina{" "}
-                    <a target='_blank' href='/contacts'>
-                      "Contatti"
-                    </a>
-                    .{" "}
-                  </span>
-                </article>
+              </article>
 
-                <article className=' mt-5 d-flex btn-plant-article  justify-content-center'>
-                  <a
-                    href='#plate'
-                    className='btn btn-primary d-flex align-items-center justify-content-between'
-                  >
-                    <span className='pe-2'>
-                      Definisci il testo della tua targa
-                    </span>
-                    <FaArrowDown />
-                  </a>
-                </article>
-              </div>
-            </section>
-            <section
-              id='plate'
-              className='mt-lg-5 section-plant-plate plate-background'
-            >
-              <div className='section-center section-plant'>
-                <span className='pt-5 mb-3 h5 d-flex flex-row align-items-center'>
-                  <div className='step-title pb-2 pe-1'>
-                    <BsVectorPen />
-                  </div>
-                  Dedicami a qualcuno
-                </span>
-                <article className='plate-info mb-5'>
-                  <p>
-                    Definisci il <b>testo della tua targa</b>, una dedica o un
-                    tuo pensiero che non superi i 500 caratteri e che noi
-                    riporteremo su una targa realizzata <b>in alluminio</b>{" "}
-                    avente come <b>sfondo</b> il quadro di <b>Ernest Verner</b>
-                    <span className='d-inline d-md-none'>.</span>{" "}
-                    <span className='d-none d-md-inline'>
-                      che riportiamo qui in basso.
-                    </span>
-                  </p>
-                  <p className='mb-0'>
-                    {" "}
-                    Puoi visualizzare tutte le vostre targe già da noi
-                    realizzate e applicate sui vostri alberi nella pagina{" "}
-                    <Link className='d-inline' to={"/plates"}>
-                      "Le vostre targhe"
-                    </Link>{" "}
-                    dedicata alle vostre terghe.
-                  </p>
-                </article>
-                <article className='plate-form d-flex flex-column flex-md-row w-100'>
-                  <FloatingLabel
-                    controlId='formComment'
-                    label='Inserisci qui il testo della tua targa'
-                    className='textPlateContainer mb-3 '
-                  >
-                    <Form.Control
-                      className='textPlate'
-                      as='textarea'
-                      rows={3}
-                      {...register("comment", {
-                        required: true,
-                        maxLength: 500,
-                      })}
-                    />
-                    {errors.comment && (
-                      <p className='text-danger'>
-                        È necessario un testo da inserire nella targa, il testo
-                        deve essere di meno di 500 caratteri.
-                      </p>
-                    )}
-                  </FloatingLabel>
-                  <div
-                    className='plate-background-pic d-none d-md-block'
-                    style={{ backgroundImage: `url(${Verner})` }}
-                  >
-                    {/* <img
-                    className='plate-background-img'
-                    src={Verner}
-                    alt=''
-                    srcset=''
-                  /> */}
-                  </div>
-                </article>
-                <article className='mt-5 d-flex btn-plant-article justify-content-center'>
-                  <a
-                    href='#payment'
-                    className='btn btn-primary d-flex align-items-center justify-content-between'
-                  >
-                    <span className='pe-2'>Informazioni sul pagamento</span>
-                    <FaArrowDown />
-                  </a>
-                </article>
-              </div>
-            </section>
-            <PlantForm />
-          </div>
-        </Form>
-      </div>
+              <article className=' mt-5 d-flex btn-plant-article  justify-content-center'>
+                <a
+                  href='#plate'
+                  className='btn btn-primary d-flex align-items-center justify-content-between'
+                >
+                  <span className='pe-2'>
+                    Definisci il testo della tua targa
+                  </span>
+                  <FaArrowDown />
+                </a>
+              </article>
+            </div>
+          </section>
+          <section
+            id='plate'
+            className='pt-lg-3 section-plant-plate plate-background'
+          >
+            <div className='section-center section-plant'>
+              <span className='pt-5 mb-3 h5 d-flex flex-row align-items-center'>
+                <div className='step-title pb-2 pe-1'>
+                  <BsVectorPen />
+                </div>
+                Dedicami a qualcuno
+              </span>
+              <article className='plate-info mb-5'>
+                <p>
+                  Definisci il <b>testo della tua targa</b>, una dedica o un tuo
+                  pensiero che non superi i 500 caratteri e che noi riporteremo
+                  su una targa realizzata <b>in alluminio</b> avente come{" "}
+                  <b>sfondo</b> il quadro di <b>Ernest Verner</b>
+                  <span className='d-inline d-md-none'>.</span>{" "}
+                  <span className='d-none d-md-inline'>
+                    che riportiamo qui in basso.
+                  </span>
+                </p>
+                <p className='mb-0'>
+                  {" "}
+                  Puoi visualizzare tutte le vostre targe già da noi realizzate
+                  e applicate sui vostri alberi nella pagina{" "}
+                  <Link className='d-inline' to={"/plates"}>
+                    "Le vostre targhe"
+                  </Link>{" "}
+                  dedicata alle vostre terghe.
+                </p>
+              </article>
+              <article className='plate-form d-flex flex-column flex-md-row w-100'>
+                <FloatingLabel
+                  controlId='formComment'
+                  label='Inserisci qui il testo della tua targa'
+                  className='textPlateContainer mb-3 '
+                >
+                  <Form.Control
+                    className='textPlate'
+                    as='textarea'
+                    rows={3}
+                    {...register("comment", {
+                      required: true,
+                      maxLength: 500,
+                    })}
+                  />
+                  {errors.comment && (
+                    <p className='text-danger'>
+                      È necessario un testo da inserire nella targa, il testo
+                      deve essere di meno di 500 caratteri.
+                    </p>
+                  )}
+                </FloatingLabel>
+                <div
+                  className='plate-background-pic d-none d-md-block'
+                  style={{ backgroundImage: `url(${Verner})` }}
+                ></div>
+              </article>
+              <article className='mt-5 d-flex btn-plant-article justify-content-center'>
+                <a
+                  href='#payment'
+                  className='btn btn-primary d-flex align-items-center justify-content-between'
+                >
+                  <span className='pe-2'>Informazioni sul pagamento</span>
+                  <FaArrowDown />
+                </a>
+              </article>
+            </div>
+          </section>
+          <PlantForm />
+        </div>
+      </Form>
     </div>
   );
 };

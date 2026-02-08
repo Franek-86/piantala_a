@@ -99,7 +99,7 @@ const PlantForm = () => {
       <section
         id='payment'
         ref={container}
-        className='mt-lg-5 section-plant-form position-background'
+        className='pt-lg-3 section-plant-form position-background'
       >
         <div className='section-plant section-center'>
           {/* <Form onSubmit={handleSubmit(onSubmit)}> */}
