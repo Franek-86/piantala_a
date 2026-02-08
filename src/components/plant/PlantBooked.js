@@ -169,7 +169,7 @@ const PlantBooked = () => {
                         onClick={() => updatePicMob(plantId)}
                         className='btn btn-primary btn-small'
                       >
-                        Aggiorna immagine
+                        <MdOutlineFileUpload className='fs-4' />
                       </button>
                     )}
                     {(!Capacitor.isNativePlatform() && userRole === "admin") ||
