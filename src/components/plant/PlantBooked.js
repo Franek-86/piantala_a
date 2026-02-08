@@ -209,7 +209,7 @@ const PlantBooked = () => {
                   <div className='step-title pe-1'>
                     <BsVectorPen />
                   </div>
-
+                  <span className='fst-italic font-plate'>Targa</span>
                   <div className='ink'></div>
                 </span>
                 {plate && !plateLoading ? (

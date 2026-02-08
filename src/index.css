@@ -2209,6 +2209,10 @@ body {
     var(--c-bg-map-1) 40%
   );
 }
+
+.font-plate {
+  font-family: cursive;
+}
 @media screen and (min-width: 992px) {
   .bg-map {
     width: calc(100% - 20rem);
