@@ -50,7 +50,7 @@ const Plates = () => {
       {isLargeScreen && <SideBar />}
       <section className='section-page section-background section-full-page section-users section-large section-plates page-large-container'>
         <BackBtn />
-        <div className='section-center'>
+        <div className='section-center pt-5'>
           <section className='section-page'>
             <div className='section-center menu-section-center'>
               <h2 className='section-title'>Le vostre targhe</h2>

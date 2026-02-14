@@ -30,9 +30,7 @@ const Chat = () => {
         <div className='section-center'>
           <section className='pb-0'>
             <div className='section-center'>
-              <h2 className='section-title' style={{ "padding-top": "4rem" }}>
-                Chat aperta
-              </h2>
+              <h2 className='section-title pt-5'>Chat aperta</h2>
               <div class='page-content page-container' id='page-content'>
                 <div class='col-md-4'></div>
                 <div className='box box-warning direct-chat direct-chat-warning'>

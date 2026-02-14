@@ -48,7 +48,7 @@ const Orders = () => {
       <section className='section-page section-background section-full-page section-orders section-large page-large-container'>
         <BackBtn />
         <div className='section-center menu-section-center'>
-          <h2 className='section-title'>Ordini</h2>
+          <h2 className='section-title pt-5'>Ordini</h2>
           <Table size='sm' striped hover>
             <thead>
               <tr>

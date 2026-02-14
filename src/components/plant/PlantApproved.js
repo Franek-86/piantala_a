@@ -58,7 +58,9 @@ const PlantApproved = () => {
   // if (singlePlantError) return <div className='error'>{singlePlantError}</div>;
   // if (!plant) return <div>No plant found.</div>;
   // if (singlePlantLoading) return <Loading />;
-
+  useEffect(() => {
+    console.log("userid", userId);
+  });
   const onSubmit = (data) => {
     console.log("aaaaaa", data);
     if (!isAuthenticated || !userId) {
@@ -75,6 +77,10 @@ const PlantApproved = () => {
       setLogReg(true);
       return;
     }
+
+    if (!plantId) {
+      navigate("/map");
+    }
     // const date = new Date().toLocaleDateString("it-IT");
     console.log("asdf", data);
     let date = new Date();
@@ -82,15 +88,9 @@ const PlantApproved = () => {
     let month = date.getMonth() + 1;
     let year = date.getFullYear();
     let currentDate = `${year}-${month}-${day}`;
-
     data.id = parseInt(plantId);
     data.owner_id = userId;
     data.purchase_date = currentDate;
-    if (!userId) {
-      console.log("user id non può essere null");
-      return;
-    }
-    console.log("test", data);
     localStorage.setItem("booked-plant", JSON.stringify(data));
     navigate("/checkout");
   };

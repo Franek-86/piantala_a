@@ -55,16 +55,14 @@ const Users = () => {
   }, [userInfo]);
 
   return (
-    <div className='d-flex flex-row section-background '>
+    <div className='d-flex flex-row section-background'>
       {isLargeScreen && <SideBar />}
       <section className='section-page section-full-page section-users section-large page-large-container'>
         <BackBtn />
         <div className='section-center'>
           <section className=''>
             <div className='section-center'>
-              <h2 className='section-title' style={{ "padding-top": "4rem" }}>
-                Lista Utenti
-              </h2>
+              <h2 className='section-title pt-5'>Lista Utenti</h2>
               <div className='d-md-flex justify-content-md-center'>
                 {loading && <Loading />}
                 {userLoading && <Loading />}

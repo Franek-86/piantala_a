@@ -81,7 +81,7 @@ export const AuthProvider = ({ children }) => {
           headers: {
             "Content-Type": "application/json",
           },
-        }
+        },
       );
 
       if (response.data.status === 503) {
@@ -106,7 +106,7 @@ export const AuthProvider = ({ children }) => {
           headers: {
             "Content-Type": "application/json",
           },
-        }
+        },
       );
       if (response) {
         setDistricts(response.data);
@@ -122,7 +122,7 @@ export const AuthProvider = ({ children }) => {
           headers: {
             "Content-Type": "application/json",
           },
-        }
+        },
       );
       if (response) {
         setCities(response.data);
@@ -143,7 +143,7 @@ export const AuthProvider = ({ children }) => {
       payload,
       {
         withCredentials: true,
-      }
+      },
     );
     return response;
   };
@@ -267,7 +267,7 @@ export const AuthProvider = ({ children }) => {
         payload,
         {
           withCredentials: true,
-        }
+        },
       );
 
       if (response.data.message === "terms to be accepted") {
@@ -341,7 +341,7 @@ export const AuthProvider = ({ children }) => {
         payload,
         {
           withCredentials: true,
-        }
+        },
       );
       if (response.data.message === "Login successful") {
         setIsAuthenticated(true);
@@ -410,7 +410,7 @@ export const AuthProvider = ({ children }) => {
       payload,
       {
         withCredentials: true,
-      }
+      },
     );
     return response;
   };
@@ -449,7 +449,7 @@ export const AuthProvider = ({ children }) => {
       payload,
       {
         widthCredentials: true,
-      }
+      },
     );
 
     return response;
@@ -464,7 +464,7 @@ export const AuthProvider = ({ children }) => {
   const verificationEmail = async (data) => {
     try {
       const response = await axios.get(
-        `${serverDomain}/api/auth/verify?token=${data}`
+        `${serverDomain}/api/auth/verify?token=${data}`,
       );
 
       return response;
@@ -473,7 +473,7 @@ export const AuthProvider = ({ children }) => {
   const verificationEmailPasswordReset = async (data) => {
     try {
       const response = axios.get(
-        `${serverDomain}/api/auth/reset-password/verify?token=${data}`
+        `${serverDomain}/api/auth/reset-password/verify?token=${data}`,
       );
       return response;
     } catch (error) {}
@@ -483,7 +483,7 @@ export const AuthProvider = ({ children }) => {
     try {
       const response = await axios.post(
         `${serverDomain}/api/auth/password-reset`,
-        { data }
+        { data },
       );
 
       toast(`🌱 ${response.data.message}`, {
@@ -519,7 +519,7 @@ export const AuthProvider = ({ children }) => {
         `${serverDomain}/api/auth/new-password`,
         {
           payload: data,
-        }
+        },
       );
       if (response.status === 200) {
         toast(`🌱 ${response.data}`, {
@@ -603,7 +603,7 @@ export const AuthProvider = ({ children }) => {
         `/api/auth/send-payment-confirmation-email`,
         {
           payload: data,
-        }
+        },
       );
       if (response.status === 200) {
         toast("🌱 Email inviata", {
@@ -640,7 +640,7 @@ export const AuthProvider = ({ children }) => {
     const name = e.target.name;
     localStorage.setItem(
       "registration",
-      JSON.stringify({ ...userData, [name]: value })
+      JSON.stringify({ ...userData, [name]: value }),
     );
     setUserData({ ...userData, [name]: value });
   };

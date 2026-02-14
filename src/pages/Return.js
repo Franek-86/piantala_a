@@ -9,12 +9,11 @@ const serverDomain =
   process.env.REACT_APP_NODE_ENV === "test"
     ? process.env.REACT_APP_TEST_DOMAIN_NAME_SERVER
     : process.env.REACT_APP_DOMAIN_NAME_SERVER;
-console.log("a321", serverDomain);
 export const Return = () => {
   const [status, setStatus] = useState(null);
   const [customerEmail, setCustomerEmail] = useState("");
   const [timer, setTimer] = useState(10);
-  const { handleBookedPlant, clearBookedStorage } = useContext(PlantsContext);
+  const { handleBookedPlant } = useContext(PlantsContext);
   const { setIsAuthenticated, sendPaymentConfirmationEmail } =
     useContext(AuthContext);
   const { postPayment } = useContext(OrdersContext);
@@ -28,10 +27,8 @@ export const Return = () => {
 
   const getOut = () => {
     return setTimeout(() => {
-      console.log("timeout");
-      clearBookedStorage();
       navigate("/bookedPlants");
-    }, 10000);
+    }, 5000);
   };
   useEffect(() => {
     const queryString = window.location.search;
@@ -58,14 +55,17 @@ export const Return = () => {
   //   }
   // }, [customerEmail]);
 
+  useEffect(() => {
+    if (status === "complete") {
+      handleBookedPlant();
+      setIsAuthenticated(true);
+    }
+  }, [status]);
   if (status === "open") {
     return <Navigate to='/checkout' />;
   }
 
   if (status === "complete") {
-    handleBookedPlant();
-    setIsAuthenticated(true);
-
     return (
       <section class='vh-100 d-flex align-items-center' id='success'>
         <div class='card text-center'>
@@ -81,11 +81,7 @@ export const Return = () => {
               </a>
               .
             </p>
-            <Link
-              to='/bookedPlants'
-              class='btn btn-primary'
-              onClick={() => clearBookedStorage()}
-            >
+            <Link to='/bookedPlants' class='btn btn-primary'>
               Torna alla mappa
             </Link>
           </div>

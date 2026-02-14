@@ -4,15 +4,25 @@ import {
   EmbeddedCheckoutProvider,
   EmbeddedCheckout,
 } from "@stripe/react-stripe-js";
+import { navigateToMap } from "../utils/utils";
+import { useNavigate } from "react-router-dom";
+
 const serverDomain =
   process.env.REACT_APP_NODE_ENV === "test"
     ? process.env.REACT_APP_TEST_DOMAIN_NAME_SERVER
     : process.env.REACT_APP_DOMAIN_NAME_SERVER;
-console.log("a3211", serverDomain);
+
 export const CheckoutForm = () => {
+  const navigate = useNavigate();
   const [stripePromise, setStripePromise] = useState(null);
 
   useEffect(() => {
+    const bookedPlant = JSON.parse(localStorage.getItem("booked-plant"));
+    if (!bookedPlant?.owner_id || !bookedPlant?.id) {
+      localStorage.removeItem("booked-plant");
+      navigate("/");
+      return;
+    }
     fetch(`${serverDomain}/config`).then(async (r) => {
       const { publishableKey } = await r.json();
       setStripePromise(loadStripe(publishableKey));

@@ -20,7 +20,7 @@ const ChiSiamo = () => {
       {isLargeScreen && <SideBar />}
       <section className='section-page section-full-page  section-background section-large page-large-container'>
         <BackBtn />
-        <article className='chi-article section-center menu-section-center pb-lg-5'>
+        <article className='chi-article section-center menu-section-center pt-5 pb-lg-5'>
           <h2 className='section-title'>Chi siamo</h2>
           <p>
             L'iniziativa{" "}

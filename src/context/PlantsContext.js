@@ -80,24 +80,38 @@ export const PlantsProvider = ({ children }) => {
       setLoadingReports(false); // Set loading to false after fetching
     }
   };
-
+  const clearBookedStorage = () => {
+    localStorage.removeItem("booked-plant");
+  };
   const handleBookedPlant = async () => {
     let bookedPlant = JSON.parse(localStorage.getItem("booked-plant"));
-
+    console.log("mai null?", bookedPlant);
     const { id, owner_id, comment, purchase_date } = bookedPlant;
 
     try {
-      await axios.patch(`${serverDomain}/api/plants/${id}/ownership`, {
-        status: "booked",
-        id,
-        owner_id,
-        comment,
-        // plantType,
-        purchase_date,
-      });
+      const response = await axios.patch(
+        `${serverDomain}/api/plants/${id}/ownership`,
+        {
+          status: "booked",
+          id,
+          owner_id,
+          comment,
+          // plantType,
+          purchase_date,
+        },
+      );
+
+      console.log("response from booked", response, response?.status);
+      if (response.status === 200) {
+        console.log("ok from booked plant");
+        clearBookedStorage();
+        return "ok";
+      }
     } catch (err) {
       // setError(err.message);
-      console.log(err);
+      clearBookedStorage();
+      console.log("error from booked plant", err);
+      return;
     }
   };
 
@@ -141,9 +155,6 @@ export const PlantsProvider = ({ children }) => {
     }
   };
 
-  const clearBookedStorage = () => {
-    localStorage.removeItem("booked-plant");
-  };
   const getAllPlants = async (action) => {
     setLoading(true);
     try {

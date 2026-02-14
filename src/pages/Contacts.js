@@ -50,84 +50,90 @@ const Contacts = () => {
         <BackBtn />
         {loading && <Loading />}
 
-        <section className='section-page'>
+        <div className='section-page'>
           <div className='section-center menu-section-center mb-3'>
-            <h2 className='section-title'>I nostri contatti</h2>
-            <section className='contacts-form-section d-flex flex-column flex-lg-row flex-lg-row-reverse p-xl-5'>
-              <article className='contact-info w-100 p-lg-3 p-xl-4'>
-                <h4>Hai domande?</h4>
-                <p>
-                  Per entrare in contatto con noi ti invitiamo a compilare il
-                  form, cosi facendo invierai una mail alla casella di posta di
-                  "tipiantoperamore".
-                </p>
-                <p>
-                  Saremo felici di leggere e ti informiamo che normalmente
-                  intercorre una settimana di tempo prima di ricevere una nostra
-                  risposta.
-                </p>
-                <p>Non esitare a contattarci!</p>
-              </article>
-              <article className='contact-form w-100 p-lg-3 p-xl-4'>
-                <Form onSubmit={handleSubmit(onSubmit)}>
-                  {/* <h5 className='mb-3'>Scrivici una mail (non attivo)</h5> */}
+            <h2 className='section-title pt-5'>I nostri contatti</h2>
+            <section className='contacts-form-section d-flex align-items-lg-center'>
+              <div className='contacts-main-container d-flex flex-column flex-lg-row align-items-center flex-lg-row-reverse p-xl-5'>
+                <article className='contact-info w-100 p-lg-3 p-xl-4'>
+                  <h4>Hai domande?</h4>
+                  <p>
+                    Per entrare in contatto con noi ti invitiamo a compilare il
+                    form, cosi facendo invierai una mail alla casella di posta
+                    di "tipiantoperamore".
+                  </p>
+                  <p>
+                    Saremo felici di leggere e ti informiamo che normalmente
+                    intercorre una settimana di tempo prima di ricevere una
+                    nostra risposta.
+                  </p>
+                  <p>Non esitare a contattarci!</p>
+                </article>
+                <article className='contact-form w-100 p-lg-3 p-xl-4'>
+                  <Form
+                    className='contact-form-container'
+                    onSubmit={handleSubmit(onSubmit)}
+                  >
+                    {/* <h5 className='mb-3'>Scrivici una mail (non attivo)</h5> */}
 
-                  {!isAuthenticated && (
+                    {!isAuthenticated && (
+                      <Form.Group
+                        className='mb-3'
+                        controlId='exampleForm.ControlTextarea1'
+                      >
+                        <Form.Control
+                          type='email'
+                          placeholder='Inserisci il tuo indirizzo mail'
+                          disabled={loading}
+                          {...register("email", {
+                            required: "inserisci indirizzo mail",
+                            pattern: {
+                              value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                            },
+                          })}
+                        />
+                        {errors.email && (
+                          <em className='text-danger small'>
+                            {errors.email?.message}
+                          </em>
+                        )}
+                      </Form.Group>
+                    )}
                     <Form.Group
-                      className='mb-3'
+                      className='contact-form-input mb-3'
                       controlId='exampleForm.ControlTextarea1'
                     >
                       <Form.Control
-                        type='email'
-                        placeholder='Inserisci il tuo indirizzo mail'
+                        className='contact-form-input'
+                        placeholder='Come possiamo aiutarti?'
                         disabled={loading}
-                        {...register("email", {
-                          required: "inserisci indirizzo mail",
-                          pattern: {
-                            value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                          },
+                        as='textarea'
+                        {...register("messageBody", {
+                          required: "inserisci un messaggio",
+                          minLength: 2,
+                          message: "test",
                         })}
+                        rows={4}
                       />
-                      {errors.email && (
+                      {errors.messageBody && (
                         <em className='text-danger small'>
-                          {errors.email?.message}
+                          {errors.messageBody?.message}
                         </em>
                       )}
                     </Form.Group>
-                  )}
-                  <Form.Group
-                    className='mb-3'
-                    controlId='exampleForm.ControlTextarea1'
-                  >
-                    <Form.Control
-                      placeholder='Come possiamo aiutarti?'
-                      disabled={loading}
-                      as='textarea'
-                      {...register("messageBody", {
-                        required: "inserisci un messaggio",
-                        minLength: 2,
-                        message: "test",
-                      })}
-                      rows={4}
-                    />
-                    {errors.messageBody && (
-                      <em className='text-danger small'>
-                        {errors.messageBody?.message}
-                      </em>
-                    )}
-                  </Form.Group>
-                  <div className='d-flex justify-content-center'>
-                    <Button
-                      disabled={loading}
-                      className='w-100 text-align-center'
-                      variant='primary'
-                      type='submit'
-                    >
-                      Invia mail
-                    </Button>
-                  </div>
-                </Form>
-              </article>
+                    <div className='contact-form-btn d-flex justify-content-center'>
+                      <Button
+                        disabled={loading}
+                        className='w-100 text-align-center'
+                        variant='primary'
+                        type='submit'
+                      >
+                        Invia mail
+                      </Button>
+                    </div>
+                  </Form>
+                </article>
+              </div>
             </section>
 
             <hr />
@@ -191,7 +197,7 @@ const Contacts = () => {
               </div>
             </section>
           </div>
-        </section>
+        </div>
       </div>
     </div>
   );
