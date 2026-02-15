@@ -169,8 +169,8 @@ const Contacts = () => {
             </section>
             <section className='contacts-social-section mt-3'>
               <h4>Seguici sui nostri canali</h4>
-              <div className='d-flex align-items-center h-50'>
-                <div className='d-flex flex-column justify-content-around align-items-center h-50 w-100'>
+              <div className='d-flex align-items-center'>
+                <div className='contacts-social-container d-flex flex-column justify-content-around align-items-center w-100'>
                   {/* <div className='contacts-social-icon ps-3'>
                   <a target='_blank' href='  https://x.com/Amici_ErnestV'>
                     {" "}

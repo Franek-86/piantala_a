@@ -1461,19 +1461,17 @@ element {
   /* border: 2px solid red; */
 }
 
-.contacts-info-section,
-.contacts-social-section {
-  height: 80vh;
+.contacts-info-section {
+  min-height: 80vh;
   /* border: 2px solid red; */
 }
 
-.contacts-info-section {
-  /* height: calc(100vh - 5rem); */
-  /* border: 2px solid red; */
-}
 .contacts-main-container {
   height: 85%;
   /* border: 2px solid red; */
+}
+.contacts-social-container {
+  height: 10rem;
 }
 .contact-form {
   height: 100%;
@@ -1491,6 +1489,7 @@ element {
 .contact-form-btn {
   height: 3rem;
 }
+
 /* error page */
 
 .error {
