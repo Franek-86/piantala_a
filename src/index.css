@@ -171,7 +171,7 @@ ul {
 .section-page {
   /* height: 90vh; */
   /* height: 100vh; */
-  padding-bottom: 4rem;
+  /* padding-bottom: 4rem; */
   /* overflow: scroll; */
 }
 
@@ -1475,7 +1475,9 @@ element {
 }
 .contact-form {
   height: 100%;
-  /* border: 1px solid red; */
+  border: 1px solid var(--clr-primary-5);
+  padding: 0.5rem;
+  border-radius: 5px;
   display: flex;
   position: relative;
   flex-direction: column;
@@ -1494,6 +1496,13 @@ element {
     min-height: 50vh;
     /* border: 2px solid red; */
   }
+  .contacts-social-container {
+    width: 75% !important;
+  }
+  /* .contacts-info-item {
+    
+    border: 1px solid var(--clr-primary-5);
+  } */
 }
 /* error page */
 
