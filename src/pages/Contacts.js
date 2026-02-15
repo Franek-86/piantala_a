@@ -170,15 +170,15 @@ const Contacts = () => {
             <section className='contacts-social-section mt-3'>
               <h4>Seguici sui nostri canali</h4>
               <div className='d-flex align-items-center'>
-                <div className='contacts-social-container d-flex flex-column justify-content-around align-items-center w-100'>
-                  {/* <div className='contacts-social-icon ps-3'>
+                <div className='contacts-social-container d-flex flex-column flex-xl-row justify-content-around align-items-center w-100'>
+                  {/* <div className='contacts-social-icon'>
                   <a target='_blank' href='  https://x.com/Amici_ErnestV'>
                     {" "}
                     <FaXTwitter />
                   </a>
                 </div> */}
 
-                  <article className='contacts-social-icon ps-3'>
+                  <article className='contacts-social-icon'>
                     <a
                       target='_blank'
                       href='https://www.instagram.com/tipiantoperamore?igsh=MWY5cTFhZWJ2NXM2eQ=='
@@ -187,7 +187,7 @@ const Contacts = () => {
                       <FaInstagram />
                     </a>
                   </article>
-                  <article className='contacts-social-icon ps-3'>
+                  <article className='contacts-social-icon'>
                     <a
                       target='_blank'
                       href='https://www.facebook.com/ti.pianto.per.amore/'
