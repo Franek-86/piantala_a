@@ -136,38 +136,41 @@ const Contacts = () => {
               </div>
             </section>
 
-            <hr />
-            <section className='contact-info-section my-3 d-flex flex-column flex-xl-row p-xl-5 justify-content-between'>
-              <div className='contacts-location mb-3 d-flex align-items-center d-flex flex-column'>
-                <span className='contacts-location-icon pe-3 pe-xl-0 pb-3'>
-                  <IoLocationSharp />{" "}
-                </span>
-                <span> contrada gravinella, 60 Fasano</span>
-              </div>
-              <div className='contacts-email mb-3 d-flex align-items-center d-flex flex-column'>
-                <span className='contacts-location-icon pe-3 pe-xl-0 pb-3'>
-                  <MdEmail />
-                </span>
-                <span> tipiantoperamore@gmail.com </span>
-              </div>
-              <div className='contacts-email mb-3 d-flex align-items-center d-flex flex-column'>
-                <span className='contacts-location-icon pe-3 pe-xl-0 pb-3'>
-                  <MdLocalPhone />
-                </span>
-                <span>+39 3485384563</span>
-              </div>
-              {/* <div className='contacts-phone mb-3 d-flex align-items-center'>
+            <section className='contacts-info-section my-3'>
+              <h4>Chiamaci, scrivici o vienici a trovare</h4>
+              <div className='d-flex flex-column h-100 justify-content-center'>
+                <div className='d-flex flex-column flex-xl-row p-xl-5 justify-content-between'>
+                  <article className='contacts-location mb-3 d-flex align-items-center d-flex flex-column'>
+                    <span className='contacts-location-icon pe-3 pe-xl-0 pb-3'>
+                      <IoLocationSharp />{" "}
+                    </span>
+                    <span> contrada gravinella, 60 Fasano</span>
+                  </article>
+                  <article className='contacts-email mb-3 d-flex align-items-center d-flex flex-column'>
+                    <span className='contacts-location-icon pe-3 pe-xl-0 pb-3'>
+                      <MdEmail />
+                    </span>
+                    <span> tipiantoperamore@gmail.com </span>
+                  </article>
+                  <article className='contacts-email mb-3 d-flex align-items-center d-flex flex-column'>
+                    <span className='contacts-location-icon pe-3 pe-xl-0 pb-3'>
+                      <MdLocalPhone />
+                    </span>
+                    <span>+39 3485384563</span>
+                  </article>
+                  {/* <div className='contacts-phone mb-3 d-flex align-items-center'>
               <span className='contacts-location-icon pe-3'>
                 <MdLocalPhone />
               </span>
               <span> +39 3485384563</span>
             </div> */}
+                </div>
+              </div>
             </section>
-            <hr />
-            <section className='contact-social-section d-flex align-items-center mt-3 p-xl-5'>
-              <span className='text-center'>Seguici sui nostri canali</span>
-              <div className='contacts-socials-container'>
-                <div className='social-icons-center d-flex justify-content-around align-items-center w-75'>
+            <section className='contacts-social-section mt-3'>
+              <h4>Seguici sui nostri canali</h4>
+              <div className='d-flex align-items-center h-75'>
+                <div className='d-flex flex-column justify-content-around align-items-center h-50 w-100'>
                   {/* <div className='contacts-social-icon ps-3'>
                   <a target='_blank' href='  https://x.com/Amici_ErnestV'>
                     {" "}
@@ -175,7 +178,7 @@ const Contacts = () => {
                   </a>
                 </div> */}
 
-                  <div className='contacts-social-icon ps-3'>
+                  <article className='contacts-social-icon ps-3'>
                     <a
                       target='_blank'
                       href='https://www.instagram.com/tipiantoperamore?igsh=MWY5cTFhZWJ2NXM2eQ=='
@@ -183,8 +186,8 @@ const Contacts = () => {
                       {" "}
                       <FaInstagram />
                     </a>
-                  </div>
-                  <div className='contacts-social-icon ps-3'>
+                  </article>
+                  <article className='contacts-social-icon ps-3'>
                     <a
                       target='_blank'
                       href='https://www.facebook.com/ti.pianto.per.amore/'
@@ -192,7 +195,7 @@ const Contacts = () => {
                       {" "}
                       <FaFacebookF />
                     </a>
-                  </div>
+                  </article>
                 </div>
               </div>
             </section>

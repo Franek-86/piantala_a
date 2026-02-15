@@ -1456,8 +1456,15 @@ element {
   flex-direction: column;
   height: 100%;
 }
-.contacts-form-section {
+.contacts-form-section,
+.contacts-info-section,
+.contacts-social-section {
   height: calc(100vh - 10rem);
+  /* border: 2px solid red; */
+}
+
+.contacts-info-section {
+  height: calc(100vh - 5rem);
   /* border: 2px solid red; */
 }
 .contacts-main-container {
