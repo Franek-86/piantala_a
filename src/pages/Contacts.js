@@ -138,7 +138,7 @@ const Contacts = () => {
 
             <section className='contacts-info-section my-3'>
               <h4>Chiamaci, scrivici o vienici a trovare</h4>
-              <div className='d-flex flex-column h-100 justify-content-center'>
+              <div className='d-flex flex-column h-75 justify-content-center'>
                 <div className='d-flex flex-column flex-xl-row p-xl-5 justify-content-between'>
                   <article className='contacts-location mb-3 d-flex align-items-center d-flex flex-column'>
                     <span className='contacts-location-icon pe-3 pe-xl-0 pb-3'>
@@ -169,7 +169,7 @@ const Contacts = () => {
             </section>
             <section className='contacts-social-section mt-3'>
               <h4>Seguici sui nostri canali</h4>
-              <div className='d-flex align-items-center h-75'>
+              <div className='d-flex align-items-center h-50'>
                 <div className='d-flex flex-column justify-content-around align-items-center h-50 w-100'>
                   {/* <div className='contacts-social-icon ps-3'>
                   <a target='_blank' href='  https://x.com/Amici_ErnestV'>

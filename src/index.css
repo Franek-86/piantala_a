@@ -1456,9 +1456,7 @@ element {
   flex-direction: column;
   height: 100%;
 }
-.contacts-form-section,
-.contacts-info-section,
-.contacts-social-section {
+.contacts-form-section {
   height: calc(100vh - 15rem);
   /* border: 2px solid red; */
 }
@@ -1470,7 +1468,7 @@ element {
 }
 
 .contacts-info-section {
-  height: calc(100vh - 5rem);
+  /* height: calc(100vh - 5rem); */
   /* border: 2px solid red; */
 }
 .contacts-main-container {
