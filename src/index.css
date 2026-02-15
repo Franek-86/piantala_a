@@ -1459,7 +1459,13 @@ element {
 .contacts-form-section,
 .contacts-info-section,
 .contacts-social-section {
-  height: calc(100vh - 10rem);
+  height: calc(100vh - 15rem);
+  /* border: 2px solid red; */
+}
+
+.contacts-info-section,
+.contacts-social-section {
+  height: 80vh;
   /* border: 2px solid red; */
 }
 
