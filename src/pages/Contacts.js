@@ -87,6 +87,7 @@ const Contacts = () => {
                               type='email'
                               placeholder='Inserisci il tuo indirizzo mail'
                               disabled={loading}
+                              className='contact-form-email'
                               {...register("email", {
                                 required: "inserisci indirizzo mail",
                                 pattern: {

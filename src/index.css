@@ -1482,7 +1482,8 @@ element {
   position: relative;
   flex-direction: column;
 }
-.contact-form-input {
+.contact-form-input,
+.contact-form-email {
   background-color: #ebf0f1;
 }
 
