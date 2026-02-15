@@ -1489,7 +1489,12 @@ element {
 .contact-form-btn {
   height: 3rem;
 }
-
+@media screen and (min-width: 1200px) {
+  .contacts-info-section {
+    min-height: 50vh;
+    /* border: 2px solid red; */
+  }
+}
 /* error page */
 
 .error {
