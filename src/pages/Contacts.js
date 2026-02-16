@@ -143,16 +143,19 @@ const Contacts = () => {
 
             <section className='contacts-info-section py-4 py-lg-5'>
               <div className='section-center'>
+                {" "}
                 <h4>Chiamaci, scrivici o vienici a trovare</h4>
+              </div>
+              <div className='section-center tt2'>
                 <div className='d-flex flex-column h-75 justify-content-center'>
                   <div className='d-flex flex-column flex-xl-row p-xl-5 justify-content-between'>
-                    <article className='contacts-info-item contacts-location mb-3 d-flex align-items-center d-flex flex-column'>
+                    <article className='pe-xl-5 contacts-info-item contacts-location mb-3 d-flex align-items-center d-flex flex-column'>
                       <span className='contacts-location-icon pe-3 pe-xl-0 pb-3'>
                         <IoLocationSharp />{" "}
                       </span>
                       <span> contrada gravinella, 60 Fasano</span>
                     </article>
-                    <article className='contacts-info-item  contacts-email mb-3 d-flex align-items-center d-flex flex-column'>
+                    <article className='pe-xl-5 contacts-info-item  contacts-email mb-3 d-flex align-items-center d-flex flex-column'>
                       <span className='contacts-location-icon pe-3 pe-xl-0 pb-3'>
                         <MdEmail />
                       </span>

@@ -1457,13 +1457,19 @@ element {
   height: 100%;
 }
 .contacts-form-section {
-  height: calc(100vh - 15rem);
+  min-height: calc(100vh - 15rem);
   /* border: 2px solid red; */
 }
 
 .contacts-info-section {
   min-height: 80vh;
   /* border: 2px solid red; */
+}
+.tt2 {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .contacts-main-container {
