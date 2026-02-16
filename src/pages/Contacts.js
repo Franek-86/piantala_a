@@ -146,7 +146,7 @@ const Contacts = () => {
                 {" "}
                 <h4>Chiamaci, scrivici o vienici a trovare</h4>
               </div>
-              <div className='section-center tt2'>
+              <div className='section-center contacts-box-info'>
                 <div className='d-flex flex-column h-75 justify-content-center'>
                   <div className='d-flex flex-column flex-xl-row p-xl-5 justify-content-between'>
                     <article className='pe-xl-5 contacts-info-item contacts-location mb-3 d-flex align-items-center d-flex flex-column'>

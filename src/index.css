@@ -1465,7 +1465,7 @@ element {
   min-height: 80vh;
   /* border: 2px solid red; */
 }
-.tt2 {
+.contacts-box-info {
   height: 80vh;
   display: flex;
   align-items: center;
@@ -1505,6 +1505,12 @@ element {
   .contacts-info-section {
     min-height: 50vh;
     /* border: 2px solid red; */
+  }
+  .contacts-box-info {
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .contacts-social-container {
     width: 75% !important;
