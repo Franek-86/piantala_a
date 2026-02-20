@@ -1495,17 +1495,21 @@ element {
 
 .contact-form-input {
   /* height: 10rem; */
-  height: 5rem;
+  height: 7rem;
 }
 
-.contact-form-btn {
-  height: 3rem;
-}
+/* .contact-form-btn {
+  height: 2rem;
+} */
+
 @media screen and (min-width: 992px) {
   .contact-form-input {
     /* height: 10rem; */
     height: 15rem;
   }
+  /* .contact-form-btn {
+    height: 3rem;
+  } */
 }
 @media screen and (min-width: 1200px) {
   .contacts-info-section {

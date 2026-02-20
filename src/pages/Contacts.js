@@ -124,7 +124,7 @@ const Contacts = () => {
                             </em>
                           )}
                         </Form.Group>
-                        <div className='contact-form-btn d-flex justify-content-center'>
+                        <div className=''>
                           <Button
                             disabled={loading}
                             className='w-100 text-align-center'
