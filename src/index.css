@@ -1476,9 +1476,7 @@ element {
   height: 85%;
   /* border: 2px solid red; */
 }
-.contacts-social-container {
-  height: 10rem;
-}
+
 .contact-form {
   height: 100%;
   border: 1px solid var(--clr-primary-3);
@@ -1526,9 +1524,9 @@ element {
     align-items: center;
     justify-content: center;
   }
-  .contacts-social-container {
-    width: 75% !important;
-  }
+  /* .contacts-social-container {
+    justify-content: flex-start;
+  } */
   /* .contacts-info-item {
     
     border: 1px solid var(--clr-primary-5);

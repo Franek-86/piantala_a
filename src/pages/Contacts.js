@@ -177,36 +177,35 @@ const Contacts = () => {
                 </div>
               </div>
             </section>
-            <section className='contacts-social-section py-4 py-lg-5 position-background'>
+            <section className='contacts-social-section pt-4 pb-5 pt-lg-5 position-background'>
               <div className='section-center'>
                 <h4>Seguici sui nostri canali</h4>
-                <div className='d-flex align-items-center'>
-                  <div className='contacts-social-container d-flex flex-column flex-xl-row justify-content-around align-items-center w-100'>
-                    <article className='contacts-social-icon pb-4'>
-                      <a
-                        target='_blank'
-                        href='https://www.instagram.com/tipiantoperamore?igsh=MWY5cTFhZWJ2NXM2eQ=='
-                      >
-                        {" "}
-                        <FaInstagram />
-                      </a>
-                    </article>
-                    <article className='contacts-social-icon pb-4'>
-                      <a
-                        target='_blank'
-                        href='https://www.facebook.com/ti.pianto.per.amore/'
-                      >
-                        {" "}
-                        <FaFacebookF />
-                      </a>
-                    </article>
-                    <article className='contacts-social-icon pb-4'>
-                      <a target='_blank' href='  https://x.com/Amici_ErnestV'>
-                        {" "}
-                        <FaXTwitter />
-                      </a>
-                    </article>
-                  </div>
+
+                <div className='mt-5 contacts-social-container d-flex flex-column flex-xl-row justify-content-around justify-content-xl-start align-items-center w-100'>
+                  <article className='contacts-social-icon mb-4 pe-xl-5'>
+                    <a
+                      target='_blank'
+                      href='https://www.instagram.com/tipiantoperamore?igsh=MWY5cTFhZWJ2NXM2eQ=='
+                    >
+                      {" "}
+                      <FaInstagram />
+                    </a>
+                  </article>
+                  <article className='contacts-social-icon mb-4 pe-xl-5'>
+                    <a
+                      target='_blank'
+                      href='https://www.facebook.com/ti.pianto.per.amore/'
+                    >
+                      {" "}
+                      <FaFacebookF />
+                    </a>
+                  </article>
+                  <article className='contacts-social-icon mb-4'>
+                    <a target='_blank' href='  https://x.com/Amici_ErnestV'>
+                      {" "}
+                      <FaXTwitter />
+                    </a>
+                  </article>
                 </div>
               </div>
             </section>
