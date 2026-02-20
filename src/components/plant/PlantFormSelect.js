@@ -44,6 +44,10 @@ const PlantFormSelect = () => {
             <option value='Melocotogno'>Melocotogno</option>
             <option value='Mandorlo'>Mandorlo</option>
             <option value='Tiglio'>Tiglio</option>
+            <option value='Noce'>Noce</option>
+            <option value='Platano'>Platano</option>
+            <option value='Mirto'>Mirto</option>
+            <option value='Crespo'>Crespo</option>
           </Form.Select>
           {errors.plantType && (
             <p className='text-danger'>È necessario selezionare una pianta</p>
