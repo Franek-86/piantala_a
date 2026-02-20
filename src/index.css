@@ -1534,6 +1534,13 @@ element {
     border: 1px solid var(--clr-primary-5);
   } */
 }
+
+.contacts-info-item {
+  border: 2px solid var(--clr-primary-3);
+  padding: 1rem;
+  border-radius: 5px;
+  width: 17.5rem;
+}
 /* error page */
 
 .error {
