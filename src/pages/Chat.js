@@ -28,9 +28,9 @@ const Chat = () => {
       <section className='section-page section-background section-orders section-large page-large-container section-chat'>
         <BackBtn />
         <div className='section-center'>
-          <section className='pb-0'>
+          <section className='pb-0 pt-5'>
             <div className='section-center'>
-              <h2 className='section-title pt-5'>Chat aperta</h2>
+              {/* <h2 className='section-title pt-5'>Chat aperta</h2> */}
               <div class='page-content page-container' id='page-content'>
                 <div class='col-md-4'></div>
                 <div className='box box-warning direct-chat direct-chat-warning'>
