@@ -38,7 +38,7 @@ code {
   --c-text-light-2: #476582;
   --c-text-light-3: #90a4b7;
   /* --c-bg-map-1: #f7f7e5c1; */
-  --c-bg-map-1: #f7f7e5c1;
+  --c-bg-map-1: #fefdd7;
   --c-bg-map-2: #e3edef7d;
   --radius: 0.5rem;
 
@@ -2386,7 +2386,7 @@ body {
   padding: 0 1rem;
   cursor: pointer;
 }
-.plant-section .back-nav {
+.back-nav {
   /* background-color: #e3edef; */
   background-color: #d5e8eb;
 }
