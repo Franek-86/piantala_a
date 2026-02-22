@@ -586,6 +586,7 @@ export const AuthProvider = ({ children }) => {
       // Optionally, handle the response if needed (e.g., check response status)
       if (response.status === 200) {
         setIsAuthenticated(false);
+        setUserRole(null);
         localStorage.removeItem("userToken");
         localStorage.removeItem("refreshToken");
       } else {

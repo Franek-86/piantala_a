@@ -20,6 +20,7 @@ import SideMenu from "../menu/SideMenu";
 import iconGreen from "../../assets/images/ti pianto per amore-APP-verde.png";
 import iconBlue from "../../assets/images/ti pianto per amore-APP-azzurro.png";
 import { FilterContext } from "../../context/FilterContext";
+import { toast } from "react-toastify";
 
 const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
   const { userRole, isAuthenticated, showTerms } = useContext(AuthContext);
@@ -93,6 +94,18 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
               onClick={() => {
                 setFilters({ suburb: "", status: "approved" });
                 setPosition(null);
+                toast("🌱 Piantine acquistabili", {
+                  position: "bottom-right",
+                  // autoClose: 2000,
+                  hideProgressBar: false,
+                  closeOnClick: false,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                  theme: "light",
+                  className: "mb-5",
+                  // transition: Bounce,
+                });
               }}
               className={
                 filters.status === "approved"
@@ -108,6 +121,18 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
               onClick={() => {
                 setFilters({ suburb: "", status: "booked" });
                 setPosition(null);
+                toast("🌱 Piantine acquistate", {
+                  position: "bottom-right",
+                  autoClose: 2000,
+                  hideProgressBar: false,
+                  closeOnClick: false,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                  theme: "light",
+                  className: "mb-5",
+                  // transition: Bounce,
+                });
               }}
               className={
                 filters.status === "booked"
@@ -139,6 +164,17 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
                 })
                 .on("locationerror", function (err) {
                   console.log("location error", err);
+                  setLocationLoading(false);
+                  switch (err.code) {
+                    case 1:
+                      alert(
+                        "Per poter segnalare la zona di piantagione è necessario consetire l'accesso alla tua posizione nelle impostazioni del browser.",
+                      );
+                      break;
+                    case 2:
+                      alert("Errore due di geolocalizzazione");
+                      break;
+                  }
                 });
             }
             if (!map) {

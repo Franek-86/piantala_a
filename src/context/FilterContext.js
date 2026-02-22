@@ -1,4 +1,5 @@
 import React, { useState, useContext, createContext } from "react";
+
 export const FilterContext = createContext();
 export const FilterProvider = ({ children }) => {
   const [filters, setFilters] = useState({
