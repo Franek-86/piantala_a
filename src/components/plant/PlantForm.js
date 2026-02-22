@@ -141,19 +141,17 @@ const PlantForm = () => {
         </div>
         {logReg && <LoginReg val='plant' id={plantId} />}
       </section>
-      <section className='admin pt-5 mb-3'>
-        {userRole === "admin" && (
-          <>
-            <h5 className='mb-3'>Operazioni di amministrazione</h5>
-            <button
-              className='btn btn-dark '
-              onClick={() => deleteAndGo(plantId)}
-            >
-              Elimina segnalazione
-            </button>
-          </>
-        )}
-      </section>
+      {userRole === "admin" && (
+        <section className='admin pt-5 mb-3'>
+          <h5 className='mb-3'>Operazioni di amministrazione</h5>
+          <button
+            className='btn btn-dark '
+            onClick={() => deleteAndGo(plantId)}
+          >
+            Elimina segnalazione
+          </button>
+        </section>
+      )}
     </>
   );
 };
