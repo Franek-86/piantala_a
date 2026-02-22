@@ -388,13 +388,14 @@ element {
 .map-section {
   display: flex;
   flex-direction: column;
-  height: 100dvh;
+  height: calc(100dvh - 4rem);
   position: relative;
   width: 100%;
 }
 @media screen and (min-width: 992px) {
   .map-section {
     width: 80%;
+    height: 100vh;
   }
 }
 .map {
