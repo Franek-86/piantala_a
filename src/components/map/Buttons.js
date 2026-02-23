@@ -122,7 +122,7 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
                 setPosition(null);
                 toast(piantineAcquistabili, {
                   position: "bottom-right",
-                  autoClose: false,
+                  autoClose: 3000,
                   hideProgressBar: false,
                   closeOnClick: false,
                   pauseOnHover: true,
@@ -149,7 +149,7 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
                 setPosition(null);
                 toast(piantineAcquistate, {
                   position: "bottom-right",
-                  autoClose: false,
+                  autoClose: 3000,
                   hideProgressBar: false,
                   closeOnClick: false,
                   pauseOnHover: true,
