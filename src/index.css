@@ -607,7 +607,7 @@ element {
     width: 70vw;
     bottom: var(--toastify-toast-bottom);
     /* right: var(--toastify-toast-right); */
-    left: 35%;
+    left: 30%;
     align-items: end;
     z-index: 1000;
   }
