@@ -1866,6 +1866,11 @@ body {
   padding: 10px;
   height: 70vh;
 }
+@media screen and (max-width: 768px) {
+  .box-body {
+    height: 65vh;
+  }
+}
 .box-header:before,
 .box-body:before,
 .box-footer:before,
