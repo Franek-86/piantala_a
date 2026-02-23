@@ -602,6 +602,16 @@ element {
 .Toastify__close-button--info {
   color: var(--clr-secondary-1);
 }
+@media screen and (max-width: 480px) {
+  .Toastify__toast-container {
+    width: 60vw;
+    bottom: var(--toastify-toast-bottom);
+    /* right: var(--toastify-toast-right); */
+    left: 35%;
+    align-items: end;
+    z-index: 1000;
+  }
+}
 /* add plant button */
 .circle-button {
   display: flex;

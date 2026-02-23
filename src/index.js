@@ -222,7 +222,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             <PlantsProvider>
               <OrdersProvider>
                 <FilterProvider>
-                  <ToastContainer />
+                  <ToastContainer limit={1} />
                   <Error />
                   <RouterProvider router={router} />
                 </FilterProvider>
@@ -232,7 +232,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         </SocketProvider>
       </UsersProvider>
     </AuthProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
 );
 
 reportWebVitals();
