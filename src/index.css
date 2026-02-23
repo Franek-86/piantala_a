@@ -44,7 +44,7 @@ code {
 
   --toastify-color-progress-light: linear-gradient(
     to right,
-    var(--clr-primary-7),
+    var(--clr-primary-5),
     var(--clr-primary-2)
   );
 }
@@ -589,6 +589,18 @@ element {
 
 .leaflet-popup-close-button {
   display: none;
+}
+
+.toast-approved,
+.toast-booked {
+  margin-bottom: 4rem;
+}
+
+.filter-alert {
+  color: var(--clr-secondary-2);
+}
+.Toastify__close-button--info {
+  color: var(--clr-secondary-1);
 }
 /* add plant button */
 .circle-button {

@@ -21,10 +21,12 @@ import iconGreen from "../../assets/images/ti pianto per amore-APP-verde.png";
 import iconBlue from "../../assets/images/ti pianto per amore-APP-azzurro.png";
 import { FilterContext } from "../../context/FilterContext";
 import { toast } from "react-toastify";
+import { PlantsContext } from "../../context/PlantsContext";
 
 const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
   const { userRole, isAuthenticated, showTerms } = useContext(AuthContext);
   const { loggedUserInfo } = useContext(UsersContext);
+  const { totApproved, totBooked } = useContext(PlantsContext);
   const { pic } = loggedUserInfo;
   const [locationLoading, setLocationLoading] = useState(false);
   const [showCenter, setShowCenter] = useState(null);
@@ -42,6 +44,30 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
   useMapEvent("dragend", () => {
     setShowCenter(true);
   });
+  const piantineAcquistabili = () => {
+    return (
+      <>
+        <img style={{ width: "1rem" }} src={`${iconGreen}`}></img>
+        <div className='ps-3 d-flex flex-column'>
+          <span className='filter-alert'>
+            Piantine disponibili all'acquisto
+          </span>
+          <span className='filter-alert'>Totale: {totApproved}</span>
+        </div>
+      </>
+    );
+  };
+  const piantineAcquistate = () => {
+    return (
+      <>
+        <img style={{ width: "1rem" }} src={`${iconBlue}`}></img>
+        <div className='ps-3 d-flex flex-column'>
+          <span className='filter-alert'>Piantine acquistate da voi</span>
+          <span className='filter-alert'>Totale: {totBooked}</span>
+        </div>
+      </>
+    );
+  };
   return (
     <div className='section buttons-section'>
       {locationLoading && <Loading />}
@@ -94,16 +120,16 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
               onClick={() => {
                 setFilters({ suburb: "", status: "approved" });
                 setPosition(null);
-                toast("🌱 Piantine acquistabili", {
+                toast(piantineAcquistabili, {
                   position: "bottom-right",
-                  // autoClose: 2000,
+                  autoClose: false,
                   hideProgressBar: false,
                   closeOnClick: false,
                   pauseOnHover: true,
                   draggable: true,
                   progress: undefined,
-                  theme: "light",
-                  className: "mb-5",
+                  theme: "info",
+                  className: "toast-approved",
                   // transition: Bounce,
                 });
               }}
@@ -121,16 +147,16 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
               onClick={() => {
                 setFilters({ suburb: "", status: "booked" });
                 setPosition(null);
-                toast("🌱 Piantine acquistate", {
+                toast(piantineAcquistate, {
                   position: "bottom-right",
-                  autoClose: 2000,
+                  autoClose: false,
                   hideProgressBar: false,
                   closeOnClick: false,
                   pauseOnHover: true,
                   draggable: true,
                   progress: undefined,
-                  theme: "light",
-                  className: "mb-5",
+                  theme: "info",
+                  className: "toast-booked",
                   // transition: Bounce,
                 });
               }}

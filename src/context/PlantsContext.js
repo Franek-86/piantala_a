@@ -9,7 +9,8 @@ export const PlantsContext = createContext();
 export const PlantsProvider = ({ children }) => {
   const { getOtherUserInfo } = useContext(UsersContext);
   const { isAuthenticated, logReg, setLogReg } = useContext(AuthContext);
-
+  const [totApproved, setTotApproved] = useState(0);
+  const [totBooked, setTotBooked] = useState(0);
   const [plants, setPlants] = useState([]);
   const [myPlants, setMyPlants] = useState(null);
   const [plant, setPlant] = useState(null);
@@ -154,12 +155,31 @@ export const PlantsProvider = ({ children }) => {
       setLoading(false);
     }
   };
+  const countPlants = (data) => {
+    console.log(data);
+    let countBooked = 0;
+    let countApproved = 0;
 
+    data.forEach((e) => {
+      if (e.status_piantina === "approved") {
+        countApproved++;
+      }
+      if (e.status_piantina === "booked") {
+        countBooked++;
+      }
+      setTotApproved(countApproved);
+      setTotBooked(countBooked);
+
+      return;
+    });
+  };
   const getAllPlants = async (action) => {
     setLoading(true);
     try {
       const response = await axios.get(`${serverDomain}/api/plants`);
+
       setPlants(response.data);
+      countPlants(response.data);
     } catch (err) {
       setError(err.message);
       console.error("Error fetching data:", err);
@@ -641,6 +661,8 @@ export const PlantsProvider = ({ children }) => {
         setUserOwner,
         updatePicMob,
         plates,
+        totApproved,
+        totBooked,
       }}
     >
       {children}

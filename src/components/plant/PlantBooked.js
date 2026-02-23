@@ -201,58 +201,63 @@ const PlantBooked = () => {
             id='plate'
             className='pt-lg-5 pb-5 section-booked-plate position-background'
           >
-            <article className='section-center'>
-              <div className='plate-info-pic pt-5'>
-                <span className='mb-3 h5 d-flex flex-row align-items-center position-relative'>
-                  <div className='step-title pe-1'>
-                    <BsVectorPen />
+            {plate && (
+              <>
+                {" "}
+                <article className='section-center'>
+                  <div className='plate-info-pic pt-5'>
+                    <span className='mb-3 h5 d-flex flex-row align-items-center position-relative'>
+                      <div className='step-title pe-1'>
+                        <BsVectorPen />
+                      </div>
+                      <span className='fst-italic font-plate'>Targa</span>
+                      <div className='ink'></div>
+                    </span>
+                    {plate && !plateLoading ? (
+                      <div className='plate-image-container ms-auto me-auto pt-2'>
+                        <Card.Img
+                          variant='bottom'
+                          src={plate}
+                          onLoad={handleImageLoad}
+                          className={`w-100  transition-opacity duration-500 ${
+                            isLoaded ? "opacity-100" : "opacity-0"
+                          }`}
+                        />
+                      </div>
+                    ) : (
+                      <div className='plate-image-container ms-auto me-auto pt-2'>
+                        <Card.Img
+                          className='placeholder-image w-100'
+                          variant='top'
+                          src='https://placehold.co/600x300/c7dd85/5c3333/?text=Targa in elaborazione&font=Montserrat'
+                        />
+                      </div>
+                    )}
                   </div>
-                  <span className='fst-italic font-plate'>Targa</span>
-                  <div className='ink'></div>
-                </span>
-                {plate && !plateLoading ? (
-                  <div className='plate-image-container ms-auto me-auto pt-2'>
-                    <Card.Img
-                      variant='bottom'
-                      src={plate}
-                      onLoad={handleImageLoad}
-                      className={`w-100  transition-opacity duration-500 ${
-                        isLoaded ? "opacity-100" : "opacity-0"
-                      }`}
-                    />
-                  </div>
-                ) : (
-                  <div className='plate-image-container ms-auto me-auto pt-2'>
-                    <Card.Img
-                      className='placeholder-image w-100'
-                      variant='top'
-                      src='https://placehold.co/600x300/c7dd85/5c3333/?text=Targa in elaborazione&font=Montserrat'
-                    />
-                  </div>
-                )}
-              </div>
-              {plateLoading && (
-                <div className='loading-container-mini'>
-                  <div className='loading-content'>
-                    <img
-                      src={logo}
-                      alt='loading-logo'
-                      className='loading-logo-mini'
-                    />
-                    <div className='spinner-mini'></div>
-                  </div>
-                </div>
-              )}
-            </article>
-            <article className='pt-5 justify-content-center btn-plant-article d-none d-xl-flex'>
-              <a
-                href='#position'
-                className='btn btn-primary d-flex align-items-center justify-content-between'
-              >
-                <span className='pe-2'>Posizione</span>
-                <FaArrowDown />
-              </a>
-            </article>
+                  {plateLoading && (
+                    <div className='loading-container-mini'>
+                      <div className='loading-content'>
+                        <img
+                          src={logo}
+                          alt='loading-logo'
+                          className='loading-logo-mini'
+                        />
+                        <div className='spinner-mini'></div>
+                      </div>
+                    </div>
+                  )}
+                </article>
+                <article className='pt-5 justify-content-center btn-plant-article d-none d-xl-flex'>
+                  <a
+                    href='#position'
+                    className='btn btn-primary d-flex align-items-center justify-content-between'
+                  >
+                    <span className='pe-2'>Posizione</span>
+                    <FaArrowDown />
+                  </a>
+                </article>
+              </>
+            )}
             <article className='section-center d-xl-none'>
               <span className='pt-5 mb-3 h5 d-flex flex-row align-items-center'>
                 <div className='step-title pb-2 pe-1'>
