@@ -18,37 +18,51 @@ const ChiSiamo = () => {
   return (
     <div className='d-flex flex-row'>
       {isLargeScreen && <SideBar />}
-      <section className='section-page section-full-page  section-background section-large page-large-container'>
+      <div className='section-page section-full-page  section-large page-large-container'>
         <BackBtn />
-        <article className='chi-article section-center menu-section-center pt-5 pb-lg-5'>
-          <h2 className='section-title'>Chi siamo</h2>
-          <p>
-            L'iniziativa{" "}
-            <span className='primary-green fw-bold'>"Ti pianto per amore"</span>{" "}
-            voluta dall'Associazione culturale no-profit{" "}
-            <span className='primary-green fw-bold'>
-              "Amici di Ernest Verner"
-            </span>{" "}
-            promuove l'adozione di alberi da parte di privati da piantare in
-            punti della città di Bari privi di verde, in ottemperanza al
-            Disciplinare tecnico (20/05/25) dell'iniziativa "Dona un albero alla
-            tua città" del Comune di Bari.
-          </p>
-          <p>
-            {" "}
-            L'app permette di localizzare queste zone e prenotare l'acquisto di
-            un albero con apposita targa da dedicare. La filosofia di questa
-            iniziativa è prendersi cura del verde pubblico ed è per questo che
-            coloro che acquistano gli alberi si impegnano a innaffiarli
-            regolarmente, soprattutto d'estate, almeno nei primi due anni dalla
-            piantumazione.
-          </p>
-        </article>
-        <article className='logo-article section-center'>
-          <div className='logo-header my-5 text-center'>
+        <section className='h-75 chi-article section-background menu-section-center pt-5 pb-lg-5'>
+          <div className='section-center'>
+            <h2 className='section-title pt-5'>Chi siamo</h2>
+            <div className=''>
+              <h4>Ti pianto per amore</h4>
+            </div>
+            <p>
+              L'iniziativa{" "}
+              <span className='primary-green fw-bold'>
+                "Ti pianto per amore"
+              </span>{" "}
+              voluta dall'Associazione culturale no-profit{" "}
+              <span className='primary-green fw-bold'>
+                "Amici di Ernest Verner"
+              </span>{" "}
+              promuove l'adozione di alberi da parte di privati da piantare in
+              punti della città di Bari privi di verde, in ottemperanza al
+              Disciplinare tecnico (20/05/25) dell'iniziativa "Dona un albero
+              alla tua città" del Comune di Bari.
+            </p>
+            <p>
+              {" "}
+              L'app permette di localizzare queste zone e prenotare l'acquisto
+              di un albero con apposita targa da dedicare. La filosofia di
+              questa iniziativa è prendersi cura del verde pubblico ed è per
+              questo che coloro che acquistano gli alberi si impegnano a
+              innaffiarli regolarmente, soprattutto d'estate, almeno nei primi
+              due anni dalla piantumazione.
+            </p>
+          </div>
+        </section>
+        <section className='h-75 chi-logo-section position-background  pt-4 pt-lg-5'>
+          <div className='section-center'>
             <h4>Patrocini</h4>
           </div>
           <div className='logo-container d-flex flex-column flex-lg-row justify-content-around w-100'>
+            <div className='single-logo mb-5 mb-lg-0'>
+              {" "}
+              <a
+                href='https://www.ernestverner.it/'
+                className='logo-background logo-verner'
+              ></a>
+            </div>
             <div className='single-logo mb-5 mb-lg-0'>
               {" "}
               <a
@@ -63,16 +77,9 @@ const ChiSiamo = () => {
                 className='logo-background logo-dona'
               ></a>
             </div>
-            <div className='single-logo mb-5 mb-lg-0'>
-              {" "}
-              <a
-                href='https://www.ernestverner.it/'
-                className='logo-background logo-verner'
-              ></a>
-            </div>
           </div>
-        </article>
-      </section>
+        </section>
+      </div>
     </div>
   );
 };
