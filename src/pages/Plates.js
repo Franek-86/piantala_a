@@ -61,9 +61,9 @@ const Plates = () => {
                   <b>in alluminio</b> avente come <b>sfondo</b> il quadro di{" "}
                   <b>Ernest Verner</b>.
                 </p>
-                <p>
-                  Tutte le vostre targhe sono presenti nella galleria delle
-                  targhe in basso.
+                <p className='mb-0'>
+                  Tutte le vostre targhe sono presenti nella{" "}
+                  <i>galleria targhe</i> in basso.
                 </p>
               </article>
               <span className='mb-3 h5 d-flex flex-row align-items-center position-relative'>
