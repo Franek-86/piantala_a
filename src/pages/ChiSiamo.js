@@ -18,11 +18,11 @@ const ChiSiamo = () => {
     navigate("/map");
   };
   return (
-    <div className='d-flex flex-row'>
+    <div className=''>
       {isLargeScreen && <SideBar />}
       <div className='section-page section-full-page  section-large page-large-container'>
         <BackBtn />
-        <section className='h-75 chi-article section-background menu-section-center pb-lg-5'>
+        <section className='h-75 chi-article section-background menu-section-center pb-5'>
           <div className='section-center'>
             <h2 className='section-title pt-5'>Chi siamo</h2>
             <div className=''>
@@ -42,7 +42,7 @@ const ChiSiamo = () => {
               Disciplinare tecnico (20/05/25) dell'iniziativa "Dona un albero
               alla tua città" del Comune di Bari.
             </p>
-            <p>
+            <p className='mb-0'>
               {" "}
               L'app permette di localizzare queste zone e prenotare l'acquisto
               di un albero con apposita targa da dedicare. La filosofia di
