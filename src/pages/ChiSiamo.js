@@ -8,6 +8,8 @@ import logoBari from "../assets/images/layout_set_logo.png";
 import donaBari from "../assets/images/donalogo.jpg";
 import logoVerner from "../assets/images/logoverner.jpg";
 import BackBtn from "../components/menu/BackBtn";
+import { FaXTwitter } from "react-icons/fa6";
+import { FaFacebookF, FaInstagram } from "react-icons/fa";
 
 const ChiSiamo = () => {
   const navigate = useNavigate();
@@ -20,7 +22,7 @@ const ChiSiamo = () => {
       {isLargeScreen && <SideBar />}
       <div className='section-page section-full-page  section-large page-large-container'>
         <BackBtn />
-        <section className='h-75 chi-article section-background menu-section-center pt-5 pb-lg-5'>
+        <section className='h-75 chi-article section-background menu-section-center pb-lg-5'>
           <div className='section-center'>
             <h2 className='section-title pt-5'>Chi siamo</h2>
             <div className=''>
@@ -51,7 +53,7 @@ const ChiSiamo = () => {
             </p>
           </div>
         </section>
-        <section className='h-75 chi-logo-section position-background  pt-4 pt-lg-5'>
+        <section className='h-50 chi-logo-section position-background  pt-4 pt-lg-5'>
           <div className='section-center'>
             <h4>Patrocini</h4>
           </div>
@@ -76,6 +78,38 @@ const ChiSiamo = () => {
                 href='https://www.comune.bari.it/web/ambiente-verde-energia-e-impianti/dona-un-albero-alla-tua-citta'
                 className='logo-background logo-dona'
               ></a>
+            </div>
+          </div>
+        </section>
+        <section className='h-25 pt-4 pb-5 pt-lg-5 plate-background'>
+          <div className='section-center'>
+            <h4>Seguici sui nostri canali</h4>
+
+            <div className='mt-5 contacts-social-container d-flex flex-column flex-xl-row justify-content-around justify-content-xl-start align-items-center w-100'>
+              <article className='contacts-social-icon mb-4 pe-xl-5'>
+                <a
+                  target='_blank'
+                  href='https://www.instagram.com/tipiantoperamore?igsh=MWY5cTFhZWJ2NXM2eQ=='
+                >
+                  {" "}
+                  <FaInstagram />
+                </a>
+              </article>
+              <article className='contacts-social-icon mb-4 pe-xl-5'>
+                <a
+                  target='_blank'
+                  href='https://www.facebook.com/ti.pianto.per.amore/'
+                >
+                  {" "}
+                  <FaFacebookF />
+                </a>
+              </article>
+              <article className='contacts-social-icon mb-4'>
+                <a target='_blank' href='  https://x.com/Amici_ErnestV'>
+                  {" "}
+                  <FaXTwitter />
+                </a>
+              </article>
             </div>
           </div>
         </section>

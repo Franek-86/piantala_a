@@ -45,7 +45,7 @@ const BackBtn = ({ plant }) => {
           onClick={() => {
             handleShow();
           }}
-          className='fs-4 back-nav-icon'
+          className='fs-2 back-nav-icon'
         >
           <HiMenuAlt2 />
         </span>
