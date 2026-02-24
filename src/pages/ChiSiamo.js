@@ -55,9 +55,9 @@ const ChiSiamo = () => {
         </section>
         <section className='h-50 chi-logo-section position-background  pt-4 pt-lg-5'>
           <div className='section-center'>
-            <h4>Patrocini</h4>
+            <h4 className=''>Patrocini</h4>
           </div>
-          <div className='logo-container d-flex flex-column flex-lg-row justify-content-around w-100'>
+          <div className='pt-5 logo-container d-flex flex-column flex-lg-row justify-content-around w-100'>
             <div className='single-logo mb-5 mb-lg-0'>
               {" "}
               <a
@@ -81,7 +81,7 @@ const ChiSiamo = () => {
             </div>
           </div>
         </section>
-        <section className='h-25 pt-4 pb-5 pt-lg-5 plate-background'>
+        <section className='h-50 pt-4 pb-5 pt-lg-5 plate-background'>
           <div className='section-center'>
             <h4>Seguici sui nostri canali</h4>
 
