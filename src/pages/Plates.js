@@ -28,14 +28,14 @@ const Plates = () => {
     navigate("/map");
   };
   var settings = {
-    dots: true,
+    dots: false,
     infinite: true,
-    slidesToShow: isLargeScreen ? 2 : 3,
+    slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 5000,
-    vertical: true,
-    verticalSwiping: true,
+    // vertical: true,
+    // verticalSwiping: true,
     swipeToSlide: true,
     // beforeChange: function (currentSlide, nextSlide) {
     //   console.log("before change", currentSlide, nextSlide);
@@ -48,11 +48,11 @@ const Plates = () => {
   return (
     <div className='d-flex flex-row'>
       {isLargeScreen && <SideBar />}
-      <section className='section-page section-background section-full-page section-users section-large section-plates page-large-container'>
+      <section className='section-page vh-100 section-background section-full-page section-users section-large section-plates page-large-container'>
         <BackBtn />
         <div className='section-center pt-5'>
           <section className='section-page'>
-            <div className='section-center menu-section-center'>
+            <div className='menu-section-center'>
               <h2 className='section-title'>Le vostre targhe</h2>
               {plates?.length === 0 && (
                 <p>Non ci sono targhe da visualizzare.</p>

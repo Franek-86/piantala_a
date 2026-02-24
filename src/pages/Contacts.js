@@ -46,7 +46,7 @@ const Contacts = () => {
   return (
     <div className='d-flex flex-row'>
       {isLargeScreen && <SideBar />}
-      <div className='section-page section-background   section-full-page section-orders section-large page-large-container'>
+      <div className='section-page section-full-page section-orders section-large page-large-container'>
         <BackBtn />
         {loading && <Loading />}
 

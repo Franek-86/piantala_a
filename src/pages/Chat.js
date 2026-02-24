@@ -25,7 +25,7 @@ const Chat = () => {
   return (
     <div className='d-flex flex-row'>
       {isLargeScreen && <SideBar />}
-      <section className='section-page section-background section-large page-large-container section-chat'>
+      <section className='section-page section-background vh-100 section-large page-large-container section-chat'>
         <BackBtn />
         <div className='section-center'>
           <section className='pb-0 pt-3'>

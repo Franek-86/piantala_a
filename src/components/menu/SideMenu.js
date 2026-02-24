@@ -16,7 +16,7 @@ import { AuthContext } from "../../context/AuthContext";
 import { useContext } from "react";
 import { BsInfo } from "react-icons/bs";
 import { GiLion } from "react-icons/gi";
-import { FaUsers } from "react-icons/fa";
+import { FaMap, FaUsers } from "react-icons/fa";
 import { MdOutlineShoppingCartCheckout } from "react-icons/md";
 import { IoMdChatbubbles } from "react-icons/io";
 import { PlantsContext } from "../../context/PlantsContext";
@@ -39,6 +39,12 @@ const SideMenu = ({ onLogout, ...props }) => {
       </Offcanvas.Header>
       <Offcanvas.Body>
         <ListGroup className='sidebar-section' variant='flush'>
+          <ListGroup.Item>
+            <Link to='/map' class='nav-link text-truncate'>
+              <FaMap />
+              <span class='ms-2 d-sm-inline'>Mappa</span>
+            </Link>
+          </ListGroup.Item>
           <ListGroup.Item>
             <Link to='/chi-siamo' class='nav-link text-truncate'>
               <RiSeedlingFill />

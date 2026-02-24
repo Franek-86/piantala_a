@@ -168,21 +168,7 @@ ul {
 .lower-case {
   text-transform: lowercase;
 }
-.section-page {
-  /* height: 90vh; */
-  /* height: 100vh; */
-  /* padding-bottom: 4rem; */
-  /* overflow: scroll; */
-}
 
-.section-full-page {
-  /* overflow-y: scroll; */
-  /* background: #f0f1f1; */
-}
-.section-background {
-  /* background: #f0f1f1;
-  min-height: 100vh; */
-}
 .plants-container {
   /* overflow: scroll; */
   background: #f0f1f188;
@@ -192,7 +178,9 @@ ul {
   margin: 0 auto;
   /* max-width: 992px; */
 }
-
+.section-background {
+  background-color: var(--c-bg-map-2);
+}
 .section-title {
   text-align: center;
   text-transform: capitalize;
@@ -1220,44 +1208,46 @@ element {
   border-radius: var(--radius);
 }
 
-.plates-gallery {
+/* .plates-gallery {
   display: grid;
   grid-template-columns: 1fr;
-}
+} */
 .sliders-img {
-  display: block;
+  /* display: block;
   width: 80%;
-  height: 10rem;
+  height: 10rem; */
   /* background-image: url("https://media.istockphoto.com/id/816752606/photo/tv-test-card-or-test-pattern-generic.jpg?s=612x612&w=0&k=20&c=63Jcx_5bFnvBw9elRDLrLKjtDYXr70pKtUK0jXJ2_uY="); */
 }
 
-.slick-arrow.slick-prev,
+/* .slick-arrow.slick-prev,
 .slick-arrow.slick-next {
   color: var(--clr-secondary-3);
   width: 1rem;
   height: 5rem;
   position: absolute;
   z-index: 1000;
-}
+} */
 .slick-arrow.slick-prev:before,
 .slick-arrow.slick-next:before {
   color: var(--clr-secondary-3);
 }
 .slick-arrow.slick-prev {
+  top: 5rem;
   left: 5px;
 }
 .slick-arrow.slick-next {
+  top: 5rem;
   right: 5px;
 }
-.slick-dots {
+/* .slick-dots {
   bottom: -5rem !important;
 }
 .slick-dots li {
   height: 0 !important;
-}
+} */
 /* .slick-dots li {
 } */
-.slick-dots li button::before {
+/* .slick-dots li button::before {
   font-family: "slick";
   font-size: 20px !important;
   line-height: 10px !important;
@@ -1272,7 +1262,7 @@ element {
   color: var(--clr-secondary-2) !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
+} */
 /* .slick-dots li button::after {
   font-family: "slick";
   font-size: 20px !important;
@@ -1290,14 +1280,14 @@ element {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 } */
-.slick-dots .slick-active button::before {
+/* .slick-dots .slick-active button::before {
   color: var(--clr-primary-5) !important;
-}
+} */
 /* .slick-dots li button {
   border: 2px solid red !important;
   border-radius: 50% !important;
 } */
-.slide-plate {
+/* .slide-plate {
   height: 35vh;
   width: 90%;
   max-width: 25rem;
@@ -1306,7 +1296,7 @@ element {
   border: 2px solid #856666;
   border-radius: 1rem;
   background-position: left;
-}
+} */
 @media screen and (min-width: 458px) {
   /* .plates-gallery {
     grid-template-columns: 1fr 1fr;
@@ -2402,7 +2392,7 @@ body {
 }
 .back-nav {
   display: flex;
-  height: 5rem;
+  height: 3rem;
   align-items: center;
   position: sticky;
   top: 0;
@@ -2416,7 +2406,12 @@ body {
 }
 .back-nav {
   /* background-color: #e3edef; */
-  background-color: #d5e8eb;
+  background-color: #eef3f4;
+}
+
+.back-nav-icon {
+  /* background-color: #e3edef; */
+  color: var(--clr-secondary-3);
 }
 .back-nav-large {
   display: flex;
@@ -2436,7 +2431,7 @@ body {
 }
 
 .back-nav.hide {
-  top: -5rem;
+  top: -3rem;
 }
 @media screen and (min-width: 992px) {
   .back-nav {

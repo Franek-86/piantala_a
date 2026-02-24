@@ -20,12 +20,12 @@ const Info = () => {
   return (
     <div className='d-flex flex-row'>
       {isLargeScreen && <SideBar />}
-      <section className='section-page section-background section-large page-large-container'>
+      <section className='section-page vh-100 section-background section-large page-large-container'>
         <BackBtn />
         <article className='info-article section-center menu-section-center pt-5 section-info'>
           <h2 className='section-title'>Informazioni</h2>
 
-          <Accordion>
+          <Accordion className='pb-5'>
             <Accordion.Item eventKey='0'>
               <Accordion.Header>
                 Segnalare zona di piantumazione

@@ -49,9 +49,7 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
       <>
         <img style={{ width: "1rem" }} src={`${iconGreen}`}></img>
         <div className='ps-3 d-flex flex-column'>
-          <span className='filter-alert'>
-            Piantine disponibili all'acquisto
-          </span>
+          <span className='filter-alert fw-bold'>Piantine acquistabili</span>
           <span className='filter-alert'>Totale: {totApproved}</span>
         </div>
       </>
@@ -62,7 +60,7 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
       <>
         <img style={{ width: "1rem" }} src={`${iconBlue}`}></img>
         <div className='ps-3 d-flex flex-column'>
-          <span className='filter-alert'>Piantine acquistate da voi</span>
+          <span className='filter-alert fw-bold'>Piantine acquistate</span>
           <span className='filter-alert'>Totale: {totBooked}</span>
         </div>
       </>
