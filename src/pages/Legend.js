@@ -15,7 +15,7 @@ const Legend = () => {
   const isLargeScreen = useIsLargeScreen();
   return (
     <>
-      <section className='section-page section-background map'>
+      <section className='section-page vh-100 section-background map'>
         <div className='d-flex flex-row'>
           {isLargeScreen && <SideBar />}
           <section className='section-large section-page section-center-map'>

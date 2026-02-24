@@ -48,7 +48,7 @@ const OwnedPlants = () => {
 
   return (
     <>
-      <section className='section-page section-background map'>
+      <section className='section-page vh-100 section-background map'>
         <div className='d-flex flex-row'>
           {isLargeScreen && <SideBar />}
           <div className='section-large  section-center section-center-map'>
@@ -92,13 +92,13 @@ const OwnedPlants = () => {
                               plant?.house_number === "undefined"
                                 ? `${plant?.road}`
                                 : plant?.road !== "undefined" &&
-                                  plant?.house_number !== "undefined"
-                                ? `${plant?.road} ${plant?.house_number}`
-                                : plant?.road === "undefined" &&
-                                  plant?.house_number === "undefined" &&
-                                  plant?.residential === "undefined"
-                                ? plant?.suburb
-                                : plant?.residential}
+                                    plant?.house_number !== "undefined"
+                                  ? `${plant?.road} ${plant?.house_number}`
+                                  : plant?.road === "undefined" &&
+                                      plant?.house_number === "undefined" &&
+                                      plant?.residential === "undefined"
+                                    ? plant?.suburb
+                                    : plant?.residential}
                             </Card.Title>
                             {plant?.road === "undefined" &&
                             plant?.house_number === "undefined" &&
@@ -137,20 +137,20 @@ const OwnedPlants = () => {
                                   order?.status === "in progress"
                                     ? "approvedPlant"
                                     : order?.status === "pending"
-                                    ? "rejectedPlant"
-                                    : order?.status === "completed"
-                                    ? "bookedPlant"
-                                    : "pendingPlant"
+                                      ? "rejectedPlant"
+                                      : order?.status === "completed"
+                                        ? "bookedPlant"
+                                        : "pendingPlant"
                                 }
                               >
                                 {" "}
                                 {order?.status === "pending"
                                   ? "in attesa"
                                   : order?.status === "In progress"
-                                  ? "in elaborazione"
-                                  : order?.status === "completed"
-                                  ? "completato"
-                                  : "N/A"}
+                                    ? "in elaborazione"
+                                    : order?.status === "completed"
+                                      ? "completato"
+                                      : "N/A"}
                               </span>{" "}
                             </ListGroup.Item>
                             <ListGroup.Item>

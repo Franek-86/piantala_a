@@ -37,7 +37,7 @@ const MyPlants = () => {
 
   return (
     <>
-      <section className='section-page section-background map'>
+      <section className='section-page vh-100 section-background map'>
         <div className='d-flex flex-row'>
           {isLargeScreen && <SideBar />}
           <div className='section-large section-center section-center-map'>
@@ -84,13 +84,13 @@ const MyPlants = () => {
                             plant?.house_number === "undefined"
                               ? `${plant?.road}`
                               : plant?.road !== "undefined" &&
-                                plant?.house_number !== "undefined"
-                              ? `${plant?.road} ${plant?.house_number}`
-                              : plant?.road === "undefined" &&
-                                plant?.house_number === "undefined" &&
-                                plant?.residential === "undefined"
-                              ? plant?.suburb
-                              : plant?.residential}
+                                  plant?.house_number !== "undefined"
+                                ? `${plant?.road} ${plant?.house_number}`
+                                : plant?.road === "undefined" &&
+                                    plant?.house_number === "undefined" &&
+                                    plant?.residential === "undefined"
+                                  ? plant?.suburb
+                                  : plant?.residential}
                           </Card.Title>
                           {plant?.road === "undefined" &&
                           plant?.house_number === "undefined" &&
@@ -114,10 +114,10 @@ const MyPlants = () => {
                                 plant.status_piantina === "approved"
                                   ? "approvedPlant"
                                   : plant.status_piantina === "rejected"
-                                  ? "rejectedPlant"
-                                  : plant.status_piantina === "booked"
-                                  ? "bookedPlant"
-                                  : "pendingPlant"
+                                    ? "rejectedPlant"
+                                    : plant.status_piantina === "booked"
+                                      ? "bookedPlant"
+                                      : "pendingPlant"
                               }
                             >
                               {" "}

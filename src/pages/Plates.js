@@ -9,6 +9,7 @@ import Slider from "react-slick";
 import useIsLargeScreen from "../utils/useIsLargeScreen";
 import SideBar from "../components/menu/SideBar";
 import BackBtn from "../components/menu/BackBtn";
+import { BsVectorPen } from "react-icons/bs";
 const Plates = () => {
   const { getAllPlants, plates } = useContext(PlantsContext);
 
@@ -54,6 +55,24 @@ const Plates = () => {
           <section className='section-page'>
             <div className='menu-section-center'>
               <h2 className='section-title'>Le vostre targhe</h2>
+              <article className='plate-info mb-5'>
+                <p>
+                  Acquistando una piantina applicheremo un targa realizzata{" "}
+                  <b>in alluminio</b> avente come <b>sfondo</b> il quadro di{" "}
+                  <b>Ernest Verner</b>.
+                </p>
+                <p>
+                  Tutte le vostre targhe sono presenti nella galleria delle
+                  targhe in basso.
+                </p>
+              </article>
+              <span className='mb-3 h5 d-flex flex-row align-items-center position-relative'>
+                <div className='step-title pe-1'>
+                  <BsVectorPen />
+                </div>
+                <span className='fst-italic font-plate'>Galleria targhe</span>
+                <div className='ink-gallery'></div>
+              </span>
               {plates?.length === 0 && (
                 <p>Non ci sono targhe da visualizzare.</p>
               )}

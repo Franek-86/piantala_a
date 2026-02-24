@@ -39,7 +39,7 @@ code {
   --c-text-light-3: #90a4b7;
   /* --c-bg-map-1: #f7f7e5c1; */
   --c-bg-map-1: #fefdd7;
-  --c-bg-map-2: #e3edef7d;
+  --c-bg-map-2: #eef3f4;
   --radius: 0.5rem;
 
   --toastify-color-progress-light: linear-gradient(
@@ -2312,6 +2312,17 @@ body {
     to right,
     var(--clr-primary-5),
     var(--c-bg-map-1) 40%
+  );
+}
+.ink-gallery {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    var(--clr-primary-5),
+    var(--c-bg-map-2) 40%
   );
 }
 
