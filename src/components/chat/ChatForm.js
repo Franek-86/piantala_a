@@ -7,11 +7,13 @@ import { AuthContext } from "../../context/AuthContext";
 import { useContext } from "react";
 import { UsersContext } from "../../context/UsersContext";
 import { Alert } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const ChatForm = () => {
   const { setMessage, message, sendMessage } = useContext(ChatContext);
   const { isAuthenticated, userId } = useContext(AuthContext);
   const { loggedUserInfo } = useContext(UsersContext);
+  const navigate = useNavigate();
   console.log("asdf", loggedUserInfo.pic);
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,6 +25,14 @@ const ChatForm = () => {
       pic: loggedUserInfo.pic,
       content: message,
     };
+    let checkEmpty = RegExp(/^\W$/).test(data.content);
+    if (!data.sender_id) {
+      navigate("/login");
+      return;
+    }
+    if (!data.content || checkEmpty) {
+      return;
+    }
     sendMessage(data);
     setMessage("");
   };
