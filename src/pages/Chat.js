@@ -30,7 +30,7 @@ const Chat = () => {
         <div className='h-100'>
           <section className='h-100 d-flex align-items-center'>
             <div className=''>
-              <div className='section-center'>
+              <div className='section-center pb-5'>
                 {/* <h2 className='section-title pt-5'>Chat aperta</h2> */}
                 <div class='page-content page-container' id='page-content'>
                   <div class='col-md-4'></div>
