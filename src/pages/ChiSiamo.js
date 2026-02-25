@@ -53,7 +53,7 @@ const ChiSiamo = () => {
             </p>
           </div>
         </section>
-        <section className='h-50 chi-logo-section position-background  pt-4 pt-lg-5'>
+        <section className='h-50 chi-logo-section  pt-4 pt-lg-5'>
           <div className='section-center'>
             <h4 className=''>Patrocini</h4>
           </div>
@@ -81,7 +81,7 @@ const ChiSiamo = () => {
             </div>
           </div>
         </section>
-        <section className='h-50 pt-4 pb-5 pt-lg-5 plate-background'>
+        <section className='h-50 pt-4 pb-5 pt-lg-5 position-background'>
           <div className='section-center'>
             <h4>Seguici sui nostri canali</h4>
 

@@ -33,7 +33,7 @@ const Plates = () => {
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 5000,
     // vertical: true,
     // verticalSwiping: true,
@@ -49,15 +49,15 @@ const Plates = () => {
   return (
     <div className='d-flex flex-row'>
       {isLargeScreen && <SideBar />}
-      <section className='section-page vh-100 section-background section-full-page section-users section-large section-plates page-large-container'>
+      <section className='section-page section-background section-full-page section-users section-large section-plates page-large-container'>
         <BackBtn />
         <div className='section-center pt-5'>
           <section className='section-page'>
             <div className='menu-section-center'>
               <h2 className='section-title'>Le vostre targhe</h2>
-              <article className='plate-info mb-5'>
+              <article className='mb-5'>
                 <p>
-                  Acquistando una piantina applicheremo un targa realizzata{" "}
+                  Sulle vostre piantine applichiamo una targa{" "}
                   <b>in alluminio</b> avente come <b>sfondo</b> il quadro di{" "}
                   <b>Ernest Verner</b>.
                 </p>
