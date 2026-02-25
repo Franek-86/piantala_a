@@ -47,9 +47,9 @@ const Plates = () => {
   };
   console.log("e1", plates);
   return (
-    <div className='d-flex flex-row'>
+    <div className=''>
       {isLargeScreen && <SideBar />}
-      <section className='section-page section-background section-full-page section-users section-large section-plates page-large-container'>
+      <section className='section-page section-background section-full-page section-users section-large section-plates page-large-container min-100'>
         <BackBtn />
         <div className='section-center pt-5'>
           <section className='section-page'>

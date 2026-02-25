@@ -1210,7 +1210,9 @@ element {
 }
 
 /* plate */
-
+.min-100 {
+  min-height: 100vh;
+}
 .plate-container {
   margin: 0 auto;
   border: 2px solid var(--clr-primary-1);
