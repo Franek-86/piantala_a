@@ -1201,6 +1201,12 @@ element {
   border: 2px solid var(--clr-primary-1);
   border-radius: var(--radius);
 }
+.plate-info {
+  padding: 0.5rem;
+  background: #fff !important;
+  border: 1px solid var(--clr-primary-5);
+  border-radius: 5px;
+}
 .plate-image {
   padding: 1rem;
 }

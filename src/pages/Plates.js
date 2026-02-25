@@ -55,10 +55,10 @@ const Plates = () => {
           <section className='section-page'>
             <div className='menu-section-center'>
               <h2 className='section-title'>Le vostre targhe</h2>
-              <article className='mb-5'>
+              <article className='mb-5 plate-info'>
                 <p>
-                  Sulle vostre piantine applichiamo una targa{" "}
-                  <span className='primary-green fw-bold'>in alluminio</span>{" "}
+                  Sulle vostre piantine applichiamo una targa in{" "}
+                  <span className='primary-green fw-bold'>alluminio</span>{" "}
                   avente come{" "}
                   <span className='primary-green fw-bold'>sfondo</span> il
                   quadro di{" "}
