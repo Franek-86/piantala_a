@@ -194,7 +194,7 @@ function Map() {
 
   if (isChildRoute) {
     return (
-      <div className='d-flex'>
+      <div className=''>
         {" "}
         {isLargeScreen && <SideBar />}
         {isLargeScreen && (

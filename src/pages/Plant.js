@@ -6,6 +6,7 @@ import PlantApproved from "../components/plant/PlantApproved";
 import PlantPending from "../components/plant/PlantPending";
 import PlantBooked from "../components/plant/PlantBooked";
 import PlantRejected from "../components/plant/PlantRejected";
+import useIsLargeScreen from "../utils/useIsLargeScreen";
 
 const Plant = () => {
   const { plantId } = useParams();
@@ -17,7 +18,7 @@ const Plant = () => {
     plant,
     getOwnerPublicInfo,
   } = useContext(PlantsContext);
-
+  const isLargeScreen = useIsLargeScreen();
   useEffect(() => {
     getSinglePlant(plantId);
   }, [plantId, plateUrl]);
@@ -27,7 +28,9 @@ const Plant = () => {
   const { status_piantina } = plant;
 
   return (
-    <div className='plants-container'>
+    <div
+      className={isLargeScreen ? "plants-container" : "plants-container-small"}
+    >
       {status_piantina === "approved" && <PlantApproved />}
       {status_piantina === "pending" && <PlantPending />}
       {status_piantina === "booked" && <PlantBooked />}

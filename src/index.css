@@ -37,9 +37,9 @@ code {
   --c-text-light-1: #2c3e50;
   --c-text-light-2: #476582;
   --c-text-light-3: #90a4b7;
-  /* --c-bg-map-1: #f7f7e5c1; */
-  --c-bg-map-1: #fefdd7;
-  --c-bg-map-2: #eef3f4;
+  --c-bg-map-1: #fefee3;
+  --c-bg-map-2: #e6f1f3;
+
   --radius: 0.5rem;
 
   --toastify-color-progress-light: linear-gradient(
@@ -173,6 +173,11 @@ ul {
   /* overflow: scroll; */
   background: #f0f1f188;
 }
+.plants-container-small {
+  /* overflow: scroll; */
+  background: var(--c-bg-map-2);
+}
+
 .section-center {
   width: 90%;
   margin: 0 auto;
