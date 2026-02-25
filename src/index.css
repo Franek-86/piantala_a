@@ -1861,7 +1861,7 @@ body {
 }
 @media screen and (max-width: 768px) {
   .box-body {
-    height: 65vh;
+    height: 75vh;
   }
 }
 .box-header:before,
