@@ -1237,10 +1237,10 @@ element {
 .slick-next {
   right: 0 !important;
 }
-.slick-prev::before,
+/* .slick-prev::before,
 .slick-next::before {
-  font-size: 25px !important;
-}
+  z-index: 9999;
+} */
 
 /* .slick-arrow.slick-prev,
 .slick-arrow.slick-next {
@@ -1339,7 +1339,7 @@ element {
 }
 .plate-img {
   width: 85%;
-  max-width: 20rem;
+  /* max-width: 20rem; */
   margin: auto;
 }
 @media screen and (min-width: 768px) {
