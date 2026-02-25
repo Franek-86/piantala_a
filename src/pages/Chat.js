@@ -23,27 +23,28 @@ const Chat = () => {
     navigate("/map");
   };
   return (
-    <div className='d-flex flex-row'>
+    <div className=''>
       {isLargeScreen && <SideBar />}
       <section className='section-page section-background vh-100 section-large page-large-container section-chat'>
         <BackBtn />
-        <div className='section-center'>
-          <section className='pb-0 pt-3'>
-            <div className='section-center'>
-              {/* <h2 className='section-title pt-5'>Chat aperta</h2> */}
-              <div class='page-content page-container' id='page-content'>
-                <div class='col-md-4'></div>
-                <div className='box box-warning direct-chat direct-chat-warning'>
-                  {!isAuthenticated && (
-                    <Alert
-                      className='chat-footer p-1 chat-footer-info'
-                      variant='info'
-                    >
-                      Effettua il <Link to='/login'>login </Link>per poter
-                      partecipare attivamente alla chat!
-                    </Alert>
-                  )}
-                  {/* <div class='box-header with-border'>
+        <div className='h-100'>
+          <section className='h-100 d-flex align-items-center'>
+            <div className=''>
+              <div className='section-center'>
+                {/* <h2 className='section-title pt-5'>Chat aperta</h2> */}
+                <div class='page-content page-container' id='page-content'>
+                  <div class='col-md-4'></div>
+                  <div className='box box-warning direct-chat direct-chat-warning'>
+                    {!isAuthenticated && (
+                      <Alert
+                        className='chat-footer p-1 chat-footer-info'
+                        variant='info'
+                      >
+                        Effettua il <Link to='/login'>login </Link>per poter
+                        partecipare attivamente alla chat!
+                      </Alert>
+                    )}
+                    {/* <div class='box-header with-border'>
                       <h3 class='box-title'>Messaggi</h3>
 
                       <div class='box-tools pull-right'>
@@ -81,9 +82,10 @@ const Chat = () => {
                         </button>
                       </div>
                     </div> */}
-                  <ChatBody />
+                    <ChatBody />
+                  </div>
+                  <ChatForm />
                 </div>
-                <ChatForm />
               </div>
             </div>
           </section>
