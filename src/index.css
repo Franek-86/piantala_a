@@ -1237,6 +1237,9 @@ element {
 .slick-next {
   right: 0 !important;
 }
+.slick-arrow.slick-prev {
+  z-index: 999;
+}
 /* .slick-prev::before,
 .slick-next::before {
   z-index: 9999;
