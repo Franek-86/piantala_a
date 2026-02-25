@@ -1231,7 +1231,18 @@ element {
 .slick-arrow.slick-next:before {
   color: var(--clr-secondary-3);
 }
-.slick-arrow.slick-prev,
+.slick-prev {
+  left: 0 !important;
+}
+.slick-next {
+  right: 0 !important;
+}
+.slick-prev::before,
+.slick-next::before {
+  font-size: 25px !important;
+}
+
+/* .slick-arrow.slick-prev,
 .slick-arrow.slick-next {
   top: 5rem;
   z-index: 999;
@@ -1241,7 +1252,8 @@ element {
 }
 .slick-arrow.slick-next {
   right: 5px;
-}
+} */
+
 /* .slick-dots {
   bottom: -5rem !important;
 }
@@ -1326,13 +1338,13 @@ element {
   object-fit: cover;
 }
 .plate-img {
-  width: 80%;
-  max-width: 18rem;
+  width: 85%;
+  max-width: 20rem;
   margin: auto;
 }
 @media screen and (min-width: 768px) {
   .plate-img {
-    width: 50%;
+    width: 80%;
     max-width: 25rem;
   }
 }
@@ -2222,9 +2234,9 @@ body {
   color: var(--clr-secondary-3);
 }
 
-.slick-list {
+/* .slick-list {
   min-height: 50vh;
-}
+} */
 
 /* booked plant */
 
