@@ -58,8 +58,11 @@ const Plates = () => {
               <article className='mb-5'>
                 <p>
                   Sulle vostre piantine applichiamo una targa{" "}
-                  <b>in alluminio</b> avente come <b>sfondo</b> il quadro di{" "}
-                  <b>Ernest Verner</b>.
+                  <span className='primary-green fw-bold'>in alluminio</span>{" "}
+                  avente come{" "}
+                  <span className='primary-green fw-bold'>sfondo</span> il
+                  quadro di{" "}
+                  <span className='primary-green fw-bold'>Ernest Verner</span>.
                 </p>
                 <p className='mb-0'>
                   Tutte le vostre targhe sono presenti nella{" "}
