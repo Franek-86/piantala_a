@@ -883,8 +883,17 @@ element {
 .plate-background {
   background-color: var(--c-bg-map-2);
 }
+.blue-background {
+  background-color: var(--c-bg-map-2);
+}
 .position-background {
   background-color: var(--c-bg-map-1);
+}
+.yellow-background {
+  background-color: var(--c-bg-map-1);
+}
+.white-background {
+  background-color: #fff;
 }
 
 .btn-plant-article a {
@@ -1194,6 +1203,7 @@ element {
   background-position: center;
   background-size: cover;
 }
+
 /* plate */
 
 .plate-container {
@@ -2304,7 +2314,8 @@ body {
 .plate-info,
 .plant-payment-info {
   padding: 0.5rem;
-  background: #f0f1f19a;
+  background: #fff;
+  /* background: #f0f1f19a; */
   border: 1px solid var(--clr-primary-5);
   border-radius: 5px;
 }

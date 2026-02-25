@@ -183,7 +183,7 @@ const PlantApproved = () => {
               </article>
             </div>
           </section>
-          <section id='location' className='pt-lg-3 position-background'>
+          <section id='location' className='pt-lg-3 white-background'>
             <div className='section-center section-plant-position'>
               <span className='pt-5 mb-3 h5 d-flex flex-row align-items-center'>
                 <div className='step-title pb-2 pe-1'>
@@ -219,7 +219,7 @@ const PlantApproved = () => {
           </section>
           <section
             id='plate'
-            className='pt-lg-3 section-plant-plate plate-background'
+            className='pt-lg-3 section-plant-plate yellow-background'
           >
             <div className='section-center section-plant'>
               <span className='pt-5 mb-3 h5 d-flex flex-row align-items-center'>

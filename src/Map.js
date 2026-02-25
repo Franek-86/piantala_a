@@ -197,82 +197,39 @@ function Map() {
       <div className='d-flex'>
         {" "}
         {isLargeScreen && <SideBar />}
-        <div className='bg-map'>
-          <MapContainer
-            center={[41.118778112249046, 16.881917818963464]}
-            zoom={13}
-            scrollWheelZoom={false}
-            zoomControl={false}
-          >
-            <TileLayer
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-              url='https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png'
-            />
-            {/* <MyTest /> */}
-            {/* <Buttons
-              setPosition={setPosition}
-              position={position}
-              markerRef={markerRef}
-            /> */}
-            {filteredPlants.length > 0 &&
-              filteredPlants.map((e) => {
-                const iconType = e.status_piantina;
-                const markerIcon = iconMap[iconType];
-                return (
-                  <Marker
-                    icon={markerIcon}
-                    position={[e.lat, e.lang]}
-                    key={e.id}
-                    eventHandlers={{
-                      click: () => {
-                        navigate(`/map/${e.id}`);
-                      },
-                    }}
-                  ></Marker>
-                );
-              })}
-            {/* {position && (
-              <Marker ref={markerRef} position={position}>
-                <Popup>
-                  {logReg && <LoginReg val='map' />}
+        {isLargeScreen && (
+          <div className='bg-map'>
+            <MapContainer
+              center={[41.118778112249046, 16.881917818963464]}
+              zoom={13}
+              scrollWheelZoom={false}
+              zoomControl={false}
+            >
+              <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                url='https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png'
+              />
 
-                  <div className={logReg ? "d-none" : "d-block"}>
-                    <h6>Ti trovi qui!</h6>
-                    <p>
-                      Segnalaci la zona di piantagione aggiungendo una piantina
-                      alla mappa oppure copia le coordinate per poterle
-                      condividere con altri utenti.
-                    </p>
-                    <div className='d-flex flex-column pb-3'>
-                      <Button
-                        className='mb-2'
-                        onClick={() =>
-                          copyToClipboard([`${position.lat},${position.lng}`])
-                        }
-                      >
-                        copia coordinate
-                      </Button>
-
-                      <Button
-                        onClick={
-                          () =>
-                            sendValuesToAddPlant(
-                              `${position.lat},${position.lng}`,
-                              navigate
-                            )
-                          // ,
-                          // navigate("/map/addPlant")
-                        }
-                      >
-                        segnalaci zona
-                      </Button>
-                    </div>
-                  </div>
-                </Popup>
-              </Marker>
-            )} */}
-          </MapContainer>
-        </div>
+              {filteredPlants.length > 0 &&
+                filteredPlants.map((e) => {
+                  const iconType = e.status_piantina;
+                  const markerIcon = iconMap[iconType];
+                  return (
+                    <Marker
+                      icon={markerIcon}
+                      position={[e.lat, e.lang]}
+                      key={e.id}
+                      eventHandlers={{
+                        click: () => {
+                          navigate(`/map/${e.id}`);
+                        },
+                      }}
+                    ></Marker>
+                  );
+                })}
+            </MapContainer>
+          </div>
+        )}
         <Outlet />
       </div>
     );
