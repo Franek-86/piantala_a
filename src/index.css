@@ -909,9 +909,9 @@ element {
   width: 20rem;
 }
 
-.plate-form .form-control {
-  background-color: #ebf0f1;
-}
+/* .plate-form .form-control {
+  background-color: red !important;
+} */
 .single-plant .alert-info {
   background-color: #d5e8eb;
   border-color: var(--clr-secondary-1);

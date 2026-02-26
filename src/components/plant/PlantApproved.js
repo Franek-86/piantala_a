@@ -100,95 +100,102 @@ const PlantApproved = () => {
       <Terms id={plantId} /> <BackBtn plant />
       <Form onSubmit={handleSubmit(onSubmit)}>
         <div className='single-plant'>
-          <section className='section-plant-intro pt-5 pt-lg-0'>
-            {isLarge && (
-              <>
-                <BackBtnLarge />
-                <h2 className='section-title pt-3 pt-xl-4'>
-                  Zona <span className='text-lowercase'>-</span> {plant?.suburb}{" "}
-                  &#127793;
-                </h2>
-              </>
-            )}
-            <div className='section-center'>
-              <article className='plant-intro-text intro-article p-2 p-lg-3 p-xl-4 mb-3 d-none d-lg-block'>
-                <p className='mb-0'>
-                  Puoi procedere con l'acquisto e la piantumazione della tua
-                  piantina nel <b>quartiere {plant?.suburb} </b> di{" "}
-                  <b>{plant?.city} </b>
-                  seguendo questi tre passaggi.
-                </p>
-              </article>
-              <article className='plant-intro-text intro-article p-2 p-lg-3 p-xl-4'>
-                {/* <p className='mb-2 mb-lg-4'>
+          <section className='section-plant-intro'>
+            <div className='pt-5 pt-lg-0'>
+              {isLarge && (
+                <>
+                  <BackBtnLarge />
+                  <h2 className='section-title pt-3 pt-xl-4'>
+                    Zona <span className='text-lowercase'>-</span>{" "}
+                    {plant?.suburb} &#127793;
+                  </h2>
+                </>
+              )}
+              <div className='section-center'>
+                <article className='plant-intro-text intro-article p-2 p-lg-3 p-xl-4 mb-3 d-none d-lg-block'>
+                  <p className='mb-0'>
+                    Puoi procedere con l'acquisto e la piantumazione della tua
+                    piantina nel <b>quartiere {plant?.suburb} </b> di{" "}
+                    <b>{plant?.city} </b>
+                    seguendo questi tre passaggi.
+                  </p>
+                </article>
+                <article className='plant-intro-text intro-article p-2 p-lg-3 p-xl-4'>
+                  {/* <p className='mb-2 mb-lg-4'>
                   Puoi procedere con l'acquisto e la piantumazione della tua
                   piantina nel <b>quartiere {plant?.suburb} </b> di{" "}
                   <b>{plant?.city} </b>
                   seguendo questi tre passaggi.
                 </p> */}
-                <p className='mb-0'>
-                  Controlla la zona di piantumazione, ossia la <b>posizione</b>{" "}
-                  sulla mappa, tenendo presente che li dove non c'è un sistema
-                  di irrigazione sarà tua premura innaffiare il tuo albero,
-                  inserisci il <b>testo della targa</b> dedicandola a chi
-                  preferisci e procedi infine con il <b>pagamento</b>.
-                </p>
-              </article>
-              <article className='d-flex justify-content-center my-4 my-lg-2'>
-                <div className='steps-article my-2 d-flex flex-row justify-content-around p-2 p-xl-3'>
-                  <div className='step-container d-flex flex-column align-items-center'>
-                    <a
-                      href='#location'
-                      className='step-box d-flex flex-row align-items-center justify-content-center'
-                    >
-                      <TiLocation />
-                    </a>
-                    <div className='step-text text-center'>
-                      <span className='d-block fw-medium my-1'>Posizione</span>
-                      <span className='d-block small'>
-                        Informazioni zona di piantagione
-                      </span>
+                  <p className='mb-0'>
+                    Controlla la zona di piantumazione, ossia la{" "}
+                    <b>posizione</b> sulla mappa, tenendo presente che li dove
+                    non c'è un sistema di irrigazione sarà tua premura
+                    innaffiare il tuo albero, inserisci il{" "}
+                    <b>testo della targa</b> dedicandola a chi preferisci e
+                    procedi infine con il <b>pagamento</b>.
+                  </p>
+                </article>
+                <article className='d-flex justify-content-center my-4 my-lg-2'>
+                  <div className='steps-article my-2 d-flex flex-row justify-content-around p-2 p-xl-3'>
+                    <div className='step-container d-flex flex-column align-items-center'>
+                      <a
+                        href='#location'
+                        className='step-box d-flex flex-row align-items-center justify-content-center'
+                      >
+                        <TiLocation />
+                      </a>
+                      <div className='step-text text-center'>
+                        <span className='d-block fw-medium my-1'>
+                          Posizione
+                        </span>
+                        <span className='d-block small'>
+                          Informazioni zona di piantagione
+                        </span>
+                      </div>
+                    </div>
+                    <div className='step-container d-flex flex-column align-items-center'>
+                      <a
+                        href='#plate'
+                        className='step-box d-flex flex-row align-items-center justify-content-center'
+                      >
+                        <BsVectorPen />
+                      </a>
+                      <div className='step-text text-center'>
+                        <span className='d-block fw-medium my-1'>Targa</span>
+                        <span className='d-block small'>
+                          Scrivi la tua targa personalizzata
+                        </span>
+                      </div>
+                    </div>
+                    <div className='step-container d-flex flex-column align-items-center'>
+                      <a
+                        href='#payment'
+                        className='step-box d-flex flex-row align-items-center justify-content-center'
+                      >
+                        <MdPayment />
+                      </a>
+                      <div className='step-text text-center'>
+                        <spam className='d-block fw-medium my-1'>
+                          Pagamento
+                        </spam>
+                        <span className='d-block small'>
+                          Informazioni e procedura pagamento
+                        </span>
+                      </div>
                     </div>
                   </div>
-                  <div className='step-container d-flex flex-column align-items-center'>
-                    <a
-                      href='#plate'
-                      className='step-box d-flex flex-row align-items-center justify-content-center'
-                    >
-                      <BsVectorPen />
-                    </a>
-                    <div className='step-text text-center'>
-                      <span className='d-block fw-medium my-1'>Targa</span>
-                      <span className='d-block small'>
-                        Scrivi la tua targa personalizzata
-                      </span>
-                    </div>
-                  </div>
-                  <div className='step-container d-flex flex-column align-items-center'>
-                    <a
-                      href='#payment'
-                      className='step-box d-flex flex-row align-items-center justify-content-center'
-                    >
-                      <MdPayment />
-                    </a>
-                    <div className='step-text text-center'>
-                      <spam className='d-block fw-medium my-1'>Pagamento</spam>
-                      <span className='d-block small'>
-                        Informazioni e procedura pagamento
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </article>
-              <article className='d-flex justify-content-center btn-plant-article'>
-                <a
-                  href='#location'
-                  className='btn btn-primary d-flex align-items-center justify-content-between'
-                >
-                  <span className='pe-2'>Posizione</span>
-                  <FaArrowDown />
-                </a>
-              </article>
+                </article>
+                <article className='d-flex justify-content-center btn-plant-article'>
+                  <a
+                    href='#location'
+                    className='btn btn-primary d-flex align-items-center justify-content-between'
+                  >
+                    <span className='pe-2'>Posizione</span>
+                    <FaArrowDown />
+                  </a>
+                </article>
+              </div>
             </div>
           </section>
           <section id='location' className='pt-lg-3 white-background'>
