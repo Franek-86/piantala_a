@@ -111,13 +111,21 @@ const PlantApproved = () => {
               </>
             )}
             <div className='section-center'>
-              <article className='plant-intro-text intro-article p-2 p-lg-3 p-xl-4'>
-                <p className='mb-2 mb-lg-4'>
+              <article className='plant-intro-text intro-article p-2 p-lg-3 p-xl-4 mb-3 d-none d-lg-block'>
+                <p className='mb-0'>
                   Puoi procedere con l'acquisto e la piantumazione della tua
                   piantina nel <b>quartiere {plant?.suburb} </b> di{" "}
                   <b>{plant?.city} </b>
                   seguendo questi tre passaggi.
                 </p>
+              </article>
+              <article className='plant-intro-text intro-article p-2 p-lg-3 p-xl-4'>
+                {/* <p className='mb-2 mb-lg-4'>
+                  Puoi procedere con l'acquisto e la piantumazione della tua
+                  piantina nel <b>quartiere {plant?.suburb} </b> di{" "}
+                  <b>{plant?.city} </b>
+                  seguendo questi tre passaggi.
+                </p> */}
                 <p className='mb-0'>
                   Controlla la zona di piantumazione, ossia la <b>posizione</b>{" "}
                   sulla mappa, tenendo presente che li dove non c'è un sistema
@@ -126,7 +134,7 @@ const PlantApproved = () => {
                   preferisci e procedi infine con il <b>pagamento</b>.
                 </p>
               </article>
-              <article className='d-flex justify-content-center my-4 my-lg-4'>
+              <article className='d-flex justify-content-center my-4 my-lg-2'>
                 <div className='steps-article my-2 d-flex flex-row justify-content-around p-2 p-xl-3'>
                   <div className='step-container d-flex flex-column align-items-center'>
                     <a

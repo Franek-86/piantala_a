@@ -30,13 +30,9 @@ const ChiSiamo = () => {
             </div>
             <p>
               L'iniziativa{" "}
-              <span className='primary-green fw-bold'>
-                "Ti pianto per amore"
-              </span>{" "}
+              <span className='cl-brown fw-bold'>"Ti pianto per amore"</span>{" "}
               voluta dall'Associazione culturale no-profit{" "}
-              <span className='primary-green fw-bold'>
-                "Amici di Ernest Verner"
-              </span>{" "}
+              <span className='cl-brown fw-bold'>"Amici di Ernest Verner"</span>{" "}
               promuove l'adozione di alberi da parte di privati da piantare in
               punti della città di Bari privi di verde, in ottemperanza al
               Disciplinare tecnico (20/05/25) dell'iniziativa "Dona un albero

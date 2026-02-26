@@ -109,9 +109,13 @@ fieldset:disabled .btn {
   background-color: var(--clr-primary-1) !important;
   opacity: 1;
 }
-.primary-green {
+.cl-green {
   color: var(--clr-primary-5);
 }
+.cl-brown {
+  color: var(--clr-secondary-5);
+}
+
 .form-select {
   color: var(--clr-primary-8);
   background-color: var(--bs-body-bg);
@@ -1114,7 +1118,7 @@ element {
   width: 100%;
 }
 .section-plant-intro {
-  min-height: calc(100dvh - 5rem);
+  min-height: calc(100vh - 3rem);
 }
 .section-plant-position {
   min-height: 100vh;
@@ -1211,7 +1215,7 @@ element {
 
 /* plate */
 .min-100 {
-  min-height: 100vh;
+  min-height: 100dvh;
 }
 .plate-container {
   margin: 0 auto;
@@ -1220,8 +1224,7 @@ element {
 }
 .plate-info {
   padding: 0.5rem;
-  background: #fff !important;
-  border: 1px solid var(--clr-primary-5);
+  /* background: #fff !important; */
   border-radius: 5px;
 }
 .plate-image {
@@ -2323,9 +2326,10 @@ body {
   padding: 0.5rem;
   background: #fff;
   /* background: #f0f1f19a; */
-  border: 1px solid var(--clr-primary-5);
+  border: 1px solid var(--clr-secondary-1);
   border-radius: 5px;
 }
+
 .plant-payment button {
   width: 20rem;
 }

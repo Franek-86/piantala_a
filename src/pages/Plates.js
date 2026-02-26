@@ -56,17 +56,17 @@ const Plates = () => {
             <div className='menu-section-center'>
               <h2 className='section-title'>Le vostre targhe</h2>
               <article className='mb-5 plate-info'>
-                <p>
+                <p className='mb-0'>
                   Sulle vostre piantine applichiamo una targa in{" "}
-                  <span className='primary-green fw-bold'>alluminio</span>{" "}
-                  avente come{" "}
-                  <span className='primary-green fw-bold'>sfondo</span> il
+                  <span className='cl-brown fw-bold'>alluminio</span> avente
+                  come <span className='cl-brown fw-bold'>sfondo</span> il
                   quadro di{" "}
-                  <span className='primary-green fw-bold'>Ernest Verner</span>.
+                  <span className='cl-brown fw-bold'>Ernest Verner</span>.
                 </p>
                 <p className='mb-0'>
-                  Tutte le vostre targhe sono presenti nella{" "}
-                  <i>galleria targhe</i> in basso.
+                  Tutte le vostre targhe sono presentate nella{" "}
+                  <i className='cl-brown'>galleria targhe</i> di Ti pianto per
+                  amore.
                 </p>
               </article>
               <span className='mb-3 h5 d-flex flex-row align-items-center position-relative'>
