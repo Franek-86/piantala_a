@@ -222,7 +222,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             <PlantsProvider>
               <OrdersProvider>
                 <FilterProvider>
-                  <ToastContainer limit={1} />
+                  <ToastContainer />
                   <Error />
                   <RouterProvider router={router} />
                 </FilterProvider>
