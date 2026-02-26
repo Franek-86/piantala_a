@@ -52,7 +52,7 @@ const Contacts = () => {
 
         <div className='section-page'>
           <div className='mb-3'>
-            <section className='plate-background'>
+            <section className='blue-background'>
               <div className='section-center'>
                 <h2 className='section-title pt-5'>I nostri contatti</h2>
                 <div className='contacts-form-section d-flex align-items-lg-center'>
@@ -124,7 +124,7 @@ const Contacts = () => {
                             </em>
                           )}
                         </Form.Group>
-                        <div className=''>
+                        <div className='pb-5 pb-lg-0'>
                           <Button
                             disabled={loading}
                             className='w-100 text-align-center'
@@ -140,7 +140,6 @@ const Contacts = () => {
                 </div>
               </div>
             </section>
-
             <section className='contacts-info-section py-4 py-lg-5'>
               <div className='section-center'>
                 {" "}

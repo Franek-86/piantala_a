@@ -1538,16 +1538,16 @@ element {
 
 .contact-form {
   height: 100%;
-  border: 1px solid var(--clr-primary-3);
-  padding: 0.75rem;
-  border-radius: 5px;
+  /* border: 1px solid var(--clr-secondary-1); */
+  /* padding: 0.25rem; */
+  /* border-radius: 5px; */
   display: flex;
   position: relative;
   flex-direction: column;
 }
 .contact-form-input,
 .contact-form-email {
-  background-color: #ebf0f1;
+  /* background-color: #ebf0f1; */
 }
 
 .contact-form-input {
@@ -1593,7 +1593,8 @@ element {
 }
 
 .contacts-info-item {
-  border: 2px solid var(--clr-primary-3);
+  border: 2px solid var(--clr-secondary-1);
+  background-color: var(--clr-primary-1);
   padding: 1rem;
   border-radius: 5px;
   width: 17.5rem;

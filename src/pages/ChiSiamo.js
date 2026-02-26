@@ -68,7 +68,7 @@ const ChiSiamo = () => {
                 className='logo-background logo-city'
               ></a>
             </div>
-            <div className='single-logo mb-5 mb-lg-0'>
+            <div className='single-logo mb-5 pb-5 pb-lg-0 mb-lg-0'>
               {" "}
               <a
                 href='https://www.comune.bari.it/web/ambiente-verde-energia-e-impianti/dona-un-albero-alla-tua-citta'
