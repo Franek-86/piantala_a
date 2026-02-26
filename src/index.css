@@ -919,8 +919,7 @@ element {
 .single-plant .alert-link {
   font-weight: 500;
 }
-.single-plant .alert-info > a,
-.plate-info a {
+.single-plant .alert-info > a {
   color: var(--clr-secondary-5);
   text-decoration: none;
 }
@@ -1119,6 +1118,9 @@ element {
 }
 .section-plant-intro {
   min-height: calc(100vh - 3rem);
+}
+.section-large-intro {
+  min-height: 100vh;
 }
 .section-plant-position {
   min-height: 100vh;

@@ -40,7 +40,7 @@ const PlantApproved = () => {
     singlePlantLoading,
     setPlant,
   } = useContext(PlantsContext);
-
+  const isLargeScreen = useIsLargeScreen();
   const { userId, userRole, isAuthenticated, setLogReg, logReg } =
     useContext(AuthContext);
   const { deletePlant } = useContext(PlantsContext);
@@ -100,7 +100,11 @@ const PlantApproved = () => {
       <Terms id={plantId} /> <BackBtn plant />
       <Form onSubmit={handleSubmit(onSubmit)}>
         <div className='single-plant'>
-          <section className='section-plant-intro'>
+          <section
+            className={
+              isLargeScreen ? "section-large-intro" : "section-plant-intro"
+            }
+          >
             <div className='pt-5 pt-lg-0'>
               {isLarge && (
                 <>
@@ -207,14 +211,14 @@ const PlantApproved = () => {
                 Voglio essere piantata qui!
               </span>
               <InfoCard />
-              <article className='plant-position-text mt-2 mt-lg-5'>
+              <article className='mt-2 mt-lg-5'>
                 {" "}
                 <span>
                   Per qualsiasi ulteriore informazione ti invitiamo a
-                  contattarci, tutti i nostri riferimenti sono nella pagina{" "}
-                  <a target='_blank' href='/contacts'>
-                    "Contatti"
-                  </a>
+                  contattarci, tutti i nostri riferimenti sono nella{" "}
+                  <Link target='_blank' href='/contacts'>
+                    pagina dei contatti
+                  </Link>
                   .{" "}
                 </span>
               </article>
@@ -257,11 +261,11 @@ const PlantApproved = () => {
                 <p className='mb-0'>
                   {" "}
                   Puoi visualizzare tutte le vostre targe già da noi realizzate
-                  e applicate sui vostri alberi nella pagina{" "}
-                  <Link className='d-inline' to={"/plates"}>
-                    "Le vostre targhe"
-                  </Link>{" "}
-                  dedicata alle vostre terghe.
+                  e applicate sui vostri alberi nella{" "}
+                  <Link className='' to={"/plates"}>
+                    pagina dedicata alle vostre targhe
+                  </Link>
+                  .{" "}
                 </p>
               </article>
               <article className='plate-form d-flex flex-column flex-md-row w-100'>

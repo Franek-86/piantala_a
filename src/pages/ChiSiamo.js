@@ -38,7 +38,7 @@ const ChiSiamo = () => {
               Disciplinare tecnico (20/05/25) dell'iniziativa "Dona un albero
               alla tua città" del Comune di Bari.
             </p>
-            <p className='mb-0'>
+            <p className='pb-5 mb-0'>
               {" "}
               L'app permette di localizzare queste zone e prenotare l'acquisto
               di un albero con apposita targa da dedicare. La filosofia di
