@@ -26,8 +26,16 @@ const Info = () => {
           <h2 className='section-title'>Informazioni</h2>
           <article className='info-text mb-3'>
             <p className=''>
-              Scopri come richiedere la piantumazione di un albero, monitorare i
-              propri acquisti o gestire le segnalazioni.
+              Scopri come{" "}
+              <span className='cl-brown fw-bold'>
+                richiedere la piantumazione
+              </span>{" "}
+              di un albero,{" "}
+              <span className='cl-brown fw-bold'>
+                monitorare i propri acquisti
+              </span>{" "}
+              o{" "}
+              <span className='cl-brown fw-bold'>gestire le segnalazioni</span>.
             </p>
             <p className='mb-0'>
               Per richiederci ulteriori informazioni{" "}

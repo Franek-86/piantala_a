@@ -60,16 +60,21 @@ const Contacts = () => {
                     <article className='contact-info w-100 p-lg-3 p-xl-4'>
                       <h4>Hai domande?</h4>
                       <p>
-                        Per entrare in contatto con noi ti invitiamo a compilare
-                        il form, cosi facendo invierai una mail alla casella di
-                        posta di "tipiantoperamore".
+                        Per entrare in contatto con noi{" "}
+                        <span className='cl-brown fw-bold'>
+                          compila il form
+                        </span>
+                        , cosi facendo invierai una mail alla casella di posta
+                        di Ti pianto per amore.
                       </p>
                       <p>
-                        Saremo felici di leggere e ti informiamo che normalmente
-                        intercorre una settimana di tempo prima di ricevere una
-                        nostra risposta.
+                        Saremo felici di metterci in contatto con te e ti
+                        informiamo che normalmente intercorre una settimana di
+                        tempo prima di ricevere una nostra risposta.
                       </p>
-                      <p>Non esitare a contattarci!</p>
+                      <p className='cl-brown fw-bold'>
+                        Non esitare a contattarci!
+                      </p>
                     </article>
                     <article className='contact-form w-100 p-lg-3 p-xl-4'>
                       <Form
