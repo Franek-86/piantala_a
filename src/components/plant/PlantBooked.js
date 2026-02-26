@@ -156,7 +156,7 @@ const PlantBooked = () => {
               <div className='my-3 text-end d-flex justify-content-end'>
                 <ShareButton />
               </div>
-              <article className='booked-plant-pic d-flex justify-content-center'>
+              <article className='booked-plant-pic d-flex justify-content-center pb-5 pb-xl-0'>
                 <div className='plant-pic-container w-100'>
                   <div
                     style={{ backgroundImage: `url(${image_url})` }}
@@ -186,7 +186,7 @@ const PlantBooked = () => {
                   </div>
                 </div>
               </article>
-              <article className='pt-5 justify-content-center btn-plant-article d-none d-xl-flex'>
+              <article className='py-5 justify-content-center btn-plant-article d-none d-xl-flex'>
                 <a
                   href='#plate'
                   className='btn btn-primary d-flex align-items-center justify-content-between'

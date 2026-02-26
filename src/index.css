@@ -2273,12 +2273,12 @@ body {
 /* booked plant */
 
 .section-booked-pic {
-  height: calc(100dvh - 5rem);
+  height: 100vh - 3rem;
   /* border: 2px solid red; */
 }
 .section-booked-position,
 .section-booked-plate {
-  min-height: 100dvh;
+  min-height: 100vh;
 }
 .plate-image-container {
   max-width: 50rem;
