@@ -18,13 +18,24 @@ const Info = () => {
     navigate("/map");
   };
   return (
-    <div className='d-flex flex-row'>
+    <div className=''>
       {isLargeScreen && <SideBar />}
-      <section className='section-page vh-100 section-background section-large page-large-container'>
+      <section className='section-page min-100 section-background section-large page-large-container'>
         <BackBtn />
         <article className='info-article section-center menu-section-center pt-5 section-info'>
           <h2 className='section-title'>Informazioni</h2>
-
+          <article className='info-text mb-3'>
+            <p className=''>
+              Scopri come richiedere la piantumazione di un albero, monitorare i
+              propri acquisti o gestire le segnalazioni.
+            </p>
+            <p className='mb-0'>
+              Per richiederci ulteriori informazioni{" "}
+              <Link to='/contacts'>contattateci</Link> via mail, telefonicamente
+              o scrivendo nella <Link to='/contacts'>chat aperta</Link> a tutti
+              gli utenti di Ti pianto per amore.
+            </p>
+          </article>
           <Accordion className='pb-5'>
             <Accordion.Item eventKey='0'>
               <Accordion.Header>
