@@ -31,6 +31,7 @@ const PlantApproved = () => {
   const { plantId } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
+
   const { plant, userInfo } = useContext(PlantsContext);
   const fromPage = location.state?.from || "/map";
   const {

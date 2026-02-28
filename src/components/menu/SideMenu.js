@@ -40,26 +40,42 @@ const SideMenu = ({ onLogout, ...props }) => {
       <Offcanvas.Body>
         <ListGroup className='sidebar-section' variant='flush'>
           <ListGroup.Item>
-            <Link to='/map' class='nav-link text-truncate'>
+            <Link
+              to='/map'
+              onClick={props.handleClose}
+              class='nav-link text-truncate'
+            >
               <FaMap />
               <span class='ms-2 d-sm-inline'>Mappa</span>
             </Link>
           </ListGroup.Item>
           <ListGroup.Item>
-            <Link to='/chi-siamo' class='nav-link text-truncate'>
+            <Link
+              to='/chi-siamo'
+              onClick={props.handleClose}
+              class='nav-link text-truncate'
+            >
               <RiSeedlingFill />
               <span class='ms-2 d-sm-inline'>Chi siamo</span>
             </Link>
           </ListGroup.Item>
           <ListGroup.Item>
-            <Link to='/info' class='nav-link text-truncate'>
+            <Link
+              to='/info'
+              onClick={props.handleClose}
+              class='nav-link text-truncate'
+            >
               <BsInfo />
               <span class='ms-2 d-sm-inline'>Info</span>
             </Link>
           </ListGroup.Item>
           {userRole === "admin" && (
             <ListGroup.Item>
-              <Link to='/users' class='nav-link text-truncate'>
+              <Link
+                to='/users'
+                onClick={props.handleClose}
+                class='nav-link text-truncate'
+              >
                 <FaUsers />
                 <span class='ms-2 d-sm-inline'>Utenti</span>
               </Link>
@@ -74,20 +90,32 @@ const SideMenu = ({ onLogout, ...props }) => {
             </ListGroup.Item>
           )}
           <ListGroup.Item>
-            <Link to='/plates' class='nav-link text-truncate'>
+            <Link
+              to='/plates'
+              onClick={props.handleClose}
+              class='nav-link text-truncate'
+            >
               <GiMetalPlate />
               <span class='ms-2 d-sm-inline'>Le vostre targhe</span>
             </Link>
           </ListGroup.Item>
 
           <ListGroup.Item>
-            <Link to='/chat' class='nav-link text-truncate'>
+            <Link
+              to='/chat'
+              onClick={props.handleClose}
+              class='nav-link text-truncate'
+            >
               <IoMdChatbubbles />
               <span class='ms-2 d-sm-inline'>Chat</span>
             </Link>
           </ListGroup.Item>
           <ListGroup.Item>
-            <Link to='/contacts' class='nav-link text-truncate'>
+            <Link
+              to='/contacts'
+              onClick={props.handleClose}
+              class='nav-link text-truncate'
+            >
               <RiContactsLine />
               <span class='ms-2 d-sm-inline'>Contattaci</span>
             </Link>
