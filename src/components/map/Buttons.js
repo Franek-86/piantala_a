@@ -120,6 +120,7 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
               onClick={() => {
                 setFilters({ suburb: "", status: "approved" });
                 setPosition(null);
+                toast.dismiss();
                 toast(piantineAcquistabili, {
                   position: "bottom-right",
                   autoClose: 2000,
@@ -148,6 +149,7 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
               onClick={() => {
                 setFilters({ suburb: "", status: "booked" });
                 setPosition(null);
+                toast.dismiss();
                 toast(piantineAcquistate, {
                   position: "bottom-right",
                   autoClose: 2000,
