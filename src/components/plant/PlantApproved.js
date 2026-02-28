@@ -115,7 +115,7 @@ const PlantApproved = () => {
                   </h2>
                 </>
               )}
-              <div className='section-center'>
+              <div className='section-center pb-5'>
                 <article className='plant-intro-text intro-article p-2 p-lg-3 p-xl-4 mb-3 d-none d-lg-block'>
                   <p className='mb-0'>
                     Puoi procedere con l'acquisto e la piantumazione della tua
