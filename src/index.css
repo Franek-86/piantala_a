@@ -1116,9 +1116,9 @@ element {
   height: 100%;
   width: 100%;
 }
-.section-plant-intro {
+/* .section-plant-intro {
   min-height: calc(100vh - 3rem);
-}
+} */
 .section-large-intro {
   min-height: 100vh;
 }

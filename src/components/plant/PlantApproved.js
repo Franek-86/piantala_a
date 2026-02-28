@@ -140,7 +140,7 @@ const PlantApproved = () => {
                     procedi infine con il <b>pagamento</b>.
                   </p>
                 </article>
-                <article className='d-flex justify-content-center my-4 my-lg-2'>
+                <article className='py-5 py-lg-0 py-xl-4 d-flex justify-content-center my-4 my-lg-2'>
                   <div className='steps-article my-2 d-flex flex-row justify-content-around p-2 p-xl-3'>
                     <div className='step-container d-flex flex-column align-items-center'>
                       <a
@@ -190,12 +190,12 @@ const PlantApproved = () => {
                     </div>
                   </div>
                 </article>
-                <article className='d-flex justify-content-center btn-plant-article'>
+                <article className='d-flex justify-content-center btn-plant-article pb-5'>
                   <a
                     href='#location'
                     className='btn btn-primary d-flex align-items-center justify-content-between'
                   >
-                    <span className='pe-2'>Posizione</span>
+                    <span className=''>Posizione</span>
                     <FaArrowDown />
                   </a>
                 </article>
@@ -295,7 +295,7 @@ const PlantApproved = () => {
                   style={{ backgroundImage: `url(${Verner})` }}
                 ></div>
               </article>
-              <article className='mt-5 d-flex btn-plant-article justify-content-center'>
+              <article className='mt-5 pb-5 d-flex btn-plant-article justify-content-center'>
                 <a
                   href='#payment'
                   className='btn btn-primary d-flex align-items-center justify-content-between'
