@@ -106,7 +106,7 @@ const PlantApproved = () => {
               isLargeScreen ? "section-large-intro" : "section-plant-intro"
             }
           >
-            <div className='pt-5 pt-lg-0'>
+            <div className='pt-4 pt-lg-0'>
               {isLarge && (
                 <>
                   <BackBtnLarge />
@@ -203,9 +203,9 @@ const PlantApproved = () => {
               </div>
             </div>
           </section>
-          <section id='location' className='pt-lg-3 white-background'>
+          <section id='location' className='pt-4 white-background'>
             <div className='section-center section-plant-position'>
-              <span className='pt-5 mb-3 h5 d-flex flex-row align-items-center'>
+              <span className='mb-3 h5 d-flex flex-row align-items-center'>
                 <div className='step-title pb-2 pe-1'>
                   <TiLocation />
                 </div>
@@ -224,7 +224,7 @@ const PlantApproved = () => {
                 </span>
               </article>
 
-              <article className=' mt-5 d-flex btn-plant-article  justify-content-center'>
+              <article className='mt-5 d-flex btn-plant-article  justify-content-center'>
                 <a
                   href='#plate'
                   className='btn btn-primary d-flex align-items-center justify-content-between'
@@ -239,10 +239,10 @@ const PlantApproved = () => {
           </section>
           <section
             id='plate'
-            className='pt-lg-3 section-plant-plate yellow-background'
+            className='pt-4 section-plant-plate yellow-background'
           >
             <div className='section-center section-plant'>
-              <span className='pt-5 mb-3 h5 d-flex flex-row align-items-center'>
+              <span className='mb-3 h5 d-flex flex-row align-items-center'>
                 <div className='step-title pb-2 pe-1'>
                   <BsVectorPen />
                 </div>

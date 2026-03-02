@@ -181,7 +181,7 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
 
             if (map) {
               map
-                .locate({ timeout: 15000, enableHighAccuracy: true })
+                .locate({ timeout: 10000, enableHighAccuracy: true })
                 .on("locationfound", function (e) {
                   // setPosition(e.latlng);
                   map.flyTo(e.latlng, 17);
@@ -197,12 +197,62 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
                   setLocationLoading(false);
                   switch (err.code) {
                     case 1:
-                      alert(
+                      toast.dismiss();
+                      toast.error(
                         "Per poter segnalare la zona di piantagione è necessario consetire l'accesso alla tua posizione nelle impostazioni del browser.",
+                        {
+                          position: "bottom-right",
+                          autoClose: 2000,
+                          hideProgressBar: false,
+                          newestOnTop: true,
+                          closeOnClick: false,
+                          pauseOnHover: true,
+                          draggable: true,
+                          progress: undefined,
+                          theme: "light",
+                          className: "toast-approved",
+                          // transition: Bounce,
+                        },
                       );
+
                       break;
                     case 2:
-                      alert("Errore due di geolocalizzazione");
+                      toast.dismiss();
+                      toast.error(
+                        "Errore nel tentativo di geolocalizzazione: Posizione non disponibile",
+                        {
+                          position: "bottom-right",
+                          autoClose: 2000,
+                          hideProgressBar: false,
+                          newestOnTop: true,
+                          closeOnClick: false,
+                          pauseOnHover: true,
+                          draggable: true,
+                          progress: undefined,
+                          theme: "light",
+                          className: "toast-approved",
+                          // transition: Bounce,
+                        },
+                      );
+                      break;
+                    case 3:
+                      toast.dismiss();
+                      toast.error(
+                        "Errore nel tentativo di geolocalizzazione: Time out",
+                        {
+                          position: "bottom-right",
+                          autoClose: 2000,
+                          hideProgressBar: false,
+                          newestOnTop: true,
+                          closeOnClick: false,
+                          pauseOnHover: true,
+                          draggable: true,
+                          progress: undefined,
+                          theme: "light",
+                          className: "toast-approved",
+                          // transition: Bounce,
+                        },
+                      );
                       break;
                   }
                 });
