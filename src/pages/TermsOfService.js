@@ -4,110 +4,115 @@ import { useEffect } from "react";
 const TermsOfService = () => {
   return (
     <section className='section-center mt-5 terms-section'>
-      <h2>INFORMATIVA SULLA PRIVACY</h2>
-      <p>Ultimo aggiornamento: 28 dicembre 2025</p>
+      <h2>TERMINI DI SERVIZIO E INFORMATIVA SULLA PRIVACY</h2>
+      <p>Ultimo aggiornamento: 2 Marzo 2026</p>
       <p>
-        La presente Informativa sulla privacy descrive le nostre politiche e
-        procedure sulla raccolta, l'utilizzo e la divulgazione delle tue
-        informazioni quando utilizzi il Servizio e ti informa sui tuoi diritti
-        alla privacy e su come la legge ti tutela.
+        La presente sezione descrive i Termini di Servizio e l'Informativa sulla
+        Privacy, descrive le nostre politiche e procedure sulla raccolta,
+        l'utilizzo e la divulgazione delle tue informazioni quando utilizzi il
+        Servizio e ti informa sui tuoi diritti alla privacy e su come la legge
+        ti tutela.
       </p>
       <p>
         Utilizziamo i tuoi dati personali per fornire e migliorare il Servizio.
         Utilizzando il Servizio, acconsenti alla raccolta e all'utilizzo delle
         informazioni in conformità con la presente Informativa sulla privacy.
       </p>
-      <h2>Interpretation and Definitions</h2>
-      <h3>Interpretation</h3>
+      <h2>Interpretazione e definizioni</h2>
+      <h3>Interpretazioni</h3>
       <p>
-        The words whose initial letters are capitalized have meanings defined
-        under the following conditions. The following definitions shall have the
-        same meaning regardless of whether they appear in singular or in plural.
+        Le parole le cui lettere iniziali sono maiuscole hanno significati
+        definiti alle seguenti condizioni. Le seguenti definizioni avranno lo
+        stesso significato indipendentemente dal fatto che appaiano al singolare
+        o al plurale.
       </p>
-      <h3>Definitions</h3>
-      <p>For the purposes of this Privacy Policy:</p>
+      <h3>Definizioni</h3>
+      <p>Ai fini della presente Informativa sulla privacy:</p>
       <ul>
         <li>
           <p>
-            <strong>Account</strong> means a unique account created for You to
-            access our Service or parts of our Service.
+            <strong>Account</strong> indica un account univoco creato per
+            consentirti di accedere al nostro Servizio o a parti del nostro
+            Servizio.
           </p>
         </li>
         <li>
           <p>
-            <strong>Affiliate</strong> means an entity that controls, is
-            controlled by, or is under common control with a party, where
-            &quot;control&quot; means ownership of 50% or more of the shares,
-            equity interest or other securities entitled to vote for election of
-            directors or other managing authority.
+            <strong>Affiliata</strong> indica un'entità che controlla, è
+            controllata da, o è sotto il controllo comune di una parte, dove per
+            "controllo" si intende la proprietà del 50% o più delle azioni,
+            partecipazioni azionarie o altri titoli che danno diritto al voto
+            per l'elezione di amministratori o altri organi di gestione.
           </p>
         </li>
         <li>
           <p>
-            <strong>Application</strong> refers to Ti Pianto Per Amore, the
-            software program provided by the Company.
+            <strong>Applicazione</strong> si riferisce a Ti Pianto Per Amore, il
+            programma software fornito dalla Società.
           </p>
         </li>
         <li>
           <p>
-            <strong>Company</strong> (referred to as either &quot;the
-            Company&quot;, &quot;We&quot;, &quot;Us&quot; or &quot;Our&quot; in
-            this Agreement) refers to Amici di Ernest Verner, C.da Gravinella
-            60, Fasano(Br).
+            <strong>Associazione</strong> (denominata
+            &quot;l'Associazione&quot;, &quot;Noi&quot;, &quot;Ci&quot; o
+            &quot;Nostro&quot; nel presente contratto) si riferisce agli Amici
+            di Ernest Verner, C.da Gravinella 60, Fasano(Br).
           </p>
         </li>
         <li>
           <p>
-            <strong>Cookies</strong> are small files that are placed on Your
-            computer, mobile device or any other device by a website, containing
-            the details of Your browsing history on that website among its many
-            uses.
+            <strong>Cookies</strong> sono piccoli file che vengono salvati sul
+            tuo computer, dispositivo mobile o qualsiasi altro dispositivo da un
+            sito web, contenenti i dettagli della tua cronologia di navigazione
+            su quel sito web, tra i suoi molteplici utilizzi.
           </p>
         </li>
         <li>
           <p>
-            <strong>Country</strong> refers to: Italy
+            <strong>Paese</strong> si riferisce a: Italia
           </p>
         </li>
         <li>
           <p>
-            <strong>Device</strong> means any device that can access the Service
-            such as a computer, a cell phone or a digital tablet.
+            <strong>Dispositivi</strong> si intende qualsiasi dispositivo in
+            grado di accedere al Servizio, come un computer, un telefono
+            cellulare o un tablet digitale.
           </p>
         </li>
         <li>
           <p>
-            <strong>Personal Data</strong> is any information that relates to an
-            identified or identifiable individual.
+            <strong>Dati Personali</strong> sono tutte le informazioni relative
+            a una persona fisica identificata o identificabile.
           </p>
         </li>
         <li>
           <p>
-            <strong>Service</strong> refers to the Application or the Website or
-            both.
+            <strong>Servizio</strong> si riferisce all'Applicazione o al Sito
+            Web o a entrambi.
           </p>
         </li>
         <li>
           <p>
-            <strong>Service Provider</strong> means any natural or legal person
-            who processes the data on behalf of the Company. It refers to
-            third-party companies or individuals employed by the Company to
-            facilitate the Service, to provide the Service on behalf of the
-            Company, to perform services related to the Service or to assist the
-            Company in analyzing how the Service is used.
+            <strong>Fornitore di servizi</strong> indica qualsiasi persona
+            fisica o giuridica che elabora i dati per conto della Società. Si
+            riferisce a società terze o individui impiegati dalla Società per
+            agevolare il Servizio, fornire il Servizio per conto della Società,
+            eseguire servizi correlati al Servizio o assistere la Società
+            nell'analisi delle modalità di utilizzo del Servizio.
           </p>
         </li>
         <li>
           <p>
-            <strong>Usage Data</strong> refers to data collected automatically,
-            either generated by the use of the Service or from the Service
-            infrastructure itself (for example, the duration of a page visit).
+            I <strong>Dati di utilizzo</strong> si riferiscono ai dati raccolti
+            automaticamente, generati dall'utilizzo del Servizio o
+            dall'infrastruttura del Servizio stesso (ad esempio, la durata della
+            visita di una pagina).
           </p>
         </li>
         <li>
           <p>
-            <strong>Website</strong> refers to Ti Pianto Per Amore, accessible
-            from{" "}
+            Il<strong>Sito</strong> fa riferimento a Ti Pianto Per Amore,
+            accessibile da{" "}
             <a
               href='https://piantala-a.onrender.com'
               rel='external nofollow noopener'
@@ -119,118 +124,129 @@ const TermsOfService = () => {
         </li>
         <li>
           <p>
-            <strong>You</strong> means the individual accessing or using the
-            Service, or the company, or other legal entity on behalf of which
-            such individual is accessing or using the Service, as applicable.
+            <strong>Tu</strong> indica la persona che accede o utilizza il
+            Servizio, o la società o altra entità giuridica per conto della
+            quale tale persona accede o utilizza il Servizio, a seconda dei
+            casi.
           </p>
         </li>
       </ul>
-      <h2>Collecting and Using Your Personal Data</h2>
-      <h3>Types of Data Collected</h3>
-      <h4>Personal Data</h4>
+      <h2>Raccolta e utilizzo dei dati personali</h2>
+      <h3>Tipi di dati raccolti</h3>
+      <h4>Dati personali</h4>
       <p>
-        While using Our Service, We may ask You to provide Us with certain
-        personally identifiable information that can be used to contact or
-        identify You. Personally identifiable information may include, but is
-        not limited to:
+        Durante l'utilizzo del nostro Servizio, potremmo chiederti di fornirci
+        alcune informazioni di identificazione personale che possono essere
+        utilizzate per contattarti o identificarti. Le informazioni di
+        identificazione personale possono includere, a titolo esemplificativo ma
+        non esaustivo:
       </p>
       <ul>
         <li>
-          <p>Email address</p>
+          <p>Indirizzo mail</p>
         </li>
         <li>
-          <p>First name and last name</p>
+          <p>Nome e cognome</p>
         </li>
         <li>
-          <p>Phone number</p>
+          <p>Numero di telefono</p>
         </li>
         <li>
-          <p>Address, State, Province, ZIP/Postal code, City</p>
+          <p>Indirizzo, Stato, Provincia, CAP, Città</p>
         </li>
         <li>
-          <p>Usage Data</p>
+          <p>Dati di utilizzo</p>
         </li>
       </ul>
-      <h4>Usage Data</h4>
-      <p>Usage Data is collected automatically when using the Service.</p>
+      <h4>Dati di utilizzo</h4>
       <p>
-        Usage Data may include information such as Your Device's Internet
-        Protocol address (e.g. IP address), browser type, browser version, the
-        pages of our Service that You visit, the time and date of Your visit,
-        the time spent on those pages, unique device identifiers and other
-        diagnostic data.
+        I Dati di utilizzo vengono raccolti automaticamente durante l'utilizzo
+        del Servizio.
       </p>
       <p>
-        When You access the Service by or through a mobile device, We may
-        collect certain information automatically, including, but not limited
-        to, the type of mobile device You use, Your mobile device's unique ID,
-        the IP address of Your mobile device, Your mobile operating system, the
-        type of mobile Internet browser You use, unique device identifiers and
-        other diagnostic data.
+        I Dati di utilizzo possono includere informazioni quali l'indirizzo IP
+        del tuo dispositivo (ad esempio, l'indirizzo IP), il tipo di browser, la
+        versione del browser, le pagine del nostro Servizio che visiti, l'ora e
+        la data della tua visita, il tempo trascorso su tali pagine, gli
+        identificatori univoci del dispositivo e altri dati diagnostici.
       </p>
       <p>
-        We may also collect information that Your browser sends whenever You
-        visit Our Service or when You access the Service by or through a mobile
-        device.
+        Quando accedi al Servizio tramite o per mezzo di un dispositivo mobile,
+        potremmo raccogliere automaticamente determinate informazioni, tra cui,
+        a titolo esemplificativo ma non esaustivo, il tipo di dispositivo mobile
+        che utilizzi, l'ID univoco del tuo dispositivo mobile, l'indirizzo IP
+        del tuo dispositivo mobile, il tuo sistema operativo mobile, il tipo di
+        browser Internet mobile che utilizzi, gli identificatori univoci del
+        dispositivo e altri dati diagnostici.
       </p>
-      <h4>Information Collected while Using the Application</h4>
       <p>
-        While using Our Application, in order to provide features of Our
-        Application, We may collect, with Your prior permission:
+        Potremmo anche raccogliere informazioni che il tuo browser invia ogni
+        volta che visiti il ​​nostro Servizio o quando accedi al Servizio
+        tramite o tramite un dispositivo mobile.
+      </p>
+      <h4>Informazioni raccolte durante l'utilizzo dell'Applicazione</h4>
+      <p>
+        Durante l'utilizzo della nostra Applicazione, al fine di fornire le
+        funzionalità della stessa, potremmo raccogliere, previa autorizzazione
+        dell'Utente:
       </p>
       <ul>
         <li>
-          <p>Information regarding your location</p>
+          <p>Informazioni sulla tua posizione</p>
         </li>
         <li>
           <p>
-            Pictures and other information from your Device's camera and photo
-            library
+            Immagini e altre informazioni dalla fotocamera e dalla libreria
+            fotografica del tuo dispositivo
           </p>
         </li>
       </ul>
       <p>
-        We use this information to provide features of Our Service, to improve
-        and customize Our Service. The information may be uploaded to the
-        Company's servers and/or a Service Provider's server or it may be simply
-        stored on Your device.
+        Utilizziamo queste informazioni per fornire funzionalità del Nostro
+        Servizio, per migliorarlo e personalizzarlo. Le informazioni possono
+        essere caricate sui server dell'Azienda e/o di un Fornitore di Servizi
+        oppure possono essere semplicemente memorizzate sul Suo dispositivo.
       </p>
       <p>
-        You can enable or disable access to this information at any time,
-        through Your Device settings.
+        Puoi abilitare o disabilitare l'accesso a queste informazioni in
+        qualsiasi momento, tramite le impostazioni del tuo dispositivo.
       </p>
-      <h4>Tracking Technologies and Cookies</h4>
+      <h4>Tecnologie di tracciamento e cookie</h4>
       <p>
-        We use Cookies and similar tracking technologies to track the activity
-        on Our Service and store certain information. Tracking technologies We
-        use include beacons, tags, and scripts to collect and track information
-        and to improve and analyze Our Service. The technologies We use may
-        include:
+        Utilizziamo cookie e tecnologie di tracciamento simili per tracciare
+        l'attività sul nostro Servizio e memorizzare determinate informazioni.
+        Le tecnologie di tracciamento che utilizziamo includono beacon, tag e
+        script per raccogliere e tracciare informazioni e per migliorare e
+        analizzare il nostro Servizio. Le tecnologie che utilizziamo possono
+        includere:
       </p>
       <ul>
         <li>
-          <strong>Cookies or Browser Cookies.</strong> A cookie is a small file
-          placed on Your Device. You can instruct Your browser to refuse all
-          Cookies or to indicate when a Cookie is being sent. However, if You do
-          not accept Cookies, You may not be able to use some parts of our
-          Service. Unless you have adjusted Your browser setting so that it will
-          refuse Cookies, our Service may use Cookies.
+          <strong>Cookie Cookie del Browser.</strong> Un cookie è un piccolo
+          file che viene memorizzato sul tuo Dispositivo. Puoi impostare il tuo
+          browser in modo che rifiuti tutti i Cookie o che segnali quando viene
+          inviato un Cookie. Tuttavia, se non accetti i Cookie, potresti non
+          essere in grado di utilizzare alcune parti del nostro Servizio. A meno
+          che tu non abbia modificato le impostazioni del tuo browser in modo
+          che rifiuti i Cookie, il nostro Servizio potrebbe utilizzare i Cookie.
         </li>
         <li>
-          <strong>Web Beacons.</strong> Certain sections of our Service and our
-          emails may contain small electronic files known as web beacons (also
-          referred to as clear gifs, pixel tags, and single-pixel gifs) that
-          permit the Company, for example, to count users who have visited those
-          pages or opened an email and for other related website statistics (for
-          example, recording the popularity of a certain section and verifying
-          system and server integrity).
+          <strong>Web Beacons.</strong> Alcune sezioni del nostro Servizio e le
+          nostre email possono contenere piccoli file elettronici noti come web
+          beacon (anche denominati clear gif, pixel tag e single-pixel gif) che
+          consentono alla Società, ad esempio, di contare gli utenti che hanno
+          visitato quelle pagine o aperto un'email e per altre statistiche
+          correlate del sito web (ad esempio, registrare la popolarità di una
+          determinata sezione e verificare l'integrità del sistema e del
+          server).
         </li>
       </ul>
       <p>
-        Cookies can be &quot;Persistent&quot; or &quot;Session&quot; Cookies.
-        Persistent Cookies remain on Your personal computer or mobile device
-        when You go offline, while Session Cookies are deleted as soon as You
-        close Your web browser. You can learn more about cookies on{" "}
+        I cookie possono essere &quot;Persistenti&quot; o &quot;di
+        Sessione&quot; Cookies. I cookie persistenti rimangono sul tuo computer
+        o dispositivo mobile quando sei offline, mentre i cookie di sessione
+        vengono eliminati non appena chiudi il browser web. Puoi saperne di più
+        sui cookie su{" "}
         <a
           href='https://www.termsfeed.com/blog/cookies/#What_Are_Cookies'
           target='_blank'
@@ -240,306 +256,350 @@ const TermsOfService = () => {
         article.
       </p>
       <p>
-        We use both Session and Persistent Cookies for the purposes set out
-        below:
+        Utilizziamo sia cookie di sessione che persistenti per gli scopi
+        indicati di seguito:
       </p>
       <ul>
         <li>
           <p>
-            <strong>Necessary / Essential Cookies</strong>
+            <strong>Cookie necessari/essenziali</strong>
           </p>
-          <p>Type: Session Cookies</p>
-          <p>Administered by: Us</p>
+          <p>Tipo: Cookie di sessione</p>
+          <p>Gestito da: Noi</p>
           <p>
-            Purpose: These Cookies are essential to provide You with services
-            available through the Website and to enable You to use some of its
-            features. They help to authenticate users and prevent fraudulent use
-            of user accounts. Without these Cookies, the services that You have
-            asked for cannot be provided, and We only use these Cookies to
-            provide You with those services.
+            Scopo: Questi cookie sono essenziali per fornirti i servizi
+            disponibili tramite il Sito Web e per consentirti di utilizzare
+            alcune delle sue funzionalità. Aiutano ad autenticare gli utenti e a
+            prevenire l'uso fraudolento degli account utente. Senza questi
+            cookie, i servizi da te richiesti non possono essere forniti e noi
+            utilizziamo questi cookie solo per fornirti tali servizi.
           </p>
         </li>
         <li>
           <p>
             <strong>Cookies Policy / Notice Acceptance Cookies</strong>
           </p>
-          <p>Type: Persistent Cookies</p>
-          <p>Administered by: Us</p>
+          <p>Tipo: Cookie persistenti</p>
+          <p>Gestito da: Noi</p>
           <p>
-            Purpose: These Cookies identify if users have accepted the use of
-            cookies on the Website.
+            Scopo: Questi cookie identificano se gli utenti hanno accettato
+            l'uso dei cookie sul Sito Web.
           </p>
         </li>
         <li>
           <p>
-            <strong>Functionality Cookies</strong>
+            <strong>Cookie di funzionalità</strong>
           </p>
-          <p>Type: Persistent Cookies</p>
-          <p>Administered by: Us</p>
+          <p>Tipo: Cookie persistenti</p>
+          <p>Gestito da: Noi</p>
           <p>
-            Purpose: These Cookies allow us to remember choices You make when
-            You use the Website, such as remembering your login details or
-            language preference. The purpose of these Cookies is to provide You
-            with a more personal experience and to avoid You having to re-enter
-            your preferences every time You use the Website.
+            Scopo: Questi cookie ci consentono di ricordare le scelte che fai
+            quando utilizzi il Sito Web, come i tuoi dati di accesso o la lingua
+            preferita. Lo scopo di questi cookie è offrirti un'esperienza più
+            personalizzata ed evitare che tu debba reinserire le tue preferenze
+            ogni volta che utilizzi il Sito Web.
+          </p>
+        </li>
+      </ul>
+      <p>
+        Per maggiori informazioni sui cookie che utilizziamo e sulle tue scelte
+        in merito, consulta la nostra Informativa sui cookie o la sezione Cookie
+        della nostra Informativa sulla privacy.
+      </p>
+      <h3>Utilizzo dei tuoi dati personali</h3>
+      <p>La Società può utilizzare i dati personali per i seguenti scopi:</p>
+      <ul>
+        <li>
+          <p>
+            <strong>Per fornire e mantenere il nostro Servizio</strong>, incluso
+            per monitorare l'utilizzo del nostro Servizio.
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>Per gestire il tuo account:</strong> per gestire la tua
+            registrazione come utente del Servizio. I dati personali che
+            fornisci possono darti accesso a diverse funzionalità del Servizio
+            che sono disponibili per te come utente registrato.
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>Per l'esecuzione di un contratto:</strong> lo sviluppo,
+            l'adempimento e l'esecuzione del contratto di acquisto per i
+            prodotti, articoli o servizi da Lei acquistati o di qualsiasi altro
+            contratto con Noi tramite il Servizio.
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>Per contattarLa:</strong> Per contattarLa tramite e-mail,
+            telefonate, SMS o altre forme equivalenti di comunicazione
+            elettronica, come le notifiche push di un'applicazione mobile
+            relative ad aggiornamenti o comunicazioni informative relative alle
+            funzionalità, prodotti o servizi contrattualizzati, inclusi gli
+            aggiornamenti di sicurezza, quando necessario o ragionevole per la
+            loro implementazione.
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>Per fornirle</strong> notizie, offerte speciali e
+            informazioni generali su altri beni, servizi ed eventi che Noi
+            offriamo e che sono simili a quelli che ha già acquistato o su cui
+            ha chiesto informazioni, a meno che Lei non abbia scelto di non
+            ricevere tali informazioni.
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>Per gestire le tue richieste:</strong> Per soddisfare e
+            gestire le tue richieste a noi.
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>Per trasferimenti aziendali:</strong> Potremmo utilizzare le
+            tue informazioni per valutare o condurre una fusione, una cessione,
+            una ristrutturazione, una riorganizzazione, uno scioglimento o altra
+            vendita o trasferimento di alcuni o tutti i nostri beni, sia come
+            azienda in esercizio che come parte di un fallimento, liquidazione o
+            procedimento simile, in cui i dati personali in nostro possesso
+            sugli utenti del nostro Servizio siano tra i beni trasferiti.
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>Per altri scopi</strong>: Potremmo utilizzare le tue
+            informazioni per altri scopi, come l'analisi dei dati,
+            l'identificazione delle tendenze di utilizzo, la determinazione
+            dell'efficacia delle nostre campagne promozionali e per valutare e
+            migliorare il nostro Servizio, i prodotti, i servizi, il marketing e
+            la tua esperienza.
           </p>
         </li>
       </ul>
       <p>
-        For more information about the cookies we use and your choices regarding
-        cookies, please visit our Cookies Policy or the Cookies section of our
-        Privacy Policy.
+        Potremmo condividere le tue informazioni personali nelle seguenti
+        situazioni:
       </p>
-      <h3>Use of Your Personal Data</h3>
-      <p>The Company may use Personal Data for the following purposes:</p>
       <ul>
         <li>
-          <p>
-            <strong>To provide and maintain our Service</strong>, including to
-            monitor the usage of our Service.
-          </p>
+          <strong>Con i fornitori di servizi:</strong> potremmo condividere le
+          tue informazioni personali con i fornitori di servizi per monitorare e
+          analizzare l'utilizzo del nostro Servizio e per contattarti.
         </li>
         <li>
-          <p>
-            <strong>To manage Your Account:</strong> to manage Your registration
-            as a user of the Service. The Personal Data You provide can give You
-            access to different functionalities of the Service that are
-            available to You as a registered user.
-          </p>
+          <strong>Per trasferimenti aziendali:</strong> potremmo condividere o
+          trasferire le tue informazioni personali in relazione a, o durante le
+          negoziazioni di, qualsiasi fusione, vendita di beni aziendali,
+          finanziamento o acquisizione di tutta o parte della nostra attività a
+          un'altra società.
         </li>
         <li>
-          <p>
-            <strong>For the performance of a contract:</strong> the development,
-            compliance and undertaking of the purchase contract for the
-            products, items or services You have purchased or of any other
-            contract with Us through the Service.
-          </p>
+          <strong>Con le affiliate:</strong> potremmo condividere le tue
+          informazioni con le nostre affiliate, nel qual caso richiederemo a
+          tali affiliate di rispettare la presente Informativa sulla privacy. Le
+          affiliate includono la nostra società madre e qualsiasi altra
+          sussidiaria, partner di joint venture o altre società che controlliamo
+          o che sono sotto il nostro controllo comune.
         </li>
         <li>
-          <p>
-            <strong>To contact You:</strong> To contact You by email, telephone
-            calls, SMS, or other equivalent forms of electronic communication,
-            such as a mobile application's push notifications regarding updates
-            or informative communications related to the functionalities,
-            products or contracted services, including the security updates,
-            when necessary or reasonable for their implementation.
-          </p>
+          <strong>Con i partner commerciali:</strong> potremmo condividere le
+          tue informazioni con i nostri partner commerciali per offrirti
+          determinati prodotti, servizi o promozioni.
         </li>
         <li>
-          <p>
-            <strong>To provide You</strong> with news, special offers, and
-            general information about other goods, services and events which We
-            offer that are similar to those that you have already purchased or
-            inquired about unless You have opted not to receive such
-            information.
-          </p>
+          <strong>Con altri utenti:</strong> quando condividi informazioni
+          personali o interagisci in altro modo nelle aree pubbliche con altri
+          utenti, tali informazioni possono essere visualizzate da tutti gli
+          utenti e possono essere distribuite pubblicamente all'esterno.
         </li>
         <li>
-          <p>
-            <strong>To manage Your requests:</strong> To attend and manage Your
-            requests to Us.
-          </p>
-        </li>
-        <li>
-          <p>
-            <strong>For business transfers:</strong> We may use Your information
-            to evaluate or conduct a merger, divestiture, restructuring,
-            reorganization, dissolution, or other sale or transfer of some or
-            all of Our assets, whether as a going concern or as part of
-            bankruptcy, liquidation, or similar proceeding, in which Personal
-            Data held by Us about our Service users is among the assets
-            transferred.
-          </p>
-        </li>
-        <li>
-          <p>
-            <strong>For other purposes</strong>: We may use Your information for
-            other purposes, such as data analysis, identifying usage trends,
-            determining the effectiveness of our promotional campaigns and to
-            evaluate and improve our Service, products, services, marketing and
-            your experience.
-          </p>
+          <strong>Con il tuo consenso</strong>: potremmo divulgare le tue
+          informazioni personali per qualsiasi altro scopo con il tuo consenso.
         </li>
       </ul>
-      <p>We may share Your personal information in the following situations:</p>
+      <h3>Pagamenti</h3>
+      <p>
+        Il pagamento del Servizio avviene esclusivamente tramite piattaforma di
+        pagamento elettronico gestita da un fornitore terzo specializzato
+        nell'elaborazione dei pagamenti (Stripe Technology Europe Ltd. o altra
+        entità del gruppo Stripe competente sul territorio).
+      </p>
+      <p>
+        L'Associazione non raccoglie né memorizza direttamente i dati relativi
+        agli strumenti di pagamento utilizzati dall'Utente (quali numeri di
+        carta di credito o debito, dati bancari o altre informazioni
+        finanziarie). Tali dati vengono trattati direttamente dal fornitore del
+        servizio di pagamento secondo i propri termini e condizioni e la propria
+        informativa sulla privacy.
+      </p>
+      <p>
+        Effettuando un pagamento tramite il Servizio, l'Utente accetta anche i
+        termini e le condizioni del fornitore del servizio di pagamento.
+      </p>
+      <p>
+        Eventuali contestazioni, rimborsi o richieste relative alla transazione
+        potranno essere soggette alle procedure previste dal fornitore del
+        servizio di pagamento e alle normative vigenti.
+      </p>
+      <h3>Conservazione dei tuoi dati personali</h3>
+      <p>
+        La Società conserverà i Suoi Dati Personali solo per il tempo necessario
+        alle finalità indicate nella presente Informativa sulla Privacy.
+        Conserveremo e utilizzeremo i Suoi Dati Personali nella misura
+        necessaria per adempiere ai nostri obblighi legali (ad esempio, se siamo
+        tenuti a conservare i Suoi dati per conformarci alle leggi applicabili),
+        risolvere controversie e far rispettare i nostri accordi e politiche
+        legali.
+      </p>
+      <p>
+        La Società conserverà inoltre i Dati di Utilizzo per scopi di analisi
+        interna. I Dati di Utilizzo vengono generalmente conservati per un
+        periodo di tempo più breve, tranne quando questi dati vengono utilizzati
+        per rafforzare la sicurezza o migliorare la funzionalità del Nostro
+        Servizio, o quando siamo legalmente obbligati a conservare questi dati
+        per periodi più lunghi.
+      </p>
+      <h3>Trasferimento dei Suoi Dati Personali</h3>
+      <p>
+        Le Sue informazioni, inclusi i Dati Personali, vengono elaborate presso
+        le sedi operative della Società e in qualsiasi altro luogo in cui si
+        trovino le parti coinvolte nel trattamento. Ciò significa che queste
+        informazioni potrebbero essere trasferite a – e conservate su – computer
+        situati al di fuori del tuo stato, provincia, paese o altra
+        giurisdizione governativa, dove le leggi sulla protezione dei dati
+        potrebbero differire da quelle della tua giurisdizione.
+      </p>
+      <p>
+        Il tuo consenso alla presente Informativa sulla privacy, seguito
+        dall'invio di tali informazioni, rappresenta il tuo consenso a tale
+        trasferimento.
+      </p>
+      <p>
+        La Società adotterà tutte le misure ragionevolmente necessarie per
+        garantire che i tuoi dati siano trattati in modo sicuro e in conformità
+        con la presente Informativa sulla privacy e nessun trasferimento dei
+        tuoi dati personali avverrà a un'organizzazione o a un paese a meno che
+        non siano in atto controlli adeguati, inclusa la sicurezza dei tuoi dati
+        e di altre informazioni personali.
+      </p>
+      <h3>Cancellazione dei tuoi dati personali</h3>
+      <p>
+        Hai il diritto di cancellare o richiedere la nostra assistenza per la
+        cancellazione dei dati personali che abbiamo raccolto su di te.
+      </p>
+      <p>
+        Il nostro Servizio potrebbe darti la possibilità di cancellare
+        determinate informazioni su di te dall'interno del Servizio.
+      </p>
+      <p>
+        Puoi aggiornare, modificare o cancellare le tue informazioni in
+        qualsiasi momento accedendo al tuo account, se ne hai uno, e visitando
+        la sezione delle impostazioni dell'account che ti consente di gestire le
+        tue informazioni personali. Puoi anche contattarci per richiedere
+        l'accesso, la correzione o la cancellazione di qualsiasi informazione
+        personale che ci hai fornito.
+      </p>
+      <p>
+        Tieni presente, tuttavia, che potremmo dover conservare determinate
+        informazioni quando abbiamo un obbligo legale o una base giuridica per
+        farlo.
+      </p>
+      <h3>Divulgazione dei tuoi dati personali</h3>
+      <h4>Transazioni commerciali</h4>
+      <p>
+        Se la Società è coinvolta in una fusione, acquisizione o vendita di
+        asset, i tuoi dati personali potrebbero essere trasferiti. Ti
+        informeremo prima che i tuoi dati personali vengano trasferiti e
+        diventino soggetti a una diversa Informativa sulla privacy.
+      </p>
+      <h4>Applicazione della legge</h4>
+      <p>
+        In determinate circostanze, la Società potrebbe essere tenuta a
+        divulgare i tuoi dati personali se richiesto dalla legge o in risposta a
+        valide richieste da parte delle autorità pubbliche (ad esempio, un
+        tribunale o un'agenzia governativa).
+      </p>
+      <h4>Altri obblighi legali</h4>
+      <p>
+        La Società potrebbe divulgare i tuoi dati personali nella convinzione in
+        buona fede che tale azione sia necessaria per:
+      </p>
       <ul>
+        <li>Ottemperare a un obbligo legale</li>
+        <li>Proteggere e difendere i diritti o la proprietà della Società</li>
         <li>
-          <strong>With Service Providers:</strong> We may share Your personal
-          information with Service Providers to monitor and analyze the use of
-          our Service, to contact You.
+          Prevenire o indagare su possibili illeciti in relazione al Servizio
         </li>
         <li>
-          <strong>For business transfers:</strong> We may share or transfer Your
-          personal information in connection with, or during negotiations of,
-          any merger, sale of Company assets, financing, or acquisition of all
-          or a portion of Our business to another company.
+          Proteggere la sicurezza personale degli Utenti del Servizio o del
+          pubblico
         </li>
-        <li>
-          <strong>With Affiliates:</strong> We may share Your information with
-          Our affiliates, in which case we will require those affiliates to
-          honor this Privacy Policy. Affiliates include Our parent company and
-          any other subsidiaries, joint venture partners or other companies that
-          We control or that are under common control with Us.
-        </li>
-        <li>
-          <strong>With business partners:</strong> We may share Your information
-          with Our business partners to offer You certain products, services or
-          promotions.
-        </li>
-        <li>
-          <strong>With other users:</strong> when You share personal information
-          or otherwise interact in the public areas with other users, such
-          information may be viewed by all users and may be publicly distributed
-          outside.
-        </li>
-        <li>
-          <strong>With Your consent</strong>: We may disclose Your personal
-          information for any other purpose with Your consent.
-        </li>
+        <li>Proteggere dalla responsabilità legale</li>
       </ul>
-      <h3>Retention of Your Personal Data</h3>
+      <h3>Sicurezza dei tuoi dati personali</h3>
       <p>
-        The Company will retain Your Personal Data only for as long as is
-        necessary for the purposes set out in this Privacy Policy. We will
-        retain and use Your Personal Data to the extent necessary to comply with
-        our legal obligations (for example, if we are required to retain your
-        data to comply with applicable laws), resolve disputes, and enforce our
-        legal agreements and policies.
+        La sicurezza dei tuoi dati personali è importante per noi, ma ricorda
+        che nessun metodo di trasmissione su Internet o metodo di archiviazione
+        elettronica è sicuro al 100%. Sebbene ci impegniamo a utilizzare mezzi
+        commercialmente ragionevoli per proteggere i tuoi dati personali, non
+        possiamo garantirne l'assoluta sicurezza.
+      </p>
+      <h2>Privacy dei minori</h2>
+      <p>
+        Il nostro Servizio non è rivolto a minori di 13 anni. Non raccogliamo
+        consapevolmente informazioni personali identificabili da minori di 13
+        anni. Se sei un genitore o un tutore e sei a conoscenza del fatto che
+        tuo figlio ci ha fornito Dati Personali, ti preghiamo di contattarci. Se
+        veniamo a conoscenza di aver raccolto Dati Personali da minori di 13
+        anni senza la verifica del consenso dei genitori, adotteremo misure per
+        rimuovere tali informazioni dai nostri server.
       </p>
       <p>
-        The Company will also retain Usage Data for internal analysis purposes.
-        Usage Data is generally retained for a shorter period of time, except
-        when this data is used to strengthen the security or to improve the
-        functionality of Our Service, or We are legally obligated to retain this
-        data for longer periods.
+        Se dovessimo basarci sul consenso come base giuridica per il trattamento
+        delle tue informazioni e il tuo Paese richiede il consenso di un
+        genitore, potremmo richiedere il consenso del genitore prima di
+        raccogliere e utilizzare tali informazioni.
       </p>
-      <h3>Transfer of Your Personal Data</h3>
+      <h2>Link ad altri siti web</h2>
       <p>
-        Your information, including Personal Data, is processed at the Company's
-        operating offices and in any other places where the parties involved in
-        the processing are located. It means that this information may be
-        transferred to — and maintained on — computers located outside of Your
-        state, province, country or other governmental jurisdiction where the
-        data protection laws may differ from those from Your jurisdiction.
+        Il nostro Servizio potrebbe contenere link ad altri siti web non gestiti
+        da Noi. Se clicchi su un link di terze parti, verrai indirizzato al sito
+        di tale terza parte. Ti consigliamo vivamente di consultare
+        l'Informativa sulla privacy di ogni sito che visiti.
       </p>
       <p>
-        Your consent to this Privacy Policy followed by Your submission of such
-        information represents Your agreement to that transfer.
+        Non abbiamo alcun controllo e non ci assumiamo alcuna responsabilità per
+        il contenuto, le informative sulla privacy o le pratiche di siti o
+        servizi di terze parti.
+      </p>
+      <h2>Modifiche alla presente Informativa sulla privacy</h2>
+      <p>
+        Potremmo aggiornare la nostra Informativa sulla privacy di volta in
+        volta. Ti informeremo di eventuali modifiche pubblicando la nuova
+        Informativa sulla privacy su questa pagina.
       </p>
       <p>
-        The Company will take all steps reasonably necessary to ensure that Your
-        data is treated securely and in accordance with this Privacy Policy and
-        no transfer of Your Personal Data will take place to an organization or
-        a country unless there are adequate controls in place including the
-        security of Your data and other personal information.
-      </p>
-      <h3>Delete Your Personal Data</h3>
-      <p>
-        You have the right to delete or request that We assist in deleting the
-        Personal Data that We have collected about You.
+        Ti informeremo via e-mail e/o tramite un avviso ben visibile sul Nostro
+        Servizio, prima che la modifica diventi effettiva e aggiorneremo la data
+        di &quot;Ultimo aggiornamento&quot; nella parte superiore della presente
+        Informativa sulla privacy.
       </p>
       <p>
-        Our Service may give You the ability to delete certain information about
-        You from within the Service.
+        Si consiglia di consultare periodicamente la presente Informativa sulla
+        privacy per eventuali modifiche. Le modifiche alla presente Informativa
+        sulla privacy entrano in vigore al momento della pubblicazione su questa
+        pagina.
       </p>
+      <h2>Contattaci</h2>
       <p>
-        You may update, amend, or delete Your information at any time by signing
-        in to Your Account, if you have one, and visiting the account settings
-        section that allows you to manage Your personal information. You may
-        also contact Us to request access to, correct, or delete any personal
-        information that You have provided to Us.
-      </p>
-      <p>
-        Please note, however, that We may need to retain certain information
-        when we have a legal obligation or lawful basis to do so.
-      </p>
-      <h3>Disclosure of Your Personal Data</h3>
-      <h4>Business Transactions</h4>
-      <p>
-        If the Company is involved in a merger, acquisition or asset sale, Your
-        Personal Data may be transferred. We will provide notice before Your
-        Personal Data is transferred and becomes subject to a different Privacy
-        Policy.
-      </p>
-      <h4>Law enforcement</h4>
-      <p>
-        Under certain circumstances, the Company may be required to disclose
-        Your Personal Data if required to do so by law or in response to valid
-        requests by public authorities (e.g. a court or a government agency).
-      </p>
-      <h4>Other legal requirements</h4>
-      <p>
-        The Company may disclose Your Personal Data in the good faith belief
-        that such action is necessary to:
+        Per qualsiasi domanda sulla presente Informativa sulla privacy, puoi
+        contattarci:
       </p>
       <ul>
-        <li>Comply with a legal obligation</li>
-        <li>Protect and defend the rights or property of the Company</li>
-        <li>
-          Prevent or investigate possible wrongdoing in connection with the
-          Service
-        </li>
-        <li>
-          Protect the personal safety of Users of the Service or the public
-        </li>
-        <li>Protect against legal liability</li>
-      </ul>
-      <h3>Security of Your Personal Data</h3>
-      <p>
-        The security of Your Personal Data is important to Us, but remember that
-        no method of transmission over the Internet, or method of electronic
-        storage is 100% secure. While We strive to use commercially reasonable
-        means to protect Your Personal Data, We cannot guarantee its absolute
-        security.
-      </p>
-      <h2>Children's Privacy</h2>
-      <p>
-        Our Service does not address anyone under the age of 13. We do not
-        knowingly collect personally identifiable information from anyone under
-        the age of 13. If You are a parent or guardian and You are aware that
-        Your child has provided Us with Personal Data, please contact Us. If We
-        become aware that We have collected Personal Data from anyone under the
-        age of 13 without verification of parental consent, We take steps to
-        remove that information from Our servers.
-      </p>
-      <p>
-        If We need to rely on consent as a legal basis for processing Your
-        information and Your country requires consent from a parent, We may
-        require Your parent's consent before We collect and use that
-        information.
-      </p>
-      <h2>Links to Other Websites</h2>
-      <p>
-        Our Service may contain links to other websites that are not operated by
-        Us. If You click on a third party link, You will be directed to that
-        third party's site. We strongly advise You to review the Privacy Policy
-        of every site You visit.
-      </p>
-      <p>
-        We have no control over and assume no responsibility for the content,
-        privacy policies or practices of any third party sites or services.
-      </p>
-      <h2>Changes to this Privacy Policy</h2>
-      <p>
-        We may update Our Privacy Policy from time to time. We will notify You
-        of any changes by posting the new Privacy Policy on this page.
-      </p>
-      <p>
-        We will let You know via email and/or a prominent notice on Our Service,
-        prior to the change becoming effective and update the &quot;Last
-        updated&quot; date at the top of this Privacy Policy.
-      </p>
-      <p>
-        You are advised to review this Privacy Policy periodically for any
-        changes. Changes to this Privacy Policy are effective when they are
-        posted on this page.
-      </p>
-      <h2>Contact Us</h2>
-      <p>
-        If you have any questions about this Privacy Policy, You can contact us:
-      </p>
-      <ul>
-        <li>By email: tipiantoperamore@gmail.com</li>
+        <li>Via email: tipiantoperamore@gmail.com</li>
       </ul>
     </section>
   );

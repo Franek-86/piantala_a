@@ -43,19 +43,25 @@ const Terms = ({ id, page }) => {
   return (
     <Modal show={showTerms}>
       <Modal.Header>
-        <Modal.Title>Termini e condizioni</Modal.Title>
+        <Modal.Title>
+          Termini di Servizio & Informativa sulla Privacy
+        </Modal.Title>
       </Modal.Header>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Modal.Body>
           Per poter accedere è necessario prima accettare in basso i{" "}
           <Link target='_blank' to='/terms'>
-            termini e le condizioni.
+            Termini di Servizio e l'Informativa sulla Privacy.
           </Link>
           <div className='my-3'>
             <Form.Check
               id='terms'
               name='terms'
-              label={<span>Accetto i termini e le condizioni d'uso.</span>}
+              label={
+                <span>
+                  Accetto i Termini di Servizio e l'Informativa sulla Privacy.
+                </span>
+              }
               {...register("terms", { required: true })}
             />
             {errors.terms && (
