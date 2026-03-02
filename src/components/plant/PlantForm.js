@@ -129,7 +129,7 @@ const PlantForm = () => {
               di pagamento.
             </p>
           </article>
-          <article className='plant-payment mt-5 d-flex justify-content-center'>
+          <article className='plant-payment pt-4 d-flex justify-content-center'>
             <button
               className={!logReg ? "d-block btn btn-success" : "d-none"}
               type='submit'
@@ -142,14 +142,16 @@ const PlantForm = () => {
         {logReg && <LoginReg val='plant' id={plantId} />}
       </section>
       {userRole === "admin" && (
-        <section className='admin pt-5 mb-3'>
-          <h5 className='mb-3'>Operazioni di amministrazione</h5>
-          <button
-            className='btn btn-dark '
-            onClick={() => deleteAndGo(plantId)}
-          >
-            Elimina segnalazione
-          </button>
+        <section className='section-approved-admin pb-5 blue-background'>
+          <div className='section-center'>
+            <h5 className='pt-5 mb-3'>Operazioni di amministrazione</h5>
+            <button
+              className='btn btn-dark '
+              onClick={() => deleteAndGo(plantId)}
+            >
+              Elimina segnalazione
+            </button>
+          </div>
         </section>
       )}
     </>
