@@ -55,6 +55,7 @@ import RegisterThree from "./pages/RegisterThree";
 import RegisterFour from "./pages/RegisterFour";
 import RegisterLast from "./pages/RegisterLast";
 import TermsOfService from "./pages/TermsOfService";
+import LoginForm from "./pages/LoginForm";
 
 // import { io } from "socket.io-client";
 // const url =
@@ -77,6 +78,11 @@ const router = createBrowserRouter([
         path: "/login",
         element: <Login />,
       },
+      {
+        path: "/login-form",
+        element: <LoginForm />,
+      },
+
       {
         path: "/register",
         element: <Register />,

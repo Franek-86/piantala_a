@@ -2326,6 +2326,10 @@ body {
   /* background-color: red; */
   border: 1px solid var(--clr-primary-5);
 }
+.separator-external {
+  /* background-color: red; */
+  border: 1px solid var(--clr-primary-5);
+}
 
 .plant-intro-text,
 .plant-position-text,

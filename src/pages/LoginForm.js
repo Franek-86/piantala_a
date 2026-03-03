@@ -21,7 +21,7 @@ import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 import Google from "../components/registration/Google";
 import Terms from "../components/registration/Terms";
 
-const AuthForm = () => {
+const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const {
     setUserRole,
@@ -130,7 +130,6 @@ const AuthForm = () => {
       setLoading(false);
     }
   };
-
   return (
     <Container className='d-flex flex-column justify-content-center vh-100 pb-5'>
       {!isRegister && (
@@ -139,7 +138,7 @@ const AuthForm = () => {
         </div>
       )}
       <Row className='d-flex justify-content-center'>
-        {/* <article className='col-xs-8 col-sm-7 col-lg-6 login-container p-2 p-lg-5 '>
+        <div className='col-xs-8 col-sm-7 col-lg-6 login-container p-2 p-lg-5 '>
           <Form onSubmit={handleSubmit(onSubmit)} className='login-form'>
             {serverError && <p className='text-danger'>{serverError}</p>}
             {successMessage && <p className='text-success'>{successMessage}</p>}
@@ -221,61 +220,20 @@ const AuthForm = () => {
                 >
                   Reset password
                 </Button>
+                <Button
+                  className='d-block w-100 mb-3'
+                  disabled={loading}
+                  onClick={() => navigate("/login")}
+                >
+                  Indietro
+                </Button>
               </>
             )}
           </Form>
-          <div className='separator'></div>
-        </article> */}
-
-        <article className='col-xs-8 col-sm-7 col-lg-6 access-container p-2 p-lg-5'>
-          <Button
-            className='d-block w-100 mb-3'
-            variant='primary'
-            disabled={loading}
-            onClick={() => navigate("/login-form")}
-          >
-            Login
-          </Button>
-          <Button
-            className='d-block w-100 mb-3'
-            variant='primary'
-            disabled={loading}
-            onClick={() => navigate("/register")}
-          >
-            Registrati
-          </Button>
-
-          {Capacitor.getPlatform() === "web" && (
-            <>
-              <Button
-                className='d-block w-100 my-3'
-                variant='primary'
-                disabled={loading}
-                onClick={() => navigate("/")}
-              >
-                Continua senza accedere
-              </Button>
-              <div className='separator-external mb-3'></div>
-              <Google />
-              <a
-                className='btn btn-outline-secondary d-block w-100 mt-3'
-                variant='primary'
-                disabled={loading}
-                href='https://play.google.com/store/apps/details?id=com.piantala.app'
-              >
-                <div className='d-flex align-items-center justify-content-center'>
-                  <FaGooglePlay />
-                  <span className='ps-2'>Scarica l'app da Google Play</span>
-                </div>
-              </a>
-            </>
-          )}
-        </article>
-
-        <Terms />
+        </div>
       </Row>
     </Container>
   );
 };
 
-export default AuthForm;
+export default LoginForm;

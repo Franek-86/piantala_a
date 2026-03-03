@@ -60,7 +60,7 @@ const Register = () => {
       password2: "",
       city: "",
     });
-    navigate("/");
+    navigate("/login");
   };
 
   const formWrapperRef = useRef(null);
