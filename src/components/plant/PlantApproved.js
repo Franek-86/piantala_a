@@ -122,7 +122,7 @@ const PlantApproved = () => {
                     Puoi procedere con l'acquisto e la piantumazione della tua
                     piantina nel <b>quartiere {plant?.suburb} </b> di{" "}
                     <b>{plant?.city} </b>
-                    seguendo i tre passaggi di seguito elencati.
+                    seguendo i tre passaggi qui di seguito descritti.
                   </p>
                 </article>
                 <article className='plant-intro-text intro-article p-2 p-lg-3 p-xl-4'>
