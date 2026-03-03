@@ -246,30 +246,28 @@ const AuthForm = () => {
           </Button>
 
           {Capacitor.getPlatform() === "web" && (
-            <>
-              <Button
-                className='d-block w-100 my-3'
-                variant='primary'
-                disabled={loading}
-                onClick={() => navigate("/")}
-              >
-                Continua senza accedere
-              </Button>
-              <div className='separator-external mb-3'></div>
-              <Google />
-              <a
-                className='btn btn-outline-secondary d-block w-100 mt-3'
-                variant='primary'
-                disabled={loading}
-                href='https://play.google.com/store/apps/details?id=com.piantala.app'
-              >
-                <div className='d-flex align-items-center justify-content-center'>
-                  <FaGooglePlay />
-                  <span className='ps-2'>Scarica l'app da Google Play</span>
-                </div>
-              </a>
-            </>
+            <Button
+              className='d-block w-100 my-3'
+              variant='primary'
+              disabled={loading}
+              onClick={() => navigate("/")}
+            >
+              Continua senza accedere
+            </Button>
           )}
+          <div className='separator-external mb-3'></div>
+          <Google />
+          <a
+            className='btn btn-outline-secondary d-block w-100 mt-3'
+            variant='primary'
+            disabled={loading}
+            href='https://play.google.com/store/apps/details?id=com.piantala.app'
+          >
+            <div className='d-flex align-items-center justify-content-center'>
+              <FaGooglePlay />
+              <span className='ps-2'>Scarica l'app da Google Play</span>
+            </div>
+          </a>
         </article>
 
         <Terms />
