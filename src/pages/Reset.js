@@ -28,7 +28,7 @@ const Reset = () => {
   } = useForm();
   const navigate = useNavigate();
   const backToLogin = () => {
-    navigate("/");
+    navigate("/login");
   };
   const onSubmit = (data) => {
     console.log(data);
