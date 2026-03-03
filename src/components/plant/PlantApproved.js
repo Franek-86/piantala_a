@@ -117,12 +117,12 @@ const PlantApproved = () => {
                 </>
               )}
               <div className='section-center pb-5'>
-                <article className='plant-intro-text intro-article p-2 p-lg-3 p-xl-4 mb-3 d-none d-lg-block'>
+                <article className='plant-intro-text intro-article p-2 p-lg-3 p-xl-4 mb-3'>
                   <p className='mb-0'>
                     Puoi procedere con l'acquisto e la piantumazione della tua
                     piantina nel <b>quartiere {plant?.suburb} </b> di{" "}
                     <b>{plant?.city} </b>
-                    seguendo questi tre passaggi.
+                    seguendo i tre passaggi di seguito elencati.
                   </p>
                 </article>
                 <article className='plant-intro-text intro-article p-2 p-lg-3 p-xl-4'>
@@ -133,10 +133,9 @@ const PlantApproved = () => {
                   seguendo questi tre passaggi.
                 </p> */}
                   <p className='mb-0'>
-                    Controlla la zona di piantumazione, ossia la{" "}
-                    <b>posizione</b> sulla mappa, tenendo presente che li dove
-                    non c'è un sistema di irrigazione sarà tua premura
-                    innaffiare il tuo albero, inserisci il{" "}
+                    Controlla la <b>zona di piantumazione</b> tenendo presente
+                    che li dove non c'è un sistema di irrigazione sarà tua
+                    premura innaffiare il tuo albero, inserisci il{" "}
                     <b>testo della targa</b> dedicandola a chi preferisci e
                     procedi infine con il <b>pagamento</b>.
                   </p>
