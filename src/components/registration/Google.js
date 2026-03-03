@@ -7,7 +7,7 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Capacitor } from "@capacitor/core";
 import { GoogleService } from "./GoogleService";
-
+import { FaGoogle } from "react-icons/fa";
 import { SocialLogin } from "@capgo/capacitor-social-login";
 import { Button } from "react-bootstrap";
 import { PlantsContext } from "../../context/PlantsContext";
@@ -64,14 +64,17 @@ const Google = ({ id: plantId, page }) => {
     //     </Button> */}
     //   </>
     // );
-    <Button
-      className='d-block w-100'
+    <span
+      className='mb-3 d-block w-100 btn btn-outline-secondary'
       variant='primary'
       onClick={() => googleAccess(navigate, plantId, page)}
     >
-      {" "}
-      Accedi con Google
-    </Button>
+      <div className='d-flex align-items-center justify-content-center'>
+        {" "}
+        <FaGoogle />
+        <span className='ps-2'>Accedi con Google</span>
+      </div>
+    </span>
   );
 };
 

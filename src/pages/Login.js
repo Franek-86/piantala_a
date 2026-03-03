@@ -16,6 +16,7 @@ import { GrUndo } from "react-icons/gr";
 import { toast } from "react-toastify";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
+import { FaGooglePlay } from "react-icons/fa6";
 import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 import Google from "../components/registration/Google";
 import Terms from "../components/registration/Terms";
@@ -177,7 +178,7 @@ const AuthForm = () => {
   return (
     <Container className='d-flex flex-column justify-content-center vh-100 pb-5'>
       {!isRegister && (
-        <div className='logo-container ms-auto me-auto pb-5'>
+        <div className='logo-container ms-auto me-auto'>
           <img src={logo} class='img-fluid' alt='Responsive image'></img>
         </div>
       )}
@@ -268,6 +269,7 @@ const AuthForm = () => {
                 >
                   Reset password
                 </Button>
+                <Google />
               </>
             )}
           </Form>
@@ -283,17 +285,29 @@ const AuthForm = () => {
           >
             Registrati
           </Button>
-          <Google />
 
           {Capacitor.getPlatform() === "web" && (
-            <Button
-              className='d-block w-100 mt-3'
-              variant='primary'
-              disabled={loading}
-              onClick={() => navigate("/")}
-            >
-              Continua senza accedere
-            </Button>
+            <>
+              <Button
+                className='d-block w-100 mt-3'
+                variant='primary'
+                disabled={loading}
+                onClick={() => navigate("/")}
+              >
+                Continua senza accedere
+              </Button>
+              <a
+                className='btn btn-outline-secondary d-block w-100 mt-3'
+                variant='primary'
+                disabled={loading}
+                href='https://play.google.com/store/apps/details?id=com.piantala.app'
+              >
+                <div className='d-flex align-items-center justify-content-center'>
+                  <FaGooglePlay />
+                  <span className='ps-2'>Scarica l'app da Google Play</span>
+                </div>
+              </a>
+            </>
           )}
         </article>
 

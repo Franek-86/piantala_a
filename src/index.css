@@ -88,6 +88,11 @@ fieldset:disabled .btn {
   --bs-btn-disabled-border-color: var(--clr-primary-5);
   --bs-gradient: none;
 }
+.btn-outline-secondary {
+  --bs-btn-color: var(--clr-secondary-3);
+  --bs-btn-border-color: var(--clr-secondary-3);
+}
+
 .btn-link {
   --bs-btn-color: var(--clr-primary-5); /* New text color */
   --bs-btn-hover-color: var(

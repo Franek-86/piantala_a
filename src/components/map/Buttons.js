@@ -238,7 +238,7 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
                     case 3:
                       toast.dismiss();
                       toast.error(
-                        "Errore nel tentativo di geolocalizzazione: Time out",
+                        "Errore nel tentativo di geolocalizzazione: Timed out",
                         {
                           position: "bottom-right",
                           autoClose: 2000,
