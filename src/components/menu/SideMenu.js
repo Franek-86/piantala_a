@@ -124,7 +124,7 @@ const SideMenu = ({ onLogout, ...props }) => {
           {isAuthenticated ? (
             <ListGroup.Item>
               <Link
-                to='/'
+                to='/login'
                 onClick={handleLogout}
                 class='nav-link text-truncate'
               >

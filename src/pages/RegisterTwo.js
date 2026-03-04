@@ -5,6 +5,8 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { MdBackspace } from "react-icons/md";
+import { GrFormNextLink, GrFormPreviousLink } from "react-icons/gr";
+
 const RegisterTwo = () => {
   const {
     register,
@@ -121,12 +123,19 @@ const RegisterTwo = () => {
             <button
               onClick={back}
               type='button'
-              className='btn btn-primary w-25'
+              className='me-3 btn btn-primary w-50'
             >
-              Prev
+              <div className='d-flex align-items-center justify-content-center'>
+                <GrFormPreviousLink className='fs-5 me-2' />
+                Info base
+              </div>
             </button>
-            <button type='submit' className='btn btn-primary w-25'>
-              Next
+            <button type='submit' className='ms-3 btn btn-primary w-50'>
+              <div className='d-flex align-items-center justify-content-center'>
+                {" "}
+                Info app
+                <GrFormNextLink className='fs-5 ms-2' />
+              </div>
             </button>
           </div>
         </form>

@@ -205,7 +205,7 @@ const RegisterLast = () => {
               type='submit'
               className='btn btn-outline-primary w-100 my-2'
             >
-              Modifica
+              Modifica i dati
             </Link>
           </div>
           <div className=''>

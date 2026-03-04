@@ -7,6 +7,7 @@ import { FaEyeSlash } from "react-icons/fa";
 import { useContext, useEffect, useRef, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { GrFormNextLink, GrFormPreviousLink } from "react-icons/gr";
 import { toast } from "react-toastify";
 const RegisterFour = () => {
   const [showPassword1, setShowPassword1] = useState(false);
@@ -50,7 +51,7 @@ const RegisterFour = () => {
     localStorage.setItem("registration", JSON.stringify(userData));
     navigate("/register5");
   };
-  // const onSubmit = async (data) => {
+
   //   setLoading(true);
   //   setUserData({ ...userData, ...data });
   //   // const password = watch("password");
@@ -336,7 +337,7 @@ const RegisterFour = () => {
             </>
           )}
 
-          <div className='d-flex justify-content-between mt-5'>
+          {/* <div className='d-flex justify-content-between mt-5'>
             <button
               onClick={back}
               type='button'
@@ -346,6 +347,25 @@ const RegisterFour = () => {
             </button>
             <button type='submit' className='btn btn-primary w-50'>
               Verifica dati
+            </button>
+          </div> */}
+          <div className='d-flex justify-content-between mt-5'>
+            <button
+              onClick={back}
+              type='button'
+              className='me-3 btn btn-primary w-50'
+            >
+              <div className='d-flex align-items-center justify-content-center'>
+                <GrFormPreviousLink className='fs-5 me-2' />
+                Info app
+              </div>
+            </button>
+            <button type='submit' className='ms-3 btn btn-primary w-50'>
+              <div className='d-flex align-items-center justify-content-center'>
+                {" "}
+                Verifica dati
+                <GrFormNextLink className='fs-5 ms-2' />
+              </div>
             </button>
           </div>
         </form>
