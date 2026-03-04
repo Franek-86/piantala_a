@@ -307,7 +307,7 @@ const Register = () => {
             </button>
             <button type='submit' className='ms-3 btn btn-primary w-50'>
               <div className='d-flex align-items-center justify-content-center'>
-                Dati di contatto <GrFormNextLink className='fs-5 ms-2' />
+                contatti <GrFormNextLink className='fs-5 ms-2' />
               </div>
             </button>
           </div>

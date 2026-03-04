@@ -188,7 +188,7 @@ const RegisterThree = () => {
             >
               <div className='d-flex align-items-center justify-content-center'>
                 <GrFormPreviousLink className='fs-5 me-2' />
-                Dati di contatto
+                contatti
               </div>
             </button>
             <button type='submit' className='ms-3 btn btn-primary w-50'>
