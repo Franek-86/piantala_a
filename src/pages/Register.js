@@ -121,7 +121,7 @@ const Register = () => {
 
   return (
     <>
-      <div className='section-center'>
+      {/* <div className='section-center'>
         <div className='back-btn'>
           <MdBackspace
             onClick={() => {
@@ -129,7 +129,7 @@ const Register = () => {
             }}
           />
         </div>
-      </div>{" "}
+      </div> */}
       <section className='section-center mt-5'>
         {regionsLoading && <Loading />}
         {/* <div
@@ -292,21 +292,22 @@ const Register = () => {
               </em>
             )}
           </Form.Group>
-          {/* <hr className='mb-5' /> */}
-          {/*-----------------------------------------FINE INFORMAZIONI DI BASE-------------------------------------------------- */}
-
-          {/* <Button
-                onClick={() => handleClick()}
-                variant='primary'
-                type='submit'
-                disabled={loading}
-                className='mt-3 btn btn-lg'
-              >
-                Registrati
-              </Button> */}
-          <div className='text-end mt-5'>
-            <button className='btn btn-primary w-25 '>Next</button>
+          <div className='d-flex justify-content-between mt-5'>
+            <button
+              onClick={() => backToLogin()}
+              type='button'
+              className='btn btn-primary w-25'
+            >
+              Prev
+            </button>
+            <button type='submit' className='btn btn-primary w-25'>
+              Next
+            </button>
           </div>
+
+          {/* <div className='text-end mt-5'>
+            <button className='btn btn-primary w-25 '>Next</button>
+          </div> */}
         </form>
         {/* </div> */}
       </section>

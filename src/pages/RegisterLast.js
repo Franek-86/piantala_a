@@ -62,7 +62,7 @@ const RegisterLast = () => {
             theme: "light",
             className: "toastify-registration-succeed",
             // transition: Bounce,
-          }
+          },
         );
         reset();
 
@@ -112,13 +112,13 @@ const RegisterLast = () => {
   return (
     <section>
       <div className='section-center'>
-        <div className='back-btn'>
+        {/* <div className='back-btn'>
           <MdBackspace
             onClick={() => {
               back();
             }}
           />
-        </div>
+        </div> */}
       </div>{" "}
       <div className='section-center mt-5'>
         <h4 className='mb-5'>
@@ -142,8 +142,8 @@ const RegisterLast = () => {
                 {userData?.gender === "U"
                   ? "Uomo"
                   : userData?.gender === "F"
-                  ? "Donna"
-                  : "Preserisco non dirlo"}
+                    ? "Donna"
+                    : "Preserisco non dirlo"}
               </span>
             </ListGroup.Item>
             <ListGroup.Item>
@@ -200,7 +200,16 @@ const RegisterLast = () => {
             </span>
           )}
           <div className='mt-3'>
-            <button type='submit' className='btn btn-primary w-100 my-2'>
+            <Link
+              to={"/register4"}
+              type='submit'
+              className='btn btn-outline-primary w-100 my-2'
+            >
+              Modifica
+            </Link>
+          </div>
+          <div className=''>
+            <button type='submit' className='btn btn-primary w-100 mt-1'>
               Registrati
             </button>
           </div>

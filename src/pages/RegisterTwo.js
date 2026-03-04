@@ -52,12 +52,11 @@ const RegisterTwo = () => {
   };
   return (
     <>
-      {" "}
-      <div className='section-center invisible'>
+      {/* <div className='section-center invisible'>
         <div className='back-btn'>
           <MdBackspace />
         </div>
-      </div>{" "}
+      </div> */}
       <section className='section-center mt-5'>
         <h4 className='mb-5'>
           Dati di contatto{" "}

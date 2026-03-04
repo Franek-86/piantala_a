@@ -91,6 +91,9 @@ fieldset:disabled .btn {
 .btn-outline-secondary {
   --bs-btn-color: var(--clr-secondary-3);
   --bs-btn-border-color: var(--clr-secondary-3);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--clr-secondary-3);
+  --bs-btn-hover-border-color: var(--clr-secondary-3);
 }
 
 .btn-link {

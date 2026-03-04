@@ -28,7 +28,7 @@ const Reset = () => {
   } = useForm();
   const navigate = useNavigate();
   const backToLogin = () => {
-    navigate("/login");
+    navigate("/login-form");
   };
   const onSubmit = (data) => {
     console.log(data);
@@ -40,7 +40,7 @@ const Reset = () => {
   return (
     <>
       {emailLoading && <Loading />}
-      <div className='section-center'>
+      {/* <div className='section-center'>
         <div className='back-btn'>
           <MdBackspace
             onClick={() => {
@@ -48,7 +48,7 @@ const Reset = () => {
             }}
           />
         </div>
-      </div>
+      </div> */}
       <Container className={`d-flex flex-column py-5 justify-content-center`}>
         <div className='logo-container ms-auto me-auto pb-5'>
           <img src={logo} class='img-fluid' alt='Responsive image'></img>
@@ -96,6 +96,15 @@ const Reset = () => {
                 >
                   Invia mail
                 </Button>
+              </div>
+              <div className='d-flex justify-content-center mt-2'>
+                <span
+                  onClick={() => backToLogin()}
+                  className='btn btn-outline-secondary d-block w-100'
+                  // variant='primary'
+                >
+                  Torna al login
+                </span>
               </div>
             </Form>
           </Col>
