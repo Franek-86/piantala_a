@@ -539,6 +539,10 @@ element {
 .circle-button {
   border-color: transparent !important;
 }
+.circle-button:active,
+.btn:active {
+  background-color: #ffffff !important;
+}
 
 .circle-button.filter-plants-button,
 .circle-button.report-btn,
