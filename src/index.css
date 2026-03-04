@@ -94,6 +94,7 @@ fieldset:disabled .btn {
   --bs-btn-hover-color: #fff;
   --bs-btn-hover-bg: var(--clr-secondary-3);
   --bs-btn-hover-border-color: var(--clr-secondary-3);
+  --bs-btn-active-bg: var(--clr-secondary-3);
 }
 
 .btn-link {

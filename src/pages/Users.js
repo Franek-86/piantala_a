@@ -55,9 +55,9 @@ const Users = () => {
   }, [userInfo]);
 
   return (
-    <div className='d-flex flex-row section-background'>
+    <div className='d-flex flex-row section-background pb-5'>
       {isLargeScreen && <SideBar />}
-      <section className='section-page section-full-page section-users section-large page-large-container'>
+      <section className='section-page section-full-page section-users section-large page-large-container min-100'>
         <BackBtn />
         <div className='section-center'>
           <section className=''>
