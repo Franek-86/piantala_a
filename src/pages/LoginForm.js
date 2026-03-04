@@ -113,7 +113,7 @@ const LoginForm = () => {
 
       toast.error(`${message}`, {
         position: "top-right",
-        autoClose: 2000,
+        autoClose: false,
         hideProgressBar: false,
         closeOnClick: false,
         pauseOnHover: true,
@@ -131,13 +131,11 @@ const LoginForm = () => {
     }
   };
   return (
-    <Container className='d-flex flex-column justify-content-center vh-100 pb-5'>
-      {!isRegister && (
-        <div className='logo-container ms-auto me-auto'>
-          <img src={logo} class='img-fluid' alt='Responsive image'></img>
-        </div>
-      )}
-      <Row className='d-flex justify-content-center'>
+    <Container className='d-flex flex-column justify-content-center py-5'>
+      <div className='logo-container ms-auto me-auto mt-5'>
+        <img src={logo} class='img-fluid' alt='Responsive image'></img>
+      </div>
+      <Row className='d-flex justify-content-center mt-3'>
         <div className='col-xs-8 col-sm-7 col-lg-6 login-container p-2 p-lg-5 '>
           <Form onSubmit={handleSubmit(onSubmit)} className='login-form'>
             {serverError && <p className='text-danger'>{serverError}</p>}

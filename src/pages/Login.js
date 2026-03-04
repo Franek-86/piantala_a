@@ -132,13 +132,12 @@ const AuthForm = () => {
   };
 
   return (
-    <Container className='d-flex flex-column justify-content-center vh-100 pb-5'>
-      {!isRegister && (
-        <div className='logo-container ms-auto me-auto'>
-          <img src={logo} class='img-fluid' alt='Responsive image'></img>
-        </div>
-      )}
-      <Row className='d-flex justify-content-center'>
+    <Container className='d-flex flex-column justify-content-center py-5'>
+      <div className='logo-container ms-auto me-auto mt-5'>
+        <img src={logo} class='img-fluid' alt='Responsive image'></img>
+      </div>
+
+      <Row className='d-flex justify-content-center mt-3'>
         {/* <article className='col-xs-8 col-sm-7 col-lg-6 login-container p-2 p-lg-5 '>
           <Form onSubmit={handleSubmit(onSubmit)} className='login-form'>
             {serverError && <p className='text-danger'>{serverError}</p>}
@@ -234,7 +233,7 @@ const AuthForm = () => {
             disabled={loading}
             onClick={() => navigate("/login-form")}
           >
-            Login
+            Effettua il login
           </Button>
           <Button
             className='d-block w-100 mb-3'
