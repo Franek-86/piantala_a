@@ -95,6 +95,7 @@ fieldset:disabled .btn {
   --bs-btn-hover-bg: var(--clr-secondary-3);
   --bs-btn-hover-border-color: var(--clr-secondary-3);
   --bs-btn-active-bg: var(--clr-secondary-3);
+  --bs-btn-active-border-color: var(--clr-secondary-3);
 }
 
 .btn-link {
@@ -540,11 +541,13 @@ element {
 .circle-button {
   border-color: transparent !important;
 }
-.circle-button:active,
-.btn:active {
+.circle-button:active {
   background-color: #ffffff !important;
 }
-
+.btn-outline-secondary:active {
+  color: var(--clr-secondary-5) !important;
+  background-color: #ffff !important;
+}
 .circle-button.filter-plants-button,
 .circle-button.report-btn,
 .circle-button.center-btn {
