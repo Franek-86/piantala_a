@@ -15,9 +15,12 @@ const BottomBar = () => {
   const check = Capacitor.getPlatform();
   let padding = () => {
     if (check !== "web") {
-      return "fs-5 test position-relative pb-2";
+      return "fs-5 test position-relative pb-2 yellow-background";
     }
-    return "fs-5 test position-relative yellow-background";
+    if (check === "web" && !isLarge) {
+      return "fs-5 test position-relative yellow-background bottom-bar-0";
+    }
+    return "fs-5 test position-relative";
   };
   return (
     <article className='bottom-bar'>

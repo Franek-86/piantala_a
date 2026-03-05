@@ -427,7 +427,9 @@ element {
   position: fixed;
   width: 100%;
   bottom: 0;
-  /* border-bottom: 2px solid red; */
+}
+.bottom-bar-0 {
+  border-bottom: 1px solid var(--clr-secondary-2);
 }
 .bottom-bar ul > li {
   height: 3.5rem;
