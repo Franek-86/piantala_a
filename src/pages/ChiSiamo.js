@@ -47,7 +47,7 @@ const ChiSiamo = () => {
               innaffiarli regolarmente, soprattutto d'estate, almeno nei primi
               due anni dalla piantumazione.
             </p>
-            <div className='logo-chi-siamo d-flex justify-content-center py-3 py-lg-5'>
+            <div className='logo-chi-siamo d-flex justify-content-center pb-3 py-lg-5'>
               <img src={logo} alt='' srcset='' />
             </div>
           </div>
