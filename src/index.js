@@ -56,6 +56,7 @@ import RegisterFour from "./pages/RegisterFour";
 import RegisterLast from "./pages/RegisterLast";
 import TermsOfService from "./pages/TermsOfService";
 import LoginForm from "./pages/LoginForm";
+import ErrorNotFound from "./pages/ErrorNotFound";
 
 // import { io } from "socket.io-client";
 // const url =
@@ -218,6 +219,10 @@ const router = createBrowserRouter([
       {
         path: "verify-reset/:token",
         element: <EmailVerificationReset />,
+      },
+      {
+        path: "*",
+        element: <ErrorNotFound />,
       },
     ],
   },
