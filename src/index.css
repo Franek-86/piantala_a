@@ -394,7 +394,7 @@ element {
 .map-section {
   display: flex;
   flex-direction: column;
-  height: calc(100dvh - 4rem);
+  height: calc(100dvh - 3rem);
   position: relative;
   width: 100%;
 }
@@ -424,10 +424,10 @@ element {
   position: fixed;
   width: 100%;
   bottom: 0;
-  border-bottom: 2px solid red;
+  /* border-bottom: 2px solid red; */
 }
 .bottom-bar ul > li {
-  height: 4rem;
+  height: 3rem;
 }
 
 @media screen and (min-width: 992px) {
@@ -604,7 +604,7 @@ element {
 
 .toast-approved,
 .toast-booked {
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 
 .filter-alert {
