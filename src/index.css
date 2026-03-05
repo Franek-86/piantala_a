@@ -614,7 +614,13 @@ element {
 
 .toast-approved,
 .toast-booked {
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
+}
+@media screen and (min-width: 992px) {
+  .toast-approved,
+  .toast-booked {
+    margin-bottom: 0rem;
+  }
 }
 
 .filter-alert {
