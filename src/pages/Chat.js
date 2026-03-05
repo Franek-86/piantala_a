@@ -28,7 +28,7 @@ const Chat = () => {
       <section className='section-page section-background vh-100 section-large page-large-container section-chat'>
         <BackBtn />
         <div className='h-100'>
-          <section className='h-100 d-flex align-items-center'>
+          <section className='h-100 d-flex align-items-center justify-content-center'>
             <div className=''>
               <div className='section-center pb-5'>
                 {/* <h2 className='section-title pt-5'>Chat aperta</h2> */}

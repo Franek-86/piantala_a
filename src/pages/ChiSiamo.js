@@ -10,7 +10,7 @@ import logoVerner from "../assets/images/logoverner.jpg";
 import BackBtn from "../components/menu/BackBtn";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
-
+import logo from "../assets/images/ti pianto per amore-APP-verde.png";
 const ChiSiamo = () => {
   const navigate = useNavigate();
   const isLargeScreen = useIsLargeScreen();
@@ -22,7 +22,7 @@ const ChiSiamo = () => {
       {isLargeScreen && <SideBar />}
       <div className='section-page section-full-page  section-large page-large-container'>
         <BackBtn />
-        <section className='h-75 chi-article section-background menu-section-center pb-5'>
+        <section className='chi-article section-background menu-section-center pb-5'>
           <div className='section-center'>
             <h2 className='section-title pt-5'>Chi siamo</h2>
             <div className=''>
@@ -47,6 +47,9 @@ const ChiSiamo = () => {
               innaffiarli regolarmente, soprattutto d'estate, almeno nei primi
               due anni dalla piantumazione.
             </p>
+            <div className='logo-chi-siamo d-flex justify-content-center py-3 py-lg-5'>
+              <img src={logo} alt='' srcset='' />
+            </div>
           </div>
         </section>
         <section className='h-50 chi-logo-section  pt-4 pt-lg-5'>

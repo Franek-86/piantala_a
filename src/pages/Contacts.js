@@ -52,11 +52,11 @@ const Contacts = () => {
 
         <div className='section-page'>
           <div className='mb-3'>
-            <section className='blue-background'>
+            <section className='blue-background pb-5'>
               <div className='section-center'>
                 <h2 className='section-title pt-5'>I nostri contatti</h2>
-                <div className='contacts-form-section d-flex align-items-lg-center'>
-                  <div className='contacts-main-container d-flex flex-column flex-lg-row align-items-center flex-lg-row-reverse p-xl-5 pb-3'>
+                <div className='contacts-form-section '>
+                  <div className='contacts-main-container d-flex flex-column flex-lg-row align-items-center flex-lg-row-reverse pb-3'>
                     <article className='contact-info w-100 p-lg-3 p-xl-4'>
                       <h4>Hai domande?</h4>
                       <p>

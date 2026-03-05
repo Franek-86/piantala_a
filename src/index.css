@@ -1529,10 +1529,6 @@ element {
   flex-direction: column;
   height: 100%;
 }
-.contacts-form-section {
-  min-height: calc(100vh - 15rem);
-  /* border: 2px solid red; */
-}
 
 .contacts-info-section {
   min-height: 80vh;
@@ -2196,6 +2192,10 @@ body {
 }
 
 /* Chi siamo */
+
+.logo-chi-siamo img {
+  width: 5rem;
+}
 
 .single-logo {
   /* border: 1px solid red; */
