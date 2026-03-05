@@ -18,7 +18,7 @@ const Plant = () => {
     plant,
     getOwnerPublicInfo,
   } = useContext(PlantsContext);
-  const isLargeScreen = useIsLargeScreen();
+  const isLarge = useIsLargeScreen();
   useEffect(() => {
     getSinglePlant(plantId);
   }, [plantId, plateUrl]);
@@ -28,9 +28,7 @@ const Plant = () => {
   const { status_piantina } = plant;
 
   return (
-    <div
-      className={isLargeScreen ? "plants-container" : "plants-container-small"}
-    >
+    <div className={isLarge ? "plants-container" : "plants-container-small"}>
       {status_piantina === "approved" && <PlantApproved />}
       {status_piantina === "pending" && <PlantPending />}
       {status_piantina === "booked" && <PlantBooked />}

@@ -15,6 +15,9 @@ import Loading from "./Loading";
 import { Camera, CameraResultType } from "@capacitor/camera";
 import { Capacitor } from "@capacitor/core";
 import { UsersContext } from "../context/UsersContext";
+import useIsLargeScreen from "../utils/useIsLargeScreen";
+import BackBtnLarge from "../components/menu/BackBtnLarge";
+import BackBtn from "../components/menu/BackBtn";
 
 const UserProfile = () => {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -23,7 +26,7 @@ const UserProfile = () => {
   const handleCloseDeleteModal = () => setShowDeleteModal(false);
   const handleShowDeleteModal = () => setShowDeleteModal(true);
   const navigate = useNavigate();
-
+  const isLarge = useIsLargeScreen();
   const backToMap = () => {
     navigate("/map");
   };
@@ -51,21 +54,24 @@ const UserProfile = () => {
   };
 
   return (
-    <>
+    <div className={isLarge ? "plants-container" : "plants-container-small"}>
       {userLoading && <Loading />}
+      <BackBtn />
       {/* {userLoading && <Loading />} */}
-      <section className='section-page section-background'>
-        <div className='back-container profile'>
-          <div className='back-btn'>
-            <MdBackspace
-              onClick={() => {
-                backToMap();
-              }}
-            />
-          </div>
+      <section
+        className={
+          isLarge ? "section-large-intro" : "section-plant-intro min-100"
+        }
+      >
+        <div className='pt-4 pt-lg-0'>
+          {isLarge && (
+            <>
+              <BackBtnLarge />
+              <h2 className='section-title pt-3 pt-xl-4'>Modifica Profilo</h2>
+            </>
+          )}
         </div>
-        <div className='section-center menu-section-center'>
-          <h2 className='section-title'>Profilo</h2>
+        <div className='section-center pb-5'>
           <Card>
             <Card.Body>
               <div className='d-flex flex-column align-items-center py-3'>
@@ -78,6 +84,7 @@ const UserProfile = () => {
                     handleUserPic(event, id);
                   }}
                 />
+                <h6 className='mt-3'>{userName}</h6>
                 {!pic && !Capacitor.isNativePlatform() ? (
                   <div
                     onClick={handleRefClick}
@@ -109,14 +116,13 @@ const UserProfile = () => {
                 ) : (
                   <></>
                 )}
-                <h6 className='mt-3'>{userName}</h6>
               </div>
             </Card.Body>
             <ListGroup variant='flush'>
               <ListGroup.Item>
                 <div className='profile-item d-flex justify-content-between'>
                   <div className='profile-info'>
-                    <span>User name: </span>
+                    <span>Nome utente: </span>
                     <span>{userName}</span>
                   </div>
                   {/* <div className='profile-icon'>
@@ -153,7 +159,7 @@ const UserProfile = () => {
           handleClose={handleCloseDeleteModal}
         />
       </section>
-    </>
+    </div>
   );
 };
 

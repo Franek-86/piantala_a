@@ -41,7 +41,7 @@ const PlantApproved = () => {
     singlePlantLoading,
     setPlant,
   } = useContext(PlantsContext);
-  const isLargeScreen = useIsLargeScreen();
+
   const { userId, userRole, isAuthenticated, setLogReg, logReg } =
     useContext(AuthContext);
   const { deletePlant } = useContext(PlantsContext);
@@ -102,9 +102,7 @@ const PlantApproved = () => {
       <Form onSubmit={handleSubmit(onSubmit)}>
         <div className='single-plant'>
           <section
-            className={
-              isLargeScreen ? "section-large-intro" : "section-plant-intro"
-            }
+            className={isLarge ? "section-large-intro" : "section-plant-intro"}
           >
             <div className='pt-4 pt-lg-0'>
               {isLarge && (

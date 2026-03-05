@@ -39,7 +39,7 @@ const ProfileModal = ({ smShow, setSmShow }) => {
             {isAuthenticated ? "Logout" : "Login/registrati"}
           </Link>
           {isAuthenticated ? (
-            <Link to='/profile'> Modifica profilo</Link>
+            <Link to='/map/profile'> Modifica profilo</Link>
           ) : (
             <div
               onClick={() => {

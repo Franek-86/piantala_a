@@ -149,6 +149,10 @@ const router = createBrowserRouter([
             path: ":plantId",
             element: <Plant />,
           },
+          {
+            path: "profile",
+            element: <UserProfile />,
+          },
         ],
       },
       {
@@ -199,10 +203,10 @@ const router = createBrowserRouter([
         path: "chat",
         element: <Chat />,
       },
-      {
-        path: "profile",
-        element: <UserProfile />,
-      },
+      // {
+      //   path: "profile",
+      //   element: <UserProfile />,
+      // },
       // {
       //   path: "verification-success",
       //   element: <EmailVerification />,
