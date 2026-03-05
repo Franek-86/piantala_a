@@ -546,7 +546,7 @@ element {
   border-color: transparent !important;
 }
 .circle-button:active {
-  background-color: #ffffff !important;
+  background-color: var(--c-bg-map-1) !important;
 }
 .btn-outline-secondary:active {
   color: var(--clr-secondary-5) !important;
@@ -555,7 +555,7 @@ element {
 .circle-button.filter-plants-button,
 .circle-button.report-btn,
 .circle-button.center-btn {
-  background-color: #fff;
+  background-color: var(--c-bg-map-1);
   /* outline: 1px solid; */
   /* border-color: #37708d;
   border-color: #6b8f00; */
