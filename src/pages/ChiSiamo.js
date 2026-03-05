@@ -20,7 +20,7 @@ const ChiSiamo = () => {
   return (
     <div className=''>
       {isLargeScreen && <SideBar />}
-      <div className='section-page section-full-page  section-large page-large-container'>
+      <div className='section-page section-full-page section-large page-large-container'>
         <BackBtn />
         <section className='chi-article section-background menu-section-center pb-5'>
           <div className='section-center'>
@@ -52,11 +52,11 @@ const ChiSiamo = () => {
             </div>
           </div>
         </section>
-        <section className='h-50 chi-logo-section  pt-4 pt-lg-5'>
+        <section className='chi-logo-section pt-4 pb-5 pt-lg-5'>
           <div className='section-center'>
             <h4 className=''>Patrocini</h4>
           </div>
-          <div className='pt-5 logo-container d-flex flex-column flex-lg-row justify-content-around w-100'>
+          <div className='py-5 logo-container d-flex flex-column flex-lg-row justify-content-around w-100'>
             <div className='single-logo mb-5 mb-lg-0'>
               {" "}
               <a
@@ -80,7 +80,7 @@ const ChiSiamo = () => {
             </div>
           </div>
         </section>
-        <section className='h-50 pt-4 pb-5 pt-lg-5 position-background'>
+        <section className='pt-4 pb-5 pt-lg-5 position-background'>
           <div className='section-center'>
             <h4>Seguici sui nostri canali</h4>
 
