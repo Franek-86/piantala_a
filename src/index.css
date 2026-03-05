@@ -548,6 +548,9 @@ element {
 .circle-button:active {
   background-color: var(--c-bg-map-1) !important;
 }
+.circle-button:hover {
+  background-color: var(--c-bg-map-1) !important;
+}
 .btn-outline-secondary:active {
   color: var(--clr-secondary-5) !important;
   background-color: #ffff !important;
