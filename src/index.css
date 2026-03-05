@@ -424,6 +424,7 @@ element {
   position: fixed;
   width: 100%;
   bottom: 0;
+  border-bottom: 2px solid red;
 }
 .bottom-bar ul > li {
   height: 4rem;
