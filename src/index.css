@@ -1595,6 +1595,9 @@ element {
     /* height: 10rem; */
     height: 15rem;
   }
+  .edit-modal {
+    left: 10rem;
+  }
   /* .contact-form-btn {
     height: 3rem;
   } */

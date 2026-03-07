@@ -49,12 +49,15 @@ const EditProfile = () => {
   }, [number]);
 
   return (
-    <Modal show={showEdit} onHide={handleCloseEdit}>
+    <Modal className='edit-modal' show={showEdit} onHide={handleCloseEdit}>
       <Modal.Header closeButton>
-        <Modal.Title>Modifica profilo</Modal.Title>
+        <Modal.Title>
+          Modifica{" "}
+          {formField === "phone" ? "numero di telefono" : "nome utente"}
+        </Modal.Title>
       </Modal.Header>
-      <Modal.Body>
-        <Form onSubmit={handleSubmit(onSubmit)}>
+      <Form onSubmit={handleSubmit(onSubmit)}>
+        <Modal.Body>
           <Form.Group className='mb-3' controlId='exampleForm.ControlInput1'>
             <Form.Label>
               {formField === "phone" ? "Numero di telefono" : "Nome utente"}
@@ -79,18 +82,14 @@ const EditProfile = () => {
               </span>
             )}
           </Form.Group>
-          {/* <Form.Group className='mb-3' controlId='exampleForm.ControlTextarea1'>
-            <Form.Label>Example textarea</Form.Label>
-            <Form.Control as='textarea' rows={3} />
-          </Form.Group> */}
-          <input type='submit'></input>
-        </Form>
-      </Modal.Body>
-      <Modal.Footer>
-        {/* <Button variant='secondary' onClick={handleCloseEdit}>
-          Close
-        </Button> */}
-      </Modal.Footer>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant='secondary' onClick={handleCloseEdit}>
+            Chiudi
+          </Button>
+          <Button type='submit'>Salva</Button>
+        </Modal.Footer>
+      </Form>
     </Modal>
   );
 };
