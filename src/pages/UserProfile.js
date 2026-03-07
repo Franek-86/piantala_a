@@ -55,9 +55,9 @@ const UserProfile = () => {
   const handleRefClick = () => {
     inputRefAdd.current.click();
   };
-  useEffect(() => {
-    console.log("staa??????", userName);
-  }, [userName]);
+  // useEffect(() => {
+  //   console.log("staa??????", userName);
+  // }, [userName]);
 
   return (
     <div className={isLarge ? "plants-container" : "plants-container-small"}>

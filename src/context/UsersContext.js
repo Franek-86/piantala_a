@@ -137,7 +137,6 @@ export const UsersProvider = ({ children }) => {
       });
       if (response.status === 200) {
         setLoading(false);
-        getUserInfo();
         toast(`🌱 ${response.data.message}`, {
           position: "top-right",
           autoClose: 2000,
@@ -148,6 +147,7 @@ export const UsersProvider = ({ children }) => {
           progress: undefined,
           theme: "light",
         });
+        return response;
       } else {
         console.error("Unexpected response:", response);
         setLoading(false);

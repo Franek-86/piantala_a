@@ -27,16 +27,16 @@ const EditProfile = () => {
     setValue,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log("sta????", data);
-    updateUserProfile(data);
-    getUserInfo(id);
-    handleCloseEdit();
+    const response = await updateUserProfile(data);
+    if (response.status === 200) {
+      console.log("quia", response);
+      getUserInfo(id);
+      handleCloseEdit();
+    }
   };
 
-  const handleChange = (e) => {
-    console.log("ciao", e);
-  };
   console.log("watch name", watch("name"));
 
   let name = watch("name");
@@ -66,7 +66,6 @@ const EditProfile = () => {
               type='text'
               // placeholder='name@example.com'
               value={formField === "phone" ? phone : userName}
-              onChange={(e) => handleChange(e)}
               {...register(formField, {
                 required: true,
                 maxLength: 15,
