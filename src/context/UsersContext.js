@@ -130,25 +130,24 @@ export const UsersProvider = ({ children }) => {
       // newData.append("phone", phone);
       newData.phone = phone;
     }
-    console.log("tre", newData);
+
     try {
       const response = await axiosInstance.patch(`/api/users/profile`, {
         payload: newData,
       });
       if (response.status === 200) {
         setLoading(false);
-        if (response.status === 200) {
-          toast(`🌱 ${response.data.message}`, {
-            position: "top-right",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: false,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-          });
-        }
+        getUserInfo();
+        toast(`🌱 ${response.data.message}`, {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       } else {
         console.error("Unexpected response:", response);
         setLoading(false);
