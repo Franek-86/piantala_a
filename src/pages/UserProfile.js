@@ -18,6 +18,7 @@ import { UsersContext } from "../context/UsersContext";
 import useIsLargeScreen from "../utils/useIsLargeScreen";
 import BackBtnLarge from "../components/menu/BackBtnLarge";
 import BackBtn from "../components/menu/BackBtn";
+import EditProfile from "../components/user-profile/EditProfile";
 
 const UserProfile = () => {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -45,17 +46,23 @@ const UserProfile = () => {
     takePicture,
     deleteProfilePic,
     loading: userLoading,
+    handleShowEdit,
+    showEdit,
   } = useContext(UsersContext);
-  console.log("logged user info", loggedUserInfo);
+  // console.log("logged user info", loggedUserInfo);
   const { id, userName, phone, pic } = loggedUserInfo;
 
   const handleRefClick = () => {
     inputRefAdd.current.click();
   };
+  useEffect(() => {
+    console.log("staa??????", userName);
+  }, [userName]);
 
   return (
     <div className={isLarge ? "plants-container" : "plants-container-small"}>
       {userLoading && <Loading />}
+      {showEdit && <EditProfile />}
       <BackBtn />
       {/* {userLoading && <Loading />} */}
       <section
@@ -119,27 +126,33 @@ const UserProfile = () => {
               </div>
             </Card.Body>
             <ListGroup variant='flush'>
-              <ListGroup.Item>
-                <div className='profile-item d-flex justify-content-between'>
+              <ListGroup.Item className='edit-profile-list p-0 px-3 d-flex align-items-center'>
+                <div className='profile-item d-flex w-100 justify-content-between align-items-center'>
                   <div className='profile-info'>
                     <span>Nome utente: </span>
                     <span>{userName}</span>
                   </div>
-                  {/* <div className='profile-icon'>
+                  <div
+                    className='profile-icon'
+                    onClick={() => handleShowEdit("name")}
+                  >
                     <FaEdit />
-                  </div> */}
+                  </div>
                 </div>
               </ListGroup.Item>
-              <ListGroup.Item>
+              <ListGroup.Item className='edit-profile-list p-0 px-3 d-flex align-items-center'>
                 {" "}
-                <div className='profile-item d-flex justify-content-between'>
+                <div className='profile-item w-100 d-flex justify-content-between'>
                   <div className='profile-info'>
                     <span>Telefono: </span>
                     <span>{phone ? phone : "N/A"}</span>
                   </div>
-                  {/* <div className='profile-icon'>
+                  <div
+                    className='profile-icon'
+                    onClick={() => handleShowEdit("phone")}
+                  >
                     <FaEdit />
-                  </div> */}
+                  </div>
                 </div>
               </ListGroup.Item>
             </ListGroup>

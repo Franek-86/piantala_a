@@ -1586,6 +1586,10 @@ element {
   height: 2rem;
 } */
 
+.edit-profile-list {
+  height: 3rem;
+}
+
 @media screen and (min-width: 992px) {
   .contact-form-input {
     /* height: 10rem; */

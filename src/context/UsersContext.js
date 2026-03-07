@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import axiosInstance from "../services/axiosInstance";
 import { Camera, CameraResultType } from "@capacitor/camera";
 import { AuthContext } from "./AuthContext";
+import { Form } from "react-bootstrap";
 
 export const UsersContext = createContext();
 
@@ -28,13 +29,22 @@ export const UsersProvider = ({ children }) => {
     userName: "",
     email: "",
   });
-
+  const [formField, setFormField] = useState(null);
   // const [showPermissionModal, setShowPermissionModal] = useState(false);
   const [userSession, setUserSession] = useState(null);
   const [userName, setUserName] = useState(null);
   // const handleShowPermissionModal = () => setShowPermissionModal(true);
   // const handleClosePermissionModal = () => setShowPermissionModal(false);
   // const [allUsers, setAllUsers] = useState({});
+
+  const [showEdit, setShowEdit] = useState(false);
+
+  const handleCloseEdit = () => setShowEdit(false);
+  const handleShowEdit = (val) => {
+    setShowEdit(true);
+    setFormField(val);
+  };
+
   const {
     // setLoggedUserInfo,
     // loggedUserInfo,
@@ -104,6 +114,60 @@ export const UsersProvider = ({ children }) => {
       setLoading(false);
     }
   };
+  const updateUserProfile = async (data) => {
+    setLoading(true);
+    const { name, phone } = data;
+    let newData = { id: "", name: "", phone: "" };
+    newData.id = loggedUserInfo?.id;
+    // let newData = new FormData();
+    // newData.append("id", loggedUserInfo.id);
+
+    if (name) {
+      // newData.append("name", name);
+      newData.name = name;
+    }
+    if (phone) {
+      // newData.append("phone", phone);
+      newData.phone = phone;
+    }
+    console.log("tre", newData);
+    try {
+      const response = await axiosInstance.patch(`/api/users/profile`, {
+        payload: newData,
+      });
+      if (response.status === 200) {
+        setLoading(false);
+        if (response.status === 200) {
+          toast(`🌱 ${response.data.message}`, {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        }
+      } else {
+        console.error("Unexpected response:", response);
+        setLoading(false);
+      }
+    } catch (error) {
+      console.error("Logout error:", error);
+      toast.error(`${error.code}`, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      setLoading(false);
+    }
+  };
   const takePicture = async (id) => {
     const image = await Camera.getPhoto({
       quality: 50,
@@ -133,7 +197,7 @@ export const UsersProvider = ({ children }) => {
       const response = await axiosInstance.patch(
         `/api/users/set-user-pic`,
         formData,
-        { headers: { "Content-Type": "multipart/form-data" } }
+        { headers: { "Content-Type": "multipart/form-data" } },
       );
       if (response.status === 200) {
         const url = response.data.url;
@@ -178,7 +242,7 @@ export const UsersProvider = ({ children }) => {
       const response = await axiosInstance.patch(
         `/api/users/set-user-pic`,
         formData,
-        { headers: { "Content-Type": "multipart/form-data" } }
+        { headers: { "Content-Type": "multipart/form-data" } },
       );
       if (response.status === 200) {
         const url = response.data.url;
@@ -309,7 +373,7 @@ export const UsersProvider = ({ children }) => {
     if (userId) {
       try {
         const response = await axiosInstance.get(
-          `${serverDomain}/api/users/user/${userId}`
+          `${serverDomain}/api/users/user/${userId}`,
         );
         if (response) {
           // return response;
@@ -379,7 +443,7 @@ export const UsersProvider = ({ children }) => {
           progress: undefined,
           theme: "light",
           // transition: Bounce,
-        }
+        },
       );
       return;
     } finally {
@@ -473,6 +537,13 @@ export const UsersProvider = ({ children }) => {
         districts,
         handleUserPic,
         sendEmail,
+        showEdit,
+        setShowEdit,
+        handleShowEdit,
+        handleCloseEdit,
+        formField,
+        updateUserProfile,
+        setLoggedUserInfo,
       }}
     >
       {children}
