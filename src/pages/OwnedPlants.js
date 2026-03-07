@@ -48,10 +48,10 @@ const OwnedPlants = () => {
 
   return (
     <>
-      <section className='section-page vh-100 section-background map'>
+      <section className='section-page min-100 section-background map'>
         <div className='d-flex flex-row'>
           {isLargeScreen && <SideBar />}
-          <div className='section-large  section-center section-center-map'>
+          <div className='section-center section-center-map'>
             {/* <div className='back-btn'>
           <MdBackspace
             onClick={() => {

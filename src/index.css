@@ -260,7 +260,7 @@ hr {
     width: calc(100% - 20rem);
     margin-left: 20rem;
     padding-bottom: 0;
-    height: 100vh;
+    /* height: 100vh; */
   }
   .section-center-map {
     padding-top: 3rem;
