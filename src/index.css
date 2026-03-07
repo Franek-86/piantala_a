@@ -429,7 +429,7 @@ element {
   bottom: 0;
 }
 .bottom-bar-0 {
-  border-bottom: 1px solid var(--clr-secondary-2);
+  border-bottom: 1px solid var(--clr-secondary-1);
 }
 .bottom-bar ul > li {
   height: 3.5rem;

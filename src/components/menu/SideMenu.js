@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import ListGroup from "react-bootstrap/ListGroup";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import {
   RiLogoutBoxLine,
   RiSeedlingFill,
@@ -40,85 +40,120 @@ const SideMenu = ({ onLogout, ...props }) => {
       <Offcanvas.Body>
         <ListGroup className='sidebar-section' variant='flush'>
           <ListGroup.Item>
-            <Link
+            <NavLink
               to='/map'
               onClick={props.handleClose}
-              class='nav-link text-truncate'
+              className={({ isActive }) =>
+                isActive
+                  ? "nav-link text-truncate sidebar-active"
+                  : "nav-link text-truncate"
+              }
             >
               <FaMap />
               <span class='ms-2 d-sm-inline'>Mappa</span>
-            </Link>
+            </NavLink>
           </ListGroup.Item>
           <ListGroup.Item>
-            <Link
+            <NavLink
               to='/chi-siamo'
               onClick={props.handleClose}
-              class='nav-link text-truncate'
+              className={({ isActive }) =>
+                isActive
+                  ? "nav-link text-truncate sidebar-active"
+                  : "nav-link text-truncate"
+              }
             >
               <RiSeedlingFill />
               <span class='ms-2 d-sm-inline'>Chi siamo</span>
-            </Link>
+            </NavLink>
           </ListGroup.Item>
           <ListGroup.Item>
-            <Link
+            <NavLink
               to='/info'
               onClick={props.handleClose}
-              class='nav-link text-truncate'
+              className={({ isActive }) =>
+                isActive
+                  ? "nav-link text-truncate sidebar-active"
+                  : "nav-link text-truncate"
+              }
             >
               <BsInfo />
               <span class='ms-2 d-sm-inline'>Info</span>
-            </Link>
+            </NavLink>
           </ListGroup.Item>
           {userRole === "admin" && (
             <ListGroup.Item>
-              <Link
+              <NavLink
                 to='/users'
                 onClick={props.handleClose}
-                class='nav-link text-truncate'
+                className={({ isActive }) =>
+                  isActive
+                    ? "nav-link text-truncate sidebar-active"
+                    : "nav-link text-truncate"
+                }
               >
                 <FaUsers />
                 <span class='ms-2 d-sm-inline'>Utenti</span>
-              </Link>
+              </NavLink>
             </ListGroup.Item>
           )}
           {userRole === "admin" && (
             <ListGroup.Item>
-              <Link to='/orders' class='nav-link text-truncate'>
+              <NavLink
+                to='/orders'
+                className={({ isActive }) =>
+                  isActive
+                    ? "nav-link text-truncate sidebar-active"
+                    : "nav-link text-truncate"
+                }
+              >
                 <MdOutlineShoppingCartCheckout />
                 <span class='ms-2 d-sm-inline'>Ordini</span>
-              </Link>
+              </NavLink>
             </ListGroup.Item>
           )}
           <ListGroup.Item>
-            <Link
+            <NavLink
               to='/plates'
               onClick={props.handleClose}
-              class='nav-link text-truncate'
+              className={({ isActive }) =>
+                isActive
+                  ? "nav-link text-truncate sidebar-active"
+                  : "nav-link text-truncate"
+              }
             >
               <GiMetalPlate />
               <span class='ms-2 d-sm-inline'>Le vostre targhe</span>
-            </Link>
+            </NavLink>
           </ListGroup.Item>
 
           <ListGroup.Item>
-            <Link
+            <NavLink
               to='/chat'
               onClick={props.handleClose}
-              class='nav-link text-truncate'
+              className={({ isActive }) =>
+                isActive
+                  ? "nav-link text-truncate sidebar-active"
+                  : "nav-link text-truncate"
+              }
             >
               <IoMdChatbubbles />
               <span class='ms-2 d-sm-inline'>Chat</span>
-            </Link>
+            </NavLink>
           </ListGroup.Item>
           <ListGroup.Item>
-            <Link
+            <NavLink
               to='/contacts'
               onClick={props.handleClose}
-              class='nav-link text-truncate'
+              className={({ isActive }) =>
+                isActive
+                  ? "nav-link text-truncate sidebar-active"
+                  : "nav-link text-truncate"
+              }
             >
               <RiContactsLine />
               <span class='ms-2 d-sm-inline'>Contattaci</span>
-            </Link>
+            </NavLink>
           </ListGroup.Item>
 
           {isAuthenticated ? (
