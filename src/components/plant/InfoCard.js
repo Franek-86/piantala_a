@@ -150,12 +150,23 @@ const InfoCard = () => {
             <span className='fw-medium'>Indirizzo:</span> <span>{road}</span>
           </ListGroup.Item>
         )}
+        {image_url && (
+          <ListGroup.Item>
+            {" "}
+            <span className='fw-medium'>Foto:</span>{" "}
+            <span>
+              <a target='_blank' href={image_url}>
+                apri immagine
+              </a>
+            </span>
+          </ListGroup.Item>
+        )}
         <ListGroup.Item>
           {" "}
           <span className='fw-medium'>Riferimento:</span>{" "}
           <span>Zolla &#8470; {plantId}</span>
         </ListGroup.Item>
-        {shop != "undefined" && (
+        {shop !== "undefined" && (
           <ListGroup.Item>
             {" "}
             <span>Negozio:</span> <span>{shop}</span>
