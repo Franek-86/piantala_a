@@ -401,6 +401,10 @@ element {
   position: relative;
   width: 100%;
 }
+.map-section-height {
+  height: calc(100dvh - 4rem);
+}
+
 @media screen and (min-width: 992px) {
   .map-section {
     width: 80%;
@@ -579,6 +583,9 @@ element {
   height: 100%;
   width: 100%;
   padding-bottom: 0.5rem;
+}
+.bottom-bar-height {
+  height: 4rem;
 }
 .underline {
   position: absolute;

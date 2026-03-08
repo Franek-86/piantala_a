@@ -184,7 +184,14 @@ function Map() {
   }
 
   const isChildRoute = location.pathname.includes("/map/");
-
+  const check = Capacitor.isNativePlatform();
+  const mapSection = () => {
+    if (check) {
+      return "section section-page map-section map-section-height section-large w-100";
+    } else {
+      return "section section-page map-section section-large w-100";
+    }
+  };
   if (loading) {
     return <Loading />;
   }
@@ -239,7 +246,7 @@ function Map() {
     <div className='d-flex flex-row w-100'>
       {isLargeScreen && <SideBar />}
 
-      <div className='section section-page map-section section-large w-100'>
+      <div className={mapSection()}>
         <article className='map'>
           <MapContainer
             // center={[41.118778112249046, 16.871917818963464]}
