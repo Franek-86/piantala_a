@@ -150,6 +150,11 @@ const InfoCard = () => {
             <span className='fw-medium'>Indirizzo:</span> <span>{road}</span>
           </ListGroup.Item>
         )}
+        <ListGroup.Item>
+          {" "}
+          <span className='fw-medium'>Riferimento:</span>{" "}
+          <span>Zolla &#8470; {plantId}</span>
+        </ListGroup.Item>
         {shop != "undefined" && (
           <ListGroup.Item>
             {" "}

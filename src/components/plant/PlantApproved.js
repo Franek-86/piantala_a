@@ -121,19 +121,21 @@ const PlantApproved = () => {
                     {/* <Breadcrumb.Item href='https://getbootstrap.com/docs/4.0/components/breadcrumb/'>
                       Library
                     </Breadcrumb.Item> */}
-                    <Breadcrumb.Item active>Zolla {plant.id}</Breadcrumb.Item>
+                    <Breadcrumb.Item active>
+                      Zolla &#8470; {plant.id}
+                    </Breadcrumb.Item>
                   </Breadcrumb>
                 )}
                 <article className='plant-intro-text intro-article p-2 p-lg-3 p-xl-4 mb-3'>
                   <span className='mb-0'>
                     La zolla numero {plant.id} sita nel{" "}
                     <b>quartiere {plant?.suburb} </b> di <b>{plant?.city} </b> è
-                    approvata per la piantumazione da parte di privati
-                    cittadini. Puoi procedere con l'acquisto e la piantumazione
-                    della tua piantina seguendo i <b>tre passaggi</b> qui di
-                    seguito descritti.
+                    approvata dal comune per la piantumazione da parte di
+                    privati cittadini. Puoi procedere con l'acquisto e la
+                    piantumazione della tua piantina seguendo i{" "}
+                    <b>tre passaggi</b> qui di seguito descritti.
                   </span>
-                  <span className='d-block mt-2'>
+                  <span className='d-block mt-3'>
                     <ol>
                       <li>
                         {" "}
