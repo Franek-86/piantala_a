@@ -433,7 +433,8 @@ element {
   bottom: 0;
 }
 .bottom-bar-0 {
-  border-bottom: 1px solid var(--clr-secondary-1);
+  border-bottom: 1px solid var(--clr-primary-3);
+  border-top: 1px solid var(--clr-primary-3);
 }
 .bottom-bar ul > li {
   height: 3.5rem;
