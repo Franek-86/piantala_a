@@ -23,15 +23,12 @@ import markerGreen from "../../assets/images/ti pianto per amore-APP-verde.png";
 import markerOrange from "../../assets/images/ti pianto per amore-APP-giallo.png";
 import markerRed from "../../assets/images/ti pianto per amore-APP-rosso.png";
 import L from "leaflet";
+import ApprovedPic from "./ApprovedPic";
+
 const InfoCard = () => {
-  const [show, setShow] = useState(false);
-  const [modalShow, setModalShow] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  const handleImageLoad = () => {
-    setIsLoaded(true);
-  };
-
+  const [showPic, setShowPic] = useState(false);
+  const handleShowPic = () => setShowPic(true);
+  const handleClosePic = () => setShowPic(false);
   const { plantId } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
@@ -110,10 +107,6 @@ const InfoCard = () => {
     fileInputRef.current.click();
   };
 
-  const openRejectionModal = () => {
-    setModalShow(true);
-  };
-
   const deleteAndGo = async (plantId) => {
     // setSinglePlantLoading(true);
 
@@ -128,132 +121,146 @@ const InfoCard = () => {
     }
   };
   return (
-    <Card className='flex-md-row card-plant-info1'>
-      <ListGroup className='list-group-flush'>
-        {(status_piantina === "rejected" || status_piantina === "pending") && (
-          <ListGroup.Item>
-            <span className='fw-medium'>Segnalatore:</span>{" "}
-            <span>{userInfo ? userInfo : "utente rimosso"}</span>
-          </ListGroup.Item>
-        )}
-        <ListGroup.Item>
-          {" "}
-          <span className='fw-medium'>Città:</span> <span>{city}</span>
-        </ListGroup.Item>
-        <ListGroup.Item>
-          {" "}
-          <span className='fw-medium'>Quartiere:</span> <span>{suburb}</span>
-        </ListGroup.Item>
-        {road !== "undefined" && (
-          <ListGroup.Item>
-            {" "}
-            <span className='fw-medium'>Indirizzo:</span> <span>{road}</span>
-          </ListGroup.Item>
-        )}
-        {image_url && (
+    <>
+      {showPic && (
+        <ApprovedPic
+          showPic={showPic}
+          handleClosePic={handleClosePic}
+          img={image_url}
+        />
+      )}
+      <Card className='flex-md-row card-plant-info1'>
+        <ListGroup className='list-group-flush'>
+          {(status_piantina === "rejected" ||
+            status_piantina === "pending") && (
+            <ListGroup.Item>
+              <span className='fw-medium'>Segnalatore:</span>{" "}
+              <span>{userInfo ? userInfo : "utente rimosso"}</span>
+            </ListGroup.Item>
+          )}
           <ListGroup.Item>
             {" "}
-            <span className='fw-medium'>Foto:</span>{" "}
-            <span>
-              <a target='_blank' href={image_url}>
-                apri immagine
-              </a>
-            </span>
+            <span className='fw-medium'>Città:</span> <span>{city}</span>
           </ListGroup.Item>
-        )}
-        <ListGroup.Item>
-          {" "}
-          <span className='fw-medium'>Riferimento:</span>{" "}
-          <span>Zolla &#8470; {plantId}</span>
-        </ListGroup.Item>
-        {shop !== "undefined" && (
           <ListGroup.Item>
             {" "}
-            <span>Negozio:</span> <span>{shop}</span>
+            <span className='fw-medium'>Quartiere:</span> <span>{suburb}</span>
           </ListGroup.Item>
-        )}
-        {residential !== "undefined" && (
-          <ListGroup.Item>
-            {" "}
-            <span className='fw-medium'>Residenza:</span>{" "}
-            <span>{residential}</span>
-          </ListGroup.Item>
-        )}
-        {house_number !== "undefined" && (
-          <ListGroup.Item>
-            {" "}
-            <span className='fw-medium'>Numero:</span>{" "}
-            <span>{house_number}</span>
-          </ListGroup.Item>
-        )}
-        {status_piantina === "pending" ||
-          (status_piantina === "rejected" && (
+          {road !== "undefined" && (
             <ListGroup.Item>
               {" "}
-              <span className='fw-medium'>Stato:</span>{" "}
-              <span
-                className={
-                  status_piantina === "approved"
-                    ? "approvedPlant"
-                    : status_piantina === "rejected"
-                      ? "rejectedPlant"
-                      : status_piantina === "booked"
-                        ? "bookedPlant"
-                        : "pendingPlant"
-                }
-              >
-                {status_piantina === "pending"
-                  ? "in attesa di approvazione"
-                  : status_piantina === "approved"
-                    ? "approvata"
-                    : status_piantina === "rejected"
-                      ? "non approvata"
-                      : status_piantina === "booked"
-                        ? "acquistata"
-                        : status_piantina}
+              <span className='fw-medium'>Indirizzo:</span> <span>{road}</span>
+            </ListGroup.Item>
+          )}
+          {image_url && (
+            <ListGroup.Item>
+              {" "}
+              <span className='fw-medium'>Foto:</span>{" "}
+              <span>
+                <span
+                  className='btn-link'
+                  type='button'
+                  onClick={handleShowPic}
+                >
+                  apri immagine
+                </span>
               </span>
             </ListGroup.Item>
-          ))}
-        {plant_type && status_piantina === "pending" && (
-          <ListGroup.Item>
-            <span className='fw-medium'>Tipo di pianta:</span>{" "}
-            <span>{plant_type}</span>
-          </ListGroup.Item>
-        )}
-        <ListGroup.Item>
-          {" "}
-          <span className='fw-medium'>Coordinate:</span>{" "}
-          <span
-            className='copy'
-            onClick={() => copyToClipboard([`${lat},${lang}`])}
-          >
-            {lat} / {lang} <FaRegCopy className='copy-icon' />
-          </span>
-        </ListGroup.Item>
-        {status_piantina === "rejected" && (
+          )}
           <ListGroup.Item>
             {" "}
-            <span className='fw-medium'>Motivazione:</span>{" "}
-            <span>{rejection_comment}</span>
+            <span className='fw-medium'>Riferimento:</span>{" "}
+            <span>Zolla &#8470; {plantId}</span>
           </ListGroup.Item>
-        )}
-      </ListGroup>
-      <article className='booked-position-map'>
-        <MapContainer center={[lat, lang]} zoom={23}>
-          <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url='https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png'
-          />
+          {shop !== "undefined" && (
+            <ListGroup.Item>
+              {" "}
+              <span>Negozio:</span> <span>{shop}</span>
+            </ListGroup.Item>
+          )}
+          {residential !== "undefined" && (
+            <ListGroup.Item>
+              {" "}
+              <span className='fw-medium'>Residenza:</span>{" "}
+              <span>{residential}</span>
+            </ListGroup.Item>
+          )}
+          {house_number !== "undefined" && (
+            <ListGroup.Item>
+              {" "}
+              <span className='fw-medium'>Numero:</span>{" "}
+              <span>{house_number}</span>
+            </ListGroup.Item>
+          )}
+          {status_piantina === "pending" ||
+            (status_piantina === "rejected" && (
+              <ListGroup.Item>
+                {" "}
+                <span className='fw-medium'>Stato:</span>{" "}
+                <span
+                  className={
+                    status_piantina === "approved"
+                      ? "approvedPlant"
+                      : status_piantina === "rejected"
+                        ? "rejectedPlant"
+                        : status_piantina === "booked"
+                          ? "bookedPlant"
+                          : "pendingPlant"
+                  }
+                >
+                  {status_piantina === "pending"
+                    ? "in attesa di approvazione"
+                    : status_piantina === "approved"
+                      ? "approvata"
+                      : status_piantina === "rejected"
+                        ? "non approvata"
+                        : status_piantina === "booked"
+                          ? "acquistata"
+                          : status_piantina}
+                </span>
+              </ListGroup.Item>
+            ))}
+          {plant_type && status_piantina === "pending" && (
+            <ListGroup.Item>
+              <span className='fw-medium'>Tipo di pianta:</span>{" "}
+              <span>{plant_type}</span>
+            </ListGroup.Item>
+          )}
+          <ListGroup.Item>
+            {" "}
+            <span className='fw-medium'>Coordinate:</span>{" "}
+            <span
+              className='copy'
+              onClick={() => copyToClipboard([`${lat},${lang}`])}
+            >
+              {lat} / {lang} <FaRegCopy className='copy-icon' />
+            </span>
+          </ListGroup.Item>
+          {status_piantina === "rejected" && (
+            <ListGroup.Item>
+              {" "}
+              <span className='fw-medium'>Motivazione:</span>{" "}
+              <span>{rejection_comment}</span>
+            </ListGroup.Item>
+          )}
+        </ListGroup>
+        <article className='booked-position-map'>
+          <MapContainer center={[lat, lang]} zoom={23}>
+            <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              url='https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png'
+            />
 
-          <Marker
-            icon={markerIcon}
-            position={[lat, lang]}
-            scrollWheelZoom={false}
-            zoomControl={false}
-          ></Marker>
-        </MapContainer>
-      </article>
-    </Card>
+            <Marker
+              icon={markerIcon}
+              position={[lat, lang]}
+              scrollWheelZoom={false}
+              zoomControl={false}
+            ></Marker>
+          </MapContainer>
+        </article>
+      </Card>
+    </>
   );
 };
 
