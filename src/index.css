@@ -586,7 +586,7 @@ element {
   padding-bottom: 0.5rem;
 }
 .bottom-bar-height {
-  height: 4rem;
+  height: 4rem !important;
 }
 .underline {
   position: absolute;
