@@ -21,6 +21,7 @@ export const VersionProvider = ({ children }) => {
         console.log("same version");
       }
     };
+    checkVersion();
     setInterval(checkVersion, 100000);
   };
   useEffect(() => {
