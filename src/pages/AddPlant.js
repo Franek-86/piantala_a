@@ -334,7 +334,7 @@ const AddPlant = ({ setting }) => {
                   <Form.Label>Carica immagine</Form.Label>
                   <Form.Control
                     type='file'
-                    // accept='image/*'
+                    accept='image/png, image/jpeg'
                     {...register("file", {
                       required: "Image file is required.",
                     })}

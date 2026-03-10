@@ -17,8 +17,10 @@ export const VersionProvider = ({ children }) => {
       if (version !== appVersion) {
         console.log("different versions", version, "vs", appVersion);
         window.location.reload();
+        return;
       } else {
         console.log("same version");
+        return;
       }
     };
     checkVersion();
