@@ -15,16 +15,14 @@ export const VersionProvider = ({ children }) => {
 
       const version = response.message.version_number;
       if (version !== appVersion) {
-        console.log("different versions", version, "vs", appVersion);
         window.location.reload();
         return;
       } else {
-        console.log("same version");
         return;
       }
     };
     checkVersion();
-    setInterval(checkVersion, 100000);
+    // setInterval(checkVersion, 100000);
   };
   useEffect(() => {
     version();

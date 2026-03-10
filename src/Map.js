@@ -33,6 +33,7 @@ import SideBar from "./components/menu/SideBar";
 import { RiH1 } from "react-icons/ri";
 import LoginReg from "./components/registration/LoginReg";
 import Terms from "./components/registration/Terms";
+import { VersionContext } from "./context/VersionContext";
 
 const DefaultIcon = L.icon({
   iconUrl: iconLocation, // This can be your default icon
@@ -77,12 +78,14 @@ function Map() {
 
   const { filters, setFilters } = useContext(FilterContext);
   const { setShowPermissionModal, logReg } = useContext(AuthContext);
+  const { version } = useContext(VersionContext);
 
   const [copyText, setCopyText] = useState("");
   const isLargeScreen = useIsLargeScreen();
   const [show, setShow] = useState(false);
 
   useEffect(() => {
+    version();
     const checkPermissionsAndShowModal = async () => {
       const platform = Capacitor.getPlatform();
       if (Capacitor.getPlatform() === "web") return;

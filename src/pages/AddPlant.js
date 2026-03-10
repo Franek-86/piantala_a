@@ -15,6 +15,7 @@ import { useLocation } from "react-router-dom";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { Camera, CameraResultType } from "@capacitor/camera";
 import { UsersContext } from "../context/UsersContext";
+import { VersionContext } from "../context/VersionContext";
 
 const AddPlant = ({ setting }) => {
   const {
@@ -27,6 +28,7 @@ const AddPlant = ({ setting }) => {
     setValue,
   } = useForm();
   const { userId } = useContext(AuthContext);
+
   const { loggedUserInfo } = useContext(UsersContext);
   const location = useLocation();
   const fromManual = location.state?.fromManual;
@@ -42,7 +44,10 @@ const AddPlant = ({ setting }) => {
     locationInfo,
     addLocationInfo,
   } = useContext(PlantsContext);
-
+  const { version } = useContext(VersionContext);
+  useEffect(() => {
+    version();
+  }, []);
   const [submissionError, setSubmissionError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [loading, setLoading] = useState(false);

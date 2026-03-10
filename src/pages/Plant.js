@@ -7,10 +7,11 @@ import PlantPending from "../components/plant/PlantPending";
 import PlantBooked from "../components/plant/PlantBooked";
 import PlantRejected from "../components/plant/PlantRejected";
 import useIsLargeScreen from "../utils/useIsLargeScreen";
+import { VersionContext } from "../context/VersionContext";
 
 const Plant = () => {
   const { plantId } = useParams();
-
+  const { version } = useContext(VersionContext);
   const {
     getSinglePlant,
     singlePlantError,
@@ -20,6 +21,7 @@ const Plant = () => {
   } = useContext(PlantsContext);
   const isLarge = useIsLargeScreen();
   useEffect(() => {
+    version();
     getSinglePlant(plantId);
   }, [plantId, plateUrl]);
 

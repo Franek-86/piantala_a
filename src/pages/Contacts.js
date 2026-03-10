@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { MdBackspace } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
@@ -19,13 +19,13 @@ import { UsersContext } from "../context/UsersContext";
 import useIsLargeScreen from "../utils/useIsLargeScreen";
 import SideBar from "../components/menu/SideBar";
 import BackBtn from "../components/menu/BackBtn";
+import { VersionContext } from "../context/VersionContext";
 
 const Contacts = () => {
-  const navigate = useNavigate();
+  const { version } = useContext(VersionContext);
+
   const isLargeScreen = useIsLargeScreen();
-  const backToMap = () => {
-    navigate("/map");
-  };
+
   const {
     register,
     handleSubmit,
@@ -34,6 +34,9 @@ const Contacts = () => {
   } = useForm();
   const { isAuthenticated } = useContext(AuthContext);
   const { sendEmail, loading } = useContext(UsersContext);
+  useEffect(() => {
+    version();
+  }, []);
   const onSubmit = async (data) => {
     console.log(data.messageBody);
 

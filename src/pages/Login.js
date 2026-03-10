@@ -20,6 +20,7 @@ import { FaGooglePlay } from "react-icons/fa6";
 import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 import Google from "../components/registration/Google";
 import Terms from "../components/registration/Terms";
+import { VersionContext } from "../context/VersionContext";
 
 const AuthForm = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -35,6 +36,7 @@ const AuthForm = () => {
     generateFiscalCode,
     validateFiscalCode: checkFiscalCode,
   } = useContext(AuthContext);
+  const { version } = useContext(VersionContext);
   const {
     register,
     handleSubmit,
@@ -55,6 +57,7 @@ const AuthForm = () => {
   const fields = watch();
   const { name, lastName, gender, city, birthday } = fields;
   useEffect(() => {
+    version();
     if (name && lastName && gender && city && birthday) {
       console.log("12321", name);
       setDisabled(false);

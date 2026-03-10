@@ -10,12 +10,16 @@ import SideBar from "../components/menu/SideBar";
 import { AuthContext } from "../context/AuthContext";
 import { Alert } from "react-bootstrap";
 import BackBtn from "../components/menu/BackBtn";
+import { VersionContext } from "../context/VersionContext";
 
 const Chat = () => {
   const { userId, isAuthenticated } = useContext(AuthContext);
   const { getMessages, messages, message } = useContext(ChatContext);
   const isLargeScreen = useIsLargeScreen();
+  const { version } = useContext(VersionContext);
+
   useEffect(() => {
+    version();
     getMessages();
   }, []);
   const navigate = useNavigate();

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { PlantsContext } from "../context/PlantsContext";
 // import ReactFancyBox from "react-fancybox";
 // import "react-fancybox/lib/fancybox.css";
+
 import { MdBackspace } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import Fancybox from "../components/plates/Fancybox";
@@ -10,15 +11,19 @@ import useIsLargeScreen from "../utils/useIsLargeScreen";
 import SideBar from "../components/menu/SideBar";
 import BackBtn from "../components/menu/BackBtn";
 import { BsVectorPen } from "react-icons/bs";
+import { VersionContext } from "../context/VersionContext";
 const Plates = () => {
   const { getAllPlants, plates } = useContext(PlantsContext);
+  const { version } = useContext(VersionContext);
 
   const [isLoaded, setIsLoaded] = useState(false);
   const isLargeScreen = useIsLargeScreen();
   const handleImageLoad = () => {
     setIsLoaded(true);
   };
-
+  useEffect(() => {
+    version();
+  }, []);
   useEffect(() => {
     getAllPlants();
     // setPlates(filterPlates);

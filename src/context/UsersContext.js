@@ -54,14 +54,12 @@ export const UsersProvider = ({ children }) => {
     // userInfo,
     // setUserInfo,
   } = useContext(AuthContext);
-  const { version } = useContext(VersionContext);
+
   const serverDomain =
     process.env.REACT_APP_NODE_ENV === "test"
       ? process.env.REACT_APP_TEST_DOMAIN_NAME_SERVER
       : process.env.REACT_APP_DOMAIN_NAME_SERVER;
   // ok
-
-  version();
 
   const changeUserRole = async () => {
     setLoading(true);

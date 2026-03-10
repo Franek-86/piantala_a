@@ -16,6 +16,8 @@ import BackBtn from "../components/menu/BackBtn";
 import { MdDone } from "react-icons/md";
 import { MdOutlinePending } from "react-icons/md";
 import { RiProgress3Line } from "react-icons/ri";
+import { VersionContext } from "../context/VersionContext";
+
 const Orders = () => {
   const {
     getAllOrders,
@@ -27,6 +29,10 @@ const Orders = () => {
     setOrderId,
     loading,
   } = useContext(OrdersContext);
+  const { version } = useContext(VersionContext);
+  useEffect(() => {
+    version();
+  }, []);
   const isLargeScreen = useIsLargeScreen();
   const navigate = useNavigate();
   const backToMap = () => {

@@ -1,7 +1,7 @@
 import BottomBar from "../components/map/BottomBar";
 import { useNavigate } from "react-router-dom";
 import { MdBackspace } from "react-icons/md";
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import useIsLargeScreen from "../utils/useIsLargeScreen";
 import SideBar from "../components/menu/SideBar";
 import logoBari from "../assets/images/layout_set_logo.png";
@@ -11,12 +11,15 @@ import BackBtn from "../components/menu/BackBtn";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import logo from "../assets/images/ti pianto per amore-APP-verde.png";
+import { VersionContext } from "../context/VersionContext";
+
 const ChiSiamo = () => {
-  const navigate = useNavigate();
+  const { version } = useContext(VersionContext);
+  useEffect(() => {
+    version();
+  }, []);
   const isLargeScreen = useIsLargeScreen();
-  const backToMap = () => {
-    navigate("/map");
-  };
+
   return (
     <div className=''>
       {isLargeScreen && <SideBar />}

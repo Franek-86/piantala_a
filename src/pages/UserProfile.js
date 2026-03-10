@@ -19,6 +19,7 @@ import useIsLargeScreen from "../utils/useIsLargeScreen";
 import BackBtnLarge from "../components/menu/BackBtnLarge";
 import BackBtn from "../components/menu/BackBtn";
 import EditProfile from "../components/user-profile/EditProfile";
+import { VersionContext } from "../context/VersionContext";
 
 const UserProfile = () => {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -26,20 +27,9 @@ const UserProfile = () => {
   const inputRefAdd = useRef(null);
   const handleCloseDeleteModal = () => setShowDeleteModal(false);
   const handleShowDeleteModal = () => setShowDeleteModal(true);
-  const navigate = useNavigate();
   const isLarge = useIsLargeScreen();
-  const backToMap = () => {
-    navigate("/map");
-  };
-  const {
-    // loggedUserInfo,
-    // deleteProfile,
-    // handleUserPic,
-    // deleteProfilePic,
-    // loading,
-    // getUserInfo,
-    // takePicture,
-  } = useContext(AuthContext);
+
+  const { version } = useContext(VersionContext);
   const {
     loggedUserInfo,
     handleUserPic,
@@ -55,9 +45,9 @@ const UserProfile = () => {
   const handleRefClick = () => {
     inputRefAdd.current.click();
   };
-  // useEffect(() => {
-  //   console.log("staa??????", userName);
-  // }, [userName]);
+  useEffect(() => {
+    version();
+  }, []);
 
   return (
     <div className={isLarge ? "plants-container" : "plants-container-small"}>

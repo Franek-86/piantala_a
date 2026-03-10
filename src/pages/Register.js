@@ -20,6 +20,8 @@ import { toast } from "react-toastify";
 import { Keyboard } from "@capacitor/keyboard";
 import { IoMdExit } from "react-icons/io";
 import { GrFormNextLink } from "react-icons/gr";
+import { VersionContext } from "../context/VersionContext";
+
 const Register = () => {
   const [serverError, setServerError] = useState("");
   const [successMessage, setSuccessMessage] = useState(false);
@@ -30,6 +32,7 @@ const Register = () => {
   //   ref.current?.scrollIntoView({ behavior: "smooth" });
   // };
   const navigate = useNavigate();
+  const { version } = useContext(VersionContext);
   const { regionsLoading, setUserData, userData, handleChange } =
     useContext(AuthContext);
   const {
@@ -39,6 +42,9 @@ const Register = () => {
     formState: { errors },
     watch,
   } = useForm({ userData });
+  useEffect(() => {
+    version();
+  });
   // React.useEffect(() => {
   //   setError("name", {
   //     type: "manual",
