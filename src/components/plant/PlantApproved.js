@@ -22,6 +22,7 @@ import Verner from "../../assets/images/verner.jpg";
 import useIsLargeScreen from "../../utils/useIsLargeScreen";
 import BackBtnLarge from "../menu/BackBtnLarge";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
+
 const PlantApproved = () => {
   const {
     handleSubmit,
@@ -128,10 +129,11 @@ const PlantApproved = () => {
                 )}
                 <article className='plant-intro-text intro-article p-2 p-lg-3 p-xl-4 mb-3'>
                   <span className='mb-0'>
-                    La zolla numero {plant.id} sita nel{" "}
-                    <b>quartiere {plant?.suburb} </b> di <b>{plant?.city} </b> è
-                    approvata dal comune per la piantumazione da parte di
-                    privati cittadini. Puoi procedere con l'acquisto e la
+                    Questa zolla di piantagione avente il riferimento numerico{" "}
+                    {plant.id} si trova nel <b>quartiere {plant?.suburb} </b> di{" "}
+                    <b>{plant?.city} </b>. Si tratta di una zolla approvata dal
+                    comune per la piantumazione da parte di privati cittadini,
+                    dunque acquistabile. Puoi procedere con l'acquisto e la
                     piantumazione della tua piantina seguendo i{" "}
                     <b>tre passaggi</b> qui di seguito descritti.
                   </span>
@@ -154,15 +156,6 @@ const PlantApproved = () => {
                     </ol>
                   </span>
                 </article>
-                {/* <article className='plant-intro-text intro-article p-2 p-lg-3 p-xl-4'>
-                  <p className='mb-0'>
-                    Controlla la <b>zona di piantumazione</b> tenendo presente
-                    che li dove non c'è un sistema di irrigazione sarà tua
-                    premura innaffiare il tuo albero, inserisci il{" "}
-                    <b>testo della targa</b> dedicandola a chi preferisci e
-                    procedi infine con il <b>pagamento</b>.
-                  </p>
-                </article> */}
                 <article className='py-4 py-lg-0 py-xl-4 d-flex justify-content-center my-4 my-lg-2'>
                   <div className='steps-article my-2 d-flex flex-row justify-content-around p-2 p-xl-3'>
                     <div className='step-container d-flex flex-column align-items-center'>

@@ -54,7 +54,7 @@ export const AuthProvider = ({ children }) => {
   const handleCloseTerms = () => setShowTerms(false);
   const handleShowTerms = () => setShowTerms(true);
   const token = localStorage.getItem("userToken");
-
+  const appVersion = process.env.REACT_APP_CURRENT_VERSION;
   const serverDomain =
     process.env.REACT_APP_NODE_ENV === "test"
       ? process.env.REACT_APP_TEST_DOMAIN_NAME_SERVER
@@ -70,6 +70,24 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     setClientDomain(client);
+  }, []);
+  const version = async () => {
+    let response = await fetch(
+      "http://localhost:3001/api/version/version-number",
+    );
+    response = await response.json();
+    const version = response.message.version_number;
+    if (version !== appVersion) {
+      console.log("different versions", version, "vs", appVersion);
+      window.location.reload();
+    } else {
+      console.log("same version");
+    }
+  };
+
+  useEffect(() => {
+    version();
+    setInterval(version, 86400);
   }, []);
 
   const getRegions = async () => {
@@ -147,102 +165,7 @@ export const AuthProvider = ({ children }) => {
     );
     return response;
   };
-  // const googleAccess = async (data, navigate, plantId) => {
-  //   const payload = data;
 
-  //   const response = await axios.post(
-  //     `${serverDomain}/api/auth/google-access`,
-  //     payload,
-  //     {
-  //       withCredentials: true,
-  //     }
-  //   );
-
-  //   if (response.status === 200) {
-  //     setIsAuthenticated(true);
-  //     setLogReg(false);
-  //     localStorage.setItem("justLoggedIn", "true");
-
-  //     const {
-  //       token,
-  //       user: { role },
-  //     } = response.data;
-
-  //     setUserRole(role);
-
-  //     localStorage.setItem("userToken", token);
-  //     if (plantId) {
-  //       navigate(`/map/${plantId}`);
-  //     } else {
-  //       navigateToMap(navigate);
-  //     }
-  //   }
-  // };
-
-  // const googleAccessTest = async (navigate) => {
-  //   try {
-  //     await SocialLogin.initialize({
-  //       google: {
-  //         webClientId: process.env.REACT_APP_GOOGLE_ID_WEB,
-  //         // redirectUrl: "https://piantala-a.onrender.com/login",
-  //         redirectUrl: "http://localhost:3000/login",
-  //         mode: "online",
-  //       },
-  //     });
-
-  //     const res = await SocialLogin.login({
-  //       provider: "google",
-  //       options: {},
-  //     });
-  //     const test2 = res.result.profile;
-
-  //     const payload = test2;
-  //     const response = await axios.post(
-  //       `${serverDomain}/api/auth/google-access-android`,
-  //       payload,
-  //       {
-  //         withCredentials: true,
-  //       }
-  //     );
-  //     if (response.status === 200) {
-  //       setIsAuthenticated(true);
-  //       localStorage.setItem("justLoggedIn", "true");
-
-  //       const {
-  //         token,
-  //         user: { role },
-  //       } = response.data;
-
-  //       setUserRole(role);
-
-  //       localStorage.setItem("userToken", token);
-  //       navigateToMap(navigate);
-  //     }
-  //     if (response.status !== 200) {
-  //       toast.error(`non è stato possibile auntenticarsi`, {
-  //         position: "top-right",
-  //         autoClose: 2000,
-  //         hideProgressBar: false,
-  //         closeOnClick: false,
-  //         pauseOnHover: true,
-  //         draggable: true,
-  //         progress: undefined,
-  //         theme: "light",
-  //       });
-  //     }
-  //   } catch (error) {
-  //     toast.error(`errore test2 ${error}`, {
-  //       position: "top-right",
-  //       autoClose: 2000,
-  //       hideProgressBar: false,
-  //       closeOnClick: false,
-  //       pauseOnHover: true,
-  //       draggable: true,
-  //       progress: undefined,
-  //       theme: "light",
-  //     });
-  //   }
-  // };
   useEffect(() => {
     SocialLogin.initialize({
       google: {
