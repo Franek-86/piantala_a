@@ -60,9 +60,9 @@ export const UsersProvider = ({ children }) => {
       ? process.env.REACT_APP_TEST_DOMAIN_NAME_SERVER
       : process.env.REACT_APP_DOMAIN_NAME_SERVER;
   // ok
-  useEffect(() => {
-    version();
-  }, []);
+
+  version();
+
   const changeUserRole = async () => {
     setLoading(true);
     try {

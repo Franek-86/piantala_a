@@ -203,7 +203,7 @@ const AddPlant = ({ setting }) => {
       // );
       setSubmissionError(
         "catch",
-        error?.response || "Errore nella compilazione del modulo"
+        error?.response || "Errore nella compilazione del modulo",
       );
     }
 
@@ -221,7 +221,7 @@ const AddPlant = ({ setting }) => {
 
     // Regular expression to match coordinates in "lat, long" format
     const coordsMatch = pastedValue.match(
-      /^(-?\d+(\.\d+)?),\s*(-?\d+(\.\d+)?)/
+      /^(-?\d+(\.\d+)?),\s*(-?\d+(\.\d+)?)/,
     );
 
     // If coordinates are found in the correct format (lat, long)
@@ -249,7 +249,7 @@ const AddPlant = ({ setting }) => {
     <>
       {loading && <Loading />}
       {!loading && (
-        <section className='plant-section plants-container section-large'>
+        <section className='plant-section plants-container section-large min-100'>
           <div className='section-center single-plant pb-5'>
             <div className='back-btn'>
               <MdBackspace

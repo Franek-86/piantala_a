@@ -80,8 +80,8 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     setClientDomain(client);
-    version();
   }, []);
+  version();
 
   const getRegions = async () => {
     setLoading(true);

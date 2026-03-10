@@ -59,9 +59,9 @@ export const PlantsProvider = ({ children }) => {
   });
   const [userOwner, setUserOwner] = useState(null);
   const { version } = useContext(VersionContext);
-  useEffect(() => {
-    version();
-  }, []);
+
+  version();
+
   const serverDomain =
     process.env.REACT_APP_NODE_ENV === "test"
       ? process.env.REACT_APP_TEST_DOMAIN_NAME_SERVER
