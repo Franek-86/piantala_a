@@ -4,6 +4,7 @@ import axiosInstance from "../services/axiosInstance";
 import { Camera, CameraResultType } from "@capacitor/camera";
 import { AuthContext } from "./AuthContext";
 import { Form } from "react-bootstrap";
+import { VersionContext } from "./VersionContext";
 
 export const UsersContext = createContext();
 
@@ -53,12 +54,15 @@ export const UsersProvider = ({ children }) => {
     // userInfo,
     // setUserInfo,
   } = useContext(AuthContext);
+  const { version } = useContext(VersionContext);
   const serverDomain =
     process.env.REACT_APP_NODE_ENV === "test"
       ? process.env.REACT_APP_TEST_DOMAIN_NAME_SERVER
       : process.env.REACT_APP_DOMAIN_NAME_SERVER;
   // ok
-
+  useEffect(() => {
+    version();
+  }, []);
   const changeUserRole = async () => {
     setLoading(true);
     try {

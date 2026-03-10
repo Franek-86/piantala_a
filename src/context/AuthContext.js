@@ -1,4 +1,10 @@
-import React, { createContext, useState, useEffect, cloneElement } from "react";
+import React, {
+  createContext,
+  useState,
+  useEffect,
+  cloneElement,
+  useContext,
+} from "react";
 import { jwtDecode } from "jwt-decode";
 import axios, { Axios } from "axios";
 import { decode } from "base64-arraybuffer";
@@ -9,6 +15,7 @@ import { Camera, CameraResultType } from "@capacitor/camera";
 import { navigateToLoginFunction } from "../services/deepLinkServices";
 import { navigateToMap } from "../utils/utils";
 import { SocialLogin } from "@capgo/capacitor-social-login";
+import { VersionContext } from "./VersionContext";
 
 export const AuthContext = createContext();
 
@@ -51,6 +58,9 @@ export const AuthProvider = ({ children }) => {
   const [isRegister, setIsRegister] = useState(null);
   const [clientDomain, setClientDomain] = useState(null);
   const [showTerms, setShowTerms] = useState(false);
+
+  const { version } = useContext(VersionContext);
+
   const handleCloseTerms = () => setShowTerms(false);
   const handleShowTerms = () => setShowTerms(true);
   const token = localStorage.getItem("userToken");
@@ -70,24 +80,7 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     setClientDomain(client);
-  }, []);
-  const version = async () => {
-    let response = await fetch(
-      "http://localhost:3001/api/version/version-number",
-    );
-    response = await response.json();
-    const version = response.message.version_number;
-    if (version !== appVersion) {
-      console.log("different versions", version, "vs", appVersion);
-      window.location.reload();
-    } else {
-      console.log("same version");
-    }
-  };
-
-  useEffect(() => {
     version();
-    setInterval(version, 86400);
   }, []);
 
   const getRegions = async () => {

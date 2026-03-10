@@ -5,7 +5,10 @@ import axios from "../services/axiosInstance";
 import { UsersContext } from "./UsersContext";
 import { Camera, CameraResultType } from "@capacitor/camera";
 import { AuthContext } from "./AuthContext";
+import { VersionContext } from "./VersionContext";
+
 export const PlantsContext = createContext();
+
 export const PlantsProvider = ({ children }) => {
   const { getOtherUserInfo } = useContext(UsersContext);
   const { isAuthenticated, logReg, setLogReg } = useContext(AuthContext);
@@ -55,6 +58,10 @@ export const PlantsProvider = ({ children }) => {
     cratedAt: "",
   });
   const [userOwner, setUserOwner] = useState(null);
+  const { version } = useContext(VersionContext);
+  useEffect(() => {
+    version();
+  }, []);
   const serverDomain =
     process.env.REACT_APP_NODE_ENV === "test"
       ? process.env.REACT_APP_TEST_DOMAIN_NAME_SERVER

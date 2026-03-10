@@ -26,7 +26,6 @@ import Info from "./pages/Info";
 import { CheckoutForm } from "./pages/CheckoutForm";
 import { Return } from "./pages/Return";
 import OwnedPlants from "./pages/OwnedPlants";
-
 import Contacts from "./pages/Contacts";
 import EmailVerification from "./pages/EmailVerification";
 import Plates from "./pages/Plates";
@@ -57,6 +56,7 @@ import RegisterLast from "./pages/RegisterLast";
 import TermsOfService from "./pages/TermsOfService";
 import LoginForm from "./pages/LoginForm";
 import ErrorNotFound from "./pages/ErrorNotFound";
+import { VersionProvider } from "./context/VersionContext";
 
 // import { io } from "socket.io-client";
 // const url =
@@ -230,23 +230,25 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <AuthProvider>
-      <UsersProvider>
-        <SocketProvider>
-          <ChatProvider>
-            <PlantsProvider>
-              <OrdersProvider>
-                <FilterProvider>
-                  <ToastContainer />
-                  <Error />
-                  <RouterProvider router={router} />
-                </FilterProvider>
-              </OrdersProvider>
-            </PlantsProvider>
-          </ChatProvider>
-        </SocketProvider>
-      </UsersProvider>
-    </AuthProvider>
+    <VersionProvider>
+      <AuthProvider>
+        <UsersProvider>
+          <SocketProvider>
+            <ChatProvider>
+              <PlantsProvider>
+                <OrdersProvider>
+                  <FilterProvider>
+                    <ToastContainer />
+                    <Error />
+                    <RouterProvider router={router} />
+                  </FilterProvider>
+                </OrdersProvider>
+              </PlantsProvider>
+            </ChatProvider>
+          </SocketProvider>
+        </UsersProvider>
+      </AuthProvider>
+    </VersionProvider>
   </React.StrictMode>,
 );
 
