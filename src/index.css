@@ -255,6 +255,9 @@ hr {
 .page-link:hover {
   color: var(--clr-secondary-3);
 }
+.max-width-50 {
+  max-width: 50rem;
+}
 @media screen and (min-width: 992px) {
   .section-large {
     width: calc(100% - 20rem);
