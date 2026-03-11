@@ -129,11 +129,11 @@ const PlantApproved = () => {
                 )}
                 <article className='plant-intro-text intro-article p-2 p-lg-3 p-xl-4 mb-3'>
                   <span className='mb-0'>
-                    Questa zolla di piantagione avente il riferimento numerico{" "}
-                    {plant.id} si trova nel <b>quartiere {plant?.suburb} </b> di{" "}
-                    <b>{plant?.city} </b>. Si tratta di una zolla approvata dal
-                    comune per la piantumazione da parte di privati cittadini,
-                    dunque acquistabile. Puoi procedere con l'acquisto e la
+                    Questa zolla di piantagione dal nostro riferimento numerico
+                    "{plant.id}" si trova nel <b>quartiere {plant?.suburb} </b>{" "}
+                    di <b>{plant?.city} </b>. Si tratta di una zolla approvata
+                    dal comune per la possibile piantumazione da parte di
+                    privati cittadini. Puoi procedere con l'acquisto e la
                     piantumazione della tua piantina seguendo i{" "}
                     <b>tre passaggi</b> qui di seguito descritti.
                   </span>

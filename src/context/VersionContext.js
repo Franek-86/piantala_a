@@ -18,7 +18,7 @@ export const VersionProvider = ({ children }) => {
         const version = response.message.version_number;
         console.log("current version", version, "running version", appVersion);
         if (version && version !== appVersion) {
-          // window.location.reload();
+          window.location.reload();
           return;
         } else {
           return;
