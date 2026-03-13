@@ -130,21 +130,19 @@ const PlantApproved = () => {
                 )}
                 <article className='plant-intro-text intro-article p-2 p-lg-3 p-xl-4 mb-3'>
                   <span className='mb-0'>
-                    La zolla di piantagione avente nostro riferimento numerico "
-                    {plant.id}" è sita nel <b>quartiere {plant?.suburb} </b> di{" "}
-                    <b>{plant?.city} </b>. Si tratta di una zolla approvata dal
-                    comune per la possibile piantumazione da parte di privati
-                    cittadini. Puoi procedere con l'acquisto e la piantumazione
-                    della tua piantina seguendo i <b>tre passaggi</b> qui di
-                    seguito descritti.
+                    Questa zolla di piantagione, avente nostro riferimento
+                    numerico "{plant.id}", si trova nel{" "}
+                    <b>quartiere {plant?.suburb} </b> di <b>{plant?.city}</b>.
+                    Puoi procedere con l'acquisto della tua piantina seguendo i{" "}
+                    <b>tre passaggi</b> qui di seguito descritti.
                   </span>
                   <span className='d-block mt-3'>
                     <ol>
                       <li>
                         {" "}
-                        Controlla la <b>zona di piantumazione</b> tenendo
-                        presente che li dove non c'è un sistema di irrigazione
-                        sarà tua premura innaffiare il tuo albero
+                        Controlla la <b>zona di piantumazione</b>, li dove non
+                        c'è un sistema di irrigazione sarà tua premura
+                        innaffiare il tuo albero
                       </li>
                       <li>
                         inserisci il <b>testo della targa</b> dedicandola a chi
