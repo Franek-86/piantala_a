@@ -27,6 +27,8 @@ import { MdLegendToggle } from "react-icons/md";
 import { GiPlantSeed } from "react-icons/gi";
 import { IoPeopleCircle } from "react-icons/io5";
 import { PiPottedPlantBold } from "react-icons/pi";
+import { TfiSettings } from "react-icons/tfi";
+import { CgProfile } from "react-icons/cg";
 const SideMenu = ({ onLogout, ...props }) => {
   const { handleLogout, userRole, isAuthenticated } = useContext(AuthContext);
   const { getAllPlants, plates, drop, setDrop, toggleDrop, unDropIt } =
@@ -243,16 +245,28 @@ const SideMenu = ({ onLogout, ...props }) => {
           </ListGroup.Item>
 
           {isAuthenticated ? (
-            <ListGroup.Item onClick={() => unDropIt()}>
-              <Link
-                to='/login'
-                onClick={handleLogout}
-                class='nav-link text-truncate'
-              >
-                <RiLogoutBoxLine />
-                <span class='ms-2 d-sm-inline'>Log out</span>
-              </Link>
-            </ListGroup.Item>
+            <>
+              <ListGroup.Item onClick={() => unDropIt()}>
+                <Link
+                  to='/map/profile'
+                  // onClick={handleLogout}
+                  class='nav-link text-truncate'
+                >
+                  <CgProfile />
+                  <span class='ms-2 d-sm-inline'>Modifica profilo</span>
+                </Link>
+              </ListGroup.Item>
+              <ListGroup.Item onClick={() => unDropIt()}>
+                <Link
+                  to='/login'
+                  onClick={handleLogout}
+                  class='nav-link text-truncate'
+                >
+                  <RiLogoutBoxLine />
+                  <span class='ms-2 d-sm-inline'>Log out</span>
+                </Link>
+              </ListGroup.Item>
+            </>
           ) : (
             <ListGroup.Item onClick={() => unDropIt()}>
               <Link to='/login' class='nav-link text-truncate'>

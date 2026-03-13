@@ -5,11 +5,13 @@ import Modal from "react-bootstrap/Modal";
 import { AuthContext } from "../../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import { UsersContext } from "../../context/UsersContext";
+import { PlantsContext } from "../../context/PlantsContext";
 
 const ProfileModal = ({ smShow, setSmShow }) => {
   const { handleLogout, clientDomain, googleAccess, isAuthenticated } =
     useContext(AuthContext);
   const { loggedUserInfo } = useContext(UsersContext);
+  const { unDropIt } = useContext(PlantsContext);
   const navigate = useNavigate();
 
   return (
@@ -39,7 +41,10 @@ const ProfileModal = ({ smShow, setSmShow }) => {
             {isAuthenticated ? "Logout" : "Login/registrati"}
           </Link>
           {isAuthenticated ? (
-            <Link to='/map/profile'> Modifica profilo</Link>
+            <Link onClick={() => unDropIt()} to='/map/profile'>
+              {" "}
+              Modifica profilo
+            </Link>
           ) : (
             <div
               onClick={() => {
