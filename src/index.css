@@ -613,7 +613,7 @@ element {
 }
 .avatar {
   background-color: var(--c-bg-map-1) !important;
-  color: var(--clr-secondary-5) !important;
+  color: var(--clr-secondary-3) !important;
 }
 .avatar:hover {
   cursor: pointer;
@@ -2510,8 +2510,8 @@ body {
 }
 .back-nav-btn {
   color: var(--clr-primary-5);
-  border: 2px solid var(--clr-secondary-2);
-  border-radius: 50%;
+  border: 2px solid var(--clr-primary-3);
+  border-radius: 25%;
 }
 .back-nav {
   display: flex;
@@ -2520,7 +2520,7 @@ body {
   position: sticky;
   top: 0;
   /* background-color: #eef3f4; */
-  background-color: #fff;
+  background-color: var(--c-bg-map-2);
   z-index: 1000;
   border-bottom: 2px solid var(--clr-primary-5);
   justify-content: space-between;
@@ -2528,9 +2528,9 @@ body {
   padding: 0 1rem;
   cursor: pointer;
 }
-
 .back-nav-app {
-  height: 4rem;
+  height: 5rem;
+  padding-top: 1rem;
 }
 
 .back-nav-icon {

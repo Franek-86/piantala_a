@@ -69,7 +69,7 @@ const BackBtn = ({ plant }) => {
         <Avatar
           src={pic}
           size='2rem'
-          round='50%'
+          round='25%'
           // src='https://example.com/user-avatar.jpg'
           className='avatar'
           fgColor='#fefee3'
