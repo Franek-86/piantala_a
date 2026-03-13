@@ -238,7 +238,7 @@ const PlantApproved = () => {
                 </span>
               </article>
 
-              <article className='pt-4 d-flex btn-plant-article  justify-content-center'>
+              <article className='pt-4 pb-5 d-flex btn-plant-article  justify-content-center'>
                 <a
                   href='#plate'
                   className='btn btn-primary d-flex align-items-center justify-content-between'

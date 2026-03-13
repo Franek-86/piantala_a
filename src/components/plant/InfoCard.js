@@ -245,7 +245,13 @@ const InfoCard = () => {
           )}
         </ListGroup>
         <article className='booked-position-map'>
-          <MapContainer center={[lat, lang]} zoom={23}>
+          <MapContainer
+            center={[lat, lang]}
+            zoom={17}
+            dragging={false}
+            scrollWheelZoom={false}
+            zoomControl={false}
+          >
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               url='https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png'
