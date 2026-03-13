@@ -248,7 +248,7 @@ const SideMenu = ({ onLogout, ...props }) => {
             <>
               <ListGroup.Item onClick={() => unDropIt()}>
                 <NavLink
-                  to='/map/profile'
+                  to='/profile'
                   // onClick={handleLogout}
                   className={({ isActive }) =>
                     isActive

@@ -39,7 +39,7 @@ const UserProfile = () => {
     handleShowEdit,
     showEdit,
   } = useContext(UsersContext);
-  // console.log("logged user info", loggedUserInfo);
+
   const { id, userName, phone, pic } = loggedUserInfo;
 
   const handleRefClick = () => {

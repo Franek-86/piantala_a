@@ -35,13 +35,12 @@ const ProfileModal = ({ smShow, setSmShow }) => {
             : "Per poter segnalare zone di piantagione o acquistare piantine, partecipare alla chat e tanto altro ancora ti invitiamo ad effettuare l'accesso."}
         </span>
         <div className='profile-links mt-2 d-flex flex-row justify-content-between align-items-center'>
-          {/* <Link className='d-block w-100 mb-2'>Immagine profilo</Link> */}
           <Link to={`${clientDomain}/login`} onClick={handleLogout}>
             {" "}
             {isAuthenticated ? "Logout" : "Login/registrati"}
           </Link>
           {isAuthenticated ? (
-            <Link onClick={() => unDropIt()} to='/map/profile'>
+            <Link onClick={() => unDropIt()} to='/profile'>
               {" "}
               Modifica profilo
             </Link>

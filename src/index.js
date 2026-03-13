@@ -150,15 +150,15 @@ const router = createBrowserRouter([
             path: ":plantId",
             element: <Plant />,
           },
-          {
-            path: "profile",
-            element: <UserProfile />,
-          },
         ],
       },
       {
         path: "myPlants",
         element: <MyPlants />,
+      },
+      {
+        path: "profile",
+        element: <UserProfile />,
       },
       {
         path: "legend",
