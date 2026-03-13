@@ -247,7 +247,7 @@ const SideMenu = ({ onLogout, ...props }) => {
           {isAuthenticated ? (
             <>
               <ListGroup.Item onClick={() => unDropIt()}>
-                <Link
+                <NavLink
                   to='/map/profile'
                   // onClick={handleLogout}
                   className={({ isActive }) =>
@@ -258,7 +258,7 @@ const SideMenu = ({ onLogout, ...props }) => {
                 >
                   <CgProfile />
                   <span class='ms-2 d-sm-inline'>Modifica profilo</span>
-                </Link>
+                </NavLink>
               </ListGroup.Item>
               <ListGroup.Item onClick={() => unDropIt()}>
                 <Link

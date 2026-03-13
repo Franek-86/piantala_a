@@ -50,15 +50,19 @@ const UserProfile = () => {
   }, []);
 
   return (
-    <div className={isLarge ? "plants-container" : "plants-container-small"}>
+    <div
+      className={
+        isLarge
+          ? "plants-container"
+          : "plants-container-small min-100 blue-background"
+      }
+    >
       {userLoading && <Loading />}
       {showEdit && <EditProfile />}
       <BackBtn />
       {/* {userLoading && <Loading />} */}
       <section
-        className={
-          isLarge ? "section-large-intro" : "section-plant-intro min-100"
-        }
+        className={isLarge ? "section-large-intro" : "section-plant-intro"}
       >
         <div className='pt-4 pt-lg-0'>
           {isLarge && (
