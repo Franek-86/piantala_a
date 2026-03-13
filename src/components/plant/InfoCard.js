@@ -258,6 +258,15 @@ const InfoCard = () => {
             />
 
             <Marker
+              // onClick={() => {
+              //   handleShowPic();
+              //   console.log("ciao");
+              // }}
+              eventHandlers={{
+                click: () => {
+                  handleShowPic();
+                },
+              }}
               icon={markerIcon}
               position={[lat, lang]}
               scrollWheelZoom={false}
