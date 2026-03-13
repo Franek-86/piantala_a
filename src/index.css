@@ -613,7 +613,7 @@ element {
 }
 .avatar {
   background-color: var(--c-bg-map-1) !important;
-  color: var(--clr-secondary-2) !important;
+  color: var(--clr-secondary-5) !important;
 }
 .avatar:hover {
   cursor: pointer;
@@ -2510,14 +2510,17 @@ body {
 }
 .back-nav-btn {
   color: var(--clr-primary-5);
+  border: 2px solid var(--clr-secondary-2);
+  border-radius: 50%;
 }
 .back-nav {
   display: flex;
-  height: 3.75rem;
+  height: 4rem;
   align-items: center;
   position: sticky;
   top: 0;
   /* background-color: #eef3f4; */
+  background-color: #fff;
   z-index: 1000;
   border-bottom: 2px solid var(--clr-primary-5);
   justify-content: space-between;
