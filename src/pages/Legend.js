@@ -26,7 +26,7 @@ const Legend = () => {
         <div className='d-flex flex-row'>
           {isLargeScreen && <SideBar />}
           <section className='w-100 section-page section-center-map'>
-            <h2 className='section-title pt-5 d-lg-none'>legenda</h2>
+            <h2 className='section-title pt-3 d-lg-none'>legenda</h2>
             <ul className='d-block section-center mt-lg-5'>
               <li className='plants-list'>
                 <div className='legend-box-container'>

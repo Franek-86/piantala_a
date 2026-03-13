@@ -58,7 +58,7 @@ const BackBtn = ({ plant }) => {
           }}
           // style={{ width: "3rem", height: "3rem" }}
 
-          className='fs-2 back-nav-icon'
+          className='fs-1 back-nav-icon'
         >
           <BiMenu />
         </span>
