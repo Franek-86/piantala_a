@@ -23,7 +23,7 @@ const ChiSiamo = () => {
   return (
     <div className=''>
       {isLargeScreen && <SideBar />}
-      <div className='section-page section-full-page section-large page-large-container'>
+      <div className='section-page section-full-page section-large page-large-container yellow-background min-100'>
         <BackBtn />
         <section className='chi-article section-background menu-section-center pb-5'>
           <div className='section-center'>
@@ -55,35 +55,36 @@ const ChiSiamo = () => {
             </div>
           </div>
         </section>
-        <section className='chi-logo-section pt-4 pb-5 pt-lg-5'>
+        <section className='chi-logo-section pt-4 pb-5 pt-lg-5 white-background'>
           <div className='section-center'>
             <h4 className=''>Patrocini</h4>
-          </div>
-          <div className='py-5 logo-container d-flex flex-column flex-lg-row justify-content-around w-100'>
-            <div className='single-logo mb-5 mb-lg-0'>
-              {" "}
-              <a
-                href='https://www.ernestverner.it/'
-                className='logo-background logo-verner'
-              ></a>
-            </div>
-            <div className='single-logo mb-5 mb-lg-0'>
-              {" "}
-              <a
-                href='https://www.comune.bari.it/'
-                className='logo-background logo-city'
-              ></a>
-            </div>
-            <div className='single-logo mb-5 pb-5 pb-lg-0 mb-lg-0'>
-              {" "}
-              <a
-                href='https://www.comune.bari.it/web/ambiente-verde-energia-e-impianti/dona-un-albero-alla-tua-citta'
-                className='logo-background logo-dona'
-              ></a>
+
+            <div className='py-5 logo-container d-flex flex-column flex-lg-row justify-content-around w-100'>
+              <div className='single-logo mb-5 mb-lg-0'>
+                {" "}
+                <a
+                  href='https://www.ernestverner.it/'
+                  className='logo-background logo-verner'
+                ></a>
+              </div>
+              <div className='single-logo mb-5 mb-lg-0'>
+                {" "}
+                <a
+                  href='https://www.comune.bari.it/'
+                  className='logo-background logo-city'
+                ></a>
+              </div>
+              <div className='single-logo mb-5 pb-5 pb-lg-0 mb-lg-0'>
+                {" "}
+                <a
+                  href='https://www.comune.bari.it/web/ambiente-verde-energia-e-impianti/dona-un-albero-alla-tua-citta'
+                  className='logo-background logo-dona'
+                ></a>
+              </div>
             </div>
           </div>
         </section>
-        <section className='pt-4 pb-5 pt-lg-5 position-background'>
+        <section className='pt-4 pb-5 pt-lg-5 yellow-background'>
           <div className='section-center'>
             <h4>Seguici sui nostri canali</h4>
 
