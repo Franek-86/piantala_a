@@ -258,10 +258,6 @@ const InfoCard = () => {
             />
 
             <Marker
-              // onClick={() => {
-              //   handleShowPic();
-              //   console.log("ciao");
-              // }}
               eventHandlers={{
                 click: () => {
                   handleShowPic();
