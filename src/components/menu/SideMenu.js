@@ -250,7 +250,11 @@ const SideMenu = ({ onLogout, ...props }) => {
                 <Link
                   to='/map/profile'
                   // onClick={handleLogout}
-                  class='nav-link text-truncate'
+                  className={({ isActive }) =>
+                    isActive
+                      ? "nav-link text-truncate sidebar-active"
+                      : "nav-link text-truncate"
+                  }
                 >
                   <CgProfile />
                   <span class='ms-2 d-sm-inline'>Modifica profilo</span>
