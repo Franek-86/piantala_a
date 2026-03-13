@@ -99,7 +99,8 @@ const PlantApproved = () => {
 
   return (
     <div className='plant-section'>
-      <Terms id={plantId} /> <BackBtn plant />
+      <Terms id={plantId} />
+      <BackBtn plant />
       <Form onSubmit={handleSubmit(onSubmit)}>
         <div className='single-plant'>
           <section

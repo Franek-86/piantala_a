@@ -667,6 +667,7 @@ element {
     background-color 0.3s,
     transform 0.2s;
 }
+
 .menu-button {
   background-color: var(--clr-primary-5);
   color: var(--clr-secondary-2) !important; /* Icon color */
@@ -2509,7 +2510,6 @@ body {
 }
 .back-nav-btn {
   color: var(--clr-primary-5);
-  font-size: 2rem;
 }
 .back-nav {
   display: flex;
@@ -2517,7 +2517,7 @@ body {
   align-items: center;
   position: sticky;
   top: 0;
-  background-color: #eef3f4;
+  /* background-color: #eef3f4; */
   z-index: 1000;
   border-bottom: 2px solid var(--clr-primary-5);
   justify-content: space-between;

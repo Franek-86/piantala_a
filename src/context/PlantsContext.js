@@ -58,6 +58,16 @@ export const PlantsProvider = ({ children }) => {
     cratedAt: "",
   });
   const [userOwner, setUserOwner] = useState(null);
+  const [drop, setDrop] = useState(false);
+  const toggleDrop = () => {
+    setDrop(!drop);
+  };
+  const dropIt = () => {
+    setDrop(true);
+  };
+  const unDropIt = () => {
+    setDrop(false);
+  };
   const { version } = useContext(VersionContext);
 
   const serverDomain =
@@ -668,6 +678,11 @@ export const PlantsProvider = ({ children }) => {
         plates,
         totApproved,
         totBooked,
+        drop,
+        setDrop,
+        toggleDrop,
+        dropIt,
+        unDropIt,
       }}
     >
       {children}

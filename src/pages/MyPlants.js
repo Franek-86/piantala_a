@@ -15,15 +15,16 @@ import CardImg from "react-bootstrap/CardImg";
 import { copyToClipboard } from "../utils/utils";
 import useIsLargeScreen from "../utils/useIsLargeScreen";
 import SideBar from "../components/menu/SideBar";
+import BackBtn from "../components/menu/BackBtn";
 
 const MyPlants = () => {
-  const { myReports, loadingReports, fetchUserPlants } =
+  const { myReports, loadingReports, fetchUserPlants, dropIt } =
     useContext(PlantsContext);
   const isLargeScreen = useIsLargeScreen();
   const navigate = useNavigate();
-
   useEffect(() => {
-    fetchUserPlants(); // Fetch plants on component mount
+    dropIt();
+    fetchUserPlants();
   }, []);
 
   const formatDate = (date) => {
@@ -38,6 +39,7 @@ const MyPlants = () => {
   return (
     <>
       <section className='section-page min-100 section-background map'>
+        <BackBtn />
         <div className='d-flex flex-row'>
           {isLargeScreen && <SideBar />}
           <div className='section-center section-center-map'>

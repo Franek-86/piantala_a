@@ -13,9 +13,10 @@ import useIsLargeScreen from "../utils/useIsLargeScreen";
 
 import { OrdersContext } from "../context/OrdersContext";
 import SideBar from "../components/menu/SideBar";
+import BackBtn from "../components/menu/BackBtn";
 
 const OwnedPlants = () => {
-  const { getMyPlants, myPlants } = useContext(PlantsContext);
+  const { getMyPlants, myPlants, dropIt } = useContext(PlantsContext);
   const { userId, token } = useContext(AuthContext);
   const { allOrders, getAllOrders } = useContext(OrdersContext);
   const isLargeScreen = useIsLargeScreen();
@@ -26,6 +27,7 @@ const OwnedPlants = () => {
   useEffect(() => {
     getMyPlants(userId);
     getAllOrders();
+    dropIt();
   }, [userId]);
   const goToPlantPage = (prop) => {
     navigate(`/map/${prop}`, { state: { from: "/bookedPlants" } });
@@ -44,11 +46,11 @@ const OwnedPlants = () => {
         return "bg-secondary text-white text-center"; // Default styling for unknown status
     }
   };
-  console.log(allOrders);
 
   return (
     <>
       <section className='section-page min-100 section-background map'>
+        <BackBtn />
         <div className='d-flex flex-row'>
           {isLargeScreen && <SideBar />}
           <div className='section-center section-center-map'>

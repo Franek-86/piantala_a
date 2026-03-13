@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import BottomBar from "../components/map/BottomBar";
 import greenPlant from "../assets/images/ti pianto per amore-APP-verde.png";
 import yellowPlant from "../assets/images/ti pianto per amore-APP-giallo.png";
@@ -10,12 +10,19 @@ import { MdAddLocationAlt } from "react-icons/md";
 import { MdFilterAlt } from "react-icons/md";
 import { MdCenterFocusStrong } from "react-icons/md";
 import SideBar from "../components/menu/SideBar";
+import BackBtn from "../components/menu/BackBtn";
+import { PlantsContext } from "../context/PlantsContext";
 
 const Legend = () => {
   const isLargeScreen = useIsLargeScreen();
+  const { dropIt } = useContext(PlantsContext);
+  useEffect(() => {
+    dropIt();
+  }, []);
   return (
     <>
       <section className='section-page min-100 section-background map'>
+        <BackBtn />
         <div className='d-flex flex-row'>
           {isLargeScreen && <SideBar />}
           <section className='w-100 section-page section-center-map'>

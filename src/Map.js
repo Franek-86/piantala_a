@@ -69,8 +69,14 @@ function Map() {
   const [map, setMap] = useState(null);
   const [position, setPosition] = useState(null);
   const [locationMarkerTag, setLocationMarkerTag] = useState(null);
-  const { plants, setPlants, getAllPlants, loading, sendValuesToAddPlant } =
-    useContext(PlantsContext);
+  const {
+    plants,
+    setPlants,
+    getAllPlants,
+    loading,
+    sendValuesToAddPlant,
+    dropIt,
+  } = useContext(PlantsContext);
 
   const { socket } = useContext(SocketContext);
 
@@ -86,6 +92,7 @@ function Map() {
 
   useEffect(() => {
     version();
+    dropIt();
     const checkPermissionsAndShowModal = async () => {
       const platform = Capacitor.getPlatform();
       if (Capacitor.getPlatform() === "web") return;

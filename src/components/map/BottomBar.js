@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { MdLegendToggle } from "react-icons/md";
 import { FaMap } from "react-icons/fa";
 import { motion } from "motion/react";
@@ -7,12 +7,14 @@ import { NavLink, useLocation } from "react-router-dom";
 import { GiPlantSeed } from "react-icons/gi";
 import useIsLargeScreen from "../../utils/useIsLargeScreen";
 import { Capacitor } from "@capacitor/core";
+import { PlantsContext } from "../../context/PlantsContext";
 
 const BottomBar = () => {
   const [selectedTab, setSelectedTab] = useState("test");
   const isLarge = useIsLargeScreen();
   const { pathname } = useLocation();
   const check = Capacitor.getPlatform();
+  const { dropIt } = useContext(PlantsContext);
   let padding = () => {
     if (check !== "web") {
       return "fs-5 bottom-bar-height position-relative pb-2 yellow-background";
@@ -33,7 +35,10 @@ const BottomBar = () => {
                   ? "text-primary text-decoration-none pb-0"
                   : "text-dark text-decoration-none pb-0"
               }
-              onClick={() => setSelectedTab("test")}
+              onClick={() => {
+                setSelectedTab("test");
+                dropIt();
+              }}
               to='/map'
             >
               {isLarge ? <span>Mappa</span> : <FaMap />}
@@ -55,7 +60,10 @@ const BottomBar = () => {
           </li>
           <li className={padding()}>
             <NavLink
-              onClick={() => setSelectedTab("test2")}
+              onClick={() => {
+                setSelectedTab("test2");
+                dropIt();
+              }}
               to='/legend'
               className={({ isActive }) =>
                 isActive
@@ -82,7 +90,10 @@ const BottomBar = () => {
           </li>
           <li className={padding()}>
             <NavLink
-              onClick={() => setSelectedTab("test3")}
+              onClick={() => {
+                setSelectedTab("test3");
+                dropIt();
+              }}
               to='/myPlants'
               className={({ isActive }) =>
                 isActive
@@ -103,7 +114,10 @@ const BottomBar = () => {
           </li>
           <li className={padding()}>
             <NavLink
-              onClick={() => setSelectedTab("test4")}
+              onClick={() => {
+                setSelectedTab("test4");
+                dropIt();
+              }}
               to='/bookedPlants'
               className={({ isActive }) =>
                 isActive

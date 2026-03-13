@@ -9,9 +9,14 @@ import { BiMenu } from "react-icons/bi";
 import { HiMenuAlt2 } from "react-icons/hi";
 import { Button } from "react-bootstrap";
 import SlideMenu from "./SideMenu";
+import Avatar from "react-avatar";
+import { UsersContext } from "../../context/UsersContext";
+import { AuthContext } from "../../context/AuthContext";
+import ProfileModal from "../user-profile/ProfileModal";
 
 const BackBtn = ({ plant }) => {
   const [show, setShow] = useState(false);
+  const [smShow, setSmShow] = useState(false);
   const handleShow = () => {
     setShow(true);
   };
@@ -21,7 +26,12 @@ const BackBtn = ({ plant }) => {
   const navigate = useNavigate();
   const direction = useScrollDirection();
   const app = Capacitor.isNativePlatform();
-  const { setPlant } = useContext(PlantsContext);
+  const { isAuthenticated } = useContext(AuthContext);
+  // const { setPlant } = useContext(PlantsContext);
+
+  const {
+    loggedUserInfo: { pic, userName },
+  } = useContext(UsersContext);
   const backNav = () => {
     if (direction === "down" && !app) {
       return "back-nav hide";
@@ -34,25 +44,38 @@ const BackBtn = ({ plant }) => {
     }
   };
 
-  const backToMap = () => {
-    navigate("/map");
-    setPlant(null);
-  };
+  // const backToMap = () => {
+  //   navigate("/map");
+  //   setPlant(null);
+  // };
   return (
     <article className={backNav()}>
+      {smShow && <ProfileModal smShow={smShow} setSmShow={setSmShow} />}
       <div className='back-nav-logo'>
         <span
           onClick={() => {
             handleShow();
           }}
+          // style={{ width: "3rem", height: "3rem" }}
+
           className='fs-2 back-nav-icon'
         >
-          <HiMenuAlt2 />
+          <BiMenu />
         </span>
       </div>
 
       <div className='back-nav-btn'>
         {/* <MdBackspace onClick={() => backToMap()} /> */}
+        <Avatar
+          src={pic}
+          size='2rem'
+          round='25%'
+          // src='https://example.com/user-avatar.jpg'
+          className='avatar'
+          fgColor='#fefee3'
+          name={isAuthenticated ? userName : null}
+          onClick={() => setSmShow(true)}
+        />
       </div>
       <SlideMenu show={show} handleClose={handleHide} />
     </article>
