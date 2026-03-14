@@ -34,6 +34,8 @@ import { RiH1 } from "react-icons/ri";
 import LoginReg from "./components/registration/LoginReg";
 import Terms from "./components/registration/Terms";
 import { VersionContext } from "./context/VersionContext";
+import ButtonDirection from "./components/map/ButtonDirection";
+import BackBtnLarge from "./components/menu/BackBtnLarge";
 
 const DefaultIcon = L.icon({
   iconUrl: iconLocation, // This can be your default icon
@@ -213,7 +215,12 @@ function Map() {
     return (
       <div className=''>
         {" "}
-        {isLargeScreen && <SideBar />}
+        {isLargeScreen && (
+          <>
+            <SideBar />
+            <BackBtnLarge />
+          </>
+        )}
         {isLargeScreen && (
           <div className='bg-map'>
             <MapContainer
@@ -254,7 +261,12 @@ function Map() {
 
   return (
     <div className='d-flex flex-row w-100'>
-      {isLargeScreen && <SideBar />}
+      {isLargeScreen && (
+        <>
+          <BackBtnLarge map={true} />
+          <SideBar />
+        </>
+      )}
 
       <div className={mapSection()}>
         <article className='map'>

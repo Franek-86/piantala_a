@@ -15,6 +15,7 @@ const BottomBar = () => {
   const { pathname } = useLocation();
   const check = Capacitor.getPlatform();
   const { dropIt } = useContext(PlantsContext);
+
   let padding = () => {
     if (check !== "web") {
       return "fs-5 bottom-bar-height position-relative pb-2 yellow-background";
@@ -25,128 +26,132 @@ const BottomBar = () => {
     return "fs-5 position-relative";
   };
   return (
-    <article className='bottom-bar'>
-      <div className='h-100'>
-        <ul className='d-flex justify-content-around h-100 p-0 m-0 list-unstyled align-items-center b-bar'>
-          <li className={padding()}>
-            <NavLink
-              className={({ isActive }) =>
-                isActive
-                  ? "text-primary text-decoration-none pb-0"
-                  : "text-dark text-decoration-none pb-0"
-              }
-              onClick={() => {
-                setSelectedTab("test");
-                dropIt();
-              }}
-              to='/map'
-            >
-              {isLarge ? <span>Mappa</span> : <FaMap />}
-              {pathname === "/map" && (
-                <motion.div
-                  className='underline'
-                  layoutId='underline'
-                  id='underline'
-                />
-              )}
-              {/* {selectedTab === "test" && (
-                <motion.div
-                  className='underline'
-                  layoutId='underline'
-                  id='underline'
-                />
-              )} */}
-            </NavLink>
-          </li>
-          <li className={padding()}>
-            <NavLink
-              onClick={() => {
-                setSelectedTab("test2");
-                dropIt();
-              }}
-              to='/legend'
-              className={({ isActive }) =>
-                isActive
-                  ? "text-primary text-decoration-none pb-0"
-                  : "text-dark text-decoration-none pb-0"
-              }
-            >
-              {isLarge ? <span>Legenda</span> : <MdLegendToggle />}
-              {pathname === "/legend" && (
-                <motion.div
-                  className='underline'
-                  layoutId='underline'
-                  id='underline'
-                />
-              )}
-              {/* {selectedTab === "test2" && (
+    <>
+      {!isLarge && (
+        <article className='bottom-bar'>
+          <div className='h-100'>
+            <ul className='d-flex justify-content-around h-100 p-0 m-0 list-unstyled align-items-center b-bar'>
+              <li className={padding()}>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-primary text-decoration-none pb-0"
+                      : "text-dark text-decoration-none pb-0"
+                  }
+                  onClick={() => {
+                    setSelectedTab("test");
+                    dropIt();
+                  }}
+                  to='/map'
+                >
+                  <FaMap />
+                  {pathname === "/map" && (
+                    <motion.div
+                      className='underline'
+                      layoutId='underline'
+                      id='underline'
+                    />
+                  )}
+                  {/* {selectedTab === "test" && (
                 <motion.div
                   className='underline'
                   layoutId='underline'
                   id='underline'
                 />
               )} */}
-            </NavLink>
-          </li>
-          <li className={padding()}>
-            <NavLink
-              onClick={() => {
-                setSelectedTab("test3");
-                dropIt();
-              }}
-              to='/myPlants'
-              className={({ isActive }) =>
-                isActive
-                  ? "text-primary text-decoration-none pb-0"
-                  : "text-dark text-decoration-none pb-0"
-              }
-            >
-              {isLarge ? <span>Segnalazioni</span> : <GiPlantSeed />}
+                </NavLink>
+              </li>
+              <li className={padding()}>
+                <NavLink
+                  onClick={() => {
+                    setSelectedTab("test2");
+                    dropIt();
+                  }}
+                  to='/legend'
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-primary text-decoration-none pb-0"
+                      : "text-dark text-decoration-none pb-0"
+                  }
+                >
+                  <MdLegendToggle />
+                  {pathname === "/legend" && (
+                    <motion.div
+                      className='underline'
+                      layoutId='underline'
+                      id='underline'
+                    />
+                  )}
+                  {/* {selectedTab === "test2" && (
+                <motion.div
+                  className='underline'
+                  layoutId='underline'
+                  id='underline'
+                />
+              )} */}
+                </NavLink>
+              </li>
+              <li className={padding()}>
+                <NavLink
+                  onClick={() => {
+                    setSelectedTab("test3");
+                    dropIt();
+                  }}
+                  to='/myPlants'
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-primary text-decoration-none pb-0"
+                      : "text-dark text-decoration-none pb-0"
+                  }
+                >
+                  <GiPlantSeed />
 
-              {pathname === "/myPlants" && (
-                <motion.div
-                  className='underline'
-                  layoutId='underline'
-                  id='underline'
-                />
-              )}
-            </NavLink>
-          </li>
-          <li className={padding()}>
-            <NavLink
-              onClick={() => {
-                setSelectedTab("test4");
-                dropIt();
-              }}
-              to='/bookedPlants'
-              className={({ isActive }) =>
-                isActive
-                  ? "text-primary text-decoration-none pb-0"
-                  : "text-dark text-decoration-none pb-0"
-              }
-            >
-              {/* <BsInfo /> */}
-              {isLarge ? <span>Acquisti</span> : <PiPlantFill />}
+                  {pathname === "/myPlants" && (
+                    <motion.div
+                      className='underline'
+                      layoutId='underline'
+                      id='underline'
+                    />
+                  )}
+                </NavLink>
+              </li>
+              <li className={padding()}>
+                <NavLink
+                  onClick={() => {
+                    setSelectedTab("test4");
+                    dropIt();
+                  }}
+                  to='/bookedPlants'
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-primary text-decoration-none pb-0"
+                      : "text-dark text-decoration-none pb-0"
+                  }
+                >
+                  {/* <BsInfo /> */}
+                  <PiPlantFill />
 
-              {pathname === "/bookedPlants" && (
-                <motion.div
-                  className='underline'
-                  layoutId='underline'
-                  id='underline'
-                />
-              )}
-              {/* {selectedTab === "test4" && (
+                  {pathname === "/bookedPlants" && (
+                    <motion.div
+                      className='underline'
+                      layoutId='underline'
+                      id='underline'
+                    />
+                  )}
+                  {/* {selectedTab === "test4" && (
                 <motion.div
                   className='underline'
                   layoutId='underline'
                   id='underline'
                 />
               )} */}
-            </NavLink>
-          </li>
-        </ul>
-      </div>
-    </article>
+                </NavLink>
+              </li>
+            </ul>
+          </div>
+        </article>
+      )}
+    </>
   );
 };
 

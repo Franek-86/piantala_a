@@ -22,6 +22,7 @@ import iconBlue from "../../assets/images/ti pianto per amore-APP-azzurro.png";
 import { FilterContext } from "../../context/FilterContext";
 import { toast } from "react-toastify";
 import { PlantsContext } from "../../context/PlantsContext";
+import useIsLargeScreen from "../../utils/useIsLargeScreen";
 
 const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
   const { userRole, isAuthenticated, showTerms } = useContext(AuthContext);
@@ -40,7 +41,7 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
   const navigate = useNavigate(); // Initialize the navigate function
   const map = useMap();
   const { setFilters, filters } = useContext(FilterContext);
-
+  const isLarge = useIsLargeScreen();
   useMapEvent("dragend", () => {
     setShowCenter(true);
   });
@@ -86,16 +87,18 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
         </Button>
       </div>
       <div className='rightButtons'>
-        <Avatar
-          src={pic}
-          size='3rem'
-          round='50%'
-          // src='https://example.com/user-avatar.jpg'
-          className='avatar'
-          fgColor='#fefee3'
-          name={isAuthenticated ? loggedUserInfo.userName : null}
-          onClick={() => setSmShow(true)}
-        />
+        {!isLarge && (
+          <Avatar
+            src={pic}
+            size='3rem'
+            round='50%'
+            // src='https://example.com/user-avatar.jpg'
+            className='avatar'
+            fgColor='#fefee3'
+            name={isAuthenticated ? loggedUserInfo.userName : null}
+            onClick={() => setSmShow(true)}
+          />
+        )}
         {userRole === "admin" && (
           <Link
             className='circle-button add-plant-manual'
@@ -178,7 +181,6 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
         <Button
           onClick={() => {
             setLocationLoading(true);
-
             if (map) {
               map
                 .locate({ timeout: 10000, enableHighAccuracy: true })

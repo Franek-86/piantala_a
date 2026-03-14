@@ -9,13 +9,7 @@ import { PlantsContext } from "../../context/PlantsContext";
 import Loading from "../../pages/Loading";
 import { copyToClipboard } from "../../utils/utils";
 import { MapContainer, TileLayer, useMap, Popup, Marker } from "react-leaflet";
-import PlantForm from "./PlantForm";
-import RejectionModal from "./RejectionModal";
-import UserInfo from "./UserInfo";
-import {
-  IoIosAddCircleOutline,
-  IoIosRemoveCircleOutline,
-} from "react-icons/io";
+
 import PlantFormSelect from "./PlantFormSelect";
 import logo from "../../assets/images/ti pianto per amore-APP-verde.png";
 import markerBlue from "../../assets/images/ti pianto per amore-APP-azzurro.png";
@@ -24,6 +18,9 @@ import markerOrange from "../../assets/images/ti pianto per amore-APP-giallo.png
 import markerRed from "../../assets/images/ti pianto per amore-APP-rosso.png";
 import L from "leaflet";
 import ApprovedPic from "./ApprovedPic";
+import Buttons from "../map/Buttons";
+import ButtonDirection from "../map/ButtonDirection";
+import { UsersContext } from "../../context/UsersContext";
 
 const InfoCard = () => {
   const [showPic, setShowPic] = useState(false);
@@ -32,17 +29,18 @@ const InfoCard = () => {
   const { plantId } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
-  const { userRole } = useContext(AuthContext);
+  const { loggedUserInfo } = useContext(UsersContext);
   const {
     plant,
     userInfo,
+
     getReporterInfo,
     getOwnerInfo,
     reporterInfo,
     ownerInfo,
     request,
   } = useContext(PlantsContext);
-
+  console.log("USER INFO", loggedUserInfo);
   const fromPage = location.state?.from || "/map";
   const fileInputRef = useRef(null);
   const {
@@ -188,7 +186,7 @@ const InfoCard = () => {
           {house_number !== "undefined" && (
             <ListGroup.Item>
               {" "}
-              <span className='fw-medium'>Numero:</span>{" "}
+              <span className='fw-medium'>Numero civico:</span>{" "}
               <span>{house_number}</span>
             </ListGroup.Item>
           )}
@@ -226,6 +224,15 @@ const InfoCard = () => {
               <span>{plant_type}</span>
             </ListGroup.Item>
           )}
+          {/* {userRole === "admin" && (
+            <ListGroup.Item>
+              {" "}
+              <span className='fw-medium'>Direzioni:</span>{" "}
+              <a className='circle-button report-btn p-0'>
+                Navigazione su Google Maps
+              </a>
+            </ListGroup.Item>
+          )} */}
           <ListGroup.Item>
             {" "}
             <span className='fw-medium'>Coordinate:</span>{" "}
@@ -236,6 +243,7 @@ const InfoCard = () => {
               {lat} / {lang} <FaRegCopy className='copy-icon' />
             </span>
           </ListGroup.Item>
+
           {status_piantina === "rejected" && (
             <ListGroup.Item>
               {" "}
@@ -268,6 +276,9 @@ const InfoCard = () => {
               scrollWheelZoom={false}
               zoomControl={false}
             ></Marker>
+            {loggedUserInfo?.email === "franekdev86@gmail.com" && (
+              <ButtonDirection />
+            )}
           </MapContainer>
         </article>
       </Card>

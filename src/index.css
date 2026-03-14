@@ -512,6 +512,18 @@ element {
   flex-direction: column;
   gap: 1rem;
 }
+.singleButton {
+  width: 5rem;
+  /* border: 1px solid red; */
+  top: 2rem;
+  right: 50%;
+  transform: translateX(50%);
+
+  z-index: 1000;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+}
 @media screen and (min-width: 992px) {
   .rightButtons {
     top: 7rem;
@@ -2548,6 +2560,21 @@ body {
   justify-content: space-between;
   padding: 0 1rem;
   cursor: pointer;
+}
+.back-nav-large-map {
+  display: flex;
+  height: 4rem;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  background-color: #d5e8eb;
+  z-index: 1000;
+  border-bottom: 1px solid var(--clr-secondary-0);
+  justify-content: space-between;
+  padding: 0 1rem;
+  cursor: pointer;
+  left: 20rem;
+  width: calc(100% - 20rem);
 }
 .back-nav-large svg {
   color: var(--clr-secondary-2);
