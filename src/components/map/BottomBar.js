@@ -20,9 +20,9 @@ const BottomBar = () => {
       return "fs-5 bottom-bar-height position-relative pb-2 yellow-background";
     }
     if (check === "web" && !isLarge) {
-      return "fs-5 test position-relative yellow-background bottom-bar-0";
+      return "fs-5 position-relative yellow-background bottom-bar-0";
     }
-    return "fs-5 test position-relative";
+    return "fs-5 position-relative";
   };
   return (
     <article className='bottom-bar'>
