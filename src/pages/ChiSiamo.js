@@ -27,7 +27,7 @@ const ChiSiamo = () => {
         <BackBtn />
         <section className='chi-article section-background menu-section-center pb-5'>
           <div className='section-center'>
-            <h2 className='section-title pt-5'>Chi siamo</h2>
+            <h2 className='section-title pt-4'>Chi siamo</h2>
             <div className=''>
               <h4>Ti pianto per amore</h4>
             </div>
