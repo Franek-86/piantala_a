@@ -13,7 +13,7 @@ code {
 /* -----------------------------------------globals--------------------------------------------------- */
 
 :root {
-  --clr-primary-0: #ffffff;
+  --clr-primary-0: #f6f9eb;
   --clr-primary-1: #ecf4d6;
   --clr-primary-2: #d9e8ad;
   --clr-primary-3: #c7dd85;
@@ -111,9 +111,9 @@ fieldset:disabled .btn {
   /* You can also adjust other properties if needed */
 }
 .form-control:focus {
-  color: var(--clr-primary-5); /* New text color */
+  color: var(--clr-secondary-3); /* New text color */
   background-color: #ffffff; /* Optional: change background color if needed */
-  border-color: var(--clr-primary-5); /* New border color */
+  border-color: var(--clr-primary-4); /* New border color */
   outline: 0;
   box-shadow: 0 0 0 0.25rem var(--clr-primary-2); /* Adjust shadow color */
 }
@@ -220,8 +220,8 @@ h3 {
   background-color: #ff9900 !important;
 }
 .form-control {
-  color: var(--clr-primary-8);
-  border: var(--bs-border-width) solid var(--clr-primary-3);
+  color: var(--clr-secondary-6);
+  border: var(--bs-border-width) solid var(--clr-secondary-1);
 }
 .text-dark {
   --bs-text-opacity: 1;
@@ -1574,17 +1574,6 @@ element {
   height: 100%;
 }
 
-.contacts-info-section {
-  min-height: 80vh;
-  /* border: 2px solid red; */
-}
-.contacts-box-info {
-  height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .contacts-main-container {
   height: 85%;
   /* border: 2px solid red; */
@@ -1654,8 +1643,8 @@ element {
 }
 
 .contacts-info-item {
-  border: 2px solid var(--clr-secondary-1);
-  background-color: var(--clr-primary-1);
+  border: 1px solid var(--clr-secondary-1);
+  background-color: var(--clr-primary-0);
   padding: 1rem;
   border-radius: 5px;
   width: 17.5rem;

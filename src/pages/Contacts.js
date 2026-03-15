@@ -145,43 +145,37 @@ const Contacts = () => {
               </div>
             </div>
           </section>
-          <section className='contacts-info-section py-5 white-background'>
+          <section className='py-5 white-background'>
             <div className='section-center'>
               {" "}
               <h4>Chiamaci, scrivici o vienici a trovare</h4>
             </div>
-            <div className='section-center contacts-box-info'>
-              <div className='d-flex flex-column justify-content-center'>
-                <div className='d-flex flex-column flex-xl-row p-xl-5 justify-content-between'>
-                  <article className='mt-5 mt-xl-0 me-xl-1 contacts-info-item contacts-location mb-3 d-flex align-items-center d-flex flex-column'>
-                    <span className='contacts-location-icon pb-3'>
-                      <IoLocationSharp />{" "}
-                    </span>
-                    <span> contrada gravinella, 60 Fasano</span>
-                  </article>
-                  <article className='me-xl-1 contacts-info-item  contacts-email mb-3 d-flex align-items-center d-flex flex-column'>
-                    <span className='contacts-location-icon pb-3'>
-                      <MdEmail />
-                    </span>
-                    <span> tipiantoperamore@gmail.com </span>
-                  </article>
-                  <article className='contacts-info-item  contacts-email mb-5 mb-lg-3 d-flex align-items-center d-flex flex-column'>
-                    <span className='contacts-location-icon pb-3'>
-                      <MdLocalPhone />
-                    </span>
-                    <span>+39 3485384563</span>
-                  </article>
-                  {/* <div className='contacts-phone mb-3 d-flex align-items-center'>
-              <span className='contacts-location-icon pe-3'>
-                <MdLocalPhone />
-              </span>
-              <span> +39 3485384563</span>
-            </div> */}
-                </div>
+
+            <div className='d-flex justify-content-center'>
+              <div className='d-flex flex-column flex-xl-row p-xl-5 justify-content-between'>
+                <article className='mt-5 mt-xl-0 me-xl-1 contacts-info-item contacts-location mb-3 d-flex align-items-center d-flex flex-column'>
+                  <span className='contacts-location-icon pb-3'>
+                    <IoLocationSharp />{" "}
+                  </span>
+                  <span> contrada gravinella, 60 Fasano</span>
+                </article>
+                <article className='me-xl-1 contacts-info-item  contacts-email mb-3 d-flex align-items-center d-flex flex-column'>
+                  <span className='contacts-location-icon pb-3'>
+                    <MdEmail />
+                  </span>
+                  <span> tipiantoperamore@gmail.com </span>
+                </article>
+                <article className='contacts-info-item  contacts-email mb-5 mb-lg-3 d-flex align-items-center d-flex flex-column'>
+                  <span className='contacts-location-icon pb-3'>
+                    <MdLocalPhone />
+                  </span>
+                  <span>+39 3485384563</span>
+                </article>
               </div>
             </div>
+            {/* </div> */}
           </section>
-          <section className='contacts-social-section pt-4 pb-5 pt-lg-5'>
+          <section className='contacts-social-section py-5'>
             <div className='section-center'>
               <h4>Seguici sui nostri canali</h4>
 
