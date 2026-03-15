@@ -217,7 +217,7 @@ const PlantApproved = () => {
               </div>
             </div>
           </section>
-          <section id='location' className='pt-4 white-background'>
+          <section id='location' className='pt-5 white-background'>
             <div className='section-center section-plant-position'>
               <span className='mb-3 h5 d-flex flex-row align-items-center'>
                 <div className='step-title pb-2 pe-1'>
@@ -253,9 +253,9 @@ const PlantApproved = () => {
           </section>
           <section
             id='plate'
-            className='pt-4 section-plant-plate yellow-background'
+            className='pt-5 section-plant-plate yellow-background'
           >
-            <div className='section-center section-plant'>
+            <div className='section-center section-plant '>
               <span className='mb-3 h5 d-flex flex-row align-items-center'>
                 <div className='step-title pb-2 pe-1'>
                   <BsVectorPen />
