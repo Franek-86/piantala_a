@@ -1819,6 +1819,9 @@ element {
 .section-plates {
   overflow: hidden !important;
 }
+.chat-container {
+  /* border: 1px solid red; */
+}
 .sender {
   color: var(--clr-primary-5);
 }
@@ -1972,7 +1975,7 @@ body {
 }
 @media screen and (max-width: 768px) {
   .box-body {
-    height: 75vh;
+    /* height: 75vh; */
   }
 }
 .box-header:before,

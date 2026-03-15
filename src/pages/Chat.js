@@ -32,12 +32,14 @@ const Chat = () => {
       <section className='section-page section-background vh-100 section-large page-large-container section-chat'>
         <BackBtn />
         <div className=''>
-          <section className='d-flex align-items-center justify-content-center pt-3 pt-lg-4 pt-xl-5'>
+          <div className='d-flex align-items-center justify-content-center pt-3 pt-lg-4 pt-xl-5'>
             <div className=''>
-              <div className='section-center pb-4'>
+              <div className='section-center'>
                 {/* <h2 className='section-title pt-5'>Chat aperta</h2> */}
-                <div class='page-content page-container' id='page-content'>
-                  <div class='col-md-4'></div>
+                <div
+                  class='chat-container d-flex flex-column'
+                  id='page-content'
+                >
                   <div className='box box-warning direct-chat direct-chat-warning'>
                     {!isAuthenticated && (
                       <Alert
@@ -92,7 +94,7 @@ const Chat = () => {
                 </div>
               </div>
             </div>
-          </section>
+          </div>
         </div>
       </section>
     </div>
