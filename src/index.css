@@ -2519,7 +2519,7 @@ body {
 }
 .back-nav-btn {
   color: var(--clr-primary-5);
-  border: 2px solid var(--clr-primary-3);
+  border: 2px solid var(--clr-secondary-2);
   border-radius: 50%;
 }
 .back-nav {
