@@ -1819,6 +1819,9 @@ element {
 .section-plates {
   overflow: hidden !important;
 }
+.chat-section-height {
+  height: calc(100% - 4rem);
+}
 .chat-container {
   /* border: 1px solid red; */
 }
