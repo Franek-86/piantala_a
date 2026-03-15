@@ -56,7 +56,7 @@ const Contacts = () => {
         <div className='section-page'>
           <section className='blue-background pb-5'>
             <div className='section-center'>
-              <h2 className='section-title pt-5'>I nostri contatti</h2>
+              <h2 className='section-title pt-4'>I nostri contatti</h2>
               <div className='contacts-form-section '>
                 <div className='contacts-main-container d-flex flex-column flex-lg-row align-items-center flex-lg-row-reverse pb-3'>
                   <article className='contact-info w-100 p-lg-3 p-xl-4'>

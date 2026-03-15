@@ -56,10 +56,10 @@ const Plates = () => {
       {isLargeScreen && <SideBar />}
       <section className='section-page section-background section-full-page section-users section-large section-plates page-large-container min-100'>
         <BackBtn />
-        <div className='section-center pt-5'>
+        <div className='section-center '>
           <section className='section-page'>
             <div className='menu-section-center'>
-              <h2 className='section-title'>Le vostre targhe</h2>
+              <h2 className='section-title pt-4'>Le vostre targhe</h2>
               <article className='mb-5 plate-info'>
                 <p className='mb-0'>
                   Sulle vostre piantine applichiamo una targa in{" "}

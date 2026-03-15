@@ -68,7 +68,7 @@ const UserProfile = () => {
           {isLarge && (
             <>
               <BackBtnLarge />
-              <h2 className='section-title pt-3 pt-xl-4'>Modifica Profilo</h2>
+              <h2 className='section-title pt-4'>Modifica Profilo</h2>
             </>
           )}
         </div>

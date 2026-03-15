@@ -22,8 +22,8 @@ const Info = () => {
       {isLargeScreen && <SideBar />}
       <section className='section-page min-100 section-background section-large page-large-container'>
         <BackBtn />
-        <div className='info-article section-center menu-section-center pt-5 section-info'>
-          <h2 className='section-title'>Informazioni</h2>
+        <div className='info-article section-center menu-section-center  section-info'>
+          <h2 className='section-title pt-4'>Informazioni</h2>
           <article className='info-text mb-3'>
             <p className=''>
               Scopri come{" "}
