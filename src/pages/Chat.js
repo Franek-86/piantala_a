@@ -31,8 +31,8 @@ const Chat = () => {
       {isLargeScreen && <SideBar />}
       <section className='section-page section-background vh-100 section-large page-large-container section-chat'>
         <BackBtn />
-        <div className='h-100'>
-          <section className='h-100 d-flex align-items-center justify-content-center'>
+        <div className=''>
+          <section className='d-flex align-items-center justify-content-center pt-3 pt-lg-4 pt-xl-5'>
             <div className=''>
               <div className='section-center pb-4'>
                 {/* <h2 className='section-title pt-5'>Chat aperta</h2> */}
