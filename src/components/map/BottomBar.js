@@ -35,8 +35,8 @@ const BottomBar = () => {
                 <NavLink
                   className={({ isActive }) =>
                     isActive
-                      ? "text-primary text-decoration-none pb-0"
-                      : "text-dark text-decoration-none pb-0"
+                      ? "text-primary text-decoration-none d-flex flex-column align-items-center pb-0"
+                      : "text-dark text-decoration-none d-flex flex-column align-items-center pb-0"
                   }
                   onClick={() => {
                     setSelectedTab("test");
@@ -45,6 +45,7 @@ const BottomBar = () => {
                   to='/map'
                 >
                   <FaMap />
+                  <span className='bottom-text'>Mappa</span>
                   {pathname === "/map" && (
                     <motion.div
                       className='underline'
@@ -70,11 +71,12 @@ const BottomBar = () => {
                   to='/legend'
                   className={({ isActive }) =>
                     isActive
-                      ? "text-primary text-decoration-none pb-0"
-                      : "text-dark text-decoration-none pb-0"
+                      ? "text-primary text-decoration-none d-flex flex-column align-items-center pb-0"
+                      : "text-dark text-decoration-none d-flex flex-column align-items-center pb-0"
                   }
                 >
                   <MdLegendToggle />
+                  <span className='bottom-text'>Legenda</span>
                   {pathname === "/legend" && (
                     <motion.div
                       className='underline'
@@ -100,11 +102,12 @@ const BottomBar = () => {
                   to='/myPlants'
                   className={({ isActive }) =>
                     isActive
-                      ? "text-primary text-decoration-none pb-0"
-                      : "text-dark text-decoration-none pb-0"
+                      ? "text-primary text-decoration-none d-flex flex-column align-items-center pb-0"
+                      : "text-dark text-decoration-none d-flex flex-column align-items-center pb-0"
                   }
                 >
                   <GiPlantSeed />
+                  <span className='bottom-text'>Segnalazioni</span>
 
                   {pathname === "/myPlants" && (
                     <motion.div
@@ -124,13 +127,13 @@ const BottomBar = () => {
                   to='/bookedPlants'
                   className={({ isActive }) =>
                     isActive
-                      ? "text-primary text-decoration-none pb-0"
-                      : "text-dark text-decoration-none pb-0"
+                      ? "text-primary text-decoration-none d-flex flex-column align-items-center pb-0"
+                      : "text-dark text-decoration-none d-flex flex-column align-items-center pb-0"
                   }
                 >
                   {/* <BsInfo /> */}
                   <PiPlantFill />
-
+                  <span className='bottom-text'>Acquisti</span>
                   {pathname === "/bookedPlants" && (
                     <motion.div
                       className='underline'

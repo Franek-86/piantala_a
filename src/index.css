@@ -434,6 +434,9 @@ element {
   width: 100%;
   bottom: 0;
 }
+.bottom-text {
+  font-size: 0.75rem;
+}
 .bottom-bar-0 {
   border-bottom: 1px solid var(--clr-primary-3);
   border-top: 1px solid var(--clr-primary-3);
