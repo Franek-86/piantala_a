@@ -1824,9 +1824,7 @@ element {
 .chat-section-height {
   height: calc(100% - 4rem);
 }
-.chat-container {
-  /* border: 1px solid red; */
-}
+
 .sender {
   color: var(--clr-primary-5);
 }
@@ -1976,11 +1974,11 @@ body {
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
   padding: 10px;
-  height: 70vh;
+  height: 60vh;
 }
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 1200px) {
   .box-body {
-    /* height: 75vh; */
+    height: 80vh;
   }
 }
 .box-header:before,
