@@ -45,7 +45,7 @@ const BottomBar = () => {
                   to='/map'
                 >
                   <FaMap />
-                  <span className='bottom-text'>Mappa</span>
+                  <span className='bottom-text pt-1'>Mappa</span>
                   {pathname === "/map" && (
                     <motion.div
                       className='underline'
@@ -76,7 +76,7 @@ const BottomBar = () => {
                   }
                 >
                   <MdLegendToggle />
-                  <span className='bottom-text'>Legenda</span>
+                  <span className='bottom-text pt-1'>Legenda</span>
                   {pathname === "/legend" && (
                     <motion.div
                       className='underline'
@@ -107,7 +107,7 @@ const BottomBar = () => {
                   }
                 >
                   <GiPlantSeed />
-                  <span className='bottom-text'>Segnalazioni</span>
+                  <span className='bottom-text pt-1'>Segnalazioni</span>
 
                   {pathname === "/myPlants" && (
                     <motion.div
@@ -133,7 +133,7 @@ const BottomBar = () => {
                 >
                   {/* <BsInfo /> */}
                   <PiPlantFill />
-                  <span className='bottom-text'>Acquisti</span>
+                  <span className='bottom-text pt-1'>Acquisti</span>
                   {pathname === "/bookedPlants" && (
                     <motion.div
                       className='underline'
