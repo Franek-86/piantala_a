@@ -55,7 +55,7 @@ const ChiSiamo = () => {
             </div>
           </div>
         </section>
-        <section className='chi-logo-section pt-4 pb-5 pt-lg-5 white-background'>
+        <section className='chi-logo-section py-5 pt-lg-5 white-background'>
           <div className='section-center'>
             <h4 className=''>Patrocini</h4>
 
@@ -84,7 +84,7 @@ const ChiSiamo = () => {
             </div>
           </div>
         </section>
-        <section className='pt-4 pb-5 pt-lg-5 yellow-background'>
+        <section className='py-5 yellow-background'>
           <div className='section-center'>
             <h4>Seguici sui nostri canali</h4>
 

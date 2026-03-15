@@ -2520,7 +2520,7 @@ body {
 .back-nav-btn {
   color: var(--clr-primary-5);
   border: 2px solid var(--clr-primary-3);
-  border-radius: 25%;
+  border-radius: 50%;
 }
 .back-nav {
   display: flex;
