@@ -1974,7 +1974,7 @@ body {
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
   padding: 10px;
-  height: 60vh;
+  height: 60dvh;
 }
 @media screen and (min-width: 1200px) {
   .box-body {
