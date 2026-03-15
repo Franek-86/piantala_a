@@ -1814,7 +1814,9 @@ element {
 }
 
 /* Chat */
-
+.dvh {
+  height: 100dvh;
+}
 .section-chat,
 .section-plates {
   overflow: hidden !important;

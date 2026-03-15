@@ -27,7 +27,7 @@ const Chat = () => {
     navigate("/map");
   };
   return (
-    <div className='vh-100'>
+    <div className='dvh'>
       {isLargeScreen && <SideBar />}
       <BackBtn />
       {/* <BackBtnLarge /> */}
