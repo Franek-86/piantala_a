@@ -50,11 +50,7 @@ const MyPlants = () => {
               {loadingReports ? (
                 <Loading />
               ) : myReports.length === 0 ? (
-                <p
-                  className={
-                    !isLargeScreen ? "mt-lg-5" : "section-center mt-lg-5"
-                  }
-                >
+                <p className={!isLargeScreen ? "mt-lg-5" : "mt-lg-5"}>
                   Non hai ancora effettuato segalazioni.
                 </p>
               ) : (

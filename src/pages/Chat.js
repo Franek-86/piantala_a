@@ -33,13 +33,13 @@ const Chat = () => {
       {isLargeScreen && <BackBtnLarge />}
       <section className='section-page section-background cha section-large page-large-container section-chat chat-section-height'>
         {isLargeScreen && <SideBar />}
-        <div className='h-100'>
+        <div className='section-center h-100'>
           <div className='h-100 d-flex align-items-center justify-content-center'>
-            <div className='h-100'>
-              <div className='section-center h-100'>
+            <div className='h-100 w-100'>
+              <div className='h-100'>
                 {/* <h2 className='section-title pt-5'>Chat aperta</h2> */}
                 <div
-                  class='h-100 chat-container d-flex flex-column justify-content-around'
+                  class='h-100 d-flex flex-column justify-content-around'
                   id='page-content'
                 >
                   <div className='box box-warning direct-chat direct-chat-warning'>

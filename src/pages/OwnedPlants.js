@@ -69,7 +69,7 @@ const OwnedPlants = () => {
                 <th>Tipo</th>
                 <th>Targa</th> */
 
-                <Row xs={1} xl={2} className='section-center mt-lg-5'>
+                <Row xs={1} xl={2} className='mt-lg-5'>
                   {myPlants &&
                     myPlants.map((plant, index) => {
                       const order = allOrders.find((i) => {
@@ -206,11 +206,7 @@ const OwnedPlants = () => {
                     })}
                 </Row>
               ) : (
-                <p
-                  className={
-                    !isLargeScreen ? "mt-lg-5" : "section-center mt-lg-5"
-                  }
-                >
+                <p className={!isLargeScreen ? "mt-lg-5" : "mt-lg-5"}>
                   Non hai ancora acquistato nessun albero.
                 </p>
               )}
