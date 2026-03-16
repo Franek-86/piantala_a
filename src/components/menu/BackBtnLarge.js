@@ -10,8 +10,7 @@ import { UsersContext } from "../../context/UsersContext";
 import ProfileModal from "../user-profile/ProfileModal";
 import { AuthContext } from "../../context/AuthContext";
 
-const BackBtnLarge = (map) => {
-  // console.log("sta qui", map);
+const BackBtnLarge = ({ map }) => {
   const { isAuthenticated } = useContext(AuthContext);
   const {
     loggedUserInfo: { pic, userName },
@@ -32,9 +31,9 @@ const BackBtnLarge = (map) => {
   console.log("direction", direction);
 
   const backNav = () => {
-    // if (map && !app) {
-    //   return "back-nav-large-map";
-    // }
+    if (map && !app) {
+      return "back-nav-large-map";
+    }
     if (direction === "down" && !app) {
       return "back-nav-large hide";
     } else if (direction === "down" && app) {

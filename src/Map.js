@@ -255,113 +255,112 @@ function Map() {
   }
 
   return (
-    <div className='d-flex flex-row w-100'>
-      {isLargeScreen && (
-        <>
-          {/* <BackBtnLarge /> */}
-          <SideBar />
-        </>
-      )}
+    <>
+      {isLargeScreen && <BackBtnLarge map={true} />}
+      <div className='d-flex flex-row w-100'>
+        {isLargeScreen && <SideBar />}
 
-      <div className={mapSection()}>
-        <article className='map'>
-          <MapContainer
-            // center={[41.118778112249046, 16.871917818963464]}
-            center={[41.118778112249046, 16.881917818963464]}
-            zoom={13}
-            scrollWheelZoom={false}
-            zoomControl={true}
-          >
-            <TileLayer
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-              url='https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png'
-            />
-            {/* <MyTest /> */}
-            <Buttons
-              setPosition={setPosition}
-              position={position}
-              markerRef={markerRef}
-            />
-            {filteredPlants.length > 0 &&
-              filteredPlants.map((e) => {
-                const iconType = e.status_piantina;
-                const markerIcon = iconMap[iconType];
-                return (
-                  <Marker
-                    icon={markerIcon}
-                    position={[e.lat, e.lang]}
-                    key={e.id}
-                    eventHandlers={{
-                      click: () => {
-                        navigate(`/map/${e.id}`);
-                      },
-                    }}
-                  ></Marker>
-                );
-              })}
-            {position && (
-              <Marker ref={markerRef} position={position}>
-                <Popup>
-                  {logReg && <LoginReg val='map' />}
+        <div className={mapSection()}>
+          <article className='map'>
+            <MapContainer
+              // center={[41.118778112249046, 16.871917818963464]}
+              center={[41.118778112249046, 16.881917818963464]}
+              zoom={13}
+              scrollWheelZoom={false}
+              zoomControl={true}
+            >
+              <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                url='https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png'
+              />
+              {/* <MyTest /> */}
+              <Buttons
+                setPosition={setPosition}
+                position={position}
+                markerRef={markerRef}
+              />
+              {filteredPlants.length > 0 &&
+                filteredPlants.map((e) => {
+                  const iconType = e.status_piantina;
+                  const markerIcon = iconMap[iconType];
+                  return (
+                    <Marker
+                      icon={markerIcon}
+                      position={[e.lat, e.lang]}
+                      key={e.id}
+                      eventHandlers={{
+                        click: () => {
+                          navigate(`/map/${e.id}`);
+                        },
+                      }}
+                    ></Marker>
+                  );
+                })}
+              {position && (
+                <Marker ref={markerRef} position={position}>
+                  <Popup>
+                    {logReg && <LoginReg val='map' />}
 
-                  <div className={logReg ? "d-none" : "d-block"}>
-                    <h6>Ti trovi qui!</h6>
-                    <p>
-                      Segnalaci questa zona di piantagione, copia le coordinate
-                      per condividerle con noi o controlla se ci sono già zone
-                      di piantagione disponibili nelle tue vicinanze.
-                    </p>
-                    <div className='d-flex flex-column pb-3'>
-                      <Button
-                        className='mb-2 btn-small'
-                        onClick={() =>
-                          copyToClipboard([`${position.lat},${position.lng}`])
-                        }
-                      >
-                        Copia coordinate
-                      </Button>
+                    <div className={logReg ? "d-none" : "d-block"}>
+                      <h6>Ti trovi qui!</h6>
+                      <p>
+                        Segnalaci questa zona di piantagione, copia le
+                        coordinate per condividerle con noi o controlla se ci
+                        sono già zone di piantagione disponibili nelle tue
+                        vicinanze.
+                      </p>
+                      <div className='d-flex flex-column pb-3'>
+                        <Button
+                          className='mb-2 btn-small'
+                          onClick={() =>
+                            copyToClipboard([`${position.lat},${position.lng}`])
+                          }
+                        >
+                          Copia coordinate
+                        </Button>
 
-                      <Button
-                        className='mb-2 btn-small'
-                        onClick={
-                          () =>
-                            sendValuesToAddPlant(
-                              `${position.lat},${position.lng}`,
-                              navigate,
-                            )
-                          // ,
-                          // navigate("/map/addPlant")
-                        }
-                      >
-                        Segnala zona
-                      </Button>
-                      <Button
-                        className='btn-small'
-                        onClick={() => {
-                          setPosition(null);
-                        }}
-                      >
-                        Chiudi
-                      </Button>
+                        <Button
+                          className='mb-2 btn-small'
+                          onClick={
+                            () =>
+                              sendValuesToAddPlant(
+                                `${position.lat},${position.lng}`,
+                                navigate,
+                              )
+                            // ,
+                            // navigate("/map/addPlant")
+                          }
+                        >
+                          Segnala zona
+                        </Button>
+                        <Button
+                          className='btn-small'
+                          onClick={() => {
+                            setPosition(null);
+                          }}
+                        >
+                          Chiudi
+                        </Button>
+                      </div>
                     </div>
-                  </div>
-                </Popup>
-              </Marker>
-            )}
-          </MapContainer>
-        </article>
-        {/* <article className='bottom-bar'>
+                  </Popup>
+                </Marker>
+              )}
+            </MapContainer>
+          </article>
+          {/* <article className='bottom-bar'>
         <BottomBar />
       </article> */}
+        </div>
+        {!isChildRoute && <BottomBar />}
+        <PermissionModal />
+        {logReg ? (
+          <Terms id={undefined} page='map' />
+        ) : (
+          <Terms id={undefined} page={undefined} />
+        )}
       </div>
-      {!isChildRoute && <BottomBar />}
-      <PermissionModal />
-      {logReg ? (
-        <Terms id={undefined} page='map' />
-      ) : (
-        <Terms id={undefined} page={undefined} />
-      )}
-    </div>
+    </>
   );
 }
 
