@@ -141,11 +141,7 @@ const PlantBooked = () => {
       <div className=''>
         <BackBtn plant />
         <div className='single-plant'>
-          {isLarge && (
-            <>
-              <BackBtnLarge />
-            </>
-          )}
+          {isLarge && <BackBtnLarge />}
           <section className='section-booked-pic'>
             <div className='section-center'>
               <h2 className='section-title pt-3 pt-xl-4'>

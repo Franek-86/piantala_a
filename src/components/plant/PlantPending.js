@@ -8,12 +8,16 @@ import UserInfo from "./UserInfo";
 import InfoCard from "./InfoCard";
 import { deleteAndGo } from "../../utils/utils";
 import { AuthContext } from "../../context/AuthContext";
+import BackBtnLarge from "../menu/BackBtnLarge";
+import useIsLargeScreen from "../../utils/useIsLargeScreen";
+import BackBtn from "../menu/BackBtn";
 
 const PlantPending = () => {
   const [modalShow, setModalShow] = useState(false);
   const { plantId } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
+  const isLarge = useIsLargeScreen();
   const { plant, getReporterInfo, reporterInfo, ownerInfo, request } =
     useContext(PlantsContext);
   const fromPage = location.state?.from || "/map";
@@ -56,74 +60,71 @@ const PlantPending = () => {
   // };
   return (
     <section className='plant-section'>
-      <div className='section-large'>
-        <RejectionModal
-          show={modalShow}
-          onHide={() => setModalShow(false)}
-          onReject={() => openRejectionModal()}
-          handleStatusChange={() => handleStatusChange("rejected", plantId)}
-          plantId={plantId}
-        />
-        <div className='back-btn pe-3'>
-          <MdBackspace
-            onClick={() => {
-              backToMap();
-              setPlant(null);
-            }}
-          />
-        </div>
-        <div className='section-center single-plant pb-5'>
-          <h2 className='section-title'>Segnalazione</h2>
+      <RejectionModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+        onReject={() => openRejectionModal()}
+        handleStatusChange={() => handleStatusChange("rejected", plantId)}
+        plantId={plantId}
+      />
+      <div className=''>
+        <BackBtn plant />
+        <div className='single-plant'>
+          {isLarge && <BackBtnLarge />}
+          <div className='section-center'>
+            <h2 className='section-title pt-3'>Segnalazione</h2>
 
-          <p>
-            Per richiedere informazioni inerenti questa segnalazione, ulteriori
-            rispetto a quelle riportate qui in basso, puoi utilizzare uno dei
-            nostri <Link to='/contacts'>contatti</Link> o in alternativa
-            scrivere nella <Link to='/chat'> chat aperta</Link>.
-          </p>
-          <h5 className='mb-3 mt-5'>Informazioni segnalazione</h5>
-          <InfoCard />
-          <span className='small fst-italic'>
-            Il tempo medio di approvazione è di una settimana lavorativa dalla
-            ricezione della segnalazione. Per alcune segnalazioni potrebbe
-            essere necessario più tempo
-          </span>
-          {/* </div> */}
+            <p>
+              Per richiedere informazioni inerenti questa segnalazione,
+              ulteriori rispetto a quelle riportate qui in basso, puoi
+              utilizzare uno dei nostri <Link to='/contacts'>contatti</Link> o
+              in alternativa scrivere nella <Link to='/chat'> chat aperta</Link>
+              .
+            </p>
+            <h5 className='mb-3 mt-5'>Informazioni segnalazione</h5>
+            <InfoCard />
+            <span className='small fst-italic'>
+              Il tempo medio di approvazione è di una settimana lavorativa dalla
+              ricezione della segnalazione. Per alcune segnalazioni potrebbe
+              essere necessario più tempo
+            </span>
+            {/* </div> */}
 
-          {userRole === "admin" && (
-            <div className='admin-controls pt-5 pb-3'>
-              <UserInfo
-                role={
-                  request === "reporter" ? reporterInfo.role : ownerInfo.role
-                }
-                user={request === "reporter" ? reporterInfo : ownerInfo}
-                show={modalUserShow}
-                onHide={() => setModalUserShow(false)}
-              />
-              <hr />
-              <h5 className='mb-3'>Operazioni di amministrazione</h5>
-              <div className='d-grid gap-2'>
-                <button
-                  className='btn btn-success'
-                  onClick={() => handleStatusChange("approved", plantId)}
-                >
-                  Approva segnalazione
-                </button>
-                <button
-                  className='btn btn-danger'
-                  onClick={() => openRejectionModal()}
-                >
-                  Rigetta segnalazione
-                </button>
-                <button
-                  className='btn btn-dark '
-                  onClick={() => deleteAndGo(deletePlant, plantId, navigate)}
-                >
-                  Elimina segnalazione
-                </button>
+            {userRole === "admin" && (
+              <div className='admin-controls pt-5 pb-3'>
+                <UserInfo
+                  role={
+                    request === "reporter" ? reporterInfo.role : ownerInfo.role
+                  }
+                  user={request === "reporter" ? reporterInfo : ownerInfo}
+                  show={modalUserShow}
+                  onHide={() => setModalUserShow(false)}
+                />
+                <hr />
+                <h5 className='mb-3'>Operazioni di amministrazione</h5>
+                <div className='d-grid gap-2'>
+                  <button
+                    className='btn btn-success'
+                    onClick={() => handleStatusChange("approved", plantId)}
+                  >
+                    Approva segnalazione
+                  </button>
+                  <button
+                    className='btn btn-danger'
+                    onClick={() => openRejectionModal()}
+                  >
+                    Rigetta segnalazione
+                  </button>
+                  <button
+                    className='btn btn-dark '
+                    onClick={() => deleteAndGo(deletePlant, plantId, navigate)}
+                  >
+                    Elimina segnalazione
+                  </button>
+                </div>
               </div>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
     </section>

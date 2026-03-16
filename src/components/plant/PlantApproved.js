@@ -99,6 +99,7 @@ const PlantApproved = () => {
 
   return (
     <div className='plant-section'>
+      {isLarge && <BackBtnLarge />}
       <Terms id={plantId} />
       <BackBtn plant />
       <Form onSubmit={handleSubmit(onSubmit)}>
@@ -108,13 +109,10 @@ const PlantApproved = () => {
           >
             <div className='pt-4 pt-lg-0'>
               {isLarge && (
-                <>
-                  <BackBtnLarge />
-                  <h2 className='section-title pt-3 pt-xl-4'>
-                    Zona <span className='text-lowercase'>-</span>{" "}
-                    {plant?.suburb} &#127793;
-                  </h2>
-                </>
+                <h2 className='section-title pt-3 pt-xl-4'>
+                  Zona <span className='text-lowercase'>-</span> {plant?.suburb}{" "}
+                  &#127793;
+                </h2>
               )}
               <div className='section-center pb-5'>
                 {!isLarge && (
