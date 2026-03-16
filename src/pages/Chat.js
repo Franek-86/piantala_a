@@ -31,7 +31,7 @@ const Chat = () => {
     <div className='dvh'>
       <BackBtn />
       {isLargeScreen && <BackBtnLarge />}
-      <section className='section-page section-background cha section-large page-large-container section-chat chat-section-height'>
+      <section className='section-background cha section-large page-large-container section-chat chat-section-height'>
         {isLargeScreen && <SideBar />}
         <div className='section-center h-100'>
           <div className='h-100 d-flex align-items-center justify-content-center'>

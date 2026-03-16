@@ -57,85 +57,81 @@ const Users = () => {
   return (
     <div className='d-flex flex-row section-background pb-5'>
       {isLargeScreen && <SideBar />}
-      <section className='section-page section-full-page section-users section-large page-large-container min-100'>
+      <section className='w-100 section-full-page section-users section-large page-large-container min-100'>
         <BackBtn />
-        <div className='section-center'>
-          <section className=''>
-            <div className='section-center'>
-              <h2 className='section-title pt-5'>Lista Utenti</h2>
-              <div className='d-md-flex justify-content-md-center'>
-                {loading && <Loading />}
-                {userLoading && <Loading />}
+        <section className='section-center'>
+          <h2 className='section-title pt-5'>Lista Utenti</h2>
+          <div className='d-md-flex justify-content-md-center'>
+            {loading && <Loading />}
+            {userLoading && <Loading />}
 
-                <Col md={6} className='justify-content-md-center'>
-                  <ListGroup>
-                    {allUsers &&
-                      allUsers.map((i) => {
-                        const {
-                          id,
-                          first_name,
-                          last_name,
-                          birthday,
-                          city,
-                          user_name,
-                          role,
-                          createdAt,
-                          status,
-                          pic,
-                        } = i;
+            <Col md={6} className='justify-content-md-center'>
+              <ListGroup>
+                {allUsers &&
+                  allUsers.map((i) => {
+                    const {
+                      id,
+                      first_name,
+                      last_name,
+                      birthday,
+                      city,
+                      user_name,
+                      role,
+                      createdAt,
+                      status,
+                      pic,
+                    } = i;
 
-                        return (
-                          <ListGroup.Item className='mt-2 p-0'>
-                            <div className='d-flex'>
-                              {/* <Avatar facebookId='100008343750912' size='100' /> */}
-                              <Avatar
-                                src={pic}
-                                maxInitials={2}
-                                // className='direct-chat-img'
-                                name={user_name}
-                              />
+                    return (
+                      <ListGroup.Item className='mt-2 p-0'>
+                        <div className='d-flex'>
+                          {/* <Avatar facebookId='100008343750912' size='100' /> */}
+                          <Avatar
+                            src={pic}
+                            maxInitials={2}
+                            // className='direct-chat-img'
+                            name={user_name}
+                          />
 
-                              <div className='d-flex flex-column justify-content-center ps-4'>
-                                <span>
-                                  {" "}
-                                  Nome: {user_name}{" "}
-                                  {status === 1 && <ImBlocked />}
-                                </span>
-                                <span> Ruolo: {role}</span>
-                                <span>Registrato: {formatDate(createdAt)}</span>
-                                {userRole === "admin" && (
-                                  <Card.Link
-                                    className='copy'
-                                    variant='primary'
-                                    onClick={() => {
-                                      handleShow(true);
-                                      setUserInfo({
-                                        id,
-                                        role,
-                                        status,
-                                      });
-                                    }}
-                                  >
-                                    Modifica
-                                  </Card.Link>
-                                )}
-                                {/* <Button
+                          <div className='d-flex flex-column justify-content-center ps-4'>
+                            <span>
+                              {" "}
+                              Nome: {user_name} {status === 1 && <ImBlocked />}
+                            </span>
+                            <span> Ruolo: {role}</span>
+                            <span>Registrato: {formatDate(createdAt)}</span>
+                            {userRole === "admin" && (
+                              <Card.Link
+                                className='copy'
+                                variant='primary'
+                                onClick={() => {
+                                  handleShow(true);
+                                  setUserInfo({
+                                    id,
+                                    role,
+                                    status,
+                                  });
+                                }}
+                              >
+                                Modifica
+                              </Card.Link>
+                            )}
+                            {/* <Button
                                 onClick={() => setModalOperationsShow(true)}
                                 variant='link'
                               >
                                 Link
                               </Button> */}
-                              </div>
-                            </div>
-                          </ListGroup.Item>
-                        );
-                      })}
-                  </ListGroup>
-                </Col>
-              </div>
-            </div>
-          </section>
-        </div>
+                          </div>
+                        </div>
+                      </ListGroup.Item>
+                    );
+                  })}
+              </ListGroup>
+            </Col>
+          </div>
+        </section>
+
         <OperationsModal
           handleClose={handleClose}
           show={modalOperationsShow}
