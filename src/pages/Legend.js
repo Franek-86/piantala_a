@@ -5,13 +5,13 @@ import yellowPlant from "../assets/images/ti pianto per amore-APP-giallo.png";
 import redPlant from "../assets/images/ti pianto per amore-APP-rosso.png";
 import bluePlant from "../assets/images/ti pianto per amore-APP-azzurro.png";
 import useIsLargeScreen from "../utils/useIsLargeScreen";
-
 import { MdAddLocationAlt } from "react-icons/md";
 import { MdFilterAlt } from "react-icons/md";
 import { MdCenterFocusStrong } from "react-icons/md";
 import SideBar from "../components/menu/SideBar";
 import BackBtn from "../components/menu/BackBtn";
 import { PlantsContext } from "../context/PlantsContext";
+import BackBtnLarge from "../components/menu/BackBtnLarge";
 
 const Legend = () => {
   const isLargeScreen = useIsLargeScreen();
@@ -23,10 +23,11 @@ const Legend = () => {
     <>
       <section className='section-page min-100 section-background map'>
         <BackBtn />
+        {isLargeScreen && <BackBtnLarge />}
         <div className='d-flex flex-row'>
           {isLargeScreen && <SideBar />}
           <section className='w-100 section-page section-center-map'>
-            <h2 className='section-title pt-4 d-lg-none'>legenda</h2>
+            <h3 className='section-title pt-4'>legenda</h3>
             <ul className='d-block section-center mt-lg-5'>
               <li className='plants-list'>
                 <div className='legend-box-container'>

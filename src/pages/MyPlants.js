@@ -11,11 +11,11 @@ import ListGroup from "react-bootstrap/ListGroup";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import CardImg from "react-bootstrap/CardImg";
-
 import { copyToClipboard } from "../utils/utils";
 import useIsLargeScreen from "../utils/useIsLargeScreen";
 import SideBar from "../components/menu/SideBar";
 import BackBtn from "../components/menu/BackBtn";
+import BackBtnLarge from "../components/menu/BackBtnLarge";
 
 const MyPlants = () => {
   const { myReports, loadingReports, fetchUserPlants, dropIt } =
@@ -40,12 +40,11 @@ const MyPlants = () => {
     <>
       <section className='section-page min-100 section-background map'>
         <BackBtn />
+        {isLargeScreen && <BackBtnLarge />}
         <div className='d-flex flex-row'>
           {isLargeScreen && <SideBar />}
           <div className='section-center section-center-map'>
-            <h2 className='section-title d-lg-none pt-4'>
-              Le mie segnalazioni
-            </h2>
+            <h3 className='section-title pt-4'>Le mie segnalazioni</h3>
 
             {loadingReports ? (
               <Loading />

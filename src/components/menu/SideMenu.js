@@ -27,7 +27,6 @@ import { MdLegendToggle } from "react-icons/md";
 import { GiPlantSeed } from "react-icons/gi";
 import { IoPeopleCircle } from "react-icons/io5";
 import { PiPottedPlantBold } from "react-icons/pi";
-import { TfiSettings } from "react-icons/tfi";
 import { CgProfile } from "react-icons/cg";
 const SideMenu = ({ onLogout, ...props }) => {
   const { handleLogout, userRole, isAuthenticated } = useContext(AuthContext);

@@ -215,12 +215,7 @@ function Map() {
     return (
       <div className=''>
         {" "}
-        {isLargeScreen && (
-          <>
-            <SideBar />
-            <BackBtnLarge />
-          </>
-        )}
+        {isLargeScreen && <SideBar />}
         {isLargeScreen && (
           <div className='bg-map'>
             <MapContainer
@@ -263,7 +258,7 @@ function Map() {
     <div className='d-flex flex-row w-100'>
       {isLargeScreen && (
         <>
-          <BackBtnLarge map={true} />
+          {/* <BackBtnLarge /> */}
           <SideBar />
         </>
       )}

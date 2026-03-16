@@ -10,10 +10,10 @@ import { ListGroup } from "react-bootstrap";
 import BottomBar from "../components/map/BottomBar";
 import { copyToClipboard } from "../utils/utils";
 import useIsLargeScreen from "../utils/useIsLargeScreen";
-
 import { OrdersContext } from "../context/OrdersContext";
 import SideBar from "../components/menu/SideBar";
 import BackBtn from "../components/menu/BackBtn";
+import BackBtnLarge from "../components/menu/BackBtnLarge";
 
 const OwnedPlants = () => {
   const { getMyPlants, myPlants, dropIt } = useContext(PlantsContext);
@@ -51,6 +51,7 @@ const OwnedPlants = () => {
     <>
       <section className='section-page min-100 section-background map'>
         <BackBtn />
+        {isLargeScreen && <BackBtnLarge />}
         <div className='d-flex flex-row'>
           {isLargeScreen && <SideBar />}
           <div className='section-center section-center-map'>
@@ -61,7 +62,7 @@ const OwnedPlants = () => {
             }}
           />
         </div> */}
-            <h2 className='section-title d-lg-none pt-4'>Le mie piante</h2>
+            <h3 className='section-title pt-4'>Le mie piante</h3>
             {myPlants && myPlants?.length > 0 ? (
               /* <th>Data acquisto</th>
                 <th>Tipo</th>
