@@ -12,6 +12,7 @@ import { Alert } from "react-bootstrap";
 import BackBtn from "../components/menu/BackBtn";
 import { VersionContext } from "../context/VersionContext";
 import BackBtnLarge from "../components/menu/BackBtnLarge";
+
 const Chat = () => {
   const { userId, isAuthenticated } = useContext(AuthContext);
   const { getMessages, messages, message } = useContext(ChatContext);
@@ -28,10 +29,10 @@ const Chat = () => {
   };
   return (
     <div className='dvh'>
-      {isLargeScreen && <SideBar />}
       <BackBtn />
-      {/* <BackBtnLarge /> */}
+      {isLargeScreen && <BackBtnLarge />}
       <section className='section-page section-background cha section-large page-large-container section-chat chat-section-height'>
+        {isLargeScreen && <SideBar />}
         <div className='h-100'>
           <div className='h-100 d-flex align-items-center justify-content-center pt-3 pt-lg-4 pt-xl-5'>
             <div className='h-100'>

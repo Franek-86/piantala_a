@@ -12,6 +12,7 @@ import { FaXTwitter } from "react-icons/fa6";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import logo from "../assets/images/ti pianto per amore-APP-verde.png";
 import { VersionContext } from "../context/VersionContext";
+import BackBtnLarge from "../components/menu/BackBtnLarge";
 
 const ChiSiamo = () => {
   const { version } = useContext(VersionContext);
@@ -25,6 +26,7 @@ const ChiSiamo = () => {
       {isLargeScreen && <SideBar />}
       <div className='section-page section-full-page section-large page-large-container yellow-background min-100'>
         <BackBtn />
+        {isLargeScreen && <BackBtnLarge />}
         <section className='chi-article section-background menu-section-center pb-5'>
           <div className='section-center'>
             <h2 className='section-title pt-4'>Chi siamo</h2>

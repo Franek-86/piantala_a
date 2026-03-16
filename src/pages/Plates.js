@@ -12,6 +12,8 @@ import SideBar from "../components/menu/SideBar";
 import BackBtn from "../components/menu/BackBtn";
 import { BsVectorPen } from "react-icons/bs";
 import { VersionContext } from "../context/VersionContext";
+import BackBtnLarge from "../components/menu/BackBtnLarge";
+
 const Plates = () => {
   const { getAllPlants, plates } = useContext(PlantsContext);
   const { version } = useContext(VersionContext);
@@ -56,6 +58,7 @@ const Plates = () => {
       {isLargeScreen && <SideBar />}
       <section className='section-page section-background section-full-page section-users section-large section-plates page-large-container min-100'>
         <BackBtn />
+        {isLargeScreen && <BackBtnLarge />}
         <div className='section-center '>
           <section className='section-page'>
             <div className='menu-section-center'>

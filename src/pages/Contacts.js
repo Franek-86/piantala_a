@@ -20,6 +20,7 @@ import useIsLargeScreen from "../utils/useIsLargeScreen";
 import SideBar from "../components/menu/SideBar";
 import BackBtn from "../components/menu/BackBtn";
 import { VersionContext } from "../context/VersionContext";
+import BackBtnLarge from "../components/menu/BackBtnLarge";
 
 const Contacts = () => {
   const { version } = useContext(VersionContext);
@@ -51,6 +52,7 @@ const Contacts = () => {
       {isLargeScreen && <SideBar />}
       <div className='section-page section-full-page section-orders section-large page-large-container yellow-background min-100'>
         <BackBtn />
+        {isLargeScreen && <BackBtnLarge />}
         {loading && <Loading />}
 
         <div className='section-page'>
