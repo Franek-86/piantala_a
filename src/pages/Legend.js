@@ -21,42 +21,47 @@ const Legend = () => {
   }, []);
   return (
     <>
-      <section className='section-page min-100 section-background map'>
+      <section className='min-100 section-background map'>
         <BackBtn />
         {isLargeScreen && <BackBtnLarge />}
         <div className='d-flex flex-row'>
           {isLargeScreen && <SideBar />}
-          <section className='w-100 section-page section-center-map'>
-            <h3 className='section-title pt-4'>legenda</h3>
-            <ul className='d-block section-center mt-lg-5'>
-              <li className='plants-list'>
-                <div className='legend-box-container'>
-                  <div className='legend-image approved'>
-                    <img src={greenPlant} alt='' />
+          <section className='w-100 section-center-map'>
+            <div className='section-center'>
+              <h3 className='section-title pt-4'>legenda</h3>
+              <ul className='d-block mt-lg-5'>
+                <li className='plants-list'>
+                  <div className='legend-box-container'>
+                    <div className='legend-image approved'>
+                      <img src={greenPlant} alt='' />
+                    </div>
+                    <span className='legend-description'>
+                      piante disponibili all'acquisto
+                    </span>
                   </div>
-                  <span className='legend-description'>
-                    piante disponibili all'acquisto
-                  </span>
-                </div>
-              </li>
-              <li className='plants-list'>
-                <div className='legend-box-container'>
-                  <div className='legend-image booked'>
-                    <img src={bluePlant} alt='' />
+                </li>
+                <li className='plants-list'>
+                  <div className='legend-box-container'>
+                    <div className='legend-image booked'>
+                      <img src={bluePlant} alt='' />
+                    </div>
+                    <span className='legend-description'>
+                      piante acquistate
+                    </span>
                   </div>
-                  <span className='legend-description'>piante acquistate</span>
-                </div>
-              </li>
-              <li className='plants-list'>
-                <div className='legend-box-container'>
-                  <div className='legend-image icon '>
-                    {/* <img src={greenPlant} alt='' /> */}
-                    <MdAddLocationAlt className='legend-icon' />
+                </li>
+                <li className='plants-list'>
+                  <div className='legend-box-container'>
+                    <div className='legend-image icon '>
+                      {/* <img src={greenPlant} alt='' /> */}
+                      <MdAddLocationAlt className='legend-icon' />
+                    </div>
+                    <span className='legend-description'>
+                      geolocalizzazione
+                    </span>
                   </div>
-                  <span className='legend-description'>geolocalizzazione</span>
-                </div>
-              </li>
-              {/* <li className='plants-list'>
+                </li>
+                {/* <li className='plants-list'>
                 <div className='legend-box-container'>
                   <div className='legend-image icon '>
                     <MdFilterAlt className='legend-icon' />
@@ -66,16 +71,17 @@ const Legend = () => {
                   </span>
                 </div>
               </li> */}
-              <li className='plants-list'>
-                <div className='legend-box-container'>
-                  <div className='legend-image icon '>
-                    {/* <img src={greenPlant} alt='' /> */}
-                    <MdCenterFocusStrong className='legend-icon' />
+                <li className='plants-list'>
+                  <div className='legend-box-container'>
+                    <div className='legend-image icon '>
+                      {/* <img src={greenPlant} alt='' /> */}
+                      <MdCenterFocusStrong className='legend-icon' />
+                    </div>
+                    <span className='legend-description'>Accentra mappa</span>
                   </div>
-                  <span className='legend-description'>Accentra mappa</span>
-                </div>
-              </li>
-            </ul>
+                </li>
+              </ul>
+            </div>
           </section>
         </div>
       </section>
