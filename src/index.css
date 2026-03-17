@@ -1174,15 +1174,13 @@ element {
 /* .section-plant-intro {
   min-height: calc(100vh - 3rem);
 } */
-.section-large-intro {
+/* .section-large-intro {
   min-height: 100vh;
-}
+} */
 .section-plant-position {
   min-height: 100vh;
 }
-.section-plant-plate {
-  min-height: 100vh;
-}
+
 .section-plant-form {
   height: 100vh;
 }

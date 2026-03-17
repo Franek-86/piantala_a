@@ -295,7 +295,7 @@ export const PlantsProvider = ({ children }) => {
           }
         }
       } else {
-        setSinglePlantError("qualcosa è andto storto");
+        setSinglePlantError("qualcosa è andato storto");
       }
     } catch (err) {
       setSinglePlantError(err.message);

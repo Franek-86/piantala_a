@@ -17,10 +17,23 @@ const Plant = () => {
     singlePlantError,
     plateUrl,
     plant,
+    setPlant,
     singlePlantLoading,
     getOwnerPublicInfo,
   } = useContext(PlantsContext);
   const isLarge = useIsLargeScreen();
+
+  useEffect(() => {
+    console.log("lascio no");
+    const test = () => {
+      setPlant(null);
+      return;
+    };
+    window.addEventListener("beforeunload", test);
+    return () => {
+      window.removeEventListener("beforeunload", test);
+    };
+  }, []);
   useEffect(() => {
     version();
     getSinglePlant(plantId);

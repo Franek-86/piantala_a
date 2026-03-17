@@ -105,9 +105,9 @@ const PlantApproved = () => {
       <Form onSubmit={handleSubmit(onSubmit)}>
         <div className='single-plant'>
           <section
-            className={isLarge ? "section-large-intro" : "section-plant-intro"}
+          // className={isLarge ? "section-large-intro" : "section-plant-intro"}
           >
-            <div className='pt-4 pt-lg-0'>
+            <div className='py-5 pt-lg-0'>
               {isLarge && (
                 <h2 className='section-title pt-3 pt-xl-4'>
                   Zona <span className='text-lowercase'>-</span> {plant?.suburb}{" "}
@@ -215,8 +215,8 @@ const PlantApproved = () => {
               </div>
             </div>
           </section>
-          <section id='location' className='pt-5 white-background'>
-            <div className='section-center section-plant-position'>
+          <section id='location' className='py-5 white-background'>
+            <div className='section-center'>
               <span className='mb-3 h5 d-flex flex-row align-items-center'>
                 <div className='step-title pb-2 pe-1'>
                   <TiLocation />
@@ -235,24 +235,9 @@ const PlantApproved = () => {
                   .{" "}
                 </span>
               </article>
-
-              {/* <article className='pt-4 pb-5 d-flex btn-plant-article  justify-content-center'>
-                <a
-                  href='#plate'
-                  className='btn btn-primary d-flex align-items-center justify-content-between'
-                >
-                  <span className='pe-2'>
-                    Definisci il testo della tua targa
-                  </span>
-                  <FaArrowDown />
-                </a>
-              </article> */}
             </div>
           </section>
-          <section
-            id='plate'
-            className='pt-5 section-plant-plate yellow-background'
-          >
+          <section id='plate' className='py-5 yellow-background'>
             <div className='section-center section-plant '>
               <span className='mb-3 h5 d-flex flex-row align-items-center'>
                 <div className='step-title pb-2 pe-1'>
