@@ -40,6 +40,7 @@ const Plant = () => {
       </div>
     );
   }
+  return "ciao";
 };
 
 export default Plant;
