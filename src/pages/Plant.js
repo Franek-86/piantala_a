@@ -27,8 +27,7 @@ const Plant = () => {
   }, [plantId, plateUrl]);
 
   if (singlePlantError) return <div className='error'>{singlePlantError}</div>;
-  if (singlePlantLoading) return <Loading />;
-
+  if (!plant) return <Loading />;
   const { status_piantina } = plant;
 
   return (
