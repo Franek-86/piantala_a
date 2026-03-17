@@ -114,7 +114,7 @@ const PlantApproved = () => {
                   &#127793;
                 </h2>
               )}
-              <div className='section-center pb-5'>
+              <div className='section-center'>
                 {!isLarge && (
                   <Breadcrumb>
                     <Breadcrumb.Item href='/map'>Mappa</Breadcrumb.Item>
