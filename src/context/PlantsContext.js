@@ -276,35 +276,32 @@ export const PlantsProvider = ({ children }) => {
   };
 
   const getSinglePlant = async (plantId) => {
-    const fetchData = async () => {
-      setSinglePlantLoading(true);
-      try {
-        const response = await axios.get(`${serverDomain}/api/plants`);
-        if (response) {
-          const item = response.data.find(
-            (item) => item.id === parseInt(plantId),
-          );
-          if (item) {
-            setPlant(item);
-            const userInfo = await getOtherUserInfo(item.user_id);
+    setSinglePlantLoading(true);
+    try {
+      const response = await axios.get(`${serverDomain}/api/plants`);
+      if (response) {
+        const item = response.data.find(
+          (item) => item.id === parseInt(plantId),
+        );
+        ``;
+        if (item) {
+          setPlant(item);
+          const userInfo = await getOtherUserInfo(item.user_id);
 
-            if (userInfo?.userName) {
-              setUserInfo(userInfo.userName);
-              setUserId(item.user_id);
-            }
-            if (item?.owner_id) {
-              setOwnerId(item.owner_id);
-            }
+          if (userInfo?.userName) {
+            setUserInfo(userInfo.userName);
+            setUserId(item.user_id);
+          }
+          if (item?.owner_id) {
+            setOwnerId(item.owner_id);
           }
         }
-      } catch (err) {
-        setSinglePlantError(err.message);
-      } finally {
-        setSinglePlantLoading(false);
       }
-    };
-
-    fetchData();
+    } catch (err) {
+      setSinglePlantError(err.message);
+    } finally {
+      setSinglePlantLoading(false);
+    }
   };
 
   const handleStatusChange = async (newStatus, plantId, comment) => {

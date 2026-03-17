@@ -74,6 +74,7 @@ function Map() {
   const {
     plants,
     setPlants,
+    setPlant,
     getAllPlants,
     loading,
     sendValuesToAddPlant,
@@ -175,6 +176,7 @@ function Map() {
   const location = useLocation();
 
   useEffect(() => {
+    console.log("test dalla mappa");
     getAllPlants();
   }, []);
 
