@@ -203,7 +203,7 @@ const PlantApproved = () => {
                     </div>
                   </div>
                 </article>
-                <article className='d-flex justify-content-center btn-plant-article pb-5'>
+                {/* <article className='d-flex justify-content-center btn-plant-article pb-5'>
                   <a
                     href='#location'
                     className='btn btn-primary d-flex align-items-center justify-content-between'
@@ -211,7 +211,7 @@ const PlantApproved = () => {
                     <span className=''>Posizione</span>
                     <FaArrowDown />
                   </a>
-                </article>
+                </article> */}
               </div>
             </div>
           </section>
@@ -236,7 +236,7 @@ const PlantApproved = () => {
                 </span>
               </article>
 
-              <article className='pt-4 pb-5 d-flex btn-plant-article  justify-content-center'>
+              {/* <article className='pt-4 pb-5 d-flex btn-plant-article  justify-content-center'>
                 <a
                   href='#plate'
                   className='btn btn-primary d-flex align-items-center justify-content-between'
@@ -246,7 +246,7 @@ const PlantApproved = () => {
                   </span>
                   <FaArrowDown />
                 </a>
-              </article>
+              </article> */}
             </div>
           </section>
           <section
@@ -308,7 +308,7 @@ const PlantApproved = () => {
                   style={{ backgroundImage: `url(${Verner})` }}
                 ></div>
               </article>
-              <article className='pt-4 pb-5 d-flex btn-plant-article justify-content-center'>
+              {/* <article className='pt-4 pb-5 d-flex btn-plant-article justify-content-center'>
                 <a
                   href='#payment'
                   className='btn btn-primary d-flex align-items-center justify-content-between'
@@ -316,7 +316,7 @@ const PlantApproved = () => {
                   <span className='pe-2'>Informazioni sul pagamento</span>
                   <FaArrowDown />
                 </a>
-              </article>
+              </article> */}
             </div>
           </section>
           <PlantForm />
