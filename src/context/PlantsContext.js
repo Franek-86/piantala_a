@@ -20,7 +20,7 @@ export const PlantsProvider = ({ children }) => {
   const [error, setError] = useState(null);
   const [singlePlantError, setSinglePlantError] = useState(null);
   const [loading, setLoading] = useState(null);
-  const [singlePlantLoading, setSinglePlantLoading] = useState(null);
+  const [singlePlantLoading, setSinglePlantLoading] = useState(false);
   const [plateLoading, setPlateLoading] = useState(null);
   const [locationInfo, setLocationInfo] = useState(null);
   const [plateUrl, setPlateUrl] = useState(false);
@@ -249,7 +249,6 @@ export const PlantsProvider = ({ children }) => {
         theme: "light",
       });
       setError(err.message);
-      setSinglePlantLoading(false);
     } finally {
       setSinglePlantLoading(false);
     }
@@ -276,8 +275,8 @@ export const PlantsProvider = ({ children }) => {
   };
 
   const getSinglePlant = async (plantId) => {
-    setSinglePlantLoading(true);
     try {
+      setSinglePlantLoading(true);
       const response = await axios.get(`${serverDomain}/api/plants`);
       if (response) {
         const item = response.data.find(
