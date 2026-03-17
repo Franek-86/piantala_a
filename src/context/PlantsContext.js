@@ -283,7 +283,6 @@ export const PlantsProvider = ({ children }) => {
         const item = response.data.find(
           (item) => item.id === parseInt(plantId),
         );
-        ``;
         if (item) {
           setPlant(item);
           const userInfo = await getOtherUserInfo(item.user_id);
