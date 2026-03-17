@@ -89,9 +89,8 @@ const ChiSiamo = () => {
         <section className='py-5 yellow-background'>
           <div className='section-center'>
             <h4>Seguici sui nostri canali</h4>
-
-            <div className='mt-5 contacts-social-container d-flex flex-column flex-xl-row justify-content-around justify-content-xl-start align-items-center w-100'>
-              <article className='contacts-social-icon mb-4 pe-xl-5'>
+            <div className='mt-5 d-flex flex-column  justify-content-around align-items-center w-100'>
+              <article className='contacts-social-icon mb-4'>
                 <a
                   target='_blank'
                   href='https://www.instagram.com/tipiantoperamore?igsh=MWY5cTFhZWJ2NXM2eQ=='
@@ -100,7 +99,7 @@ const ChiSiamo = () => {
                   <FaInstagram />
                 </a>
               </article>
-              <article className='contacts-social-icon mb-4 pe-xl-5'>
+              <article className='contacts-social-icon mb-4'>
                 <a
                   target='_blank'
                   href='https://www.facebook.com/ti.pianto.per.amore/'
