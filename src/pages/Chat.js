@@ -12,13 +12,22 @@ import { Alert } from "react-bootstrap";
 import BackBtn from "../components/menu/BackBtn";
 import { VersionContext } from "../context/VersionContext";
 import BackBtnLarge from "../components/menu/BackBtnLarge";
+import { Capacitor } from "@capacitor/core";
 
 const Chat = () => {
   const { userId, isAuthenticated } = useContext(AuthContext);
   const { getMessages, messages, message } = useContext(ChatContext);
   const isLargeScreen = useIsLargeScreen();
   const { version } = useContext(VersionContext);
-
+  const isNative = Capacitor.isNativePlatform();
+  const chatSection = () => {
+    if (isNative) {
+      return "back-nav-app section-background section-large page-large-container section-chat chat-app-height";
+    } else {
+      return "section-background section-large page-large-container section-chat chat-section-height ";
+    }
+  };
+  // back-nav-app
   useEffect(() => {
     version();
     getMessages();
@@ -31,7 +40,8 @@ const Chat = () => {
     <div className='dvh'>
       <BackBtn />
       {isLargeScreen && <BackBtnLarge />}
-      <section className='section-background cha section-large page-large-container section-chat chat-section-height'>
+      <section className={chatSection()}>
+        {/* <section className='section-background section-large page-large-container section-chat chat-section-height'> */}
         {isLargeScreen && <SideBar />}
         <div className='section-center h-100'>
           <div className='h-100 d-flex align-items-center justify-content-center'>

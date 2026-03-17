@@ -1810,7 +1810,9 @@ element {
 .chat-section-height {
   height: calc(100% - 4rem);
 }
-
+.chat-app-height {
+  height: calc(100% - 5.5rem);
+}
 .sender {
   color: var(--clr-primary-5);
 }
