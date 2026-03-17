@@ -284,15 +284,15 @@ export const PlantsProvider = ({ children }) => {
         );
         if (item) {
           setPlant(item);
-          // const userInfo = await getOtherUserInfo(item.user_id);
+          const userInfo = await getOtherUserInfo(item.user_id);
 
-          // if (userInfo?.userName) {
-          //   setUserInfo(userInfo.userName);
-          //   setUserId(item.user_id);
-          // }
-          // if (item?.owner_id) {
-          //   setOwnerId(item.owner_id);
-          // }
+          if (userInfo?.userName) {
+            setUserInfo(userInfo.userName);
+            setUserId(item.user_id);
+          }
+          if (item?.owner_id) {
+            setOwnerId(item.owner_id);
+          }
         }
       }
     } catch (err) {

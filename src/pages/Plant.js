@@ -24,10 +24,10 @@ const Plant = () => {
   useEffect(() => {
     version();
     getSinglePlant(plantId);
-  }, [plateUrl]);
+  }, [plantId, plateUrl]);
 
   if (singlePlantError) return <div className='error'>{singlePlantError}</div>;
-  if (singlePlantLoading) return <Loading />;
+  if (!plant) return <Loading />;
   // const { status_piantina } = plant;
   const statusPiantina = plant?.status_piantina;
   if (statusPiantina) {
