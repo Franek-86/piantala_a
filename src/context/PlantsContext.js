@@ -275,6 +275,7 @@ export const PlantsProvider = ({ children }) => {
   };
 
   const getSinglePlant = async (plantId) => {
+    setPlant(null);
     try {
       setSinglePlantLoading(true);
       const response = await axios.get(`${serverDomain}/api/plants`);
@@ -294,6 +295,8 @@ export const PlantsProvider = ({ children }) => {
             setOwnerId(item.owner_id);
           }
         }
+      } else {
+        setSinglePlantError("qualcosa è andto storto");
       }
     } catch (err) {
       setSinglePlantError(err.message);
