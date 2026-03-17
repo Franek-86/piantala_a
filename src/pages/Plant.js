@@ -24,7 +24,7 @@ const Plant = () => {
   useEffect(() => {
     version();
     getSinglePlant(plantId);
-  }, [plantId, plateUrl]);
+  }, [plateUrl]);
 
   if (singlePlantError) return <div className='error'>{singlePlantError}</div>;
   if (singlePlantLoading) return <Loading />;

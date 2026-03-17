@@ -406,7 +406,9 @@ export const UsersProvider = ({ children }) => {
         });
         return response.data;
       }
-    } catch (err) {}
+    } catch (err) {
+      console.log(err);
+    }
   };
   // ok
   const deleteProfile = async (data) => {
