@@ -277,8 +277,8 @@ export const PlantsProvider = ({ children }) => {
 
   const getSinglePlant = async (plantId) => {
     const fetchData = async () => {
+      setSinglePlantLoading(true);
       try {
-        setSinglePlantLoading(true);
         const response = await axios.get(`${serverDomain}/api/plants`);
         if (response) {
           const item = response.data.find(
