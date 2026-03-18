@@ -37,7 +37,8 @@ code {
   --c-text-light-1: #2c3e50;
   --c-text-light-2: #476582;
   --c-text-light-3: #90a4b7;
-  --c-bg-map-1: #fefee3;
+  /* --c-bg-map-1: #fefee3; */
+  --c-bg-map-1: #fefdd7;
   --c-bg-map-2: #d5e8eb;
 
   --radius: 0.5rem;
@@ -2522,7 +2523,7 @@ body {
   position: sticky;
   top: 0;
   /* background-color: #eef3f4; */
-  background-color: var(--c-bg-map-2);
+  background-color: var(--c-bg-map-1);
   z-index: 1000;
   border-bottom: 2px solid var(--clr-primary-5);
   justify-content: space-between;
@@ -2545,7 +2546,7 @@ body {
   align-items: center;
   position: sticky;
   top: 0;
-  background-color: var(--c-bg-map-2);
+  background-color: var(--c-bg-map-1);
   z-index: 1000;
   border-bottom: 1px solid var(--clr-secondary-0);
   justify-content: space-between;
@@ -2558,7 +2559,7 @@ body {
   align-items: center;
   position: fixed;
   top: 0;
-  background-color: #d5e8eb;
+  background-color: var(--c-bg-map-1);
   z-index: 1000;
   border-bottom: 1px solid var(--clr-secondary-0);
   justify-content: space-between;
