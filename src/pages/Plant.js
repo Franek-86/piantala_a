@@ -39,13 +39,14 @@ const Plant = () => {
     getSinglePlant(plantId);
   }, [plantId, plateUrl]);
 
-  if (singlePlantError) return <div className='error'>{singlePlantError}</div>;
-  if (!plant) return <Loading />;
+  // if (!plant) return <Loading />;
   // const { status_piantina } = plant;
   const statusPiantina = plant?.status_piantina;
   if (statusPiantina) {
     return (
       <div className={isLarge ? "plants-container" : "plants-container-small"}>
+        {singlePlantError && <div className='error'>{singlePlantError}</div>}
+        {singlePlantLoading && <Loading />}
         {statusPiantina === "approved" && <PlantApproved />}
         {statusPiantina === "pending" && <PlantPending />}
         {statusPiantina === "booked" && <PlantBooked />}
