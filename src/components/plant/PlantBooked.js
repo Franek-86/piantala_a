@@ -142,25 +142,23 @@ const PlantBooked = () => {
       <BackBtn plant />
       <div className='single-plant'>
         {isLarge && <BackBtnLarge />}
-        <section className='pt-2'>
+        <section className='pt-2 mb-1'>
           <div className='section-center'>
-            <div className='text-end d-flex justify-content-between'>
-              <Breadcrumb>
-                <Breadcrumb.Item href='/map'>Mappa</Breadcrumb.Item>
-                {/* <Breadcrumb.Item href='https://getbootstrap.com/docs/4.0/components/breadcrumb/'>
+            <Breadcrumb>
+              <Breadcrumb.Item href='/map'>Mappa</Breadcrumb.Item>
+              {/* <Breadcrumb.Item href='https://getbootstrap.com/docs/4.0/components/breadcrumb/'>
                       Library
                     </Breadcrumb.Item> */}
-                <Breadcrumb.Item active>
-                  Zolla &#8470; {plant.id}
-                </Breadcrumb.Item>
-              </Breadcrumb>
+              <Breadcrumb.Item active>Zolla &#8470; {plant.id}</Breadcrumb.Item>
+            </Breadcrumb>
+            <div className='section-title d-flex justify-content-center align-items-center pt-3'>
+              <h2 className='pe-2 mb-0'>
+                {plant_type ? plant_type : "Piantina"}{" "}
+                <span className='lower-case'>di</span> {ownerPublicInfo}
+              </h2>
+
               <ShareButton />
             </div>
-
-            <h2 className='section-title pt-3'>
-              {plant_type ? plant_type : "Piantina"}{" "}
-              <span className='lower-case'>di</span> {ownerPublicInfo}
-            </h2>
             {/* share button */}
 
             <article className='booked-plant-pic d-flex justify-content-center pb-5'>
@@ -193,7 +191,7 @@ const PlantBooked = () => {
                 </div>
               </div>
             </article>
-            {/* <article className='py-5 justify-content-center btn-plant-article d-none d-xl-flex'>
+            <article className='py-5 justify-content-center btn-plant-article d-none d-xl-flex'>
               <a
                 href='#plate'
                 className='btn btn-primary d-flex align-items-center justify-content-between'
@@ -201,7 +199,7 @@ const PlantBooked = () => {
                 <span className='pe-2'>Targa</span>
                 <FaArrowDown />
               </a>
-            </article> */}
+            </article>
           </div>
         </section>
         <section

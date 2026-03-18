@@ -62,8 +62,7 @@ const ShareButton = () => {
           setShareNow(!shareNow);
         }}
       >
-        Condividi
-        <FaShare className='ms-1' />
+        <FaShare className='' />
       </div>
       {shareNow && (
         <section className='d-flex w-50 ps-2'>
