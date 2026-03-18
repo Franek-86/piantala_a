@@ -58,7 +58,7 @@ const SideBar = () => {
               className='nav-link text-truncate'
             >
               <PiPottedPlantBold />
-              <span class='ms-2 d-sm-inline pe-5'>Piantine</span>
+              <span class='ms-2 d-sm-inline pe-5'>Mappa piantine</span>
               {drop ? (
                 <IoMdArrowDropdown
                   className={({ isActive }) =>
@@ -106,7 +106,7 @@ const SideBar = () => {
                 }
               >
                 <MdLegendToggle />
-                <span class='ms-2 d-sm-inline'>Legenda</span>
+                <span class='ms-2 d-sm-inline'>Legenda mappa</span>
               </NavLink>
             </ListGroup.Item>
             <ListGroup.Item>
