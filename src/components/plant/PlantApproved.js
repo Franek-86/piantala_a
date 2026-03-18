@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 import Card from "react-bootstrap/Card";
-import { FaArrowDown, FaRegCopy } from "react-icons/fa";
+import { FaArrowDown, FaRegCopy, FaShare } from "react-icons/fa";
 import ListGroup from "react-bootstrap/ListGroup";
 import { useParams, useNavigate, useLocation, Link } from "react-router-dom";
 import { MdBackspace } from "react-icons/md";
@@ -22,6 +22,7 @@ import Verner from "../../assets/images/verner.jpg";
 import useIsLargeScreen from "../../utils/useIsLargeScreen";
 import BackBtnLarge from "../menu/BackBtnLarge";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
+import ShareButton from "./ShareButton";
 
 const PlantApproved = () => {
   const {
@@ -35,13 +36,7 @@ const PlantApproved = () => {
 
   const { plant, userInfo } = useContext(PlantsContext);
   const fromPage = location.state?.from || "/map";
-  const {
-    getSinglePlant,
-    singlePlantError,
-    plateUrl,
-    singlePlantLoading,
-    setPlant,
-  } = useContext(PlantsContext);
+  const { setShareNow } = useContext(PlantsContext);
 
   const { userId, userRole, isAuthenticated, setLogReg, logReg } =
     useContext(AuthContext);
@@ -107,7 +102,7 @@ const PlantApproved = () => {
           <section
           // className={isLarge ? "section-large-intro" : "section-plant-intro"}
           >
-            <div className='py-5 pt-lg-2'>
+            <div className='pt-2 pb-5'>
               <div className='section-center'>
                 <Breadcrumb>
                   <Breadcrumb.Item href='/map'>Mappa</Breadcrumb.Item>
@@ -115,15 +110,24 @@ const PlantApproved = () => {
                       Library
                     </Breadcrumb.Item> */}
                   <Breadcrumb.Item active>
-                    Zolla &#8470; {plant.id}
+                    Zolla n&#176; {plant.id}
                   </Breadcrumb.Item>
                 </Breadcrumb>
-                {isLarge && (
-                  <h2 className='section-title pt-2'>
-                    Zona <span className='text-lowercase'>-</span>{" "}
-                    {plant?.suburb} &#127793;
+                <div className='section-title d-flex justify-content-center align-items-center pt-3'>
+                  <h2 className='pe-2 mb-0'>
+                    {plant?.suburb} - Zolla{" "}
+                    <span className='text-lowercase'>n&#176;</span> {plant.id}
                   </h2>
-                )}
+                  <ShareButton />
+                  <div
+                    className='btn btn-primary btn-small no-wrap'
+                    onClick={() => {
+                      setShareNow(true);
+                    }}
+                  >
+                    <FaShare className='' />
+                  </div>
+                </div>
                 <article className='plant-intro-text intro-article p-2 p-lg-3 p-xl-4 mb-3'>
                   <span className='mb-0'>
                     Questa zolla di piantagione, avente nostro riferimento

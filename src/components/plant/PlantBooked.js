@@ -79,6 +79,8 @@ const PlantBooked = () => {
     userOwner,
     setUserOwner,
     ownerPublicInfo,
+    shareNow,
+    setShareNow,
   } = useContext(PlantsContext);
 
   const backToMap = () => {
@@ -156,8 +158,16 @@ const PlantBooked = () => {
                 {plant_type ? plant_type : "Piantina"}{" "}
                 <span className='lower-case'>di</span> {ownerPublicInfo}
               </h2>
-
               <ShareButton />
+
+              <div
+                className='btn btn-primary btn-small no-wrap'
+                onClick={() => {
+                  setShareNow(true);
+                }}
+              >
+                <FaShare className='' />
+              </div>
             </div>
             {/* share button */}
 

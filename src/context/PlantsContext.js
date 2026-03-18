@@ -37,7 +37,7 @@ export const PlantsProvider = ({ children }) => {
   const [modalUserShow, setModalUserShow] = useState(false);
   const [myReports, setMyReports] = useState([]);
   const [loadingReports, setLoadingReports] = useState(true);
-
+  const [shareNow, setShareNow] = useState(false);
   const [reporterInfo, setReporterInfo] = useState({
     type: "reporter",
     firstName: "",
@@ -680,6 +680,8 @@ export const PlantsProvider = ({ children }) => {
         toggleDrop,
         dropIt,
         unDropIt,
+        shareNow,
+        setShareNow,
       }}
     >
       {children}
