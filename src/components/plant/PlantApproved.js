@@ -107,24 +107,22 @@ const PlantApproved = () => {
           <section
           // className={isLarge ? "section-large-intro" : "section-plant-intro"}
           >
-            <div className='py-5 pt-lg-0'>
-              {isLarge && (
-                <h2 className='section-title pt-3 pt-xl-4'>
-                  Zona <span className='text-lowercase'>-</span> {plant?.suburb}{" "}
-                  &#127793;
-                </h2>
-              )}
+            <div className='py-5 pt-lg-2'>
               <div className='section-center'>
-                {!isLarge && (
-                  <Breadcrumb>
-                    <Breadcrumb.Item href='/map'>Mappa</Breadcrumb.Item>
-                    {/* <Breadcrumb.Item href='https://getbootstrap.com/docs/4.0/components/breadcrumb/'>
+                <Breadcrumb>
+                  <Breadcrumb.Item href='/map'>Mappa</Breadcrumb.Item>
+                  {/* <Breadcrumb.Item href='https://getbootstrap.com/docs/4.0/components/breadcrumb/'>
                       Library
                     </Breadcrumb.Item> */}
-                    <Breadcrumb.Item active>
-                      Zolla &#8470; {plant.id}
-                    </Breadcrumb.Item>
-                  </Breadcrumb>
+                  <Breadcrumb.Item active>
+                    Zolla &#8470; {plant.id}
+                  </Breadcrumb.Item>
+                </Breadcrumb>
+                {isLarge && (
+                  <h2 className='section-title pt-2'>
+                    Zona <span className='text-lowercase'>-</span>{" "}
+                    {plant?.suburb} &#127793;
+                  </h2>
                 )}
                 <article className='plant-intro-text intro-article p-2 p-lg-3 p-xl-4 mb-3'>
                   <span className='mb-0'>

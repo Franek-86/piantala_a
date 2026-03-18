@@ -34,7 +34,7 @@ const ShareButton = () => {
   const handleFacebookPagePost = () => {
     window.open(
       `https://www.facebook.com/dialog/share?app_id=1558542848644058&display=popup&href=${pageUrl}&redirect_uri=${pageUrl}`,
-      "_blank"
+      "_blank",
     );
   };
 
@@ -62,7 +62,7 @@ const ShareButton = () => {
           setShareNow(!shareNow);
         }}
       >
-        Condividi pagina
+        Condividi
         <FaShare className='ms-1' />
       </div>
       {shareNow && (

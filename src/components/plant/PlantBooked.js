@@ -9,7 +9,7 @@ import {
   FaShare,
   FaUser,
 } from "react-icons/fa";
-
+import Breadcrumb from "react-bootstrap/Breadcrumb";
 import ListGroup from "react-bootstrap/ListGroup";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { MdBackspace } from "react-icons/md";
@@ -35,6 +35,7 @@ import BackBtnLarge from "../menu/BackBtnLarge";
 import useIsLargeScreen from "../../utils/useIsLargeScreen";
 import { BsVectorPen } from "react-icons/bs";
 import { MdOutlineFileUpload } from "react-icons/md";
+
 const PlantBooked = () => {
   const [modalShow, setModalShow] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -138,242 +139,247 @@ const PlantBooked = () => {
 
   return (
     <div className='plant-section'>
-      <div className=''>
-        <BackBtn plant />
-        <div className='single-plant'>
-          {isLarge && <BackBtnLarge />}
-          <section className='section-booked-pic'>
-            <div className='section-center'>
-              <h2 className='section-title pt-3 pt-xl-4'>
-                {plant_type ? plant_type : "Piantina"}{" "}
-                <span className='lower-case'>di</span> {ownerPublicInfo}
-              </h2>
-              {/* share button */}
-              <div className='my-3 text-end d-flex justify-content-end'>
-                <ShareButton />
-              </div>
-              <article className='booked-plant-pic d-flex justify-content-center pb-5 pb-xl-0'>
-                <div className='plant-pic-container w-100'>
-                  <div
-                    style={{ backgroundImage: `url(${image_url})` }}
-                    className='plant-pic'
-                  ></div>
-                  <div className='mt-2 update-pic d-flex justify-content-end'>
-                    {Capacitor.isNativePlatform() && (
-                      <button
-                        onClick={() => updatePicMob(plantId)}
-                        className='btn btn-primary btn-small'
-                      >
-                        <MdOutlineFileUpload className='fs-4' />
-                      </button>
-                    )}
-                    {(!Capacitor.isNativePlatform() && userRole === "admin") ||
-                    (!Capacitor.isNativePlatform() && userId === owner_id) ? (
-                      <button
-                        // onClick={() => updatePlantPic(id)}
-                        className='btn btn-warning btn-small'
-                        onClick={updatePlant}
-                      >
-                        <MdOutlineFileUpload className='fs-4' />
-                      </button>
-                    ) : (
-                      <></>
-                    )}
-                  </div>
-                </div>
-              </article>
-              <article className='py-5 justify-content-center btn-plant-article d-none d-xl-flex'>
-                <a
-                  href='#plate'
-                  className='btn btn-primary d-flex align-items-center justify-content-between'
-                >
-                  <span className='pe-2'>Targa</span>
-                  <FaArrowDown />
-                </a>
-              </article>
+      <BackBtn plant />
+      <div className='single-plant'>
+        {isLarge && <BackBtnLarge />}
+        <section className='pt-2'>
+          <div className='section-center'>
+            <div className='text-end d-flex justify-content-between'>
+              <Breadcrumb>
+                <Breadcrumb.Item href='/map'>Mappa</Breadcrumb.Item>
+                {/* <Breadcrumb.Item href='https://getbootstrap.com/docs/4.0/components/breadcrumb/'>
+                      Library
+                    </Breadcrumb.Item> */}
+                <Breadcrumb.Item active>
+                  Zolla &#8470; {plant.id}
+                </Breadcrumb.Item>
+              </Breadcrumb>
+              <ShareButton />
             </div>
-          </section>
-          <section
-            id='plate'
-            className='section-booked-plate white-background py-5'
-          >
-            {plate && (
-              <>
-                <article className='section-center'>
-                  <div className='plate-info-pic'>
-                    <span className='mb-3 h5 d-flex flex-row align-items-center position-relative'>
-                      <div className='step-title pe-1'>
-                        <BsVectorPen />
-                      </div>
-                      <span className='fst-italic font-plate'>Targa</span>
-                      <div className='ink'></div>
-                    </span>
-                    {plate && !plateLoading && (
-                      <div className='plate-image-container ms-auto me-auto pt-2'>
-                        <Card.Img
-                          variant='bottom'
-                          src={plate}
-                          onLoad={handleImageLoad}
-                          className={`w-100  transition-opacity duration-500 ${
-                            isLoaded ? "opacity-100" : "opacity-0"
-                          }`}
-                        />
-                      </div>
-                    )}
-                  </div>
-                  {plateLoading && (
-                    <div className='loading-container-mini'>
-                      <div className='loading-content'>
-                        <img
-                          src={logo}
-                          alt='loading-logo'
-                          className='loading-logo-mini'
-                        />
-                        <div className='spinner-mini'></div>
-                      </div>
+
+            <h2 className='section-title pt-3'>
+              {plant_type ? plant_type : "Piantina"}{" "}
+              <span className='lower-case'>di</span> {ownerPublicInfo}
+            </h2>
+            {/* share button */}
+
+            <article className='booked-plant-pic d-flex justify-content-center pb-5'>
+              <div className='plant-pic-container w-100'>
+                <div
+                  style={{ backgroundImage: `url(${image_url})` }}
+                  className='plant-pic'
+                ></div>
+                <div className='mt-2 update-pic d-flex justify-content-end'>
+                  {Capacitor.isNativePlatform() && (
+                    <button
+                      onClick={() => updatePicMob(plantId)}
+                      className='btn btn-primary btn-small'
+                    >
+                      <MdOutlineFileUpload className='fs-4' />
+                    </button>
+                  )}
+                  {(!Capacitor.isNativePlatform() && userRole === "admin") ||
+                  (!Capacitor.isNativePlatform() && userId === owner_id) ? (
+                    <button
+                      // onClick={() => updatePlantPic(id)}
+                      className='btn btn-warning btn-small'
+                      onClick={updatePlant}
+                    >
+                      <MdOutlineFileUpload className='fs-4' />
+                    </button>
+                  ) : (
+                    <></>
+                  )}
+                </div>
+              </div>
+            </article>
+            {/* <article className='py-5 justify-content-center btn-plant-article d-none d-xl-flex'>
+              <a
+                href='#plate'
+                className='btn btn-primary d-flex align-items-center justify-content-between'
+              >
+                <span className='pe-2'>Targa</span>
+                <FaArrowDown />
+              </a>
+            </article> */}
+          </div>
+        </section>
+        <section
+          id='plate'
+          className='section-booked-plate white-background py-5'
+        >
+          {plate && (
+            <>
+              <article className='section-center'>
+                <div className='plate-info-pic'>
+                  <span className='mb-3 h5 d-flex flex-row align-items-center position-relative'>
+                    <div className='step-title pe-1'>
+                      <BsVectorPen />
+                    </div>
+                    <span className='fst-italic font-plate'>Targa</span>
+                    <div className='ink'></div>
+                  </span>
+                  {plate && !plateLoading && (
+                    <div className='plate-image-container ms-auto me-auto pt-2'>
+                      <Card.Img
+                        variant='bottom'
+                        src={plate}
+                        onLoad={handleImageLoad}
+                        className={`w-100  transition-opacity duration-500 ${
+                          isLoaded ? "opacity-100" : "opacity-0"
+                        }`}
+                      />
                     </div>
                   )}
-                </article>
-              </>
-            )}
-          </section>
-          <section
-            id='plate'
-            className='pt-lg-5 pb-5 section-booked-plate yellow-background d-xl-none'
-          >
-            <article className='section-center d-xl-none'>
-              <span className='pt-5 mb-3 h5 d-flex flex-row align-items-center'>
-                <div className='step-title pb-2 pe-1'>
-                  <TiLocation />
                 </div>
-                Mi trovo qui!
-              </span>
-              <InfoCard />
-
-              <input
-                className='d-none'
-                onChange={(event) => {
-                  updatePlantPic(plantId, event);
-                }}
-                ref={updateImageRef}
-                type='file'
-                name=''
-                id=''
-              />
-            </article>
-          </section>
-
-          <section
-            id='position'
-            className='pt-lg-5 section-booked-plate plate-background d-none d-xl-block'
-          >
-            <article className='section-center'>
-              <span className='pt-5 mb-3 h5 d-flex flex-row align-items-center'>
-                <div className='step-title pb-2 pe-1'>
-                  <TiLocation />
-                </div>
-                Mi trovo qui!
-              </span>
-              <InfoCard />
-
-              <input
-                className='d-none'
-                onChange={(event) => {
-                  updatePlantPic(plantId, event);
-                }}
-                ref={updateImageRef}
-                type='file'
-                name=''
-                id=''
-              />
-            </article>
-          </section>
-          {userRole === "admin" && (
-            <section className='section-booked-admin pb-5 blue-background'>
-              <div className='section-center'>
-                {/* funzionalità admin */}
-                <div className='admin-controls'>
-                  <h5 className='pt-5 mb-3'>Informazioni utente</h5>
-                  <div className='d-grid gap-2'>
-                    <UserInfo
-                      role={
-                        request === "reporter"
-                          ? reporterInfo.role
-                          : ownerInfo.role
-                      }
-                      user={request === "reporter" ? reporterInfo : ownerInfo}
-                      show={modalUserShow}
-                      onHide={() => setModalUserShow(false)}
-                    />
-                    <button
-                      className='btn btn-outline-info d-flex justify-content-between align-items-center'
-                      onClick={() => getOwnerInfo()}
-                    >
-                      <span className='ps-2'>Informazioni acquirente</span>
-                      <FaUser />
-                    </button>
-                    <button
-                      className='btn btn-outline-info d-flex justify-content-between align-items-center'
-                      onClick={() => getReporterInfo()}
-                    >
-                      <span className='ps-2'>Informazioni segnalatore</span>
-                      <FaRegUser />
-                    </button>
+                {plateLoading && (
+                  <div className='loading-container-mini'>
+                    <div className='loading-content'>
+                      <img
+                        src={logo}
+                        alt='loading-logo'
+                        className='loading-logo-mini'
+                      />
+                      <div className='spinner-mini'></div>
+                    </div>
                   </div>
-                  <hr />
-                  <h5 className='mb-3'>Operazioni targa</h5>{" "}
-                  <span className='fw-medium'>Testo targa:</span>{" "}
-                  <span>{user_comment}</span>
-                  <div className='d-grid gap-2 mt-3'>
-                    {!plate && (
-                      <>
-                        <input
-                          className='d-none'
-                          type='file'
-                          ref={fileInputRef}
-                          onChange={(event) =>
-                            handlePlateUpload(plantId, event)
-                          }
-                        />
-                        <button
-                          className='btn btn-warning d-flex justify-content-between align-items-center'
-                          onClick={handleButtonClick}
-                        >
-                          <span className='ps-2'> Aggiungi targa</span>
-
-                          <IoIosAddCircleOutline />
-                        </button>
-                        <button
-                          className='btn btn-dark ms-0 d-flex justify-content-between align-items-center'
-                          onClick={() => deleteAndGo(plantId)}
-                        >
-                          <span className='ps-2'> Elimina targa</span>
-                          <IoIosRemoveCircleOutline />
-                        </button>
-                      </>
-                    )}
-                    {plate && (
-                      <div className=''>
-                        <button
-                          className='btn btn-warning d-flex justify-content-between align-items-center'
-                          onClick={() =>
-                            handlePlateRemoval(plantId, plate_hash)
-                          }
-                        >
-                          <span className='ps-2'>Rimuovi targa</span>
-                          <IoIosRemoveCircleOutline />
-                        </button>
-                      </div>
-                    )}
-                  </div>
-                  <hr />
-                  <h5 className='mb-3'>Operazioni tipo pianta</h5>
-                  <PlantFormSelect />
-                </div>
-              </div>
-            </section>
+                )}
+              </article>
+            </>
           )}
-        </div>
+        </section>
+        <section
+          id='plate'
+          className='pt-lg-5 pb-5 section-booked-plate yellow-background d-xl-none'
+        >
+          <article className='section-center d-xl-none'>
+            <span className='pt-5 mb-3 h5 d-flex flex-row align-items-center'>
+              <div className='step-title pb-2 pe-1'>
+                <TiLocation />
+              </div>
+              Mi trovo qui!
+            </span>
+            <InfoCard />
+
+            <input
+              className='d-none'
+              onChange={(event) => {
+                updatePlantPic(plantId, event);
+              }}
+              ref={updateImageRef}
+              type='file'
+              name=''
+              id=''
+            />
+          </article>
+        </section>
+
+        <section
+          id='position'
+          className='pt-lg-5 section-booked-plate plate-background d-none d-xl-block'
+        >
+          <article className='section-center'>
+            <span className='pt-5 mb-3 h5 d-flex flex-row align-items-center'>
+              <div className='step-title pb-2 pe-1'>
+                <TiLocation />
+              </div>
+              Mi trovo qui!
+            </span>
+            <InfoCard />
+
+            <input
+              className='d-none'
+              onChange={(event) => {
+                updatePlantPic(plantId, event);
+              }}
+              ref={updateImageRef}
+              type='file'
+              name=''
+              id=''
+            />
+          </article>
+        </section>
+        {userRole === "admin" && (
+          <section className='section-booked-admin pb-5 blue-background'>
+            <div className='section-center'>
+              {/* funzionalità admin */}
+              <div className='admin-controls'>
+                <h5 className='pt-5 mb-3'>Informazioni utente</h5>
+                <div className='d-grid gap-2'>
+                  <UserInfo
+                    role={
+                      request === "reporter"
+                        ? reporterInfo.role
+                        : ownerInfo.role
+                    }
+                    user={request === "reporter" ? reporterInfo : ownerInfo}
+                    show={modalUserShow}
+                    onHide={() => setModalUserShow(false)}
+                  />
+                  <button
+                    className='btn btn-outline-info d-flex justify-content-between align-items-center'
+                    onClick={() => getOwnerInfo()}
+                  >
+                    <span className='ps-2'>Informazioni acquirente</span>
+                    <FaUser />
+                  </button>
+                  <button
+                    className='btn btn-outline-info d-flex justify-content-between align-items-center'
+                    onClick={() => getReporterInfo()}
+                  >
+                    <span className='ps-2'>Informazioni segnalatore</span>
+                    <FaRegUser />
+                  </button>
+                </div>
+                <hr />
+                <h5 className='mb-3'>Operazioni targa</h5>{" "}
+                <span className='fw-medium'>Testo targa:</span>{" "}
+                <span>{user_comment}</span>
+                <div className='d-grid gap-2 mt-3'>
+                  {!plate && (
+                    <>
+                      <input
+                        className='d-none'
+                        type='file'
+                        ref={fileInputRef}
+                        onChange={(event) => handlePlateUpload(plantId, event)}
+                      />
+                      <button
+                        className='btn btn-warning d-flex justify-content-between align-items-center'
+                        onClick={handleButtonClick}
+                      >
+                        <span className='ps-2'> Aggiungi targa</span>
+
+                        <IoIosAddCircleOutline />
+                      </button>
+                      <button
+                        className='btn btn-dark ms-0 d-flex justify-content-between align-items-center'
+                        onClick={() => deleteAndGo(plantId)}
+                      >
+                        <span className='ps-2'> Elimina targa</span>
+                        <IoIosRemoveCircleOutline />
+                      </button>
+                    </>
+                  )}
+                  {plate && (
+                    <div className=''>
+                      <button
+                        className='btn btn-warning d-flex justify-content-between align-items-center'
+                        onClick={() => handlePlateRemoval(plantId, plate_hash)}
+                      >
+                        <span className='ps-2'>Rimuovi targa</span>
+                        <IoIosRemoveCircleOutline />
+                      </button>
+                    </div>
+                  )}
+                </div>
+                <hr />
+                <h5 className='mb-3'>Operazioni tipo pianta</h5>
+                <PlantFormSelect />
+              </div>
+            </div>
+          </section>
+        )}
       </div>
     </div>
   );
