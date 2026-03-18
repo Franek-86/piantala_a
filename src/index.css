@@ -38,7 +38,7 @@ code {
   --c-text-light-2: #476582;
   --c-text-light-3: #90a4b7;
   --c-bg-map-1: #fefee3;
-  --c-bg-map-2: #e6f1f3;
+  --c-bg-map-2: #d5e8eb;
 
   --radius: 0.5rem;
 
@@ -2545,7 +2545,7 @@ body {
   align-items: center;
   position: sticky;
   top: 0;
-  background-color: #e3edef;
+  background-color: var(--c-bg-map-2);
   z-index: 1000;
   border-bottom: 1px solid var(--clr-secondary-0);
   justify-content: space-between;
