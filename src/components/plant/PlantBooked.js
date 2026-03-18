@@ -274,7 +274,7 @@ const PlantBooked = () => {
 
         <section
           id='position'
-          className='pt-lg-5 section-booked-plate plate-background d-none d-xl-block'
+          className='py-lg-5 section-booked-plate plate-background d-none d-xl-block'
         >
           <article className='section-center'>
             <span className='pt-5 mb-3 h5 d-flex flex-row align-items-center'>
@@ -298,7 +298,7 @@ const PlantBooked = () => {
           </article>
         </section>
         {userRole === "admin" && (
-          <section className='section-booked-admin pb-5 blue-background'>
+          <section className='section-booked-admin pb-5 white-background'>
             <div className='section-center'>
               {/* funzionalità admin */}
               <div className='admin-controls'>
