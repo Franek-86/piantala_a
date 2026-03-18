@@ -2525,7 +2525,7 @@ body {
   /* background-color: #eef3f4; */
   background-color: var(--c-bg-map-1);
   z-index: 1000;
-  border-bottom: 1px solid var(--clr-primary-3);
+  border-bottom: 2px solid var(--clr-primary-5);
   justify-content: space-between;
   /* padding: 2rem 1rem 1.5rem 1rem; */
   padding: 0 1rem;
@@ -2548,7 +2548,7 @@ body {
   top: 0;
   background-color: var(--c-bg-map-1);
   z-index: 1000;
-  border-bottom: 1px solid var(--clr-primary-3);
+  border-bottom: 2px solid var(--clr-primary-5);
   justify-content: space-between;
   padding: 0 1rem;
   cursor: pointer;
@@ -2561,7 +2561,7 @@ body {
   top: 0;
   background-color: var(--c-bg-map-1);
   z-index: 1000;
-  border-bottom: 1px solid var(--clr-primary-3);
+  border-bottom: 2px solid var(--clr-primary-5);
   justify-content: space-between;
   padding: 0 1rem;
   cursor: pointer;
