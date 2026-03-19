@@ -11,6 +11,7 @@ import SideBar from "../components/menu/SideBar";
 import Tabs from "react-bootstrap/Tabs";
 import BackBtn from "../components/menu/BackBtn";
 import BackBtnLarge from "../components/menu/BackBtnLarge";
+import { FaArrowDown } from "react-icons/fa";
 
 const Info = () => {
   const navigate = useNavigate();
@@ -26,26 +27,26 @@ const Info = () => {
         {isLargeScreen && <BackBtnLarge />}
         <div className='info-article section-center menu-section-center  section-info'>
           <h2 className='section-title pt-4'>Informazioni</h2>
-          <article className='info-text mb-3'>
-            <p className=''>
+          <article className='info-text'>
+            <p className='mb-0'>
               Scopri come{" "}
               <span className='cl-brown fw-bold'>
                 richiedere la piantumazione
               </span>{" "}
               di un albero,{" "}
               <span className='cl-brown fw-bold'>
-                monitorare i propri acquisti
+                monitorare i tuoi acquisti
               </span>{" "}
               o{" "}
               <span className='cl-brown fw-bold'>gestire le segnalazioni</span>.
-            </p>
-            <p className='mb-0'>
+              <br />
               Per richiederci ulteriori informazioni{" "}
               <Link to='/contacts'>contattateci</Link> via mail, telefonicamente
               o scrivendo nella <Link to='/contacts'>chat aperta</Link> a tutti
               gli utenti di Ti pianto per amore.
             </p>
           </article>
+          <FaArrowDown className='arrow-down text-center w-100 fs-3 my-3' />
           <Accordion className='pb-5'>
             <Accordion.Item eventKey='0'>
               <Accordion.Header>
