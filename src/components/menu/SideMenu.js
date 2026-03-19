@@ -40,7 +40,7 @@ const SideMenu = ({ onLogout, ...props }) => {
   };
   return (
     <Offcanvas show={props.show} onHide={props.handleClose}>
-      <section className='sidebar-small'>
+      <section className='sidebar-small min-100'>
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>
             <img class='sidebar-logo' src={sidebarLogo} alt='' srcset='' />
