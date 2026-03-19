@@ -1545,7 +1545,7 @@ element {
 }
 .list-group {
   /* --bs-list-group-border-color: var(--clr-primary-0); */
-  --bs-list-group-border-color: var(--clr-primary-3);
+  --bs-list-group-border-color: var(--clr-secondary-1);
 }
 /* profile modal */
 .profile-modal .modal-dialog {
