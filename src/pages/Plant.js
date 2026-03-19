@@ -42,19 +42,16 @@ const Plant = () => {
   // if (!plant) return <Loading />;
   // const { status_piantina } = plant;
   const statusPiantina = plant?.status_piantina;
-  if (statusPiantina) {
-    return (
-      <div className={isLarge ? "plants-container" : "plants-container-small"}>
-        {singlePlantError && <div className='error'>{singlePlantError}</div>}
-        {singlePlantLoading && <Loading />}
-        {statusPiantina === "approved" && <PlantApproved />}
-        {statusPiantina === "pending" && <PlantPending />}
-        {statusPiantina === "booked" && <PlantBooked />}
-        {statusPiantina === "rejected" && <PlantRejected />}
-      </div>
-    );
-  }
-  return "ciao";
+  return (
+    <div className={isLarge ? "plants-container" : "plants-container-small"}>
+      {singlePlantError && <div className='error'>{singlePlantError}</div>}
+      {(singlePlantLoading || !statusPiantina) && <Loading />}
+      {statusPiantina === "approved" && <PlantApproved />}
+      {statusPiantina === "pending" && <PlantPending />}
+      {statusPiantina === "booked" && <PlantBooked />}
+      {statusPiantina === "rejected" && <PlantRejected />}
+    </div>
+  );
 };
 
 export default Plant;

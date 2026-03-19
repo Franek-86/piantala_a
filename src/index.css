@@ -966,7 +966,9 @@ element {
 /*-------------------------------plant section----------------------------- */
 
 /* approved start */
-
+.arrow-down {
+  color: var(--clr-secondary-5);
+}
 .share-page {
   color: var(--clr-secondary-3);
 }
@@ -2546,7 +2548,7 @@ element {
   /* background-color: #eef3f4; */
   /* background-color: var(--c-bg-map-1); */
   z-index: 1000;
-  border-bottom: 2px solid var(--clr-primary-5);
+  border-bottom: 1px solid var(--clr-primary-5);
   justify-content: space-between;
   /* padding: 2rem 1rem 1.5rem 1rem; */
   padding: 0 1rem;
@@ -2569,7 +2571,7 @@ element {
   top: 0;
   /* background-color: var(--c-bg-map-1); */
   z-index: 1000;
-  border-bottom: 2px solid var(--clr-primary-5);
+  border-bottom: 1px solid var(--clr-primary-5);
   justify-content: space-between;
   padding: 0 1rem;
   cursor: pointer;
@@ -2582,7 +2584,7 @@ element {
   top: 0;
   /* background-color: var(--c-bg-map-1); */
   z-index: 1000;
-  border-bottom: 2px solid var(--clr-primary-5);
+  border-bottom: 1px solid var(--clr-primary-5);
   justify-content: space-between;
   padding: 0 1rem;
   cursor: pointer;

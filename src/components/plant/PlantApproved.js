@@ -128,14 +128,15 @@ const PlantApproved = () => {
                     <FaShare className='share-page' />
                   </div>
                 </div>
-                <article className='intro-article p-2 p-lg-3 p-xl-4 mb-3'>
-                  <span className='mb-0'>
+                <article className='intro-article p-2 p-2 mb-3'>
+                  <span className='d-block plant-intro-text mb-0'>
                     Questa zolla di piantagione, avente nostro riferimento
                     numerico "{plant.id}", si trova nel{" "}
                     <b>quartiere {plant?.suburb} </b> di <b>{plant?.city}</b>.
                     Puoi procedere con l'acquisto della tua piantina seguendo i{" "}
-                    <b>tre passaggi</b> qui di seguito descritti.
+                    <b>tre passaggi</b> riportati qui di seguito.
                   </span>
+                  <FaArrowDown className='arrow-down text-center w-100 fs-3 mt-3' />
                   <span className='d-block mt-3'>
                     <ul>
                       <li className='plant-intro-text mb-2'>
@@ -156,7 +157,7 @@ const PlantApproved = () => {
                     </ul>
                   </span>
                 </article>
-                <article className='py-4 py-lg-0 py-xl-4 d-flex justify-content-center my-4 my-lg-2'>
+                <article className='py-2 d-flex justify-content-center'>
                   <div className='steps-article my-2 d-flex flex-row justify-content-around p-2 p-xl-3'>
                     <div className='step-container d-flex flex-column align-items-center'>
                       <a
