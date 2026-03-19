@@ -267,7 +267,7 @@ function Map() {
             <MapContainer
               // center={[41.118778112249046, 16.871917818963464]}
               center={[41.118778112249046, 16.881917818963464]}
-              zoom={13}
+              zoom={isLargeScreen ? 14 : 13}
               scrollWheelZoom={false}
               zoomControl={true}
             >
