@@ -128,7 +128,7 @@ const PlantApproved = () => {
                     <FaShare className='share-page' />
                   </div>
                 </div>
-                <article className='plant-intro-text intro-article p-2 p-lg-3 p-xl-4 mb-3'>
+                <article className='intro-article p-2 p-lg-3 p-xl-4 mb-3'>
                   <span className='mb-0'>
                     Questa zolla di piantagione, avente nostro riferimento
                     numerico "{plant.id}", si trova nel{" "}
@@ -137,22 +137,23 @@ const PlantApproved = () => {
                     <b>tre passaggi</b> qui di seguito descritti.
                   </span>
                   <span className='d-block mt-3'>
-                    <ol>
-                      <li>
+                    <ul>
+                      <li className='plant-intro-text mb-2'>
                         {" "}
-                        Controlla la <b>zona di piantumazione</b>, li dove non
-                        c'è un sistema di irrigazione sarà tua premura
-                        innaffiare il tuo albero
+                        <span className='fw-bold'>1.</span> Controlla la{" "}
+                        <b>zona di piantumazione</b>, li dove non c'è un sistema
+                        di irrigazione sarà tua premura innaffiare il tuo
+                        albero.
                       </li>
-                      <li>
-                        inserisci il <b>testo della targa</b> dedicandola a chi
-                        preferisci{" "}
+                      <li className='plant-intro-text mb-2'>
+                        <span className='fw-bold'>2.</span> Inserisci il{" "}
+                        <b>testo della targa</b> dedicandola a chi preferisci.
                       </li>
-                      <li>
-                        {" "}
-                        procedi infine con il <b>pagamento</b>
+                      <li className='plant-intro-text'>
+                        <span className='fw-bold'>3.</span> Procedi infine con
+                        il <b>pagamento</b>.
                       </li>
-                    </ol>
+                    </ul>
                   </span>
                 </article>
                 <article className='py-4 py-lg-0 py-xl-4 d-flex justify-content-center my-4 my-lg-2'>
@@ -165,11 +166,9 @@ const PlantApproved = () => {
                         <TiLocation />
                       </a>
                       <div className='step-text text-center'>
-                        <span className='d-block fw-medium my-1'>
-                          Posizione
-                        </span>
-                        <span className='d-block small'>
-                          Informazioni zona di piantagione
+                        <span className='d-block fw-bold my-1'>Posizione</span>
+                        <span className='d-block small fw-medium'>
+                          Zona di piantagione
                         </span>
                       </div>
                     </div>
@@ -181,9 +180,9 @@ const PlantApproved = () => {
                         <BsVectorPen />
                       </a>
                       <div className='step-text text-center'>
-                        <span className='d-block fw-medium my-1'>Targa</span>
-                        <span className='d-block small'>
-                          Scrivi la tua targa personalizzata
+                        <span className='d-block fw-bold my-1'>Targa</span>
+                        <span className='d-block small fw-medium'>
+                          Targa personalizzata
                         </span>
                       </div>
                     </div>
@@ -195,25 +194,14 @@ const PlantApproved = () => {
                         <MdPayment />
                       </a>
                       <div className='step-text text-center'>
-                        <spam className='d-block fw-medium my-1'>
-                          Pagamento
-                        </spam>
-                        <span className='d-block small'>
-                          Informazioni e procedura pagamento
+                        <spam className='d-block fw-bold my-1'>Pagamento</spam>
+                        <span className='d-block small fw-medium'>
+                          Informazioni e procedura
                         </span>
                       </div>
                     </div>
                   </div>
                 </article>
-                {/* <article className='d-flex justify-content-center btn-plant-article pb-5'>
-                  <a
-                    href='#location'
-                    className='btn btn-primary d-flex align-items-center justify-content-between'
-                  >
-                    <span className=''>Posizione</span>
-                    <FaArrowDown />
-                  </a>
-                </article> */}
               </div>
             </div>
           </section>
@@ -239,7 +227,7 @@ const PlantApproved = () => {
               </article>
             </div>
           </section>
-          <section id='plate' className='py-5 yellow-background'>
+          <section id='plate' className='py-5 green-background'>
             <div className='section-center section-plant '>
               <span className='mb-3 h5 d-flex flex-row align-items-center'>
                 <div className='step-title pb-2 pe-1'>

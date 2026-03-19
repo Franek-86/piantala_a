@@ -60,7 +60,10 @@ code {
 }
 .yellow-background {
   /* background-color: var(--c-bg-map-1); */
-  background-color: var(--c-bg-map-yellow-light);
+  background-color: var(--clr-primary-0);
+}
+.green-background {
+  background-color: var(--clr-primary-0);
 }
 .position-background {
   background-color: var(--clr-primary-1);
@@ -206,7 +209,7 @@ ul {
 
 .plants-container {
   /* overflow: scroll; */
-  background: #f0f1f188;
+  background: #f0f1f1b5;
 }
 .plants-container-small {
   /* overflow: scroll; */
@@ -976,8 +979,8 @@ element {
     /* height: 30vh; */
     display: flex;
     align-items: center;
-    background: #f0f1f19a;
-    border: 1px solid var(--clr-primary-5);
+    /* background: #f0f1f19a; */
+    /* border: 1px solid var(--clr-primary-5); */
     border-radius: 5px;
   }
 }
@@ -1494,7 +1497,7 @@ element {
 .card-my,
 .card-plant-info1,
 .card-plant-info2 {
-  border: 1px solid var(--clr-primary-3);
+  border: 1px solid var(--clr-secondary-1);
 }
 .card-header:first-child {
   border-radius: 0 var(--bs-card-inner-border-radius) 0 0;
@@ -1850,10 +1853,6 @@ element {
 .stretch-card > .card {
   width: 100%;
   min-width: 100%;
-}
-
-body {
-  background-color: #f9f9fa;
 }
 
 .flex {

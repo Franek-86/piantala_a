@@ -215,7 +215,7 @@ function Map() {
 
   if (isChildRoute) {
     return (
-      <div className=''>
+      <>
         {" "}
         {isLargeScreen && <SideBar />}
         {isLargeScreen && (
@@ -231,7 +231,7 @@ function Map() {
                 url='https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png'
               />
 
-              {filteredPlants.length > 0 &&
+              {/* {filteredPlants.length > 0 &&
                 filteredPlants.map((e) => {
                   const iconType = e.status_piantina;
                   const markerIcon = iconMap[iconType];
@@ -247,12 +247,12 @@ function Map() {
                       }}
                     ></Marker>
                   );
-                })}
+                })} */}
             </MapContainer>
           </div>
         )}
         <Outlet />
-      </div>
+      </>
     );
   }
 
