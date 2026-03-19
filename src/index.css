@@ -40,8 +40,8 @@ code {
   /* --c-bg-map-1: #fefee3; */
   --c-bg-map-1: #fefdd7;
   --c-bg-map-2: #d5e8eb;
-  --c-bg-map-yellow-light-1: #fefdd7;
-  --c-bg-map-blue-light-2: #d5e8eb;
+  --c-bg-map-yellow-light: #fefee7;
+  --c-bg-map-blue-light: #e6f1f3;
 
   --radius: 0.5rem;
 
@@ -51,7 +51,23 @@ code {
     var(--clr-primary-2)
   );
 }
-
+.plate-background {
+  background-color: var(--c-bg-map-2);
+}
+.blue-background {
+  /* background-color: var(--c-bg-map-2); */
+  background-color: var(--c-bg-map-blue-light);
+}
+.yellow-background {
+  /* background-color: var(--c-bg-map-1); */
+  background-color: var(--c-bg-map-yellow-light);
+}
+.position-background {
+  background-color: var(--c-bg-map-1);
+}
+.white-background {
+  background-color: #fff;
+}
 .btn-primary {
   --bs-btn-bg: var(--clr-primary-5); /* New background color */
   --bs-btn-border-color: var(--clr-primary-5); /* New border color */
@@ -211,10 +227,16 @@ ul {
   text-transform: capitalize;
   margin-bottom: 3rem;
 }
-h1,
+/* h1,
 h2,
 h3 {
   color: var(--c-text-light-1);
+} */
+h1,
+h2,
+h3,
+h4 {
+  color: var(--clr-secondary-5);
 }
 .bg-success {
   background-color: #0f7f32 !important;
@@ -360,6 +382,14 @@ element {
   color: var(--clr-secondary-2);
 }
 /* ----------------------sidebar-------------------------------------*/
+.sidebar-large,
+.sidebar-large .list-group-item,
+.back-nav,
+.back-nav-large,
+.sidebar-small,
+.sidebar-small .list-group-item {
+  background-color: var(--c-bg-map-yellow-light);
+}
 .sidebar-logo {
   width: 10.5rem;
 }
@@ -930,7 +960,11 @@ element {
 
 /*-------------------------------plant section----------------------------- */
 
-/* approved partial start */
+/* approved start */
+
+.share-page {
+  color: var(--clr-secondary-3);
+}
 .steps-article {
   height: auto;
   width: 40rem;
@@ -944,22 +978,6 @@ element {
     border: 1px solid var(--clr-primary-5);
     border-radius: 5px;
   }
-}
-
-.plate-background {
-  background-color: var(--c-bg-map-2);
-}
-.blue-background {
-  background-color: var(--c-bg-map-2);
-}
-.position-background {
-  background-color: var(--c-bg-map-1);
-}
-.yellow-background {
-  background-color: var(--c-bg-map-1);
-}
-.white-background {
-  background-color: #fff;
 }
 
 .btn-plant-article a {
@@ -993,7 +1011,7 @@ element {
   padding-left: 2rem;
 }
 
-/* approved partial end */
+/* approved end */
 
 .plant-section {
   /* height: 100vh; */
@@ -1754,7 +1772,7 @@ element {
 
   color: var(--bs-offcanvas-color);
   visibility: visible;
-  background-color: var(--bs-offcanvas-bg);
+  /* background-color: var(--bs-offcanvas-bg); */
   background-clip: padding-box;
   outline: 0;
   /*  */
@@ -2525,7 +2543,7 @@ body {
   position: sticky;
   top: 0;
   /* background-color: #eef3f4; */
-  background-color: var(--c-bg-map-1);
+  /* background-color: var(--c-bg-map-1); */
   z-index: 1000;
   border-bottom: 2px solid var(--clr-primary-5);
   justify-content: space-between;
@@ -2548,7 +2566,7 @@ body {
   align-items: center;
   position: sticky;
   top: 0;
-  background-color: var(--c-bg-map-1);
+  /* background-color: var(--c-bg-map-1); */
   z-index: 1000;
   border-bottom: 2px solid var(--clr-primary-5);
   justify-content: space-between;
