@@ -978,7 +978,11 @@ element {
   color: var(--clr-secondary-5);
 }
 .share-page {
-  color: var(--clr-secondary-3);
+  color: var(--clr-secondary-2);
+}
+.share-page:hover {
+  cursor: pointer;
+  color: var(--clr-secondary-2);
 }
 .steps-article {
   height: auto;
@@ -1217,9 +1221,9 @@ element {
   min-height: 100vh;
 }
 
-.section-plant-form {
+/* .section-plant-form {
   height: 100vh;
-}
+} */
 @media screen and (min-width: 768px) {
   /* .plate-form {
     height: 30vh;

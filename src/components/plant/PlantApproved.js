@@ -120,7 +120,7 @@ const PlantApproved = () => {
                   </h2>
                   <ShareButton />
                   <div
-                    className=''
+                    className='ps-2'
                     onClick={() => {
                       setShareNow(true);
                     }}

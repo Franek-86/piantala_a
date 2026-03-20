@@ -129,7 +129,7 @@ const PlantForm = () => {
               di pagamento.
             </p>
           </article>
-          <article className='plant-payment pt-4 d-flex justify-content-center'>
+          <article className='plant-payment pt-4 pb-5 d-flex justify-content-center'>
             <button
               className={!logReg ? "d-block btn btn-success" : "d-none"}
               type='submit'
