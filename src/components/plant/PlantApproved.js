@@ -93,7 +93,7 @@ const PlantApproved = () => {
   };
 
   return (
-    <div className='plant-section'>
+    <div className='plant-section blue-background'>
       {isLarge && <BackBtnLarge />}
       <Terms id={plantId} />
       <BackBtn plant />
@@ -148,7 +148,7 @@ const PlantApproved = () => {
                             <TiLocation />
                           </span>
                           <span className='ps-2'>
-                            Controlla la <b>zona di piantumazione</b>.
+                            Controlla la zona di piantumazione
                           </span>
                         </div>
                         <span className='fs-1 d-flex'>
@@ -165,7 +165,7 @@ const PlantApproved = () => {
                             <BsVectorPen />
                           </span>
                           <span className='ps-2'>
-                            Inserisci il <b>testo</b> della tua <b>targa</b>.
+                            Inserisci il testo della tua targa
                           </span>
                         </div>
                         <span className='fs-1 d-flex'>
@@ -182,7 +182,7 @@ const PlantApproved = () => {
                             <MdPayment />
                           </span>
                           <span className='ps-2'>
-                            Procedi infine con il <b>pagamento</b>.
+                            Procedi infine con il pagamento.
                           </span>
                         </div>
                         <span className='fs-1 d-flex'>

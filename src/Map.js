@@ -216,41 +216,8 @@ function Map() {
   if (isChildRoute) {
     return (
       <>
-        {" "}
         {isLargeScreen && <SideBar />}
-        {isLargeScreen && (
-          <div className='bg-map'>
-            <MapContainer
-              center={[41.118778112249046, 16.881917818963464]}
-              zoom={13}
-              scrollWheelZoom={false}
-              zoomControl={false}
-            >
-              <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                url='https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png'
-              />
 
-              {/* {filteredPlants.length > 0 &&
-                filteredPlants.map((e) => {
-                  const iconType = e.status_piantina;
-                  const markerIcon = iconMap[iconType];
-                  return (
-                    <Marker
-                      icon={markerIcon}
-                      position={[e.lat, e.lang]}
-                      key={e.id}
-                      eventHandlers={{
-                        click: () => {
-                          navigate(`/map/${e.id}`);
-                        },
-                      }}
-                    ></Marker>
-                  );
-                })} */}
-            </MapContainer>
-          </div>
-        )}
         <Outlet />
       </>
     );

@@ -771,13 +771,18 @@ element {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Full screen height */
-  width: 100vw; /* Full screen width */
-  background-color: #f9f9f9; /* Optional background color */
+  height: 100vh;
+  width: 100vw;
+  background-color: #f9f9f9;
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 9999; /* Ensures it is on top of other elements */
+  z-index: 9999;
+}
+.loading-container-large {
+  width: calc(100vw - 20rem);
+  margin-top: 4rem;
+  margin-left: 20rem;
 }
 .loading-container-mini {
   /* display: flex;
