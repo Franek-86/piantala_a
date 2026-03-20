@@ -138,7 +138,7 @@ const PlantApproved = () => {
                   </span>
                   {/* <FaArrowDown className='arrow-down text-center w-100 fs-3 mt-3' /> */}
                   <span className='d-block mt-4'>
-                    <ul className='plant-intro-steps my-2'>
+                    <ul className='plant-intro-steps'>
                       <a
                         href='#location'
                         className='mb-4 plant-intro-step d-flex align-items-center justify-content-between py-3 text-decoration-none white-background'
