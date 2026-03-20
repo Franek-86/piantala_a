@@ -22,9 +22,9 @@ const Chat = () => {
   const isNative = Capacitor.isNativePlatform();
   const chatSection = () => {
     if (isNative) {
-      return "section-background section-large page-large-container section-chat chat-app-height";
+      return "blue-background section-large page-large-container section-chat chat-app-height";
     } else {
-      return "section-background section-large page-large-container section-chat chat-section-height ";
+      return "blue-background section-large page-large-container section-chat chat-section-height ";
     }
   };
   // back-nav-app
