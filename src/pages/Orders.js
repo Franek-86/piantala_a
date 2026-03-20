@@ -51,7 +51,7 @@ const Orders = () => {
     <div className='d-flex flex-row'>
       {loading && <Loading />}
       {isLargeScreen && <SideBar />}
-      <section className='section-page section-background section-full-page section-orders section-large page-large-container'>
+      <section className='section-page blue-background section-full-page section-orders section-large page-large-container w-100'>
         <BackBtn />
         <div className='section-center menu-section-center'>
           <h2 className='section-title pt-5'>Ordini</h2>

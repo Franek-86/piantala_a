@@ -24,10 +24,10 @@ const ChiSiamo = () => {
   return (
     <div className=''>
       {isLargeScreen && <SideBar />}
-      <div className='section-page section-full-page section-large page-large-container yellow-background min-100'>
+      <div className='section-page section-full-page section-large page-large-container green-background min-100'>
         <BackBtn />
         {isLargeScreen && <BackBtnLarge />}
-        <section className='chi-article section-background menu-section-center pb-5'>
+        <section className='chi-article blue-background menu-section-center pb-5'>
           <div className='section-center'>
             <h2 className='section-title pt-4'>Chi siamo</h2>
             <div className=''>
