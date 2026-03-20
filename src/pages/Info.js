@@ -22,28 +22,28 @@ const Info = () => {
   return (
     <div className=''>
       {isLargeScreen && <SideBar />}
-      <section className='section-page min-100 section-background section-large page-large-container'>
+      <section className='section-page min-100 blue-background section-large page-large-container'>
         <BackBtn />
         {isLargeScreen && <BackBtnLarge />}
         <div className='info-article section-center menu-section-center  section-info'>
           <h2 className='section-title pt-4'>Informazioni</h2>
-          <article className='info-text'>
+          <article className=''>
             <p className='mb-0'>
-              Scopri come{" "}
+              Riportiamo qui di seguito le informazioni riguardanti{" "}
+              <span className='cl-brown fw-bold'>i nostri servizi</span> e le
+              indicazioni su come{" "}
               <span className='cl-brown fw-bold'>
                 richiedere la piantumazione
               </span>{" "}
               di un albero,{" "}
-              <span className='cl-brown fw-bold'>
-                monitorare i tuoi acquisti
-              </span>{" "}
-              o{" "}
+              <span className='cl-brown fw-bold'>monitorare gli acquisti</span>{" "}
+              e{" "}
               <span className='cl-brown fw-bold'>gestire le segnalazioni</span>.
-              <br />
+              {/* <br />
               Per richiederci ulteriori informazioni{" "}
               <Link to='/contacts'>contattateci</Link> via mail, telefonicamente
               o scrivendo nella <Link to='/contacts'>chat aperta</Link> a tutti
-              gli utenti di Ti pianto per amore.
+              gli utenti di Ti pianto per amore. */}
             </p>
           </article>
           <FaArrowDown className='arrow-down text-center w-100 fs-3 my-3' />
