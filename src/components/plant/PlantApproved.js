@@ -137,7 +137,7 @@ const PlantApproved = () => {
                     <b>tre passaggi</b> riportati qui di seguito.
                   </span>
                   {/* <FaArrowDown className='arrow-down text-center w-100 fs-3 mt-3' /> */}
-                  <span className='info-text d-block mt-4'>
+                  <span className='d-block mt-4'>
                     <ul className='plant-intro-steps my-2'>
                       <a
                         href='#location'
