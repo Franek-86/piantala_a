@@ -2477,7 +2477,11 @@ element {
   bottom: 0;
   width: 100%;
   height: 2px;
-  background: linear-gradient(to right, var(--clr-primary-5), var(--c-bg-) 40%);
+  background: linear-gradient(
+    to right,
+    var(--clr-primary-5),
+    var(--c-bg-map-blue-light) 40%
+  );
 }
 
 .font-plate {
