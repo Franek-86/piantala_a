@@ -154,10 +154,12 @@ const InfoCard = () => {
             <ListGroup.Item>
               {" "}
               <span className='fw-medium'>Foto:</span>{" "}
-              <span>
-                <span className='copy' type='button' onClick={handleShowPic}>
-                  apri immagine
-                </span>
+              <span
+                className='page-link d-inline'
+                type='button'
+                onClick={handleShowPic}
+              >
+                apri immagine
               </span>
             </ListGroup.Item>
           )}

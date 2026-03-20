@@ -279,7 +279,7 @@ hr {
   /* padding-top: 3rem; */
 }
 .page-link {
-  color: var(--clr-primary-5);
+  color: var(--clr-secondary-3);
 }
 .page-link:hover {
   color: var(--clr-secondary-3);

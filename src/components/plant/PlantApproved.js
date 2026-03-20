@@ -256,10 +256,14 @@ const PlantApproved = () => {
                 <span>
                   Per qualsiasi ulteriore informazione ti invitiamo a
                   contattarci, tutti i nostri riferimenti sono nella{" "}
-                  <Link target='_blank' href='/contacts'>
-                    pagina dei contatti
-                  </Link>
-                  .{" "}
+                  <Link
+                    className='text-decoration-none'
+                    target='_blank'
+                    href='/contacts'
+                  >
+                    pagina
+                  </Link>{" "}
+                  dei contatti .
                 </span>
               </article>
             </div>
@@ -287,10 +291,10 @@ const PlantApproved = () => {
                   {" "}
                   Puoi visualizzare tutte le vostre targe già da noi realizzate
                   e applicate sui vostri alberi nella{" "}
-                  <Link className='' to={"/plates"}>
-                    pagina dedicata alle vostre targhe
-                  </Link>
-                  .{" "}
+                  <Link className='text-decoration-none' to={"/plates"}>
+                    pagina
+                  </Link>{" "}
+                  dedicata alle vostre targhe.
                 </p>
               </article>
               <article className='plate-form d-flex flex-column flex-md-row w-100'>
