@@ -56,7 +56,7 @@ const Plates = () => {
   return (
     <div className=''>
       {isLargeScreen && <SideBar />}
-      <section className='section-page section-background section-full-page section-users section-large section-plates page-large-container min-100'>
+      <section className='section-page blue-background section-full-page section-users section-large section-plates page-large-container min-100'>
         <BackBtn />
         {isLargeScreen && <BackBtnLarge />}
         <div className='section-center '>
