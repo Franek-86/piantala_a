@@ -139,7 +139,10 @@ const PlantApproved = () => {
                   <FaArrowDown className='arrow-down text-center w-100 fs-3 mt-3' />
                   <span className='d-block mt-3'>
                     <ul className='plant-intro-steps'>
-                      <li className='mb-2 plant-intro-step d-flex align-items-center justify-content-between py-3 green-background'>
+                      <a
+                        href='#location'
+                        className='mb-2 plant-intro-step d-flex align-items-center justify-content-between py-3 green-background text-decoration-none'
+                      >
                         <div className='d-flex align-items-center'>
                           <span className='fs-1 d-flex'>
                             <TiLocation />
@@ -152,8 +155,11 @@ const PlantApproved = () => {
                           {" "}
                           <MdArrowRightAlt />
                         </span>
-                      </li>
-                      <li className='mb-2 plant-intro-step d-flex align-items-center justify-content-between py-3 green-background'>
+                      </a>
+                      <a
+                        href='#plate'
+                        className='mb-2 plant-intro-step d-flex align-items-center justify-content-between py-3 green-background text-decoration-none'
+                      >
                         <div className='d-flex align-items-center'>
                           <span className='fs-1 d-flex'>
                             <BsVectorPen />
@@ -166,8 +172,11 @@ const PlantApproved = () => {
                           {" "}
                           <MdArrowRightAlt />
                         </span>
-                      </li>
-                      <li className='mb-2 plant-intro-step d-flex align-items-center justify-content-between py-3 green-background'>
+                      </a>
+                      <a
+                        href='#payment'
+                        className='mb-2 plant-intro-step d-flex align-items-center justify-content-between py-3 green-background text-decoration-none'
+                      >
                         <div className='d-flex align-items-center'>
                           <span className='fs-1 d-flex'>
                             <MdPayment />
@@ -180,7 +189,7 @@ const PlantApproved = () => {
                           {" "}
                           <MdArrowRightAlt />
                         </span>
-                      </li>
+                      </a>
                     </ul>
                   </span>
                 </article>
