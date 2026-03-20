@@ -21,11 +21,11 @@ const Legend = () => {
   }, []);
   return (
     <>
-      <section className='min-100 section-background map'>
+      <section className='min-100 blue-background map'>
         <BackBtn />
         {isLargeScreen && <BackBtnLarge />}
         <div className='d-flex flex-row'>
-          {isLargeScreen && <SideBar />}
+          {isLargeScreen && <SideBar />}ß
           <section className='w-100 section-center-map'>
             <div className='section-center'>
               <h3 className='section-title pt-4'>legenda</h3>

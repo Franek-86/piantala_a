@@ -38,7 +38,7 @@ const MyPlants = () => {
 
   return (
     <>
-      <section className='min-100 section-background map'>
+      <section className='min-100 blue-background map'>
         <BackBtn />
         {isLargeScreen && <BackBtnLarge />}
         <div className='d-flex flex-row'>

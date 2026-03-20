@@ -206,9 +206,9 @@ function Map() {
       return "section section-page map-section section-large w-100";
     }
   };
-  if (loading) {
-    return <Loading />;
-  }
+  // if (loading) {
+  //   return <Loading />;
+  // }
   // if (isChildRoute) {
   //   return <Outlet />;
   // }
