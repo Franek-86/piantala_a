@@ -129,7 +129,7 @@ const PlantApproved = () => {
                   </div>
                 </div>
                 <article className='intro-article p-2 p-2 mb-3'>
-                  <span className='d-block mb-0'>
+                  <span className='d-block mb-0 info-text'>
                     {/* Questa zolla di piantagione, avente nostro riferimento
                     numerico "{plant.id}", si trova nel{" "}
                     <b>quartiere {plant?.suburb} </b> di <b>{plant?.city}</b>. */}
@@ -137,8 +137,8 @@ const PlantApproved = () => {
                     <b>tre passaggi</b> riportati qui di seguito.
                   </span>
                   {/* <FaArrowDown className='arrow-down text-center w-100 fs-3 mt-3' /> */}
-                  <span className='d-block mt-4'>
-                    <ul className='plant-intro-steps'>
+                  <span className='info-text d-block mt-4'>
+                    <ul className='plant-intro-steps my-2'>
                       <a
                         href='#location'
                         className='mb-4 plant-intro-step d-flex align-items-center justify-content-between py-3 text-decoration-none white-background'
@@ -175,7 +175,7 @@ const PlantApproved = () => {
                       </a>
                       <a
                         href='#payment'
-                        className='mb-4 plant-intro-step d-flex align-items-center justify-content-between py-3 text-decoration-none white-background'
+                        className='plant-intro-step d-flex align-items-center justify-content-between py-3 text-decoration-none white-background'
                       >
                         <div className='d-flex align-items-center'>
                           <span className='ps-3 fs-1 d-flex'>
