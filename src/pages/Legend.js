@@ -25,7 +25,7 @@ const Legend = () => {
         <BackBtn />
         {isLargeScreen && <BackBtnLarge />}
         <div className='d-flex flex-row'>
-          {isLargeScreen && <SideBar />}ß
+          {isLargeScreen && <SideBar />}
           <section className='w-100 section-center-map'>
             <div className='section-center'>
               <h3 className='section-title pt-4'>legenda</h3>

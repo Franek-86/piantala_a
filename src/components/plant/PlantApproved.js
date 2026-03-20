@@ -174,7 +174,7 @@ const PlantApproved = () => {
                         </span>
                       </a>
                       <a
-                        href='#plate'
+                        href='#payment'
                         className='mb-2 plant-intro-step d-flex align-items-center justify-content-between py-3 text-decoration-none white-background'
                       >
                         <div className='d-flex align-items-center'>
