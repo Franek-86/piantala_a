@@ -27,7 +27,7 @@ const Info = () => {
         {isLargeScreen && <BackBtnLarge />}
         <div className='info-article section-center menu-section-center  section-info'>
           <h2 className='section-title pt-4'>Informazioni</h2>
-          <article className=''>
+          <article className='mb-3'>
             <p className='mb-0'>
               Riportiamo qui di seguito le informazioni riguardanti{" "}
               <span className='cl-brown fw-bold'>i nostri servizi</span> e le
@@ -37,7 +37,7 @@ const Info = () => {
               </span>{" "}
               di un albero,{" "}
               <span className='cl-brown fw-bold'>monitorare gli acquisti</span>{" "}
-              e{" "}
+              o{" "}
               <span className='cl-brown fw-bold'>gestire le segnalazioni</span>.
               {/* <br />
               Per richiederci ulteriori informazioni{" "}
@@ -46,7 +46,6 @@ const Info = () => {
               gli utenti di Ti pianto per amore. */}
             </p>
           </article>
-          <FaArrowDown className='arrow-down text-center w-100 fs-3 my-3' />
           <Accordion className='pb-5'>
             <Accordion.Item eventKey='0'>
               <Accordion.Header>

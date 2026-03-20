@@ -129,15 +129,15 @@ const PlantApproved = () => {
                   </div>
                 </div>
                 <article className='intro-article p-2 p-2 mb-3'>
-                  <span className='d-block mb-0 plant-intro-text'>
+                  <span className='d-block mb-0'>
                     {/* Questa zolla di piantagione, avente nostro riferimento
                     numerico "{plant.id}", si trova nel{" "}
                     <b>quartiere {plant?.suburb} </b> di <b>{plant?.city}</b>. */}
                     Puoi procedere con l'acquisto della tua piantina seguendo i{" "}
                     <b>tre passaggi</b> riportati qui di seguito.
                   </span>
-                  <FaArrowDown className='arrow-down text-center w-100 fs-3 mt-3' />
-                  <span className='d-block mt-3'>
+                  {/* <FaArrowDown className='arrow-down text-center w-100 fs-3 mt-3' /> */}
+                  <span className='d-block mt-4'>
                     <ul className='plant-intro-steps'>
                       <a
                         href='#location'
@@ -165,7 +165,7 @@ const PlantApproved = () => {
                             <BsVectorPen />
                           </span>
                           <span className='ps-2'>
-                            Inserisci il <b>testo della targa</b>.
+                            Inserisci il <b>testo</b> della tua <b>targa</b>.
                           </span>
                         </div>
                         <span className='fs-1 d-flex'>

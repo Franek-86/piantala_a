@@ -155,11 +155,7 @@ const InfoCard = () => {
               {" "}
               <span className='fw-medium'>Foto:</span>{" "}
               <span>
-                <span
-                  className='btn-link'
-                  type='button'
-                  onClick={handleShowPic}
-                >
+                <span className='copy' type='button' onClick={handleShowPic}>
                   apri immagine
                 </span>
               </span>
