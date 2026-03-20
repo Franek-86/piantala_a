@@ -144,10 +144,10 @@ const PlantApproved = () => {
                         className='mb-4 plant-intro-step d-flex align-items-center justify-content-between py-3 text-decoration-none white-background'
                       >
                         <div className='d-flex align-items-center'>
-                          <span className='ps-2 fs-1 d-flex'>
+                          <span className='ps-3 fs-1 d-flex'>
                             <TiLocation />
                           </span>
-                          <span className='ps-4'>
+                          <span className='ps-3'>
                             Controlla la zona di piantumazione
                           </span>
                         </div>
@@ -161,10 +161,10 @@ const PlantApproved = () => {
                         className='mb-4 plant-intro-step d-flex align-items-center justify-content-between py-3 text-decoration-none white-background'
                       >
                         <div className='d-flex align-items-center'>
-                          <span className='ps-2 fs-1 d-flex'>
+                          <span className='ps-3 fs-1 d-flex'>
                             <BsVectorPen />
                           </span>
-                          <span className='ps-4'>
+                          <span className='ps-3'>
                             Inserisci il testo della tua targa
                           </span>
                         </div>
@@ -178,10 +178,10 @@ const PlantApproved = () => {
                         className='mb-4 plant-intro-step d-flex align-items-center justify-content-between py-3 text-decoration-none white-background'
                       >
                         <div className='d-flex align-items-center'>
-                          <span className='ps-2 fs-1 d-flex'>
+                          <span className='ps-3 fs-1 d-flex'>
                             <MdPayment />
                           </span>
-                          <span className='ps-4'>
+                          <span className='ps-3'>
                             Procedi infine con il pagamento
                           </span>
                         </div>
