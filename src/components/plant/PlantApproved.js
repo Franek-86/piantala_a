@@ -141,13 +141,13 @@ const PlantApproved = () => {
                     <ul className='plant-intro-steps'>
                       <a
                         href='#location'
-                        className='mb-2 plant-intro-step d-flex align-items-center justify-content-between py-3 text-decoration-none white-background'
+                        className='mb-4 plant-intro-step d-flex align-items-center justify-content-between py-3 text-decoration-none white-background'
                       >
                         <div className='d-flex align-items-center'>
-                          <span className='fs-1 d-flex'>
+                          <span className='ps-2 fs-1 d-flex'>
                             <TiLocation />
                           </span>
-                          <span className='ps-2'>
+                          <span className='ps-4'>
                             Controlla la zona di piantumazione
                           </span>
                         </div>
@@ -158,13 +158,13 @@ const PlantApproved = () => {
                       </a>
                       <a
                         href='#plate'
-                        className='mb-2 plant-intro-step d-flex align-items-center justify-content-between py-3 text-decoration-none white-background'
+                        className='mb-4 plant-intro-step d-flex align-items-center justify-content-between py-3 text-decoration-none white-background'
                       >
                         <div className='d-flex align-items-center'>
-                          <span className='fs-1 d-flex'>
+                          <span className='ps-2 fs-1 d-flex'>
                             <BsVectorPen />
                           </span>
-                          <span className='ps-2'>
+                          <span className='ps-4'>
                             Inserisci il testo della tua targa
                           </span>
                         </div>
@@ -175,14 +175,14 @@ const PlantApproved = () => {
                       </a>
                       <a
                         href='#payment'
-                        className='mb-2 plant-intro-step d-flex align-items-center justify-content-between py-3 text-decoration-none white-background'
+                        className='mb-4 plant-intro-step d-flex align-items-center justify-content-between py-3 text-decoration-none white-background'
                       >
                         <div className='d-flex align-items-center'>
-                          <span className='fs-1 d-flex'>
+                          <span className='ps-2 fs-1 d-flex'>
                             <MdPayment />
                           </span>
-                          <span className='ps-2'>
-                            Procedi infine con il pagamento.
+                          <span className='ps-4'>
+                            Procedi infine con il pagamento
                           </span>
                         </div>
                         <span className='fs-1 d-flex'>
@@ -263,7 +263,7 @@ const PlantApproved = () => {
                   >
                     pagina
                   </Link>{" "}
-                  dei contatti .
+                  dei contatti.
                 </span>
               </article>
             </div>
