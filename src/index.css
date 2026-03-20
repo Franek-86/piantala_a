@@ -2424,6 +2424,7 @@ element {
   border-radius: 5px;
 }
 .plant-intro-step {
+  height: 5rem;
   padding: 0.5rem;
   /* background: #fff; */
   /* background: #f0f1f19a; */

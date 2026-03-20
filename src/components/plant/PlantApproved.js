@@ -130,9 +130,9 @@ const PlantApproved = () => {
                 </div>
                 <article className='intro-article p-2 p-2 mb-3'>
                   <span className='d-block mb-0'>
-                    Questa zolla di piantagione, avente nostro riferimento
+                    {/* Questa zolla di piantagione, avente nostro riferimento
                     numerico "{plant.id}", si trova nel{" "}
-                    <b>quartiere {plant?.suburb} </b> di <b>{plant?.city}</b>.
+                    <b>quartiere {plant?.suburb} </b> di <b>{plant?.city}</b>. */}
                     Puoi procedere con l'acquisto della tua piantina seguendo i{" "}
                     <b>tre passaggi</b> riportati qui di seguito.
                   </span>
@@ -141,7 +141,7 @@ const PlantApproved = () => {
                     <ul className='plant-intro-steps'>
                       <a
                         href='#location'
-                        className='mb-2 plant-intro-step d-flex align-items-center justify-content-between py-3 green-background text-decoration-none'
+                        className='mb-2 plant-intro-step d-flex align-items-center justify-content-between green-background text-decoration-none'
                       >
                         <div className='d-flex align-items-center'>
                           <span className='fs-1 d-flex'>
@@ -158,7 +158,7 @@ const PlantApproved = () => {
                       </a>
                       <a
                         href='#plate'
-                        className='mb-2 plant-intro-step d-flex align-items-center justify-content-between py-3 green-background text-decoration-none'
+                        className='mb-2 plant-intro-step d-flex align-items-center justify-content-between green-background text-decoration-none'
                       >
                         <div className='d-flex align-items-center'>
                           <span className='fs-1 d-flex'>
@@ -175,7 +175,7 @@ const PlantApproved = () => {
                       </a>
                       <a
                         href='#payment'
-                        className='mb-2 plant-intro-step d-flex align-items-center justify-content-between py-3 green-background text-decoration-none'
+                        className='mb-2 plant-intro-step d-flex align-items-center justify-content-between green-background text-decoration-none'
                       >
                         <div className='d-flex align-items-center'>
                           <span className='fs-1 d-flex'>
