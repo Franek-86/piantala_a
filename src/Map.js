@@ -216,6 +216,7 @@ function Map() {
   if (isChildRoute) {
     return (
       <>
+        {loading && <Loading />}
         {isLargeScreen && <SideBar />}
 
         <Outlet />
@@ -225,6 +226,7 @@ function Map() {
 
   return (
     <>
+      {loading && <Loading />}
       {isLargeScreen && <BackBtnLarge map={true} />}
       <div className='d-flex flex-row w-100'>
         {isLargeScreen && <SideBar />}
