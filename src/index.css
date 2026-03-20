@@ -213,7 +213,7 @@ ul {
 }
 .plants-container-small {
   /* overflow: scroll; */
-  background: var(--c-bg-map-2);
+  background: var(--c-bg-map-blue-light);
 }
 
 .section-center {
@@ -966,6 +966,9 @@ element {
 /*-------------------------------plant section----------------------------- */
 
 /* approved start */
+.plant-intro-steps svg {
+  color: var(--clr-secondary-3);
+}
 .arrow-down {
   color: var(--clr-secondary-5);
 }
@@ -2419,6 +2422,13 @@ element {
   /* background: #f0f1f19a; */
   border: 1px solid var(--clr-secondary-1);
   border-radius: 5px;
+}
+.plant-intro-step {
+  padding: 0.5rem;
+  /* background: #fff; */
+  /* background: #f0f1f19a; */
+  border: 1px solid var(--clr-secondary-1);
+  border-radius: 15px;
 }
 
 .plant-payment button {

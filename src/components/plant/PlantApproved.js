@@ -23,7 +23,7 @@ import useIsLargeScreen from "../../utils/useIsLargeScreen";
 import BackBtnLarge from "../menu/BackBtnLarge";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import ShareButton from "./ShareButton";
-
+import { MdArrowRightAlt } from "react-icons/md";
 const PlantApproved = () => {
   const {
     handleSubmit,
@@ -129,7 +129,7 @@ const PlantApproved = () => {
                   </div>
                 </div>
                 <article className='intro-article p-2 p-2 mb-3'>
-                  <span className='d-block plant-intro-text mb-0'>
+                  <span className='d-block mb-0'>
                     Questa zolla di piantagione, avente nostro riferimento
                     numerico "{plant.id}", si trova nel{" "}
                     <b>quartiere {plant?.suburb} </b> di <b>{plant?.city}</b>.
@@ -138,26 +138,53 @@ const PlantApproved = () => {
                   </span>
                   <FaArrowDown className='arrow-down text-center w-100 fs-3 mt-3' />
                   <span className='d-block mt-3'>
-                    <ul>
-                      <li className='plant-intro-text mb-2'>
-                        {" "}
-                        <span className='fw-bold'>1.</span> Controlla la{" "}
-                        <b>zona di piantumazione</b>, li dove non c'è un sistema
-                        di irrigazione sarà tua premura innaffiare il tuo
-                        albero.
+                    <ul className='plant-intro-steps'>
+                      <li className='mb-2 plant-intro-step d-flex align-items-center justify-content-between py-3 green-background'>
+                        <div className='d-flex align-items-center'>
+                          <span className='fs-1 d-flex'>
+                            <TiLocation />
+                          </span>
+                          <span className='ps-2'>
+                            Controlla la <b>zona di piantumazione</b>.
+                          </span>
+                        </div>
+                        <span className='fs-1 d-flex'>
+                          {" "}
+                          <MdArrowRightAlt />
+                        </span>
                       </li>
-                      <li className='plant-intro-text mb-2'>
-                        <span className='fw-bold'>2.</span> Inserisci il{" "}
-                        <b>testo della targa</b> dedicandola a chi preferisci.
+                      <li className='mb-2 plant-intro-step d-flex align-items-center justify-content-between py-3 green-background'>
+                        <div className='d-flex align-items-center'>
+                          <span className='fs-1 d-flex'>
+                            <BsVectorPen />
+                          </span>
+                          <span className='ps-2'>
+                            Inserisci il <b>testo della targa</b>.
+                          </span>
+                        </div>
+                        <span className='fs-1 d-flex'>
+                          {" "}
+                          <MdArrowRightAlt />
+                        </span>
                       </li>
-                      <li className='plant-intro-text'>
-                        <span className='fw-bold'>3.</span> Procedi infine con
-                        il <b>pagamento</b>.
+                      <li className='mb-2 plant-intro-step d-flex align-items-center justify-content-between py-3 green-background'>
+                        <div className='d-flex align-items-center'>
+                          <span className='fs-1 d-flex'>
+                            <MdPayment />
+                          </span>
+                          <span className='ps-2'>
+                            Procedi infine con il <b>pagamento</b>.
+                          </span>
+                        </div>
+                        <span className='fs-1 d-flex'>
+                          {" "}
+                          <MdArrowRightAlt />
+                        </span>
                       </li>
                     </ul>
                   </span>
                 </article>
-                <article className='py-2 d-flex justify-content-center'>
+                {/* <article className='py-2 d-flex justify-content-center'>
                   <div className='steps-article my-2 d-flex flex-row justify-content-around p-2 p-xl-3'>
                     <div className='step-container d-flex flex-column align-items-center'>
                       <a
@@ -202,7 +229,7 @@ const PlantApproved = () => {
                       </div>
                     </div>
                   </div>
-                </article>
+                </article> */}
               </div>
             </div>
           </section>
