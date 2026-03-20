@@ -151,7 +151,7 @@ const PlantApproved = () => {
                             Controlla la zona di piantumazione
                           </span>
                         </div>
-                        <span className='fs-1 d-flex'>
+                        <span className='ps-3 fs-1 d-flex'>
                           {" "}
                           <MdArrowRightAlt />
                         </span>
@@ -168,7 +168,7 @@ const PlantApproved = () => {
                             Inserisci il testo della tua targa
                           </span>
                         </div>
-                        <span className='fs-1 d-flex'>
+                        <span className='ps-3 fs-1 d-flex'>
                           {" "}
                           <MdArrowRightAlt />
                         </span>
@@ -185,7 +185,7 @@ const PlantApproved = () => {
                             Procedi infine con il pagamento
                           </span>
                         </div>
-                        <span className='fs-1 d-flex'>
+                        <span className='ps-3 fs-1 d-flex'>
                           {" "}
                           <MdArrowRightAlt />
                         </span>
