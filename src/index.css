@@ -676,7 +676,7 @@ element {
 }
 .Toastify__toast-container:has(.toast-approved-app),
 .Toastify__toast-container:has(.toast-booked-app) {
-  bottom: 5.5rem !important;
+  bottom: 5.75rem !important;
 }
 @media screen and (min-width: 992px) {
   .Toastify__toast-container:has(.toast-approved),
@@ -2435,6 +2435,14 @@ element {
   border: 1px solid var(--clr-secondary-1);
   border-radius: 5px;
 }
+.intro-text {
+  padding: 0.5rem;
+  background: var(--c-bg-map-blue-light);
+  /* background: #f0f1f19a; */
+  border: 1px solid var(--clr-secondary-1);
+  border-radius: 5px;
+}
+
 .plant-intro-step {
   height: 5rem;
   padding: 0.5rem 0.5rem 0.5rem 0;

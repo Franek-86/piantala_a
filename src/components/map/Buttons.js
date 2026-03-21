@@ -128,8 +128,8 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
                 toast.dismiss();
                 toast(piantineAcquistabili, {
                   position: "bottom-right",
-                  // autoClose: 2000,
-                  autoClose: false,
+                  autoClose: 2000,
+                  // autoClose: false,
                   hideProgressBar: false,
                   newestOnTop: true,
                   closeOnClick: false,

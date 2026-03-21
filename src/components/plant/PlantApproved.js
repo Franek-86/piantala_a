@@ -93,7 +93,7 @@ const PlantApproved = () => {
   };
 
   return (
-    <div className='plant-section blue-background'>
+    <div className='plant-section white-background'>
       {isLarge && <BackBtnLarge />}
       <Terms id={plantId} />
       <BackBtn plant />
@@ -128,16 +128,22 @@ const PlantApproved = () => {
                     <FaShare className='share-page' />
                   </div>
                 </div>
-                <article className='intro-article p-2 p-2 mb-3'>
-                  <span className='d-block mb-0 info-text'>
-                    {/* Questa zolla di piantagione, avente nostro riferimento
+                {/* <p>
+                  {" "}
+                  Questa zolla di piantagione, avente nostro riferimento
+                  numerico "{plant.id}", si trova nel{" "}
+                  <b>quartiere {plant?.suburb} </b> di <b>{plant?.city}</b>.
+                </p> */}
+                <article className='intro-text intro-article p-2 mb-3'>
+                  <span className='d-block'>
+                    Questa zolla di piantagione, avente nostro riferimento
                     numerico "{plant.id}", si trova nel{" "}
-                    <b>quartiere {plant?.suburb} </b> di <b>{plant?.city}</b>. */}
+                    <b>quartiere {plant?.suburb} </b> di <b>{plant?.city}</b>.
                     Puoi procedere con l'acquisto della tua piantina seguendo i{" "}
                     <b>tre passaggi</b> riportati qui di seguito.
                   </span>
                   {/* <FaArrowDown className='arrow-down text-center w-100 fs-3 mt-3' /> */}
-                  <span className='d-block mt-5'>
+                  <span className='d-block mt-4'>
                     <ul className='plant-intro-steps'>
                       <a
                         href='#location'
@@ -242,7 +248,7 @@ const PlantApproved = () => {
               </div>
             </div>
           </section>
-          <section id='location' className='py-5 white-background'>
+          <section id='location' className='py-5 green-background'>
             <div className='section-center'>
               <span className='mb-3 h5 d-flex flex-row align-items-center'>
                 <div className='step-title pb-2 pe-1'>
@@ -268,7 +274,7 @@ const PlantApproved = () => {
               </article>
             </div>
           </section>
-          <section id='plate' className='py-5 green-background'>
+          <section id='plate' className='py-5 white-background'>
             <div className='section-center section-plant '>
               <span className='mb-3 h5 d-flex flex-row align-items-center'>
                 <div className='step-title pb-2 pe-1'>
