@@ -16,7 +16,7 @@ import BackBtn from "../components/menu/BackBtn";
 import BackBtnLarge from "../components/menu/BackBtnLarge";
 
 const OwnedPlants = () => {
-  const { getMyPlants, myPlants, dropIt } = useContext(PlantsContext);
+  const { getMyPlants, myPlants } = useContext(PlantsContext);
   const { userId, token } = useContext(AuthContext);
   const { allOrders, getAllOrders } = useContext(OrdersContext);
   const isLargeScreen = useIsLargeScreen();
@@ -27,7 +27,6 @@ const OwnedPlants = () => {
   useEffect(() => {
     getMyPlants(userId);
     getAllOrders();
-    dropIt();
   }, [userId]);
   const goToPlantPage = (prop) => {
     navigate(`/map/${prop}`, { state: { from: "/bookedPlants" } });

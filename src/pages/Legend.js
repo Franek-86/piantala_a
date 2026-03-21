@@ -10,15 +10,14 @@ import { MdFilterAlt } from "react-icons/md";
 import { MdCenterFocusStrong } from "react-icons/md";
 import SideBar from "../components/menu/SideBar";
 import BackBtn from "../components/menu/BackBtn";
-import { PlantsContext } from "../context/PlantsContext";
 import BackBtnLarge from "../components/menu/BackBtnLarge";
 
 const Legend = () => {
   const isLargeScreen = useIsLargeScreen();
-  const { dropIt } = useContext(PlantsContext);
-  useEffect(() => {
-    dropIt();
-  }, []);
+
+  // useEffect(() => {
+  //   dropIt();
+  // }, []);
   // let location = useLocation();
 
   // useEffect(() => {

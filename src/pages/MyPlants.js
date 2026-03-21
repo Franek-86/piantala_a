@@ -18,12 +18,11 @@ import BackBtn from "../components/menu/BackBtn";
 import BackBtnLarge from "../components/menu/BackBtnLarge";
 
 const MyPlants = () => {
-  const { myReports, loadingReports, fetchUserPlants, dropIt } =
+  const { myReports, loadingReports, fetchUserPlants } =
     useContext(PlantsContext);
   const isLargeScreen = useIsLargeScreen();
   const navigate = useNavigate();
   useEffect(() => {
-    dropIt();
     fetchUserPlants();
   }, []);
 
