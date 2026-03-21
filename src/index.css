@@ -480,7 +480,7 @@ element {
   height: 4rem;
 }
 
-@media screen and (min-width: 992px) {
+/* @media screen and (min-width: 992px) {
   .bottom-bar {
     background-color: #fff;
     box-shadow: 0 -4px 8px #0003;
@@ -493,8 +493,8 @@ element {
     left: calc(5% + 20rem);
     top: 0;
   }
-}
-@media screen and (min-width: 1760px) {
+} */
+/* @media screen and (min-width: 1760px) {
   .bottom-bar {
     background-color: #fff;
     box-shadow: 0 -4px 8px #0003;
@@ -507,11 +507,9 @@ element {
     left: calc(10% + 20rem);
     top: 0;
   }
-}
+} */
 
 .bottom-bar .fs-5 {
-  /* border-top: 2px solid var(--clr-secondary-0); */
-  /* height: 100%; */
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -674,12 +672,16 @@ element {
 
 .toast-approved,
 .toast-booked {
-  margin-bottom: 4rem;
+  bottom: 3rem;
+}
+.toast-approved-app,
+.toast-booked-app {
+  bottom: 4rem;
 }
 @media screen and (min-width: 992px) {
   .toast-approved,
   .toast-booked {
-    margin-bottom: 0rem;
+    bottom: 0rem;
   }
 }
 

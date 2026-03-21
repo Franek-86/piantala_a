@@ -23,6 +23,7 @@ import { FilterContext } from "../../context/FilterContext";
 import { toast } from "react-toastify";
 import { PlantsContext } from "../../context/PlantsContext";
 import useIsLargeScreen from "../../utils/useIsLargeScreen";
+import { Capacitor } from "@capacitor/core";
 
 const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
   const { userRole, isAuthenticated, showTerms } = useContext(AuthContext);
@@ -69,6 +70,7 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
       </>
     );
   };
+  const isApp = Capacitor.isNativePlatform();
   return (
     <div className='section buttons-section'>
       {locationLoading && <Loading />}
@@ -134,7 +136,7 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
                   draggable: true,
                   progress: undefined,
                   theme: "info",
-                  className: "toast-approved",
+                  className: !isApp ? "toast-approved" : "toast-approved-app",
                   // transition: Bounce,
                 });
               }}
@@ -163,7 +165,7 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
                   draggable: true,
                   progress: undefined,
                   theme: "info",
-                  className: "toast-booked",
+                  className: !isApp ? "toast-booked" : "toast-booked-app",
                   // transition: Bounce,
                 });
               }}
