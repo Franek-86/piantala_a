@@ -88,7 +88,7 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
         // transition: Bounce,
       });
     }
-  }, []);
+  }, [totApproved]);
   const isApp = Capacitor.isNativePlatform();
   return (
     <div className='section buttons-section'>
