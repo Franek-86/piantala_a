@@ -676,7 +676,7 @@ element {
 }
 .Toastify__toast-container:has(.toast-approved-app),
 .Toastify__toast-container:has(.toast-booked-app) {
-  bottom: 5.75rem !important;
+  bottom: 5.8em !important;
 }
 @media screen and (min-width: 992px) {
   .Toastify__toast-container:has(.toast-approved),
@@ -974,8 +974,18 @@ element {
 /*-------------------------------plant section----------------------------- */
 
 /* approved start */
+
 .plant-intro-steps svg {
   color: var(--clr-secondary-3);
+}
+.plant-intro-step {
+  height: 5rem;
+  padding: 0.5rem 0.5rem 0.5rem 0;
+
+  /* background: #fff; */
+  /* background: #f0f1f19a; */
+  border: 1px solid var(--clr-secondary-0);
+  border-radius: 15px;
 }
 .arrow-down {
   color: var(--clr-secondary-5);
@@ -2441,16 +2451,6 @@ element {
   /* background: #f0f1f19a; */
   border: 1px solid var(--clr-secondary-1);
   border-radius: 5px;
-}
-
-.plant-intro-step {
-  height: 5rem;
-  padding: 0.5rem 0.5rem 0.5rem 0;
-
-  /* background: #fff; */
-  /* background: #f0f1f19a; */
-  border: 1px solid var(--clr-secondary-1);
-  border-radius: 15px;
 }
 
 .plant-payment button {

@@ -136,14 +136,14 @@ const PlantApproved = () => {
                 </p> */}
                 <article className='intro-text intro-article p-2 mb-3'>
                   <span className='d-block'>
-                    Questa zolla di piantagione, avente nostro riferimento
+                    {/* Questa zolla di piantagione, avente nostro riferimento
                     numerico "{plant.id}", si trova nel{" "}
-                    <b>quartiere {plant?.suburb} </b> di <b>{plant?.city}</b>.
+                    <b>quartiere {plant?.suburb} </b> di <b>{plant?.city}</b>. */}
                     Puoi procedere con l'acquisto della tua piantina seguendo i{" "}
                     <b>tre passaggi</b> riportati qui di seguito.
                   </span>
                   {/* <FaArrowDown className='arrow-down text-center w-100 fs-3 mt-3' /> */}
-                  <span className='d-block mt-4'>
+                  <span className='d-block mt-5'>
                     <ul className='plant-intro-steps'>
                       <a
                         href='#location'
