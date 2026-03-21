@@ -23,7 +23,7 @@ import useIsLargeScreen from "../../utils/useIsLargeScreen";
 import BackBtnLarge from "../menu/BackBtnLarge";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import ShareButton from "./ShareButton";
-import { MdArrowRightAlt } from "react-icons/md";
+import { BsArrowRightShort } from "react-icons/bs";
 const PlantApproved = () => {
   const {
     handleSubmit,
@@ -159,7 +159,7 @@ const PlantApproved = () => {
                         </div>
                         <span className='ps-3 fs-1 d-flex'>
                           {" "}
-                          <MdArrowRightAlt />
+                          <BsArrowRightShort />
                         </span>
                       </a>
                       <a
@@ -176,7 +176,7 @@ const PlantApproved = () => {
                         </div>
                         <span className='ps-3 fs-1 d-flex'>
                           {" "}
-                          <MdArrowRightAlt />
+                          <BsArrowRightShort />
                         </span>
                       </a>
                       <a
@@ -193,7 +193,7 @@ const PlantApproved = () => {
                         </div>
                         <span className='ps-3 fs-1 d-flex'>
                           {" "}
-                          <MdArrowRightAlt />
+                          <BsArrowRightShort />
                         </span>
                       </a>
                     </ul>
