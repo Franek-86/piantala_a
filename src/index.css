@@ -670,23 +670,23 @@ element {
   display: none;
 }
 
-.toast-approved,
-.toast-booked {
+.Toastify__toast-container:has(.toast-approved),
+.Toastify__toast-container:has(.toast-booked) {
   bottom: 4.725rem;
 }
-.toast-approved-app,
-.toast-booked-app {
+.Toastify__toast-container:has(.toast-approved-app),
+.Toastify__toast-container:has(.toast-booked-app) {
   bottom: 5rem;
 }
 @media screen and (min-width: 992px) {
-  .toast-approved,
-  .toast-booked {
+  .Toastify__toast-container:has(.toast-approved),
+  .Toastify__toast-container:has(.toast-booked) {
     bottom: 0rem;
   }
 }
 @media screen and (min-width: 480px) {
-  .toast-approved,
-  .toast-booked {
+  .Toastify__toast-container:has(.toast-approved),
+  .Toastify__toast-container:has(.toast-booked) {
     bottom: 3rem;
   }
 }
