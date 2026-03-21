@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+import React, { useContext, useEffect, useRef, useState } from "react";
+import { Link, Navigate, useLocation } from "react-router-dom";
 import { MdAdd } from "react-icons/md";
 import { MdLocalPhone } from "react-icons/md";
 import { MdCenterFocusStrong } from "react-icons/md";
@@ -43,6 +43,7 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
   const map = useMap();
   const { setFilters, filters } = useContext(FilterContext);
   const isLarge = useIsLargeScreen();
+
   useMapEvent("dragend", () => {
     setShowCenter(true);
   });
@@ -70,6 +71,24 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
       </>
     );
   };
+  useEffect(() => {
+    if (isLarge) {
+      toast.dismiss();
+      toast(piantineAcquistabili, {
+        position: "bottom-right",
+        autoClose: !isLarge ? 2000 : false,
+        hideProgressBar: false,
+        newestOnTop: true,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "info",
+        className: !isApp ? "toast-approved" : "toast-approved-app",
+        // transition: Bounce,
+      });
+    }
+  }, []);
   const isApp = Capacitor.isNativePlatform();
   return (
     <div className='section buttons-section'>
@@ -128,8 +147,7 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
                 toast.dismiss();
                 toast(piantineAcquistabili, {
                   position: "bottom-right",
-                  autoClose: 2000,
-                  // autoClose: false,
+                  autoClose: !isLarge ? 2000 : false,
                   hideProgressBar: false,
                   newestOnTop: true,
                   closeOnClick: false,
@@ -158,7 +176,7 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
                 toast.dismiss();
                 toast(piantineAcquistate, {
                   position: "bottom-right",
-                  autoClose: 2000,
+                  autoClose: !isLarge ? 2000 : false,
                   hideProgressBar: false,
                   newestOnTop: true,
                   closeOnClick: false,
