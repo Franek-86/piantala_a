@@ -74,19 +74,35 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
   useEffect(() => {
     if (isLarge && totApproved) {
       toast.dismiss();
-      toast(piantineAcquistabili, {
-        position: "bottom-right",
-        autoClose: !isLarge ? 2000 : false,
-        hideProgressBar: false,
-        newestOnTop: true,
-        closeOnClick: false,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "info",
-        className: !isApp ? "toast-approved" : "toast-approved-app",
-        // transition: Bounce,
-      });
+      if (filters.status === "approved") {
+        toast(piantineAcquistabili, {
+          position: "bottom-right",
+          autoClose: !isLarge ? 2000 : false,
+          hideProgressBar: false,
+          newestOnTop: true,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "info",
+          className: !isApp ? "toast-approved" : "toast-approved-app",
+          // transition: Bounce,
+        });
+      } else if (filters.status === "booked") {
+        toast(piantineAcquistate, {
+          position: "bottom-right",
+          autoClose: !isLarge ? 2000 : false,
+          hideProgressBar: false,
+          newestOnTop: true,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "info",
+          className: !isApp ? "toast-approved" : "toast-approved-app",
+          // transition: Bounce,
+        });
+      }
     }
   }, [totApproved]);
   const isApp = Capacitor.isNativePlatform();
