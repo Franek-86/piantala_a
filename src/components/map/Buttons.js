@@ -72,7 +72,7 @@ const Buttons = ({ setPosition, position, langMatch, latMatch, markerRef }) => {
     );
   };
   useEffect(() => {
-    if (isLarge) {
+    if (isLarge && totApproved) {
       toast.dismiss();
       toast(piantineAcquistabili, {
         position: "bottom-right",

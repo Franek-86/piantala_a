@@ -12,7 +12,7 @@ export const PlantsContext = createContext();
 export const PlantsProvider = ({ children }) => {
   const { getOtherUserInfo } = useContext(UsersContext);
   const { isAuthenticated, logReg, setLogReg } = useContext(AuthContext);
-  const [totApproved, setTotApproved] = useState(0);
+  const [totApproved, setTotApproved] = useState(null);
   const [totBooked, setTotBooked] = useState(0);
   const [plants, setPlants] = useState([]);
   const [myPlants, setMyPlants] = useState(null);
