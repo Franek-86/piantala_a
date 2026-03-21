@@ -672,28 +672,28 @@ element {
 
 .Toastify__toast-container:has(.toast-approved),
 .Toastify__toast-container:has(.toast-booked) {
-  bottom: 4.725rem;
+  bottom: 4.725rem !important;
 }
 .Toastify__toast-container:has(.toast-approved-app),
 .Toastify__toast-container:has(.toast-booked-app) {
-  bottom: 5rem;
+  bottom: 5rem !important;
 }
 @media screen and (min-width: 992px) {
   .Toastify__toast-container:has(.toast-approved),
   .Toastify__toast-container:has(.toast-booked) {
-    bottom: 0rem;
+    bottom: 0rem !important;
   }
 }
 @media screen and (min-width: 480px) {
   .Toastify__toast-container:has(.toast-approved),
   .Toastify__toast-container:has(.toast-booked) {
-    bottom: 3rem;
+    bottom: 3rem !important;
   }
 }
 @media screen and (min-width: 992px) {
   .toast-approved,
   .toast-booked {
-    bottom: 0rem;
+    bottom: 0rem !important;
   }
 }
 .filter-alert {
