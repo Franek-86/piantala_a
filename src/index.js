@@ -57,6 +57,7 @@ import TermsOfService from "./pages/TermsOfService";
 import LoginForm from "./pages/LoginForm";
 import ErrorNotFound from "./pages/ErrorNotFound";
 import { VersionProvider } from "./context/VersionContext";
+import Location from "./pages/PlantApproved/Location";
 
 // import { io } from "socket.io-client";
 // const url =
@@ -120,24 +121,7 @@ const router = createBrowserRouter([
         path: "/passwordReset/:token",
         element: <PasswordReset />,
       },
-      // {
-      //   path: "/map",
-      //   element: (
-      //     <ProtectedRoute>
-      //       <Map />
-      //     </ProtectedRoute>
-      //   ),
-      //   children: [
-      //     {
-      //       path: "addPlant",
-      //       element: <AddPlant />,
-      //     },
-      //     {
-      //       path: ":plantId",
-      //       element: <Plant />,
-      //     },
-      //   ],
-      // },
+
       {
         path: "/map",
         element: <Map />,
@@ -149,6 +133,10 @@ const router = createBrowserRouter([
           {
             path: ":plantId",
             element: <Plant />,
+          },
+          {
+            path: ":plantId/location",
+            element: <Location />,
           },
         ],
       },

@@ -144,7 +144,8 @@ const PlantApproved = () => {
                   </span>
                   <span className='d-block mb-3'>
                     Puoi procedere con l'acquisto della tua piantina seguendo i{" "}
-                    <b>tre passaggi</b> riportati qui di seguito.
+                    <b>tre passaggi</b> riportati qui di seguito.{" "}
+                    {/* <Link to='/map/257/location'>test</Link> */}
                   </span>
                   {/* <FaArrowDown className='arrow-down text-center w-100 fs-3 mt-3' /> */}
                   <span className='d-block'>
@@ -191,9 +192,7 @@ const PlantApproved = () => {
                           <span className='ps-3 fs-1 d-flex'>
                             <MdPayment />
                           </span>
-                          <span className='ps-3'>
-                            Procedi infine con il pagamento
-                          </span>
+                          <span className='ps-3'>Procedi con il pagamento</span>
                         </div>
                         <span className='ps-3 fs-1 d-flex'>
                           {" "}
