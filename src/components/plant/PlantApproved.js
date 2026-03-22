@@ -24,6 +24,7 @@ import BackBtnLarge from "../menu/BackBtnLarge";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import ShareButton from "./ShareButton";
 import { BsArrowRightShort } from "react-icons/bs";
+import { LuTreeDeciduous } from "react-icons/lu";
 const PlantApproved = () => {
   const {
     handleSubmit,
@@ -137,7 +138,7 @@ const PlantApproved = () => {
                 <div className='intro-text intro-article p-2 mb-3'>
                   <span className='mb-3 h5 d-flex flex-row align-items-center'>
                     <div className='step-title pb-2 pe-1'>
-                      <TiLocation />
+                      <LuTreeDeciduous />
                     </div>
                     Procedura di acquisto
                   </span>
