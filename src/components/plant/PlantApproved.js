@@ -135,6 +135,9 @@ const PlantApproved = () => {
                   <b>quartiere {plant?.suburb} </b> di <b>{plant?.city}</b>.
                 </p> */}
                 <article className='intro-text intro-article p-2 mb-3'>
+                  <span className='mb-3 mt-2 h5 d-flex flex-row align-items-center'>
+                    Procedura di acquisto
+                  </span>
                   <span className='d-block'>
                     {/* Questa zolla di piantagione, avente nostro riferimento
                     numerico "{plant.id}", si trova nel{" "}
@@ -199,52 +202,6 @@ const PlantApproved = () => {
                     </ul>
                   </span>
                 </article>
-                {/* <article className='py-2 d-flex justify-content-center'>
-                  <div className='steps-article my-2 d-flex flex-row justify-content-around p-2 p-xl-3'>
-                    <div className='step-container d-flex flex-column align-items-center'>
-                      <a
-                        href='#location'
-                        className='step-box d-flex flex-row align-items-center justify-content-center'
-                      >
-                        <TiLocation />
-                      </a>
-                      <div className='step-text text-center'>
-                        <span className='d-block fw-bold my-1'>Posizione</span>
-                        <span className='d-block small fw-medium'>
-                          Zona di piantagione
-                        </span>
-                      </div>
-                    </div>
-                    <div className='step-container d-flex flex-column align-items-center'>
-                      <a
-                        href='#plate'
-                        className='step-box d-flex flex-row align-items-center justify-content-center'
-                      >
-                        <BsVectorPen />
-                      </a>
-                      <div className='step-text text-center'>
-                        <span className='d-block fw-bold my-1'>Targa</span>
-                        <span className='d-block small fw-medium'>
-                          Targa personalizzata
-                        </span>
-                      </div>
-                    </div>
-                    <div className='step-container d-flex flex-column align-items-center'>
-                      <a
-                        href='#payment'
-                        className='step-box d-flex flex-row align-items-center justify-content-center'
-                      >
-                        <MdPayment />
-                      </a>
-                      <div className='step-text text-center'>
-                        <spam className='d-block fw-bold my-1'>Pagamento</spam>
-                        <span className='d-block small fw-medium'>
-                          Informazioni e procedura
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </article> */}
               </div>
             </div>
           </section>
@@ -349,3 +306,52 @@ const PlantApproved = () => {
 };
 
 export default PlantApproved;
+
+{
+  /* <article className='py-2 d-flex justify-content-center'>
+                  <div className='steps-article my-2 d-flex flex-row justify-content-around p-2 p-xl-3'>
+                    <div className='step-container d-flex flex-column align-items-center'>
+                      <a
+                        href='#location'
+                        className='step-box d-flex flex-row align-items-center justify-content-center'
+                      >
+                        <TiLocation />
+                      </a>
+                      <div className='step-text text-center'>
+                        <span className='d-block fw-bold my-1'>Posizione</span>
+                        <span className='d-block small fw-medium'>
+                          Zona di piantagione
+                        </span>
+                      </div>
+                    </div>
+                    <div className='step-container d-flex flex-column align-items-center'>
+                      <a
+                        href='#plate'
+                        className='step-box d-flex flex-row align-items-center justify-content-center'
+                      >
+                        <BsVectorPen />
+                      </a>
+                      <div className='step-text text-center'>
+                        <span className='d-block fw-bold my-1'>Targa</span>
+                        <span className='d-block small fw-medium'>
+                          Targa personalizzata
+                        </span>
+                      </div>
+                    </div>
+                    <div className='step-container d-flex flex-column align-items-center'>
+                      <a
+                        href='#payment'
+                        className='step-box d-flex flex-row align-items-center justify-content-center'
+                      >
+                        <MdPayment />
+                      </a>
+                      <div className='step-text text-center'>
+                        <spam className='d-block fw-bold my-1'>Pagamento</spam>
+                        <span className='d-block small fw-medium'>
+                          Informazioni e procedura
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </article> */
+}
