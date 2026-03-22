@@ -135,10 +135,13 @@ const PlantApproved = () => {
                   <b>quartiere {plant?.suburb} </b> di <b>{plant?.city}</b>.
                 </p> */}
                 <article className='intro-text intro-article p-2 mb-3'>
-                  <span className='mb-3 mt-2 h5 d-flex flex-row align-items-center'>
+                  <span className='mb-3 h5 d-flex flex-row align-items-center'>
+                    <div className='step-title pb-2 pe-1'>
+                      <TiLocation />
+                    </div>
                     Procedura di acquisto
                   </span>
-                  <span className='d-block'>
+                  <span className='d-block mb-3'>
                     {/* Questa zolla di piantagione, avente nostro riferimento
                     numerico "{plant.id}", si trova nel{" "}
                     <b>quartiere {plant?.suburb} </b> di <b>{plant?.city}</b>. */}
@@ -146,7 +149,7 @@ const PlantApproved = () => {
                     <b>tre passaggi</b> riportati qui di seguito.
                   </span>
                   {/* <FaArrowDown className='arrow-down text-center w-100 fs-3 mt-3' /> */}
-                  <span className='d-block mt-5'>
+                  <span className='d-block'>
                     <ul className='plant-intro-steps'>
                       <a
                         href='#location'
@@ -205,18 +208,16 @@ const PlantApproved = () => {
               </div>
             </div>
           </section>
-          <section id='location' className='py-5 green-background'>
+          <section id='location' className=''>
             <div className='section-center'>
-              <span className='mb-3 h5 d-flex flex-row align-items-center'>
-                <div className='step-title pb-2 pe-1'>
-                  <TiLocation />
+              <article className='intro-text green-background'>
+                <div className='mb-3 h5 d-flex flex-row align-items-center'>
+                  <div className='step-title pb-2 pe-1'>
+                    <TiLocation />
+                  </div>
+                  Voglio essere piantata qui!
                 </div>
-                Voglio essere piantata qui!
-              </span>
-              <InfoCard />
-              <article className='mt-2 mt-lg-5'>
-                {" "}
-                <span>
+                <span className='d-block mb-3'>
                   Per qualsiasi ulteriore informazione ti invitiamo a
                   contattarci, tutti i nostri riferimenti sono nella{" "}
                   <Link
@@ -228,7 +229,10 @@ const PlantApproved = () => {
                   </Link>{" "}
                   dei contatti.
                 </span>
+                <InfoCard />
               </article>
+
+              <article className='mt-2 mt-lg-5'></article>
             </div>
           </section>
           <section id='plate' className='py-5 white-background'>
