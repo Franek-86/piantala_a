@@ -25,6 +25,7 @@ import Breadcrumb from "react-bootstrap/Breadcrumb";
 import ShareButton from "./ShareButton";
 import { BsArrowRightShort } from "react-icons/bs";
 import { LuTreeDeciduous } from "react-icons/lu";
+import { FaLongArrowAltRight } from "react-icons/fa";
 const PlantApproved = () => {
   const {
     handleSubmit,
@@ -212,7 +213,14 @@ const PlantApproved = () => {
             </div>
           </section>
           <section id='location' className='py-5'>
-            <h4 className='section-center mb-3'>1. Zona di piantumazione</h4>
+            <h4 className='section-center mb-3'>
+              <div className='d-flex align-items-center'>
+                <div className='d-flex align-items-center'>
+                  <FaLongArrowAltRight />{" "}
+                  <span className='ps-2'>Zona di piantumazione</span>
+                </div>
+              </div>
+            </h4>
             <div className='section-center'>
               <div className='intro-text'>
                 <div className='mb-3 d-flex flex-row align-items-center'>
@@ -238,7 +246,14 @@ const PlantApproved = () => {
             </div>
           </section>
           <section id='plate' className='py-5 white-background'>
-            <h4 className='section-center mb-3'>2. Testo targa</h4>
+            <h4 className='section-center mb-3'>
+              <div className='d-flex align-items-center'>
+                <div className='d-flex align-items-center'>
+                  <FaLongArrowAltRight />{" "}
+                  <span className='ps-2'>Testo targa</span>
+                </div>
+              </div>
+            </h4>
             <div className='section-center section-plant '>
               <div className='intro-text'>
                 <span className='mb-3 h5 d-flex flex-row align-items-center'>

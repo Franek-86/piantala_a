@@ -975,7 +975,9 @@ element {
 /*-------------------------------plant section----------------------------- */
 
 /* approved start */
-
+.plant-section svg {
+  color: var(--clr-secondary-3);
+}
 .plant-intro-steps svg {
   color: var(--clr-secondary-3);
 }

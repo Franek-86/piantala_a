@@ -9,6 +9,7 @@ import { Keyboard } from "@capacitor/keyboard";
 import { PlantsContext } from "../../context/PlantsContext";
 import { MdPayment } from "react-icons/md";
 import LoginReg from "../registration/LoginReg";
+import { FaLongArrowAltRight } from "react-icons/fa";
 const PlantForm = () => {
   const { userId, userRole, isAuthenticated, setLogReg, logReg } =
     useContext(AuthContext);
@@ -101,7 +102,14 @@ const PlantForm = () => {
         ref={container}
         className='min-100 pt-5 section-plant-form'
       >
-        <h4 className='section-center mb-3'>3. Pagamento</h4>
+        <h4 className='section-center mb-3'>
+          <div className='d-flex align-items-center'>
+            <div className='d-flex align-items-center'>
+              <FaLongArrowAltRight />{" "}
+              <span className='ps-2'>Zona di piantumazione</span>
+            </div>
+          </div>
+        </h4>
         <div className='section-plant section-center'>
           <div className='intro-text'>
             {/* <Form onSubmit={handleSubmit(onSubmit)}> */}
