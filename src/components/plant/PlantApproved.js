@@ -132,11 +132,11 @@ const PlantApproved = () => {
                 </div>
                 <p>
                   {" "}
-                  Questa zolla di piantagione, avente nostro riferimento
+                  Qui di seguito le informazioni relative all'acquisto di una
+                  piantina in questa zona di piantagione.
+                  {/* Questa zolla di piantagione, avente nostro riferimento
                   numerico "{plant.id}", si trova nel{" "}
-                  <b>quartiere {plant?.suburb} </b> di <b>{plant?.city}</b>. Qui
-                  di seguito le informazioni relative all'acquisto di una
-                  piantina in questa zona.
+                  <b>quartiere {plant?.suburb} </b> di <b>{plant?.city}</b>. */}
                 </p>
                 <div className='intro-text intro-article p-2 mb-3'>
                   <span className='mb-3  d-flex flex-row align-items-center'>
@@ -230,6 +230,14 @@ const PlantApproved = () => {
                   <h5 className='mb-0'>Voglio essere piantata qui!</h5>
                 </div>
                 <span className='d-block mb-3'>
+                  Questa zolla di piantagione, avente nostro riferimento
+                  numerico "{plant.id}", si trova nel{" "}
+                  <b>quartiere {plant?.suburb} </b> di <b>{plant?.city}</b>. Qui
+                  di seguito tutte le informazioni sulla posizione di questa
+                  zolla.
+                </span>
+                <InfoCard />
+                <span className='d-block mt-3'>
                   Per qualsiasi ulteriore informazione ti invitiamo a
                   contattarci, tutti i nostri riferimenti sono nella{" "}
                   <Link
@@ -241,7 +249,6 @@ const PlantApproved = () => {
                   </Link>{" "}
                   dei contatti.
                 </span>
-                <InfoCard />
               </div>
             </div>
           </section>
