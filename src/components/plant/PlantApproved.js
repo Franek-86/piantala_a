@@ -134,7 +134,7 @@ const PlantApproved = () => {
                   numerico "{plant.id}", si trova nel{" "}
                   <b>quartiere {plant?.suburb} </b> di <b>{plant?.city}</b>.
                 </p> */}
-                <article className='intro-text intro-article p-2 mb-3'>
+                <div className='intro-text intro-article p-2 mb-3'>
                   <span className='mb-3 h5 d-flex flex-row align-items-center'>
                     <div className='step-title pb-2 pe-1'>
                       <TiLocation />
@@ -204,13 +204,13 @@ const PlantApproved = () => {
                       </a>
                     </ul>
                   </span>
-                </article>
+                </div>
               </div>
             </div>
           </section>
-          <section id='location' className=''>
+          <section id='location' className='pt-5'>
             <div className='section-center'>
-              <article className='intro-text green-background'>
+              <div className='intro-text'>
                 <div className='mb-3 h5 d-flex flex-row align-items-center'>
                   <div className='step-title pb-2 pe-1'>
                     <TiLocation />
@@ -230,67 +230,67 @@ const PlantApproved = () => {
                   dei contatti.
                 </span>
                 <InfoCard />
-              </article>
-
-              <article className='mt-2 mt-lg-5'></article>
+              </div>
             </div>
           </section>
           <section id='plate' className='py-5 white-background'>
             <div className='section-center section-plant '>
-              <span className='mb-3 h5 d-flex flex-row align-items-center'>
-                <div className='step-title pb-2 pe-1'>
-                  <BsVectorPen />
-                </div>
-                Dedicami a qualcuno
-              </span>
-              <article className='plate-info mb-5'>
-                <p>
-                  Definisci il <b>testo della tua targa</b>, una dedica o un tuo
-                  pensiero che non superi i 500 caratteri e che noi riporteremo
-                  su una targa realizzata <b>in alluminio</b> avente come{" "}
-                  <b>sfondo</b> il quadro di <b>Ernest Verner</b>
-                  <span className='d-inline d-md-none'>.</span>{" "}
-                  <span className='d-none d-md-inline'>
-                    che riportiamo qui in basso.
-                  </span>
-                </p>
-                <p className='mb-0'>
-                  {" "}
-                  Puoi visualizzare tutte le vostre targe già da noi realizzate
-                  e applicate sui vostri alberi nella{" "}
-                  <Link className='text-decoration-none' to={"/plates"}>
-                    pagina
-                  </Link>{" "}
-                  dedicata alle vostre targhe.
-                </p>
-              </article>
-              <article className='plate-form d-flex flex-column flex-md-row w-100'>
-                <FloatingLabel
-                  controlId='formComment'
-                  label='Inserisci qui il testo della tua targa'
-                  className='textPlateContainer mb-3 '
-                >
-                  <Form.Control
-                    className='textPlate'
-                    as='textarea'
-                    rows={3}
-                    {...register("comment", {
-                      required: true,
-                      maxLength: 500,
-                    })}
-                  />
-                  {errors.comment && (
-                    <p className='text-danger'>
-                      È necessario un testo da inserire nella targa, il testo
-                      deve essere di meno di 500 caratteri.
-                    </p>
-                  )}
-                </FloatingLabel>
-                <div
-                  className='plate-background-pic d-none d-md-block'
-                  style={{ backgroundImage: `url(${Verner})` }}
-                ></div>
-              </article>
+              <div className='intro-text'>
+                <span className='mb-3 h5 d-flex flex-row align-items-center'>
+                  <div className='step-title pb-2 pe-1'>
+                    <BsVectorPen />
+                  </div>
+                  Dedicami a qualcuno
+                </span>
+                <article className='mb-3'>
+                  <p>
+                    Definisci il <b>testo della tua targa</b>, una dedica o un
+                    tuo pensiero che non superi i 500 caratteri e che noi
+                    riporteremo su una targa realizzata <b>in alluminio</b>{" "}
+                    avente come <b>sfondo</b> il quadro di <b>Ernest Verner</b>
+                    <span className='d-inline d-md-none'>.</span>{" "}
+                    <span className='d-none d-md-inline'>
+                      che riportiamo qui in basso.
+                    </span>
+                  </p>
+                  <p className='mb-0'>
+                    {" "}
+                    Puoi visualizzare tutte le vostre targe già da noi
+                    realizzate e applicate sui vostri alberi nella{" "}
+                    <Link className='text-decoration-none' to={"/plates"}>
+                      pagina
+                    </Link>{" "}
+                    dedicata alle vostre targhe.
+                  </p>
+                </article>
+                <article className='plate-form d-flex flex-column flex-md-row w-100'>
+                  <FloatingLabel
+                    controlId='formComment'
+                    label='Inserisci qui il testo della tua targa'
+                    className='textPlateContainer mb-3 '
+                  >
+                    <Form.Control
+                      className='textPlate'
+                      as='textarea'
+                      rows={3}
+                      {...register("comment", {
+                        required: true,
+                        maxLength: 500,
+                      })}
+                    />
+                    {errors.comment && (
+                      <p className='text-danger'>
+                        È necessario un testo da inserire nella targa, il testo
+                        deve essere di meno di 500 caratteri.
+                      </p>
+                    )}
+                  </FloatingLabel>
+                  <div
+                    className='plate-background-pic d-none d-md-block'
+                    style={{ backgroundImage: `url(${Verner})` }}
+                  ></div>
+                </article>
+              </div>
               {/* <article className='pt-4 pb-5 d-flex btn-plant-article justify-content-center'>
                 <a
                   href='#payment'

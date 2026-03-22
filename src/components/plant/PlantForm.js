@@ -99,45 +99,48 @@ const PlantForm = () => {
       <section
         id='payment'
         ref={container}
-        className='min-100 pt-5 section-plant-form blue-background'
+        className='min-100 pt-5 section-plant-form'
       >
         <div className='section-plant section-center'>
-          {/* <Form onSubmit={handleSubmit(onSubmit)}> */}
-          <span className='mb-3 h5 d-flex flex-row align-items-center'>
-            <div className='step-title pb-2 pe-1'>
-              <MdPayment />
-            </div>
-            Infomazioni sul pagamento
-          </span>
-          <article className='plant-payment-info'>
-            <p>
-              Il <b>prezzo</b> di una piantina è di <b>200 euro</b> ed include:
-              <ul>
-                <li>la messa a dimora dell'albero</li>
-                <li>la realizzazione e stampa della targa</li>
-                <li>la piantumazione entro 6 mesi dalla richiesta </li>
-                <li>l'iscrizione all'associazione Amici di Ernest Verner.</li>
-              </ul>{" "}
-            </p>
-            <p>
-              La <b>tipologia di albero</b> sarà concordata con i competenti
-              uffici del Comune e resa visibile online sia nella tua scheda di
-              acquisto che su questa stessa pagina.
-            </p>
-            <p>
-              Procedendo con il pagamento verrai reindirizzato sulla piattaforma
-              di pagamento.
-            </p>
-          </article>
-          <article className='plant-payment pt-4 pb-5 d-flex justify-content-center'>
-            <button
-              className={!logReg ? "d-block btn btn-success" : "d-none"}
-              type='submit'
-            >
-              Procedi con il pagamento
-            </button>
-          </article>
-          {/* </Form> */}
+          <div className='intro-text'>
+            {/* <Form onSubmit={handleSubmit(onSubmit)}> */}
+            <span className='mb-3 h5 d-flex flex-row align-items-center'>
+              <div className='step-title pb-2 pe-1'>
+                <MdPayment />
+              </div>
+              Infomazioni sul pagamento
+            </span>
+            <article className='plant-payment-info'>
+              <p>
+                Il <b>prezzo</b> di una piantina è di <b>200 euro</b> ed
+                include:
+                <ul>
+                  <li>la messa a dimora dell'albero</li>
+                  <li>la realizzazione e stampa della targa</li>
+                  <li>la piantumazione entro 6 mesi dalla richiesta </li>
+                  <li>l'iscrizione all'associazione Amici di Ernest Verner.</li>
+                </ul>{" "}
+              </p>
+              <p>
+                La <b>tipologia di albero</b> sarà concordata con i competenti
+                uffici del Comune e resa visibile online sia nella tua scheda di
+                acquisto che su questa stessa pagina.
+              </p>
+              <p>
+                Procedendo con il pagamento verrai reindirizzato sulla
+                piattaforma di pagamento.
+              </p>
+            </article>
+            <article className='plant-payment pt-4 pb-5 d-flex justify-content-center'>
+              <button
+                className={!logReg ? "d-block btn btn-success" : "d-none"}
+                type='submit'
+              >
+                Procedi con il pagamento
+              </button>
+            </article>
+            {/* </Form> */}
+          </div>
         </div>
         {logReg && <LoginReg val='plant' id={plantId} />}
       </section>

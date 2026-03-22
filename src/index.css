@@ -2437,8 +2437,7 @@ element {
 .plant-intro-text,
 .plant-position-text,
 .plate-info,
-.info-text,
-.plant-payment-info {
+.info-text {
   padding: 0.5rem;
   background: #fff;
   /* background: #f0f1f19a; */
