@@ -101,14 +101,15 @@ const PlantForm = () => {
         ref={container}
         className='min-100 pt-5 section-plant-form'
       >
+        <h4 className='section-center mb-3'>3. Pagamento</h4>
         <div className='section-plant section-center'>
           <div className='intro-text'>
             {/* <Form onSubmit={handleSubmit(onSubmit)}> */}
-            <span className='mb-3 h5 d-flex flex-row align-items-center'>
+            <span className='mb-3 d-flex flex-row align-items-center'>
               <div className='step-title pb-2 pe-1'>
                 <MdPayment />
               </div>
-              Infomazioni sul pagamento
+              <h5 className='mb-0'>Infomazioni sul pagamento</h5>
             </span>
             <article className='plant-payment-info'>
               <p>
@@ -131,16 +132,17 @@ const PlantForm = () => {
                 piattaforma di pagamento.
               </p>
             </article>
-            <article className='plant-payment pt-4 pb-5 d-flex justify-content-center'>
-              <button
-                className={!logReg ? "d-block btn btn-success" : "d-none"}
-                type='submit'
-              >
-                Procedi con il pagamento
-              </button>
-            </article>
+
             {/* </Form> */}
           </div>
+          <article className='plant-payment pt-4 pb-5 d-flex justify-content-center'>
+            <button
+              className={!logReg ? "d-block btn btn-success" : "d-none"}
+              type='submit'
+            >
+              Procedi con il pagamento
+            </button>
+          </article>
         </div>
         {logReg && <LoginReg val='plant' id={plantId} />}
       </section>

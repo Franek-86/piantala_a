@@ -129,18 +129,20 @@ const PlantApproved = () => {
                     <FaShare className='share-page' />
                   </div>
                 </div>
-                {/* <p>
+                <p>
                   {" "}
                   Questa zolla di piantagione, avente nostro riferimento
                   numerico "{plant.id}", si trova nel{" "}
-                  <b>quartiere {plant?.suburb} </b> di <b>{plant?.city}</b>.
-                </p> */}
+                  <b>quartiere {plant?.suburb} </b> di <b>{plant?.city}</b>. Qui
+                  di seguito le informazioni relative all'acquisto di una
+                  piantina in questa zona.
+                </p>
                 <div className='intro-text intro-article p-2 mb-3'>
-                  <span className='mb-3 h5 d-flex flex-row align-items-center'>
+                  <span className='mb-3  d-flex flex-row align-items-center'>
                     <div className='step-title pb-2 pe-1'>
                       <LuTreeDeciduous />
                     </div>
-                    Procedura di acquisto
+                    <h5 className='mb-0'>Procedura d'acquisto</h5>
                   </span>
                   <span className='d-block mb-3'>
                     {/* Questa zolla di piantagione, avente nostro riferimento
@@ -210,13 +212,14 @@ const PlantApproved = () => {
             </div>
           </section>
           <section id='location' className='py-5'>
+            <h4 className='section-center mb-3'>1. Zona di piantumazione</h4>
             <div className='section-center'>
               <div className='intro-text'>
-                <div className='mb-3 h5 d-flex flex-row align-items-center'>
+                <div className='mb-3 d-flex flex-row align-items-center'>
                   <div className='step-title pb-2 pe-1'>
                     <TiLocation />
                   </div>
-                  Voglio essere piantata qui!
+                  <h5 className='mb-0'>Voglio essere piantata qui!</h5>
                 </div>
                 <span className='d-block mb-3'>
                   Per qualsiasi ulteriore informazione ti invitiamo a
@@ -235,6 +238,7 @@ const PlantApproved = () => {
             </div>
           </section>
           <section id='plate' className='py-5 white-background'>
+            <h4 className='section-center mb-3'>2. Testo targa</h4>
             <div className='section-center section-plant '>
               <div className='intro-text'>
                 <span className='mb-3 h5 d-flex flex-row align-items-center'>
