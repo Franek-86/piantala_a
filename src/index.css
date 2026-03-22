@@ -2632,6 +2632,9 @@ element {
 .back-nav.hide {
   top: -5rem;
 }
+.back-nav-large.hide {
+  top: -5rem;
+}
 @media screen and (min-width: 992px) {
   .back-nav {
     display: none;

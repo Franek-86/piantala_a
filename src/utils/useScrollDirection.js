@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 
 const useScrollDirection = () => {
   const [scrollDirection, setScrollDirection] = useState(null);
+
   useEffect(() => {
     let lastScrollY = window.pageYOffset;
 
     const updateScrollDirection = () => {
       let scrollY = window.pageYOffset;
+      // console.log("test scroll", scrollY);
       let direction = scrollY > lastScrollY ? "down" : "up";
       if (
         direction !== scrollDirection &&
