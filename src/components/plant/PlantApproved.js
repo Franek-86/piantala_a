@@ -130,14 +130,11 @@ const PlantApproved = () => {
                     <FaShare className='share-page' />
                   </div>
                 </div>
-                <p>
-                  {" "}
-                  Qui di seguito le informazioni relative all'acquisto di una
-                  piantina in questa zona di piantagione.
-                  {/* Questa zolla di piantagione, avente nostro riferimento
+                {/* <p>
+                  Questa zolla di piantagione, avente nostro riferimento
                   numerico "{plant.id}", si trova nel{" "}
-                  <b>quartiere {plant?.suburb} </b> di <b>{plant?.city}</b>. */}
-                </p>
+                  <b>quartiere {plant?.suburb} </b> di <b>{plant?.city}</b>.
+                </p> */}
                 <div className='intro-text intro-article p-2 mb-3'>
                   <span className='mb-3  d-flex flex-row align-items-center'>
                     <div className='step-title pb-2 pe-1'>
@@ -146,9 +143,6 @@ const PlantApproved = () => {
                     <h5 className='mb-0'>Procedura d'acquisto</h5>
                   </span>
                   <span className='d-block mb-3'>
-                    {/* Questa zolla di piantagione, avente nostro riferimento
-                    numerico "{plant.id}", si trova nel{" "}
-                    <b>quartiere {plant?.suburb} </b> di <b>{plant?.city}</b>. */}
                     Puoi procedere con l'acquisto della tua piantina seguendo i{" "}
                     <b>tre passaggi</b> riportati qui di seguito.
                   </span>
@@ -237,7 +231,7 @@ const PlantApproved = () => {
                   zolla.
                 </span>
                 <InfoCard />
-                <span className='d-block mt-3'>
+                {/* <span className='d-block mt-3'>
                   Per qualsiasi ulteriore informazione ti invitiamo a
                   contattarci, tutti i nostri riferimenti sono nella{" "}
                   <Link
@@ -248,7 +242,7 @@ const PlantApproved = () => {
                     pagina
                   </Link>{" "}
                   dei contatti.
-                </span>
+                </span> */}
               </div>
             </div>
           </section>
