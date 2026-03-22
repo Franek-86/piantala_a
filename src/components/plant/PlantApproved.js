@@ -209,7 +209,7 @@ const PlantApproved = () => {
               </div>
             </div>
           </section>
-          <section id='location' className='pt-5'>
+          <section id='location' className='py-5'>
             <div className='section-center'>
               <div className='intro-text'>
                 <div className='mb-3 h5 d-flex flex-row align-items-center'>
