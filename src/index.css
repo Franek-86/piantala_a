@@ -71,6 +71,15 @@ code {
 .white-background {
   background-color: #fff;
 }
+.text-white {
+  color: #fff;
+}
+.text-brown-4 {
+  color: var(--clr-secondary-3);
+}
+.text-brown-3 {
+  color: var(--clr-secondary-3);
+}
 .btn-primary {
   --bs-btn-bg: var(--clr-primary-5); /* New background color */
   --bs-btn-border-color: var(--clr-primary-5); /* New border color */

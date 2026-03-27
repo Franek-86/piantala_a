@@ -6,28 +6,24 @@ import Google from "./Google";
 
 const LoginReg = ({ val, id: plantId }) => {
   const page = val;
-
-  let text = "ciao0";
+  console.log("test test", val, plantId);
+  let text;
   switch (page) {
-    case "map":
+    case `map`:
       text =
         "Per poter segnalare una zona di piantagione è necessario prima effettuare il login.";
       break;
-    case "plant":
+    case `/map/${plantId}/payment`:
       text =
-        "Per poter acquistare una pianta è necessario prima effettuare il login.";
+        "Per poter acquistare una pianta è necessario prima effettuare il login o accedere da Google.";
       break;
-    case "chat":
+    case `/map/${plantId}/plate`:
       text =
-        "Per poter scrivere nella chat è necessario prima effettuare il login.";
-      break;
-    case "contacts":
-      text =
-        "Per poterci inviare una mail è necessario prima effettuare il login.";
+        "Per poter condividere il testo della targa e acquistare una pianta è necessario prima effettuare il login o accedere con Google.";
       break;
   }
   return (
-    <Card className='logreg'>
+    <Card className='logreg my-3'>
       {/* <Card.Header>Ti Pianto Per Amore</Card.Header> */}
       <Card.Body>
         <Card.Title>Accedi o Registrati</Card.Title>

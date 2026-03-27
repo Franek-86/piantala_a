@@ -169,6 +169,7 @@ export const AuthProvider = ({ children }) => {
     });
   }, []);
   const googleAccess = async (navigate, plantId, page) => {
+    console.log("test goooog", plantId);
     try {
       const res = await SocialLogin.login({
         provider: "google",
@@ -187,7 +188,6 @@ export const AuthProvider = ({ children }) => {
 
       if (response.data.message === "terms to be accepted") {
         setPayload(payload);
-
         setShowTerms(true);
       }
       if (response.data.message === "Login successful") {
@@ -204,24 +204,26 @@ export const AuthProvider = ({ children }) => {
 
         localStorage.setItem("userToken", token);
         // navigateToMap(navigate);
+        console.log("test from google access", plantId);
         if (plantId) {
-          // navigate(`/map/${plantId}`);
-          let data = {};
-          let date = new Date();
-          let day = date.getDate();
-          let month = date.getMonth() + 1;
-          let year = date.getFullYear();
-          let currentDate = `${year}-${month}-${day}`;
-
-          data.id = parseInt(plantId);
-          data.owner_id = id;
-          data.purchase_date = currentDate;
-          localStorage.setItem("booked-plant", JSON.stringify(data));
-          navigate("/checkout");
-        } else if (page === "map") {
-          navigate("/map/addPlant");
-        } else {
-          navigate("/map");
+          localStorage.setItem(
+            "booking-info",
+            JSON.stringify({ userId: id, plantId: plantId, plateText: "" }),
+          );
+        }
+        switch (page) {
+          case `/map/${plantId}/plate`:
+            navigate(`/map/${plantId}/plate`);
+            break;
+          case `/map/${plantId}/payment`:
+            navigate("/checkout");
+            break;
+          case `/map`:
+            navigate("/map/addPlant");
+            break;
+          default:
+            navigate("/map");
+            break;
         }
       }
       if (response.status !== 200) {
@@ -250,6 +252,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
   const googleAfterTerms = async (navigate, plantId, page) => {
+    console.log("google after terms page", page);
     try {
       const response = await axios.post(
         `${serverDomain}/api/auth/google-access-android`,
@@ -273,23 +276,24 @@ export const AuthProvider = ({ children }) => {
         localStorage.setItem("userToken", token);
 
         if (plantId) {
-          // navigate(`/map/${plantId}`);
-          let data = {};
-          let date = new Date();
-          let day = date.getDate();
-          let month = date.getMonth() + 1;
-          let year = date.getFullYear();
-          let currentDate = `${year}-${month}-${day}`;
-
-          data.id = parseInt(plantId);
-          data.owner_id = id;
-          data.purchase_date = currentDate;
-          localStorage.setItem("booked-plant", JSON.stringify(data));
-          navigate("/checkout");
-        } else if (page === "map") {
-          navigate("/map/addPlant");
-        } else {
-          navigate("/map");
+          localStorage.setItem(
+            "booking-info",
+            JSON.stringify({ userId: id, plantId: plantId, plateText: "" }),
+          );
+        }
+        switch (page) {
+          case `/map/${plantId}/plate`:
+            navigate(`/map/${plantId}/plate`);
+            break;
+          case `/map/${plantId}/payment`:
+            navigate("/checkout");
+            break;
+          case `/map`:
+            navigate("/map/addPlant");
+            break;
+          default:
+            navigate("/map");
+            break;
         }
       } else {
         toast.error(`error from catch, error is: ${response.data}`, {
@@ -502,8 +506,10 @@ export const AuthProvider = ({ children }) => {
       if (response.status === 200) {
         setIsAuthenticated(false);
         setUserRole(null);
+        setUserId(null);
         localStorage.removeItem("userToken");
         localStorage.removeItem("refreshToken");
+        localStorage.removeItem("justLoggedIn");
       } else {
         console.error("Unexpected response:", response);
       }

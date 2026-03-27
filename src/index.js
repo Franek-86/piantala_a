@@ -58,6 +58,8 @@ import LoginForm from "./pages/LoginForm";
 import ErrorNotFound from "./pages/ErrorNotFound";
 import { VersionProvider } from "./context/VersionContext";
 import Location from "./pages/PlantApproved/Location";
+import PlateText from "./pages/PlantApproved/PlateText";
+import Payment from "./pages/PlantApproved/Payment";
 
 // import { io } from "socket.io-client";
 // const url =
@@ -133,10 +135,24 @@ const router = createBrowserRouter([
           {
             path: ":plantId",
             element: <Plant />,
+            // children: [
+            //   {
+            //     path: "location",
+            //     element: <Location />,
+            //   },
+            // ],
           },
           {
             path: ":plantId/location",
             element: <Location />,
+          },
+          {
+            path: ":plantId/plate",
+            element: <PlateText />,
+          },
+          {
+            path: ":plantId/payment",
+            element: <Payment />,
           },
         ],
       },

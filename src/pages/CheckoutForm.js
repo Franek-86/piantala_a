@@ -6,6 +6,7 @@ import {
 } from "@stripe/react-stripe-js";
 import { navigateToMap } from "../utils/utils";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const serverDomain =
   process.env.REACT_APP_NODE_ENV === "test"
@@ -16,17 +17,20 @@ export const CheckoutForm = () => {
   const navigate = useNavigate();
   const [stripePromise, setStripePromise] = useState(null);
 
+  const bookingInfo = JSON.parse(localStorage.getItem("booking-info"));
   useEffect(() => {
-    const bookedPlant = JSON.parse(localStorage.getItem("booked-plant"));
-    if (!bookedPlant?.owner_id || !bookedPlant?.id) {
-      localStorage.removeItem("booked-plant");
+    if (!bookingInfo?.userId || !bookingInfo?.plantId) {
+      localStorage.removeItem("bookingInfo");
+
       navigate("/");
+
       return;
+    } else {
+      fetch(`${serverDomain}/config`).then(async (r) => {
+        const { publishableKey } = await r.json();
+        setStripePromise(loadStripe(publishableKey));
+      });
     }
-    fetch(`${serverDomain}/config`).then(async (r) => {
-      const { publishableKey } = await r.json();
-      setStripePromise(loadStripe(publishableKey));
-    });
   }, []);
 
   const fetchClientSecret = useCallback(() => {

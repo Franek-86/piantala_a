@@ -15,11 +15,11 @@ export const OrdersProvider = ({ children }) => {
 
   const [modalShow, setModalShow] = useState(false);
   const addOrder = async () => {
-    let bookedPlant = JSON.parse(localStorage.getItem("booked-plant"));
+    let bookingInfo = JSON.parse(localStorage.getItem("booking-info"));
 
-    const { id, owner_id } = bookedPlant;
+    const { plantId, userId } = bookingInfo;
     try {
-      let data = { id, owner_id };
+      let data = { plantId, userId };
       const response = await AxiosInstance.post("/api/orders/add-order", data);
       if (response.status === 201) {
       }

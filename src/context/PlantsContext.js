@@ -10,6 +10,11 @@ import { VersionContext } from "./VersionContext";
 export const PlantsContext = createContext();
 
 export const PlantsProvider = ({ children }) => {
+  const [bookedInfo, setBookingInfo] = useState({
+    userId: "",
+    plantId: "",
+    plateText: "",
+  });
   const { getOtherUserInfo } = useContext(UsersContext);
   const { isAuthenticated, logReg, setLogReg } = useContext(AuthContext);
   const [totApproved, setTotApproved] = useState(null);
@@ -46,6 +51,7 @@ export const PlantsProvider = ({ children }) => {
     phone: "",
     email: "",
   });
+  console.log("boo", isAuthenticated);
   const [ownerInfo, setOwnerInfo] = useState({
     first_name: "",
     last_name: "",
@@ -100,20 +106,20 @@ export const PlantsProvider = ({ children }) => {
     localStorage.removeItem("booked-plant");
   };
   const handleBookedPlant = async () => {
-    let bookedPlant = JSON.parse(localStorage.getItem("booked-plant"));
-    console.log("mai null?", bookedPlant);
-    const { id, owner_id, comment, purchase_date } = bookedPlant;
+    let bookingInfo = JSON.parse(localStorage.getItem("booking-info"));
+    console.log("mai null?", bookingInfo);
+    const { plantId, userId, plateText } = bookingInfo;
 
     try {
       const response = await axios.patch(
-        `${serverDomain}/api/plants/${id}/ownership`,
+        `${serverDomain}/api/plants/${plantId}/ownership`,
         {
           status: "booked",
-          id,
-          owner_id,
-          comment,
+          plantId,
+          userId,
+          plateText,
           // plantType,
-          purchase_date,
+          // purchase_date,
         },
       );
 
@@ -682,6 +688,8 @@ export const PlantsProvider = ({ children }) => {
         unDropIt,
         shareNow,
         setShareNow,
+        bookedInfo,
+        setBookingInfo,
       }}
     >
       {children}

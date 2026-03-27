@@ -1,5 +1,5 @@
 import { App } from "@capacitor/app";
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
 
 import {
   navigateFunction,
@@ -8,10 +8,13 @@ import {
 import { useContext, useEffect } from "react";
 import { toast } from "react-toastify";
 import { PlantsContext } from "../../context/PlantsContext";
+
 const CommonRoutesComponent = () => {
+  const { plantId } = useParams();
+
   const navigate = useNavigate();
   navigateFunction(navigate);
-  const { dropIt } = useContext(PlantsContext);
+  const { dropIt, setBookingInfo } = useContext(PlantsContext);
   const location = useLocation();
   useEffect(() => {
     App.addListener("appUrlOpen", (data) => {
@@ -23,7 +26,6 @@ const CommonRoutesComponent = () => {
     toast.dismiss();
   }, [location]);
   useEffect(() => {
-    console.log("qq", location);
     if (
       location?.pathname === "/legend" ||
       location?.pathname === "/myPlants" ||
@@ -31,6 +33,21 @@ const CommonRoutesComponent = () => {
       location?.pathname === "/map"
     ) {
       dropIt();
+    }
+    if (
+      !location?.pathname.endsWith("payment") &&
+      !location?.pathname.endsWith("plate") &&
+      !location?.pathname.endsWith("location") &&
+      !location?.pathname.endsWith("checkout") &&
+      !location?.pathname.endsWith("return") &&
+      !location?.pathname.endsWith(`${plantId}`)
+    ) {
+      localStorage.removeItem("booking-info");
+      setBookingInfo({
+        userId: "",
+        plantId: "",
+        plateText: "",
+      });
     }
   }, [location?.pathname]);
   return <Outlet />;

@@ -15,14 +15,6 @@ import BackBtnLarge from "../components/menu/BackBtnLarge";
 const Legend = () => {
   const isLargeScreen = useIsLargeScreen();
 
-  // useEffect(() => {
-  //   dropIt();
-  // }, []);
-  // let location = useLocation();
-
-  // useEffect(() => {
-  //   toast.dismiss();
-  // }, [location]);
   return (
     <>
       <section className='min-100 blue-background map'>

@@ -16,6 +16,10 @@ import { IoIosAddCircleOutline } from "react-icons/io";
 import { Camera, CameraResultType } from "@capacitor/camera";
 import { UsersContext } from "../context/UsersContext";
 import { VersionContext } from "../context/VersionContext";
+import BackBtn from "../components/menu/BackBtn";
+import BackBtnLarge from "../components/menu/BackBtnLarge";
+import useIsLargeScreen from "../utils/useIsLargeScreen";
+import SideBar from "../components/menu/SideBar";
 
 const AddPlant = ({ setting }) => {
   const {
@@ -30,6 +34,7 @@ const AddPlant = ({ setting }) => {
   const { userId } = useContext(AuthContext);
 
   const { loggedUserInfo } = useContext(UsersContext);
+  const isLargeScreen = useIsLargeScreen();
   const location = useLocation();
   const fromManual = location.state?.fromManual;
   const { userName } = loggedUserInfo;
@@ -253,133 +258,130 @@ const AddPlant = ({ setting }) => {
   return (
     <>
       {loading && <Loading />}
-      {!loading && (
-        <section className='plant-section plants-container min-100'>
-          <div className='section-center single-plant pb-5 max-width-50'>
-            <div className='back-btn'>
-              <MdBackspace
-                onClick={() => {
-                  backToMap();
-                }}
-              />
-            </div>
-            <h1 className='section-title'>Segnalaci buca</h1>
-            {/* Global error message */}
-            {submissionError && (
-              <p className='text-danger'>{submissionError}</p>
-            )}
-            {/* Success message */}
-            {successMessage && <p className='text-success'>{successMessage}</p>}
-            <Form onSubmit={handleSubmit(onSubmit)}>
-              {fromManual && (
-                <Form.Group className='mb-3' controlId='formLongitude'>
-                  {/* <FloatingLabel controlId='tutte' label='tutte' className='mb-3'> */}
-                  <Form.Control
-                    type='text'
-                    placeholder='Incolla qui longitutine e latitudine'
-                    onPaste={handlePaste} // Handle paste event
-                  />
-                  {/* {errors.longitude && (
+      {isLargeScreen && <SideBar />}
+      <section className='section-page min-100 blue-background section-large page-large-container'>
+        <BackBtn />
+        {isLargeScreen && <BackBtnLarge />}
+
+        {/* <section className='plant-section plants-container min-100'> */}
+        <div className='section-center single-plant pb-5 max-width-50'>
+          <h2 className='section-title pt-4'>
+            Segnala <span className='text-lowercase'>zolla</span>
+          </h2>
+          {/* Global error message */}
+          {submissionError && <p className='text-danger'>{submissionError}</p>}
+          {/* Success message */}
+          {successMessage && <p className='text-success'>{successMessage}</p>}
+          <Form onSubmit={handleSubmit(onSubmit)}>
+            {fromManual && (
+              <Form.Group className='mb-3' controlId='formLongitude'>
+                {/* <FloatingLabel controlId='tutte' label='tutte' className='mb-3'> */}
+                <Form.Control
+                  type='text'
+                  placeholder='Incolla qui longitutine e latitudine'
+                  onPaste={handlePaste} // Handle paste event
+                />
+                {/* {errors.longitude && (
                 <small className='text-danger'>
                   {errors.longitude.message}
                 </small>
               )} */}
-                  {/* </FloatingLabel> */}
-                </Form.Group>
-              )}
-              {/* Longitude input */}
-
-              {/* Latitude input */}
-              <Form.Group className='mb-3' controlId='formLatitude'>
-                <FloatingLabel
-                  controlId='formLatitude'
-                  label='Latitudine'
-                  className='mb-3'
-                >
-                  <Form.Control
-                    type='text'
-                    placeholder='Inserisci latitudine'
-                    {...register("latitude", {
-                      required: "È necessario inserire la latitudine",
-                      validate: validateLatitude,
-                    })}
-                  />
-                  {errors.latitude && (
-                    <small className='text-danger'>
-                      {errors.latitude.message}
-                    </small>
-                  )}
-                </FloatingLabel>
+                {/* </FloatingLabel> */}
               </Form.Group>
-              <Form.Group className='mb-3' controlId='formLongitude'>
-                <FloatingLabel
-                  controlId='formLongitude'
-                  label='Longitudine'
-                  className='mb-3'
-                >
-                  <Form.Control
-                    type='text'
-                    placeholder='Enter longitude'
-                    {...register("longitude", {
-                      required: "È necessario inserire la latitudine",
-                      validate: validateLongitude,
-                    })}
-                  />
-                  {errors.longitude && (
-                    <small className='text-danger'>
-                      {errors.longitude.message}
-                    </small>
-                  )}
-                </FloatingLabel>
+            )}
+            {/* Longitude input */}
+
+            {/* Latitude input */}
+            <Form.Group className='mb-3' controlId='formLatitude'>
+              <FloatingLabel
+                controlId='formLatitude'
+                label='Latitudine'
+                className='mb-3'
+              >
+                <Form.Control
+                  type='text'
+                  placeholder='Inserisci latitudine'
+                  {...register("latitude", {
+                    required: "È necessario inserire la latitudine",
+                    validate: validateLatitude,
+                  })}
+                />
+                {errors.latitude && (
+                  <small className='text-danger'>
+                    {errors.latitude.message}
+                  </small>
+                )}
+              </FloatingLabel>
+            </Form.Group>
+            <Form.Group className='mb-3' controlId='formLongitude'>
+              <FloatingLabel
+                controlId='formLongitude'
+                label='Longitudine'
+                className='mb-3'
+              >
+                <Form.Control
+                  type='text'
+                  placeholder='Enter longitude'
+                  {...register("longitude", {
+                    required: "È necessario inserire la latitudine",
+                    validate: validateLongitude,
+                  })}
+                />
+                {errors.longitude && (
+                  <small className='text-danger'>
+                    {errors.longitude.message}
+                  </small>
+                )}
+              </FloatingLabel>
+            </Form.Group>
+
+            {/* File input for uploading image */}
+            {!Capacitor.isNativePlatform() && (
+              <Form.Group className='mb-3' controlId='formImage'>
+                <Form.Label>Carica immagine</Form.Label>
+                <Form.Control
+                  type='file'
+                  accept='image/png, image/jpeg'
+                  {...register("file", {
+                    required: "Image file is required.",
+                  })}
+                  // ref={fileInputRef}
+                  onChange={() => clearErrors("file")}
+                />
+                {errors.file && (
+                  <small className='text-danger'>{errors.file.message}</small>
+                )}
               </Form.Group>
+            )}
 
-              {/* File input for uploading image */}
-              {!Capacitor.isNativePlatform() && (
-                <Form.Group className='mb-3' controlId='formImage'>
-                  <Form.Label>Carica immagine</Form.Label>
-                  <Form.Control
-                    type='file'
-                    accept='image/png, image/jpeg'
-                    {...register("file", {
-                      required: "Image file is required.",
-                    })}
-                    // ref={fileInputRef}
-                    onChange={() => clearErrors("file")}
-                  />
-                  {errors.file && (
-                    <small className='text-danger'>{errors.file.message}</small>
-                  )}
-                </Form.Group>
-              )}
-
-              {Capacitor.isNativePlatform() && !file && (
-                <span className='btn btn-outline-primary'>
-                  <IoIosAddCircleOutline />
-                  <span className='ps-1' onClick={getPic}>
-                    Aggiungi foto
-                  </span>
+            {Capacitor.isNativePlatform() && !file && (
+              <span className='btn btn-outline-primary'>
+                <IoIosAddCircleOutline />
+                <span className='ps-1' onClick={getPic}>
+                  Aggiungi foto
                 </span>
-              )}
-              {Capacitor.isNativePlatform() && file && (
-                <span>
-                  <span className='btn-link change-pic' onClick={getPic}>
-                    Sostituisci l'immagine
-                  </span>{" "}
-                  <span className=''>
-                    caricata oppure procedi con l'invio della segnalazione.
-                  </span>
+              </span>
+            )}
+            {Capacitor.isNativePlatform() && file && (
+              <span>
+                <span className='btn-link change-pic' onClick={getPic}>
+                  Sostituisci l'immagine
+                </span>{" "}
+                <span className=''>
+                  caricata oppure procedi con l'invio della segnalazione.
                 </span>
-              )}
-              {/* Submit Button */}
-              <div className='text-center mt-5'>
-                <Button variant='primary' type='submit'>
-                  Invia segnalazione
-                </Button>
-              </div>
-            </Form>
-          </div>
-        </section>
-      )}
+              </span>
+            )}
+            {/* Submit Button */}
+            <div className='text-center mt-5'>
+              <Button variant='primary' type='submit'>
+                Invia segnalazione
+              </Button>
+            </div>
+          </Form>
+        </div>
+        {/* </section> */}
+      </section>
     </>
   );
 };
