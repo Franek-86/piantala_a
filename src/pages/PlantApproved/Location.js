@@ -48,18 +48,8 @@ const Location = () => {
                       </Breadcrumb.Item>
                       <Breadcrumb.Item active>posizione</Breadcrumb.Item>
                     </Breadcrumb>
-                    <div className=''>
-                      <section id='location' className='py-5'>
-                        {/* <h4 className='section-center mb-3'>
-                          <div className='d-flex align-items-center'>
-                            <div className='d-flex align-items-center'>
-                              <FaLongArrowAltRight />{" "}
-                              <span className='ps-2'>
-                                Zona di piantumazione
-                              </span>
-                            </div>
-                          </div>
-                        </h4> */}
+                    <div className='pb-5'>
+                      <section id='location' className='pt-2'>
                         <div className='section-center'>
                           <div className='intro-text'>
                             <div className='mb-3 d-flex flex-row align-items-center'>
