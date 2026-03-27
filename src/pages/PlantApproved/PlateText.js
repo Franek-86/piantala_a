@@ -97,7 +97,7 @@ const PlateText = () => {
                       <Breadcrumb.Item active>testo targa</Breadcrumb.Item>
                     </Breadcrumb>
                     <div className='pb-5'>
-                      <section id='location' className='pt-2 pt-xl-5'>
+                      <section id='location' className='pt-3 pt-xl-5'>
                         <Form onSubmit={handleSubmit(onSubmit)}>
                           {/* <h4 className='section-center mb-3'>
                             <div className='d-flex align-items-center'>

@@ -989,7 +989,7 @@ element {
   border: none;
 }
 .card-plant-info-approved.list-group-item {
-  border: 1px solid var(--clr-secondary-0);
+  border: 1px solid var(--c-bg-map-blue-light);
 }
 
 .plant-section svg {
