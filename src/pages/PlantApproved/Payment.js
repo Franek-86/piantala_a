@@ -86,14 +86,14 @@ const Payment = () => {
                       </Breadcrumb>
                       <div className=''>
                         <section id='location' className='py-5'>
-                          <h4 className='section-center mb-3'>
+                          {/* <h4 className='section-center mb-3'>
                             <div className='d-flex align-items-center'>
                               <div className='d-flex align-items-center'>
                                 <FaLongArrowAltRight />{" "}
                                 <span className='ps-2'>Pagamento</span>
                               </div>
                             </div>
-                          </h4>
+                          </h4> */}
 
                           <div className='section-plant section-center'>
                             <div className='intro-text'>

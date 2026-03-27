@@ -99,14 +99,14 @@ const PlateText = () => {
                     <div className=''>
                       <section id='location' className='py-5'>
                         <Form onSubmit={handleSubmit(onSubmit)}>
-                          <h4 className='section-center mb-3'>
+                          {/* <h4 className='section-center mb-3'>
                             <div className='d-flex align-items-center'>
                               <div className='d-flex align-items-center'>
                                 <FaLongArrowAltRight />{" "}
                                 <span className='ps-2'>Testo targa</span>
                               </div>
                             </div>
-                          </h4>
+                          </h4> */}
 
                           <div className='section-center section-plant '>
                             <div className='intro-text'>

@@ -50,7 +50,7 @@ const Location = () => {
                     </Breadcrumb>
                     <div className=''>
                       <section id='location' className='py-5'>
-                        <h4 className='section-center mb-3'>
+                        {/* <h4 className='section-center mb-3'>
                           <div className='d-flex align-items-center'>
                             <div className='d-flex align-items-center'>
                               <FaLongArrowAltRight />{" "}
@@ -59,7 +59,7 @@ const Location = () => {
                               </span>
                             </div>
                           </div>
-                        </h4>
+                        </h4> */}
                         <div className='section-center'>
                           <div className='intro-text'>
                             <div className='mb-3 d-flex flex-row align-items-center'>
