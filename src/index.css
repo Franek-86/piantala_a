@@ -988,9 +988,6 @@ element {
 .card-plant-info-approved {
   border: none;
 }
-.card-plant-info-approved.list-group-item {
-  border: 1px solid var(--c-bg-map-blue-light);
-}
 
 .plant-section svg {
   color: var(--clr-secondary-3);
