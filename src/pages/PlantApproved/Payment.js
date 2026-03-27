@@ -85,7 +85,7 @@ const Payment = () => {
                         <Breadcrumb.Item active>pagamento</Breadcrumb.Item>
                       </Breadcrumb>
                       <div className='pb-5'>
-                        <section id='location' className='pt-2'>
+                        <section id='location' className='pt-2 pt-xl-5'>
                           {/* <h4 className='section-center mb-3'>
                             <div className='d-flex align-items-center'>
                               <div className='d-flex align-items-center'>
