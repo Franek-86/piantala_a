@@ -127,7 +127,13 @@ const InfoCard = () => {
           img={image_url}
         />
       )}
-      <Card className='flex-md-row card-plant-info1'>
+      <Card
+        className={
+          approved
+            ? "flex-md-row card-plant-info-approved"
+            : "flex-md-row card-plant-info1"
+        }
+      >
         <ListGroup className='list-group-flush'>
           {(status_piantina === "rejected" ||
             status_piantina === "pending") && (

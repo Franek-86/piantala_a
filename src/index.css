@@ -984,6 +984,14 @@ element {
 /*-------------------------------plant section----------------------------- */
 
 /* approved start */
+
+.card-plant-info-approved {
+  border: none;
+}
+.card-plant-info-approved.list-group-item {
+  border: 1px solid var(--clr-secondary-0);
+}
+
 .plant-section svg {
   color: var(--clr-secondary-3);
 }
