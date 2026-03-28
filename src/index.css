@@ -1657,14 +1657,9 @@ element {
   position: relative;
   flex-direction: column;
 }
-.contact-form-input,
-.contact-form-email {
-  /* background-color: #ebf0f1; */
-}
 
 .contact-form-input {
-  /* height: 10rem; */
-  height: 7rem;
+  height: 10rem;
 }
 
 /* .contact-form-btn {
