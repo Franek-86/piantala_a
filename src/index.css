@@ -259,7 +259,7 @@ h5 {
 }
 .form-control {
   color: var(--clr-secondary-6);
-  border: var(--bs-border-width) solid var(--clr-secondary-1);
+  border: var(--bs-border-width) solid var(--clr-secondary-0);
 }
 .text-dark {
   --bs-text-opacity: 1;
@@ -1224,7 +1224,7 @@ element {
   }
 }
 .plate-form {
-  height: 15rem;
+  height: 20rem;
   max-height: 30rem;
 }
 .textPlateContainer {
