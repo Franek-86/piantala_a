@@ -205,7 +205,7 @@ const PlantApproved = () => {
                     to={`/map/${plant.id}/location`}
                     className='btn w-50 btn-success'
                   >
-                    Inizia il tua acquisto
+                    Inizia il tuo acquisto
                   </Link>
                 </div>
               </div>
