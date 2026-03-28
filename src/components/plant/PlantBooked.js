@@ -182,7 +182,7 @@ const PlantBooked = () => {
                   {Capacitor.isNativePlatform() && (
                     <button
                       onClick={() => updatePicMob(plantId)}
-                      className='btn btn-primary btn-small'
+                      className='btn btn-outline-secondary btn-small'
                     >
                       <MdOutlineFileUpload className='fs-4' />
                     </button>
