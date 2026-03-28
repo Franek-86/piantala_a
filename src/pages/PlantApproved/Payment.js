@@ -136,23 +136,16 @@ const Payment = () => {
                                   reindirizzato sulla piattaforma di pagamento.
                                 </p>
                               </article>
-                              <article className='d-flex justify-content-left section-center mt-3'>
-                                <Link
-                                  className='btn btn-outline-secondary'
-                                  to={`/map/${plant?.id}/plate`}
-                                >
-                                  <IoMdArrowRoundBack className='' />
-                                  <span className='ps-2'>targa</span>
-                                </Link>
-                                {/* <Link
-                                                              className='btn btn-outline-secondary'
-                                                              to={`/map/${plant?.id}/plate`}
-                                                            >
-                                                              <span className='pe-2'>targa</span>
-                                                              <IoMdArrowRoundForward className='' />
-                                                            </Link> */}
-                              </article>
                             </div>
+                            <article className='d-flex justify-content-left section-center mt-3'>
+                              <Link
+                                className='btn btn-outline-secondary'
+                                to={`/map/${plant?.id}/plate`}
+                              >
+                                <IoMdArrowRoundBack className='' />
+                                <span className='ps-2'>targa</span>
+                              </Link>
+                            </article>
                             {!logReg && (
                               <article className='plant-payment pt-4 pb-5 d-flex justify-content-center'>
                                 <button
