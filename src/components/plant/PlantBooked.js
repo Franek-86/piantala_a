@@ -161,15 +161,14 @@ const PlantBooked = () => {
               <ShareButton />
 
               <div
-                className='btn btn-primary btn-small no-wrap'
+                className='ps-2'
                 onClick={() => {
                   setShareNow(true);
                 }}
               >
-                <FaShare className='' />
+                <FaShare className='share-page' />
               </div>
             </div>
-            {/* share button */}
 
             <article className='booked-plant-pic d-flex justify-content-center pb-5'>
               <div className='plant-pic-container w-100'>
@@ -190,7 +189,7 @@ const PlantBooked = () => {
                   (!Capacitor.isNativePlatform() && userId === owner_id) ? (
                     <button
                       // onClick={() => updatePlantPic(id)}
-                      className='btn btn-warning btn-small'
+                      className='btn btn-outline-secondary btn-small'
                       onClick={updatePlant}
                     >
                       <MdOutlineFileUpload className='fs-4' />
@@ -212,53 +211,51 @@ const PlantBooked = () => {
             </article>
           </div>
         </section>
-        <section
-          id='plate'
-          className='section-booked-plate white-background py-5'
-        >
-          {plate && (
-            <>
-              <article className='section-center'>
-                <div className='plate-info-pic'>
-                  <span className='mb-3 h5 d-flex flex-row align-items-center position-relative'>
-                    <div className='step-title pe-1'>
-                      <BsVectorPen />
-                    </div>
-                    <span className='fst-italic font-plate'>Targa</span>
-                    <div className='ink'></div>
-                  </span>
-                  {plate && !plateLoading && (
-                    <div className='plate-image-container ms-auto me-auto pt-2'>
-                      <Card.Img
-                        variant='bottom'
-                        src={plate}
-                        onLoad={handleImageLoad}
-                        className={`w-100  transition-opacity duration-500 ${
-                          isLoaded ? "opacity-100" : "opacity-0"
-                        }`}
-                      />
-                    </div>
-                  )}
-                </div>
-                {plateLoading && (
-                  <div className='loading-container-mini'>
-                    <div className='loading-content'>
-                      <img
-                        src={logo}
-                        alt='loading-logo'
-                        className='loading-logo-mini'
-                      />
-                      <div className='spinner-mini'></div>
-                    </div>
+        {plate && (
+          <section
+            id='plate'
+            className='section-booked-plate white-background py-5'
+          >
+            <article className='section-center'>
+              <div className='plate-info-pic'>
+                <span className='mb-3 h5 d-flex flex-row align-items-center position-relative'>
+                  <div className='step-title pe-1'>
+                    <BsVectorPen />
+                  </div>
+                  <span className='fst-italic font-plate'>Targa</span>
+                  <div className='ink'></div>
+                </span>
+                {plate && !plateLoading && (
+                  <div className='plate-image-container ms-auto me-auto pt-2'>
+                    <Card.Img
+                      variant='bottom'
+                      src={plate}
+                      onLoad={handleImageLoad}
+                      className={`w-100  transition-opacity duration-500 ${
+                        isLoaded ? "opacity-100" : "opacity-0"
+                      }`}
+                    />
                   </div>
                 )}
-              </article>
-            </>
-          )}
-        </section>
+              </div>
+              {plateLoading && (
+                <div className='loading-container-mini'>
+                  <div className='loading-content'>
+                    <img
+                      src={logo}
+                      alt='loading-logo'
+                      className='loading-logo-mini'
+                    />
+                    <div className='spinner-mini'></div>
+                  </div>
+                </div>
+              )}
+            </article>
+          </section>
+        )}
         <section
           id='plate'
-          className='pt-lg-5 pb-5 section-booked-plate yellow-background d-xl-none'
+          className={`pt-lg-5 pb-5 section-booked-plate ${plate ? "yellow-background" : "white-background"} d-xl-none`}
         >
           <article className='section-center d-xl-none'>
             <span className='pt-5 mb-3 h5 d-flex flex-row align-items-center'>
@@ -281,10 +278,11 @@ const PlantBooked = () => {
             />
           </article>
         </section>
-
         <section
           id='position'
-          className='py-lg-5 section-booked-plate plate-background d-none d-xl-block'
+          className={
+            "py-lg-5 section-booked-plate plate-background d-none d-xl-block"
+          }
         >
           <article className='section-center'>
             <span className='pt-5 mb-3 h5 d-flex flex-row align-items-center'>
