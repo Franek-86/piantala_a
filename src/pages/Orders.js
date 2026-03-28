@@ -51,7 +51,7 @@ const Orders = () => {
     <div className='d-flex flex-row'>
       {loading && <Loading />}
       {isLargeScreen && <SideBar />}
-      <section className='section-page blue-background section-full-page section-orders section-large page-large-container w-100'>
+      <section className='section-page blue-background section-full-page section-orders section-large page-large-container w-100 min-100'>
         <BackBtn />
         <div className='section-center menu-section-center'>
           <h2 className='section-title pt-5'>Ordini</h2>
@@ -78,7 +78,7 @@ const Orders = () => {
                       <td>{formatDate(created_at)}</td>
                       <td>{order_number}</td>
                       <td>
-                        <div className='order-icon d-flex justify-content-center'>
+                        <div className='order-icon'>
                           {" "}
                           {completed ? (
                             <MdDone />

@@ -61,7 +61,7 @@ const Contacts = () => {
               <h2 className='section-title pt-4'>I nostri contatti</h2>
               <div className='contacts-form-section '>
                 <div className='contacts-main-container d-flex flex-column flex-lg-row align-items-center flex-lg-row-reverse pb-3'>
-                  <article className='contact-info w-100 p-lg-3 p-xl-4'>
+                  <article className='contact-info w-100 mb-5 mb-lg-0 ms-lg-5'>
                     <h4>Hai domande?</h4>
                     <p>
                       Per entrare in contatto con noi{" "}
@@ -78,7 +78,7 @@ const Contacts = () => {
                       Non esitare a contattarci!
                     </p>
                   </article>
-                  <article className='contact-form w-100 p-lg-3 p-xl-4'>
+                  <article className='contact-form w-100'>
                     <Form
                       className='contact-form-container'
                       onSubmit={handleSubmit(onSubmit)}
@@ -149,33 +149,32 @@ const Contacts = () => {
           </section>
           <section className='py-5 white-background'>
             <div className='section-center'>
-              {" "}
-              <h4>Chiamaci, scrivici o vienici a trovare</h4>
-            </div>
-
-            <div className='d-flex justify-content-center'>
-              <div className='d-flex flex-column flex-xl-row p-xl-5 justify-content-between'>
-                <article className='mt-5 mt-xl-0 me-xl-1 contacts-info-item contacts-location mb-3 d-flex align-items-center d-flex flex-column'>
-                  <span className='contacts-location-icon pb-3'>
-                    <IoLocationSharp />{" "}
-                  </span>
-                  <span> contrada gravinella, 60 Fasano</span>
-                </article>
-                <article className='me-xl-1 contacts-info-item  contacts-email mb-3 d-flex align-items-center d-flex flex-column'>
-                  <span className='contacts-location-icon pb-3'>
-                    <MdEmail />
-                  </span>
-                  <span> tipiantoperamore@gmail.com </span>
-                </article>
-                <article className='contacts-info-item  contacts-email mb-5 mb-lg-3 d-flex align-items-center d-flex flex-column'>
-                  <span className='contacts-location-icon pb-3'>
-                    <MdLocalPhone />
-                  </span>
-                  <span>+39 3485384563</span>
-                </article>
+              <div className=''>
+                <h4>Chiamaci, scrivici o vienici a trovare</h4>
+              </div>
+              <div className='d-flex justify-content-center d-xl-block'>
+                <div className='d-flex flex-column flex-xl-row py-xl-5 justify-content-between'>
+                  <article className='mt-5 mt-xl-0 me-xl-1 contacts-info-item contacts-location mb-3 d-flex align-items-center d-flex flex-column'>
+                    <span className='contacts-location-icon pb-3'>
+                      <IoLocationSharp />{" "}
+                    </span>
+                    <span> contrada gravinella, 60 Fasano</span>
+                  </article>
+                  <article className='me-xl-1 contacts-info-item  contacts-email mb-3 d-flex align-items-center d-flex flex-column'>
+                    <span className='contacts-location-icon pb-3'>
+                      <MdEmail />
+                    </span>
+                    <span> tipiantoperamore@gmail.com </span>
+                  </article>
+                  <article className='contacts-info-item  contacts-email mb-5 mb-lg-3 d-flex align-items-center d-flex flex-column'>
+                    <span className='contacts-location-icon pb-3'>
+                      <MdLocalPhone />
+                    </span>
+                    <span>+39 3485384563</span>
+                  </article>
+                </div>
               </div>
             </div>
-            {/* </div> */}
           </section>
           <section className='contacts-social-section py-5'>
             <div className='section-center'>

@@ -59,7 +59,7 @@ const PlantPending = () => {
   //   }
   // };
   return (
-    <section className='plant-section'>
+    <section className='plant-section blue-background'>
       <RejectionModal
         show={modalShow}
         onHide={() => setModalShow(false)}
