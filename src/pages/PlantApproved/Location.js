@@ -61,11 +61,10 @@ const Location = () => {
                               </h5>
                             </article>
                             <article className='d-block mb-3'>
-                              Questa zolla di piantagione, avente nostro
-                              riferimento numerico "{plant?.id}", si trova nel{" "}
+                              Zolla di piantagione avente nostro riferimento
+                              numerico "{plant?.id}" e sita nel{" "}
                               <b>quartiere {plant?.suburb} </b> di{" "}
-                              <b>{plant?.city}</b>. Qui di seguito tutte le
-                              informazioni sulla posizione di questa zolla.
+                              <b>{plant?.city}</b>.
                             </article>
                             <article>
                               <InfoCard />

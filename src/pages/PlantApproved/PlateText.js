@@ -131,7 +131,7 @@ const PlateText = () => {
                                     che riportiamo qui in basso.
                                   </span>
                                 </p>
-                                {/* <p className='mb-0'>
+                                <p className='mb-0'>
                                   {" "}
                                   Puoi visualizzare tutte le vostre targe già da
                                   noi realizzate e applicate sui vostri alberi
@@ -143,7 +143,7 @@ const PlateText = () => {
                                     pagina
                                   </Link>{" "}
                                   dedicata alle vostre targhe.
-                                </p> */}
+                                </p>
                               </article>
                               {logReg && (
                                 <LoginReg
