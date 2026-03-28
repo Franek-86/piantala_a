@@ -202,7 +202,7 @@ const PlantBooked = () => {
                 </div>
               </div>
             </article>
-            <article className='py-5 justify-content-center btn-plant-article d-none d-xl-flex'>
+            {/* <article className='py-5 justify-content-center btn-plant-article d-none d-xl-flex'>
               <a
                 href='#plate'
                 className='btn btn-primary d-flex align-items-center justify-content-between'
@@ -210,7 +210,7 @@ const PlantBooked = () => {
                 <span className='pe-2'>Targa</span>
                 <FaArrowDown />
               </a>
-            </article>
+            </article> */}
           </div>
         </section>
         {plate && (
@@ -256,7 +256,6 @@ const PlantBooked = () => {
           </section>
         )}
         <section
-          id='plate'
           className={`pt-lg-5 pb-5 section-booked-plate ${plate ? "yellow-background" : "white-background"} d-xl-none`}
         >
           <article className='section-center d-xl-none'>
@@ -282,9 +281,7 @@ const PlantBooked = () => {
         </section>
         <section
           id='position'
-          className={
-            "py-lg-5 section-booked-plate plate-background d-none d-xl-block"
-          }
+          className={`py-lg-5 section-booked-plate ${plate ? "yellow-background" : "white-background"} d-none d-xl-block`}
         >
           <article className='section-center'>
             <span className='pt-5 mb-3 h5 d-flex flex-row align-items-center'>

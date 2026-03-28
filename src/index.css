@@ -222,7 +222,7 @@ ul {
 
 .plants-container {
   /* overflow: scroll; */
-  background: #f0f1f1b5;
+  background: var(--c-bg-map-blue-light);
 }
 .plants-container-small {
   /* overflow: scroll; */
