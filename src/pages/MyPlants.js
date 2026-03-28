@@ -53,7 +53,7 @@ const MyPlants = () => {
                   Non hai ancora effettuato segalazioni.
                 </p>
               ) : (
-                <div className='section-center mt-lg-5'>
+                <div className='mt-lg-5'>
                   <Row xs={1} md={2} xl={3} className='g-4'>
                     {myReports.map((plant, index) => (
                       // <Col key={index}>
@@ -66,16 +66,6 @@ const MyPlants = () => {
                         </div>
                         <Card className='w-75 card-my'>
                           <Card.Header className='my-plants-card-header'>
-                            {" "}
-                            {/* <Card.Title>
-                          {plant?.road !== "undefined" &&
-                          plant?.house_number === "undefined"
-                            ? `${plant?.road}`
-                            : plant?.road !== "undefined" &&
-                              plant?.house_number !== "undefined"
-                            ? `${plant?.road} ${plant?.house_number}`
-                            : plant?.residential }
-                        </Card.Title> */}
                             <Card.Title>
                               {plant?.road !== "undefined" &&
                               plant?.house_number === "undefined"
