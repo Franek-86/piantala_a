@@ -280,9 +280,9 @@ const InfoCard = () => {
               scrollWheelZoom={false}
               zoomControl={false}
             ></Marker>
-            {loggedUserInfo?.email === "franekdev86@gmail.com" && (
+            {/* {loggedUserInfo?.email === "franekdev86@gmail.com" && (
               <ButtonDirection />
-            )}
+            )} */}
           </MapContainer>
         </article>
       </Card>

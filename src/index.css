@@ -141,6 +141,10 @@ fieldset:disabled .btn {
   --bs-btn-focus-shadow-rgb: 49, 132, 253; /* Keep focus shadow RGB if needed */
   /* You can also adjust other properties if needed */
 }
+.list-group {
+  /* --bs-list-group-border-color: var(--clr-primary-0); */
+  --bs-list-group-border-color: var(--clr-secondary-0);
+}
 .form-control:focus {
   color: var(--clr-secondary-3); /* New text color */
   background-color: #ffffff; /* Optional: change background color if needed */
@@ -1178,9 +1182,9 @@ element {
   --bs-card-border-radius: var(--bs-border-radius) !important;
 }
 
-.flex-md-row.card-plant-info1.card {
+/* .flex-md-row.card-plant-info1.card {
   max-width: 25rem;
-}
+} */
 @media screen and (min-width: 768px) {
   .flex-md-row.card-plant-info1.card {
     max-width: 100%;
@@ -1544,7 +1548,7 @@ element {
 .card-my,
 .card-plant-info1,
 .card-plant-info2 {
-  border: 1px solid var(--clr-secondary-1);
+  border: 1px solid var(--clr-secondary-0);
 }
 .card-header:first-child {
   border-radius: 0 var(--bs-card-inner-border-radius) 0 0;
@@ -1588,10 +1592,7 @@ element {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
-.list-group {
-  /* --bs-list-group-border-color: var(--clr-primary-0); */
-  --bs-list-group-border-color: var(--clr-secondary-1);
-}
+
 /* profile modal */
 .profile-modal .modal-dialog {
   position: relative;

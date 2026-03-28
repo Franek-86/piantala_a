@@ -67,7 +67,7 @@ const PlantPending = () => {
         handleStatusChange={() => handleStatusChange("rejected", plantId)}
         plantId={plantId}
       />
-      <div className=''>
+      <div className='pb-5'>
         <BackBtn plant />
         <div className='single-plant'>
           {isLarge && <BackBtnLarge />}
