@@ -61,7 +61,7 @@ const Contacts = () => {
               <h2 className='section-title pt-4'>I nostri contatti</h2>
               <div className='contacts-form-section '>
                 <div className='contacts-main-container d-flex flex-column flex-lg-row align-items-center flex-lg-row-reverse pb-3'>
-                  <article className='contact-info w-100 mb-5 mb-lg-0 ms-lg-3 ms-xl-4'>
+                  <article className='contact-info w-100 mb-4 mb-lg-0 ms-lg-3 ms-xl-4'>
                     <h4>Hai domande?</h4>
                     <p>
                       Per entrare in contatto con noi{" "}
@@ -119,7 +119,7 @@ const Contacts = () => {
                           disabled={loading}
                           as='textarea'
                           {...register("messageBody", {
-                            required: "inserisci un messaggio",
+                            required: "il messaggio non può essere vuoto",
                             minLength: 2,
                             message: "test",
                           })}
@@ -131,7 +131,7 @@ const Contacts = () => {
                           </em>
                         )}
                       </Form.Group>
-                      <div className='pb-5 pb-lg-0'>
+                      <div className='mt-2 pb-5 pb-lg-0'>
                         <Button
                           disabled={loading}
                           className='w-100 text-align-center'
