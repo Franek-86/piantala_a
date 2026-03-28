@@ -200,12 +200,12 @@ const PlantApproved = () => {
                     </ul>
                   </span>
                 </div>
-                <div className='d-flex w-100 justify-content-center mt-5'>
+                <div className='d-flex w-100 justify-content-center mt-4'>
                   <Link
                     to={`/map/${plant.id}/location`}
                     className='btn w-50 btn-success'
                   >
-                    Inizia il tua acuisto
+                    Inizia il tua acquisto
                   </Link>
                 </div>
               </div>
