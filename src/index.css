@@ -71,7 +71,7 @@ code {
 .white-background {
   background-color: #fff;
 }
-.text-white {
+x .text-white {
   color: #fff;
 }
 .text-brown-4 {
@@ -986,6 +986,9 @@ element {
 /* approved start */
 
 .card-plant-info-approved {
+  border-color: var(--clr-secondary-0);
+}
+.card-plant-info-approved .list-group-item {
   border: none;
 }
 

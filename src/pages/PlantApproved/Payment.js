@@ -97,14 +97,14 @@ const Payment = () => {
 
                           <div className='section-plant section-center'>
                             <div className='intro-text'>
-                              <span className='mb-3 d-flex flex-row align-items-center'>
+                              <article className='mb-3 d-flex flex-row align-items-center'>
                                 <div className='step-title pb-2 pe-1'>
                                   <MdPayment />
                                 </div>
                                 <h5 className='mb-0'>
                                   Infomazioni sul pagamento
                                 </h5>
-                              </span>
+                              </article>
                               <article className='plant-payment-info'>
                                 <p>
                                   Il <b>prezzo</b> di una piantina è di{" "}
@@ -136,15 +136,25 @@ const Payment = () => {
                                   reindirizzato sulla piattaforma di pagamento.
                                 </p>
                               </article>
+                              <article className='d-flex justify-content-left section-center mt-3'>
+                                <Link
+                                  className='btn btn-outline-secondary'
+                                  to={`/map/${plant?.id}/plate`}
+                                >
+                                  <IoMdArrowRoundBack className='' />
+                                  <span className='ps-2'>targa</span>
+                                </Link>
+                                {/* <Link
+                                                              className='btn btn-outline-secondary'
+                                                              to={`/map/${plant?.id}/plate`}
+                                                            >
+                                                              <span className='pe-2'>targa</span>
+                                                              <IoMdArrowRoundForward className='' />
+                                                            </Link> */}
+                              </article>
                             </div>
                             {!logReg && (
-                              <article className='plant-payment pt-4 pb-5 d-flex justify-content-between'>
-                                <Link
-                                  className='btn'
-                                  to={`/map/${plantId}/plate`}
-                                >
-                                  <IoMdArrowRoundBack /> testo targa
-                                </Link>
+                              <article className='plant-payment pt-4 pb-5 d-flex justify-content-center'>
                                 <button
                                   className={
                                     !logReg

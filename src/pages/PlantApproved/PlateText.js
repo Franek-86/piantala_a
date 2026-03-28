@@ -131,7 +131,7 @@ const PlateText = () => {
                                     che riportiamo qui in basso.
                                   </span>
                                 </p>
-                                <p className='mb-0'>
+                                {/* <p className='mb-0'>
                                   {" "}
                                   Puoi visualizzare tutte le vostre targe già da
                                   noi realizzate e applicate sui vostri alberi
@@ -143,7 +143,7 @@ const PlateText = () => {
                                     pagina
                                   </Link>{" "}
                                   dedicata alle vostre targhe.
-                                </p>
+                                </p> */}
                               </article>
                               {logReg && (
                                 <LoginReg
@@ -182,24 +182,23 @@ const PlateText = () => {
                                   style={{ backgroundImage: `url(${Verner})` }}
                                 ></div>
                               </article>
+                              <article className='d-flex justify-content-between section-center mt-3'>
+                                <Link
+                                  className='btn btn-outline-secondary'
+                                  to={`/map/${plant?.id}/location`}
+                                >
+                                  <IoMdArrowRoundBack className='' />
+                                  <span className='ps-2'>posizione</span>
+                                </Link>
+                                <Link
+                                  className='btn btn-outline-secondary'
+                                  to={`/map/${plant?.id}/payment`}
+                                >
+                                  <span className='pe-2'>pagamento</span>
+                                  <IoMdArrowRoundForward className='' />
+                                </Link>
+                              </article>
                             </div>
-                          </div>
-
-                          <div className='d-flex justify-content-between section-center mt-3'>
-                            <Link
-                              className='btn btn-primary'
-                              to={`/map/${plant?.id}/location`}
-                            >
-                              <IoMdArrowRoundBack className='text-white' />
-                              <span className='text-white ps-2'>posizione</span>
-                            </Link>
-                            <Link
-                              className='btn btn-primary'
-                              to={`/map/${plant?.id}/payment`}
-                            >
-                              <span className='text-white pe-2'>pagamento</span>
-                              <IoMdArrowRoundForward className='text-white' />
-                            </Link>
                           </div>
                         </Form>
                       </section>
