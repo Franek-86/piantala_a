@@ -11,7 +11,7 @@ import {
 } from "react-icons/fa";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import ListGroup from "react-bootstrap/ListGroup";
-import { useParams, useNavigate, useLocation } from "react-router-dom";
+import { useParams, useNavigate, useLocation, Link } from "react-router-dom";
 import { MdBackspace } from "react-icons/md";
 import { AuthContext } from "../../context/AuthContext";
 import { PlantsContext } from "../../context/PlantsContext";
@@ -147,7 +147,9 @@ const PlantBooked = () => {
         <section className='pt-2 mb-1'>
           <div className='section-center'>
             <Breadcrumb>
-              <Breadcrumb.Item href='/map'>Mappa</Breadcrumb.Item>
+              <Breadcrumb.Item>
+                <Link to={"/map"}>Mappa</Link>
+              </Breadcrumb.Item>
               {/* <Breadcrumb.Item href='https://getbootstrap.com/docs/4.0/components/breadcrumb/'>
                       Library
                     </Breadcrumb.Item> */}
