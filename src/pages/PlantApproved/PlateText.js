@@ -182,23 +182,23 @@ const PlateText = () => {
                                   style={{ backgroundImage: `url(${Verner})` }}
                                 ></div>
                               </article>
-                              <article className='d-flex justify-content-between section-center mt-3'>
-                                <Link
-                                  className='btn btn-outline-secondary'
-                                  to={`/map/${plant?.id}/location`}
-                                >
-                                  <IoMdArrowRoundBack className='' />
-                                  <span className='ps-2'>posizione</span>
-                                </Link>
-                                <Link
-                                  className='btn btn-outline-secondary'
-                                  to={`/map/${plant?.id}/payment`}
-                                >
-                                  <span className='pe-2'>pagamento</span>
-                                  <IoMdArrowRoundForward className='' />
-                                </Link>
-                              </article>
                             </div>
+                            <article className='d-flex justify-content-between section-center mt-3'>
+                              <Link
+                                className='btn btn-outline-secondary'
+                                to={`/map/${plant?.id}/location`}
+                              >
+                                <IoMdArrowRoundBack className='' />
+                                <span className='ps-2'>posizione</span>
+                              </Link>
+                              <Link
+                                className='btn btn-outline-secondary'
+                                to={`/map/${plant?.id}/payment`}
+                              >
+                                <span className='pe-2'>pagamento</span>
+                                <IoMdArrowRoundForward className='' />
+                              </Link>
+                            </article>
                           </div>
                         </Form>
                       </section>

@@ -69,23 +69,23 @@ const Location = () => {
                             <article>
                               <InfoCard />
                             </article>
-                            <article className='d-flex justify-content-between section-center mt-3'>
-                              <Link
-                                className='btn btn-outline-secondary'
-                                to={`/map/${plant?.id}`}
-                              >
-                                <IoMdArrowRoundBack className='' />
-                                <span className='ps-2'>Indietro</span>
-                              </Link>
-                              <Link
-                                className='btn btn-outline-secondary'
-                                to={`/map/${plant?.id}/plate`}
-                              >
-                                <span className='pe-2'>targa</span>
-                                <IoMdArrowRoundForward className='' />
-                              </Link>
-                            </article>
                           </div>
+                          <article className='d-flex justify-content-between section-center mt-3'>
+                            <Link
+                              className='btn btn-outline-secondary'
+                              to={`/map/${plant?.id}`}
+                            >
+                              <IoMdArrowRoundBack className='' />
+                              <span className='ps-2'>Indietro</span>
+                            </Link>
+                            <Link
+                              className='btn btn-outline-secondary'
+                              to={`/map/${plant?.id}/plate`}
+                            >
+                              <span className='pe-2'>targa</span>
+                              <IoMdArrowRoundForward className='' />
+                            </Link>
+                          </article>
                         </div>
                       </section>
                     </div>
