@@ -86,16 +86,7 @@ const Payment = () => {
                       </Breadcrumb>
                       <div className='pb-5'>
                         <section id='location' className='pt-3 pt-xl-5'>
-                          {/* <h4 className='section-center mb-3'>
-                            <div className='d-flex align-items-center'>
-                              <div className='d-flex align-items-center'>
-                                <FaLongArrowAltRight />{" "}
-                                <span className='ps-2'>Pagamento</span>
-                              </div>
-                            </div>
-                          </h4> */}
-
-                          <div className='section-plant section-center'>
+                          <div className='section-plant'>
                             <div className='intro-text'>
                               <article className='mb-3 d-flex flex-row align-items-center'>
                                 <div className='step-title pb-2 pe-1'>

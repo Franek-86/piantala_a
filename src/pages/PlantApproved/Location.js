@@ -50,7 +50,7 @@ const Location = () => {
                     </Breadcrumb>
                     <div className='pb-5'>
                       <section id='location' className='pt-3 pt-xl-5'>
-                        <div className='section-center'>
+                        <div className=''>
                           <div className='intro-text'>
                             <article className='mb-3 d-flex flex-row align-items-center'>
                               <div className='step-title pb-2 pe-1'>
