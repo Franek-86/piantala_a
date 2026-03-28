@@ -200,7 +200,7 @@ const PlantApproved = () => {
                     </ul>
                   </span>
                 </div>
-                <div className='d-flex w-100 justify-content-center'>
+                <div className='d-flex w-100 justify-content-center mt-2'>
                   <Link
                     to={`/map/${plant.id}/location`}
                     className='btn btn-success'
