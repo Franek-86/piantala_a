@@ -61,7 +61,7 @@ const Contacts = () => {
               <h2 className='section-title pt-4'>I nostri contatti</h2>
               <div className='contacts-form-section '>
                 <div className='contacts-main-container d-flex flex-column flex-lg-row align-items-center flex-lg-row-reverse pb-3'>
-                  <article className='contact-info w-100 mb-5 mb-lg-0 ms-lg-3'>
+                  <article className='contact-info w-100 mb-5 mb-lg-0 ms-lg-3 ms-xl-4'>
                     <h4>Hai domande?</h4>
                     <p>
                       Per entrare in contatto con noi{" "}
@@ -78,7 +78,7 @@ const Contacts = () => {
                       Non esitare a contattarci!
                     </p>
                   </article>
-                  <article className='contact-form w-100 me-lg-3'>
+                  <article className='contact-form w-100 me-lg-3 me-xl-4'>
                     <Form
                       className='contact-form-container'
                       onSubmit={handleSubmit(onSubmit)}
