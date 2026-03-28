@@ -68,7 +68,7 @@ const OwnedPlants = () => {
                 <th>Tipo</th>
                 <th>Targa</th> */
 
-                <Row xs={1} xl={2} className='mt-lg-5'>
+                <Row xs={1} md={2} xl={3} className='mt-lg-5'>
                   {myPlants &&
                     myPlants.map((plant, index) => {
                       const order = allOrders.find((i) => {
