@@ -50,43 +50,47 @@ const Location = () => {
                     </Breadcrumb>
                     <div className='pb-5'>
                       <section id='location' className='pt-3 pt-xl-5'>
-                        <div className=''>
-                          <div className='intro-text'>
-                            <article className='mb-3 d-flex flex-row align-items-center'>
-                              <div className='step-title pb-2 pe-1'>
-                                <TiLocation />
-                              </div>
-                              <h5 className='mb-0'>
-                                Voglio essere piantata qui!
-                              </h5>
-                            </article>
-                            <article className='d-block mb-3'>
-                              Zolla di piantagione avente nostro riferimento
-                              numerico "{plant?.id}" e sita nel{" "}
-                              <b>quartiere {plant?.suburb} </b> di{" "}
-                              <b>{plant?.city}</b>.
-                            </article>
-                            <article>
-                              <InfoCard />
-                            </article>
-                          </div>
-                          <article className='d-flex justify-content-between section-center mt-3'>
-                            <Link
-                              className='btn btn-outline-secondary'
-                              to={`/map/${plant?.id}`}
-                            >
-                              <IoMdArrowRoundBack className='' />
-                              <span className='ps-2'>Indietro</span>
-                            </Link>
-                            <Link
-                              className='btn btn-outline-secondary'
-                              to={`/map/${plant?.id}/plate`}
-                            >
-                              <span className='pe-2'>targa</span>
-                              <IoMdArrowRoundForward className='' />
-                            </Link>
+                        <div className='intro-text'>
+                          <article className='mb-3 d-flex flex-row align-items-center'>
+                            <div className='step-title pb-2 pe-1'>
+                              <TiLocation />
+                            </div>
+                            <h5 className='mb-0'>
+                              Voglio essere piantata qui!
+                            </h5>
+                          </article>
+                          <article className='d-block mb-3'>
+                            Zolla di piantagione avente nostro riferimento
+                            numerico "{plant?.id}" e sita nel{" "}
+                            <b>quartiere {plant?.suburb} </b> di{" "}
+                            <b>{plant?.city}</b>.
+                          </article>
+                          <article>
+                            <InfoCard />
                           </article>
                         </div>
+                        <article className='btn-steps-container'>
+                          <Link
+                            className='btn-step-container step-prev'
+                            to={`/map/${plant?.id}`}
+                          >
+                            <div className=''>Precedente</div>
+                            <div className='d-flex align-items-center'>
+                              <IoMdArrowRoundBack className='' />
+                              <span className='ps-2'>Procedura</span>
+                            </div>
+                          </Link>
+                          <Link
+                            className='btn-step-container step-next'
+                            to={`/map/${plant?.id}/plate`}
+                          >
+                            <div className=''>Successivo</div>
+                            <div className='d-flex flex-row align-items-center justify-content-end'>
+                              <span className='pe-2'>targa</span>
+                              <IoMdArrowRoundForward className='' />
+                            </div>
+                          </Link>
+                        </article>
                       </section>
                     </div>
                   </div>

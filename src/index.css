@@ -43,7 +43,7 @@ code {
   --c-bg-map-yellow-light: #fefee7;
   --c-bg-map-blue-light: #e6f1f3;
 
-  --radius: 0.5rem;
+  --radius: 5px;
 
   --toastify-color-progress-light: linear-gradient(
     to right,
@@ -1067,6 +1067,31 @@ element {
   padding-left: 2rem;
 }
 
+.btn-steps-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+.btn-step-container {
+  border: 1px solid var(--clr-primary-5);
+  text-decoration: none;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  border-radius: var(--radius);
+}
+.btn-step-container div {
+  line-height: 1.8rem;
+}
+.btn-step-container div:first-child {
+  color: var(--clr-primary-5);
+}
+
+.step-next > div {
+  text-align: right;
+}
+/* .ttt {
+  text-align: right;
+} */
 /* approved end */
 
 .plant-section {
@@ -1659,7 +1684,7 @@ element {
 }
 
 .contact-form-input {
-  height: 10rem;
+  height: 11.5rem;
 }
 
 /* .contact-form-btn {

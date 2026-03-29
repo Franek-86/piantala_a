@@ -131,7 +131,7 @@ const Contacts = () => {
                           </em>
                         )}
                       </Form.Group>
-                      <div className='mt-2 pb-5 pb-lg-0'>
+                      <div className='mt-3 pb-5 pb-lg-0'>
                         <Button
                           disabled={loading}
                           className='w-100 text-align-center'
