@@ -995,7 +995,9 @@ element {
 .card-plant-info-approved .list-group-item {
   border: none;
 }
-
+.plant-intro-step {
+  max-width: 25rem;
+}
 .plant-section svg {
   color: var(--clr-secondary-3);
 }

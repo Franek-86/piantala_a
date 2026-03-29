@@ -120,7 +120,7 @@ const PlantApproved = () => {
                     Zolla n&#176; {plant.id}
                   </Breadcrumb.Item>
                 </Breadcrumb>
-                <div className='section-title d-flex justify-content-center align-items-center pt-3'>
+                {/* <div className='section-title d-flex justify-content-center align-items-center pt-3'>
                   <h2 className='pe-2 mb-0'>
                     {plant?.suburb} - Zolla{" "}
                     <span className='text-lowercase'>n&#176;</span> {plant.id}
@@ -134,79 +134,83 @@ const PlantApproved = () => {
                   >
                     <FaShare className='share-page' />
                   </div>
-                </div>
-                <div className='intro-text intro-article p-2 mb-3'>
-                  <span className='mb-3  d-flex flex-row align-items-center'>
-                    <div className='step-title pb-2 pe-1'>
-                      <LuTreeDeciduous />
-                    </div>
-                    <h5 className='mb-0'>Procedura d'acquisto</h5>
-                  </span>
-                  <span className='d-block mb-3'>
-                    Puoi procedere con l'acquisto della tua piantina seguendo i{" "}
-                    <b>tre passaggi</b> riportati qui di seguito.{" "}
-                  </span>
-                  <span className='d-block'>
-                    <ul className='plant-intro-steps'>
-                      <div
-                        className='mb-4 plant-intro-step d-flex align-items-center justify-content-between py-3 text-decoration-none white-background'
-                        // to={`/map/${plant.id}/location`}
-                      >
-                        <div className='d-flex align-items-center'>
-                          <span className='ps-3 fs-1 d-flex'>
-                            <TiLocation />
-                          </span>
-                          <span className='ps-3'>
-                            Controlla la zona di piantumazione
-                          </span>
-                        </div>
-                        {/* <span className='ps-3 fs-1 d-flex'>
+                </div> */}
+                <div className='intro-article p-2 pt-xl-5 mb-3'>
+                  <div className='intro-text'>
+                    <span className='mb-3  d-flex flex-row align-items-center'>
+                      <div className='step-title pb-2 pe-1'>
+                        <LuTreeDeciduous />
+                      </div>
+                      <h5 className='mb-0'>Procedura d'acquisto</h5>
+                    </span>
+                    <span className='d-block mb-3'>
+                      Puoi procedere con l'acquisto della tua piantina seguendo
+                      i <b>tre passaggi</b> riportati qui di seguito.{" "}
+                    </span>
+                    <span className='d-block'>
+                      <ul className='ms-3 plant-intro-steps'>
+                        <div
+                          className='mb-4 plant-intro-step d-flex align-items-center justify-content-between py-3 text-decoration-none white-background'
+                          // to={`/map/${plant.id}/location`}
+                        >
+                          <div className='d-flex align-items-center'>
+                            <span className='ps-3 fs-1 d-flex'>
+                              <TiLocation />
+                            </span>
+                            <span className='ps-3'>
+                              Controlla la zona di piantumazione
+                            </span>
+                          </div>
+                          {/* <span className='ps-3 fs-1 d-flex'>
                           {" "}
                           <RiNumber1 />
                         </span> */}
-                      </div>
-                      <div
-                        className='mb-4 plant-intro-step d-flex align-items-center justify-content-between py-3 text-decoration-none white-background'
-                        // to={`/map/${plant.id}/plate`}
-                      >
-                        <div className='d-flex align-items-center'>
-                          <span className='ps-3 fs-1 d-flex'>
-                            <BsVectorPen />
-                          </span>
-                          <span className='ps-3'>
-                            Inserisci il testo della tua targa
-                          </span>
                         </div>
-                        {/* <span className='ps-3 fs-1 d-flex'>
+                        <div
+                          className='mb-4 plant-intro-step d-flex align-items-center justify-content-between py-3 text-decoration-none white-background'
+                          // to={`/map/${plant.id}/plate`}
+                        >
+                          <div className='d-flex align-items-center'>
+                            <span className='ps-3 fs-1 d-flex'>
+                              <BsVectorPen />
+                            </span>
+                            <span className='ps-3'>
+                              Inserisci il testo della tua targa
+                            </span>
+                          </div>
+                          {/* <span className='ps-3 fs-1 d-flex'>
                           {" "}
                           <BsArrowRightShort />
                         </span> */}
-                      </div>
-                      <div
-                        className='mb-4 plant-intro-step d-flex align-items-center justify-content-between py-3 text-decoration-none white-background'
-                        // to={`/map/${plant.id}/payment`}
-                      >
-                        <div className='d-flex align-items-center'>
-                          <span className='ps-3 fs-1 d-flex'>
-                            <MdPayment />
-                          </span>
-                          <span className='ps-3'>Procedi con il pagamento</span>
                         </div>
-                        {/* <span className='ps-3 fs-1 d-flex'>
+                        <div
+                          className='mb-4 plant-intro-step d-flex align-items-center justify-content-between py-3 text-decoration-none white-background'
+                          // to={`/map/${plant.id}/payment`}
+                        >
+                          <div className='d-flex align-items-center'>
+                            <span className='ps-3 fs-1 d-flex'>
+                              <MdPayment />
+                            </span>
+                            <span className='ps-3'>
+                              Procedi con il pagamento
+                            </span>
+                          </div>
+                          {/* <span className='ps-3 fs-1 d-flex'>
                           {" "}
                           <BsArrowRightShort />
                         </span> */}
-                      </div>
-                    </ul>
-                  </span>
-                </div>
-                <div className='d-flex w-100 justify-content-center mt-4'>
-                  <Link
-                    to={`/map/${plant.id}/location`}
-                    className='btn w-50 btn-success'
-                  >
-                    Inizia il tuo acquisto
-                  </Link>
+                        </div>
+                      </ul>
+                    </span>
+                  </div>
+                  <div className='d-flex w-100 justify-content-center mt-5'>
+                    <Link
+                      to={`/map/${plant.id}/location`}
+                      className='btn btn-success w-100'
+                    >
+                      Inizia il tuo acquisto
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
