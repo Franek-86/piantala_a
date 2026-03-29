@@ -51,16 +51,18 @@ const PlateText = () => {
       plantId: plantId,
       plateText: e.target.value,
     });
+    localStorage.setItem(
+      "booking-info",
+      JSON.stringify({
+        userId: userId,
+        plantId: plantId,
+        plateText: e.target.value,
+      }),
+    );
 
     return;
   };
 
-  useEffect(() => {
-    if (bookedInfo?.plateText) {
-      localStorage.setItem("booking-info", JSON.stringify(bookedInfo));
-    }
-    console.log("questo sarebbe booked infoo", bookedInfo);
-  }, [bookedInfo?.plateText]);
   useEffect(() => {
     let data = JSON.parse(localStorage.getItem("booking-info"));
     setBookingInfo(data);
@@ -160,17 +162,11 @@ const PlateText = () => {
                                     rows={3}
                                     value={bookedInfo?.plateText}
                                     {...register("comment", {
-                                      required: true,
+                                      required: false,
                                       maxLength: 500,
                                     })}
                                     onChange={(e) => handleChange(e)}
                                   />
-                                  {errors.comment && (
-                                    <small className='text-danger fst-italic '>
-                                      Il testo non può essere vuoto e deve
-                                      essere di meno di 500 caratteri.
-                                    </small>
-                                  )}
                                 </FloatingLabel>
                                 <div
                                   className='plate-background-pic d-none d-md-block'
@@ -178,6 +174,12 @@ const PlateText = () => {
                                 ></div>
                               </article>
                             </div>
+                            {errors.comment && (
+                              <small className='text-danger fst-italic '>
+                                Il testo della targa deve essere di meno di 500
+                                caratteri.
+                              </small>
+                            )}
                             <article className='btn-steps-container'>
                               <Link
                                 className='btn-step-container step-prev'
