@@ -77,7 +77,7 @@ const Location = () => {
                             <div className=''>Precedente</div>
                             <div className='d-flex align-items-center'>
                               <IoMdArrowRoundBack className='' />
-                              <span className='ps-2'>Procedura</span>
+                              <span className='ps-2'>procedura</span>
                             </div>
                           </Link>
                           <Link

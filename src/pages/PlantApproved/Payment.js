@@ -128,17 +128,30 @@ const Payment = () => {
                                 </p>
                               </article>
                             </div>
-                            <article className='d-flex justify-content-left section-center mt-3'>
+                            <article className='btn-steps-container'>
                               <Link
-                                className='btn btn-outline-secondary'
+                                className='btn-step-container step-prev'
                                 to={`/map/${plant?.id}/plate`}
                               >
-                                <IoMdArrowRoundBack className='' />
-                                <span className='ps-2'>targa</span>
+                                <div className=''>Precedente</div>
+                                <div className='d-flex align-items-center'>
+                                  <IoMdArrowRoundBack className='' />
+                                  <span className='ps-2'>targa</span>
+                                </div>
+                              </Link>
+                              <Link
+                                className='btn-step-container step-next d-none'
+                                to={`/map/${plant?.id}/plate`}
+                              >
+                                <div className=''>Successivo</div>
+                                <div className='d-flex flex-row align-items-center justify-content-end'>
+                                  <span className='pe-2'>targa</span>
+                                  <IoMdArrowRoundForward className='' />
+                                </div>
                               </Link>
                             </article>
                             {!logReg && (
-                              <article className='plant-payment pt-4 pb-5 d-flex justify-content-center'>
+                              <article className='plant-payment mt-5 pb-5 d-flex justify-content-center'>
                                 <button
                                   className={
                                     !logReg

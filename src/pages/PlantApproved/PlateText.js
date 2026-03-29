@@ -174,20 +174,26 @@ const PlateText = () => {
                                 ></div>
                               </article>
                             </div>
-                            <article className='d-flex justify-content-between section-center mt-3'>
+                            <article className='btn-steps-container'>
                               <Link
-                                className='btn btn-outline-secondary'
+                                className='btn-step-container step-prev'
                                 to={`/map/${plant?.id}/location`}
                               >
-                                <IoMdArrowRoundBack className='' />
-                                <span className='ps-2'>posizione</span>
+                                <div className=''>Precedente</div>
+                                <div className='d-flex align-items-center'>
+                                  <IoMdArrowRoundBack className='' />
+                                  <span className='ps-2'>posizione</span>
+                                </div>
                               </Link>
                               <Link
-                                className='btn btn-outline-secondary'
+                                className='btn-step-container step-next'
                                 to={`/map/${plant?.id}/payment`}
                               >
-                                <span className='pe-2'>pagamento</span>
-                                <IoMdArrowRoundForward className='' />
+                                <div className=''>Successivo</div>
+                                <div className='d-flex flex-row align-items-center justify-content-end'>
+                                  <span className='pe-2'>pagamento</span>
+                                  <IoMdArrowRoundForward className='' />
+                                </div>
                               </Link>
                             </article>
                           </div>

@@ -54,7 +54,7 @@ const MyPlants = () => {
                 </p>
               ) : (
                 <div className='mt-lg-5'>
-                  <Row xs={1} md={2} xl={3} className='g-4'>
+                  <Row xs={1} md={2} className='g-4'>
                     {myReports.map((plant, index) => (
                       // <Col key={index}>
                       <div className='d-flex mb-2'>
