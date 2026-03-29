@@ -148,7 +148,7 @@ const PlantApproved = () => {
                       i <b>tre passaggi</b> riportati qui di seguito.{" "}
                     </span>
                     <span className='d-block'>
-                      <ul className='ms-3 plant-intro-steps'>
+                      <ul className='ms-0 ms-xl-3 plant-intro-steps'>
                         <div
                           className='mb-4 plant-intro-step d-flex align-items-center justify-content-between py-3 text-decoration-none white-background'
                           // to={`/map/${plant.id}/location`}
