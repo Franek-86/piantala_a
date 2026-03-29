@@ -32,7 +32,7 @@ import ShareButton from "./ShareButton";
 import { BsArrowRightShort } from "react-icons/bs";
 import { LuTreeDeciduous } from "react-icons/lu";
 import { FaLongArrowAltRight } from "react-icons/fa";
-
+import { RiNumber1 } from "react-icons/ri";
 const PlantApproved = () => {
   const {
     handleSubmit,
@@ -148,9 +148,9 @@ const PlantApproved = () => {
                   </span>
                   <span className='d-block'>
                     <ul className='plant-intro-steps'>
-                      <Link
+                      <div
                         className='mb-4 plant-intro-step d-flex align-items-center justify-content-between py-3 text-decoration-none white-background'
-                        to={`/map/${plant.id}/location`}
+                        // to={`/map/${plant.id}/location`}
                       >
                         <div className='d-flex align-items-center'>
                           <span className='ps-3 fs-1 d-flex'>
@@ -160,14 +160,14 @@ const PlantApproved = () => {
                             Controlla la zona di piantumazione
                           </span>
                         </div>
-                        <span className='ps-3 fs-1 d-flex'>
+                        {/* <span className='ps-3 fs-1 d-flex'>
                           {" "}
-                          <BsArrowRightShort />
-                        </span>
-                      </Link>
-                      <Link
+                          <RiNumber1 />
+                        </span> */}
+                      </div>
+                      <div
                         className='mb-4 plant-intro-step d-flex align-items-center justify-content-between py-3 text-decoration-none white-background'
-                        to={`/map/${plant.id}/plate`}
+                        // to={`/map/${plant.id}/plate`}
                       >
                         <div className='d-flex align-items-center'>
                           <span className='ps-3 fs-1 d-flex'>
@@ -177,14 +177,14 @@ const PlantApproved = () => {
                             Inserisci il testo della tua targa
                           </span>
                         </div>
-                        <span className='ps-3 fs-1 d-flex'>
+                        {/* <span className='ps-3 fs-1 d-flex'>
                           {" "}
                           <BsArrowRightShort />
-                        </span>
-                      </Link>
-                      <Link
+                        </span> */}
+                      </div>
+                      <div
                         className='mb-4 plant-intro-step d-flex align-items-center justify-content-between py-3 text-decoration-none white-background'
-                        to={`/map/${plant.id}/payment`}
+                        // to={`/map/${plant.id}/payment`}
                       >
                         <div className='d-flex align-items-center'>
                           <span className='ps-3 fs-1 d-flex'>
@@ -192,11 +192,11 @@ const PlantApproved = () => {
                           </span>
                           <span className='ps-3'>Procedi con il pagamento</span>
                         </div>
-                        <span className='ps-3 fs-1 d-flex'>
+                        {/* <span className='ps-3 fs-1 d-flex'>
                           {" "}
                           <BsArrowRightShort />
-                        </span>
-                      </Link>
+                        </span> */}
+                      </div>
                     </ul>
                   </span>
                 </div>

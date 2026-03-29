@@ -7,7 +7,7 @@ import { PlantsContext } from "../../context/PlantsContext";
 import InfoCard from "../../components/plant/InfoCard";
 import { TiLocation } from "react-icons/ti";
 import { FaLongArrowAltRight } from "react-icons/fa";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { IoMdArrowRoundBack, IoMdArrowRoundForward } from "react-icons/io";
 import Loading from "../Loading";
 import { BsVectorPen } from "react-icons/bs";
@@ -25,6 +25,7 @@ const PlateText = () => {
     useContext(PlantsContext);
 
   const { plantId } = useParams("plantId");
+  const navigate = useNavigate();
   useEffect(() => {
     getSinglePlant(plantId);
   }, []);
@@ -43,6 +44,8 @@ const PlateText = () => {
       setLogReg(true);
       return;
     }
+    console.log("a1", e.target.value);
+
     setBookingInfo({
       userId: userId,
       plantId: plantId,
@@ -53,17 +56,19 @@ const PlateText = () => {
   };
 
   useEffect(() => {
-    console.log("questo sarebbe booked info", bookedInfo);
     if (bookedInfo?.plateText) {
       localStorage.setItem("booking-info", JSON.stringify(bookedInfo));
     }
-  }, [bookedInfo]);
+    console.log("questo sarebbe booked infoo", bookedInfo);
+  }, [bookedInfo?.plateText]);
   useEffect(() => {
     let data = JSON.parse(localStorage.getItem("booking-info"));
     setBookingInfo(data);
   }, []);
   const onSubmit = (data) => {
-    console.log(data);
+    if (data) {
+      navigate(`/map/${plant?.id}/payment`);
+    }
   };
   return (
     <>
@@ -161,11 +166,10 @@ const PlateText = () => {
                                     onChange={(e) => handleChange(e)}
                                   />
                                   {errors.comment && (
-                                    <p className='text-danger'>
-                                      È necessario un testo da inserire nella
-                                      targa, il testo deve essere di meno di 500
-                                      caratteri.
-                                    </p>
+                                    <small className='text-danger fst-italic '>
+                                      Il testo non può essere vuoto e deve
+                                      essere di meno di 500 caratteri.
+                                    </small>
                                   )}
                                 </FloatingLabel>
                                 <div
@@ -185,16 +189,18 @@ const PlateText = () => {
                                   <span className='ps-2'>posizione</span>
                                 </div>
                               </Link>
-                              <Link
-                                className='btn-step-container step-next'
-                                to={`/map/${plant?.id}/payment`}
-                              >
+                              <div className='position-relative btn-step-container step-next btn-submit-next'>
                                 <div className=''>Successivo</div>
                                 <div className='d-flex flex-row align-items-center justify-content-end'>
                                   <span className='pe-2'>pagamento</span>
                                   <IoMdArrowRoundForward className='' />
                                 </div>
-                              </Link>
+                                <input
+                                  className='test11'
+                                  type='submit'
+                                  value=''
+                                />
+                              </div>
                             </article>
                           </div>
                         </Form>

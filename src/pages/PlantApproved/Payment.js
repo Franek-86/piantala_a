@@ -139,16 +139,6 @@ const Payment = () => {
                                   <span className='ps-2'>targa</span>
                                 </div>
                               </Link>
-                              <Link
-                                className='btn-step-container step-next d-none'
-                                to={`/map/${plant?.id}/plate`}
-                              >
-                                <div className=''>Successivo</div>
-                                <div className='d-flex flex-row align-items-center justify-content-end'>
-                                  <span className='pe-2'>targa</span>
-                                  <IoMdArrowRoundForward className='' />
-                                </div>
-                              </Link>
                             </article>
                             {!logReg && (
                               <article className='plant-payment mt-5 pb-5 d-flex justify-content-center'>
