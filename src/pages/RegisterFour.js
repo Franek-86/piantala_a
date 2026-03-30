@@ -31,7 +31,6 @@ const RegisterFour = () => {
     getCities,
     userData,
     setUserData,
-    // validateFiscalCode: checkFiscalCode,
   } = useContext(AuthContext);
   const {
     register,
@@ -136,29 +135,11 @@ const RegisterFour = () => {
       getCities(district);
     }
   }, [district]);
-  // const handleChange = (e) => {
-  //   const value = e.target.value;
-  //   const name = e.target.name;
-  //   setUserData({ ...userData, [name]: value });
-  // };
-  // useEffect(() => {
-  //   if (userData.city) {
-  //     setValue("city", userData.city);
-  //   }
-  // }, [userData]);
 
   return (
     <>
-      {/* <div className='section-center invisible'>
-        <div className='back-btn'>
-          <MdBackspace />
-        </div>
-      </div> */}
       <section className='section-center mt-5'>
-        <h4 className='mb-5'>
-          Residenza{" "}
-          <span className='small fw-normal fst-italic pag'>(4/5)</span>
-        </h4>
+        <h4 className='mb-5'>Residenza</h4>
         <form
           className='my-3'
           onSubmit={handleSubmit(onSubmit)}

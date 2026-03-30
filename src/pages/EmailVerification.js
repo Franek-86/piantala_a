@@ -26,10 +26,10 @@ const EmailVerification = () => {
       try {
         const response = await verificationEmail(token);
         if (response?.status === 200) {
-          navigate("/");
+          navigate("/login-form");
         } else {
           console.log(
-            "verification status is diffferent then 200 but we have a result anyway"
+            "verification status is different then 200 but we have a result anyway",
           );
         }
       } catch (e) {

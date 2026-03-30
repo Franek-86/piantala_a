@@ -20,6 +20,7 @@ import BackBtnLarge from "../components/menu/BackBtnLarge";
 import BackBtn from "../components/menu/BackBtn";
 import EditProfile from "../components/user-profile/EditProfile";
 import { VersionContext } from "../context/VersionContext";
+import SideBar from "../components/menu/SideBar";
 
 const UserProfile = () => {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -27,7 +28,7 @@ const UserProfile = () => {
   const inputRefAdd = useRef(null);
   const handleCloseDeleteModal = () => setShowDeleteModal(false);
   const handleShowDeleteModal = () => setShowDeleteModal(true);
-  const isLarge = useIsLargeScreen();
+  const isLargeScreen = useIsLargeScreen();
 
   const { version } = useContext(VersionContext);
   const {
@@ -52,20 +53,23 @@ const UserProfile = () => {
   return (
     <div
       className={
-        isLarge
-          ? "plants-container"
+        isLargeScreen
+          ? "plants-container min-100"
           : "plants-container-small min-100 blue-background"
       }
     >
+      {isLargeScreen && <SideBar />}
       {userLoading && <Loading />}
       {showEdit && <EditProfile />}
       <BackBtn />
       {/* {userLoading && <Loading />} */}
       <section
-        className={isLarge ? "section-large-intro" : "section-plant-intro"}
+        className={
+          isLargeScreen ? "section-large-intro" : "section-plant-intro"
+        }
       >
         <div className='pt-4 pt-lg-0'>
-          {isLarge && (
+          {isLargeScreen && (
             <>
               <BackBtnLarge />
               <h2 className='section-title pt-4'>Modifica Profilo</h2>

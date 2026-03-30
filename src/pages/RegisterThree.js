@@ -70,10 +70,7 @@ const RegisterThree = () => {
         </div>
       </div> */}
       <section className='section-center mt-5'>
-        <h4 className='mb-5'>
-          Informazioni "Ti Pianto Per Amore"{" "}
-          <span className='small fw-normal fst-italic pag'>(3/5)</span>
-        </h4>
+        <h4 className='mb-5'>Informazioni "Ti Pianto Per Amore"</h4>
         {/* NOME UTENTE PIANTAMI */}
         <form
           className='my-3'

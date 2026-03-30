@@ -37,11 +37,11 @@ const UserInfo = (props) => {
           <ListGroup.Item>
             <span>Cognome:</span> {lastName}
           </ListGroup.Item>
+          <ListGroup.Item>
+            <span>Nome Utente:</span> {user}
+          </ListGroup.Item>
           {userRole !== "reporter" && (
             <>
-              <ListGroup.Item>
-                <span>Nato il:</span> {birthday ? birthday : "n/a"}
-              </ListGroup.Item>
               <ListGroup.Item>
                 <span>Comune di residenza:</span> {city}
               </ListGroup.Item>
@@ -50,9 +50,7 @@ const UserInfo = (props) => {
               </ListGroup.Item> */}
             </>
           )}
-          <ListGroup.Item>
-            <span>Nome Utente:</span> {user}
-          </ListGroup.Item>
+
           <ListGroup.Item>
             <span>Ruolo:</span> {role}
           </ListGroup.Item>

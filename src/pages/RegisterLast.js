@@ -73,8 +73,6 @@ const RegisterLast = () => {
           setUserData({
             name: "",
             lastName: "",
-            birthday: "",
-            gender: "",
             email: "",
             phone: "",
             user: "",
@@ -82,7 +80,7 @@ const RegisterLast = () => {
             password2: "",
             city: "",
           });
-          navigate("/");
+          navigate("/login-form");
         }, 10000);
 
         setIsAuthenticated(true);
@@ -108,23 +106,11 @@ const RegisterLast = () => {
       setLoading(false);
     }
   };
-  const birthday = userData?.birthday;
   return (
     <section>
-      <div className='section-center'>
-        {/* <div className='back-btn'>
-          <MdBackspace
-            onClick={() => {
-              back();
-            }}
-          />
-        </div> */}
-      </div>{" "}
+      <div className='section-center'></div>{" "}
       <div className='section-center mt-5'>
-        <h4 className='mb-5'>
-          Verifica i tuoi dati{" "}
-          <span className='small fw-normal fst-italic pag'>(5/5)</span>
-        </h4>
+        <h4 className='mb-5'>Verifica i tuoi dati</h4>
         <form onSubmit={handleSubmit(onSubmit)}>
           <ListGroup>
             <ListGroup.Item>
@@ -132,19 +118,6 @@ const RegisterLast = () => {
             </ListGroup.Item>
             <ListGroup.Item>
               Cognome: <span>{userData?.lastName}</span>
-            </ListGroup.Item>
-            <ListGroup.Item>
-              Data di nascita: <span>{moment(birthday).format("L")}</span>
-            </ListGroup.Item>
-            <ListGroup.Item>
-              Genere:{" "}
-              <span>
-                {userData?.gender === "U"
-                  ? "Uomo"
-                  : userData?.gender === "F"
-                    ? "Donna"
-                    : "Preserisco non dirlo"}
-              </span>
             </ListGroup.Item>
             <ListGroup.Item>
               E-mail: <span>{userData?.email}</span>

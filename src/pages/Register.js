@@ -45,22 +45,14 @@ const Register = () => {
   useEffect(() => {
     version();
   });
-  // React.useEffect(() => {
-  //   setError("name", {
-  //     type: "manual",
-  //     message: "Dont Forget Your Username Should Be Cool!",
-  //   });
-  // }, [setError]);
+
   const fields = watch();
-  const { name, lastName, gender, city, birthday } = fields;
 
   const backToLogin = () => {
     localStorage.removeItem("registration");
     setUserData({
       name: "",
       lastName: "",
-      birthday: "",
-      gender: "",
       email: "",
       phone: "",
       user: "",
@@ -119,33 +111,13 @@ const Register = () => {
     if (userData.lastName) {
       setValue("lastName", userData.lastName);
     }
-    if (userData.birthday) {
-      setValue("birthday", userData.birthday);
-    }
-    if (userData.gender) {
-      setValue("gender", userData.gender);
-    }
   }, [userData]);
 
   return (
     <>
-      {/* <div className='section-center'>
-        <div className='back-btn'>
-          <MdBackspace
-            onClick={() => {
-              backToLogin();
-            }}
-          />
-        </div>
-      </div> */}
       <section className='section-center mt-5'>
         {regionsLoading && <Loading />}
-        {/* <div
-        ref={formWrapperRef}
-        className='form-wrapper d-flex flex-column pt-5 justify-content-center'
-      > */}
         <form onSubmit={handleSubmit(onSubmit)} ref={formWrapperRef}>
-          {/* Server error message */}
           {serverError && <p className='text-danger'>{serverError}</p>}
           {successMessage && <p className='text-success'>{successMessage}</p>}
           {loading && (
@@ -154,10 +126,7 @@ const Register = () => {
             </div>
           )}
           {/*-----------------------------------------INIZIO INFORMAZIONI DI BASE-------------------------------------------------*/}
-          <h4 className='mb-5'>
-            Informazioni base{" "}
-            <span className='small fw-normal fst-italic pag'>(1/5)</span>{" "}
-          </h4>
+          <h4 className='mb-5'>Informazioni base</h4>
 
           {/* NOME */}
           <Form.Group className='mb-3' controlId='formBasicUser'>
@@ -168,7 +137,6 @@ const Register = () => {
                 disabled={loading}
                 name='name'
                 value={userData.name}
-                // onChange={handleChange}
                 {...register("name", {
                   required: "Inserisci nome",
                   maxLength: {
@@ -214,90 +182,6 @@ const Register = () => {
 
             {errors.lastName && (
               <em className='text-danger small'>{errors?.lastName?.message}</em>
-            )}
-          </Form.Group>
-          {/* DATA DI NASCITA */}
-          <Form.Group className='mb-4' controlId='formBasicUser'>
-            <FloatingLabel
-              controlId='floatingInput'
-              label='Data di nascita'
-              className=''
-            >
-              <Form.Control
-                type='date'
-                placeholder='Data di nascita'
-                disabled={loading}
-                name='birthday'
-                value={userData.birthday}
-                {...register("birthday", {
-                  required: "Inserisci data di nascita",
-                  onChange: (e) => {
-                    handleChange(e);
-                  },
-                })}
-              />
-            </FloatingLabel>
-
-            {errors.birthday && (
-              <em className='text-danger small'>{errors?.birthday?.message}</em>
-            )}
-          </Form.Group>
-          {/* GENERE */}
-          <Form.Group className='mb-3' controlId='formBasicUser'>
-            <label htmlFor='' className='mb-2'>
-              Genere
-            </label>
-            <div className='d-flex justify-content-start'>
-              <Form.Check
-                id='Uomo'
-                type='radio'
-                label='Uomo'
-                value='U'
-                checked={userData.gender === "U"}
-                disabled={loading}
-                name='gender'
-                {...register("gender", {
-                  required: "Scegli una delle ozioni relative al genere",
-                  onChange: (e) => {
-                    handleChange(e);
-                  },
-                })}
-              />
-              <Form.Check
-                id='Donna'
-                className='ms-3'
-                type='radio'
-                label='Donna'
-                value='F'
-                disabled={loading}
-                checked={userData.gender === "F"}
-                {...register("gender", {
-                  required: "Necessario specicare il genere",
-                  onChange: (e) => {
-                    handleChange(e);
-                  },
-                })}
-              />
-              <Form.Check
-                id='Preferisco non dirlo'
-                className='ms-3'
-                type='radio'
-                label='Preferisco non dirlo'
-                value='N'
-                checked={userData.gender === "N"}
-                disabled={loading}
-                {...register("gender", {
-                  required: "Necessario specificare il genere",
-                  onChange: (e) => {
-                    handleChange(e);
-                  },
-                })}
-              />
-            </div>
-            {errors.gender && (
-              <em className='text-danger small font-italic'>
-                {errors?.gender?.message}
-              </em>
             )}
           </Form.Group>
           <div className='d-flex justify-content-between mt-5'>

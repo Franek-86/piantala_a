@@ -60,10 +60,7 @@ const RegisterTwo = () => {
         </div>
       </div> */}
       <section className='section-center mt-5'>
-        <h4 className='mb-5'>
-          Dati di contatto{" "}
-          <span className='small fw-normal fst-italic pag'>(2/5)</span>
-        </h4>
+        <h4 className='mb-5'>Dati di contatto</h4>
         <form onSubmit={handleSubmit(onSubmit)}>
           {/* Mobile */}
           <Form.Group className='mb-3' controlId='formBasicEmail'>
