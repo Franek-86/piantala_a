@@ -135,7 +135,7 @@ const PlantApproved = () => {
                     <FaShare className='share-page' />
                   </div>
                 </div> */}
-                <div className='intro-article p-2 pt-xl-5 mb-3'>
+                <div className='pt-xl-5 mb-3'>
                   <div className='intro-text'>
                     <span className='mb-3  d-flex flex-row align-items-center'>
                       <div className='step-title pb-2 pe-1'>

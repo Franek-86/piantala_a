@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { MdBackspace } from "react-icons/md";
 import { GrFormNextLink, GrFormPreviousLink } from "react-icons/gr";
+import { IoMdArrowRoundBack, IoMdArrowRoundForward } from "react-icons/io";
 
 const RegisterTwo = () => {
   const {
@@ -59,64 +60,85 @@ const RegisterTwo = () => {
           <MdBackspace />
         </div>
       </div> */}
-      <section className='section-center mt-5'>
-        <h4 className='mb-5'>Dati di contatto</h4>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          {/* Mobile */}
-          <Form.Group className='mb-3' controlId='formBasicEmail'>
-            <FloatingLabel
-              controlId='floatingInput'
-              label='Indirizzo e-mail'
-              className=''
-            >
-              <Form.Control
-                type='email'
-                placeholder='Inserisci email'
-                disabled={loading}
-                name='email'
-                value={userData.email}
-                {...register("email", {
-                  required: "Inserisci indirizzo e-mail",
-                  pattern: {
-                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                    message: "Invalido formato email",
-                  },
-                  onChange: (e) => {
-                    handleChange(e);
-                  },
-                })}
-              />
-            </FloatingLabel>
-            {errors?.email && (
-              <em className='text-danger small'>{errors?.email?.message}</em>
-            )}
-          </Form.Group>
-          {/* Mobile */}
-          <Form.Group className='mb-3' controlId='formBasicPhone'>
-            <FloatingLabel
-              controlId='floatingInput'
-              label='Numero di telefono'
-              className=''
-            >
-              <Form.Control
-                type='phone'
-                placeholder='Numero di telefono necessario'
-                disabled={loading}
-                name='phone'
-                value={userData.phone}
-                {...register("phone", {
-                  required: "Inserisci numero di telefono",
-                  onChange: (e) => {
-                    handleChange(e);
-                  },
-                })}
-              />
-            </FloatingLabel>
-            {errors?.phone && (
-              <em className='text-danger small'>{errors?.phone?.message}</em>
-            )}
-          </Form.Group>
-          <div className='d-flex justify-content-between mt-5'>
+      <section className='section-registration min-100  d-flex align-items-center justify-content-center'>
+        <div className='section-center registration-container'>
+          <h4 className='mb-5'>Dati di contatto</h4>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            {/* Mobile */}
+            <Form.Group className='mb-3' controlId='formBasicEmail'>
+              <FloatingLabel
+                controlId='floatingInput'
+                label='Indirizzo e-mail'
+                className=''
+              >
+                <Form.Control
+                  type='email'
+                  placeholder='Inserisci email'
+                  disabled={loading}
+                  name='email'
+                  value={userData.email}
+                  {...register("email", {
+                    required: "Inserisci indirizzo e-mail",
+                    pattern: {
+                      value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                      message: "Invalido formato email",
+                    },
+                    onChange: (e) => {
+                      handleChange(e);
+                    },
+                  })}
+                />
+              </FloatingLabel>
+              {errors?.email && (
+                <em className='text-danger small'>{errors?.email?.message}</em>
+              )}
+            </Form.Group>
+            {/* Mobile */}
+            <Form.Group className='mb-3' controlId='formBasicPhone'>
+              <FloatingLabel
+                controlId='floatingInput'
+                label='Numero di telefono'
+                className=''
+              >
+                <Form.Control
+                  type='phone'
+                  placeholder='Numero di telefono necessario'
+                  disabled={loading}
+                  name='phone'
+                  value={userData.phone}
+                  {...register("phone", {
+                    required: "Inserisci numero di telefono",
+                    onChange: (e) => {
+                      handleChange(e);
+                    },
+                  })}
+                />
+              </FloatingLabel>
+              {errors?.phone && (
+                <em className='text-danger small'>{errors?.phone?.message}</em>
+              )}
+            </Form.Group>
+            <article className='btn-steps-container'>
+              <div
+                className='btn-step-container registration step-prev'
+                onClick={back}
+              >
+                <div className=''>Indietro</div>
+                <div className='d-flex align-items-center'>
+                  <IoMdArrowRoundBack className='' />
+                  <span className='ps-2'>Info base</span>
+                </div>
+              </div>
+              <div className='position-relative btn-step-container registration step-next btn-submit-next'>
+                <div className=''>Successivo</div>
+                <div className='d-flex flex-row align-items-center justify-content-end'>
+                  <span className='pe-2'>Info app</span>
+                  <IoMdArrowRoundForward className='' />
+                </div>
+                <input className='test11' type='submit' value='' />
+              </div>
+            </article>
+            {/* <div className='d-flex justify-content-between mt-5'>
             <button
               onClick={back}
               type='button'
@@ -134,8 +156,9 @@ const RegisterTwo = () => {
                 <GrFormNextLink className='fs-5 ms-2' />
               </div>
             </button>
-          </div>
-        </form>
+          </div> */}
+          </form>
+        </div>
       </section>
     </>
   );

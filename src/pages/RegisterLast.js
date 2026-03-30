@@ -172,20 +172,24 @@ const RegisterLast = () => {
               Necessario accettare per completare la registrazione
             </span>
           )}
-          <div className='mt-3'>
-            <Link
-              to={"/register4"}
-              type='submit'
-              className='btn btn-outline-primary w-100 my-2'
-            >
-              Modifica i dati
-            </Link>
-          </div>
-          <div className=''>
-            <button type='submit' className='btn btn-primary w-100 mt-1'>
-              Registrati
-            </button>
-          </div>
+          {!loading && !successMessage && (
+            <article>
+              <div className='mt-3'>
+                <Link
+                  to={"/register4"}
+                  type='submit'
+                  className='btn btn-outline-primary w-100 my-2'
+                >
+                  Modifica i dati
+                </Link>
+              </div>
+              <div className=''>
+                <button type='submit' className='btn btn-primary w-100 mt-1'>
+                  Registrati
+                </button>
+              </div>
+            </article>
+          )}
         </form>
       </div>
     </section>

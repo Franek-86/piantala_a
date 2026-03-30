@@ -18,7 +18,11 @@ import logo from "../assets/images/ti pianto per amore-APP-verde.png";
 import { GrUndo } from "react-icons/gr";
 import { toast } from "react-toastify";
 import { Keyboard } from "@capacitor/keyboard";
-import { IoMdExit } from "react-icons/io";
+import {
+  IoMdArrowRoundBack,
+  IoMdArrowRoundForward,
+  IoMdExit,
+} from "react-icons/io";
 import { GrFormNextLink } from "react-icons/gr";
 import { VersionContext } from "../context/VersionContext";
 
@@ -114,8 +118,8 @@ const Register = () => {
   }, [userData]);
 
   return (
-    <>
-      <section className='section-center mt-5'>
+    <section className='section-registration min-100  d-flex align-items-center justify-content-center'>
+      <div className='section-center  registration-container'>
         {regionsLoading && <Loading />}
         <form onSubmit={handleSubmit(onSubmit)} ref={formWrapperRef}>
           {serverError && <p className='text-danger'>{serverError}</p>}
@@ -184,7 +188,30 @@ const Register = () => {
               <em className='text-danger small'>{errors?.lastName?.message}</em>
             )}
           </Form.Group>
-          <div className='d-flex justify-content-between mt-5'>
+
+          {/* qui */}
+
+          <article className='btn-steps-container'>
+            <div
+              className='btn-step-container registration step-prev'
+              onClick={() => backToLogin()}
+            >
+              <div className=''>Esci</div>
+              <div className='d-flex align-items-center'>
+                <IoMdArrowRoundBack className='' />
+                <span className='ps-2'>Login page</span>
+              </div>
+            </div>
+            <div className='position-relative btn-step-container registration step-next btn-submit-next'>
+              <div className=''>Successivo</div>
+              <div className='d-flex flex-row align-items-center justify-content-end'>
+                <span className='pe-2'>contatti</span>
+                <IoMdArrowRoundForward className='' />
+              </div>
+              <input className='test11' type='submit' value='' />
+            </div>
+          </article>
+          {/* <div className='d-flex justify-content-between mt-5'>
             <button
               onClick={() => backToLogin()}
               type='button'
@@ -200,15 +227,15 @@ const Register = () => {
                 contatti <GrFormNextLink className='fs-5 ms-2' />
               </div>
             </button>
-          </div>
+          </div> */}
 
           {/* <div className='text-end mt-5'>
             <button className='btn btn-primary w-25 '>Next</button>
           </div> */}
         </form>
         {/* </div> */}
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
 

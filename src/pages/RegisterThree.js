@@ -8,6 +8,8 @@ import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { GrFormNextLink, GrFormPreviousLink } from "react-icons/gr";
 import { toast } from "react-toastify";
+import { IoMdArrowRoundBack, IoMdArrowRoundForward } from "react-icons/io";
+
 const RegisterThree = () => {
   const [showPassword1, setShowPassword1] = useState(false);
   const [showPassword2, setShowPassword2] = useState(false);
@@ -69,115 +71,141 @@ const RegisterThree = () => {
           <MdBackspace />
         </div>
       </div> */}
-      <section className='section-center mt-5'>
-        <h4 className='mb-5'>Informazioni "Ti Pianto Per Amore"</h4>
-        {/* NOME UTENTE PIANTAMI */}
-        <form
-          className='my-3'
-          onSubmit={handleSubmit(onSubmit)}
-          controlId='formBasicUser'
-        >
-          <Form.Group className='mb-3' controlId='formBasicUser'>
-            <FloatingLabel
-              controlId='floatingInput'
-              label='Nome utente'
-              className=''
-            >
-              <Form.Control
-                type='text'
-                name='user'
-                placeholder='Nome utente'
-                disabled={loading}
-                value={userData.user}
-                {...register("user", {
-                  required: "Inserisci nome utente",
-                  maxLength: {
-                    value: 15,
-                    message:
-                      "Il nome utente può essere di massimo 15 caratteri",
-                  },
-                  onChange: (e) => {
-                    handleChange(e);
-                  },
-                })}
-              />
-            </FloatingLabel>
-            {errors?.user && (
-              <em className='text-danger small'>{errors.user.message}</em>
-            )}
-          </Form.Group>
+      <section className='section-registration min-100  d-flex align-items-center justify-content-center'>
+        <div className='section-center registration-container'>
+          <h4 className='mb-5'>Informazioni "Ti Pianto Per Amore"</h4>
+          {/* NOME UTENTE PIANTAMI */}
+          <form
+            className='my-3'
+            onSubmit={handleSubmit(onSubmit)}
+            controlId='formBasicUser'
+          >
+            <Form.Group className='mb-3' controlId='formBasicUser'>
+              <FloatingLabel
+                controlId='floatingInput'
+                label='Nome utente'
+                className=''
+              >
+                <Form.Control
+                  type='text'
+                  name='user'
+                  placeholder='Nome utente'
+                  disabled={loading}
+                  value={userData.user}
+                  {...register("user", {
+                    required: "Inserisci nome utente",
+                    maxLength: {
+                      value: 15,
+                      message:
+                        "Il nome utente può essere di massimo 15 caratteri",
+                    },
+                    onChange: (e) => {
+                      handleChange(e);
+                    },
+                  })}
+                />
+              </FloatingLabel>
+              {errors?.user && (
+                <em className='text-danger small'>{errors.user.message}</em>
+              )}
+            </Form.Group>
 
-          <Form.Group className='mb-3' controlId='formBasicPassword'>
-            <FloatingLabel controlId='floatingPassword' label='Password'>
-              <span
-                className='showHidePassword'
-                onClick={() => setShowPassword1(!showPassword1)}
+            <Form.Group className='mb-3' controlId='formBasicPassword'>
+              <FloatingLabel controlId='floatingPassword' label='Password'>
+                <span
+                  className='showHidePassword'
+                  onClick={() => setShowPassword1(!showPassword1)}
+                >
+                  {showPassword1 ? (
+                    <FaEyeSlash className='showHidePasswordIcon' />
+                  ) : (
+                    <FaEye className='showHidePasswordIcon' />
+                  )}
+                </span>
+                <Form.Control
+                  type={showPassword1 ? "text" : "password"}
+                  placeholder='Password'
+                  disabled={loading}
+                  name='password'
+                  value={userData.password}
+                  {...register("password", {
+                    required: "Inserisci password",
+                    minLength: {
+                      value: 6,
+                      message: "La password deve essere di almeno 6 caratteri",
+                    },
+                    onChange: (e) => {
+                      handleChange(e);
+                    },
+                  })}
+                />
+              </FloatingLabel>
+              {errors.password && (
+                <em className='text-danger small'>
+                  {errors?.password?.message}
+                </em>
+              )}
+            </Form.Group>
+            <Form.Group className='mb-3' controlId='formBasicPassword'>
+              <FloatingLabel
+                controlId='floatingPassword'
+                label='Ripeti Password'
               >
-                {showPassword1 ? (
-                  <FaEyeSlash className='showHidePasswordIcon' />
-                ) : (
-                  <FaEye className='showHidePasswordIcon' />
-                )}
-              </span>
-              <Form.Control
-                type={showPassword1 ? "text" : "password"}
-                placeholder='Password'
-                disabled={loading}
-                name='password'
-                value={userData.password}
-                {...register("password", {
-                  required: "Inserisci password",
-                  minLength: {
-                    value: 6,
-                    message: "La password deve essere di almeno 6 caratteri",
-                  },
-                  onChange: (e) => {
-                    handleChange(e);
-                  },
-                })}
-              />
-            </FloatingLabel>
-            {errors.password && (
-              <em className='text-danger small'>{errors?.password?.message}</em>
-            )}
-          </Form.Group>
-          <Form.Group className='mb-3' controlId='formBasicPassword'>
-            <FloatingLabel controlId='floatingPassword' label='Ripeti Password'>
-              <span
-                className='showHidePassword'
-                onClick={() => setShowPassword2(!showPassword2)}
+                <span
+                  className='showHidePassword'
+                  onClick={() => setShowPassword2(!showPassword2)}
+                >
+                  {showPassword2 ? (
+                    <FaEyeSlash className='showHidePasswordIcon' />
+                  ) : (
+                    <FaEye className='showHidePasswordIcon' />
+                  )}
+                </span>
+                <Form.Control
+                  type={showPassword2 ? "text" : "password"}
+                  placeholder='Password'
+                  name='password2'
+                  disabled={loading}
+                  value={userData.password2}
+                  {...register("password2", {
+                    required: "Inserisci password",
+                    minLength: {
+                      value: 6,
+                      message: "La password deve essere di almeno 6 caratteri",
+                    },
+                    onChange: (e) => {
+                      handleChange(e);
+                    },
+                  })}
+                />
+              </FloatingLabel>
+              {errors.password2 && (
+                <em className='text-danger small'>
+                  {errors?.password2?.message}
+                </em>
+              )}
+            </Form.Group>
+            <article className='btn-steps-container'>
+              <div
+                className='btn-step-container registration step-prev'
+                onClick={back}
               >
-                {showPassword2 ? (
-                  <FaEyeSlash className='showHidePasswordIcon' />
-                ) : (
-                  <FaEye className='showHidePasswordIcon' />
-                )}
-              </span>
-              <Form.Control
-                type={showPassword2 ? "text" : "password"}
-                placeholder='Password'
-                name='password2'
-                disabled={loading}
-                value={userData.password2}
-                {...register("password2", {
-                  required: "Inserisci password",
-                  minLength: {
-                    value: 6,
-                    message: "La password deve essere di almeno 6 caratteri",
-                  },
-                  onChange: (e) => {
-                    handleChange(e);
-                  },
-                })}
-              />
-            </FloatingLabel>
-            {errors.password2 && (
-              <em className='text-danger small'>
-                {errors?.password2?.message}
-              </em>
-            )}
-          </Form.Group>
-          <div className='d-flex justify-content-between mt-5'>
+                <div className=''>Indietro</div>
+                <div className='d-flex align-items-center'>
+                  <IoMdArrowRoundBack className='' />
+                  <span className='ps-2'>contatti</span>
+                </div>
+              </div>
+              <div className='position-relative btn-step-container registration step-next btn-submit-next'>
+                <div className=''>Successivo</div>
+                <div className='d-flex flex-row align-items-center justify-content-end'>
+                  <span className='pe-2'>residenza</span>
+                  <IoMdArrowRoundForward className='' />
+                </div>
+                <input className='test11' type='submit' value='' />
+              </div>
+            </article>
+            {/* <div className='d-flex justify-content-between mt-5'>
             <button
               onClick={back}
               type='button'
@@ -195,8 +223,9 @@ const RegisterThree = () => {
                 <GrFormNextLink className='fs-5 ms-2' />
               </div>
             </button>
-          </div>
-        </form>
+          </div> */}
+          </form>
+        </div>
       </section>
     </>
   );
