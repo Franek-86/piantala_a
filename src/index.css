@@ -405,7 +405,7 @@ element {
   padding: 0.5rem;
   background-color: var(--c-bg-map-blue-light);
   width: 95vw;
-  min-height: 50vh;
+  min-height: 35vh;
 }
 
 .btn-step-container.registration:hover {
