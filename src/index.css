@@ -418,7 +418,8 @@ element {
   background-color: #fff;
 }
 @media screen and (min-width: 992px) {
-  .registration-container {
+  .registration-container,
+  .registration-buttons-container {
     width: 50vw;
   }
 }

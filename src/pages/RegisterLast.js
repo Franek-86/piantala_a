@@ -176,7 +176,7 @@ const RegisterLast = () => {
           )}
         </section>
         {!loading && !successMessage && (
-          <section className='section-center'>
+          <section className='section-center registration-buttons-container'>
             <div className='mt-3'>
               <Link
                 to={"/register4"}
