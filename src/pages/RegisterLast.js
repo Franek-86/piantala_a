@@ -9,7 +9,7 @@ import moment from "moment/moment";
 import { MdBackspace, MdDangerous } from "react-icons/md";
 import TermsOfService from "./TermsOfService";
 import { Form } from "react-bootstrap";
-
+import { BsPatchCheckFill } from "react-icons/bs";
 const RegisterLast = () => {
   const [serverError, setServerError] = useState("");
   const [successMessage, setSuccessMessage] = useState(false);
@@ -110,7 +110,10 @@ const RegisterLast = () => {
     <div className=''>
       <form onSubmit={handleSubmit(onSubmit)}>
         <section className='registration-container section-center mt-5'>
-          <h4 className='mb-5'>Verifica i tuoi dati</h4>
+          <div className='registration-header d-flex align-items-center mb-4'>
+            <BsPatchCheckFill className='fs-1 me-2' />
+            <h4 className='m-0 p-0'>Verifica i tuoi dati</h4>
+          </div>
           <ListGroup>
             <ListGroup.Item>
               Nome: <span>{userData?.name}</span>

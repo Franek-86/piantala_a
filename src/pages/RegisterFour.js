@@ -140,11 +140,7 @@ const RegisterFour = () => {
   return (
     <>
       <div className='section-registration min-100 d-flex flex-column align-items-center justify-content-start justify-content-lg-center pt-5 pt-lg-0'>
-        <form
-          className='my-3'
-          onSubmit={handleSubmit(onSubmit)}
-          controlId='formBasicUser'
-        >
+        <form onSubmit={handleSubmit(onSubmit)} controlId='formBasicUser'>
           <section className='section-center registration-container'>
             <div className='registration-header d-flex align-items-center mb-4'>
               <FaTreeCity className='fs-1 me-2' />
