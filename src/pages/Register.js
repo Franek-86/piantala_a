@@ -118,10 +118,10 @@ const Register = () => {
   }, [userData]);
 
   return (
-    <section className='section-registration min-100  d-flex align-items-center justify-content-center'>
-      <div className='section-center  registration-container'>
-        {regionsLoading && <Loading />}
-        <form onSubmit={handleSubmit(onSubmit)} ref={formWrapperRef}>
+    <div className='section-registration min-100  d-flex flex-column align-items-center justify-content-center'>
+      <form onSubmit={handleSubmit(onSubmit)} ref={formWrapperRef}>
+        <section className='section-center registration-container'>
+          {regionsLoading && <Loading />}
           {serverError && <p className='text-danger'>{serverError}</p>}
           {successMessage && <p className='text-success'>{successMessage}</p>}
           {loading && (
@@ -190,52 +190,30 @@ const Register = () => {
           </Form.Group>
 
           {/* qui */}
-
-          <article className='btn-steps-container'>
-            <div
-              className='btn-step-container registration step-prev'
-              onClick={() => backToLogin()}
-            >
-              <div className=''>Esci</div>
-              <div className='d-flex align-items-center'>
-                <IoMdArrowRoundBack className='' />
-                <span className='ps-2'>Login page</span>
-              </div>
+          {/* </div> */}
+        </section>
+        <section className='btn-steps-container'>
+          <div
+            className='btn-step-container registration step-prev'
+            onClick={() => backToLogin()}
+          >
+            <div className=''>Esci</div>
+            <div className='d-flex align-items-center'>
+              <IoMdArrowRoundBack className='' />
+              <span className='ps-2'>Login page</span>
             </div>
-            <div className='position-relative btn-step-container registration step-next btn-submit-next'>
-              <div className=''>Successivo</div>
-              <div className='d-flex flex-row align-items-center justify-content-end'>
-                <span className='pe-2'>contatti</span>
-                <IoMdArrowRoundForward className='' />
-              </div>
-              <input className='test11' type='submit' value='' />
+          </div>
+          <div className='position-relative btn-step-container registration step-next btn-submit-next'>
+            <div className=''>Successivo</div>
+            <div className='d-flex flex-row align-items-center justify-content-end'>
+              <span className='pe-2'>contatti</span>
+              <IoMdArrowRoundForward className='' />
             </div>
-          </article>
-          {/* <div className='d-flex justify-content-between mt-5'>
-            <button
-              onClick={() => backToLogin()}
-              type='button'
-              className='me-3 btn btn-primary w-50'
-            >
-              <div className='d-flex align-items-center justify-content-center'>
-                <IoMdExit className='fs-5 me-2' />
-                Esci
-              </div>
-            </button>
-            <button type='submit' className='ms-3 btn btn-primary w-50'>
-              <div className='d-flex align-items-center justify-content-center'>
-                contatti <GrFormNextLink className='fs-5 ms-2' />
-              </div>
-            </button>
-          </div> */}
-
-          {/* <div className='text-end mt-5'>
-            <button className='btn btn-primary w-25 '>Next</button>
-          </div> */}
-        </form>
-        {/* </div> */}
-      </div>
-    </section>
+            <input className='test11' type='submit' value='' />
+          </div>
+        </section>
+      </form>
+    </div>
   );
 };
 

@@ -107,11 +107,10 @@ const RegisterLast = () => {
     }
   };
   return (
-    <section>
-      <div className='section-center'></div>{" "}
-      <div className='section-center mt-5'>
-        <h4 className='mb-5'>Verifica i tuoi dati</h4>
-        <form onSubmit={handleSubmit(onSubmit)}>
+    <div className=''>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <section className='registration-container section-center mt-5'>
+          <h4 className='mb-5'>Verifica i tuoi dati</h4>
           <ListGroup>
             <ListGroup.Item>
               Nome: <span>{userData?.name}</span>
@@ -172,27 +171,27 @@ const RegisterLast = () => {
               Necessario accettare per completare la registrazione
             </span>
           )}
-          {!loading && !successMessage && (
-            <article>
-              <div className='mt-3'>
-                <Link
-                  to={"/register4"}
-                  type='submit'
-                  className='btn btn-outline-primary w-100 my-2'
-                >
-                  Modifica i dati
-                </Link>
-              </div>
-              <div className=''>
-                <button type='submit' className='btn btn-primary w-100 mt-1'>
-                  Registrati
-                </button>
-              </div>
-            </article>
-          )}
-        </form>
-      </div>
-    </section>
+        </section>
+        {!loading && !successMessage && (
+          <section className='section-center'>
+            <div className='mt-3'>
+              <Link
+                to={"/register4"}
+                type='submit'
+                className='btn btn-outline-primary w-100 my-2'
+              >
+                Modifica i dati
+              </Link>
+            </div>
+            <div className=''>
+              <button type='submit' className='btn btn-primary w-100 mt-1'>
+                Registrati
+              </button>
+            </div>
+          </section>
+        )}
+      </form>
+    </div>
   );
 };
 

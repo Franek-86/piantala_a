@@ -71,15 +71,15 @@ const RegisterThree = () => {
           <MdBackspace />
         </div>
       </div> */}
-      <section className='section-registration min-100  d-flex align-items-center justify-content-center'>
-        <div className='section-center registration-container'>
-          <h4 className='mb-5'>Informazioni "Ti Pianto Per Amore"</h4>
-          {/* NOME UTENTE PIANTAMI */}
-          <form
-            className='my-3'
-            onSubmit={handleSubmit(onSubmit)}
-            controlId='formBasicUser'
-          >
+      <div className='section-registration min-100 d-flex flex-column align-items-center justify-content-center'>
+        <form
+          className='my-3'
+          onSubmit={handleSubmit(onSubmit)}
+          controlId='formBasicUser'
+        >
+          <section className='section-center registration-container'>
+            <h4 className='mb-5'>Informazioni "Ti Pianto Per Amore"</h4>
+            {/* NOME UTENTE PIANTAMI */}
             <Form.Group className='mb-3' controlId='formBasicUser'>
               <FloatingLabel
                 controlId='floatingInput'
@@ -185,48 +185,29 @@ const RegisterThree = () => {
                 </em>
               )}
             </Form.Group>
-            <article className='btn-steps-container'>
-              <div
-                className='btn-step-container registration step-prev'
-                onClick={back}
-              >
-                <div className=''>Indietro</div>
-                <div className='d-flex align-items-center'>
-                  <IoMdArrowRoundBack className='' />
-                  <span className='ps-2'>contatti</span>
-                </div>
-              </div>
-              <div className='position-relative btn-step-container registration step-next btn-submit-next'>
-                <div className=''>Successivo</div>
-                <div className='d-flex flex-row align-items-center justify-content-end'>
-                  <span className='pe-2'>residenza</span>
-                  <IoMdArrowRoundForward className='' />
-                </div>
-                <input className='test11' type='submit' value='' />
-              </div>
-            </article>
-            {/* <div className='d-flex justify-content-between mt-5'>
-            <button
+          </section>
+          <section className='btn-steps-container'>
+            <div
+              className='btn-step-container registration step-prev'
               onClick={back}
-              type='button'
-              className='me-3 btn btn-primary w-50'
             >
-              <div className='d-flex align-items-center justify-content-center'>
-                <GrFormPreviousLink className='fs-5 me-2' />
-                contatti
+              <div className=''>Indietro</div>
+              <div className='d-flex align-items-center'>
+                <IoMdArrowRoundBack className='' />
+                <span className='ps-2'>contatti</span>
               </div>
-            </button>
-            <button type='submit' className='ms-3 btn btn-primary w-50'>
-              <div className='d-flex align-items-center justify-content-center'>
-                {" "}
-                Residenza
-                <GrFormNextLink className='fs-5 ms-2' />
+            </div>
+            <div className='position-relative btn-step-container registration step-next btn-submit-next'>
+              <div className=''>Successivo</div>
+              <div className='d-flex flex-row align-items-center justify-content-end'>
+                <span className='pe-2'>residenza</span>
+                <IoMdArrowRoundForward className='' />
               </div>
-            </button>
-          </div> */}
-          </form>
-        </div>
-      </section>
+              <input className='test11' type='submit' value='' />
+            </div>
+          </section>
+        </form>
+      </div>
     </>
   );
 };

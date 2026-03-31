@@ -52,7 +52,6 @@ const RegisterFour = () => {
     navigate("/register5");
   };
 
-  //   setLoading(true);
   //   setUserData({ ...userData, ...data });
   //   // const password = watch("password");
   //   // const password2 = watch("password2");
@@ -139,14 +138,14 @@ const RegisterFour = () => {
 
   return (
     <>
-      <section className='section-registration min-100  d-flex align-items-center justify-content-center'>
-        <div className='section-center registration-container'>
-          <h4 className='mb-5'>Residenza</h4>
-          <form
-            className='my-3'
-            onSubmit={handleSubmit(onSubmit)}
-            controlId='formBasicUser'
-          >
+      <div className='section-registration min-100 d-flex flex-column align-items-center justify-content-center'>
+        <form
+          className='my-3'
+          onSubmit={handleSubmit(onSubmit)}
+          controlId='formBasicUser'
+        >
+          <section className='section-center registration-container'>
+            <h4 className='mb-5'>Comune di residenza</h4>
             {/* RESIDENZA */}
 
             {userData.city ? (
@@ -306,7 +305,7 @@ const RegisterFour = () => {
                   <Form.Group>
                     <FloatingLabel
                       controlId='floatingInput'
-                      label='Comune di nascita'
+                      label='Comune di residenza'
                       className='mb-3'
                     >
                       <Form.Select disabled='true' value={userData.city}>
@@ -323,62 +322,29 @@ const RegisterFour = () => {
                 )}
               </>
             )}
-
-            {/* <div className='d-flex justify-content-between mt-5'>
-            <button
+          </section>
+          <section className='btn-steps-container'>
+            <div
+              className='btn-step-container registration step-prev'
               onClick={back}
-              type='button'
-              className='btn btn-primary w-25'
             >
-              Prev
-            </button>
-            <button type='submit' className='btn btn-primary w-50'>
-              Verifica dati
-            </button>
-          </div> */}
-
-            <article className='btn-steps-container'>
-              <div
-                className='btn-step-container registration step-prev'
-                onClick={back}
-              >
-                <div className=''>Indietro</div>
-                <div className='d-flex align-items-center'>
-                  <IoMdArrowRoundBack className='' />
-                  <span className='ps-2'>info-app</span>
-                </div>
+              <div className=''>Indietro</div>
+              <div className='d-flex align-items-center'>
+                <IoMdArrowRoundBack className='' />
+                <span className='ps-2'>info-app</span>
               </div>
-              <div className='position-relative btn-step-container registration step-next btn-submit-next'>
-                <div className=''>Successivo</div>
-                <div className='d-flex flex-row align-items-center justify-content-end'>
-                  <span className='pe-2'>verifica dati</span>
-                  <IoMdArrowRoundForward className='' />
-                </div>
-                <input className='test11' type='submit' value='' />
+            </div>
+            <div className='position-relative btn-step-container registration step-next btn-submit-next'>
+              <div className=''>Successivo</div>
+              <div className='d-flex flex-row align-items-center justify-content-end'>
+                <span className='pe-2'>verifica dati</span>
+                <IoMdArrowRoundForward className='' />
               </div>
-            </article>
-            {/* <div className='d-flex justify-content-between mt-5'>
-            <button
-              onClick={back}
-              type='button'
-              className='me-3 btn btn-primary w-50'
-            >
-              <div className='d-flex align-items-center justify-content-center'>
-                <GrFormPreviousLink className='fs-5 me-2' />
-                Info app
-              </div>
-            </button>
-            <button type='submit' className='ms-3 btn btn-primary w-50'>
-              <div className='d-flex align-items-center justify-content-center'>
-                {" "}
-                Verifica dati
-                <GrFormNextLink className='fs-5 ms-2' />
-              </div>
-            </button>
-          </div> */}
-          </form>
-        </div>
-      </section>
+              <input className='test11' type='submit' value='' />
+            </div>
+          </section>
+        </form>
+      </div>
     </>
   );
 };
