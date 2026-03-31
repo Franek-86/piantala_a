@@ -130,13 +130,13 @@ const Register = () => {
             </div>
           )}
           {/*-----------------------------------------INIZIO INFORMAZIONI DI BASE-------------------------------------------------*/}
-          <div className='registration-header d-flex align-items-center mb-4'>
+          <div className='registration-header d-flex align-items-center mb-5 mb-lg-4'>
             <MdOutlinePermIdentity className='fs-1 me-2' />
             <h4 className='m-0 p-0'>Informazioni base</h4>
           </div>
 
           {/* NOME */}
-          <Form.Group className='mb-3' controlId='formBasicUser'>
+          <Form.Group className=' mb-3' controlId='formBasicUser'>
             <FloatingLabel controlId='floatingInput' label='Nome' className=''>
               <Form.Control
                 type='text'
