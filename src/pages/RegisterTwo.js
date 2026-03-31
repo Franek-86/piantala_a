@@ -7,7 +7,7 @@ import { AuthContext } from "../context/AuthContext";
 import { MdBackspace } from "react-icons/md";
 import { GrFormNextLink, GrFormPreviousLink } from "react-icons/gr";
 import { IoMdArrowRoundBack, IoMdArrowRoundForward } from "react-icons/io";
-
+import { MdImportContacts } from "react-icons/md";
 const RegisterTwo = () => {
   const {
     register,
@@ -60,10 +60,13 @@ const RegisterTwo = () => {
           <MdBackspace />
         </div>
       </div> */}
-      <div className='section-registration min-100  d-flex flex-column align-items-center justify-content-center'>
+      <div className='section-registration min-100 d-flex flex-column align-items-center justify-content-start justify-content-lg-center pt-5 pt-lg-0'>
         <form onSubmit={handleSubmit(onSubmit)}>
           <section className='section-center registration-container'>
-            <h4 className='mb-5'>Dati di contatto</h4>
+            <div className='registration-header d-flex align-items-center mb-4'>
+              <MdImportContacts className='fs-1 me-2' />
+              <h4 className='m-0 p-0'>Contatti</h4>
+            </div>
             {/* Mobile */}
             <Form.Group className='mb-3' controlId='formBasicEmail'>
               <FloatingLabel

@@ -9,6 +9,7 @@ import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { GrFormNextLink, GrFormPreviousLink } from "react-icons/gr";
 import { IoMdArrowRoundBack, IoMdArrowRoundForward } from "react-icons/io";
+import { FaTreeCity } from "react-icons/fa6";
 import { toast } from "react-toastify";
 const RegisterFour = () => {
   const [showPassword1, setShowPassword1] = useState(false);
@@ -138,14 +139,17 @@ const RegisterFour = () => {
 
   return (
     <>
-      <div className='section-registration min-100 d-flex flex-column align-items-center justify-content-center'>
+      <div className='section-registration min-100 d-flex flex-column align-items-center justify-content-start justify-content-lg-center pt-5 pt-lg-0'>
         <form
           className='my-3'
           onSubmit={handleSubmit(onSubmit)}
           controlId='formBasicUser'
         >
           <section className='section-center registration-container'>
-            <h4 className='mb-5'>Comune di residenza</h4>
+            <div className='registration-header d-flex align-items-center mb-4'>
+              <FaTreeCity className='fs-1 me-2' />
+              <h4 className='m-0 p-0'>Comune di residenza</h4>
+            </div>
             {/* RESIDENZA */}
 
             {userData.city ? (

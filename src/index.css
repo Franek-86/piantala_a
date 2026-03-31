@@ -407,7 +407,10 @@ element {
   width: 95vw;
   min-height: 35vh;
 }
-
+.registration-header svg,
+.registration svg {
+  color: var(--clr-secondary-3);
+}
 .btn-step-container.registration:hover {
   cursor: pointer;
 }

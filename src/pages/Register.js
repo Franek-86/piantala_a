@@ -25,7 +25,7 @@ import {
 } from "react-icons/io";
 import { GrFormNextLink } from "react-icons/gr";
 import { VersionContext } from "../context/VersionContext";
-
+import { MdOutlinePermIdentity } from "react-icons/md";
 const Register = () => {
   const [serverError, setServerError] = useState("");
   const [successMessage, setSuccessMessage] = useState(false);
@@ -118,7 +118,7 @@ const Register = () => {
   }, [userData]);
 
   return (
-    <div className='section-registration min-100  d-flex flex-column align-items-center justify-content-center'>
+    <div className='section-registration min-100  d-flex flex-column align-items-center justify-content-start justify-content-lg-center pt-5 pt-lg-0'>
       <form onSubmit={handleSubmit(onSubmit)} ref={formWrapperRef}>
         <section className='section-center registration-container'>
           {regionsLoading && <Loading />}
@@ -130,7 +130,10 @@ const Register = () => {
             </div>
           )}
           {/*-----------------------------------------INIZIO INFORMAZIONI DI BASE-------------------------------------------------*/}
-          <h4 className='mb-5'>Informazioni base</h4>
+          <div className='registration-header d-flex align-items-center mb-4'>
+            <MdOutlinePermIdentity className='fs-1 me-2' />
+            <h4 className='m-0 p-0'>Informazioni base</h4>
+          </div>
 
           {/* NOME */}
           <Form.Group className='mb-3' controlId='formBasicUser'>
@@ -206,7 +209,7 @@ const Register = () => {
           <div className='position-relative btn-step-container registration step-next btn-submit-next'>
             <div className=''>Successivo</div>
             <div className='d-flex flex-row align-items-center justify-content-end'>
-              <span className='pe-2'>contatti</span>
+              <span className='pe-2'>Contatti</span>
               <IoMdArrowRoundForward className='' />
             </div>
             <input className='test11' type='submit' value='' />

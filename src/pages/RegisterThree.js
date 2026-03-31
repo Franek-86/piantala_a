@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { GrFormNextLink, GrFormPreviousLink } from "react-icons/gr";
 import { toast } from "react-toastify";
 import { IoMdArrowRoundBack, IoMdArrowRoundForward } from "react-icons/io";
-
+import { LuTreeDeciduous } from "react-icons/lu";
 const RegisterThree = () => {
   const [showPassword1, setShowPassword1] = useState(false);
   const [showPassword2, setShowPassword2] = useState(false);
@@ -71,14 +71,17 @@ const RegisterThree = () => {
           <MdBackspace />
         </div>
       </div> */}
-      <div className='section-registration min-100 d-flex flex-column align-items-center justify-content-center'>
+      <div className='section-registration min-100 d-flex flex-column align-items-center justify-content-start justify-content-lg-center pt-5 pt-lg-0'>
         <form
           className='my-3'
           onSubmit={handleSubmit(onSubmit)}
           controlId='formBasicUser'
         >
           <section className='section-center registration-container'>
-            <h4 className='mb-5'>Informazioni "Ti Pianto Per Amore"</h4>
+            <div className='registration-header d-flex align-items-center mb-4'>
+              <LuTreeDeciduous className='fs-1 me-2' />
+              <h4 className='m-0 p-0'>Info App</h4>
+            </div>
             {/* NOME UTENTE PIANTAMI */}
             <Form.Group className='mb-3' controlId='formBasicUser'>
               <FloatingLabel
