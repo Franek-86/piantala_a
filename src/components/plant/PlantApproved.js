@@ -144,8 +144,17 @@ const PlantApproved = () => {
                       <h5 className='mb-0'>
                         Zolla di piantagione n&#176; {plant.id}{" "}
                       </h5>
+                      <ShareButton />
+                      <div
+                        className='ps-2'
+                        onClick={() => {
+                          setShareNow(true);
+                        }}
+                      >
+                        <FaShare className='share-page' />
+                      </div>
                     </span>
-                    <span className='d-block mb-3'>
+                    <span className='d-block mb-4'>
                       Puoi procedere con l'acquisto della tua piantina in questa
                       zolla seguendo i <b>tre passaggi</b> riportati qui di
                       seguito.{" "}
@@ -153,7 +162,7 @@ const PlantApproved = () => {
                     <span className='d-block'>
                       <ul className='ms-0 ms-xl-3 plant-intro-steps'>
                         <div
-                          className='mb-4 plant-intro-step d-flex align-items-center justify-content-between py-3 text-decoration-none white-background'
+                          className='mb-3 plant-intro-step d-flex align-items-center justify-content-between py-3 text-decoration-none white-background'
                           // to={`/map/${plant.id}/location`}
                         >
                           <div className='d-flex align-items-center'>
@@ -170,7 +179,7 @@ const PlantApproved = () => {
                         </span> */}
                         </div>
                         <div
-                          className='mb-4 plant-intro-step d-flex align-items-center justify-content-between py-3 text-decoration-none white-background'
+                          className='mb-3 plant-intro-step d-flex align-items-center justify-content-between py-3 text-decoration-none white-background'
                           // to={`/map/${plant.id}/plate`}
                         >
                           <div className='d-flex align-items-center'>

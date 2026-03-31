@@ -374,7 +374,7 @@ const AddPlant = ({ setting }) => {
             )}
             {/* Submit Button */}
             <div className='text-center mt-5'>
-              <Button variant='primary' type='submit'>
+              <Button className='w-100' variant='primary' type='submit'>
                 Invia segnalazione
               </Button>
             </div>

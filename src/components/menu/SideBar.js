@@ -58,7 +58,7 @@ const SideBar = () => {
               className='nav-link text-truncate'
             >
               <PiPottedPlantBold />
-              <span class='ms-2 d-sm-inline pe-5'>Mappa piantine</span>
+              <span class='ms-2 d-sm-inline pe-5'>Menu mappa</span>
               {drop ? (
                 <IoMdArrowDropdown
                   className={({ isActive }) =>
@@ -79,7 +79,7 @@ const SideBar = () => {
             </NavLink>
           </ListGroup.Item>
           <ListGroup
-            className={`${drop ? "d-block" : "d-none"} sidebar-section ps-3`}
+            className={`${drop ? "d-block" : "d-none"} sidebar-section ps-4`}
             variant='flush'
           >
             <ListGroup.Item>

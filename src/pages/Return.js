@@ -12,7 +12,7 @@ const serverDomain =
 export const Return = () => {
   const [status, setStatus] = useState(null);
   const [customerEmail, setCustomerEmail] = useState("");
-  const [timer, setTimer] = useState(10);
+  const [timer, setTimer] = useState(5);
   const { handleBookedPlant } = useContext(PlantsContext);
   const { setIsAuthenticated, sendPaymentConfirmationEmail } =
     useContext(AuthContext);

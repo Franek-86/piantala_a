@@ -145,7 +145,7 @@ const Payment = () => {
                                 <button
                                   className={
                                     !logReg
-                                      ? "d-block btn btn-success"
+                                      ? "d-block btn btn-success w-100"
                                       : "d-none"
                                   }
                                   type='submit'
