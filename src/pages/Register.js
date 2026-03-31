@@ -130,7 +130,7 @@ const Register = () => {
             </div>
           )}
           {/*-----------------------------------------INIZIO INFORMAZIONI DI BASE-------------------------------------------------*/}
-          <div className='registration-header d-flex align-items-center mb-5 mb-lg-4'>
+          <div className='registration-header d-flex align-items-center mb-5 mb-lg-4 pt-3 pt-xl-5'>
             <MdOutlinePermIdentity className='fs-1 me-2' />
             <h4 className='m-0 p-0'>Informazioni base</h4>
           </div>
