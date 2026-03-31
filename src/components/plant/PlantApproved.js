@@ -141,11 +141,14 @@ const PlantApproved = () => {
                       <div className='step-title pb-2 pe-1'>
                         <LuTreeDeciduous />
                       </div>
-                      <h5 className='mb-0'>Procedura d'acquisto</h5>
+                      <h5 className='mb-0'>
+                        Zolla di piantagione n&#176; {plant.id}{" "}
+                      </h5>
                     </span>
                     <span className='d-block mb-3'>
-                      Puoi procedere con l'acquisto della tua piantina seguendo
-                      i <b>tre passaggi</b> riportati qui di seguito.{" "}
+                      Puoi procedere con l'acquisto della tua piantina in questa
+                      zolla seguendo i <b>tre passaggi</b> riportati qui di
+                      seguito.{" "}
                     </span>
                     <span className='d-block'>
                       <ul className='ms-0 ms-xl-3 plant-intro-steps'>
@@ -203,12 +206,12 @@ const PlantApproved = () => {
                       </ul>
                     </span>
                   </div>
-                  <div className='d-flex w-100 justify-content-center mt-5'>
+                  <div className='d-flex w-100 justify-content-center mt-4'>
                     <Link
                       to={`/map/${plant.id}/location`}
-                      className='btn btn-success w-100'
+                      className='btn btn-lg btn-success w-100'
                     >
-                      Inizia il tuo acquisto
+                      Inizia
                     </Link>
                   </div>
                 </div>
