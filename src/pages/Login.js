@@ -21,6 +21,7 @@ import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 import Google from "../components/registration/Google";
 import Terms from "../components/registration/Terms";
 import { VersionContext } from "../context/VersionContext";
+import Loading from "./Loading";
 
 const AuthForm = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -136,99 +137,12 @@ const AuthForm = () => {
 
   return (
     <Container className='d-flex flex-column justify-content-center py-5'>
+      {loading && <Loading />}
       <div className='logo-container ms-auto me-auto mt-5'>
         <img src={logo} class='img-fluid' alt='Responsive image'></img>
       </div>
 
       <Row className='d-flex justify-content-center mt-3'>
-        {/* <article className='col-xs-8 col-sm-7 col-lg-6 login-container p-2 p-lg-5 '>
-          <Form onSubmit={handleSubmit(onSubmit)} className='login-form'>
-            {serverError && <p className='text-danger'>{serverError}</p>}
-            {successMessage && <p className='text-success'>{successMessage}</p>}
-            {loading && (
-              <div className='login-loader-container'>
-                <div className='login-loader'></div>
-              </div>
-            )}
-            <Form.Group className='mb-3' controlId='formBasicEmail'>
-              <FloatingLabel
-                controlId='floatingInput'
-                label='Indirizzo e-mail'
-                className=''
-              >
-                <Form.Control
-                  type='email'
-                  placeholder='Inserisci email'
-                  disabled={loading}
-                  {...register("email", {
-                    required: "Email necessaria",
-                    pattern: {
-                      value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                      message: "Invalido formato email",
-                    },
-                  })}
-                />
-              </FloatingLabel>
-
-              {errors.email && (
-                <em className='text-danger small'>{errors?.email?.message}</em>
-              )}
-            </Form.Group>
-            <Form.Group className='mb-3' controlId='formBasicPassword'>
-              <FloatingLabel controlId='floatingPassword' label='Password'>
-                <span
-                  className='showHidePassword'
-                  onClick={() => setShowPassword(!showPassword)}
-                >
-                  {showPassword ? (
-                    <FaEye className='showHidePasswordIcon' />
-                  ) : (
-                    <FaEyeSlash className='showHidePasswordIcon' />
-                  )}
-                </span>
-                <Form.Control
-                  type={showPassword ? "text" : "password"}
-                  placeholder='Password'
-                  disabled={loading}
-                  {...register("password", {
-                    required: "Password necessaria",
-                    minLength: {
-                      value: 6,
-                      message: "La password deve essere di almeno 6 caratteri",
-                    },
-                  })}
-                />
-              </FloatingLabel>
-              {errors.password && (
-                <em className='text-danger small'>
-                  {errors?.password?.message}
-                </em>
-              )}
-            </Form.Group>{" "}
-            {!loading && (
-              <>
-                {" "}
-                <Button
-                  className='d-block w-100 mb-3'
-                  variant='primary'
-                  type='submit'
-                  disabled={loading}
-                >
-                  Login
-                </Button>
-                <Button
-                  className='d-block w-100 mb-3'
-                  disabled={loading}
-                  onClick={() => navigate("/reset")}
-                >
-                  Reset password
-                </Button>
-              </>
-            )}
-          </Form>
-          <div className='separator'></div>
-        </article> */}
-
         <article className='col-xs-8 col-sm-7 col-lg-6 access-container p-2 p-lg-5'>
           <Button
             className='d-block w-100 mb-3'

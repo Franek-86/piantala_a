@@ -170,6 +170,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
   const googleAccess = async (navigate, plantId, page) => {
     console.log("test goooog", plantId);
+    setLoading(true);
     try {
       const res = await SocialLogin.login({
         provider: "google",
@@ -318,6 +319,8 @@ export const AuthProvider = ({ children }) => {
         progress: undefined,
         theme: "light",
       });
+    } finally {
+      setLoading(false);
     }
   };
   const checkEmail = async (data) => {

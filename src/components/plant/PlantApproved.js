@@ -117,7 +117,7 @@ const PlantApproved = () => {
                     <Link to='/map'>Mappa</Link>
                   </Breadcrumb.Item>
                   <Breadcrumb.Item active>
-                    Zolla n&#176; {plant.id}
+                    zolla n&#176; {plant.id}
                   </Breadcrumb.Item>
                 </Breadcrumb>
                 {/* <div className='section-title d-flex justify-content-center align-items-center pt-3'>

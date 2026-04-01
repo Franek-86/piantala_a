@@ -1033,7 +1033,7 @@ element {
   color: var(--clr-secondary-3);
 }
 .plant-intro-step {
-  height: 3.5rem;
+  height: 4rem;
   padding: 0.5rem 0.5rem 0.5rem 0;
 
   /* background: #fff; */
