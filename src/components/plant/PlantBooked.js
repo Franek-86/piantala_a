@@ -153,7 +153,7 @@ const PlantBooked = () => {
               {/* <Breadcrumb.Item href='https://getbootstrap.com/docs/4.0/components/breadcrumb/'>
                       Library
                     </Breadcrumb.Item> */}
-              <Breadcrumb.Item active>Zolla &#8470; {plant.id}</Breadcrumb.Item>
+              <Breadcrumb.Item active>zolla n&#176; {plant.id}</Breadcrumb.Item>
             </Breadcrumb>
             <div className='section-title d-flex justify-content-center align-items-center pt-3'>
               <h2 className='pe-2 mb-0'>

@@ -75,6 +75,7 @@ const RegisterTwo = () => {
                 className=''
               >
                 <Form.Control
+                  autoFocus={true}
                   type='email'
                   placeholder='Inserisci email'
                   disabled={loading}

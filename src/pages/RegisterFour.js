@@ -156,8 +156,6 @@ const RegisterFour = () => {
                   className='mb-3'
                 >
                   <Form.Select
-                    // type='text'
-                    // placeholder='Nato a'
                     disabled={loading}
                     {...register("city", {
                       required: "Seleziona il comune di residenza",

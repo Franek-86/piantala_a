@@ -86,6 +86,7 @@ const RegisterThree = () => {
                 className=''
               >
                 <Form.Control
+                  autoFocus={true}
                   type='text'
                   name='user'
                   placeholder='Nome utente'
