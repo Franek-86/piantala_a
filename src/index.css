@@ -505,6 +505,11 @@ element {
   position: fixed;
   width: 100%;
   bottom: 0;
+  transition: all 0.25s linear;
+  /* transition: transform 2s ease-in-out; */
+}
+.bottom-bar.hide {
+  bottom: -5rem;
 }
 .bottom-text {
   font-size: 0.75rem;
@@ -2662,6 +2667,7 @@ element {
   justify-content: space-between;
   /* padding: 2rem 1rem 1.5rem 1rem; */
   padding: 0 1rem;
+  transition: all 0.5s linear;
 }
 .back-nav-app {
   height: 5.5rem;
@@ -2685,6 +2691,7 @@ element {
   justify-content: space-between;
   padding: 0 1rem;
   cursor: pointer;
+  transition: all 0.5s linear;
 }
 .back-nav-large-map {
   display: flex;
@@ -2708,6 +2715,7 @@ element {
 .back-nav.hide {
   top: -5rem;
 }
+
 .back-nav-large.hide {
   top: -5rem;
 }

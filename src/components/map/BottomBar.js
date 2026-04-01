@@ -8,6 +8,7 @@ import { GiPlantSeed } from "react-icons/gi";
 import useIsLargeScreen from "../../utils/useIsLargeScreen";
 import { Capacitor } from "@capacitor/core";
 import { PlantsContext } from "../../context/PlantsContext";
+import useScrollDirection from "../../utils/useScrollDirection";
 
 const BottomBar = () => {
   const [selectedTab, setSelectedTab] = useState("test");
@@ -15,7 +16,7 @@ const BottomBar = () => {
   const { pathname } = useLocation();
   const check = Capacitor.getPlatform();
   const { dropIt } = useContext(PlantsContext);
-
+  const direction = useScrollDirection();
   let padding = () => {
     if (check !== "web") {
       return "fs-5 bottom-bar-height position-relative pb-2 yellow-background";
@@ -25,10 +26,19 @@ const BottomBar = () => {
     }
     return "fs-5 position-relative";
   };
+
+  const bottomBar = () => {
+    if (direction === "down") {
+      return "bottom-bar hide";
+    } else {
+      return "bottom-bar";
+    }
+  };
+
   return (
     <>
       {!isLarge && (
-        <article className='bottom-bar'>
+        <article className={bottomBar()}>
           <div className='h-100'>
             <ul className='d-flex justify-content-around h-100 p-0 m-0 list-unstyled align-items-center b-bar'>
               <li className={padding()}>
