@@ -510,17 +510,17 @@ element {
 }
 .button-selected {
   border: 1px solid transparent;
-  padding-left: 6px;
-  padding-right: 6px;
-  padding-top: 3px;
-  padding-bottom: 3px;
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-top: 4px;
+  padding-bottom: 4px;
   display: flex;
   align-items: center;
   border-radius: 5px;
 }
 .bottom-selected .button-selected {
   border: 1px solid var(--clr-primary-5);
-  background-color: #fff;
+  /* background-color: #fff; */
 }
 .bottom-bar.hide {
   bottom: -5rem;
