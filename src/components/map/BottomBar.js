@@ -45,7 +45,7 @@ const BottomBar = () => {
                 <NavLink
                   className={({ isActive }) =>
                     isActive
-                      ? "text-primary text-decoration-none d-flex flex-column align-items-center pb-0"
+                      ? "text-primary text-decoration-none d-flex flex-column align-items-center pb-0 bottom-selected"
                       : "text-dark text-decoration-none d-flex flex-column align-items-center pb-0"
                   }
                   onClick={() => {
@@ -54,7 +54,9 @@ const BottomBar = () => {
                   }}
                   to='/map'
                 >
-                  <FaMap />
+                  <div className='button-selected'>
+                    <FaMap />
+                  </div>
                   <span className='bottom-text pt-1 fw-bold'>Mappa</span>
                   {pathname === "/map" && (
                     <motion.div
@@ -81,11 +83,13 @@ const BottomBar = () => {
                   to='/legend'
                   className={({ isActive }) =>
                     isActive
-                      ? "text-primary text-decoration-none d-flex flex-column align-items-center pb-0"
+                      ? "text-primary text-decoration-none d-flex flex-column align-items-center pb-0 bottom-selected"
                       : "text-dark text-decoration-none d-flex flex-column align-items-center pb-0"
                   }
                 >
-                  <MdLegendToggle />
+                  <div className='button-selected'>
+                    <MdLegendToggle />
+                  </div>
                   <span className='bottom-text pt-1 fw-bold'>Legenda</span>
                   {pathname === "/legend" && (
                     <motion.div
@@ -112,11 +116,13 @@ const BottomBar = () => {
                   to='/myPlants'
                   className={({ isActive }) =>
                     isActive
-                      ? "text-primary text-decoration-none d-flex flex-column align-items-center pb-0"
+                      ? "text-primary text-decoration-none d-flex flex-column align-items-center pb-0 bottom-selected"
                       : "text-dark text-decoration-none d-flex flex-column align-items-center pb-0"
                   }
                 >
-                  <GiPlantSeed />
+                  <div className='button-selected'>
+                    <GiPlantSeed />
+                  </div>
                   <span className='bottom-text pt-1 fw-bold'>Segnalazioni</span>
 
                   {pathname === "/myPlants" && (
@@ -137,12 +143,14 @@ const BottomBar = () => {
                   to='/bookedPlants'
                   className={({ isActive }) =>
                     isActive
-                      ? "text-primary text-decoration-none d-flex flex-column align-items-center pb-0"
+                      ? "text-primary text-decoration-none d-flex flex-column align-items-center pb-0 bottom-selected"
                       : "text-dark text-decoration-none d-flex flex-column align-items-center pb-0"
                   }
                 >
                   {/* <BsInfo /> */}
-                  <PiPlantFill />
+                  <div className='button-selected'>
+                    <PiPlantFill />
+                  </div>
                   <span className='bottom-text pt-1 fw-bold'>Acquisti</span>
                   {pathname === "/bookedPlants" && (
                     <motion.div
