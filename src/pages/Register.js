@@ -118,9 +118,9 @@ const Register = () => {
   }, [userData]);
 
   return (
-    <div className='section-registration min-100  d-flex flex-column align-items-center justify-content-start justify-content-lg-center pt-5 pt-lg-0'>
+    <div className='section-center section-registration min-100 d-lg-flex flex-lg-column align-items-lg-center justify-content-lg-center pt-4 pt-lg-0'>
       <form onSubmit={handleSubmit(onSubmit)} ref={formWrapperRef}>
-        <section className='section-center registration-container'>
+        <section className='registration-container'>
           {regionsLoading && <Loading />}
           {serverError && <p className='text-danger'>{serverError}</p>}
           {successMessage && <p className='text-success'>{successMessage}</p>}
@@ -130,7 +130,7 @@ const Register = () => {
             </div>
           )}
           {/*-----------------------------------------INIZIO INFORMAZIONI DI BASE-------------------------------------------------*/}
-          <div className='registration-header d-flex align-items-center mb-5 mb-lg-4 pt-3 pt-xl-5'>
+          <div className='registration-header d-flex align-items-center mb-4 pt-3 pt-xl-5'>
             <MdOutlinePermIdentity className='fs-1 me-2' />
             <h4 className='m-0 p-0'>Informazioni base</h4>
           </div>

@@ -109,8 +109,8 @@ const RegisterLast = () => {
   return (
     <div className=''>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <section className='registration-container section-center mt-5'>
-          <div className='registration-header d-flex align-items-center mb-5 mb-lg-4 pt-3 pt-xl-5'>
+        <section className='registration-container section-center mt-4'>
+          <div className='registration-header d-flex align-items-center mb-4 pt-3 pt-xl-5'>
             <BsPatchCheckFill className='fs-1 me-2' />
             <h4 className='m-0 p-0'>Verifica i tuoi dati</h4>
           </div>
