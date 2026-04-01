@@ -60,7 +60,7 @@ const RegisterTwo = () => {
           <MdBackspace />
         </div>
       </div> */}
-      <div className='section-center section-registration min-100 d-lg-flex flex-lg-column align-items-lg-center  justify-content-lg-center pt-4 pt-lg-0'>
+      <div className='section-center section-registration min-100 d-lg-flex flex-lg-column align-items-lg-center  justify-content-lg-center pt-5 pt-lg-0'>
         <form onSubmit={handleSubmit(onSubmit)}>
           <section className='registration-container'>
             <div className='registration-header d-flex align-items-center mb-4 pt-3 pt-xl-5'>

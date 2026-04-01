@@ -68,40 +68,40 @@ const Register = () => {
   };
 
   const formWrapperRef = useRef(null);
-  useEffect(() => {
-    if (Capacitor.getPlatform() === "web") return;
+  // useEffect(() => {
+  //   if (Capacitor.getPlatform() === "web") return;
 
-    const onKeyboardShow = (info) => {
-      const keyboardHeight = info.keyboardHeight || 300; // fallback height
-      if (formWrapperRef.current) {
-        formWrapperRef.current.style.paddingBottom = `${keyboardHeight}px`;
-      }
-    };
+  //   const onKeyboardShow = (info) => {
+  //     const keyboardHeight = info.keyboardHeight || 300; // fallback height
+  //     if (formWrapperRef.current) {
+  //       formWrapperRef.current.style.paddingBottom = `${keyboardHeight}px`;
+  //     }
+  //   };
 
-    const onKeyboardHide = () => {
-      if (formWrapperRef.current) {
-        formWrapperRef.current.style.paddingBottom = `3rem`;
-      }
-    };
+  //   const onKeyboardHide = () => {
+  //     if (formWrapperRef.current) {
+  //       formWrapperRef.current.style.paddingBottom = `3rem`;
+  //     }
+  //   };
 
-    const handleFocus = (e) => {
-      setTimeout(() => {
-        e.target.scrollIntoView({
-          behavior: "smooth",
-          block: "center",
-        });
-      }, 300); // wait for keyboard to animate in
-    };
-    const showSub = Keyboard.addListener("keyboardWillShow", onKeyboardShow);
-    const hideSub = Keyboard.addListener("keyboardWillHide", onKeyboardHide);
-    const inputs = document.querySelectorAll("input, textarea");
-    inputs.forEach((input) => input.addEventListener("focus", handleFocus));
+  //   const handleFocus = (e) => {
+  //     setTimeout(() => {
+  //       e.target.scrollIntoView({
+  //         behavior: "smooth",
+  //         block: "center",
+  //       });
+  //     }, 300); // wait for keyboard to animate in
+  //   };
+  //   const showSub = Keyboard.addListener("keyboardWillShow", onKeyboardShow);
+  //   const hideSub = Keyboard.addListener("keyboardWillHide", onKeyboardHide);
+  //   const inputs = document.querySelectorAll("input, textarea");
+  //   inputs.forEach((input) => input.addEventListener("focus", handleFocus));
 
-    return () => {
-      showSub.remove();
-      hideSub.remove();
-    };
-  }, []);
+  //   return () => {
+  //     showSub.remove();
+  //     hideSub.remove();
+  //   };
+  // }, []);
 
   const onSubmit = async (data) => {
     setUserData({ ...userData, ...data });
@@ -118,7 +118,7 @@ const Register = () => {
   }, [userData]);
 
   return (
-    <div className='section-center section-registration min-100 d-lg-flex flex-lg-column align-items-lg-center justify-content-lg-center pt-4 pt-lg-0'>
+    <div className='section-center section-registration min-100 d-lg-flex flex-lg-column align-items-lg-center justify-content-lg-center pt-5 pt-lg-0'>
       <form onSubmit={handleSubmit(onSubmit)} ref={formWrapperRef}>
         <section className='registration-container'>
           {regionsLoading && <Loading />}
