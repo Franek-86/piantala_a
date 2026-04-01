@@ -32,6 +32,7 @@ const AuthForm = () => {
     login,
     setLogReg,
     setIsAuthenticated,
+    loading,
     getCities,
     cities,
     generateFiscalCode,
@@ -50,7 +51,7 @@ const AuthForm = () => {
   } = useForm();
   const [serverError, setServerError] = useState("");
   const [successMessage, setSuccessMessage] = useState(false);
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
   const [disabled, setDisabled] = useState(true);
 
   const navigate = useNavigate();
@@ -81,59 +82,59 @@ const AuthForm = () => {
     return false;
   };
 
-  const onSubmit = async (data) => {
-    setLoading(true);
-    if (isRegister) {
-      console.log("aooooooooooooo");
-      const isValid = await validateFiscalCode(data.fiscalCode);
-      if (!isValid) {
-        setLoading(false);
-        return;
-      }
-    }
+  // const onSubmit = async (data) => {
+  //   setLoading(true);
+  //   if (isRegister) {
+  //     console.log("aooooooooooooo");
+  //     const isValid = await validateFiscalCode(data.fiscalCode);
+  //     if (!isValid) {
+  //       setLoading(false);
+  //       return;
+  //     }
+  //   }
 
-    try {
-      const response = await login(data);
-      console.log("here1", response);
-      if (response.status === 201 || response.status === 200) {
-        setIsAuthenticated(true);
-        setLogReg(false);
-        localStorage.setItem("justLoggedIn", "true");
-        navigate("/map");
+  //   try {
+  //     const response = await login(data);
+  //     console.log("here1", response);
+  //     if (response.status === 201 || response.status === 200) {
+  //       setIsAuthenticated(true);
+  //       setLogReg(false);
+  //       localStorage.setItem("justLoggedIn", "true");
+  //       navigate("/map");
 
-        const {
-          token,
-          user: { role },
-        } = response.data;
-        console.log("here2", role);
+  //       const {
+  //         token,
+  //         user: { role },
+  //       } = response.data;
+  //       console.log("here2", role);
 
-        setUserRole(role);
+  //       setUserRole(role);
 
-        localStorage.setItem("userToken", token);
-      }
-    } catch (error) {
-      console.log("here3", error);
-      let message = error.response?.data?.message || "Server error";
+  //       localStorage.setItem("userToken", token);
+  //     }
+  //   } catch (error) {
+  //     console.log("here3", error);
+  //     let message = error.response?.data?.message || "Server error";
 
-      toast.error(`${message}`, {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: false,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        // transition: Bounce,
-      });
-      setServerError(message);
-      setTimeout(() => {
-        setServerError("");
-      }, 3000); // Clear error message after 3 seconds
-    } finally {
-      setLoading(false);
-    }
-  };
+  //     toast.error(`${message}`, {
+  //       position: "top-right",
+  //       autoClose: 3000,
+  //       hideProgressBar: false,
+  //       closeOnClick: false,
+  //       pauseOnHover: true,
+  //       draggable: true,
+  //       progress: undefined,
+  //       theme: "light",
+  //       // transition: Bounce,
+  //     });
+  //     setServerError(message);
+  //     setTimeout(() => {
+  //       setServerError("");
+  //     }, 3000); // Clear error message after 3 seconds
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
 
   return (
     <Container className='d-flex flex-column justify-content-center py-5'>

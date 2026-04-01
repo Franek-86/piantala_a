@@ -250,6 +250,8 @@ export const AuthProvider = ({ children }) => {
         progress: undefined,
         theme: "light",
       });
+    } finally {
+      setLoading(false);
     }
   };
   const googleAfterTerms = async (navigate, plantId, page) => {
