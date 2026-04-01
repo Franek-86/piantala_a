@@ -68,40 +68,6 @@ const Register = () => {
   };
 
   const formWrapperRef = useRef(null);
-  // useEffect(() => {
-  //   if (Capacitor.getPlatform() === "web") return;
-
-  //   const onKeyboardShow = (info) => {
-  //     const keyboardHeight = info.keyboardHeight || 300; // fallback height
-  //     if (formWrapperRef.current) {
-  //       formWrapperRef.current.style.paddingBottom = `${keyboardHeight}px`;
-  //     }
-  //   };
-
-  //   const onKeyboardHide = () => {
-  //     if (formWrapperRef.current) {
-  //       formWrapperRef.current.style.paddingBottom = `3rem`;
-  //     }
-  //   };
-
-  //   const handleFocus = (e) => {
-  //     setTimeout(() => {
-  //       e.target.scrollIntoView({
-  //         behavior: "smooth",
-  //         block: "center",
-  //       });
-  //     }, 300); // wait for keyboard to animate in
-  //   };
-  //   const showSub = Keyboard.addListener("keyboardWillShow", onKeyboardShow);
-  //   const hideSub = Keyboard.addListener("keyboardWillHide", onKeyboardHide);
-  //   const inputs = document.querySelectorAll("input, textarea");
-  //   inputs.forEach((input) => input.addEventListener("focus", handleFocus));
-
-  //   return () => {
-  //     showSub.remove();
-  //     hideSub.remove();
-  //   };
-  // }, []);
 
   const onSubmit = async (data) => {
     setUserData({ ...userData, ...data });
@@ -139,6 +105,7 @@ const Register = () => {
           <Form.Group className=' mb-3' controlId='formBasicUser'>
             <FloatingLabel controlId='floatingInput' label='Nome' className=''>
               <Form.Control
+                autoFocus={true}
                 type='text'
                 placeholder='Nome'
                 disabled={loading}

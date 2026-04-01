@@ -73,7 +73,6 @@ export const Return = () => {
           <div class='card-body'>
             <h5 class='card-title'>Grazie per l'acquisto</h5>
             <p class='card-text'>
-              Ci fa molto piacere che tu abbia voluto dare il tuo contributo!
               Stiamo inviando una mail di conferma allindirizzo mail "
               {customerEmail}". In caso di domande contattaci all'indirizzo{" "}
               <a href='mailto:amicidiernestverner@gmail.com'>
@@ -82,11 +81,11 @@ export const Return = () => {
               .
             </p>
             <Link to='/bookedPlants' class='btn btn-primary'>
-              Torna alla mappa
+              Vai alla pagina dei tuoi acquisti.
             </Link>
           </div>
           <div class='card-footer text-body-secondary'>
-            tornerai automaticamente alla pagina delle tue piante tra {timer}
+            tornerai automaticamente alla pagina dei tuo acquisti tra {timer}
           </div>
         </div>
       </section>

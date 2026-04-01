@@ -471,7 +471,7 @@ element {
 .map-section {
   display: flex;
   flex-direction: column;
-  height: calc(100dvh - 4rem);
+  height: calc(100dvh - 4.25rem);
   position: relative;
   width: 100%;
 }
@@ -533,7 +533,7 @@ element {
   border-top: 1px solid var(--clr-primary-3);
 }
 .bottom-bar ul > li {
-  height: 4rem;
+  height: 4.25rem;
 }
 
 /* @media screen and (min-width: 992px) {
